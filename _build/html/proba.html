@@ -1,0 +1,430 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Probabilités &#8212; Analyse de données</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Expérience aléatoire" href="expe.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/isimainp.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Analyse de données</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Rechercher dans ce livre ..." aria-label="Rechercher dans ce livre ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown-notebooks.html">
+   Notebooks with MyST Markdown
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="expe.html">
+   Expérience aléatoire
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Probabilités
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Basculer la navigation" aria-controls="site-navigation"
+                title="Basculer la navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Téléchargez cette page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/proba.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Télécharger le fichier source" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimer au format PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Dépôt source"><i
+                    class="fab fa-github"></i>dépôt</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fproba.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Ouvrez un problème"><i class="fas fa-lightbulb"></i>signaler un problème</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Mode plein écran"
+        title="Mode plein écran"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenu
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectif">
+   Objectif
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probabilite">
+   Probabilité
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditionnement">
+   Conditionnement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#independance">
+   Indépendance
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Probabilités</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenu </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectif">
+   Objectif
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probabilite">
+   Probabilité
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditionnement">
+   Conditionnement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#independance">
+   Indépendance
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="probabilites">
+<h1>Probabilités<a class="headerlink" href="#probabilites" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="objectif">
+<h2>Objectif<a class="headerlink" href="#objectif" title="Permalink to this headline">¶</a></h2>
+<p>L’objectif des probabilités est de donner une <strong>mesure</strong> à la chance qu’a un évènement de se réliser lors d’une expérience aléatoire. Pour ce faire, on définit une fonction <span class="math notranslate nohighlight">\(P:\Omega\rightarrow [0,1]\)</span> vérifiant certains axiomes et propriétés.</p>
+<div class="proof definition admonition" id="tribu">
+<p class="admonition-title"><span class="caption-number">Definition 5 </span> (Tribu)</p>
+<div class="definition-content section" id="proof-content">
+<p>Soit <span class="math notranslate nohighlight">\(T\)</span> une famille d’évènements. Pour que <span class="math notranslate nohighlight">\(T\)</span> soit probabilisable, il faut que :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\emptyset\in T, \Omega\in T\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(A_i\)</span> est une suite dans <span class="math notranslate nohighlight">\(T\)</span> alors <span class="math notranslate nohighlight">\(\cup_iA_i\in T\)</span> et <span class="math notranslate nohighlight">\(\cap_iA_i\in T\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(A\in T\)</span> alors <span class="math notranslate nohighlight">\(\bar A\in T\)</span></p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(T\)</span> est une <strong>tribu</strong> et <span class="math notranslate nohighlight">\((\Omega,T)\)</span> est un <strong>espace probabilisable</strong>.</p>
+</div>
+</div><p>En pratique, on choisit souvent la tribu engendrée par une famille de <span class="math notranslate nohighlight">\(n\)</span> d’évènements <span class="math notranslate nohighlight">\(A_i\)</span>, qui est l’ensemble des parties de <span class="math notranslate nohighlight">\(\Omega\)</span> obtenues en effectuant l’union de <span class="math notranslate nohighlight">\(k\)</span> évènements <span class="math notranslate nohighlight">\(A_i,i\in [\![1,n]\!]\)</span>.</p>
+<div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Example 4 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Dans le cas du lancer d’un dé, <span class="math notranslate nohighlight">\(\Omega = \{1,2,3,4,5,6\}\)</span>, et :</p>
+<ul class="simple">
+<li><p>la tribu engendrée par la famille d’évènements <span class="math notranslate nohighlight">\(\{\{1,3,5\},\{2,4,6\}\}\)</span> est <span class="math notranslate nohighlight">\(\{\emptyset,\{1,3,5\},\{2,4,6\},\Omega\}\)</span>.</p></li>
+<li><p>la tribu engendrée par la famille d’évènements <span class="math notranslate nohighlight">\(\{\{1\},\{2\},\{3\},\{4\},\{5\},\{6\}\}\)</span> est l’ensemble des parties de <span class="math notranslate nohighlight">\(\Omega\)</span>. Plus généralement, si <span class="math notranslate nohighlight">\(\Omega\)</span> est dénombrable, cette tribu est appelée <strong>tribu discrète</strong>.</p></li>
+</ul>
+</div>
+</div><p>On peut également s’intéresser, si <span class="math notranslate nohighlight">\(\Omega=\mathbb R\)</span>, à la tribu engendrée par les ouverts de <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, on parle alors de <strong>tribu borélienne</strong></p>
+</div>
+<div class="section" id="probabilite">
+<h2>Probabilité<a class="headerlink" href="#probabilite" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title">A. Kolmogorov</p>
+<p><img alt="" src="_images/kolmogorov.jpeg" /></p>
+</div>
+<div class="proof axiom admonition" id="axiomKolmo">
+<p class="admonition-title"><span class="caption-number">Axiom 1 </span> (Axiomatique de Kolmogorov)</p>
+<div class="axiom-content section" id="proof-content">
+<p>On appelle <strong>probabilité</strong> sur <span class="math notranslate nohighlight">\((\Omega,T)\)</span> une application <span class="math notranslate nohighlight">\(P\)</span> de <span class="math notranslate nohighlight">\(T\)</span> dans [0,1] vérifiant :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((\forall A\in T)\; P(A)\in[0,1]\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(\Omega)=1\)</span></p></li>
+<li><p>Pour toute famille dénombrable <span class="math notranslate nohighlight">\((A_i)\)</span> d’évènements disjoints <span class="math notranslate nohighlight">\(P(\displaystyle\bigcup_i A_i) = \displaystyle\sum_iP(A_i)\)</span></p></li>
+</ul>
+</div>
+</div><div class="proof property admonition" id="property-3">
+<p class="admonition-title"><span class="caption-number">Property 1 </span></p>
+<div class="property-content section" id="proof-content">
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(\emptyset)=0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((\forall A)\; P(\bar A)=1-P(A)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((\forall A,B)\; P(A\setminus B) = P(A)-P(A\bigcap B)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((\forall A,B)\; P(A\bigcup B) = P(A+P(B))-P(A\bigcap B)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((\forall A,B)\)</span> si <span class="math notranslate nohighlight">\(A\subset B\)</span> alors <span class="math notranslate nohighlight">\(P(A)\leq P(B)\)</span></p></li>
+<li><p>Pour toute famille dénombrable <span class="math notranslate nohighlight">\((A_i)\)</span> d’évènements quelconques <span class="math notranslate nohighlight">\(P(\displaystyle\bigcup_i A_i) \leq \displaystyle\sum_iP(A_i)\)</span></p></li>
+</ul>
+</div>
+</div></div>
+<div class="section" id="conditionnement">
+<h2>Conditionnement<a class="headerlink" href="#conditionnement" title="Permalink to this headline">¶</a></h2>
+<p>Les probabilités <strong>conditionnelles</strong> intègrent une information supplémentaire sous la forme de l’observation de la réalisation d’un évènement donné.</p>
+<div class="proof definition admonition" id="definition-4">
+<p class="admonition-title"><span class="caption-number">Definition 6 </span> (Probabilité conditionnelle)</p>
+<div class="definition-content section" id="proof-content">
+<p>Soit <span class="math notranslate nohighlight">\(B\)</span> un évènement de probabilité non nulle. On appelle ** probabilité conditionnelle** de <span class="math notranslate nohighlight">\(A\)</span> sachnt <span class="math notranslate nohighlight">\(B\)</span> le rapport</p>
+<p><span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\bigcap B)}{P(B)}\)</span></p>
+</div>
+</div><p><span class="math notranslate nohighlight">\(P(A\mid B)\)</span> représente la probabilité que <span class="math notranslate nohighlight">\(A\)</span> se réalise sachant que <span class="math notranslate nohighlight">\(B\)</span> est réalisé.</p>
+<p>Remarquons que l’on peut écrire <span class="math notranslate nohighlight">\(P(A\bigcap B) = P(A\mid B)P(B) = P(B\mid A)P(A)\)</span>.</p>
+<div class="proof example admonition" id="example-5">
+<p class="admonition-title"><span class="caption-number">Example 5 </span></p>
+<div class="example-content section" id="proof-content">
+<p>7% des français sont atteints d’un cancer du poumon. 70% des malades sont des fumeurs et 50% des français fument. On recherche la probabilité d’être atteint d’un cancer du poumon lorsque l’on est fumeur.
+L’évènement <span class="math notranslate nohighlight">\(A\)</span> est “avoir un cancer du poumon”, et <span class="math notranslate nohighlight">\(B\)</span> est “être fumeur”. D’après les données on a <span class="math notranslate nohighlight">\(P(A)\)</span>=0.07, <span class="math notranslate nohighlight">\(P(B)\)</span> = 0.5 et <span class="math notranslate nohighlight">\(P(B\mid A)\)</span> = 0.7.
+On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\bigcap B)}{P(B)}\)</span> avec <span class="math notranslate nohighlight">\(P(A\bigcap B)=P(B\mid A)P(A)\)</span> d’où</p>
+<p><span class="math notranslate nohighlight">\(P(B\mid A)=\frac{P(B\mid A)P(A)}{P(B}\)</span> = 0.098</p>
+</div>
+</div></div>
+<div class="section" id="independance">
+<h2>Indépendance<a class="headerlink" href="#independance" title="Permalink to this headline">¶</a></h2>
+<div class="proof definition admonition" id="definition-6">
+<p class="admonition-title"><span class="caption-number">Definition 7 </span> (Indépendance)</p>
+<div class="definition-content section" id="proof-content">
+<p>Deux évènements <span class="math notranslate nohighlight">\(A\)</span> et <span class="math notranslate nohighlight">\(B\)</span> sont dits <strong>indépendants</strong> si et seulement si <span class="math notranslate nohighlight">\(P(A\mid B) = P(A)\)</span>.</p>
+</div>
+</div><p>On a alors bien évidemment <span class="math notranslate nohighlight">\(P(A\bigcap B) = P(A)P(B)\)</span>.</p>
+<div class="proof remark admonition" id="remark-7">
+<p class="admonition-title"><span class="caption-number">Remark 1 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>La notion d’indépendance est directement rattachée à <span class="math notranslate nohighlight">\(P\)</span> : <span class="math notranslate nohighlight">\(A\)</span> et <span class="math notranslate nohighlight">\(B\)</span> peuvent être indépendants pour une probabilité donnée, mais pas pour une autre.</p>
+</div>
+</div><p>On peut généraliser la notion d’indépendance à une famille d’évènements <span class="math notranslate nohighlight">\((A_i)_{i\in[\![1,n]\!]}\)</span> : on dira que les <span class="math notranslate nohighlight">\(A_i\)</span> sont <strong>mutuellement indépendants</strong> si pour tout <span class="math notranslate nohighlight">\(I\subset [\![1,n]\!]\)</span></p>
+<p><span class="math notranslate nohighlight">\(P\left (\displaystyle\bigcap_{i\in I} A_i\right ) = \displaystyle\prod_{i\in I} P(A_i)\)</span></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="expe.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Expérience aléatoire</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Par Vincent BARRA<br/>
+    
+        &copy; droits d'auteur 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,3 @@
+pour compiler : jupyter-book build book
+transformer un md en md avec cellules exécutables : jupyter-book myst init proba.md --kernel python389jvsc74a57bd047500b6c62ec1e483a5139ad76e7e71cd41c1876c8c6027dc45ba3ee3fcc5e77≈
+App Marp.app : pour conversion en diapos .js
