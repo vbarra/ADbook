@@ -92,8 +92,10 @@ $P(A) = \displaystyle\sum_i P(A\bigcap B_i) = \displaystyle\sum_i P(A| B_i) P(B_
 
 A partir de l'égalité $P(A\bigcap B) = P(A|B)P(B)=P(B|A)P(A)$, on définit la règle de Bayes
 
-$(\forall A,B)\quad P(B|A)=\frac{P(B)P(A|B)}{P(A)}$
+$(\forall A,B)\quad P(B|A)=\frac{P(A|B)P(B)}{P(A)}$
 
 
+Si $B_i$ est un système complet d'évènements, on a de plus 
 
+$P(B_i|A)= \frac{P(A|B_i)P(B_i)}{P(A)} = \frac{P(A|B_i)P(B_i)}{\displaystyle\sum_k P(A|B_k)P(B_k)}$
 

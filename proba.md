@@ -99,3 +99,12 @@ Si $B_i$ est un système complet d'évènements, on a de plus
 
 $P(B_i|A)= \frac{P(A|B_i)P(B_i)}{P(A)} = \frac{P(A|B_i)P(B_i)}{\displaystyle\sum_k P(A|B_k)P(B_k)}$
 
+
+````{prf:example}
+Un fabricant de boulons a trois usines de fabrication situées à Amiens, Besançon et Clermont-Ferrand. Amiens fournit 25\% de la production, Besançon 20\% et Clermont-Ferrand 55\%. Les boulons de 5mm représentent 20\%Cdes boulons produits à Amie,s, 30\% à Besançon et 15\% à Clermont-Ferrand. On répond à la question suivante : sachant que le boulon acheté a une taille de 5mm, quelle est la probabilité qu'il soit produit à Clermont-Ferrand ?
+
+On note $B_1$ (respectivement $B_2,B_3$) l'évènement "Le boulon est produit à Amiens (resp. Besançon, Clermont-Ferrand". On note également $A$ l'évènement "Le boulon fait 5mm". On cherche donc 
+
+$P(B_3|A) = \frac{P(A|B_3)P(B_3)}{P(A)}= \frac{0.15*0.55}{0.1925}=0.428$. 
+````
+
