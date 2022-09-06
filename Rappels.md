@@ -182,13 +182,7 @@ On note $B_1$ (respectivement $B_2,B_3$) l'évènement "Le boulon est produit à
 
 $P(B_3|A) = \frac{P(A|B_3)P(B_3)}{P(A)}= \frac{0.15*0.55}{0.1925}=0.428$. 
 ````
-On a calculé dans l'exemple une **probabilité a posteriori**, c'est à dire sachant une information supplémentaire (le boulon fait 5mm). La prise en compte de cette information modifie la valeur de la probabilité associée à $B_3$. La théorie des probabilités au travers de l'approche bayésienne est adaptée pour prendre en compte toute information nouvelle.````{prf:example}
-7\% des français sont atteints d'un cancer du poumon. 70\% des malades sont des fumeurs et 50\% des français fument. On recherche la probabilité d'être atteint d'un cancer du poumon lorsque l'on est fumeur.
-L'évènement $A$ est "avoir un cancer du poumon", et $B$ est "être fumeur". D'après les données on a $P(A)$=0.07, $P(B)$ = 0.5 et $P(B\mid A)$ = 0.7. 
-On a alors $P(A\mid B) = \frac{P(A\bigcap B)}{P(B)}$ avec $P(A\bigcap B)=P(B\mid A)P(A)$ d'où
-
-$P(B\mid A)=\frac{P(B\mid A)P(A)}{P(B}$ = 0.098
-````
+On a calculé dans l'exemple une **probabilité a posteriori**, c'est à dire sachant une information supplémentaire (le boulon fait 5mm). La prise en compte de cette information modifie la valeur de la probabilité associée à $B_3$. La théorie des probabilités au travers de l'approche bayésienne est adaptée pour prendre en compte toute information nouvelle.
 
 
 ## Variable aléatoire

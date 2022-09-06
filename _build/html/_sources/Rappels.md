@@ -193,4 +193,7 @@ $P(B\mid A)=\frac{P(B\mid A)P(A)}{P(B}$ = 0.098
 
 ## Variable aléatoire
 
+## Concept de variable aléatoire
+Pile ou face
+
 
