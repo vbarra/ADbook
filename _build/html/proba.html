@@ -319,6 +319,11 @@ title="Print to PDF"
    Indépendance
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#theoreme-des-probabilites-totales">
+   Théorème des probabilités totales
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -358,6 +363,11 @@ title="Print to PDF"
    Indépendance
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#theoreme-des-probabilites-totales">
+   Théorème des probabilités totales
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -372,7 +382,7 @@ title="Print to PDF"
 <h1>Probabilités<a class="headerlink" href="#probabilites" title="Permalink to this headline">#</a></h1>
 <div class="section" id="objectif">
 <h2>Objectif<a class="headerlink" href="#objectif" title="Permalink to this headline">#</a></h2>
-<p>L’objectif des probabilités est de donner une <strong>mesure</strong> à la chance qu’a un évènement de se réliser lors d’une expérience aléatoire. Pour ce faire, on définit une fonction <span class="math notranslate nohighlight">\(P:\Omega\rightarrow [0,1]\)</span> vérifiant certains axiomes et propriétés.</p>
+<p>L’objectif des probabilités est de donner une <strong>mesure</strong> à la chance qu’a un évènement de se réaliser lors d’une expérience aléatoire. Pour ce faire, on définit une fonction <span class="math notranslate nohighlight">\(P:\Omega\rightarrow [0,1]\)</span> vérifiant certains axiomes et propriétés.</p>
 <div class="proof definition admonition" id="tribu">
 <p class="admonition-title"><span class="caption-number">Definition 5 </span> (Tribu)</p>
 <div class="definition-content section" id="proof-content">
@@ -460,7 +470,30 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div><p>On peut généraliser la notion d’indépendance à une famille d’évènements <span class="math notranslate nohighlight">\((A_i)_{i\in[\![1,n]\!]}\)</span> : on dira que les <span class="math notranslate nohighlight">\(A_i\)</span> sont <strong>mutuellement indépendants</strong> si pour tout <span class="math notranslate nohighlight">\(I\subset [\![1,n]\!]\)</span></p>
 <p><span class="math notranslate nohighlight">\(P\left (\displaystyle\bigcap_{i\in I} A_i\right ) = \displaystyle\prod_{i\in I} P(A_i)\)</span></p>
+<p>L’indépendance mutuelle est plus forte que l’indépendance deux à deux.</p>
+<div class="proof remark dropdown admonition" id="remark-8">
+<p class="admonition-title"><span class="caption-number">Remark 2 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>La notion d’indépendance n’est pas une notion purement ensembliste. Deux évènements peuvent être indépendants pour une loi de probabilité et pas pour une autre.</p>
 </div>
+</div></div>
+<div class="section" id="theoreme-des-probabilites-totales">
+<h2>Théorème des probabilités totales<a class="headerlink" href="#theoreme-des-probabilites-totales" title="Permalink to this headline">#</a></h2>
+<div class="proof theorem admonition" id="theorem-9">
+<p class="admonition-title"><span class="caption-number">Theorem 1 </span></p>
+<div class="theorem-content section" id="proof-content">
+<p>Soit <span class="math notranslate nohighlight">\(B_i\)</span> un système complet d’évènements (qui forment donc une partition de <span class="math notranslate nohighlight">\(\Omega\)</span>). Pour tout évènement <span class="math notranslate nohighlight">\(A\)</span>, on peut écrire</p>
+<p><span class="math notranslate nohighlight">\(P(A) = \displaystyle\sum_i P(A\bigcap B_i) = \displaystyle\sum_i P(A| B_i) P(B_i)\)</span></p>
+</div>
+</div><p>`A partir de l’égalité $P(A\bigcap B) = P(A|B)P(B)=P(B|A)P(A), on définit la règle de Bayes</p>
+<p><span class="math notranslate nohighlight">\((\forall A,B)\quad P(B|A)=\frac{P(B)P(A|B)}{P(A)}\)</span></p>
+<p>et en utilisant le théorème des probabilités totales on a</p>
+<div class="proof property admonition" id="property-10">
+<p class="admonition-title"><span class="caption-number">Property 2 </span></p>
+<div class="property-content section" id="proof-content">
+<p>$(\forall A,B_i,i\in[![1,n]!])\quad \frac{}{}</p>
+</div>
+</div></div>
 </div>
 
     <script type="text/x-thebe-config">

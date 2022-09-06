@@ -1,6 +1,6 @@
 # Probabilités
 ## Objectif
-L'objectif des probabilités est de donner une **mesure** à la chance qu'a un évènement de se réliser lors d'une expérience aléatoire. Pour ce faire, on définit une fonction $P:\Omega\rightarrow [0,1]$ vérifiant certains axiomes et propriétés.
+L'objectif des probabilités est de donner une **mesure** à la chance qu'a un évènement de se réaliser lors d'une expérience aléatoire. Pour ce faire, on définit une fonction $P:\Omega\rightarrow [0,1]$ vérifiant certains axiomes et propriétés.
 
 ````{prf:definition} Tribu
 :label: tribu
@@ -71,4 +71,33 @@ La notion d'indépendance est directement rattachée à $P$ : $A$ et $B$ peuvent
 On peut généraliser la notion d'indépendance à une famille d'évènements $(A_i)_{i\in[\![1,n]\!]}$ : on dira que les $A_i$ sont **mutuellement indépendants** si pour tout $I\subset [\![1,n]\!]$
 
 $P\left (\displaystyle\bigcap_{i\in I} A_i\right ) = \displaystyle\prod_{i\in I} P(A_i)$
+
+L'indépendance mutuelle est plus forte que l'indépendance deux à deux.
+
+```{prf:remark}
+:class: dropdown
+La notion d'indépendance n'est pas une notion purement ensembliste. Deux évènements peuvent être indépendants pour une loi de probabilité et pas pour une autre. 
+```
+
+## Théorème des probabilités totales
+
+```{prf:theorem}
+Soit $B_i$ un système complet d'évènements (qui forment donc une partition de $\Omega$). Pour tout évènement $A$, on peut écrire 
+
+$P(A) = \displaystyle\sum_i P(A\bigcap B_i) = \displaystyle\sum_i P(A| B_i) P(B_i)$
+```
+
+\`A partir de l'égalité $P(A\bigcap B) = P(A|B)P(B)=P(B|A)P(A), on définit la règle de Bayes
+
+$(\forall A,B)\quad P(B|A)=\frac{P(B)P(A|B)}{P(A)}$
+
+et en utilisant le théorème des probabilités totales on a
+
+````{prf:property}
+
+$(\forall A,B_i,i\in[\![1,n]\!])\quad \frac{}{}
+````
+
+
+
 

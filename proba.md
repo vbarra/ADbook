@@ -87,16 +87,12 @@ Soit $B_i$ un système complet d'évènements (qui forment donc une partition de
 $P(A) = \displaystyle\sum_i P(A\bigcap B_i) = \displaystyle\sum_i P(A| B_i) P(B_i)$
 ```
 
+
+## Règle de Bayes
+
 \`A partir de l'égalité $P(A\bigcap B) = P(A|B)P(B)=P(B|A)P(A), on définit la règle de Bayes
 
 $(\forall A,B)\quad P(B|A)=\frac{P(B)P(A|B)}{P(A)}$
-
-et en utilisant le théorème des probabilités totales on a
-
-````{prf:property}
-
-$(\forall A,B_i,i\in[\![1,n]\!])\quad \frac{}{}
-````
 
 
 
