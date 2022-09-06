@@ -1,5 +1,80 @@
-# Probabilités
-## Objectif
+
+# Rappels
+
+
+## Expérience aléatoire
+
+### Définitions
+````{prf:definition} Expérience aléatoire
+:label: expalea
+Une **expérience aléatoire** est une expérience dont on ne peut prévoir le résultat a priori. Répétée dans des conditions identiques, elle peut donner lieu à des résultats différents.
+````
+
+````{prf:example}
+- Le lancé de dé
+- les côtes exactes d'une pièce fabriquée dans un atelier
+````
+
+````{prf:definition} Issue
+:label: issue
+On appelle **issue** d'une expérience aléatoire l'un des résultats possibles de cette expérience
+````
+
+
+````{prf:definition} Univers des possibles
+:label: univers
+On appelle **univers des possibles** d'une expérience aléatoire l'ensemble  $\Omega$ des issues de cette expérience.
+````
+
+````{prf:example}
+Lorsque l'on joue à pile ou face avec une pièce de monnaie, l'expérience a deux issues possibles et $\Omega = \{P,F\}$.
+````
+L'univers des possibles n'est pas défini de manière unique, mais dépend de l'usage de l'experience. Par exemple, pour le lancer de deux dés, on peut être intéressé par :
+- le résultat du lancer, dans ce cas $\Omega = \{(1,1), (1,2), \cdots (6,6)\}$
+- la somme des deux faces et $\Omega = [\![2,12]\!]$
+
+````{prf:definition} Evènement
+:label: evenement
+Etant donnée une expérience aléatoire, un **évènement** est une assertion vraie ou fausse suivant l'issue de l'expérience. C'est donc un sous-ensemble $E$ de $\Omega$.
+````
+
+
+````{prf:example}
+- Dans l'expérience du lancer de deux dés, on peut s'intéresser à l'évènement "la somme des deux faces est paire" ou encore  "la somme est supérieure à 7".
+- Si l'expérience considérée concerne les jobs effectués sur une machine on peut considérer :
+1. $\Omega=\mathbb{N}$ et l'évènement "le nombre de jobs ne dépasse pas 10" : $E=[\![0,5]\!]$
+2. $\Omega=\mathbb{R}^*$ et  l'évènement "le job dure plus de 15 s" et $E=]15,+\infty[$
+````
+Il existe certains évènements particuliers : 
+- l'évènement dit certain : c'est l'univers des possibles (par exemple "la somme des deux faces d'un lancer de deux dés est inférieure ou égale à 12")
+- l'évènement impossible ("la somme des deux faces d'un lancer de deux dés est supérieure ou égale à 20")
+- l'évènement simple : tout singleton de $\Omega$
+- l'évènement composé : tout sous-ensembme de $\Omega$ de cardinalité au moins égale à 2.
+
+### Notation et opérations sur les évènements
+Les évènements peuvent être interprétés soit d'un point de vue ensembliste (Diagrammes de Venn), soit de manière équivalente d'un point de vue probabiliste.
+
+| **Notation**                      | **Interprétation probabiliste**           |
+|-------------------------------|---------------------------------------|
+| $\omega$                      | issue possible, évènement élémentaire |
+| $A$                           | évènement                             |
+| $\omega\in A$                  | $\omega$ réalise $A$                  |
+| $A\subset B$                  | $A$ implique $B$                      |
+| $A\cup B$                     | $A$ ou $B$                            |
+| $A\cap B$                     | $A$ et $B$                            |
+| $\bar A$                      | contraire de $A$                      |
+| $\emptyset$                   | évènement impossible                  |
+| $\Omega$                      | évènement certain                     |
+| $A\cap B=\emptyset$           | $A$ et $B$ incompatibles              |
+| $A\setminus B = A\cap \bar B$ | $A$ et pas $B$                        |
+
+
+
+
+
+
+## Probabilités
+### Objectif
 L'objectif des probabilités est de donner une **mesure** à la chance qu'a un évènement de se réaliser lors d'une expérience aléatoire. Pour ce faire, on définit une fonction $P:\Omega\rightarrow [0,1]$ vérifiant certains axiomes et propriétés.
 
 ````{prf:definition} Tribu
@@ -20,7 +95,7 @@ Dans le cas du lancer d'un dé, $\Omega = \{1,2,3,4,5,6\}$, et :
 ````
 On peut également s'intéresser, si $\Omega=\mathbb R$, à la tribu engendrée par les ouverts de $\mathbb{R}$, on parle alors de **tribu borélienne**
 
-## Probabilité
+### Probabilité
 ```{margin} A. Kolmogorov
 ![](./images/kolmogorov.jpeg)
 ```
@@ -39,7 +114,7 @@ On appelle **probabilité** sur $(\Omega,T)$ une application $P$ de $T$ dans [0,
 - $(\forall A,B)$ si $A\subset B$ alors $P(A)\leq P(B)$
 - Pour toute famille dénombrable $(A_i)$ d'évènements quelconques $P(\displaystyle\bigcup_i A_i) \leq \displaystyle\sum_iP(A_i)$
 ````
-## Conditionnement
+### Conditionnement
 Les probabilités **conditionnelles** intègrent une information supplémentaire sous la forme de l'observation de la réalisation d'un évènement donné.
 ````{prf:definition} Probabilité conditionnelle
 Soit $B$ un évènement de probabilité non nulle. On appelle **probabilité conditionnelle** de $A$ sachant $B$ le rapport 
@@ -58,7 +133,7 @@ On a alors $P(A\mid B) = \frac{P(A\bigcap B)}{P(B)}$ avec $P(A\bigcap B)=P(B\mid
 $P(B\mid A)=\frac{P(B\mid A)P(A)}{P(B}$ = 0.098
 ````
 
-## Indépendance
+### Indépendance
 ````{prf:definition} Indépendance
 Deux évènements $A$ et $B$ sont dits **indépendants** si et seulement si $P(A\mid B) = P(A)$.
 ````
@@ -79,7 +154,7 @@ L'indépendance mutuelle est plus forte que l'indépendance deux à deux.
 La notion d'indépendance n'est pas une notion purement ensembliste. Deux évènements peuvent être indépendants pour une loi de probabilité et pas pour une autre. 
 ```
 
-## Théorème des probabilités totales
+### Théorème des probabilités totales
 
 ```{prf:theorem}
 Soit $B_i$ un système complet d'évènements (qui forment donc une partition de $\Omega$). Pour tout évènement $A$, on peut écrire 
@@ -88,7 +163,7 @@ $P(A) = \displaystyle\sum_i P(A\bigcap B_i) = \displaystyle\sum_i P(A| B_i) P(B_
 ```
 
 
-## Règle de Bayes
+### Règle de Bayes
 
 A partir de l'égalité $P(A\bigcap B) = P(A|B)P(B)=P(B|A)P(A)$, on définit la règle de Bayes
 
@@ -107,5 +182,11 @@ On note $B_1$ (respectivement $B_2,B_3$) l'évènement "Le boulon est produit à
 
 $P(B_3|A) = \frac{P(A|B_3)P(B_3)}{P(A)}= \frac{0.15*0.55}{0.1925}=0.428$. 
 ````
-On a calculé dans l'exemple une **probabilité a posteriori**, c'est à dire sachant une information supplémentaire (le boulon fait 5mm). La prise en compte de cette information modifie la valeur de la probabilité associée à $B_3$. La théorie des probabilités au travers de l'approche bayésienne est adaptée pour prendre en compte toute information nouvelle.
+On a calculé dans l'exemple une **probabilité a posteriori**, c'est à dire sachant une information supplémentaire (le boulon fait 5mm). La prise en compte de cette information modifie la valeur de la probabilité associée à $B_3$. La théorie des probabilités au travers de l'approche bayésienne est adaptée pour prendre en compte toute information nouvelle.````{prf:example}
+7\% des français sont atteints d'un cancer du poumon. 70\% des malades sont des fumeurs et 50\% des français fument. On recherche la probabilité d'être atteint d'un cancer du poumon lorsque l'on est fumeur.
+L'évènement $A$ est "avoir un cancer du poumon", et $B$ est "être fumeur". D'après les données on a $P(A)$=0.07, $P(B)$ = 0.5 et $P(B\mid A)$ = 0.7. 
+On a alors $P(A\mid B) = \frac{P(A\bigcap B)}{P(B)}$ avec $P(A\bigcap B)=P(B\mid A)P(A)$ d'où
+
+$P(B\mid A)=\frac{P(B\mid A)P(A)}{P(B}$ = 0.098
+````
 
