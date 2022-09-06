@@ -101,10 +101,11 @@ $P(B_i|A)= \frac{P(A|B_i)P(B_i)}{P(A)} = \frac{P(A|B_i)P(B_i)}{\displaystyle\sum
 
 
 ````{prf:example}
-Un fabricant de boulons a trois usines de fabrication situées à Amiens, Besançon et Clermont-Ferrand. Amiens fournit 25\% de la production, Besançon 20\% et Clermont-Ferrand 55\%. Les boulons de 5mm représentent 20\%Cdes boulons produits à Amie,s, 30\% à Besançon et 15\% à Clermont-Ferrand. On répond à la question suivante : sachant que le boulon acheté a une taille de 5mm, quelle est la probabilité qu'il soit produit à Clermont-Ferrand ?
+Un fabricant de boulons a trois usines de fabrication situées à Amiens, Besançon et Clermont-Ferrand. Amiens fournit 25\% de la production, Besançon 20\% et Clermont-Ferrand 55\%. Les boulons de 5mm représentent 20\% des boulons produits à Amiens, 30\% à Besançon et 15\% à Clermont-Ferrand. On répond à la question suivante : sachant que le boulon acheté a une taille de 5mm, quelle est la probabilité qu'il soit produit à Clermont-Ferrand ?
 
-On note $B_1$ (respectivement $B_2,B_3$) l'évènement "Le boulon est produit à Amiens (resp. Besançon, Clermont-Ferrand". On note également $A$ l'évènement "Le boulon fait 5mm". On cherche donc 
+On note $B_1$ (respectivement $B_2,B_3$) l'évènement "Le boulon est produit à Amiens (resp. Besançon, Clermont-Ferrand)". On note également $A$ l'évènement "Le boulon fait 5mm". On cherche donc 
 
 $P(B_3|A) = \frac{P(A|B_3)P(B_3)}{P(A)}= \frac{0.15*0.55}{0.1925}=0.428$. 
 ````
+On a calculé dans l'exemple une **probabilité a posteriori**, c'est à dire sachant une information supplémentaire (le boulon fait 5mm). La prise en compte de cette information modifie la valeur de la probabilité associée à $B_3$. La théorie des probabilités au travers de l'approche bayésienne est adaptée pour prendre en compte toute information nouvelle.
 
