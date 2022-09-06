@@ -42,7 +42,7 @@ On appelle **probabilité** sur $(\Omega,T)$ une application $P$ de $T$ dans [0,
 ## Conditionnement
 Les probabilités **conditionnelles** intègrent une information supplémentaire sous la forme de l'observation de la réalisation d'un évènement donné.
 ````{prf:definition} Probabilité conditionnelle
-Soit $B$ un évènement de probabilité non nulle. On appelle ** probabilité conditionnelle** de $A$ sachnt $B$ le rapport 
+Soit $B$ un évènement de probabilité non nulle. On appelle **probabilité conditionnelle** de $A$ sachant $B$ le rapport 
 
 $P(A\mid B) = \frac{P(A\bigcap B)}{P(B)}$
 ````
@@ -65,6 +65,7 @@ Deux évènements $A$ et $B$ sont dits **indépendants** si et seulement si $P(A
 On a alors bien évidemment $P(A\bigcap B) = P(A)P(B)$.
 
 ```{prf:remark}
+:class: dropdown
 La notion d'indépendance est directement rattachée à $P$ : $A$ et $B$ peuvent être indépendants pour une probabilité donnée, mais pas pour une autre.
 ```
 On peut généraliser la notion d'indépendance à une famille d'évènements $(A_i)_{i\in[\![1,n]\!]}$ : on dira que les $A_i$ sont **mutuellement indépendants** si pour tout $I\subset [\![1,n]\!]$
