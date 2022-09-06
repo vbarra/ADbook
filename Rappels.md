@@ -190,3 +190,7 @@ On a alors $P(A\mid B) = \frac{P(A\bigcap B)}{P(B)}$ avec $P(A\bigcap B)=P(B\mid
 $P(B\mid A)=\frac{P(B\mid A)P(A)}{P(B}$ = 0.098
 ````
 
+
+## Variable aléatoire
+
+
