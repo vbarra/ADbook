@@ -711,6 +711,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <p>Une variable aléatoire est une application <span class="math notranslate nohighlight">\(X:\Omega\rightarrow E\)</span> (on prendra <span class="math notranslate nohighlight">\(E=\mathbb R\)</span>)</p>
 </div>
 </div><p>Pour obtenir la probabilité d’une valeur quelconque image par <span class="math notranslate nohighlight">\(X\)</span>, il suffit de dnombrer les <span class="math notranslate nohighlight">\(\omega\)</span> qui réalisent cette valeur. Ici, <span class="math notranslate nohighlight">\(P(X=1)= P(\{Pile\}) = \frac12\)</span>. On dit que l’on transporte la loi de probabilité de <span class="math notranslate nohighlight">\(\Omega\)</span> sur <span class="math notranslate nohighlight">\(E\)</span> par l’application <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>Les éléments de <span class="math notranslate nohighlight">\(E\)</span> sont les <strong>réalisations</strong> de la variable aléatoire.</p>
 <div class="proof example admonition" id="example-19">
 <p class="admonition-title"><span class="caption-number">Example 7 </span></p>
 <div class="example-content section" id="proof-content">
@@ -727,7 +728,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <p>Une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est dite mesurable  si et seulement si : <span class="math notranslate nohighlight">\((\forall B\in T')\; X^{-1}(B)\in T\)</span></p>
 </div>
 </div><p>Dans les deux exemples précédents, on a par exemple <span class="math notranslate nohighlight">\(X^{-1}(1)= \{Pile\}\)</span> ou encore <span class="math notranslate nohighlight">\(X^{-1}(3) = \{(1,2),(2,1)\}\)</span> et <span class="math notranslate nohighlight">\(P(X=3)=P(X^{-1}(3)) = \frac{2}{36}\)</span>.</p>
-<p>On note souvent <span class="math notranslate nohighlight">\(P_X(B) = P(X^{-1}(B))=P(\{\omega / X(\omega)\in B\})\)</span> et on l’appelle <strong>probabilité image</strong> de <span class="math notranslate nohighlight">\(P\)</span> par <span class="math notranslate nohighlight">\(X\)</span></p>
+<p>On note souvent <span class="math notranslate nohighlight">\(P_X(B) = P(X^{-1}(B))=P(\{\omega / X(\omega)\in B\})\)</span> et on l’appelle <strong>probabilité image</strong> de <span class="math notranslate nohighlight">\(P\)</span> par <span class="math notranslate nohighlight">\(X\)</span>. En calculant la probabilité de chaque réalisation de la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span>, on peut en déduire la <strong>loi de probabilité</strong> (ou <strong>distribution</strong>) de <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <p>La notion de variable aléatoire est une formalisation de la notion de grandeur variant selon le résultat d’une expérience aléatoire. On peut alors préciser et formaliser la définition précédente.</p>
 <div class="proof definition admonition" id="definition-21">
 <p class="admonition-title"><span class="caption-number">Definition 10 </span> (Variable aléatoire)</p>

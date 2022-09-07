@@ -196,6 +196,8 @@ Une variable aléatoire est une application $X:\Omega\rightarrow E$ (on prendra 
 
 Pour obtenir la probabilité d'une valeur quelconque image par $X$, il suffit de dnombrer les $\omega$ qui réalisent cette valeur. Ici, $P(X=1)= P(\{Pile\}) = \frac12$. On dit que l'on transporte la loi de probabilité de $\Omega$ sur $E$ par l'application $X$.
 
+Les éléments de $E$ sont les **réalisations** de la variable aléatoire.
+
 ````{prf:example}
 Si l'expérience consiste à observer le résultat du tirage de deux dés à 6 faces, $\Omega = \{(1,1), (1,2), \cdots (6,5), (6,6)\}$, on considère la loi de probabilité telle que $(\forall \omega\in\Omega)\; P(\omega)=\frac{1}{36}$. 
 
@@ -211,7 +213,33 @@ Une variable aléatoire $X$ est dite mesurable  si et seulement si : $(\forall B
 
 Dans les deux exemples précédents, on a par exemple $X^{-1}(1)= \{Pile\}$ ou encore $X^{-1}(3) = \{(1,2),(2,1)\}$ et $P(X=3)=P(X^{-1}(3)) = \frac{2}{36}$.
 
-On note souvent $P_X(B) = P(X^{-1}(B))=P(\{\omega / X(\omega)\in B\})$ et on l'appelle **probabilité image** de $P$ par $X$
+On note souvent $P_X(B) = P(X^{-1}(B))=P(\{\omega / X(\omega)\in B\})$ et on l'appelle **probabilité image** de $P$ par $X$. En calculant la probabilité de chaque réalisation de la variable aléatoire $X$, on peut en déduire la **loi de probabilité** (ou **distribution**) de $X$.
+
+```{code-cell} ipython3
+from math import floor
+from random import random
+import numpy as np
+import matplotlib.pyplot as plt
+
+def tirage():
+    d1=floor(6*random()+1)   
+    d2=floor(6*random()+1)  
+    return d1+d2 -1          
+
+x = np.arange(0,12)
+f = np.zeros(12)
+n=10000                       
+for i in range(n):        
+    r=tirage() 
+    print(r)
+    f[r] += 1
+f=f/n                      
+
+plt.plot( x, f, 'o' )   
+plt.vlines( x, 0, f )   
+plt.ylim( bottom=0 ) 
+plt.show()
+```
 
 La notion de variable aléatoire est une formalisation de la notion de grandeur variant selon le résultat d'une expérience aléatoire. On peut alors préciser et formaliser la définition précédente.
 
