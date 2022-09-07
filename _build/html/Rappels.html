@@ -358,6 +358,11 @@ title="Print to PDF"
      Concept de variable aléatoire
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variable-aleatoire-mesurable">
+     Variable aléatoire mesurable
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -441,6 +446,11 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#concept-de-variable-aleatoire">
      Concept de variable aléatoire
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variable-aleatoire-mesurable">
+     Variable aléatoire mesurable
     </a>
    </li>
   </ul>
@@ -708,6 +718,16 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <p>Si l’application <span class="math notranslate nohighlight">\(X\)</span> réalise la somme des deux éléments de <span class="math notranslate nohighlight">\(\omega\in\Omega\)</span>, alors on a par exemple <span class="math notranslate nohighlight">\(P(X=3)= P(\{(1,2),(2,1)\}) = \frac{2}{36}\)</span>, ou encore <span class="math notranslate nohighlight">\(P(X=5)= P(\{(1,4),(2,3),(3,2),(4,1)\}) = \frac{4}{36}\)</span></p>
 </div>
 </div></div>
+<div class="section" id="variable-aleatoire-mesurable">
+<h3>Variable aléatoire mesurable<a class="headerlink" href="#variable-aleatoire-mesurable" title="Permalink to this headline">#</a></h3>
+<p>On définit sur <span class="math notranslate nohighlight">\(E\)</span> une tribu <span class="math notranslate nohighlight">\(T'\)</span>.  <span class="math notranslate nohighlight">\((E,T')\)</span> est alors un espace probabilisable, et tout élément <span class="math notranslate nohighlight">\(B\)</span> de <span class="math notranslate nohighlight">\(T'\)</span> est un évènement. On note alors <span class="math notranslate nohighlight">\(X^{-1}(B) = \{\omega\in\Omega,\; X(\omega)\in B\}\)</span></p>
+<div class="proof definition admonition" id="definition-20">
+<p class="admonition-title"><span class="caption-number">Definition 9 </span> (Variable aléatoire mesurabe)</p>
+<div class="definition-content section" id="proof-content">
+<p>Une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est dite mesurable  si et seulement si : <span class="math notranslate nohighlight">\((\forall B\in T')\; X^{-1}(B)\in T\)</span></p>
+</div>
+</div><p>Dans les deux exemples précédents, on a par exemple <span class="math notranslate nohighlight">\(X^{-1}(1)= \{Pile\}\)</span> ou encore <span class="math notranslate nohighlight">\(X^{-1}(3) = \{(1,2),(2,1)\}\)</span> et <span class="math notranslate nohighlight">\(P(X=3)=P(X^{-1}(3)) = \frac{2}{36}\)</span>`</p>
+</div>
 </div>
 </div>
 
