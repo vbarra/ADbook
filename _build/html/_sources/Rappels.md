@@ -209,5 +209,17 @@ On définit sur $E$ une tribu $T'$.  $(E,T')$ est alors un espace probabilisable
 Une variable aléatoire $X$ est dite mesurable  si et seulement si : $(\forall B\in T')\; X^{-1}(B)\in T$
 ```` 
 
-Dans les deux exemples précédents, on a par exemple $X^{-1}(1)= \{Pile\}$ ou encore $X^{-1}(3) = \{(1,2),(2,1)\}$ et $P(X=3)=P(X^{-1}(3)) = \frac{2}{36}$`
+Dans les deux exemples précédents, on a par exemple $X^{-1}(1)= \{Pile\}$ ou encore $X^{-1}(3) = \{(1,2),(2,1)\}$ et $P(X=3)=P(X^{-1}(3)) = \frac{2}{36}$.
 
+La notion de variable aléatoire est une formalisation de la notion de grandeur variant selon le résultat d'une expérience aléatoire. On peut alors préciser et formaliser la définition précédente.
+
+````{prf:definition} Variable aléatoire
+Une variable aléatoire est une application mesurable $X:(\Omega,T,P) \rightarrow (E,T')$ 
+```` 
+
+```{prf:remark}
+:class: dropdown
+- Si $E=\mathbb N$, on parle de variable aléatoire (réelle) discrète
+- Si $E=\mathbb R$, on parle de variable aléatoire (réelle) continue. $T'$ est alors la tribu **borélienne**
+- Si $E=\mathbb N^n$ ou $E=\mathbb R^n$n on parle de **vecteur aléatoire** de dimension $n$.
+```
