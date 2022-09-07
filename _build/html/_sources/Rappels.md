@@ -188,6 +188,6 @@ On a calculé dans l'exemple une **probabilité a posteriori**, c'est à dire sa
 ## Variable aléatoire
 
 ### Concept de variable aléatoire
-Pile ou face
+Soit un espace probabilisé $(\Omega, T,P)$, avec $\Omega$ = (Pile,Face). On considère la loi de probabilité $P$ telle que $\forall \omega\in\Omega\; P(\omega)=\frac12$
 
 
