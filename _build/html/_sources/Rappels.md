@@ -1,4 +1,3 @@
-
 ---
 jupytext:
   formats: md:myst
