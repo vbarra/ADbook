@@ -187,7 +187,7 @@ On a calculé dans l'exemple une **probabilité a posteriori**, c'est à dire sa
 
 ## Variable aléatoire
 
-## Concept de variable aléatoire
+### Concept de variable aléatoire
 Pile ou face
 
 
