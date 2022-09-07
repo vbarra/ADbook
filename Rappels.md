@@ -202,3 +202,12 @@ Si l'expérience consiste à observer le résultat du tirage de deux dés à 6 f
 Si l'application $X$ réalise la somme des deux éléments de $\omega\in\Omega$, alors on a par exemple $P(X=3)= P(\{(1,2),(2,1)\}) = \frac{2}{36}$, ou encore $P(X=5)= P(\{(1,4),(2,3),(3,2),(4,1)\}) = \frac{4}{36}$
 ````
 
+### Variable aléatoire mesurable
+On définit sur $E$ une tribu $T'$.  $(E,T')$ est alors un espace probabilisable, et tout élément $B$ de $T'$ est un évènement. On note alors $X^{-1}(B) = \{\omega\in\Omega,\; X(\omega)\in B\}$
+
+````{prf:definition} Variable aléatoire mesurabe
+Une variable aléatoire $X$ est dite mesurable  si et seulement si : $(\forall B\in T')\; X^{-1}(B)\in T$
+```` 
+
+Dans les deux exemples précédents, on a par exemple $X^{-1}(1)= \{Pile\}$ ou encore $X^{-1}(3) = \{(1,2),(2,1)\}$ et $P(X=3)=P(X^{-1}(3)) = \frac{2}{36}$`
+
