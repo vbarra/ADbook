@@ -194,3 +194,5 @@ Soit un espace probabilisé $(\Omega, T,P)$, avec $\Omega$ = (Pile,Face). On con
 Une variable aléatoire est une application $X:\Omega\rightarrow E$ (on prendra $E=\mathbb R$)
 ```` 
 
+Pour obtenur la probabilité d'une valeur quelconque image par $X$, il suffit de dnombrer les $\omega$ qui réalisent cette valeur. Ici, $P(X=1)= P(\{Pile\}) = \frac12$. On dit que l'on transporte la loi de probabilité de $\Omega$ sur $E$ par l'application $X$.
+

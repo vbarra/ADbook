@@ -194,5 +194,9 @@ Soit un espace probabilisé $(\Omega, T,P)$, avec $\Omega$ = (Pile,Face). On con
 Une variable aléatoire est une application $X:\Omega\rightarrow E$ (on prendra $E=\mathbb R$)
 ```` 
 
-Pour obtenur la probabilité d'une valeur quelconque image par $X$, il suffit de dnombrer les $\omega$ qui réalisent cette valeur. Ici, $P(X=1)= P(\{Pile\}) = \frac12$. On dit que l'on transporte la loi de probabilité de $\Omega$ sur $E$ par l'application $X$.
+Pour obtenir la probabilité d'une valeur quelconque image par $X$, il suffit de dnombrer les $\omega$ qui réalisent cette valeur. Ici, $P(X=1)= P(\{Pile\}) = \frac12$. On dit que l'on transporte la loi de probabilité de $\Omega$ sur $E$ par l'application $X$.
+
+````{prf:example}
+Si l'expérience consiste à observer le résultat du tirage de deux dés à 6 faces, $\Omega = \{(1,1), (1,2), \cdots (6,5), (6,6)\}, on considère la loi de probabilité telle que $(\forall \omega\in\Omega)\; P(\omega)=\frac{1}{36}$. Si l'application $X$ réalise la somme des deux éléments de $\omega\in\Omega$, alors on a par exemple $P(X=3)= P(\{(1,2),(2,1)\}) = \frac{2}{36}$, ou encore $P(X=5)= P(\{(1,4),(2,3),(3,2),(4,1)\}) = \frac{4}{36}$
+````
 
