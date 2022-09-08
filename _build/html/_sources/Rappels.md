@@ -372,7 +372,7 @@ Ainsi :
 - pour une variable aléatoire continue $X$, $\mathbb{E}\left [(X-\mathbb{E}(X))^k \right] = \int_x (x-\mathbb{E}(X))^k f_X(x)dx = \int_x (x-\mu_X)^k f_X(x)dx$
 
 
-Pour $k$=2, le moment centré d'ordre 2 est appelé la **variance** et est noté $\mathbb{V}(X)$. La racine carrée de la variance est **l'écart type** et est noté $\sigma_X$. On a donc $\sigma_X^2=\mathbb{V}(X}$.
+Pour $k$=2, le moment centré d'ordre 2 est appelé la **variance** et est noté $\mathbb{V}(X)$. La racine carrée de la variance est **l'écart type** et est noté $\sigma_X$. On a donc $\sigma_X^2=\mathbb{V}(X)$.
 
 
 
