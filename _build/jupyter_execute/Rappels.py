@@ -258,7 +258,7 @@ plt.show()
 # 
 # ### Autour des variables aléatoires
 # 
-# ```{prf:defin} Fonction de répartition
+# ```{prf:definition} Fonction de répartition
 # La fonction de répartition d'une variable aléatoire $X$ est l'application $F_X$ de $\mathbb R$ dans [0,1] telle que $F_X(x) = P(X\leq x)$.
 # ```
 # 
