@@ -349,18 +349,19 @@ plt.show()
 # - $ \mathbb{E}(X^k) = \int_x x^k f_X(x)dx$ si $X$ est continue
 # ```` 
 # 
-# Le moment d'ordre $k$ est donc nu cas particulier avec $Y=X^k$.
+# Le moment d'ordre $k$ est donc un cas particulier avec $Y=X^k$.
 # 
 # ```{prf:remark}
 # :class: dropdown
 # L'espérance $\mathbb{E}(X)$ est le moment d'ordre 1.
+# ``` 
 # 
 # ````{prf:definition} Moment centré d'ordre $k$
 # On appelle moment centré d'ordre $k$ la quantité $\mathbb{E}\left [(X-\mathbb{E}(X))^k \right]$
 # ````
 # Ainsi : 
 # - pour une variable aléatoire discrète $X$, $\mathbb{E}\left [(X-\mathbb{E}(X))^k \right] = \displaystyle\sum_{x_i} (x_i-\mathbb{E}(X))^k P_X(x_i) = \displaystyle\sum_{x_i} (x_i-\mu_X)^k P_X(x_i)$
-# - pour une variable aléatoire continue $X$, $\mathbb{E}\left [(X-\mathbb{E}(X))^k \right] = \int_x (x-\mathbb{E}(X))^k f_X(x_i) = \int_x (x-\mu_X)^k f_X(x_i)$
+# - pour une variable aléatoire continue $X$, $\mathbb{E}\left [(X-\mathbb{E}(X))^k \right] = \int_x (x-\mathbb{E}(X))^k f_X(x)dx = \int_x (x-\mu_X)^k f_X(x)dx$
 # 
 # 
 # ```
