@@ -35,13 +35,13 @@ for i in range(n):
 f=f/n     
 
 
-plt.figure(figsize=(10,5))          
+fig,ax = plt.figure(figsize=(10,5))          
 plt.subplot(121)
 plt.plot( x, f, 'o' )   
 plt.vlines( x, 0, f )   
 plt.ylim( bottom=0 ) 
 plt.title("Distribution")
-fig,ax = plt.subplot(122)
+plt.subplot(122)
 plt.plot( x, f, 'o' )   
 plt.vlines( x, 0, f )   
 plt.ylim( bottom=0 ) 
@@ -52,12 +52,12 @@ plt.show()
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mTypeError[0m                                 Traceback (most recent call last)
 Input [0;32mIn [2][0m, in [0;36m<module>[0;34m[0m
-[1;32m     23[0m plt[38;5;241m.[39mylim( bottom[38;5;241m=[39m[38;5;241m0[39m ) 
-[1;32m     24[0m plt[38;5;241m.[39mtitle([38;5;124m"[39m[38;5;124mDistribution[39m[38;5;124m"[39m)
-[0;32m---> 25[0m fig,ax [38;5;241m=[39m plt[38;5;241m.[39msubplot([38;5;241m122[39m)
-[1;32m     26[0m plt[38;5;241m.[39mplot( x, f, [38;5;124m'[39m[38;5;124mo[39m[38;5;124m'[39m )   
-[1;32m     27[0m plt[38;5;241m.[39mvlines( x, [38;5;241m0[39m, f )   
+[1;32m     15[0m     f[tirage() ] [38;5;241m+[39m[38;5;241m=[39m [38;5;241m1[39m
+[1;32m     16[0m f[38;5;241m=[39mf[38;5;241m/[39mn     
+[0;32m---> 19[0m fig,ax [38;5;241m=[39m plt[38;5;241m.[39mfigure(figsize[38;5;241m=[39m([38;5;241m10[39m,[38;5;241m5[39m))          
+[1;32m     20[0m plt[38;5;241m.[39msubplot([38;5;241m121[39m)
+[1;32m     21[0m plt[38;5;241m.[39mplot( x, f, [38;5;124m'[39m[38;5;124mo[39m[38;5;124m'[39m )   
 
-[0;31mTypeError[0m: cannot unpack non-iterable AxesSubplot object
-TypeError: cannot unpack non-iterable AxesSubplot object
+[0;31mTypeError[0m: cannot unpack non-iterable Figure object
+TypeError: cannot unpack non-iterable Figure object
 
