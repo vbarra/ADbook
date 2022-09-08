@@ -271,3 +271,32 @@ La fonction de répartition d'une variable aléatoire $X$ est l'application $F_X
 $F_X$ est donc monotone croissante, continue à droite et $P(a\leq X\leq b) = F_X(b)-F_X(a)$
 
 
+```{code-cell} ipython3
+from math import floor
+from random import random
+import numpy as np
+import matplotlib.pyplot as plt
+
+def tirage():
+    d1=floor(6*random()+1)   
+    d2=floor(6*random()+1)  
+    return d1+d2 -1          
+
+x = np.arange(0,12)
+f = np.zeros(12)
+n=10000                       
+for i in range(n):        
+    f[tirage() ] += 1
+f=f/n                      
+plt.subplot(121)
+plt.plot( x, f, 'o' )   
+plt.vlines( x, 0, f )   
+plt.ylim( bottom=0 ) 
+plt.subplot(122)
+plt.plot( x, f, 'o' )   
+plt.vlines( x, 0, f )   
+plt.ylim( bottom=0 ) 
+plt.show()
+```
+
+

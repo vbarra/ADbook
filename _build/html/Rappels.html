@@ -839,6 +839,40 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <p>La fonction de répartition d’une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est l’application <span class="math notranslate nohighlight">\(F_X\)</span> de <span class="math notranslate nohighlight">\(\mathbb R\)</span> dans [0,1] telle que <span class="math notranslate nohighlight">\(F_X(x) = P(X\leq x)\)</span>.</p>
 </div>
 </div><p><span class="math notranslate nohighlight">\(F_X\)</span> est donc monotone croissante, continue à droite et <span class="math notranslate nohighlight">\(P(a\leq X\leq b) = F_X(b)-F_X(a)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">tirage</span><span class="p">():</span>
+    <span class="n">d1</span><span class="o">=</span><span class="n">floor</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">random</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>   
+    <span class="n">d2</span><span class="o">=</span><span class="n">floor</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">random</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  
+    <span class="k">return</span> <span class="n">d1</span><span class="o">+</span><span class="n">d2</span> <span class="o">-</span><span class="mi">1</span>          
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">n</span><span class="o">=</span><span class="mi">10000</span>                       
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>        
+    <span class="n">f</span><span class="p">[</span><span class="n">tirage</span><span class="p">()</span> <span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="o">/</span><span class="n">n</span>                      
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span> <span class="p">)</span>   
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">f</span> <span class="p">)</span>   
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span> <span class="n">bottom</span><span class="o">=</span><span class="mi">0</span> <span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span> <span class="p">)</span>   
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">f</span> <span class="p">)</span>   
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span> <span class="n">bottom</span><span class="o">=</span><span class="mi">0</span> <span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Rappels_3_0.png" src="_images/Rappels_3_0.png" />
+</div>
+</div>
 </div>
 </div>
 </div>
