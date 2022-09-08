@@ -379,5 +379,10 @@ $\mathbb{V}(X) = \mathbb{E}(X^2)-\mu_X^2$
 ````
 En effet, $\mathbb{E}\left [(X-\mu_X)^2 \right] = \mathbb{E}\left [(X^2-2\mu_XX+\mu_X^2 \right] = \mathbb{E}(X^2)-2\mu_X\mathbb{E}(X)+\mu_X^2$.
 
+````{prf:property}
+- $(\forall a,b\in\mathbb{R})\; \mathbb{V}(aX+b)= a^2\mathbb{V}(X)$
+- $(\forall a\in\mathbb{R})\; \mathbb{E}\left [(X-a)^2\right ] = \mathbb V(X) +(\mathbb{E}(X)-a)^2$ (théorème de Huygens)
+- $\forall k>0\; P(|X-\mathbb{E}(X)|\geq k\sigma_X)\leq \frac{1}{k^2}$ (inégalité de Bienaymé-Tchebychev)
+````
 
 
