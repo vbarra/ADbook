@@ -249,6 +249,9 @@ plt.ylim( bottom=0 )
 plt.show()
 ```
 
+- Pour une variable aléatoire discrète $X$, la loi de probabilité est donc $P_X(x_i)= P(X=x_i) = P(\{\omega / X(\omega)=x_i\})$. $P_X$ est appelée **masse ponctuelle**
+- Pour une variable aléatoire continue $X$, la loi de probabilité est donc $f_X(x)dx = P(x\leq X\leq x+dx) = P(\{\omega /x\leq X(\omega)\leq x+dx\})$. $f_X$ est appelée **densité de probabilité**
+
 ```{prf:definition} Fonction de répartition
 La fonction de répartition d'une variable aléatoire $X$ est l'application $F_X$ de $\mathbb R$ dans [0,1] telle que $F_X(x) = P(X\leq x)$.
 ```
@@ -316,6 +319,13 @@ Une loi de probabilité est caractérisée par un certain nombre de grandeurs :
 - sa forme
 
 #### Espérance mathématique d'une variable aléatoire
+
+````{prf:definition} Espérance
+Soit $X$ une variable aléatoire. On définit l'espérance mathématique de $X$, et on note \mathbb E(X)$ par :
+- $\mathbb E(X) = \mu_X = \displaystyle\sum_{x_i} x_iP(X=x_i)= \displaystyle\sum_{x_i} x_i P_X(x_i)$ si $X$ est discrète et si la somme converge.
+- $\mathbb E(X) = \mu_X =\int_x xdP(x) = \int_x x f_X(x) dx$ si l'intégrale converge.
+````
+
 
 
 

@@ -829,6 +829,10 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <img alt="_images/Rappels_1_0.png" src="_images/Rappels_1_0.png" />
 </div>
 </div>
+<ul class="simple">
+<li><p>Pour une variable aléatoire discrète <span class="math notranslate nohighlight">\(X\)</span>, la loi de probabilité est donc <span class="math notranslate nohighlight">\(P_X(x_i)= P(X=x_i) = P(\{\omega / X(\omega)=x_i\})\)</span>. <span class="math notranslate nohighlight">\(P_X\)</span> est appelée <strong>masse ponctuelle</strong></p></li>
+<li><p>Pour une variable aléatoire continue <span class="math notranslate nohighlight">\(X\)</span>, la loi de probabilité est donc <span class="math notranslate nohighlight">\(f_X(x)dx = P(x\leq X\leq x+dx) = P(\{\omega /x\leq X(\omega)\leq x+dx\})\)</span>. <span class="math notranslate nohighlight">\(f_X\)</span> est appelée <strong>densité de probabilité</strong></p></li>
+</ul>
 <div class="proof definition admonition" id="definition-21">
 <p class="admonition-title"><span class="caption-number">Definition 10 </span> (Fonction de répartition)</p>
 <div class="definition-content section" id="proof-content">
@@ -909,7 +913,16 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </ul>
 <div class="section" id="esperance-mathematique-d-une-variable-aleatoire">
 <h4>Espérance mathématique d’une variable aléatoire<a class="headerlink" href="#esperance-mathematique-d-une-variable-aleatoire" title="Permalink to this headline">#</a></h4>
+<div class="proof definition admonition" id="definition-24">
+<p class="admonition-title"><span class="caption-number">Definition 12 </span> (Espérance)</p>
+<div class="definition-content section" id="proof-content">
+<p>Soit <span class="math notranslate nohighlight">\(X\)</span> une variable aléatoire. On définit l’espérance mathématique de <span class="math notranslate nohighlight">\(X\)</span>, et on note \mathbb E(X)$ par :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbb E(X) = \mu_X = \displaystyle\sum_{x_i} x_iP(X=x_i)= \displaystyle\sum_{x_i} x_i P_X(x_i)\)</span> si <span class="math notranslate nohighlight">\(X\)</span> est discrète et si la somme converge.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb E(X) = \mu_X =\int_x xdP(x) = \int_x x f_X(x) dx\)</span> si l’intégrale converge.</p></li>
+</ul>
 </div>
+</div></div>
 </div>
 </div>
 </div>
