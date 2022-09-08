@@ -234,9 +234,7 @@ x = np.arange(0,12)
 f = np.zeros(12)
 n=10000                       
 for i in range(n):        
-    r=tirage() 
-    print(r)
-    f[r] += 1
+    f[tirage() ] += 1
 f=f/n                      
 
 plt.plot( x, f, 'o' )   

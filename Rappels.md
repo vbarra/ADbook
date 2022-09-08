@@ -262,4 +262,12 @@ Une variable aléatoire est une application mesurable $X:(\Omega,T,P) \rightarro
 - Si $E=\mathbb N^n$ ou $E=\mathbb R^n$n on parle de **vecteur aléatoire** de dimension $n$.
 ```
 
+### Autour des variables aléatoires
+
+```{prf:defin} Fonction de répartition
+La fonction de répartition d'une variable aléatoire $X$ est l'application $F_X$ de $\mathbb R$ dans [0,1] telle que $F_X(x) = P(X\leq x)$.
+```
+
+$F_X$ est donc monotone croissante, continue à droite et $P(a\leq X\leq b) = F_X(b)-F_X(a)$
+
 
