@@ -324,12 +324,16 @@ Une loi de probabilité est caractérisée par un certain nombre de grandeurs :
 #### Espérance mathématique d'une variable aléatoire
 
 ````{prf:definition} Espérance
-Soit $X$ une variable aléatoire. On définit l'espérance mathématique de $X$, et on note \mathbb E(X)$ par :
+Soit $X$ une variable aléatoire. On définit l'espérance mathématique de $X$, et on note $\mathbb E(X)$ par :
 - $\mathbb E(X) = \mu_X = \displaystyle\sum_{x_i} x_iP(X=x_i)= \displaystyle\sum_{x_i} x_i P_X(x_i)$ si $X$ est discrète et si la somme converge.
-- $\mathbb E(X) = \mu_X =\int_x xdP(x) = \int_x x f_X(x) dx$ si l'intégrale converge.
+- $\mathbb E(X) = \mu_X =\int_x xdP(x) = \int_x x f_X(x) dx$ si $X$ est continue et si l'intégrale converge.
 ````
 
+$\mathbb E(X)$ est la moyenne arithmétique (également notée $\mu_X$) des différentes valeurs prises par $X$ pondérées par leur probabilité.
 
+````{prf:example}
+Pour l'expérience d'un lancer de dé à 6 faces  : $\mathbb E(X) = \mu_X = \displaystyle\sum_{i=1}^6 i\frac16 = \frac72$
+````
 
 
 
