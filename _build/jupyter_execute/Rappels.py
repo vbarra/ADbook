@@ -282,14 +282,19 @@ f = np.zeros(12)
 n=10000                       
 for i in range(n):        
     f[tirage() ] += 1
-f=f/n                      
+f=f/n     
+
+
+plt.figure(figsize=(10,5))          
 plt.subplot(121)
 plt.plot( x, f, 'o' )   
 plt.vlines( x, 0, f )   
 plt.ylim( bottom=0 ) 
-plt.subplot(122)
+plt.title("Distribution")
+fig,ax = plt.subplot(122)
 plt.plot( x, f, 'o' )   
 plt.vlines( x, 0, f )   
 plt.ylim( bottom=0 ) 
+plt.title("Fonction de répartition")
 plt.show()
 

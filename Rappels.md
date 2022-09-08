@@ -290,13 +290,13 @@ for i in range(n):
 f=f/n     
 
 
-plt.figure(figsize=(10,5))          
+fig,ax = plt.figure(figsize=(10,5))          
 plt.subplot(121)
 plt.plot( x, f, 'o' )   
 plt.vlines( x, 0, f )   
 plt.ylim( bottom=0 ) 
 plt.title("Distribution")
-fig,ax = plt.subplot(122)
+plt.subplot(122)
 plt.plot( x, f, 'o' )   
 plt.vlines( x, 0, f )   
 plt.ylim( bottom=0 ) 
