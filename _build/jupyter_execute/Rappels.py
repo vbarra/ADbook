@@ -230,7 +230,7 @@ def tirage():
     d2=floor(6*random()+1)  
     return d1+d2 -1          
 
-x = np.arange(0,12)
+x = np.arange(0,12)+1
 f = np.zeros(12)
 n=10000                       
 for i in range(n):        
@@ -277,23 +277,28 @@ def tirage():
     d2=floor(6*random()+1)  
     return d1+d2 -1          
 
-x = np.arange(0,12)
+x = np.arange(0,12)+1
 f = np.zeros(12)
 n=10000                       
 for i in range(n):        
     f[tirage() ] += 1
 f=f/n     
 
+data = np.arange(0, 14)
+fn = np.insert(np.cumsum(f), 0, 0)
 
-fig,ax = plt.figure(figsize=(10,5))          
+plt.figure(figsize=(10,5))          
 plt.subplot(121)
 plt.plot( x, f, 'o' )   
 plt.vlines( x, 0, f )   
 plt.ylim( bottom=0 ) 
 plt.title("Distribution")
 plt.subplot(122)
-plt.plot( x, f, 'o' )   
-plt.vlines( x, 0, f )   
+
+plt.hlines(y=fn, xmin=data[:-1], xmax=data[1:],
+          color='red', zorder=1)
+plt.vlines(x=data[1:-1], ymin=fn[:-1], ymax=fn[1:], color='red',
+          linestyle='dashed', zorder=1)
 plt.ylim( bottom=0 ) 
 plt.title("Fonction de répartition")
 plt.show()
