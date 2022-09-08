@@ -365,3 +365,8 @@ plt.show()
 # 
 # 
 # Pour $k$=2, le moment centré d'ordre 2 est appelé la **variance** et est noté $\mathbb{V}(X)$. La racine carrée de la variance est **l'écart type** et est noté $\sigma_X$. On a donc $\sigma_X^2=\mathbb{V}(X)$.
+# 
+# ````{prf:definition} Formule de Koenig
+# $\mathbb{V}(X) = \mathbb{E}(X^2)-\mu_X^2$ 
+# ````
+# En effet, $\mathbb{E}\left [(X-\mu_X)^2 \right] = \mathbb{E}\left [(X^2-2\mu_XX+\mu_X^2 \right] = \mathbb{E}(X^2)-2\mu_X\mathbb{E}(X)+\mu_X^2$.
