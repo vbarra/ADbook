@@ -419,6 +419,11 @@ title="Print to PDF"
        Espérance mathématique d’une variable aléatoire
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#moment-d-une-fonction-d-une-variable-aleatoire">
+       Moment d’une fonction d’une variable aléatoire
+      </a>
+     </li>
     </ul>
    </li>
   </ul>
@@ -519,6 +524,11 @@ title="Print to PDF"
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#esperance-mathematique-d-une-variable-aleatoire">
        Espérance mathématique d’une variable aléatoire
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#moment-d-une-fonction-d-une-variable-aleatoire">
+       Moment d’une fonction d’une variable aléatoire
       </a>
      </li>
     </ul>
@@ -927,6 +937,28 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <p class="admonition-title"><span class="caption-number">Example 8 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Pour l’expérience d’un lancer de dé à 6 faces  : <span class="math notranslate nohighlight">\(\mathbb E(X) = \mu_X = \displaystyle\sum_{i=1}^6 i\frac16 = \frac72\)</span></p>
+</div>
+</div><div class="proof property admonition" id="property-26">
+<p class="admonition-title"><span class="caption-number">Property 2 </span></p>
+<div class="property-content section" id="proof-content">
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((\forall a\in\mathbb{R})\; \mathbb{E}(a)= a\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((\forall a\in\mathbb{R})\; \mathbb{E}(aX)= a\mathbb{E}(X)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((\forall a\in\mathbb{R})\; \mathbb{E}(X+a) = \mathbb{E}(X) +a\)</span></p></li>
+</ul>
+</div>
+</div></div>
+<div class="section" id="moment-d-une-fonction-d-une-variable-aleatoire">
+<h4>Moment d’une fonction d’une variable aléatoire<a class="headerlink" href="#moment-d-une-fonction-d-une-variable-aleatoire" title="Permalink to this headline">#</a></h4>
+<p>Soit <span class="math notranslate nohighlight">\(\phi\)</span> l’application qui associe à toute variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> la variable aléatoire <span class="math notranslate nohighlight">\(Y=\phi(X)\)</span>.</p>
+<div class="proof definition admonition" id="definition-27">
+<p class="admonition-title"><span class="caption-number">Definition 13 </span> (Moment)</p>
+<div class="definition-content section" id="proof-content">
+<p>Le moment  <span class="math notranslate nohighlight">\(\mathbb{E}[\phi(X)]\)</span> de la fonction <span class="math notranslate nohighlight">\(\phi\)</span> de la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est égal à :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbb{E}[\phi(X)] = \displaystyle\sum_{x_i} \phi(x_i)P_X(x_i)\)</span> si <span class="math notranslate nohighlight">\(X\)</span> est discrète</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{E}[\phi(X)] = \int_x \phi(x) f_X(x)dx\)</span> si <span class="math notranslate nohighlight">\(X\)</span> est continue</p></li>
+</ul>
 </div>
 </div></div>
 </div>

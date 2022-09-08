@@ -326,3 +326,19 @@ plt.show()
 # ````{prf:example}
 # Pour l'expérience d'un lancer de dé à 6 faces  : $\mathbb E(X) = \mu_X = \displaystyle\sum_{i=1}^6 i\frac16 = \frac72$
 # ````
+# 
+# ````{prf:property}
+# - $(\forall a\in\mathbb{R})\; \mathbb{E}(a)= a$
+# - $(\forall a\in\mathbb{R})\; \mathbb{E}(aX)= a\mathbb{E}(X)$
+# - $(\forall a\in\mathbb{R})\; \mathbb{E}(X+a) = \mathbb{E}(X) +a$
+# ````
+# 
+# #### Moment d'une fonction d'une variable aléatoire
+# 
+# Soit $\phi$ l'application qui associe à toute variable aléatoire $X$ la variable aléatoire $Y=\phi(X)$.
+# 
+# ````{prf:definition} Moment
+# Le moment  $\mathbb{E}[\phi(X)]$ de la fonction $\phi$ de la variable aléatoire $X$ est égal à :
+# - $\mathbb{E}[\phi(X)] = \displaystyle\sum_{x_i} \phi(x_i)P_X(x_i)$ si $X$ est discrète
+# - $\mathbb{E}[\phi(X)] = \int_x \phi(x) f_X(x)dx$ si $X$ est continue
+# ````
