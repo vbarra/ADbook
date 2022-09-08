@@ -217,9 +217,8 @@
 # 
 # On note souvent $P_X(B) = P(X^{-1}(B))=P(\{\omega / X(\omega)\in B\})$ et on l'appelle **probabilité image** de $P$ par $X$. En calculant la probabilité de chaque réalisation de la variable aléatoire $X$, on peut en déduire la **loi de probabilité** (ou **distribution**) de $X$.
 # 
-# Pour une variable aléatoire discrète $X$, la loi de probabilité est donc $P_X(x_i)= P(X=x_i) = P(\{\omega / X(\omega)=x_i\})$. $P_X$ est appelée **masse ponctuelle**
-# 
-# Pour une variable aléatoire continue $X$, la loi de probabilité est donc $f_X(x)dx = P(x\leq X\leq x+dx) = P(\{\omega /x\leq X(\omega)\leq x+dx\})$. $f_X$ est appelée **densité de probabilité**
+# - Pour une variable aléatoire discrète $X$, la loi de probabilité est donc $P_X(x_i)= P(X=x_i) = P(\{\omega / X(\omega)=x_i\})$. $P_X$ est appelée **masse ponctuelle**
+# - Pour une variable aléatoire continue $X$, la loi de probabilité est donc $f_X(x)dx = P(x\leq X\leq x+dx) = P(\{\omega /x\leq X(\omega)\leq x+dx\})$. $f_X$ est appelée **densité de probabilité**
 
 # In[1]:
 
