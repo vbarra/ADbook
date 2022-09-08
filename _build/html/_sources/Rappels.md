@@ -351,4 +351,16 @@ Le moment  $\mathbb{E}[\phi(X)]$ de la fonction $\phi$ de la variable aléatoire
 - $\mathbb{E}[\phi(X)] = \int_x \phi(x) f_X(x)dx$ si $X$ est continue
 ```` 
 
+````{prf:definition} Moment d'ordre $k$
+Le moment d'ordre $k$ d'une variable aléatoire $X$ est égal à :
+- $\mathbb{E}(X^k) = \displaystyle\sum_{x_i} x_i^k P_X(x_i)$ si $X$ est discrète
+- $ \mathbb{E}(X^k) = \int_x x^k f_X(x)dx$ si $X$ est continue
+```` 
+
+Le moment d'ordre $k$ est donc nu cas particulier avec $Y=X^k$.
+
+```{prf:remark}
+:class: dropdown
+L'espérance $\mathbb{E}(X)$ est le moment d'ordre 1.
+```
 
