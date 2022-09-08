@@ -410,9 +410,16 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#autour-des-variables-aleatoires">
-     Autour des variables aléatoires
+    <a class="reference internal nav-link" href="#caracteristiques-des-variables-aleatoires">
+     Caractéristiques des variables aléatoires
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#esperance-mathematique-d-une-variable-aleatoire">
+       Espérance mathématique d’une variable aléatoire
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -505,9 +512,16 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#autour-des-variables-aleatoires">
-     Autour des variables aléatoires
+    <a class="reference internal nav-link" href="#caracteristiques-des-variables-aleatoires">
+     Caractéristiques des variables aléatoires
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#esperance-mathematique-d-une-variable-aleatoire">
+       Espérance mathématique d’une variable aléatoire
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -815,26 +829,8 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <img alt="_images/Rappels_1_0.png" src="_images/Rappels_1_0.png" />
 </div>
 </div>
-<p>La notion de variable aléatoire est une formalisation de la notion de grandeur variant selon le résultat d’une expérience aléatoire. On peut alors préciser et formaliser la définition précédente.</p>
 <div class="proof definition admonition" id="definition-21">
-<p class="admonition-title"><span class="caption-number">Definition 10 </span> (Variable aléatoire)</p>
-<div class="definition-content section" id="proof-content">
-<p>Une variable aléatoire est une application mesurable <span class="math notranslate nohighlight">\(X:(\Omega,T,P) \rightarrow (E,T')\)</span></p>
-</div>
-</div><div class="proof remark dropdown admonition" id="remark-22">
-<p class="admonition-title"><span class="caption-number">Remark 3 </span></p>
-<div class="remark-content section" id="proof-content">
-<ul class="simple">
-<li><p>Si <span class="math notranslate nohighlight">\(E=\mathbb N\)</span>, on parle de variable aléatoire (réelle) discrète</p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(E=\mathbb R\)</span>, on parle de variable aléatoire (réelle) continue. <span class="math notranslate nohighlight">\(T'\)</span> est alors la tribu <strong>borélienne</strong></p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(E=\mathbb N^n\)</span> ou <span class="math notranslate nohighlight">\(E=\mathbb R^n\)</span>n on parle de <strong>vecteur aléatoire</strong> de dimension <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
-</ul>
-</div>
-</div></div>
-<div class="section" id="autour-des-variables-aleatoires">
-<h3>Autour des variables aléatoires<a class="headerlink" href="#autour-des-variables-aleatoires" title="Permalink to this headline">#</a></h3>
-<div class="proof definition admonition" id="definition-23">
-<p class="admonition-title"><span class="caption-number">Definition 11 </span> (Fonction de répartition)</p>
+<p class="admonition-title"><span class="caption-number">Definition 10 </span> (Fonction de répartition)</p>
 <div class="definition-content section" id="proof-content">
 <p>La fonction de répartition d’une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est l’application <span class="math notranslate nohighlight">\(F_X\)</span> de <span class="math notranslate nohighlight">\(\mathbb R\)</span> dans [0,1] telle que <span class="math notranslate nohighlight">\(F_X(x) = P(X\leq x)\)</span>.</p>
 </div>
@@ -886,6 +882,33 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <div class="cell_output docutils container">
 <img alt="_images/Rappels_3_0.png" src="_images/Rappels_3_0.png" />
 </div>
+</div>
+<p>La notion de variable aléatoire est ainsi une formalisation de la notion de grandeur variant selon le résultat d’une expérience aléatoire. On peut alors préciser et formaliser la définition précédente.</p>
+<div class="proof definition admonition" id="definition-22">
+<p class="admonition-title"><span class="caption-number">Definition 11 </span> (Variable aléatoire)</p>
+<div class="definition-content section" id="proof-content">
+<p>Une variable aléatoire est une application mesurable <span class="math notranslate nohighlight">\(X:(\Omega,T,P) \rightarrow (E,T')\)</span></p>
+</div>
+</div><div class="proof remark dropdown admonition" id="remark-23">
+<p class="admonition-title"><span class="caption-number">Remark 3 </span></p>
+<div class="remark-content section" id="proof-content">
+<ul class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(E=\mathbb N\)</span>, on parle de variable aléatoire (réelle) discrète</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(E=\mathbb R\)</span>, on parle de variable aléatoire (réelle) continue. <span class="math notranslate nohighlight">\(T'\)</span> est alors la tribu <strong>borélienne</strong></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(E=\mathbb N^n\)</span> ou <span class="math notranslate nohighlight">\(E=\mathbb R^n\)</span>n on parle de <strong>vecteur aléatoire</strong> de dimension <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
+</ul>
+</div>
+</div></div>
+<div class="section" id="caracteristiques-des-variables-aleatoires">
+<h3>Caractéristiques des variables aléatoires<a class="headerlink" href="#caracteristiques-des-variables-aleatoires" title="Permalink to this headline">#</a></h3>
+<p>Une loi de probabilité est caractérisée par un certain nombre de grandeurs :</p>
+<ul class="simple">
+<li><p>sa valeur centrale</p></li>
+<li><p>sa dispersion</p></li>
+<li><p>sa forme</p></li>
+</ul>
+<div class="section" id="esperance-mathematique-d-une-variable-aleatoire">
+<h4>Espérance mathématique d’une variable aléatoire<a class="headerlink" href="#esperance-mathematique-d-une-variable-aleatoire" title="Permalink to this headline">#</a></h4>
 </div>
 </div>
 </div>
