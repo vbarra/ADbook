@@ -249,21 +249,6 @@ plt.ylim( bottom=0 )
 plt.show()
 ```
 
-La notion de variable aléatoire est une formalisation de la notion de grandeur variant selon le résultat d'une expérience aléatoire. On peut alors préciser et formaliser la définition précédente.
-
-````{prf:definition} Variable aléatoire
-Une variable aléatoire est une application mesurable $X:(\Omega,T,P) \rightarrow (E,T')$ 
-```` 
-
-```{prf:remark}
-:class: dropdown
-- Si $E=\mathbb N$, on parle de variable aléatoire (réelle) discrète
-- Si $E=\mathbb R$, on parle de variable aléatoire (réelle) continue. $T'$ est alors la tribu **borélienne**
-- Si $E=\mathbb N^n$ ou $E=\mathbb R^n$n on parle de **vecteur aléatoire** de dimension $n$.
-```
-
-### Autour des variables aléatoires
-
 ```{prf:definition} Fonction de répartition
 La fonction de répartition d'une variable aléatoire $X$ est l'application $F_X$ de $\mathbb R$ dans [0,1] telle que $F_X(x) = P(X\leq x)$.
 ```
@@ -310,6 +295,29 @@ plt.ylim( bottom=0 )
 plt.title("Fonction de répartition")
 plt.show()
 ```
+
+La notion de variable aléatoire est ainsi une formalisation de la notion de grandeur variant selon le résultat d'une expérience aléatoire. On peut alors préciser et formaliser la définition précédente.
+
+````{prf:definition} Variable aléatoire
+Une variable aléatoire est une application mesurable $X:(\Omega,T,P) \rightarrow (E,T')$ 
+```` 
+
+```{prf:remark}
+:class: dropdown
+- Si $E=\mathbb N$, on parle de variable aléatoire (réelle) discrète
+- Si $E=\mathbb R$, on parle de variable aléatoire (réelle) continue. $T'$ est alors la tribu **borélienne**
+- Si $E=\mathbb N^n$ ou $E=\mathbb R^n$n on parle de **vecteur aléatoire** de dimension $n$.
+```
+
+### Caractéristiques des variables aléatoires
+Une loi de probabilité est caractérisée par un certain nombre de grandeurs :
+- sa valeur centrale
+- sa dispersion
+- sa forme
+
+#### Espérance mathématique d'une variable aléatoire
+
+
 
 
 

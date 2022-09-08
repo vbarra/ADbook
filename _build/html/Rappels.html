@@ -838,7 +838,11 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <div class="definition-content section" id="proof-content">
 <p>La fonction de répartition d’une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est l’application <span class="math notranslate nohighlight">\(F_X\)</span> de <span class="math notranslate nohighlight">\(\mathbb R\)</span> dans [0,1] telle que <span class="math notranslate nohighlight">\(F_X(x) = P(X\leq x)\)</span>.</p>
 </div>
-</div><p><span class="math notranslate nohighlight">\(F_X\)</span> est donc monotone croissante, continue à droite et <span class="math notranslate nohighlight">\(P(a\leq X\leq b) = F_X(b)-F_X(a)\)</span></p>
+</div><p><span class="math notranslate nohighlight">\(F_X\)</span> est donc monotone croissante, continue à droite et on a en particulier :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(a\leq X\leq b) = F_X(b)-F_X(a)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(X&gt;x) = 1-P(X\leq x) = 1-F_X(x)\)</span></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span>

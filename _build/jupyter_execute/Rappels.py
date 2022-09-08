@@ -262,7 +262,9 @@ plt.show()
 # La fonction de répartition d'une variable aléatoire $X$ est l'application $F_X$ de $\mathbb R$ dans [0,1] telle que $F_X(x) = P(X\leq x)$.
 # ```
 # 
-# $F_X$ est donc monotone croissante, continue à droite et $P(a\leq X\leq b) = F_X(b)-F_X(a)$
+# $F_X$ est donc monotone croissante, continue à droite et on a en particulier :  
+# - $P(a\leq X\leq b) = F_X(b)-F_X(a)$
+# - $P(X>x) = 1-P(X\leq x) = 1-F_X(x)$
 
 # In[2]:
 
