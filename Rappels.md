@@ -390,6 +390,6 @@ En effet, $\mathbb{E}\left [(X-\mu_X)^2 \right] = \mathbb{E}\left [(X^2-2\mu_XX+
 
 On dira que la variable aléatoire $X$ est **réduite** (ou **normée**) si $\mathbb{V}(X)=1$.
 
-#### Moment d'ordre supérieur
+#### Moments d'ordre supérieur
 On considère également souvent les moments d'ordre 3 (coefficient d'asymétrie ou skewness) et 4 (coefficient d'applatissement ou kurtosis).
 

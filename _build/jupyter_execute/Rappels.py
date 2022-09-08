@@ -323,6 +323,8 @@ plt.show()
 # 
 # $\mathbb E(X)$ est la moyenne arithmétique (également notée $\mu_X$) des différentes valeurs prises par $X$ pondérées par leur probabilité.
 # 
+# On dira que $X$ est **centrée** si $\mathbb{E}(X)=0$.
+# 
 # ````{prf:example}
 # Pour l'expérience d'un lancer de dé à 6 faces  : $\mathbb E(X) = \mu_X = \displaystyle\sum_{i=1}^6 i\frac16 = \frac72$
 # ````
@@ -363,6 +365,7 @@ plt.show()
 # - pour une variable aléatoire discrète $X$, $\mathbb{E}\left [(X-\mathbb{E}(X))^k \right] = \displaystyle\sum_{x_i} (x_i-\mathbb{E}(X))^k P_X(x_i) = \displaystyle\sum_{x_i} (x_i-\mu_X)^k P_X(x_i)$
 # - pour une variable aléatoire continue $X$, $\mathbb{E}\left [(X-\mathbb{E}(X))^k \right] = \int_x (x-\mathbb{E}(X))^k f_X(x)dx = \int_x (x-\mu_X)^k f_X(x)dx$
 # 
+# #### Variance d'une variable aléatoire
 # 
 # Pour $k$=2, le moment centré d'ordre 2 est appelé la **variance** et est noté $\mathbb{V}(X)$. La racine carrée de la variance est **l'écart type** et est noté $\sigma_X$. On a donc $\sigma_X^2=\mathbb{V}(X)$.
 # 
@@ -376,3 +379,8 @@ plt.show()
 # - $(\forall a\in\mathbb{R})\; \mathbb{E}\left [(X-a)^2\right ] = \mathbb V(X) +(\mathbb{E}(X)-a)^2$ (théorème de Huygens)
 # - $\forall k>0\; P(|X-\mathbb{E}(X)|\geq k\sigma_X)\leq \frac{1}{k^2}$ (inégalité de Bienaymé-Tchebychev)
 # ````
+# 
+# On dira que la variable aléatoire $X$ est **réduite** (ou **normée**) si $\mathbb{V}(X)=1$.
+# 
+# #### Moment d'ordre supérieur
+# On considère également souvent les moments d'ordre 3 (coefficient d'asymétrie ou skewness) et 4 (coefficient d'applatissement ou kurtosis).

@@ -424,6 +424,16 @@ title="Print to PDF"
        Moment d’une fonction d’une variable aléatoire
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#variance-d-une-variable-aleatoire">
+       Variance d’une variable aléatoire
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#moment-d-ordre-superieur">
+       Moment d’ordre supérieur
+      </a>
+     </li>
     </ul>
    </li>
   </ul>
@@ -529,6 +539,16 @@ title="Print to PDF"
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#moment-d-une-fonction-d-une-variable-aleatoire">
        Moment d’une fonction d’une variable aléatoire
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#variance-d-une-variable-aleatoire">
+       Variance d’une variable aléatoire
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#moment-d-ordre-superieur">
+       Moment d’ordre supérieur
       </a>
      </li>
     </ul>
@@ -933,6 +953,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </ul>
 </div>
 </div><p><span class="math notranslate nohighlight">\(\mathbb E(X)\)</span> est la moyenne arithmétique (également notée <span class="math notranslate nohighlight">\(\mu_X\)</span>) des différentes valeurs prises par <span class="math notranslate nohighlight">\(X\)</span> pondérées par leur probabilité.</p>
+<p>On dira que <span class="math notranslate nohighlight">\(X\)</span> est <strong>centrée</strong> si <span class="math notranslate nohighlight">\(\mathbb{E}(X)=0\)</span>.</p>
 <div class="proof example admonition" id="example-25">
 <p class="admonition-title"><span class="caption-number">Example 8 </span></p>
 <div class="example-content section" id="proof-content">
@@ -985,6 +1006,9 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <li><p>pour une variable aléatoire discrète <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(\mathbb{E}\left [(X-\mathbb{E}(X))^k \right] = \displaystyle\sum_{x_i} (x_i-\mathbb{E}(X))^k P_X(x_i) = \displaystyle\sum_{x_i} (x_i-\mu_X)^k P_X(x_i)\)</span></p></li>
 <li><p>pour une variable aléatoire continue <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(\mathbb{E}\left [(X-\mathbb{E}(X))^k \right] = \int_x (x-\mathbb{E}(X))^k f_X(x)dx = \int_x (x-\mu_X)^k f_X(x)dx\)</span></p></li>
 </ul>
+</div>
+<div class="section" id="variance-d-une-variable-aleatoire">
+<h4>Variance d’une variable aléatoire<a class="headerlink" href="#variance-d-une-variable-aleatoire" title="Permalink to this headline">#</a></h4>
 <p>Pour <span class="math notranslate nohighlight">\(k\)</span>=2, le moment centré d’ordre 2 est appelé la <strong>variance</strong> et est noté <span class="math notranslate nohighlight">\(\mathbb{V}(X)\)</span>. La racine carrée de la variance est <strong>l’écart type</strong> et est noté <span class="math notranslate nohighlight">\(\sigma_X\)</span>. On a donc <span class="math notranslate nohighlight">\(\sigma_X^2=\mathbb{V}(X)\)</span>.</p>
 <div class="proof proposition admonition" id="proposition-31">
 <p class="admonition-title"><span class="caption-number">Proposition 1 </span> (Formule de Koenig)</p>
@@ -1001,7 +1025,12 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <li><p><span class="math notranslate nohighlight">\(\forall k&gt;0\; P(|X-\mathbb{E}(X)|\geq k\sigma_X)\leq \frac{1}{k^2}\)</span> (inégalité de Bienaymé-Tchebychev)</p></li>
 </ul>
 </div>
-</div></div>
+</div><p>On dira que la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est <strong>réduite</strong> (ou <strong>normée</strong>) si <span class="math notranslate nohighlight">\(\mathbb{V}(X)=1\)</span>.</p>
+</div>
+<div class="section" id="moment-d-ordre-superieur">
+<h4>Moment d’ordre supérieur<a class="headerlink" href="#moment-d-ordre-superieur" title="Permalink to this headline">#</a></h4>
+<p>On considère également souvent les moments d’ordre 3 (coefficient d’asymétrie ou skewness) et 4 (coefficient d’applatissement ou kurtosis).</p>
+</div>
 </div>
 </div>
 </div>
