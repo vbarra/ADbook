@@ -216,6 +216,10 @@
 # Dans les deux exemples précédents, on a par exemple $X^{-1}(1)= \{Pile\}$ ou encore $X^{-1}(3) = \{(1,2),(2,1)\}$ et $P(X=3)=P(X^{-1}(3)) = \frac{2}{36}$.
 # 
 # On note souvent $P_X(B) = P(X^{-1}(B))=P(\{\omega / X(\omega)\in B\})$ et on l'appelle **probabilité image** de $P$ par $X$. En calculant la probabilité de chaque réalisation de la variable aléatoire $X$, on peut en déduire la **loi de probabilité** (ou **distribution**) de $X$.
+# 
+# Pour une variable aléatoire discrète $X$, la loi de probabilité est donc $P_X(x_i)= P(X=x_i) = P(\{\omega / X(\omega)=x_i\})$. $P_X$ est appelée **masse ponctuelle**
+# 
+# Pour une variable aléatoire continue $X$, la loi de probabilité est donc $f_X(x)dx = P(x\leq X\leq x+dx) = P(\{\omega /x\leq X(\omega)\leq x+dx\})$. $f_X$ est appelée **densité de probabilité**
 
 # In[1]:
 
@@ -243,9 +247,6 @@ plt.ylim( bottom=0 )
 plt.show()
 
 
-# - Pour une variable aléatoire discrète $X$, la loi de probabilité est donc $P_X(x_i)= P(X=x_i) = P(\{\omega / X(\omega)=x_i\})$. $P_X$ est appelée **masse ponctuelle**
-# - Pour une variable aléatoire continue $X$, la loi de probabilité est donc $f_X(x)dx = P(x\leq X\leq x+dx) = P(\{\omega /x\leq X(\omega)\leq x+dx\})$. $f_X$ est appelée **densité de probabilité**
-# 
 # ```{prf:definition} Fonction de répartition
 # La fonction de répartition d'une variable aléatoire $X$ est l'application $F_X$ de $\mathbb R$ dans [0,1] telle que $F_X(x) = P(X\leq x)$.
 # ```
