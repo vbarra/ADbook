@@ -47,6 +47,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Rappels" href="Rappels.html" />
@@ -344,9 +346,26 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quelques-exemples">
-   Quelques exemples
+  <a class="reference internal nav-link" href="#elements-de-vocabulaire">
+   Eléments de vocabulaire
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probabilites-et-statistiques">
+   Probabilités et statistiques
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#approche-frequentiste">
+     Approche fréquentiste
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#approche-bayesienne">
+     Approche bayésienne
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -368,9 +387,26 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quelques-exemples">
-   Quelques exemples
+  <a class="reference internal nav-link" href="#elements-de-vocabulaire">
+   Eléments de vocabulaire
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probabilites-et-statistiques">
+   Probabilités et statistiques
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#approche-frequentiste">
+     Approche fréquentiste
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#approche-bayesienne">
+     Approche bayésienne
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -384,17 +420,35 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="introduction-aux-statistiques">
 <h1>Introduction aux statistiques<a class="headerlink" href="#introduction-aux-statistiques" title="Permalink to this headline">#</a></h1>
-<div class="section" id="quelques-exemples">
-<h2>Quelques exemples<a class="headerlink" href="#quelques-exemples" title="Permalink to this headline">#</a></h2>
-<div class="proof example admonition" id="example-0">
-<p class="admonition-title"><span class="caption-number">Example 9 </span></p>
-<div class="example-content section" id="proof-content">
+<div class="section" id="elements-de-vocabulaire">
+<h2>Eléments de vocabulaire<a class="headerlink" href="#elements-de-vocabulaire" title="Permalink to this headline">#</a></h2>
+<p>On définit ici de manière informelle les termes utilisés dans la suite :</p>
+<ul class="simple">
+<li><p><strong>Population</strong> : ensemble de cardinalité finie, notée <span class="math notranslate nohighlight">\(N\)</span>, ou infinie</p></li>
+<li><p><strong>Echantillon</strong> : sous-ensemble de la population, de cardinalité <span class="math notranslate nohighlight">\(n\)</span></p></li>
+<li><p><strong>Individu</strong> : sous-ensemble de la population ou de l’échantillon, de cardinalité 1</p></li>
+<li><p><strong>Caractère</strong> : nature de la caractéristique à laquelle on s’intéresse statistiquement. Il peut être <strong>qualitatif</strong> (nominal ou ordinal) ou <strong>quantitatif</strong>(discret ou continu)</p></li>
+</ul>
 </div>
-</div><div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 10 </span></p>
-<div class="example-content section" id="proof-content">
+<div class="section" id="probabilites-et-statistiques">
+<h2>Probabilités et statistiques<a class="headerlink" href="#probabilites-et-statistiques" title="Permalink to this headline">#</a></h2>
+<p>La question qui se pose est la suivante : comment définir ou estimer la valeur de probabilité associée àun  évènement ?
+Plusieurs points de vue ont été proposés et adoptés que synthétisons très brièvement.</p>
+<div class="section" id="approche-frequentiste">
+<h3>Approche fréquentiste<a class="headerlink" href="#approche-frequentiste" title="Permalink to this headline">#</a></h3>
+<p>Ce point de vue historique, souvent présenté comme le plus “naturel” ou “objectif”, consiste à définir une probabilité comme la limite de la fréquence d’observation de la caractéristique lorsque la taille de l’echantillon devient infinie. On suppose ici que les probabilités sont une loi de la nature qu’il faut mesurer par l’expérience. En pratique, la probabilité d’un  évènement est donc estimée/approximée en répétant un très grand nombre de fois l’expérience dans les mêmes conditions. C’est de ces expériences répétées dont il a fallu analyser les résultats que sont nés les outils de la statistiques tels que la régression linéaire ou le test du <span class="math notranslate nohighlight">\(\chi^2\)</span>.
+On rencontre néanmoins très rapidement des limitations avec ce point de vue. D’une part, il est impossible d’un point de vue fréquentiste de traiter de tous petits échantillons de données. De plus, certains types de données ne sont tout simplement pas exploitables en raison de leur caractère non expérimental (par exemple, quelle probabilité associer à un évènement du type “nombre de votants aux prochaines élections” qui n’est pas répétable pa nature). Enfin, il est parfois difficile de définir un modèle  permettant de modéliser une erreur de mesure ou la variation observée d’un caractère dans une population.</p>
 </div>
-</div></div>
+<div class="section" id="approche-bayesienne">
+<h3>Approche bayésienne<a class="headerlink" href="#approche-bayesienne" title="Permalink to this headline">#</a></h3>
+<div class="margin sidebar">
+<p class="sidebar-title">T. Bayes</p>
+<p><img alt="" src="_images/bayes.jpeg" /></p>
+</div>
+<p>Un point de vue bien différent consiste à définir les probabilités comme une mesure subjective de l’incertitude. Dans ce cadre, tout événement peut être probabilisé à partir d’un a priori de l’observateur. Ce point de vue est appelé Bayésien (fait appel à la règle de Bayes) pour calculer la loi de probabilité des évènements à partir des échantillons de données a posteriori. L’intérêt majeur de ce type de démarche est que tout est probabilisable (jusqu’aux paramètres du modèle utilisé) et qu’il s’appuie sur des résultats de la théorie des probabilités, comme le théorème central limite.
+Ce point de vue “subjectif” a longtemps été dénoncé par les “fréquentistes” qui rejettent l’idée que l’on puisse définir un tel a priori sur les évènements. En effet, l’objection majeure que l’on oppose souvent à la méthodologie Bayésienne est que deux observateurs différents, ayant des a priori différents, donneront des résultats ou des interprétations différentes.</p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
