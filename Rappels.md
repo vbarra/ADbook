@@ -50,8 +50,6 @@ L'univers des possibles n'est pas défini de manière unique, mais dépend de l'
 Etant donnée une expérience aléatoire, un **évènement** est une assertion vraie ou fausse suivant l'issue de l'expérience. C'est donc un sous-ensemble $E$ de $\Omega$.
 ````
 
-
-
 ````{prf:example}
 - Dans l'expérience du lancer de deux dés, on peut s'intéresser à l'évènement "la somme des deux faces est paire" ou encore  "la somme est supérieure à 7".
 - Si l'expérience considérée concerne les jobs effectués sur une machine on peut considérer :
@@ -90,6 +88,9 @@ Les évènements peuvent être interprétés soit d'un point de vue ensembliste 
 ### Objectif
 L'objectif des probabilités est de donner une **mesure** à la chance qu'a un évènement de se réaliser lors d'une expérience aléatoire. Pour ce faire, on définit une fonction $P:\Omega\rightarrow [0,1]$ vérifiant certains axiomes et propriétés.
 
+```{index} Tribu
+``` 
+
 ````{prf:definition} Tribu
 :label: tribu
 Soit $T$ une famille d'évènements. Pour que $T$ soit probabilisable, il faut que :
@@ -112,6 +113,8 @@ On peut également s'intéresser, si $\Omega=\mathbb R$, à la tribu engendrée 
 ```{margin} A. Kolmogorov
 ![](./images/kolmogorov.jpeg)
 ```
+```{index} Probabilité
+``` 
 ```{prf:axiom} Axiomatique de Kolmogorov
 :label: axiomKolmo
 On appelle **probabilité** sur $(\Omega,T)$ une application $P$ de $T$ dans [0,1] vérifiant :
@@ -129,6 +132,8 @@ On appelle **probabilité** sur $(\Omega,T)$ une application $P$ de $T$ dans [0,
 ````
 ### Conditionnement
 Les probabilités **conditionnelles** intègrent une information supplémentaire sous la forme de l'observation de la réalisation d'un évènement donné.
+```{index} Probabilité ; conditionnelle
+``` 
 ````{prf:definition} Probabilité conditionnelle
 Soit $B$ un évènement de probabilité non nulle. On appelle **probabilité conditionnelle** de $A$ sachant $B$ le rapport 
 
@@ -147,6 +152,8 @@ $P(B\mid A)=\frac{P(B\mid A)P(A)}{P(B}$ = 0.098
 ````
 
 ### Indépendance
+```{index} Indépendance
+``` 
 ````{prf:definition} Indépendance
 Deux évènements $A$ et $B$ sont dits **indépendants** si et seulement si $P(A\mid B) = P(A)$.
 ````
