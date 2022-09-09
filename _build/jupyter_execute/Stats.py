@@ -20,5 +20,8 @@
 # On rencontre néanmoins très rapidement des limitations avec ce point de vue. D’une part, il est impossible d’un point de vue fréquentiste de traiter de tous petits échantillons de données. De plus, certains types de données ne sont tout simplement pas exploitables en raison de leur caractère non expérimental (par exemple, quelle probabilité associer à un évènement du type “nombre de votants aux prochaines élections” qui n’est pas répétable pa nature). Enfin, il est parfois difficile de définir un modèle  permettant de modéliser une erreur de mesure ou la variation observée d’un caractère dans une population.
 # 
 # ### Approche bayésienne
+# ```{margin} A. Kolmogorov
+# ![](./images/kolmogorov.jpeg)
+# ```
 # Un point de vue bien différent consiste à définir les probabilités comme une mesure subjective de l'incertitude. Dans ce cadre, tout événement peut être probabilisé à partir d’un a priori de l’observateur. Ce point de vue est appelé Bayésien (fait appel à la règle de Bayes) pour calculer la loi de probabilité des évènements à partir des échantillons de données a posteriori. L’intérêt majeur de ce type de démarche est que tout est probabilisable (jusqu’aux paramètres du modèle utilisé) et qu'il s’appuie sur des résultats de la théorie des probabilités, comme le théorème central limite.
 # Ce point de vue “subjectif” a longtemps été dénoncé par les “fréquentistes” qui rejettent l’idée que l’on puisse définir un tel a priori sur les évènements. En effet, l’objection majeure que l’on oppose souvent à la méthodologie Bayésienne est que deux observateurs différents, ayant des a priori différents, donneront des résultats ou des interprétations différentes.
