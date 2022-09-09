@@ -33,3 +33,13 @@ On rencontre néanmoins très rapidement des limitations avec ce point de vue. D
 ```
 Un point de vue bien différent consiste à définir les probabilités comme une mesure subjective de l'incertitude. Dans ce cadre, tout événement peut être probabilisé à partir d’un a priori de l’observateur. Ce point de vue est appelé Bayésien (fait appel à la règle de Bayes) pour calculer la loi de probabilité des évènements à partir des échantillons de données a posteriori. L’intérêt majeur de ce type de démarche est que tout est probabilisable (jusqu’aux paramètres du modèle utilisé) et qu'il s’appuie sur des résultats de la théorie des probabilités, comme le théorème central limite.
 Ce point de vue “subjectif” a longtemps été dénoncé par les “fréquentistes” qui rejettent l’idée que l’on puisse définir un tel a priori sur les évènements. En effet, l’objection majeure que l’on oppose souvent à la méthodologie Bayésienne est que deux observateurs différents, ayant des a priori différents, donneront des résultats ou des interprétations différentes.
+
+## Démarche générale
+De manière assez générale, une étude statistique consiste à obtenir des informations sur un caractère concernant une population de grande taille en s'appuyant sur celles d'un sous-ensemble de taille réduite (l'échantillon), afin le plus souvent d'orienter une décision. Le choix de l'échantillon se fera par tirage avec ou sans remise, par tirage uniforme ("au hasard") ou non (tirage stratifié dans le cas d'un sondage par exemple, ou selon une loi de probabilité précise si une information a priori est disponible). 
+On estime alors des propriétés d'un caractère de l'échantillon. A partir de ces estimations, on cherche à donner "au mieux" des valeurs aux paramètres correspondant de la population (la moyenne, la variance,...). L'estimation pourra être ponctuelle ou par intervalle de confiance. On pourra également s'intéresser à des tests d'ajustement (ou d'adéquation) à une loi de type donné. La décision, étape finale de l'analyse statistique, se fera par des tests statistiques.
+
+La science des statistiques se décompose donc en :
+- la **statistique descriptive**, dont l'objectif est de décrire le caractère d'un échantillon en résumant l'information qu'il contient
+- la **statistique inférentielle**, dont l'objectif estr d'inférer, à partir de l'information recueillie sur l'échantillon, des propriétés valables sur la population, de manière la plus fiable possible.
+
+A cette dichotomie s'ajoute la **statistique exploratoire**, branche de l'analyse de données, qui cherche à comprendre l'organisation des individus de l'échantillon (existe-t-il des groupes d'individus semblables ? les caractères mesurés sont-ils les plus pertinents ?...)
