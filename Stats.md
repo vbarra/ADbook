@@ -13,9 +13,17 @@ kernelspec:
 
 ## Eléments de vocabulaire
 On définit ici de manière informelle les termes utilisés dans la suite :
+```{index} Population
+```
 - **Population** : ensemble de cardinalité finie, notée $N$, ou infinie
+```{index} Echantillon
+```
 - **Echantillon** : sous-ensemble de la population, de cardinalité $n$
+```{index} Individu
+```
 - **Individu** : sous-ensemble de la population ou de l'échantillon, de cardinalité 1
+```{index} Caractère
+```
 - **Caractère** : nature de la caractéristique à laquelle on s'intéresse statistiquement. Il peut être **qualitatif** (nominal ou ordinal) ou **quantitatif** (discret ou continu)
 
 
