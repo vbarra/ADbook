@@ -3,5 +3,5 @@ git commit -m "changes"
 git push
 cd ..
 jupyter-book build  ADbook/ 
-cd ANbook
+cd ADbook
 ghp-import -n -p -f _build/html
