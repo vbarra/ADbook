@@ -10,3 +10,12 @@ kernelspec:
   name: python3
 ---
 # Introduction aux statistiques
+
+## Quelques exemples
+````{prf:example}
+
+````
+
+````{prf:example}
+
+````
