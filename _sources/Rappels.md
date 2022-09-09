@@ -348,7 +348,8 @@ Une loi de probabilité est caractérisée par un certain nombre de grandeurs :
 - sa forme
 
 #### Espérance mathématique d'une variable aléatoire
-
+```{index} Espérance
+```
 ````{prf:definition} Espérance
 Soit $X$ une variable aléatoire. On définit l'espérance mathématique de $X$, et on note $\mathbb E(X)$ par :
 - $\mathbb E(X) = \mu_X = \displaystyle\sum_{x_i} x_iP(X=x_i)= \displaystyle\sum_{x_i} x_i P_X(x_i)$ si $X$ est discrète et si la somme converge.
@@ -370,7 +371,8 @@ Pour l'expérience d'un lancer de dé à 6 faces  : $\mathbb E(X) = \mu_X = \dis
 ````
 
 #### Moment d'une fonction d'une variable aléatoire
-
+```{index} Moment
+```
 Soit $\phi$ l'application qui associe à toute variable aléatoire $X$ la variable aléatoire $Y=\phi(X)$.
 
 ````{prf:definition} Moment
@@ -378,7 +380,8 @@ Le moment  $\mathbb{E}[\phi(X)]$ de la fonction $\phi$ de la variable aléatoire
 - $\mathbb{E}[\phi(X)] = \displaystyle\sum_{x_i} \phi(x_i)P_X(x_i)$ si $X$ est discrète
 - $\mathbb{E}[\phi(X)] = \int_x \phi(x) f_X(x)dx$ si $X$ est continue
 ```` 
-
+```{index} Moment ; d'ordre k
+```
 ````{prf:definition} Moment d'ordre $k$
 Le moment d'ordre $k$ d'une variable aléatoire $X$ est égal à :
 - $\mathbb{E}(X^k) = \displaystyle\sum_{x_i} x_i^k P_X(x_i)$ si $X$ est discrète
@@ -392,6 +395,8 @@ Le moment d'ordre $k$ est donc un cas particulier avec $Y=X^k$.
 L'espérance $\mathbb{E}(X)$ est le moment d'ordre 1.
 ``` 
 
+```{index} Moment ; centré
+```
 ````{prf:definition} Moment centré d'ordre $k$
 On appelle moment centré d'ordre $k$ la quantité $\mathbb{E}\left [(X-\mathbb{E}(X))^k \right]$
 ````
@@ -400,7 +405,10 @@ Ainsi :
 - pour une variable aléatoire continue $X$, $\mathbb{E}\left [(X-\mathbb{E}(X))^k \right] = \int_x (x-\mathbb{E}(X))^k f_X(x)dx = \int_x (x-\mu_X)^k f_X(x)dx$
 
 #### Variance d'une variable aléatoire
-
+```{index} Variance
+```
+```{index} Ecart-type
+```
 Pour $k$=2, le moment centré d'ordre 2 est appelé la **variance** et est noté $\mathbb{V}(X)$. La racine carrée de la variance est **l'écart type** et est noté $\sigma_X$. On a donc $\sigma_X^2=\mathbb{V}(X)$.
 
 ````{prf:proposition} Formule de Koenig
@@ -417,5 +425,9 @@ En effet, $\mathbb{E}\left [(X-\mu_X)^2 \right] = \mathbb{E}\left [(X^2-2\mu_XX+
 On dira que la variable aléatoire $X$ est **réduite** (ou **normée**) si $\mathbb{V}(X)=1$.
 
 #### Moments d'ordre supérieur
+```{index} Skewness
+```
+```{index} Kurtosis
+```
 On considère également souvent les moments d'ordre 3 (coefficient d'asymétrie ou skewness) et 4 (coefficient d'applatissement ou kurtosis).
 
