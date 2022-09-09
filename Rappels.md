@@ -43,10 +43,13 @@ L'univers des possibles n'est pas défini de manière unique, mais dépend de l'
 - le résultat du lancer, dans ce cas $\Omega = \{(1,1), (1,2), \cdots (6,6)\}$
 - la somme des deux faces et $\Omega = [\![2,12]\!]$
 
+```{index} Evènement
+``` 
 ````{prf:definition} Evènement
 :label: evenement
 Etant donnée une expérience aléatoire, un **évènement** est une assertion vraie ou fausse suivant l'issue de l'expérience. C'est donc un sous-ensemble $E$ de $\Omega$.
 ````
+
 
 
 ````{prf:example}
