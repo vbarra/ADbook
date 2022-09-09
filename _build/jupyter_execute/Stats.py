@@ -8,12 +8,12 @@
 # - **Population** : ensemble de cardinalité finie, notée $N$, ou infinie
 # - **Echantillon** : sous-ensemble de la population, de cardinalité $n$
 # - **Individu** : sous-ensemble de la population ou de l'échantillon, de cardinalité 1
-# - **Caractère** : nature de la caractéristique à laquelle on s'intéresse statistiquement. Il peut être **qualitatif** (nominal ou ordinal) ou **quantitatif**(discret ou continu)
+# - **Caractère** : nature de la caractéristique à laquelle on s'intéresse statistiquement. Il peut être **qualitatif** (nominal ou ordinal) ou **quantitatif** (discret ou continu)
 # 
 # 
 # ## Probabilités et statistiques
 # La question qui se pose est la suivante : comment définir ou estimer la valeur de probabilité associée à un  évènement ?
-# Plusieurs points de vue ont été proposés et adoptés que synthétisons très brièvement.
+# Plusieurs points de vue ont été proposés et adoptés que nous synthétisons très brièvement.
 # 
 # ### Approche fréquentiste
 # Ce point de vue historique, souvent présenté comme le plus “naturel” ou “objectif”, consiste à définir une probabilité comme la limite de la fréquence d'observation de la caractéristique lorsque la taille de l'echantillon devient infinie. On suppose ici que les probabilités sont une loi de la nature qu’il faut mesurer par l’expérience. En pratique, la probabilité d’un  évènement est donc estimée/approximée en répétant un très grand nombre de fois l’expérience dans les mêmes conditions. C'est de ces expériences répétées dont il a fallu analyser les résultats que sont nés les outils de la statistiques tels que la régression linéaire ou le test du $\chi^2$.

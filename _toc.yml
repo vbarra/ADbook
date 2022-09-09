@@ -5,4 +5,5 @@ format: jb-book
 root: intro
 chapters:
 - file: Rappels
-- file: Stats
+- file: Statsx
+- file: genindex
