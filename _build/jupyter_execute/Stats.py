@@ -3,18 +3,22 @@
 
 # # Introduction aux statistiques
 # 
-# ## Vocabulaire et définition
+# ## Eléments de vocabulaire
 # On définit ici de manière informelle les termes utilisés dans la suite :
 # - **Population** : ensemble de cardinalité finie, notée $N$, ou infinie
 # - **Echantillon** : sous-ensemble de la population, de cardinalité $n$
 # - **Individu** : sous-ensemble de la population ou de l'échantillon, de cardinalité 1
 # - **Caractère** : nature de la caractéristique à laquelle on s'intéresse statistiquement. Il peut être **qualitatif** (nominal ou ordinal) ou **quantitatif**(discret ou continu)
 # 
-# ## Démarche générale
 # 
 # ## Probabilités et statistiques
 # La question qui se pose est la suivante : comment définir ou estimer la valeur de probabilité associée àun  évènement ?
 # Plusieurs points de vue ont été proposés et adoptés que synthétisons très brièvement.
 # 
 # ### Approche fréquentiste
-# Ce point de vue historique, souvent présenté comme le plus “naturel” ou “objectif”, consiste à définir une probabilité comme la limite de la fréquence empirique lorsque la taille de l'echantillon devient infinie
+# Ce point de vue historique, souvent présenté comme le plus “naturel” ou “objectif”, consiste à définir une probabilité comme la limite de la fréquence d'observation de la caractéristique lorsque la taille de l'echantillon devient infinie. On suppose ici que les probabilités sont une loi de la nature qu’il faut mesurer par l’expérience. En pratique, la probabilité d’un  évènement est donc estimée/approximée en répétant un très grand nombre de fois l’expérience dans les mêmes conditions. C'est de ces expériences répétées dont il a fallu analyser les résultats que sont nés les outils de la statistiques tels que la régression linéaire ou le test du $\chi^2$.
+# On rencontre néanmoins très rapidement des limitations avec ce point de vue. D’une part, il est impossible d’un point de vue fréquentiste de traiter de tous petits échantillons de données. De plus, certains types de données ne sont tout simplement pas exploitables en raison de leur caractère non expérimental (par exemple, quelle probabilité associer à un évènement du type “nombre de votants aux prochaines élections” qui n’est pas répétable pa nature). Enfin, il est parfois difficile de définir un modèle  permettant de modéliser une erreur de mesure ou la variation observée d’un caractère dans une population.
+# 
+# ### Approche bayésienne
+# Un point de vue bien différent consiste à définir les probabilités comme une mesure subjective de l'incertitude. Dans ce cadre, tout événement peut être probabilisé à partir d’un a priori de l’observateur. Ce point de vue est appelé Bayésien (fait appel à la règle de Bayes) pour calculer la loi de probabilité des évènements à partir des échantillons de données a posteriori. L’intérêt majeur de ce type de démarche est que tout est probabilisable (jusqu’aux paramètres du modèle utilisé) et qu'il s’appuie sur des résultats de la théorie des probabilités, comme le théorème central limite.
+# Ce point de vue “subjectif” a longtemps été dénoncé par les “fréquentistes” qui rejettent l’idée que l’on puisse définir un tel a priori sur les évènements. En effet, l’objection majeure que l’on oppose souvent à la méthodologie Bayésienne est que deux observateurs différents, ayant des a priori différents, donneront des résultats ou des interprétations différentes.
