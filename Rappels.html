@@ -797,7 +797,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div></div>
 <div class="section" id="regle-de-bayes">
 <h3>Règle de Bayes<a class="headerlink" href="#regle-de-bayes" title="Permalink to this headline">#</a></h3>
-<p>A partir de l’égalité <span class="math notranslate nohighlight">\(P(A\bigcap B) = P(A|B)P(B)=P(B|A)P(A)\)</span>, on définit la règle de Bayes</p>
+<p id="index-5">A partir de l’égalité <span class="math notranslate nohighlight">\(P(A\bigcap B) = P(A|B)P(B)=P(B|A)P(A)\)</span>, on définit la règle de Bayes</p>
 <p><span class="math notranslate nohighlight">\((\forall A,B)\quad P(B|A)=\frac{P(A|B)P(B)}{P(A)}\)</span></p>
 <p>Si <span class="math notranslate nohighlight">\(B_i\)</span> est un système complet d’évènements, on a de plus</p>
 <p><span class="math notranslate nohighlight">\(P(B_i|A)= \frac{P(A|B_i)P(B_i)}{P(A)} = \frac{P(A|B_i)P(B_i)}{\displaystyle\sum_k P(A|B_k)P(B_k)}\)</span></p>
@@ -817,7 +817,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <h3>Concept de variable aléatoire<a class="headerlink" href="#concept-de-variable-aleatoire" title="Permalink to this headline">#</a></h3>
 <p>Soit un espace probabilisé <span class="math notranslate nohighlight">\((\Omega, T,P)\)</span>, avec <span class="math notranslate nohighlight">\(\Omega\)</span> = (Pile,Face). On considère la loi de probabilité <span class="math notranslate nohighlight">\(P\)</span> telle que : <span class="math notranslate nohighlight">\((\forall \omega\in\Omega)\; P(\omega)=\frac12\)</span></p>
 <div class="proof definition admonition" id="definition-18">
-<p class="admonition-title"><span class="caption-number">Definition 8 </span> (Variable aléatoire)</p>
+<span id="index-6"></span><p class="admonition-title"><span class="caption-number">Definition 8 </span> (Variable aléatoire)</p>
 <div class="definition-content section" id="proof-content">
 <p>Une variable aléatoire est une application <span class="math notranslate nohighlight">\(X:\Omega\rightarrow E\)</span> (on prendra <span class="math notranslate nohighlight">\(E=\mathbb R\)</span>)</p>
 </div>
@@ -834,14 +834,16 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <h3>Variable aléatoire mesurable<a class="headerlink" href="#variable-aleatoire-mesurable" title="Permalink to this headline">#</a></h3>
 <p>On définit sur <span class="math notranslate nohighlight">\(E\)</span> une tribu <span class="math notranslate nohighlight">\(T'\)</span>.  <span class="math notranslate nohighlight">\((E,T')\)</span> est alors un espace probabilisable, et tout élément <span class="math notranslate nohighlight">\(B\)</span> de <span class="math notranslate nohighlight">\(T'\)</span> est un évènement. On note alors <span class="math notranslate nohighlight">\(X^{-1}(B) = \{\omega\in\Omega,\; X(\omega)\in B\}\)</span></p>
 <div class="proof definition admonition" id="definition-20">
-<p class="admonition-title"><span class="caption-number">Definition 9 </span> (Variable aléatoire mesurabe)</p>
+<span id="index-7"></span><p class="admonition-title"><span class="caption-number">Definition 9 </span> (Variable aléatoire mesurabe)</p>
 <div class="definition-content section" id="proof-content">
 <p>Une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est dite mesurable  si et seulement si : <span class="math notranslate nohighlight">\((\forall B\in T')\; X^{-1}(B)\in T\)</span></p>
 </div>
 </div><p>Dans les deux exemples précédents, on a par exemple <span class="math notranslate nohighlight">\(X^{-1}(1)= \{Pile\}\)</span> ou encore <span class="math notranslate nohighlight">\(X^{-1}(3) = \{(1,2),(2,1)\}\)</span> et <span class="math notranslate nohighlight">\(P(X=3)=P(X^{-1}(3)) = \frac{2}{36}\)</span>.</p>
-<p>On note souvent <span class="math notranslate nohighlight">\(P_X(B) = P(X^{-1}(B))=P(\{\omega / X(\omega)\in B\})\)</span> et on l’appelle <strong>probabilité image</strong> de <span class="math notranslate nohighlight">\(P\)</span> par <span class="math notranslate nohighlight">\(X\)</span>. En calculant la probabilité de chaque réalisation de la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span>, on peut en déduire la <strong>loi de probabilité</strong> (ou <strong>distribution</strong>) de <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<span class="target" id="index-8"></span><p id="index-9">On note souvent <span class="math notranslate nohighlight">\(P_X(B) = P(X^{-1}(B))=P(\{\omega / X(\omega)\in B\})\)</span> et on l’appelle <strong>probabilité image</strong> de <span class="math notranslate nohighlight">\(P\)</span> par <span class="math notranslate nohighlight">\(X\)</span>. En calculant la probabilité de chaque réalisation de la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span>, on peut en déduire la <strong>loi de probabilité</strong> (ou <strong>distribution</strong>) de <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <ul class="simple">
 <li><p>Pour une variable aléatoire discrète <span class="math notranslate nohighlight">\(X\)</span>, la loi de probabilité est donc <span class="math notranslate nohighlight">\(P_X(x_i)= P(X=x_i) = P(\{\omega / X(\omega)=x_i\})\)</span>. <span class="math notranslate nohighlight">\(P_X\)</span> est appelée <strong>masse ponctuelle</strong></p></li>
+</ul>
+<span class="target" id="index-10"></span><ul class="simple" id="index-11">
 <li><p>Pour une variable aléatoire continue <span class="math notranslate nohighlight">\(X\)</span>, la loi de probabilité est donc <span class="math notranslate nohighlight">\(f_X(x)dx = P(x\leq X\leq x+dx) = P(\{\omega /x\leq X(\omega)\leq x+dx\})\)</span>. <span class="math notranslate nohighlight">\(f_X\)</span> est appelée <strong>densité de probabilité</strong></p></li>
 </ul>
 <div class="cell docutils container">
@@ -877,56 +879,51 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <div class="proof definition admonition" id="definition-21">
 <p class="admonition-title"><span class="caption-number">Definition 10 </span> (Fonction de répartition)</p>
 <div class="definition-content section" id="proof-content">
-<p>La fonction de répartition d’une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est l’application <span class="math notranslate nohighlight">\(F_X\)</span> de <span class="math notranslate nohighlight">\(\mathbb R\)</span> dans [0,1] telle que <span class="math notranslate nohighlight">\(F_X(x) = P(X\leq x)\)</span>.</p>
 </div>
-</div><p><span class="math notranslate nohighlight">\(F_X\)</span> est donc monotone croissante, continue à droite et on a en particulier :</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(P(a\leq X\leq b) = F_X(b)-F_X(a)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(P(X&gt;x) = 1-P(X\leq x) = 1-F_X(x)\)</span></p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span>
-<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">random</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</div><p id="index-12">La fonction de répartition d’une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est l’application <span class="math notranslate nohighlight">\(F_X\)</span> de <span class="math notranslate nohighlight">\(\mathbb R\)</span> dans [0,1] telle que <span class="math notranslate nohighlight">\(F_X(x) = P(X\leq x)\)</span>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+$F_X$ est donc monotone croissante, continue à droite et on a en particulier :  
+- $P(a\leq X\leq b) = F_X(b)-F_X(a)$
+- $P(X&gt;x) = 1-P(X\leq x) = 1-F_X(x)$
 
-<span class="k">def</span> <span class="nf">tirage</span><span class="p">():</span>
-    <span class="n">d1</span><span class="o">=</span><span class="n">floor</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">random</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>   
-    <span class="n">d2</span><span class="o">=</span><span class="n">floor</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">random</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  
-    <span class="k">return</span> <span class="n">d1</span><span class="o">+</span><span class="n">d2</span> <span class="o">-</span><span class="mi">1</span>          
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">n</span><span class="o">=</span><span class="mi">10000</span>                       
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>        
-    <span class="n">f</span><span class="p">[</span><span class="n">tirage</span><span class="p">()</span> <span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="o">/</span><span class="n">n</span>     
+```{code-cell} ipython3
+from math import floor
+from random import random
+import numpy as np
+import matplotlib.pyplot as plt
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
-<span class="n">fn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+def tirage():
+    d1=floor(6*random()+1)   
+    d2=floor(6*random()+1)  
+    return d1+d2 -1          
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>          
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span> <span class="p">)</span>   
-<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">f</span> <span class="p">)</span>   
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span> <span class="n">bottom</span><span class="o">=</span><span class="mi">0</span> <span class="p">)</span> 
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribution&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+x = np.arange(0,12)+1
+f = np.zeros(12)
+n=10000                       
+for i in range(n):        
+    f[tirage() ] += 1
+f=f/n     
 
-<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">fn</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">xmax</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
-          <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">ymin</span><span class="o">=</span><span class="n">fn</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">ymax</span><span class="o">=</span><span class="n">fn</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span>
-          <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span> <span class="n">bottom</span><span class="o">=</span><span class="mi">0</span> <span class="p">)</span> 
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Fonction de répartition&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+data = np.arange(0, 14)
+fn = np.insert(np.cumsum(f), 0, 0)
+
+plt.figure(figsize=(10,5))          
+plt.subplot(121)
+plt.plot( x, f, &#39;o&#39; )   
+plt.vlines( x, 0, f )   
+plt.ylim( bottom=0 ) 
+plt.title(&quot;Distribution&quot;)
+plt.subplot(122)
+
+plt.hlines(y=fn, xmin=data[:-1], xmax=data[1:],
+          color=&#39;red&#39;, zorder=1)
+plt.vlines(x=data[1:-1], ymin=fn[:-1], ymax=fn[1:], color=&#39;red&#39;,
+          linestyle=&#39;dashed&#39;, zorder=1)
+plt.ylim( bottom=0 ) 
+plt.title(&quot;Fonction de répartition&quot;)
+plt.show()
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/Rappels_3_0.png" src="_images/Rappels_3_0.png" />
-</div>
 </div>
 <p>La notion de variable aléatoire est ainsi une formalisation de la notion de grandeur variant selon le résultat d’une expérience aléatoire. On peut alors préciser et formaliser la définition précédente.</p>
 <div class="proof definition admonition" id="definition-22">
