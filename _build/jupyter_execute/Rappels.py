@@ -176,6 +176,8 @@
 # 
 # 
 # ### Règle de Bayes
+# ```{index} Bayes ; règle de 
+# ``` 
 # 
 # A partir de l'égalité $P(A\bigcap B) = P(A|B)P(B)=P(B|A)P(A)$, on définit la règle de Bayes
 # 
@@ -202,6 +204,8 @@
 # ### Concept de variable aléatoire
 # Soit un espace probabilisé $(\Omega, T,P)$, avec $\Omega$ = (Pile,Face). On considère la loi de probabilité $P$ telle que : $(\forall \omega\in\Omega)\; P(\omega)=\frac12$
 # 
+# ```{index} Variable aléatoire
+# ``` 
 # ````{prf:definition} Variable aléatoire
 # Une variable aléatoire est une application $X:\Omega\rightarrow E$ (on prendra $E=\mathbb R$)
 # ```` 
@@ -219,15 +223,25 @@
 # ### Variable aléatoire mesurable
 # On définit sur $E$ une tribu $T'$.  $(E,T')$ est alors un espace probabilisable, et tout élément $B$ de $T'$ est un évènement. On note alors $X^{-1}(B) = \{\omega\in\Omega,\; X(\omega)\in B\}$
 # 
+# ```{index} Variable aléatoire ; mesurable
+# ``` 
 # ````{prf:definition} Variable aléatoire mesurabe
 # Une variable aléatoire $X$ est dite mesurable  si et seulement si : $(\forall B\in T')\; X^{-1}(B)\in T$
 # ```` 
 # 
 # Dans les deux exemples précédents, on a par exemple $X^{-1}(1)= \{Pile\}$ ou encore $X^{-1}(3) = \{(1,2),(2,1)\}$ et $P(X=3)=P(X^{-1}(3)) = \frac{2}{36}$.
 # 
+# ```{index} Distribution de probabilité
+# ``` 
+# ```{index} Probabilité ; distribution de 
+# ``` 
 # On note souvent $P_X(B) = P(X^{-1}(B))=P(\{\omega / X(\omega)\in B\})$ et on l'appelle **probabilité image** de $P$ par $X$. En calculant la probabilité de chaque réalisation de la variable aléatoire $X$, on peut en déduire la **loi de probabilité** (ou **distribution**) de $X$.
 # 
 # - Pour une variable aléatoire discrète $X$, la loi de probabilité est donc $P_X(x_i)= P(X=x_i) = P(\{\omega / X(\omega)=x_i\})$. $P_X$ est appelée **masse ponctuelle**
+# ```{index} Probabilité ; densité de 
+# ``` 
+# ```{index} Densité de probabilité
+# ``` 
 # - Pour une variable aléatoire continue $X$, la loi de probabilité est donc $f_X(x)dx = P(x\leq X\leq x+dx) = P(\{\omega /x\leq X(\omega)\leq x+dx\})$. $f_X$ est appelée **densité de probabilité**
 
 # In[1]:
@@ -257,53 +271,54 @@ plt.show()
 
 
 # ```{prf:definition} Fonction de répartition
+# ```{index} Fonction de répartition
+# ``` 
 # La fonction de répartition d'une variable aléatoire $X$ est l'application $F_X$ de $\mathbb R$ dans [0,1] telle que $F_X(x) = P(X\leq x)$.
 # ```
 # 
 # $F_X$ est donc monotone croissante, continue à droite et on a en particulier :  
 # - $P(a\leq X\leq b) = F_X(b)-F_X(a)$
 # - $P(X>x) = 1-P(X\leq x) = 1-F_X(x)$
-
-# In[2]:
-
-
-from math import floor
-from random import random
-import numpy as np
-import matplotlib.pyplot as plt
-
-def tirage():
-    d1=floor(6*random()+1)   
-    d2=floor(6*random()+1)  
-    return d1+d2 -1          
-
-x = np.arange(0,12)+1
-f = np.zeros(12)
-n=10000                       
-for i in range(n):        
-    f[tirage() ] += 1
-f=f/n     
-
-data = np.arange(0, 14)
-fn = np.insert(np.cumsum(f), 0, 0)
-
-plt.figure(figsize=(10,5))          
-plt.subplot(121)
-plt.plot( x, f, 'o' )   
-plt.vlines( x, 0, f )   
-plt.ylim( bottom=0 ) 
-plt.title("Distribution")
-plt.subplot(122)
-
-plt.hlines(y=fn, xmin=data[:-1], xmax=data[1:],
-          color='red', zorder=1)
-plt.vlines(x=data[1:-1], ymin=fn[:-1], ymax=fn[1:], color='red',
-          linestyle='dashed', zorder=1)
-plt.ylim( bottom=0 ) 
-plt.title("Fonction de répartition")
-plt.show()
-
-
+# 
+# 
+# ```{code-cell} ipython3
+# from math import floor
+# from random import random
+# import numpy as np
+# import matplotlib.pyplot as plt
+# 
+# def tirage():
+#     d1=floor(6*random()+1)   
+#     d2=floor(6*random()+1)  
+#     return d1+d2 -1          
+# 
+# x = np.arange(0,12)+1
+# f = np.zeros(12)
+# n=10000                       
+# for i in range(n):        
+#     f[tirage() ] += 1
+# f=f/n     
+# 
+# data = np.arange(0, 14)
+# fn = np.insert(np.cumsum(f), 0, 0)
+# 
+# plt.figure(figsize=(10,5))          
+# plt.subplot(121)
+# plt.plot( x, f, 'o' )   
+# plt.vlines( x, 0, f )   
+# plt.ylim( bottom=0 ) 
+# plt.title("Distribution")
+# plt.subplot(122)
+# 
+# plt.hlines(y=fn, xmin=data[:-1], xmax=data[1:],
+#           color='red', zorder=1)
+# plt.vlines(x=data[1:-1], ymin=fn[:-1], ymax=fn[1:], color='red',
+#           linestyle='dashed', zorder=1)
+# plt.ylim( bottom=0 ) 
+# plt.title("Fonction de répartition")
+# plt.show()
+# ```
+# 
 # La notion de variable aléatoire est ainsi une formalisation de la notion de grandeur variant selon le résultat d'une expérience aléatoire. On peut alors préciser et formaliser la définition précédente.
 # 
 # ````{prf:definition} Variable aléatoire
