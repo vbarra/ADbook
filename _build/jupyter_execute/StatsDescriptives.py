@@ -122,6 +122,7 @@
 
 
 import numpy as np
+import matplotlib.pyplot as plt
 X = np.loadtxt("./data/data.csv", delimiter=",")[:,1]
 
 

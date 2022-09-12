@@ -18,6 +18,7 @@ Traceback (most recent call last):
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
 import numpy as np
+import matplotlib.pyplot as plt
 X = np.loadtxt("./data/data.csv", delimiter=",")[:,1]
 
 
@@ -61,14 +62,14 @@ plt.show()
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Input [0;32mIn [1][0m, in [0;36m<cell line: 31>[0;34m()[0m
-[1;32m     27[0m     w [38;5;241m=[39m np[38;5;241m.[39mrandom[38;5;241m.[39mrand([38;5;28mlen[39m(X))
-[1;32m     28[0m     [38;5;28;01mreturn[39;00m np[38;5;241m.[39maverage(X,weights[38;5;241m=[39mw)
-[0;32m---> 31[0m [43mplt[49m[38;5;241m.[39mfigure(figsize[38;5;241m=[39m([38;5;241m18[39m,[38;5;241m6[39m))
-[1;32m     32[0m sns[38;5;241m.[39mrugplot(X, color[38;5;241m=[39m[38;5;124m'[39m[38;5;124mgrey[39m[38;5;124m'[39m, height[38;5;241m=[39m[38;5;241m0.5[39m)
-[1;32m     33[0m [38;5;28;01mfor[39;00m method, style, title [38;5;129;01min[39;00m ((ArithmeticMean,[38;5;124m'[39m[38;5;124mr[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mArithmétique[39m[38;5;124m'[39m),(GeometricMean,[38;5;124m'[39m[38;5;124mb[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mGéométrique[39m[38;5;124m'[39m),
-[1;32m     34[0m                              (HarmonicMean,[38;5;124m'[39m[38;5;124mg[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mHarmonique[39m[38;5;124m'[39m),(WeightedMean,[38;5;124m'[39m[38;5;124my[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mPondérée[39m[38;5;124m'[39m)):
+Input [0;32mIn [1][0m, in [0;36m<cell line: 33>[0;34m()[0m
+[1;32m     29[0m     [38;5;28;01mreturn[39;00m np[38;5;241m.[39maverage(X,weights[38;5;241m=[39mw)
+[1;32m     32[0m plt[38;5;241m.[39mfigure(figsize[38;5;241m=[39m([38;5;241m18[39m,[38;5;241m6[39m))
+[0;32m---> 33[0m [43msns[49m[38;5;241m.[39mrugplot(X, color[38;5;241m=[39m[38;5;124m'[39m[38;5;124mgrey[39m[38;5;124m'[39m, height[38;5;241m=[39m[38;5;241m0.5[39m)
+[1;32m     34[0m [38;5;28;01mfor[39;00m method, style, title [38;5;129;01min[39;00m ((ArithmeticMean,[38;5;124m'[39m[38;5;124mr[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mArithmétique[39m[38;5;124m'[39m),(GeometricMean,[38;5;124m'[39m[38;5;124mb[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mGéométrique[39m[38;5;124m'[39m),
+[1;32m     35[0m                              (HarmonicMean,[38;5;124m'[39m[38;5;124mg[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mHarmonique[39m[38;5;124m'[39m),(WeightedMean,[38;5;124m'[39m[38;5;124my[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mPondérée[39m[38;5;124m'[39m)):
+[1;32m     36[0m     m[38;5;241m=[39mmethod(X)
 
-[0;31mNameError[0m: name 'plt' is not defined
-NameError: name 'plt' is not defined
+[0;31mNameError[0m: name 'sns' is not defined
+NameError: name 'sns' is not defined
 

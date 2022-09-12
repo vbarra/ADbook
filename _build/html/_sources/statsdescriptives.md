@@ -133,6 +133,7 @@ Dans le cas où $\forall i,w_i=1/n$, la moyenne pondérée est la moyenne arithm
 
 ```{code-cell} ipython3
 import numpy as np
+import matplotlib.pyplot as plt
 X = np.loadtxt("./data/data.csv", delimiter=",")[:,1]
 
 
