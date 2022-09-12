@@ -164,7 +164,7 @@ def WeightedMean(X):
 
 
 plt.figure(figsize=(16,8))
-plt.plot(X, [0.01]*len(X), '|', color='k')
+plt.plot(X, [0.01]*len(X), '|', color='k',label='Points')
 for method, style, title in ((ArithmeticMean,'r','Arithmétique'),(GeometricMean,'b','Géométrique'),
                              (HarmonicMean,'g','Harmonique'),(WeightedMean,'y', 'Pondérée')):
     m=method(X)
