@@ -87,11 +87,11 @@
 # Comme dans le cas discret, la fonction de répartition peut être calculée de la manière suivante :
 # 
 # $F(x) = \left \{
-# \begin{tabular}{ll}
+# \begin{array}{ll}
 # 0&si $x<c^-_1$\\
 # $F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j)$ &si  $x\in[c^-_j,c^+_j[$\\
 # 1& si  $c^+_J\leq x$
-# \end{tabular}\right .$
+# \end{array}\right .$
 # 
 # 
 # \section {Statistique descriptive univariée}
