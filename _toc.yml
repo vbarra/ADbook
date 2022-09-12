@@ -6,5 +6,5 @@ root: intro
 chapters:
 - file: Rappels
 - file: Stats
-- file: Statsdescriptives
+- file: StatsDescriptives
 - file: genindex
