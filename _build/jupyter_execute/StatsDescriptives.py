@@ -6,12 +6,17 @@
 # Dans la suite, nous nous intéressons à des unités statistiques ou individus statistiques ou unités d'observation (individus,  entreprises,  ménages, données abstraites...). Bien que le cas infini soit envisageable, nous nous restreignons ici à l'étude d'un nombre fini de ces unités. Un ou plusieurs caractères (ou variables) est mesuré sur chaque unité. Les variables sont désignées par simplicité par une lettre. Leurs valeurs possibles sont appelées modalités et l'ensemble des valeurs possibles ou des modalités est appelé le domaine. L'ensemble des individus statistiques forment la population.
 # ### Typologie des variables
 # La typologie des variables définit le type de problème statistique que l'on doit aborder :
+# 
+# ```{index} Variable ; qualitative
+# ```
 # ````{prf:definition} Variable qualitative
 # La variable est dite qualitative lorsque les modalités sont des catégories. Suivant qu'il existe une relation d'ordre sur les catégories, on distingue :
 # - la variable qualitative nominale, si les modalités  ne peuvent pas être ordonnées
 # - la variable qualitative ordinale, si les modalités peuvent être ordonnées
 # ````
 # 
+# ```{index} Variable ; quantitative
+# ```
 # ````{prf:definition} Variable quantitative
 # La variable est dite quantitative lorsque les modalités sont des valeurs numériques (scalaires ou vectorielles) :
 # - la variable est quantitative discrète si les modalités forment un ensemble dénombrable
@@ -20,12 +25,16 @@
 # 
 # Dans certains cas (l'âge par exemple), une variable d'un type (quantitative continue ici) peut être exprimée d'une autre manière pour des raisons pratiques de collecte ou de mesure. De même, les variables qualitatives ordinales peuvent être codées, par exemple selon une échelle de satisfaction.
 # 
+# ```{index} Statistique ; série
+# ```
 # ````{prf:definition} Série statistique
 # On appelle série statistique une suite de $n$ valeurs prises par une variable $X$ sur les unités d'observation, notées $x_1\cdots x_n$.
 # ````
 # 
 # 
 # ### Variable qualitative nominale
+# ```{index} Variable ; qualitative ; nominale
+# ```
 # Une variable qualitative nominale a des valeurs distinctes qui ne peuvent pas être ordonnées. On note $J$ le nombre de valeurs distinctes ou de modalités, notées $x_1\cdots x_J$. On appelle effectif d'une modalité ou d'une valeur distincte le nombre de fois que cette modalité (ou valeur distincte) apparaît dans la série statistique. On note $n_j$ l'effectif de la modalité $x_j$. La fréquence d'une modalité $j$ est  alors égale à $f_j=\frac{n_j}{n}$.
 # 
 # Le tableau statistique d'une variable qualitative nominale peut être représenté par deux types de graphiques. Les effectifs sont représentés par un diagramme en tuyau d'orgue et les fréquences par un diagramme en secteurs. Pour ce dernier, si le nombre de modalités devient trop important, la représentation perd de son intérêt.
@@ -34,12 +43,16 @@
 # 
 # 
 # ### Variable qualitative ordinale
+# ```{index} Variable ; qualitative ; ordinale
+# ```
 # Le domaine peut être muni d'une relation d'ordre.  Les valeurs distinctes d'une variable ordinale peuvent donc être ordonnées $x_1\leq x_2\cdots\leq  x_J$, à permutation près dans l'ordre croissant des indices. L'effectif cumulé $N_j$ et la fréquence cumulée $F_j$ des variables sont alors définis par 
 # $$(\forall j\in[\![1,J]\!])\quad N_j=\displaystyle\sum_{i=1}^j n_i\quad \textrm {et}\quad F_j=\displaystyle\sum_{i=1}^j f_i$$
 # 
 # Les fréquences et les effectifs (cumulés ou non) peuvent être représentés sous la forme d'un diagramme en tuyaux d'orgue.
 # 
 # ### Variable quantitative discrète
+# ```{index} Variable ; quantitative ; discrète
+# ```
 # Le domaine d'une telle variable est dénombrable. Comme pour les variables qualitatives ordinales, on peut calculer les effectifs (cumulés ou non) et les fréquences (cumulées ou non). 
 # 
 # La répartition des valeurs de la variable peut être représentée par un diagramme en bâtonnets. Les fréquences cumulées  sont visualisées par la fonction de répartition de la variable , définie par 
@@ -54,6 +67,8 @@
 # ![](./images/baton2.png)
 # 
 # ### Variable quantitative continue
+# ```{index} Variable ; quantitative ; continue
+# ```
 # Le domaine d'une  variable quantitative continue est infini et est assimilé à $\mathbb{R}$ ou à un intervalle de $\mathbb{R}$. Cependant, la mesure étant limitée en précision, on peut traiter ces variables comme des variables discrètes.
 # 
 # La représentation graphique de ces variables (et la construction du tableau statistique) passe par le regroupement des modalités ou valeurs en classes. Le tableau ainsi construit est souvent appelé distribution groupée. La classe $j$ est l'ensemble des valeurs incluses dans $[c^-_j,c^+_j[$, où $c^-_j$ et $c^+_j$ sont les bornes inférieure et supérieure de la classe. Sur cet intervalle, on peut calculer la fréquence $f_j$ de la classe, la fréquence cumulée, l'effectif $n_j$... La répartition en classes nécessite de définir a priori le nombre de classes $J$ et l'amplitude $a_j$ des intervalles. Si elles peuvent être définies de manière empirique, quelques règles permettent d'établir $J$ et l'amplitude pour une série statistique de $n$ observations. Par exemple :
