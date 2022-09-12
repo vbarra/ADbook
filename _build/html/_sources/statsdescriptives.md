@@ -197,7 +197,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 X = np.loadtxt("./data/data.csv", delimiter=",")[:,1]
 
-plt.figure(figsize=(8,8))
+plt.figure(figsize=(8,4))
 plt.rcParams['font.size'] = '16'
 plt.plot(X, [0.01]*len(X), '|', color='k',label='Points')
     
