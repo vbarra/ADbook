@@ -1,0 +1,903 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Statistique descriptive &#8212; Analyse de données</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Index" href="genindex.html" />
+    <link rel="prev" title="Introduction aux statistiques" href="Stats.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/isimainp.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Analyse de données</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Rappels.html">
+   Rappels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Stats.html">
+   Introduction aux statistiques
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Statistique descriptive
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fstatsdescriptives.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/statsdescriptives.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#d-finitions">
+   D?finitions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#typologie-des-variables">
+     Typologie des variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variable-qualitative-nominale">
+     Variable qualitative nominale
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variable-qualitative-ordinale">
+     Variable qualitative ordinale
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variable-quantitative-discr-te">
+     Variable quantitative discr?te
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variable-quantitative-continue">
+     Variable quantitative continue
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Statistique descriptive</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#d-finitions">
+   D?finitions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#typologie-des-variables">
+     Typologie des variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variable-qualitative-nominale">
+     Variable qualitative nominale
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variable-qualitative-ordinale">
+     Variable qualitative ordinale
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variable-quantitative-discr-te">
+     Variable quantitative discr?te
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variable-quantitative-continue">
+     Variable quantitative continue
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="statistique-descriptive">
+<h1>Statistique descriptive<a class="headerlink" href="#statistique-descriptive" title="Permalink to this headline">#</a></h1>
+<div class="section" id="d-finitions">
+<h2>D?finitions<a class="headerlink" href="#d-finitions" title="Permalink to this headline">#</a></h2>
+<p>Dans la suite, nous nous int?ressons ? des unit?s statistiques ou individus statistiques ou unit?s d’observation (individus,  entreprises,  m?nages, donn?es abstraites…). Bien que le cas infini soit envisageable, nous nous restreignons ici ? l’?tude d’un nombre fini de ces unit?s. Un ou plusieurs caract?res (ou variables) est mesur? sur chaque unit?. Les variables sont d?sign?es par simplicit? par une lettre. Leurs valeurs possibles sont appel?es modalit?s et l’ensemble des valeurs possibles ou des modalit?s est appel? le domaine. L’ensemble des individus statistiques forment la population.</p>
+<div class="section" id="typologie-des-variables">
+<h3>Typologie des variables<a class="headerlink" href="#typologie-des-variables" title="Permalink to this headline">#</a></h3>
+<p>La typologie des variables d?finit le type de probl?me statistique que l’on doit aborder :</p>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 16 </span> (Variable qualitative)</p>
+<div class="definition-content section" id="proof-content">
+<p>La variable est dite qualitative lorsque les modalit?s sont des cat?gories. Suivant qu’il existe une relation d’ordre sur les cat?gories, on distingue :</p>
+<ul class="simple">
+<li><p>la variable qualitative nominale, si les modalit?s  ne peuvent pas ?tre ordonn?es</p></li>
+<li><p>la variable qualitative ordinale, si les modalit?s peuvent ?tre ordonn?es</p></li>
+</ul>
+</div>
+</div><div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span class="caption-number">Definition 17 </span> (Variable quantitative)</p>
+<div class="definition-content section" id="proof-content">
+<p>La variable est dite quantitative lorsque les modalit?s sont des valeurs num?riques (scalaires ou vectorielles) :</p>
+<ul class="simple">
+<li><p>la variable est quantitative discr?te si les modalit?s forment un ensemble d?nombrable</p></li>
+<li><p>la variable quantitative est continue si les modalit?s vivent dans un espace continu.</p></li>
+</ul>
+</div>
+</div><p>Dans certains cas (l’?ge par exemple), une variable d’un type (quantitative continue ici) peut ?tre exprim?e d’une autre mani?re pour des raisons pratiques de collecte ou de mesure. De m?me, les variables qualitatives ordinales peuvent ?tre cod?es, par exemple selon une ?chelle de satisfaction.</p>
+<div class="proof definition admonition" id="definition-2">
+<p class="admonition-title"><span class="caption-number">Definition 18 </span> (S?rie statistique)</p>
+<div class="definition-content section" id="proof-content">
+<p>On appelle s?rie statistique une suite de <span class="math notranslate nohighlight">\(n\)</span> valeurs prises par une variable <span class="math notranslate nohighlight">\(X\)</span> sur les unit?s d’observation, not?es <span class="math notranslate nohighlight">\(x_1\cdots x_n\)</span>.</p>
+</div>
+</div></div>
+<div class="section" id="variable-qualitative-nominale">
+<h3>Variable qualitative nominale<a class="headerlink" href="#variable-qualitative-nominale" title="Permalink to this headline">#</a></h3>
+<p>Une variable qualitative nominale a des valeurs distinctes qui ne peuvent pas ?tre ordonn?es. On note <span class="math notranslate nohighlight">\(J\)</span> le nombre de valeurs distinctes ou de modalit?s, not?es <span class="math notranslate nohighlight">\(x_1\cdots x_J\)</span>. On appelle effectif d’une modalit? ou d’une valeur distincte le nombre de fois que cette modalit? (ou valeur distincte) appara?t dans la s?rie statistique. On note <span class="math notranslate nohighlight">\(n_j\)</span> l’effectif de la modalit? <span class="math notranslate nohighlight">\(x_j\)</span>. La fr?quence d’une modalit? <span class="math notranslate nohighlight">\(j\)</span> est  alors ?gale ? <span class="math notranslate nohighlight">\(f_j=\frac{n_j}{n}\)</span>.</p>
+<p>Le tableau statistique d’une variable qualitative nominale peut ?tre repr?sent? par deux types de graphiques. Les effectifs sont repr?sent?s par un diagramme en tuyau d’orgue et les fr?quences par un diagramme en secteurs. Pour ce dernier, si le nombre de modalit?s devient trop important, la repr?sentation perd de son int?r?t.</p>
+<p><img alt="" src="_images/baton.png" /></p>
+</div>
+<div class="section" id="variable-qualitative-ordinale">
+<h3>Variable qualitative ordinale<a class="headerlink" href="#variable-qualitative-ordinale" title="Permalink to this headline">#</a></h3>
+<p>Le domaine peut ?tre muni d’une relation d’ordre.  Les valeurs distinctes d’une variable ordinale peuvent donc ?tre ordonn?es <span class="math notranslate nohighlight">\(x_1\leq x_2\cdots\leq  x_J\)</span>, ? permutation pr?s dans l’ordre croissant des indices. L’effectif cumul? <span class="math notranslate nohighlight">\(N_j\)</span> et la fr?quence cumul?e <span class="math notranslate nohighlight">\(F_j\)</span> des variables sont alors d?finis par
+$<span class="math notranslate nohighlight">\((\forall j\in[\![1,J]\!])\quad N_j=\displaystyle\sum_{i=1}^j n_i\quad \textrm {et}\quad F_j=\displaystyle\sum_{i=1}^j f_i\)</span>$</p>
+<p>Les fr?quences et les effectifs (cumul?s ou non) peuvent ?tre repr?sent?s sous la forme d’un diagramme en tuyaux d’orgue.</p>
+</div>
+<div class="section" id="variable-quantitative-discr-te">
+<h3>Variable quantitative discr?te<a class="headerlink" href="#variable-quantitative-discr-te" title="Permalink to this headline">#</a></h3>
+<p>Le domaine d’une telle variable est d?nombrable. Comme pour les variables qualitatives ordinales, on peut calculer les effectifs (cumul?s ou non) et les fr?quences (cumul?es ou non).</p>
+<p>La r?partition des valeurs de la variable peut ?tre repr?sent?e par un diagramme en b?tonnets. Les fr?quences cumul?es  sont visualis?es par la fonction de r?partition de la variable , d?finie par</p>
+<p><span class="math notranslate nohighlight">\(F(x) = \left \{
+\begin{tabular}{ll}
+0&amp;si \)</span>x&lt;x_1<span class="math notranslate nohighlight">\(\\
+\)</span>F_j<span class="math notranslate nohighlight">\( &amp;si  \)</span>x\in[x_j,x_{j+1}[<span class="math notranslate nohighlight">\(\\
+1&amp; si  \)</span>x_J\leq x<span class="math notranslate nohighlight">\(
+\end{tabular}\right .\)</span></p>
+<p><img alt="" src="_images/baton2.png" /></p>
+</div>
+<div class="section" id="variable-quantitative-continue">
+<h3>Variable quantitative continue<a class="headerlink" href="#variable-quantitative-continue" title="Permalink to this headline">#</a></h3>
+<p>Le domaine d’une  variable quantitative continue est infini et est assimil? ? <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> ou ? un intervalle de <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>. Cependant, la mesure ?tant limit?e en pr?cision, on peut traiter ces variables comme des variables discr?tes.</p>
+<p>La repr?sentation graphique de ces variables (et la construction du tableau statistique) passe par le regroupement des modalit?s ou valeurs en classes. Le tableau ainsi construit est souvent appel? distribution group?e. La classe <span class="math notranslate nohighlight">\(j\)</span> est l’ensemble des valeurs incluses dans <span class="math notranslate nohighlight">\([c^-_j,c^+_j[\)</span>, o? <span class="math notranslate nohighlight">\(c^-_j\)</span> et <span class="math notranslate nohighlight">\(c^+_j\)</span> sont les bornes inf?rieure et sup?rieure de la classe. Sur cet intervalle, on peut calculer la fr?quence <span class="math notranslate nohighlight">\(f_j\)</span> de la classe, la fr?quence cumul?e, l’effectif <span class="math notranslate nohighlight">\(n_j\)</span>… La r?partition en classes n?cessite de d?finir a priori le nombre de classes <span class="math notranslate nohighlight">\(J\)</span> et l’amplitude <span class="math notranslate nohighlight">\(a_j\)</span> des intervalles. Si elles peuvent ?tre d?finies de mani?re empirique, quelques r?gles permettent d’?tablir <span class="math notranslate nohighlight">\(J\)</span> et l’amplitude pour une s?rie statistique de <span class="math notranslate nohighlight">\(n\)</span> observations. Par exemple :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(J=1+3.3log_{10}(n)\)</span> (r?gle de Sturge)</p></li>
+<li><p><span class="math notranslate nohighlight">\(J=2.5\sqrt[4\,]{n}\)</span> (r?gle de Yule)</p></li>
+</ul>
+<div class="proof remark dropdown admonition" id="remark-3">
+<p class="admonition-title"><span class="caption-number">Remark 5 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Toutes les classes n’ont pas n?cessairement la m?me amplitude</p>
+</div>
+</div><p>Les effectifs (ou les fr?quences) sont repr?sent?(e)s par un histogramme. Si l’on s’int?resse ? la repr?sentation des effectifs (resp. des fr?quences), la densit? d’effectif <span class="math notranslate nohighlight">\(h_j\)</span> (resp. de fr?quence <span class="math notranslate nohighlight">\(d_j\)</span>),  d?finie par <span class="math notranslate nohighlight">\(h_j=\frac{n_j}{a_j}\)</span> (resp. <span class="math notranslate nohighlight">\(d_j=\frac{f_j}{a_j}\)</span>), d?termine la hauteur du rectangle repr?sentant la classe <span class="math notranslate nohighlight">\(j\)</span>. L’aire de l’histogramme est ?gale ? l’effectif total <span class="math notranslate nohighlight">\(n\)</span> pour l’histogramme des effectifs, et ? 1 pour l’histogramme des fr?quences.</p>
+<p>Comme dans le cas discret, la fonction de r?partition peut ?tre calcul?e de la mani?re suivante :</p>
+<p><span class="math notranslate nohighlight">\(F(x) = \left \{
+\begin{tabular}{ll}
+0&amp;si \)</span>x&lt;c^-<em>1<span class="math notranslate nohighlight">\(\\
+\)</span>F</em>{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j)<span class="math notranslate nohighlight">\( &amp;si  \)</span>x\in[c^-_j,c^+_j[<span class="math notranslate nohighlight">\(\\
+1&amp; si  \)</span>c^+_J\leq x<span class="math notranslate nohighlight">\(
+\end{tabular}\right .\)</span></p>
+<p>\section {Statistique descriptive univari?e}
+La statistique descriptive univari?e consiste ? ?tudier un ensemble d’unit?s d’observations, lorsque celles-ci sont d?crites par une seule variable.</p>
+<p>Soit donc <span class="math notranslate nohighlight">\(X\)</span> une variable et <span class="math notranslate nohighlight">\(x_j,j\in [\![1,n]\!]\)</span> l’ensemble des valeurs prises par cette variable, <span class="math notranslate nohighlight">\(n_i\)</span> ?tant le nombre de fois o? la valeur <span class="math notranslate nohighlight">\(x_i\)</span> est prise. <span class="math notranslate nohighlight">\(X\)</span> peut ?tre qualitative ou quantitative, les param?tres de description d?crits dans la suite s’appliqueront ? l’une de ces natures ou au deux.
+\begin{defin}{Moment}{}
+Le moment ? l’origine d’ordre <span class="math notranslate nohighlight">\(r\)</span>  est d?fini par :
+$<span class="math notranslate nohighlight">\(m'_r=\displaystyle\sum_{i=1}^n x_i^r\)</span>$
+\end{defin}</p>
+<p>\subsection{Param?tres de position}
+Plusieurs param?tres permettent de d?crire la position “la plus repr?sentative” d’une variable :
+\begin{defin}{Mode} {}
+Le mode est la valeur distincte correspondant ? l’effectif le plus ?lev?. Il est not? <span class="math notranslate nohighlight">\(x_M\)</span>.
+\end{defin}
+Le mode peut ?tre calcul? pour tout type de variable, n’est pas n?cessairement unique. Lorsqu’une variable continue est d?coup?e en classes, il est possible de d?finir une classe modale (classe correspondant ? l’effectif le plus ?lev?)
+\begin{defin}{Moyennes} {} Les moyennes ne peuvent ?tre d?finies que sur des variables quantitatives. Plusieurs moyennes peuvent ?tre calcul?es, parmi lesquelles :
+\begin{itemize}
+\item la moyenne arithm?tique  $<span class="math notranslate nohighlight">\(\bar{x} = \frac{1}{n}{\displaystyle\sum_{i=1}^nx_i}=  \frac{1}{n}{\displaystyle\sum_{i=1}^J n_ix_i}\)</span><span class="math notranslate nohighlight">\( C'est le moment ? l'origine d'ordre 1.
+\item la moyenne g?om?trique : si les \)</span>x_i<span class="math notranslate nohighlight">\( sont positifs, la moyenne g?om?trique est la quantit? \)</span><span class="math notranslate nohighlight">\(G=\left (\displaystyle\prod_{i=1}^n x_i\right )^\frac{1}{n}\)</span><span class="math notranslate nohighlight">\(C'est donc l'exponentielle de la moyenne arithm?tique des logarithmes des valeurs observ?es. 
+\item la moyenne harmonique : si les \)</span>x_i<span class="math notranslate nohighlight">\( sont positifs, la moyenne harmonique est d?finie par \)</span><span class="math notranslate nohighlight">\(H=\frac{n}{\displaystyle\sum_{i=1}^J 1/x_i}\)</span><span class="math notranslate nohighlight">\(
+\item la moyenne pond?r?e : dans certains cas, on n'accorde pas la m?me importance ? toutes les observations (fiabilit?, confiance...). La moyenne pond?r?e est alors d?finie par 
+\)</span><span class="math notranslate nohighlight">\(\bar{x}_w= \frac{\displaystyle\sum_{i=1}^n w_ix_i}{\displaystyle\sum_{i=1}^n w_i}\)</span>$</p>
+<p>\end{itemize}
+\end{defin}
+Dans le cas o? <span class="math notranslate nohighlight">\(\forall i,w_i=1/n\)</span>, la moyenne pond?r?e est la moyenne arithm?tique. De plus, dans tous les cas, on peut montrer que <span class="math notranslate nohighlight">\(H\leq G\leq \bar{x}\)</span>.</p>
+<p>\begin{rem}
+en centrant les moments par rapport ? une valeur repr?sentative, on d?finit les moments centr?s :
+\end{rem}
+\begin{defin}{Moment centr?}{}
+Le moment centr? d’ordre <span class="math notranslate nohighlight">\(r\)</span> est d?fini par :
+$<span class="math notranslate nohighlight">\(m_r=\displaystyle\sum_{i=1}^n \left (x_i-\bar{x}\right )^r\)</span>$
+\end{defin}</p>
+<p>\begin{defin}{M?diane} {}
+La m?diane, not?e <span class="math notranslate nohighlight">\(x_\frac{1}{2}\)</span> est la valeur centrale de la s?rie statistique tri?e par ordre croissant.
+\end{defin}
+En d’autres termes, c’est la valeur de la s?rie tri?e telle qu’au moins 50% des effectifs soient inf?rieurs ? <span class="math notranslate nohighlight">\(x_\frac{1}{2}\)</span>. Elle peut ?tre calcul?e sur des variables quantitatives ou qualitatives ordinales (dans le cas o? des ?chelles de valeur ont ?t? d?finies).
+\begin{defin}{Quantiles} {}
+Le quantile d’ordre <span class="math notranslate nohighlight">\(p\)</span> est d?fini par <span class="math notranslate nohighlight">\(x_p=F^{-1}(p)\)</span>, o? <span class="math notranslate nohighlight">\(F\)</span> est la fonction de r?partition.
+\end{defin}
+La notion de quantile g?n?ralise la notion de m?diane. Si la fonction de r?partition ?tait continue et strictement croissante, la d?finition de <span class="math notranslate nohighlight">\(x_p\)</span> serait unique. Or <span class="math notranslate nohighlight">\(F\)</span> est discontinue et d?finie par paliers et les valeurs de quantiles varient suivant par exemple l’utilisation ou non d’une m?thode d’interpolation de <span class="math notranslate nohighlight">\(F\)</span>. Pour calculer <span class="math notranslate nohighlight">\(x_p\)</span>, on peut par exemple consid?rer que si <span class="math notranslate nohighlight">\(np\)</span> est pair,
+$<span class="math notranslate nohighlight">\(x_p=\frac{x_{np}+x_{np+1}}{2}\)</span><span class="math notranslate nohighlight">\(
+on remarque alors que la m?diane est le quantile d'ordre \)</span>\frac{1}{2}<span class="math notranslate nohighlight">\(
+et sinon
+\)</span><span class="math notranslate nohighlight">\(x_p=x_{\lceil{np}\rceil}\)</span>$
+En particulier, un quartile est chacune des 3 valeurs qui divisent les donn?es tri?es en 4 parts ?gales, de sorte que chaque partie repr?sente 1/4 de l’?chantillon de population.</p>
+<p>\subsection{Param?tres de dispersion}
+Il est tr?s souvent utile d’appr?cier la dispersion des mesures autour du param?tre de position. Pour cela, sur des variables quantitatives uniquement, plusieurs outils sont disponibles :
+\begin{defin}{Etendue}{}
+L’?tendue est la simple diff?rence entre la plus grande et la plus petite valeur observ?e.
+\end{defin}
+\begin{defin}{Distance interquartile}{}
+La distance interquartile est la diff?rence entre le troisi?me et le premier quartile.
+\end{defin}</p>
+<p>\begin{defin}{Variance}{}
+La variance est la somme des carr?s des ?carts ? la moyenne, normalis?e par le nombre d’observations
+$<span class="math notranslate nohighlight">\(\sigma^2 = \frac{1}{n}\displaystyle\sum_{i=1}^n\left (x_i-\bar{x}\right )^2\)</span><span class="math notranslate nohighlight">\(
+\end{defin}
+Cette variance est dite biais?e. La variance non biais?e est obtenue en divisant non pas par \)</span>n<span class="math notranslate nohighlight">\(, mais par \)</span>n-1$.\
+\begin{defin}{Ecart type}{}
+L’?cart type est la racine carr?e de la variance.
+\end{defin}</p>
+<p>\begin{defin}{Ecart moyen absolu}{}
+L’?cart moyen absolu est la somme des valeurs absolues des ?carts ? la moyenne divis?e par le nombre d’observations.
+\end{defin}
+Notons qu’il s’agit de la distance <span class="math notranslate nohighlight">\(L_1\)</span> du vecteur des observations au vecteur compos? de la valeur moyenne, divis? par le nombre d’observations. La variance est la distance <span class="math notranslate nohighlight">\(L_2\)</span> entre ces deux vecteurs. Lorsque la distance est calcul?e par rapport au vecteur compos? de la valeur m?diane, on parle d’?cart m?dian absolu.</p>
+<p>La figure \ref{F:deciles} r?sume l’ensemble de ces param?tres.
+\begin{center}
+\begin{figure}[ht!]
+\includegraphics[width=\textwidth]{figures/deciles.png}
+\caption{\label{F:deciles} Illustration des param?tres de position et de dispersion.}
+\end{figure}
+\end{center}
+\subsection{Param?tres de forme}
+Les param?tres de forme sont souvent calcul?s en r?f?rence ? la forme de la loi normale, pour ?valuer la sym?trie, l’aplatissement ou la d?rive par rapport ? cette loi.
+\begin{defin}{Skewness}{}
+$<span class="math notranslate nohighlight">\(g_1 = \frac{m_3}{\sigma^3}\)</span><span class="math notranslate nohighlight">\(
+\end{defin}
+Le skewness est ?galement appel? coefficient d'asym?trie de Fisher.
+\begin{defin}{Kurtosis}{}
+\)</span><span class="math notranslate nohighlight">\(K=\frac{m_4}{m_2^2}\)</span><span class="math notranslate nohighlight">\(
+\end{defin}
+\)</span>K<span class="math notranslate nohighlight">\( permet de mesurer l'aplatissement.
+\begin{defin}{Coefficient d'asym?trie de Yule}{}
+\)</span><span class="math notranslate nohighlight">\(A_Y = \frac{x_{3/4}+x_{1/4}-2x_{1/2}}{x_{3/4}-x_{1/4}}\)</span><span class="math notranslate nohighlight">\(
+\end{defin}
+Ce coefficient est fond? sur les positions de trois quartiles (le premier, la m?diane et le troisi?me) et est normalis? par la distance interquartile.
+\begin{defin}{Coefficient d'asym?trie de Pearson}{}
+\)</span><span class="math notranslate nohighlight">\(A_P = \frac{\bar{x}-x_M}{\sigma}\)</span><span class="math notranslate nohighlight">\(
+\end{defin}
+Ce coefficient est fond? sur la comparaison de la moyenne et du mode, et est normalis? par l'?cart type.
+\vskip 5pt
+Tous les coefficients d'asym?trie ont des propri?t?s similaires : ils sont nuls si la distribution est sym?trique, n?gatifs si la distribution est allong?e ? gauche (left asymmetry), et positifs si la distribution est allong?e ? droite (right asymmetry).\\
+On peut aussi chercher ? mesurer l'aplatissement (ou kurtosis) d'une distribution de mesure. Dans ce cas, on utilise le coefficient d'aplatissement de Pearson ou de Fisher, respectivement donn?s par 
+\)</span><span class="math notranslate nohighlight">\(\beta_2=\frac{m_4}{\sigma^4}\quad\textrm{et}\quad g_2=\beta_2-3\)</span><span class="math notranslate nohighlight">\(
+Une distribution est alors dite m?sokurtique si \)</span>g_2<span class="math notranslate nohighlight">\( est proche de 0, leptokurtique si \)</span>g_2&gt;0<span class="math notranslate nohighlight">\( (queues plus longues et distribution plus pointue); et platykyrtique si \)</span>g_2&lt;0$ (queues plus courtes et distribution arrondie).</p>
+<p>\section {Statistique descriptive bivari?e}
+On s’int?resse ? deux variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>, mesur?es sur les <span class="math notranslate nohighlight">\(n\)</span> unit?s d’observation. La s?rie statistique est alors une suite de <span class="math notranslate nohighlight">\(n\)</span> couples <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> des valeurs prises par les deux variables sur chaque individu.
+\subsection{Cas de deux variables quantitatives}
+Le couple est un couple de valeurs num?riques. C’est donc un point dans le plan <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>. Les variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> peuvent ?tre analys?es s?par?ment, en op?rant une statistique univari?e sur chacune de ces variables. Les param?tres calcul?s (de position, de dispersion…) sont dits marginaux. Cependant, il est int?ressant d’?tudier le lien entre ces deux variables, par l’interm?diaire des valeurs des couples. On d?finit pour cela un certain nombre d’outils :
+\begin{defin}{Covariance}{}
+La covariance de <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> est d?finie par :
+$<span class="math notranslate nohighlight">\(\sigma_{xy}=\frac{1}{n}\displaystyle\sum_{i=1}^n\left (x_i-\bar{x}\right )\left (y_i-\bar{y}\right )\)</span>$
+\end{defin}</p>
+<p>\begin{defin}{Coefficient de corr?lation}{}
+Le coefficient de corr?lation  de deux variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> est d?fini par
+$<span class="math notranslate nohighlight">\(r_{xy}=\frac{\sigma_{xy}}{\sigma_{x}\sigma_{y}}\)</span><span class="math notranslate nohighlight">\(
+Le coefficient de d?termination est le carr? du coefficient de corr?lation.
+\end{defin}
+Le coefficient de corr?lation est donc la covariance normalis?e par les ?carts types marginaux des variables. Il mesure la d?pendance lin?aire entre \)</span>x<span class="math notranslate nohighlight">\( et \)</span>y$. Il est compris dans l’intervalle [-1,1] est est positif (resp. n?gatif) si les points sont align?s le long d’une droite croissante (resp. d?croissante), d’autant plus grand en valeur absolue que la d?pendance lin?aire est v?rifi?e. Dans le cas o? le coefficient est nul, il n’existe pas de d?pendance lin?aire.</p>
+<p>Pour conna?tre plus pr?cis?ment la relation lin?aire qui lie <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>, on effectue une r?gression lin?aire en calculant par exemple la droite de r?gression (chapitre~\ref{ch:regression}).
+Si <span class="math notranslate nohighlight">\(y=a+bx\)</span>, il est facile de montrer que
+$<span class="math notranslate nohighlight">\(b=\frac{\sigma_{xy}}{\sigma_x^2}\quad\textrm{et}\quad a=\bar{y}-b\bar{x}\)</span>$</p>
+<p>et la droite de r?gression s’?crit <span class="math notranslate nohighlight">\(y-\bar{y}=\frac{\sigma_{xy}}{\sigma_x^2}\left ( x-\bar{x}\right )\)</span>.</p>
+<p>A partir de cette droite, on peut calculer les valeurs ajust?es, obtenues ? partir de la droite de r?gression : <span class="math notranslate nohighlight">\(y^*_i=a+bx_i\)</span>. Ce sont les valeurs th?oriques des <span class="math notranslate nohighlight">\(y_i\)</span> et les r?sidus <span class="math notranslate nohighlight">\(e_i=y_i-y_i^*\)</span> repr?sentent la partie inexpliqu?e des <span class="math notranslate nohighlight">\(y_i\)</span> par la droite de r?gression (ceux l? m?me que l’on essaye de minimiser par la m?thode des moindres carr?s).</p>
+<p>\subsection{Cas de deux variables qualitatives}
+\label{P:contingence}
+Le couple est un couple de valeurs <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> o? <span class="math notranslate nohighlight">\(x_i\)</span> et <span class="math notranslate nohighlight">\(y_i\)</span> prennent comme valeurs des modalit?s qualitatives. Notons <span class="math notranslate nohighlight">\(x_1\cdots x_J\)</span> et <span class="math notranslate nohighlight">\(y_1\cdots y_K\)</span> les valeurs distinctes prises. \</p>
+<p>Les donn?es peuvent ?tre regroup?es sous la forme d’un tableau de contingence prenant la forme suivante :</p>
+<p>\begin{center}
+\begin{tabular}{c|ccccc|c}
+&amp;<span class="math notranslate nohighlight">\(y_1\)</span>&amp;<span class="math notranslate nohighlight">\(\cdots\)</span>&amp;<span class="math notranslate nohighlight">\(y_k\)</span>&amp;<span class="math notranslate nohighlight">\(\cdots\)</span>&amp;<span class="math notranslate nohighlight">\(y_K\)</span>&amp;total\
+\hline
+<span class="math notranslate nohighlight">\(x_1\)</span>&amp;<span class="math notranslate nohighlight">\(n_{11}\)</span>&amp;<span class="math notranslate nohighlight">\(\cdots\)</span>&amp;<span class="math notranslate nohighlight">\(n_{1k}\)</span>&amp;<span class="math notranslate nohighlight">\(\cdots\)</span>&amp;<span class="math notranslate nohighlight">\(n_{1K}\)</span>&amp;<span class="math notranslate nohighlight">\(n_{1.}\)</span>\
+<span class="math notranslate nohighlight">\(\vdots\)</span>&amp;<span class="math notranslate nohighlight">\(\vdots\)</span>&amp;<span class="math notranslate nohighlight">\(\vdots\)</span>&amp;<span class="math notranslate nohighlight">\(\vdots\)</span>&amp;<span class="math notranslate nohighlight">\(\vdots\)</span>&amp;<span class="math notranslate nohighlight">\(\vdots\)</span>&amp;<span class="math notranslate nohighlight">\(\vdots\)</span>\
+<span class="math notranslate nohighlight">\(x_j\)</span>&amp;<span class="math notranslate nohighlight">\(n_{j1}\)</span>&amp;<span class="math notranslate nohighlight">\(\cdots\)</span>&amp;<span class="math notranslate nohighlight">\(n_{jk}\)</span>&amp;<span class="math notranslate nohighlight">\(\cdots\)</span>&amp;<span class="math notranslate nohighlight">\(n_{jK}\)</span>&amp;<span class="math notranslate nohighlight">\(n_{j.}\)</span>\
+<span class="math notranslate nohighlight">\(\vdots\)</span>&amp;<span class="math notranslate nohighlight">\(\vdots\)</span>&amp;<span class="math notranslate nohighlight">\(\vdots\)</span>&amp;<span class="math notranslate nohighlight">\(\vdots\)</span>&amp;<span class="math notranslate nohighlight">\(\vdots\)</span>&amp;<span class="math notranslate nohighlight">\(\vdots\)</span>&amp;<span class="math notranslate nohighlight">\(\vdots\)</span>\
+<span class="math notranslate nohighlight">\(x_J\)</span>&amp;<span class="math notranslate nohighlight">\(n_{J1}\)</span>&amp;<span class="math notranslate nohighlight">\(\cdots\)</span>&amp;<span class="math notranslate nohighlight">\(n_{Jk}\)</span>&amp;<span class="math notranslate nohighlight">\(\cdots\)</span>&amp;<span class="math notranslate nohighlight">\(n_{JK}\)</span>&amp;<span class="math notranslate nohighlight">\(n_{J.}\)</span>\
+\hline
+total&amp;<span class="math notranslate nohighlight">\(n_{.1}\)</span>&amp;<span class="math notranslate nohighlight">\(\cdots\)</span>&amp;<span class="math notranslate nohighlight">\(n_{.k}\)</span>&amp;<span class="math notranslate nohighlight">\(\cdots\)</span>&amp;<span class="math notranslate nohighlight">\(n_{.K}\)</span>&amp;<span class="math notranslate nohighlight">\(n\)</span>\
+\end{tabular}
+\end{center}</p>
+<p>o? <span class="math notranslate nohighlight">\(n_{j.}\)</span> (resp <span class="math notranslate nohighlight">\(n_{.k}\)</span> )sont les effectifs marginaux repr?sentant le nombre de fois o? <span class="math notranslate nohighlight">\(x_j\)</span> (resp. <span class="math notranslate nohighlight">\(y_k\)</span>) appara?t, et <span class="math notranslate nohighlight">\(n_{jk}\)</span> le nombre d’apparition du couple <span class="math notranslate nohighlight">\((x_j,y_k)\)</span>.</p>
+<p>Le tableau des fr?quences <span class="math notranslate nohighlight">\(f_{jk}\)</span> s’obtient en divisant tous les effectifs par la taille <span class="math notranslate nohighlight">\(n\)</span> dans ce tableau.</p>
+<p>Un tel tableau s’interpr?te toujours en comparant les fr?quences en lignes ou les fr?quences en colonnes (profils lignes ou colonnes), d?finies  respectivement par
+$<span class="math notranslate nohighlight">\(f_k^{(j)}= \frac{n_{jk}}{n_{j.}}=\frac{f_{jk}}{f_{j.}}\quad\textrm{ et }\quad f_j^{(k)}= \frac{n_{jk}}{n_{.k}}=\frac{f_{jk}}{f_{.k}}\)</span>$</p>
+<p>Si l’on cherche un lien entre les variables, on construit un tableau d’effectifs th?oriques qui repr?sente la situation o? les variables ne sont pas li?es (ind?pendance). Ce tableau est constitu? des effectifs
+$<span class="math notranslate nohighlight">\(n_{jk}^*=\frac{n_{j.}n_{.k}}{n}\)</span><span class="math notranslate nohighlight">\(
+Les effectifs observ?s \)</span>n_{jk}<span class="math notranslate nohighlight">\( ont les m?mes marges que les \)</span>n_{jk}^<em><span class="math notranslate nohighlight">\(, et les ?carts ? l'ind?pendance sont calcul?s par la diff?rence \)</span>e_{jk}=n_{jk}-n_{jk}^</em>$</p>
+<p>La d?pendance du tableau se mesure au moyen du khi-deux d?fini par
+$<span class="math notranslate nohighlight">\(\chi^2_{obs}= \displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J\frac{e_{jk}^2}{n_{jk}^*}\)</span><span class="math notranslate nohighlight">\(
+qui peut ?tre normalis? pour ne plus d?pendre du nombre d'observations :
+\)</span><span class="math notranslate nohighlight">\(\phi^2=\frac{\chi^2_{obs}}{n}\)</span>$</p>
+<p>La construction du tableau des effectifs th?oriques et sa comparaison au tableau des observations permet dans un premier temps de mettre en ?vidence les associations significatives entre modalit?s des deux variables. Pour cela, on calcule la contribution au <span class="math notranslate nohighlight">\(\chi^2\)</span> des modalit?s <span class="math notranslate nohighlight">\(j\)</span> et <span class="math notranslate nohighlight">\(k\)</span> :
+$<span class="math notranslate nohighlight">\(\frac{1}{\chi^2_{obs}}\frac{\left (n_{jk}-n_{j.}n_{.k}\right )^2}{n_{jk}^*}\)</span><span class="math notranslate nohighlight">\(
+Le signe de la diff?rence \)</span>n_{jk}-n_{jk}^*<span class="math notranslate nohighlight">\( indique alors s'il y a une association positive ou n?gative entre les modalit?s \)</span>j<span class="math notranslate nohighlight">\( et \)</span>k$.</p>
+<p>Plus g?n?ralement, le <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span> est un indicateur de liaison entre les variables.  Dans le cas o? <span class="math notranslate nohighlight">\(\chi^2_{obs}=0\)</span>, il y a ind?pendance. Pour rechercher la borne sup?rieure du khi-deux et voir dans quel cas elle est atteinte, on d?veloppe le carr? et on obtient
+$<span class="math notranslate nohighlight">\(\chi^2_{obs} = n\left [\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J \frac{n_{jk}^2}{n_{j.}n_{.k}} -1\right ]\)</span><span class="math notranslate nohighlight">\(
+Comme \)</span>\frac{n_{jk}}{n_{.k}}\leq 1<span class="math notranslate nohighlight">\( on a \)</span> \frac{n_{jk}^2}{n_{j.}n_{.k}} \leq \frac{n_{jk}}{n_{.k}}<span class="math notranslate nohighlight">\( d'o?
+\)</span><span class="math notranslate nohighlight">\(\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J\frac{n_{jk}^2}{n_{j.}n_{.k}}\leq \displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J \frac{n_{jk}}{n_{.k}} = \displaystyle\sum_{k=1}^K \frac{\displaystyle\sum_{j=1}^J n_{jk}}{n_{.k}}=\displaystyle\sum_{k=1}^K \frac{n_{.k}}{n_{.k}}=1\)</span>$</p>
+<p>d’o? <span class="math notranslate nohighlight">\(\chi^2_{obs}\leq n(K-1)\)</span>. On pourrait de m?me montrer que <span class="math notranslate nohighlight">\(\chi^2_{obs}\leq n(J-1)\)</span> et donc
+$<span class="math notranslate nohighlight">\(\phi^2\leq min(J-1,K-1)\)</span><span class="math notranslate nohighlight">\(
+la borne ?tant atteinte dans le cas de la d?pendance fonctionnelle (si \)</span>\forall j \frac{n_{jk}}{n_{j.}}=1<span class="math notranslate nohighlight">\(, i.e. il n'existe qu'une case non nulle dans chaque ligne.)\\
+A partir de ce khi-deux normalis?, on calcule finalement plusieurs coefficients permettant de mesurer l'ind?pendance, et parmi ceux-ci citons :
+\begin{itemize}
+\item le coefficient de Cramer:
+\)</span><span class="math notranslate nohighlight">\(V=\sqrt{\frac{\phi^2}{min(J-1,K-1)}}\)</span><span class="math notranslate nohighlight">\(
+\item le coefficient de contingence de Pearson :
+\)</span><span class="math notranslate nohighlight">\(C = \sqrt{\frac{\phi^2}{\phi^2 + 1}}\)</span><span class="math notranslate nohighlight">\(
+\item le coefficient de Tschuprow :
+\)</span><span class="math notranslate nohighlight">\(T = \sqrt{\frac{\phi^2}{\sqrt{(K-1)(J-1)}}}\)</span>$
+\end{itemize}</p>
+<p>Ces coefficients sont tous compris entre 0 (ind?pendance) et 1 (d?pendance fonctionnelle). Pour estimer ? partir de quelle valeur la d?pendance fonctionnelle est significative, on proc?de de la mani?re suivante : si les <span class="math notranslate nohighlight">\(n\)</span> observations ?taient pr?lev?es dans une population o? les variables sont ind?pendantes, on recherche les valeurs probables de <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span>. \
+En s’appuyant sur la loi multinomiale et le test du <span class="math notranslate nohighlight">\(\chi^2\)</span>, on montre que <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span> est une r?alisation d’une variable al?atoire <span class="math notranslate nohighlight">\(Z\)</span> suivant approximativement une loi <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span>\footnote{Soient <span class="math notranslate nohighlight">\(U_1\ldots U_p\)</span> <span class="math notranslate nohighlight">\(p\)</span> variables i.i.d de loi normale centr?e r?duite. On appelle loi du <span class="math notranslate nohighlight">\(\chi^2\)</span> ? <span class="math notranslate nohighlight">\(p\)</span> degr?s de libert? la loi de la variable <span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^pU_i^2\)</span>.}. En effet, les <span class="math notranslate nohighlight">\(e_{jk}\)</span> sont li?es par <span class="math notranslate nohighlight">\((K-1)(J-1)\)</span> relations lin?aires puisqu’on estime les probabilit?s de r?alisation de <span class="math notranslate nohighlight">\(x_j\)</span> et <span class="math notranslate nohighlight">\(y_k\)</span> respectivement par <span class="math notranslate nohighlight">\(n_{j,.}/n\)</span> et <span class="math notranslate nohighlight">\(n_{.k}/n\)</span> Il suffit alors de fixer un risque d’erreur <span class="math notranslate nohighlight">\(\alpha\)</span> (une valeur qui, s’il y avait ind?pendance, n’aurait qu’une probabilit? faible d’?tre d?pass?e), et on rejette l’hypoth?se d’ind?pendance si <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span>  est sup?rieur ? la valeur critique qu’une variable <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span> a une probabilit? <span class="math notranslate nohighlight">\(\alpha\)</span> de d?passer.
+L’esp?rance d’un <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span> ?tant ?gale ? son degr? de libert?, <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span> est d’autant plus grand que le nombre de modalit?s <span class="math notranslate nohighlight">\(J\)</span> et/ou <span class="math notranslate nohighlight">\(K\)</span> est grand.
+\vskip 10pt
+D’autres indices existent, qui ne d?pendent pas de <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span>, comme par exemple l’indice <span class="math notranslate nohighlight">\(G^2\)</span>
+$<span class="math notranslate nohighlight">\(G^2 = 2\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J n_{jk} ln \left (\frac{ n_{jk}}{ n^*_{jk}} \right ) \)</span>$</p>
+<p>qui sous l’hypoth?se d’ind?pendance suit une loi <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span>.</p>
+<p>\subsection{Cas d’une variable quantitative et d’une variable qualitative}
+On s’int?resse ici au cas o? les modalit?s <span class="math notranslate nohighlight">\(x_i\)</span> sont qualitatives, et o? <span class="math notranslate nohighlight">\(y\)</span> est une variable quantitative, dont les modalit?s sont des r?alisations d’une variable al?atoire <span class="math notranslate nohighlight">\(Y\)</span>.
+Le rapport de corr?lation th?orique entre <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> est d?fini par
+$<span class="math notranslate nohighlight">\(\eta^2_{Y\mid x} = \frac{\sigma^2_{\mathbb{E}_{Y\mid x}}}{\sigma^2_Y}\)</span><span class="math notranslate nohighlight">\(
+Si \)</span>n_j<span class="math notranslate nohighlight">\( est le nombre d'observations de la modalit? \)</span>x_j,j\in[![1,J]!]<span class="math notranslate nohighlight">\(, \)</span>y_{ij}<span class="math notranslate nohighlight">\( la valeur de \)</span>Y<span class="math notranslate nohighlight">\( du \)</span>i^e<span class="math notranslate nohighlight">\( individu de la modalit? \)</span>j<span class="math notranslate nohighlight">\(, \)</span>\bar{y}_1\ldots \bar{y}_J<span class="math notranslate nohighlight">\( sont les moyennes de \)</span>Y<span class="math notranslate nohighlight">\( pour ces modalit?s et \)</span>\bar{y}<span class="math notranslate nohighlight">\( la moyenne totale sur les \)</span>n<span class="math notranslate nohighlight">\( individus, le rapport de corr?lation empirique est d?fini par 
+\)</span><span class="math notranslate nohighlight">\(e^2 = \frac{\frac{1}{n}\displaystyle\sum_{j=1}^J n_j\left (\bar{y}_j-\bar{y}\right )^2}{\sigma^2_y}\)</span>$</p>
+<p>La quantit?
+$<span class="math notranslate nohighlight">\(\sigma^2_\cap = \frac{1}{n}\displaystyle\sum_{j=1}^J n_j\sigma_j^2\)</span><span class="math notranslate nohighlight">\(
+ avec \)</span>\sigma_j^2 =  \frac{1}{n_j}\displaystyle\sum_{i=1}^{n_j}\left (y_{ij}-\bar{y}_j \right )^2<span class="math notranslate nohighlight">\(,  est appel?e variance intra groupe (ou intra classe), et donne une id?e de la variabilit? ? l'int?rieur de chaque modalit?. \\
+ La quantit? 
+ \)</span><span class="math notranslate nohighlight">\(\sigma_\cup = \frac{1}{n}\displaystyle\sum_{j=1}^J n_j\left (\bar{y}_j-\bar{y}\right )^2\)</span><span class="math notranslate nohighlight">\(
+ est la variance inter groupes (ou inter classes), et mesure la variabilit? entre les diff?rentes modalit?s.\\
+ Le th?or?me de d?composition de la variance (ou th?or?me de Huygens) affirme que la variance totale \)</span>\sigma^2_y<span class="math notranslate nohighlight">\(, calcul?e sans distinction de modalit? s'?crit :
+ \)</span><span class="math notranslate nohighlight">\(\sigma^2_y = \sigma^2_\cap + \sigma^2_\cup\)</span>$</p>
+<p>De ces d?finitions, on a alors :
+\begin{itemize}
+\item <span class="math notranslate nohighlight">\(e^2=0\)</span> si toutes les moyennes de <span class="math notranslate nohighlight">\(Y\)</span> sont ?gales, d’o? l’absence de d?pendance en moyenne
+\item <span class="math notranslate nohighlight">\(e^2=1\)</span> si tous les individus d’une modalit? de <span class="math notranslate nohighlight">\(x\)</span> ont m?me valeur de <span class="math notranslate nohighlight">\(Y\)</span> et ceci pour chaque modalit?
+\item <span class="math notranslate nohighlight">\(e^2\)</span> permet de comprendre, via le th?or?me de Huygens,  quelle variation est pr?dominante dans la variance totale. Ainsi par exemple, si la variable quantitative est la note d’un ?l?ve ? un examen, et la variable qualitative son assiduit? au cours correspondant, la variabilit? entre les notes obtenues dans toute la promotion d?pend de deux
+facteurs : le fait que les ?tudiants assistent ou pas aux cours, et le fait qu’? assiduit?
+?gale (i.e. ? l’int?rieur d’une m?me modalit? d’assiduit?) les ?tudiants n’ont pas le m?me niveau. <span class="math notranslate nohighlight">\(e^2\)</span>  permet alors de savoir lequel de ces deux facteurs est pr?dominant
+pour expliquer la variabilit? des notes dans toute la promotion.
+\end{itemize}</p>
+<p>Pour d?terminer ? partir de quelle valeur <span class="math notranslate nohighlight">\(e^2\)</span> est significatif, on compare donc <span class="math notranslate nohighlight">\(\sigma^2_\cap\)</span> ? <span class="math notranslate nohighlight">\(\sigma^2_\cup\)</span>. On peut montrer que si le rapport de corr?lation th?orique est nul, alors la variable
+$<span class="math notranslate nohighlight">\(\frac{\left (\frac{e^2}{J-1}\right )}{\left (\frac{1-e^2}{n-J}\right )}\)</span><span class="math notranslate nohighlight">\(
+suit une loi de Fisher Snedecor \footnote{Soient \)</span>U<span class="math notranslate nohighlight">\( et \)</span>V<span class="math notranslate nohighlight">\( deux variables al?atoires ind?pendantes suivant respectivement des lois \)</span>\chi^2_n<span class="math notranslate nohighlight">\( et \)</span>\chi^2_p<span class="math notranslate nohighlight">\(. On d?finit \)</span>F(n,p)=\frac{U/n}{V/P}<span class="math notranslate nohighlight">\(} \)</span>F(J-1,n-J)<span class="math notranslate nohighlight">\(, en supposant que les distributions conditionnelles de \)</span>Y<span class="math notranslate nohighlight">\( pour chaque modalit? de \)</span>x$ sont gaussiennes, de m?me esp?rance et de m?me variance.</p>
+<p>\section{Vers une analyse multivari?e}
+Bien ?videmment, dans la majorit? des cas, un individu sera d?crit par <span class="math notranslate nohighlight">\(p\geq 2\)</span> variables. Si certains algorithmes de statistique descriptive multidimensionnelle sont abord?s dans les chapitres suivants, il est n?anmoins possible d’avoir une premi?re approche exploratoire de ce cas.
+\subsection{Matrices de covariance et de corr?lation}
+La premi?re id?e, lorsque l’on a observ? <span class="math notranslate nohighlight">\(p\)</span> variables sur <span class="math notranslate nohighlight">\(n\)</span> individus, est de calculer les <span class="math notranslate nohighlight">\(p\)</span> variances de ces variables, et les <span class="math notranslate nohighlight">\(\frac{p(p-1)}{2}\)</span> covariances. Ces mesures sont regroup?es dans une matrice <span class="math notranslate nohighlight">\(p\times p\)</span>, sym?trique, semi d?finie positive, appel?e matrice de variance-covariance (ou matrice des covariances), et classiquement not?e <span class="math notranslate nohighlight">\(\boldsymbol\Sigma\)</span>.\
+De m?me, on peut former la matrice des corr?lations entre les variables, ? diagonale unit? et sym?trique. La matrice r?sultante, not?e <span class="math notranslate nohighlight">\(\mathbf R\)</span>, est ?galement semi d?finie positive et sa repr?sentation graphique en fausses couleurs permet d’appr?cier les d?pendances lin?aires entre variables (figure \ref{F:R}).</p>
+<p>\begin{figure}[hbtp!]
+\centering
+\includegraphics[width=.7\columnwidth]{figures/R.png}
+\caption{Exemple de matrice de corr?lation sur des donn?es ?nerg?tiques de b?timents.}\label{F:R}
+\end{figure}</p>
+<p>Dans le cas de variables qualitatives, les coefficients de corr?lation peuvent ?tre remplac?s par les coefficients de Cramer, de Tschuprow…</p>
+<p>\subsection{Tableaux de nuages}
+On peut proposer ? partir de l? des repr?sentations entre sous-ensembles de variables. La figure \ref{F:grid} propose un exemple de tels tableaux, parfois appel?s splom (Scatter PLOt Matrix) :
+\begin{itemize}
+\item la partie triangulaire sup?rieure repr?sente les nuages de points de couples de variables
+\item la diagonale repr?sente les histogrammes des variables
+\item la partie trianglaire inf?rieure donne le coefficient de corr?lation entre les deux variables, et une estimation de la densit? de la distribution 2D des donn?es
+\end{itemize}</p>
+<p>\begin{figure}[ht!]
+\centering
+\includegraphics[width=\columnwidth]{figures/grid.png}
+\caption{Visualisation de relations entre sous-ensembles de variables.}\label{F:grid}
+\end{figure}</p>
+<p>\subsection{Tableaux de Burt}
+Le tableau de Burt est une g?n?ralisation particuli?re de la table de contingence dans le cas o? l’on ?tudie simultan?ment <span class="math notranslate nohighlight">\(p\)</span> variables qualitatives <span class="math notranslate nohighlight">\(X_1\ldots X_p\)</span>. Notons <span class="math notranslate nohighlight">\(c_j\)</span> le nombre de modalit?s de <span class="math notranslate nohighlight">\(X_j\)</span> et posons <span class="math notranslate nohighlight">\(c=\displaystyle\sum_{j=1}^p c_j\)</span>. \
+Le tableau de Burt est une matrice carr?e sym?trique de taille <span class="math notranslate nohighlight">\(c\)</span>, constitu?e de <span class="math notranslate nohighlight">\(p^2\)</span> sous-matrices. Chacune des <span class="math notranslate nohighlight">\(p\)</span> sous-matrices diagonales est relative ? l’une des <span class="math notranslate nohighlight">\(p\)</span> variables, la <span class="math notranslate nohighlight">\(j^e\)</span> ?tant carr?e de taille <span class="math notranslate nohighlight">\(c_j\)</span>, diagonale, et de coefficients diagonaux les effectifs marginaux de <span class="math notranslate nohighlight">\(X_j\)</span>. La sous-matrice dans le bloc <span class="math notranslate nohighlight">\((k,l)\)</span> du tableau, <span class="math notranslate nohighlight">\(k\neq l\)</span>, est la table de contingence des variables <span class="math notranslate nohighlight">\(X_k\)</span> et <span class="math notranslate nohighlight">\(X_l\)</span>.
+\newpage
+\section{Exercices}
+\begin{exo}
+Quel est le type de chacune des variables suivantes:
+\begin{multicols}{2}
+\begin{enumerate}
+\item lieu de r?sidence,
+\item citoyennet?,
+\item nombre d’enfants,
+\item sexe,
+\item ?tat matrimoniale,
+\item ?ge,
+\item revenu annuel,
+\item pointure de chaussure,
+\item niveau d’?tude,
+\item langue maternelle,
+\item nombre de langue parl?es,
+\item tour de taille,
+\item taille de pantalon,
+\item satisfaction.
+\end{enumerate}
+\end{multicols}
+\end{exo}</p>
+<p>\begin{exo} On consid?re le tableau suivant : \
+\begin{center}
+\begin{tabular}{c|cc}
+Salaire moyen en euros &amp; Entreprise A &amp; Entreprise B\
+\hline
+Hommes &amp; 1700 &amp; 1800\
+Femmes &amp; 1300 &amp; 1400
+\end{tabular}
+\qquad
+\begin{tabular}{c|cc}
+R?partition &amp; Entreprise A &amp; Entreprise B\
+\hline
+Hommes &amp; 50% &amp; 20%\
+Femmes &amp; 50% &amp; 80%\
+\end{tabular}
+\end{center}
+\begin{enumerate}
+\item Calculer pour chaque entreprise la moyenne des salaires.
+\item Commenter les r?sultats.
+\end{enumerate}
+\end{exo}</p>
+<p>\begin{exo}
+La distribution des demandeurs d’emploi selon le sexe et la classe d’?ge dans une localit? est la suivante :
+\begin{center}
+\begin{tabular}{|c|c|c|p{1.5cm}|p{1.5cm}|}
+\hline
+Age &amp; Hommes &amp; Femmes &amp; &amp; \
+\hline
+<span class="math notranslate nohighlight">\([16;26[\)</span> &amp;  280 &amp;  160 &amp; &amp;\
+\hline
+<span class="math notranslate nohighlight">\([26;40[\)</span> &amp;  310 &amp;  360 &amp; &amp;\
+\hline
+<span class="math notranslate nohighlight">\([40;50[\)</span> &amp;  240 &amp;  120 &amp; &amp;\
+\hline
+<span class="math notranslate nohighlight">\([50;60[\)</span> &amp;  420 &amp;  530 &amp; &amp;\
+\hline
+<span class="math notranslate nohighlight">\([60;65[\)</span> &amp;   70 &amp;   50 &amp; &amp;\
+\hline
+Total     &amp; 1320 &amp; 1220 &amp; &amp;\
+\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+\item{Quelles sont les variables ?tudi?es ? Quels types de variables ?}
+\item{Calculer la moyenne arithm?tique d’?ge des demandeurs d’emploi hommes, puis celle des femmes, puis la moyenne pour l’ensemble de ces demandeurs d’emploi.}
+\item{Quelle est la classe modale pour les hommes et pour les femmes.}
+\item{Calculer l’?ge m?dian pour l’ensemble des demandeurs d’emploi. Pour simplifier les calculs on utilisera les centres de classe.}
+\item{D?terminer l’?tendue et l’?cart inter-quartiles pour l’ensemble des demandeurs d’emploi.}
+\item{D?terminer l’?cart-type des ?ges pour les hommes et pour les femmes.}
+\item{Calculer l’?cart moyen absolu et l’?cart m?dian absolu pour les hommes et pour les femmes.}
+\item{Commenter l’ensemble des r?sultats.}
+\end{enumerate}
+\end{exo}</p>
+<p>\begin{exo}
+Le tableau suivant donne, pour un ?ge en ann?es donn?, la pression art?rielle moyenne lors de la contraction du c\oe ur.
+\begin{center}
+\begin{tabular}{c|ccccc}
+Age <span class="math notranslate nohighlight">\(x_i\)</span> &amp; 36 &amp; 42 &amp; 48 &amp; 54 &amp; 60\
+\hline
+Tension art?rielle <span class="math notranslate nohighlight">\(y_i\)</span> &amp; 12 &amp; 13.5 &amp; 12.6 &amp; 14.3 &amp; 15.4
+\end{tabular}
+\end{center}
+\begin{enumerate}
+\item{D?terminer les coordonn?es du point moyen.}
+\item{Indiquer si un ajustement affine semble pertinent.}
+\end{enumerate}
+\end{exo}</p>
+<p>\begin{exo} On se donne deux crit?res qualitatifs pour lesquels on cherche une ?ventuelle d?pendance :
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|p{1.5cm}|}
+\hline
+Yeux <span class="math notranslate nohighlight">\(\setminus\)</span> Cheveux &amp; bruns &amp; ch?tains &amp; roux &amp; blonds &amp; \
+\hline
+marrons  &amp; 68 &amp; 119 &amp; 26 &amp; 7 &amp; \
+\hline
+noisette &amp; 15 &amp; 54 &amp; 14 &amp; 10 &amp; \
+\hline
+verts    &amp; 5 &amp; 29 &amp; 14 &amp; 16 &amp;\
+\hline
+bleus    &amp; 20 &amp; 84 &amp; 17 &amp; 94 &amp; \
+\hline
+&amp; &amp; &amp; &amp; &amp;\
+\hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+\item{Compl?ter le tableau des effectifs th?oriques :}
+\begin{center}
+\begin{tabular}{|c|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|}
+\hline
+Yeux <span class="math notranslate nohighlight">\(\setminus\)</span> Cheveux &amp; bruns &amp; ch?tains &amp; roux &amp; blonds &amp; \
+\hline
+marrons  &amp; &amp; &amp; &amp; &amp; \
+\hline
+noisette &amp; &amp; &amp; &amp; &amp; \
+\hline
+verts    &amp; &amp; &amp; &amp; &amp;\
+\hline
+bleus    &amp; &amp; &amp; &amp; &amp; \
+\hline
+&amp; &amp; &amp; &amp; &amp;\
+\hline
+\end{tabular}
+\end{center}
+\item{Calculer le coefficient de Cramer.}
+\item{Les variables semblent-elles d?pendantes ?}
+\end{enumerate}
+\end{exo}</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Stats.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introduction aux statistiques</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="genindex.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Index</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Vincent BARRA<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
