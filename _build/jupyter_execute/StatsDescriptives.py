@@ -150,7 +150,7 @@ def WeightedMean(X):
     return np.average(X,weights=w)
 
 
-plt.figure(figsize=(8,8))
+plt.figure(figsize=(8,4))
 plt.rcParams['font.size'] = '16'
 plt.plot(X, [0.01]*len(X), '|', color='k',label='Points')
 for method, style, title in ((ArithmeticMean,'r','Arithmétique'),(GeometricMean,'b','Géométrique'),
