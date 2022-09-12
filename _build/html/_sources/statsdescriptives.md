@@ -224,7 +224,7 @@ A partir de cette droite, on peut calculer les valeurs ajustées, obtenues à pa
 
 ### Cas de deux variables qualitatives
 
-Le couple est un couple de valeurs $(x_i,y_i)$ où $x_i$ et $y_i$ prennent comme valeurs des modalités qualitatives. Notons $x_1\cdots x_J$ et $y_1\cdots y_K$ les valeurs distinctes prises. \\
+Le couple est un couple de valeurs $(x_i,y_i)$ où $x_i$ et $y_i$ prennent comme valeurs des modalités qualitatives. Notons $x_1\cdots x_J$ et $y_1\cdots y_K$ les valeurs distinctes prises. 
 
 Les données peuvent être regroupées sous la forme d'un tableau de contingence prenant la forme suivante :
 
