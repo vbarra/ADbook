@@ -51,9 +51,15 @@ Un cuisinier cherche à savoir si sa sauce est suffisamment salée. Après avoir
 ````
 
 ::::{important}
+```{index} Statistique ; descriptive
+```
+```{index} Statistique ; inférentielle
+```
 La science des statistiques se décompose donc en :
 - la **statistique descriptive**, dont l'objectif est de décrire le caractère d'un échantillon en résumant l'information qu'il contient
 - la **statistique inférentielle**, dont l'objectif estr d'inférer, à partir de l'information recueillie sur l'échantillon, des propriétés valables sur la population, de manière la plus fiable possible.
 ::::
 
+```{index} Statistique ; exploratoire
+```
 A cette dichotomie s'ajoute la **statistique exploratoire**, branche de l'analyse de données, qui cherche à comprendre l'organisation des individus de l'échantillon (existe-t-il des groupes d'individus semblables ? les caractères mesurés sont-ils les plus pertinents ?...)
