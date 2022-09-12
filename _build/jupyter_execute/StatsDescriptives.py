@@ -133,14 +133,12 @@ def ArithmeticMean(X):
 def GeometricMean(X):
     n=len(X)
     p=1 
-    i=0 
     for i in range(n):
         p*=X[i] 
     return float(p**(1/n))
 
 def HarmonicMean(X):
     n=len(X)
-    i=0
     s=0
     for i in range(n):
         s += 1/X[i] 
@@ -162,7 +160,6 @@ for method, style, title in ((ArithmeticMean,'r','Arithmétique'),(GeometricMean
     plt.plot([m,m],[0,1],style,label=title)
 plt.legend()
 plt.tight_layout()
-plt.show()
 
 
 # ````{prf:definition} Médiane
@@ -180,8 +177,26 @@ plt.show()
 # et sinon
 # $x_p=x_{\lceil{np}\rceil}$
 # En particulier, un quartile est chacune des 3 valeurs qui divisent les données triées en 4 parts égales, de sorte que chaque partie représente 1/4 de l'échantillon de population.
-# 
-# 
+
+# In[2]:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+X = np.loadtxt("./data/data.csv", delimiter=",")[:,1]
+
+plt.figure(figsize=(8,8))
+plt.rcParams['font.size'] = '16'
+plt.plot(X, [0.01]*len(X), '|', color='k',label='Points')
+    
+for q, style  in ((25,'r'),(50,'b'),(75,'g')):
+    m=np.percentile(X,q)
+    print ("quartile ", q, " : ",m)
+    plt.plot([m,m],[0,1],style,label=q)
+plt.legend()
+plt.tight_layout()
+
+
 # ### Paramètres de dispersion
 # Il est très souvent utile d'apprécier la dispersion des mesures autour du paramètre de position. Pour cela, sur des variables quantitatives uniquement, plusieurs outils sont disponibles :
 # ````{prf:definition} Etendue
