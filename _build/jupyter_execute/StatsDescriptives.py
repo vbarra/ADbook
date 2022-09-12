@@ -189,7 +189,7 @@
 # 
 # On peut aussi chercher à mesurer l'aplatissement (ou kurtosis) d'une distribution de mesure. Dans ce cas, on utilise le coefficient d'aplatissement de Pearson ou de Fisher, respectivement donnés par 
 # $\beta_2=\frac{m_4}{\sigma^4}\quad\textrm{et}\quad g_2=\beta_2-3$
-# Une distribution est alors dite 
+# Une distribution est alors dite :
 # - mésokurtique si $g_2$ est proche de 0
 # - leptokurtique si $g_2>0$ (queues plus longues et distribution plus pointue)
 # - platykyrtique si $g_2<0$ (queues plus courtes et distribution arrondie).
@@ -197,7 +197,8 @@
 # 
 # ## Statistique descriptive bivariée
 # On s'intéresse à deux variables $x$ et $y$, mesurées sur les $n$ unités d'observation. La série statistique est alors une suite de $n$ couples $(x_i,y_i)$ des valeurs prises par les deux variables sur chaque individu.
-# \subsection{Cas de deux variables quantitatives}
+# 
+# ### Cas de deux variables quantitatives
 # Le couple est un couple de valeurs numériques. C'est donc un point dans le plan $\mathbb{R}^2$. Les variables $x$ et $y$ peuvent être analysées séparément, en opérant une statistique univariée sur chacune de ces variables. Les paramètres calculés (de position, de dispersion...) sont dits marginaux. Cependant, il est intéressant d'étudier le lien entre ces deux variables, par l'intermédiaire des valeurs des couples. On définit pour cela un certain nombre d'outils :
 # ````{prf:definition} Covariance
 # La covariance de $x$ et $y$ est définie par :
