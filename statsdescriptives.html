@@ -411,6 +411,11 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cas-de-deux-variables-quantitatives">
+     Cas de deux variables quantitatives
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#cas-de-deux-variables-qualitatives">
      Cas de deux variables qualitatives
     </a>
@@ -517,6 +522,11 @@ title="Print to PDF"
    Statistique descriptive bivariée
   </a>
   <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cas-de-deux-variables-quantitatives">
+     Cas de deux variables quantitatives
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#cas-de-deux-variables-qualitatives">
      Cas de deux variables qualitatives
@@ -750,7 +760,7 @@ Les paramètres de forme sont souvent calculés en référence à la forme de la
 <p>Tous les coefficients d’asymétrie ont des propriétés similaires : ils sont nuls si la distribution est symétrique, négatifs si la distribution est allongée à gauche (left asymmetry), et positifs si la distribution est allongée à droite (right asymmetry).</p>
 <p>On peut aussi chercher à mesurer l’aplatissement (ou kurtosis) d’une distribution de mesure. Dans ce cas, on utilise le coefficient d’aplatissement de Pearson ou de Fisher, respectivement donnés par
 <span class="math notranslate nohighlight">\(\beta_2=\frac{m_4}{\sigma^4}\quad\textrm{et}\quad g_2=\beta_2-3\)</span>
-Une distribution est alors dite</p>
+Une distribution est alors dite :</p>
 <ul class="simple">
 <li><p>mésokurtique si <span class="math notranslate nohighlight">\(g_2\)</span> est proche de 0</p></li>
 <li><p>leptokurtique si <span class="math notranslate nohighlight">\(g_2&gt;0\)</span> (queues plus longues et distribution plus pointue)</p></li>
@@ -760,9 +770,10 @@ Une distribution est alors dite</p>
 </div>
 <div class="section" id="statistique-descriptive-bivariee">
 <h2>Statistique descriptive bivariée<a class="headerlink" href="#statistique-descriptive-bivariee" title="Permalink to this headline">#</a></h2>
-<p>On s’intéresse à deux variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>, mesurées sur les <span class="math notranslate nohighlight">\(n\)</span> unités d’observation. La série statistique est alors une suite de <span class="math notranslate nohighlight">\(n\)</span> couples <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> des valeurs prises par les deux variables sur chaque individu.
-\subsection{Cas de deux variables quantitatives}
-Le couple est un couple de valeurs numériques. C’est donc un point dans le plan <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>. Les variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> peuvent être analysées séparément, en opérant une statistique univariée sur chacune de ces variables. Les paramètres calculés (de position, de dispersion…) sont dits marginaux. Cependant, il est intéressant d’étudier le lien entre ces deux variables, par l’intermédiaire des valeurs des couples. On définit pour cela un certain nombre d’outils :</p>
+<p>On s’intéresse à deux variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>, mesurées sur les <span class="math notranslate nohighlight">\(n\)</span> unités d’observation. La série statistique est alors une suite de <span class="math notranslate nohighlight">\(n\)</span> couples <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> des valeurs prises par les deux variables sur chaque individu.</p>
+<div class="section" id="cas-de-deux-variables-quantitatives">
+<h3>Cas de deux variables quantitatives<a class="headerlink" href="#cas-de-deux-variables-quantitatives" title="Permalink to this headline">#</a></h3>
+<p>Le couple est un couple de valeurs numériques. C’est donc un point dans le plan <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>. Les variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> peuvent être analysées séparément, en opérant une statistique univariée sur chacune de ces variables. Les paramètres calculés (de position, de dispersion…) sont dits marginaux. Cependant, il est intéressant d’étudier le lien entre ces deux variables, par l’intermédiaire des valeurs des couples. On définit pour cela un certain nombre d’outils :</p>
 <div class="proof definition admonition" id="definition-17">
 <p class="admonition-title"><span class="caption-number">Definition 32 </span> (Covariance)</p>
 <div class="definition-content section" id="proof-content">
@@ -782,6 +793,7 @@ Si <span class="math notranslate nohighlight">\(y=a+bx\)</span>, il est facile d
 <span class="math notranslate nohighlight">\(b=\frac{\sigma_{xy}}{\sigma_x^2}\quad\textrm{et}\quad a=\bar{y}-b\bar{x}\)</span></p>
 <p>et la droite de régression s’écrit <span class="math notranslate nohighlight">\(y-\bar{y}=\frac{\sigma_{xy}}{\sigma_x^2}\left ( x-\bar{x}\right )\)</span>.</p>
 <p>A partir de cette droite, on peut calculer les valeurs ajustées, obtenues à partir de la droite de régression : <span class="math notranslate nohighlight">\(y^*_i=a+bx_i\)</span>. Ce sont les valeurs théoriques des <span class="math notranslate nohighlight">\(y_i\)</span> et les résidus <span class="math notranslate nohighlight">\(e_i=y_i-y_i^*\)</span> représentent la partie inexpliquée des <span class="math notranslate nohighlight">\(y_i\)</span> par la droite de régression (ceux là même que l’on essaye de minimiser par la méthode des moindres carrés).</p>
+</div>
 <div class="section" id="cas-de-deux-variables-qualitatives">
 <h3>Cas de deux variables qualitatives<a class="headerlink" href="#cas-de-deux-variables-qualitatives" title="Permalink to this headline">#</a></h3>
 <p>Le couple est un couple de valeurs <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> où <span class="math notranslate nohighlight">\(x_i\)</span> et <span class="math notranslate nohighlight">\(y_i\)</span> prennent comme valeurs des modalités qualitatives. Notons <span class="math notranslate nohighlight">\(x_1\cdots x_J\)</span> et <span class="math notranslate nohighlight">\(y_1\cdots y_K\)</span> les valeurs distinctes prises.</p>
