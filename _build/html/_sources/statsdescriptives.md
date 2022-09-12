@@ -55,7 +55,7 @@ Le tableau statistique d'une variable qualitative nominale peut être représent
 ```{index} Variable ; qualitative ; ordinale
 ```
 Le domaine peut être muni d'une relation d'ordre.  Les valeurs distinctes d'une variable ordinale peuvent donc être ordonnées $x_1\leq x_2\cdots\leq  x_J$, à permutation près dans l'ordre croissant des indices. L'effectif cumulé $N_j$ et la fréquence cumulée $F_j$ des variables sont alors définis par 
-$$(\forall j\in[\![1,J]\!])\quad N_j=\displaystyle\sum_{i=1}^j n_i\quad \textrm {et}\quad F_j=\displaystyle\sum_{i=1}^j f_i$$
+$(\forall j\in[\![1,J]\!])\quad N_j=\displaystyle\sum_{i=1}^j n_i\quad \textrm {et}\quad F_j=\displaystyle\sum_{i=1}^j f_i$
 
 Les fréquences et les effectifs (cumulés ou non) peuvent être représentés sous la forme d'un diagramme en tuyaux d'orgue.
 
@@ -198,7 +198,10 @@ Tous les coefficients d'asymétrie ont des propriétés similaires : ils sont nu
 
 On peut aussi chercher à mesurer l'aplatissement (ou kurtosis) d'une distribution de mesure. Dans ce cas, on utilise le coefficient d'aplatissement de Pearson ou de Fisher, respectivement donnés par 
 $\beta_2=\frac{m_4}{\sigma^4}\quad\textrm{et}\quad g_2=\beta_2-3$
-Une distribution est alors dite mésokurtique si $g_2$ est proche de 0, leptokurtique si $g_2>0$ (queues plus longues et distribution plus pointue); et platykyrtique si $g_2<0$ (queues plus courtes et distribution arrondie).
+Une distribution est alors dite 
+- mésokurtique si $g_2$ est proche de 0
+- leptokurtique si $g_2>0$ (queues plus longues et distribution plus pointue)
+- platykyrtique si $g_2<0$ (queues plus courtes et distribution arrondie).
 
 
 ## Statistique descriptive bivariée
