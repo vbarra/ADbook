@@ -128,6 +128,54 @@ $\bar{x}_w= \frac{\displaystyle\sum_{i=1}^n w_ix_i}{\displaystyle\sum_{i=1}^n w_
 Dans le cas où $\forall i,w_i=1/n$, la moyenne pondérée est la moyenne arithmétique. De plus, dans tous les cas, on peut montrer que $H\leq G\leq \bar{x}$.
 
 
+
+
+
+```{code-cell} ipython3
+import numpy as np
+X = np.loadtxt("./data/data.csv", delimiter=",")[:,1]
+
+
+def ArithmeticMean(X):
+    # calculable directement avec np.mean(X)
+    return float(sum(X)) / len(X)
+
+def GeometricMean(X):
+    n=len(X)
+    p=1 
+    i=0 
+    for i in range(n):
+        p*=X[i] 
+    return float(p**(1/n))
+
+def HarmonicMean(X):
+    n=len(X)
+    i=0
+    s=0
+    for i in range(n):
+        s += 1/X[i] 
+    return len(X) / s
+
+def WeightedMean(X):
+    # Exemples de poids
+    w = np.random.rand(len(X))
+    return np.average(X,weights=w)
+
+
+plt.figure(figsize=(18,6))
+sns.rugplot(X, color='grey', height=0.5)
+for method, style, title in ((ArithmeticMean,'r','Arithmétique'),(GeometricMean,'b','Géométrique'),
+                             (HarmonicMean,'g','Harmonique'),(WeightedMean,'y', 'Pondérée')):
+    m=method(X)
+    print (method.__name__, " : ",m)
+    plt.plot([m,m],[0,1],style,label=title)
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+
+
+
 ````{prf:definition} Médiane
 La médiane, notée $x_\frac{1}{2}$ est la valeur centrale de la série statistique triée par ordre croissant. 
 ````
@@ -327,7 +375,7 @@ $\sigma^2_\cap = \frac{1}{n}\displaystyle\sum_{j=1}^J n_j\sigma_j^2$
  La quantité 
  $\sigma_\cup = \frac{1}{n}\displaystyle\sum_{j=1}^J n_j\left (\bar{y}_j-\bar{y}\right )^2$
  est la variance inter groupes (ou inter classes), et mesure la variabilité entre les différentes modalités.
- 
+
  Le théorème de décomposition de la variance (ou théorème de Huygens) affirme que la variance totale $\sigma^2_y$, calculée sans distinction de modalité s'écrit :
  $\sigma^2_y = \sigma^2_\cap + \sigma^2_\cup$
  
