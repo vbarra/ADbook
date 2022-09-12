@@ -855,10 +855,15 @@ facteurs : le fait que les étudiants assistent ou pas aux cours, et le fait qu�
 égale (i.e. à l’intérieur d’une même modalité d’assiduité) les étudiants n’ont pas le même niveau. <span class="math notranslate nohighlight">\(e^2\)</span>  permet alors de savoir lequel de ces deux facteurs est prédominant
 pour expliquer la variabilité des notes dans toute la promotion.</p></li>
 </ul>
-<p>Pour déterminer à partir de quelle valeur <span class="math notranslate nohighlight">\(e^2\)</span> est significatif, on compare donc <span class="math notranslate nohighlight">\(\sigma^2_\cap\)</span> à <span class="math notranslate nohighlight">\(\sigma^2_\cup\)</span>. On peut montrer que si le rapport de corrélation théorique est nul, alors la variable
-$<span class="math notranslate nohighlight">\(\frac{\left (\frac{e^2}{J-1}\right )}{\left (\frac{1-e^2}{n-J}\right )}\)</span><span class="math notranslate nohighlight">\(
-suit une loi de Fisher Snedecor \footnote{Soient \)</span>U<span class="math notranslate nohighlight">\( et \)</span>V<span class="math notranslate nohighlight">\( deux variables aléatoires indépendantes suivant respectivement des lois \)</span>\chi^2_n<span class="math notranslate nohighlight">\( et \)</span>\chi^2_p<span class="math notranslate nohighlight">\(. On définit \)</span>F(n,p)=\frac{U/n}{V/P}<span class="math notranslate nohighlight">\(} \)</span>F(J-1,n-J)<span class="math notranslate nohighlight">\(, en supposant que les distributions conditionnelles de \)</span>Y<span class="math notranslate nohighlight">\( pour chaque modalité de \)</span>x$ sont gaussiennes, de même espérance et de même variance.</p>
+<p>Pour déterminer à partir de quelle valeur <span class="math notranslate nohighlight">\(e^2\)</span> est significatif, on compare donc <span class="math notranslate nohighlight">\(\sigma^2_\cap\)</span> à <span class="math notranslate nohighlight">\(\sigma^2_\cup\)</span>. On peut montrer que si le rapport de corrélation théorique est nul, alors la variable</p>
+<p><span class="math notranslate nohighlight">\(\frac{\left (\frac{e^2}{J-1}\right )}{\left (\frac{1-e^2}{n-J}\right )}\)</span>
+suit une loi de Fisher Snedecor, en supposant que les distributions conditionnelles de <span class="math notranslate nohighlight">\(Y\)</span> pour chaque modalité de <span class="math notranslate nohighlight">\(X\)</span> sont gaussiennes, de même espérance et de même variance.</p>
+<div class="proof remark dropdown admonition" id="remark-19">
+<p class="admonition-title"><span class="caption-number">Remark 6 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Soient <span class="math notranslate nohighlight">\(U\)</span> et <span class="math notranslate nohighlight">\(V\)</span> deux variables aléatoires indépendantes suivant respectivement des lois <span class="math notranslate nohighlight">\(\chi^2_n\)</span> et <span class="math notranslate nohighlight">\(\chi^2_p\)</span>. On définit la loi de Fisher Snedecor par <span class="math notranslate nohighlight">\(F(n,p)=\frac{U/n}{V/P}\)</span>) <span class="math notranslate nohighlight">\(F(J-1,n-J)\)</span></p>
 </div>
+</div></div>
 </div>
 <div class="section" id="vers-une-analyse-multivariee">
 <h2>Vers une analyse multivariée<a class="headerlink" href="#vers-une-analyse-multivariee" title="Permalink to this headline">#</a></h2>
