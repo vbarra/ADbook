@@ -59,9 +59,9 @@
 # 
 # $F(x) = \left \{
 # \begin{eqnarray}
-# 0&si $x<x_1$\\
-# $F_j$ &si  $x\in[x_j,x_{j+1}[$\\
-# 1& si  $x_J\leq x$
+# 0&si &x<x_1\\
+# F_j &si&  x\in[x_j,x_{j+1}[\\
+# 1& si&  x_J\leq x
 # \end{eqnarray}\right .$
 # 
 # ![](./images/baton2.png)
