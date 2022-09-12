@@ -840,8 +840,8 @@ la borne étant atteinte dans le cas de la dépendance fonctionnelle (si <span c
 <li><p>le coefficient de Tschuprow :
 <span class="math notranslate nohighlight">\(T = \sqrt{\frac{\phi^2}{\sqrt{(K-1)(J-1)}}}\)</span></p></li>
 </ul>
-<p>Ces coefficients sont tous compris entre 0 (indépendance) et 1 (dépendance fonctionnelle). Pour estimer à partir de quelle valeur la dépendance fonctionnelle est significative, on procède de la manière suivante : si les <span class="math notranslate nohighlight">\(n\)</span> observations étaient prélevées dans une population où les variables sont indépendantes, on recherche les valeurs probables de <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span>. \
-En s’appuyant sur la loi multinomiale et le test du <span class="math notranslate nohighlight">\(\chi^2\)</span>, on montre que <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span> est une réalisation d’une variable aléatoire <span class="math notranslate nohighlight">\(Z\)</span> suivant approximativement une loi <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span>.</p>
+<p>Ces coefficients sont tous compris entre 0 (indépendance) et 1 (dépendance fonctionnelle). Pour estimer à partir de quelle valeur la dépendance fonctionnelle est significative, on procède de la manière suivante : si les <span class="math notranslate nohighlight">\(n\)</span> observations étaient prélevées dans une population où les variables sont indépendantes, on recherche les valeurs probables de <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span>.</p>
+<p>En s’appuyant sur la loi multinomiale et le test du <span class="math notranslate nohighlight">\(\chi^2\)</span>, on montre que <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span> est une réalisation d’une variable aléatoire <span class="math notranslate nohighlight">\(Z\)</span> suivant approximativement une loi <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span>.</p>
 <div class="proof remark dropdown admonition" id="remark-19">
 <p class="admonition-title"><span class="caption-number">Remark 6 </span></p>
 <div class="remark-content section" id="proof-content">
@@ -862,11 +862,11 @@ Si <span class="math notranslate nohighlight">\(n_j\)</span> est le nombre d’o
 <span class="math notranslate nohighlight">\(e^2 = \frac{\frac{1}{n}\displaystyle\sum_{j=1}^J n_j\left (\bar{y}_j-\bar{y}\right )^2}{\sigma^2_y}\)</span></p>
 <p>La quantité</p>
 <p><span class="math notranslate nohighlight">\(\sigma^2_\cap = \frac{1}{n}\displaystyle\sum_{j=1}^J n_j\sigma_j^2\)</span></p>
-<p>avec <span class="math notranslate nohighlight">\(\sigma_j^2 =  \frac{1}{n_j}\displaystyle\sum_{i=1}^{n_j}\left (y_{ij}-\bar{y}_j \right )^2\)</span>,  est appelée variance intra groupe (ou intra classe), et donne une idée de la variabilité à l’intérieur de chaque modalité. \
+<p>avec <span class="math notranslate nohighlight">\(\sigma_j^2 =  \frac{1}{n_j}\displaystyle\sum_{i=1}^{n_j}\left (y_{ij}-\bar{y}_j \right )^2\)</span>,  est appelée variance intra groupe (ou intra classe), et donne une idée de la variabilité à l’intérieur de chaque modalité.
 La quantité
 <span class="math notranslate nohighlight">\(\sigma_\cup = \frac{1}{n}\displaystyle\sum_{j=1}^J n_j\left (\bar{y}_j-\bar{y}\right )^2\)</span>
-est la variance inter groupes (ou inter classes), et mesure la variabilité entre les différentes modalités.\
-Le théorème de décomposition de la variance (ou théorème de Huygens) affirme que la variance totale <span class="math notranslate nohighlight">\(\sigma^2_y\)</span>, calculée sans distinction de modalité s’écrit :
+est la variance inter groupes (ou inter classes), et mesure la variabilité entre les différentes modalités.</p>
+<p>Le théorème de décomposition de la variance (ou théorème de Huygens) affirme que la variance totale <span class="math notranslate nohighlight">\(\sigma^2_y\)</span>, calculée sans distinction de modalité s’écrit :
 <span class="math notranslate nohighlight">\(\sigma^2_y = \sigma^2_\cap + \sigma^2_\cup\)</span></p>
 <p>De ces définitions, on a alors :</p>
 <ul class="simple">
@@ -892,8 +892,8 @@ suit une loi de Fisher Snedecor, en supposant que les distributions conditionnel
 <p>Bien évidemment, dans la majorité des cas, un individu sera décrit par <span class="math notranslate nohighlight">\(p\geq 2\)</span> variables. Si certains algorithmes de statistique descriptive multidimensionnelle sont abordés dans les chapitres suivants, il est néanmoins possible d’avoir une première approche exploratoire de ce cas.</p>
 <div class="section" id="matrices-de-covariance-et-de-correlation">
 <h3>Matrices de covariance et de corrélation<a class="headerlink" href="#matrices-de-covariance-et-de-correlation" title="Permalink to this headline">#</a></h3>
-<p>La première idée, lorsque l’on a observé <span class="math notranslate nohighlight">\(p\)</span> variables sur <span class="math notranslate nohighlight">\(n\)</span> individus, est de calculer les <span class="math notranslate nohighlight">\(p\)</span> variances de ces variables, et les <span class="math notranslate nohighlight">\(\frac{p(p-1)}{2}\)</span> covariances. Ces mesures sont regroupées dans une matrice <span class="math notranslate nohighlight">\(p\times p\)</span>, symétrique, semi définie positive, appelée matrice de variance-covariance (ou matrice des covariances), et classiquement notée <span class="math notranslate nohighlight">\(\boldsymbol\Sigma\)</span>.\
-De même, on peut former la matrice des corrélations entre les variables, à diagonale unité et symétrique. La matrice résultante, notée <span class="math notranslate nohighlight">\(\mathbf R\)</span>, est également semi définie positive et sa représentation graphique en fausses couleurs permet d’apprécier les dépendances linéaires entre variables.</p>
+<p>La première idée, lorsque l’on a observé <span class="math notranslate nohighlight">\(p\)</span> variables sur <span class="math notranslate nohighlight">\(n\)</span> individus, est de calculer les <span class="math notranslate nohighlight">\(p\)</span> variances de ces variables, et les <span class="math notranslate nohighlight">\(\frac{p(p-1)}{2}\)</span> covariances. Ces mesures sont regroupées dans une matrice <span class="math notranslate nohighlight">\(p\times p\)</span>, symétrique, semi définie positive, appelée matrice de variance-covariance (ou matrice des covariances), et classiquement notée <span class="math notranslate nohighlight">\(\boldsymbol\Sigma\)</span>.</p>
+<p>De même, on peut former la matrice des corrélations entre les variables, à diagonale unité et symétrique. La matrice résultante, notée <span class="math notranslate nohighlight">\(\mathbf R\)</span>, est également semi définie positive et sa représentation graphique en fausses couleurs permet d’apprécier les dépendances linéaires entre variables.</p>
 <p><img alt="" src="_images/batiments.png" /></p>
 <p>Dans le cas de variables qualitatives, les coefficients de corrélation peuvent être remplacés par les coefficients de Cramer, de Tschuprow…</p>
 </div>
