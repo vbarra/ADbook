@@ -1,45 +1,57 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Statistique descriptive
-## Définitions
-Dans la suite, nous nous intéressons à des unités statistiques ou individus statistiques ou unités d'observation (individus,  entreprises,  ménages, données abstraites...). Bien que le cas infini soit envisageable, nous nous restreignons ici à l'étude d'un nombre fini de ces unités. Un ou plusieurs caractères (ou variables) est mesuré sur chaque unité. Les variables sont désignées par simplicité par une lettre. Leurs valeurs possibles sont appelées modalités et l'ensemble des valeurs possibles ou des modalités est appelé le domaine. L'ensemble des individus statistiques forment la population.
+## DÃ©finitions
+Dans la suite, nous nous intÃ©ressons Ã  des unitÃ©s statistiques ou individus statistiques ou unitÃ©s d'observation (individus,  entreprises,  mÃ©nages, donnÃ©es abstraites...). Bien que le cas infini soit envisageable, nous nous restreignons ici Ã  l'Ã©tude d'un nombre fini de ces unitÃ©s. Un ou plusieurs caractÃ¨res (ou variables) est mesurÃ© sur chaque unitÃ©. Les variables sont dÃ©signÃ©es par simplicitÃ© par une lettre. Leurs valeurs possibles sont appelÃ©es modalitÃ©s et l'ensemble des valeurs possibles ou des modalitÃ©s est appelÃ© le domaine. L'ensemble des individus statistiques forment la population.
 ### Typologie des variables
-La typologie des variables définit le type de problème statistique que l'on doit aborder :
+La typologie des variables dÃ©finit le type de problÃ¨me statistique que l'on doit aborder :
 ````{prf:definition} Variable qualitative
-La variable est dite qualitative lorsque les modalités sont des catégories. Suivant qu'il existe une relation d'ordre sur les catégories, on distingue :
-- la variable qualitative nominale, si les modalités  ne peuvent pas être ordonnées
-- la variable qualitative ordinale, si les modalités peuvent être ordonnées
+La variable est dite qualitative lorsque les modalitÃ©s sont des catÃ©gories. Suivant qu'il existe une relation d'ordre sur les catÃ©gories, on distingue :
+- la variable qualitative nominale, si les modalitÃ©s  ne peuvent pas Ãªtre ordonnÃ©es
+- la variable qualitative ordinale, si les modalitÃ©s peuvent Ãªtre ordonnÃ©es
 ````
 
 ````{prf:definition} Variable quantitative
-La variable est dite quantitative lorsque les modalités sont des valeurs numériques (scalaires ou vectorielles) :
-- la variable est quantitative discrète si les modalités forment un ensemble dénombrable
-- la variable quantitative est continue si les modalités vivent dans un espace continu.
+La variable est dite quantitative lorsque les modalitÃ©s sont des valeurs numÃ©riques (scalaires ou vectorielles) :
+- la variable est quantitative discrÃ¨te si les modalitÃ©s forment un ensemble dÃ©nombrable
+- la variable quantitative est continue si les modalitÃ©s vivent dans un espace continu.
 ````
 
-Dans certains cas (l'âge par exemple), une variable d'un type (quantitative continue ici) peut être exprimée d'une autre manière pour des raisons pratiques de collecte ou de mesure. De même, les variables qualitatives ordinales peuvent être codées, par exemple selon une échelle de satisfaction.
+Dans certains cas (l'Ã¢ge par exemple), une variable d'un type (quantitative continue ici) peut Ãªtre exprimÃ©e d'une autre maniÃ¨re pour des raisons pratiques de collecte ou de mesure. De mÃªme, les variables qualitatives ordinales peuvent Ãªtre codÃ©es, par exemple selon une Ã©chelle de satisfaction.
 
-````{prf:definition} Série statistique
-On appelle série statistique une suite de $n$ valeurs prises par une variable $X$ sur les unités d'observation, notées $x_1\cdots x_n$.
+````{prf:definition} SÃ©rie statistique
+On appelle sÃ©rie statistique une suite de $n$ valeurs prises par une variable $X$ sur les unitÃ©s d'observation, notÃ©es $x_1\cdots x_n$.
 ````
 
 
 ### Variable qualitative nominale
-Une variable qualitative nominale a des valeurs distinctes qui ne peuvent pas être ordonnées. On note $J$ le nombre de valeurs distinctes ou de modalités, notées $x_1\cdots x_J$. On appelle effectif d'une modalité ou d'une valeur distincte le nombre de fois que cette modalité (ou valeur distincte) apparaît dans la série statistique. On note $n_j$ l'effectif de la modalité $x_j$. La fréquence d'une modalité $j$ est  alors égale à $f_j=\frac{n_j}{n}$.
+Une variable qualitative nominale a des valeurs distinctes qui ne peuvent pas Ãªtre ordonnÃ©es. On note $J$ le nombre de valeurs distinctes ou de modalitÃ©s, notÃ©es $x_1\cdots x_J$. On appelle effectif d'une modalitÃ© ou d'une valeur distincte le nombre de fois que cette modalitÃ© (ou valeur distincte) apparaÃ®t dans la sÃ©rie statistique. On note $n_j$ l'effectif de la modalitÃ© $x_j$. La frÃ©quence d'une modalitÃ© $j$ est  alors Ã©gale Ã  $f_j=\frac{n_j}{n}$.
 
-Le tableau statistique d'une variable qualitative nominale peut être représenté par deux types de graphiques. Les effectifs sont représentés par un diagramme en tuyau d'orgue et les fréquences par un diagramme en secteurs. Pour ce dernier, si le nombre de modalités devient trop important, la représentation perd de son intérêt.
+Le tableau statistique d'une variable qualitative nominale peut Ãªtre reprÃ©sentÃ© par deux types de graphiques. Les effectifs sont reprÃ©sentÃ©s par un diagramme en tuyau d'orgue et les frÃ©quences par un diagramme en secteurs. Pour ce dernier, si le nombre de modalitÃ©s devient trop important, la reprÃ©sentation perd de son intÃ©rÃªt.
 
 ![](./images/baton.png)
 
 
 ### Variable qualitative ordinale
-Le domaine peut être muni d'une relation d'ordre.  Les valeurs distinctes d'une variable ordinale peuvent donc être ordonnées $x_1\leq x_2\cdots\leq  x_J$, à permutation près dans l'ordre croissant des indices. L'effectif cumulé $N_j$ et la fréquence cumulée $F_j$ des variables sont alors définis par 
+Le domaine peut Ãªtre muni d'une relation d'ordre.  Les valeurs distinctes d'une variable ordinale peuvent donc Ãªtre ordonnÃ©es $x_1\leq x_2\cdots\leq  x_J$, Ã  permutation prÃ¨s dans l'ordre croissant des indices. L'effectif cumulÃ© $N_j$ et la frÃ©quence cumulÃ©e $F_j$ des variables sont alors dÃ©finis par 
 $$(\forall j\in[\![1,J]\!])\quad N_j=\displaystyle\sum_{i=1}^j n_i\quad \textrm {et}\quad F_j=\displaystyle\sum_{i=1}^j f_i$$
 
-Les fréquences et les effectifs (cumulés ou non) peuvent être représentés sous la forme d'un diagramme en tuyaux d'orgue.
+Les frÃ©quences et les effectifs (cumulÃ©s ou non) peuvent Ãªtre reprÃ©sentÃ©s sous la forme d'un diagramme en tuyaux d'orgue.
 
-### Variable quantitative discrète
-Le domaine d'une telle variable est dénombrable. Comme pour les variables qualitatives ordinales, on peut calculer les effectifs (cumulés ou non) et les fréquences (cumulées ou non). 
+### Variable quantitative discrÃ¨te
+Le domaine d'une telle variable est dÃ©nombrable. Comme pour les variables qualitatives ordinales, on peut calculer les effectifs (cumulÃ©s ou non) et les frÃ©quences (cumulÃ©es ou non). 
 
-La répartition des valeurs de la variable peut être représentée par un diagramme en bâtonnets. Les fréquences cumulées  sont visualisées par la fonction de répartition de la variable , définie par 
+La rÃ©partition des valeurs de la variable peut Ãªtre reprÃ©sentÃ©e par un diagramme en bÃ¢tonnets. Les frÃ©quences cumulÃ©es  sont visualisÃ©es par la fonction de rÃ©partition de la variable , dÃ©finie par 
 
 $F(x) = \left \{
 \begin{tabular}{ll}
@@ -51,22 +63,22 @@ $F_j$ &si  $x\in[x_j,x_{j+1}[$\\
 ![](./images/baton2.png)
 
 ### Variable quantitative continue
-Le domaine d'une  variable quantitative continue est infini et est assimilé à $\mathbb{R}$ ou à un intervalle de $\mathbb{R}$. Cependant, la mesure étant limitée en précision, on peut traiter ces variables comme des variables discrètes.
+Le domaine d'une  variable quantitative continue est infini et est assimilÃ© Ã  $\mathbb{R}$ ou Ã  un intervalle de $\mathbb{R}$. Cependant, la mesure Ã©tant limitÃ©e en prÃ©cision, on peut traiter ces variables comme des variables discrÃ¨tes.
 
-La représentation graphique de ces variables (et la construction du tableau statistique) passe par le regroupement des modalités ou valeurs en classes. Le tableau ainsi construit est souvent appelé distribution groupée. La classe $j$ est l'ensemble des valeurs incluses dans $[c^-_j,c^+_j[$, où $c^-_j$ et $c^+_j$ sont les bornes inférieure et supérieure de la classe. Sur cet intervalle, on peut calculer la fréquence $f_j$ de la classe, la fréquence cumulée, l'effectif $n_j$... La répartition en classes nécessite de définir a priori le nombre de classes $J$ et l'amplitude $a_j$ des intervalles. Si elles peuvent être définies de manière empirique, quelques règles permettent d'établir $J$ et l'amplitude pour une série statistique de $n$ observations. Par exemple :
-- $J=1+3.3log_{10}(n)$ (règle de Sturge)
-- $J=2.5\sqrt[4\,]{n}$ (règle de Yule)
+La reprÃ©sentation graphique de ces variables (et la construction du tableau statistique) passe par le regroupement des modalitÃ©s ou valeurs en classes. Le tableau ainsi construit est souvent appelÃ© distribution groupÃ©e. La classe $j$ est l'ensemble des valeurs incluses dans $[c^-_j,c^+_j[$, oÃ¹ $c^-_j$ et $c^+_j$ sont les bornes infÃ©rieure et supÃ©rieure de la classe. Sur cet intervalle, on peut calculer la frÃ©quence $f_j$ de la classe, la frÃ©quence cumulÃ©e, l'effectif $n_j$... La rÃ©partition en classes nÃ©cessite de dÃ©finir a priori le nombre de classes $J$ et l'amplitude $a_j$ des intervalles. Si elles peuvent Ãªtre dÃ©finies de maniÃ¨re empirique, quelques rÃ¨gles permettent d'Ã©tablir $J$ et l'amplitude pour une sÃ©rie statistique de $n$ observations. Par exemple :
+- $J=1+3.3log_{10}(n)$ (rÃ¨gle de Sturge)
+- $J=2.5\sqrt[4\,]{n}$ (rÃ¨gle de Yule)
 
 
 
 ```{prf:remark}
 :class: dropdown
-Toutes les classes n'ont pas nécessairement la même amplitude
+Toutes les classes n'ont pas nÃ©cessairement la mÃªme amplitude
 ```
 
-Les effectifs (ou les fréquences) sont représenté(e)s par un histogramme. Si l'on s'intéresse à la représentation des effectifs (resp. des fréquences), la densité d'effectif $h_j$ (resp. de fréquence $d_j$),  définie par $h_j=\frac{n_j}{a_j}$ (resp. $d_j=\frac{f_j}{a_j}$), détermine la hauteur du rectangle représentant la classe $j$. L'aire de l'histogramme est égale à l'effectif total $n$ pour l'histogramme des effectifs, et à 1 pour l'histogramme des fréquences.
+Les effectifs (ou les frÃ©quences) sont reprÃ©sentÃ©(e)s par un histogramme. Si l'on s'intÃ©resse Ã  la reprÃ©sentation des effectifs (resp. des frÃ©quences), la densitÃ© d'effectif $h_j$ (resp. de frÃ©quence $d_j$),  dÃ©finie par $h_j=\frac{n_j}{a_j}$ (resp. $d_j=\frac{f_j}{a_j}$), dÃ©termine la hauteur du rectangle reprÃ©sentant la classe $j$. L'aire de l'histogramme est Ã©gale Ã  l'effectif total $n$ pour l'histogramme des effectifs, et Ã  1 pour l'histogramme des frÃ©quences.
 
-Comme dans le cas discret, la fonction de répartition peut être calculée de la manière suivante :
+Comme dans le cas discret, la fonction de rÃ©partition peut Ãªtre calculÃ©e de la maniÃ¨re suivante :
 
 $F(x) = \left \{
 \begin{tabular}{ll}
@@ -76,142 +88,142 @@ $F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j)$ &si  $x\in[c^-_j,c^+_j[$\\
 \end{tabular}\right .$
 
 
-\section {Statistique descriptive univariée}
-La statistique descriptive univariée consiste à étudier un ensemble d'unités d'observations, lorsque celles-ci sont décrites par une seule variable. 
+\section {Statistique descriptive univariÃ©e}
+La statistique descriptive univariÃ©e consiste Ã  Ã©tudier un ensemble d'unitÃ©s d'observations, lorsque celles-ci sont dÃ©crites par une seule variable. 
 
-Soit donc $X$ une variable et $x_j,j\in [\![1,n]\!]$ l'ensemble des valeurs prises par cette variable, $n_i$ étant le nombre de fois où la valeur $x_i$ est prise. $X$ peut être qualitative ou quantitative, les paramètres de description décrits dans la suite s'appliqueront à l'une de ces natures ou au deux.
+Soit donc $X$ une variable et $x_j,j\in [\![1,n]\!]$ l'ensemble des valeurs prises par cette variable, $n_i$ Ã©tant le nombre de fois oÃ¹ la valeur $x_i$ est prise. $X$ peut Ãªtre qualitative ou quantitative, les paramÃ¨tres de description dÃ©crits dans la suite s'appliqueront Ã  l'une de ces natures ou au deux.
 \begin{defin}{Moment}{}
-Le moment à l'origine d'ordre $r$  est défini par :
+Le moment Ã  l'origine d'ordre $r$  est dÃ©fini par :
 $$m'_r=\displaystyle\sum_{i=1}^n x_i^r$$
 \end{defin}
 
-\subsection{Paramètres de position}
-Plusieurs paramètres permettent de décrire la position "la plus représentative" d'une variable :
+\subsection{ParamÃ¨tres de position}
+Plusieurs paramÃ¨tres permettent de dÃ©crire la position "la plus reprÃ©sentative" d'une variable :
 \begin{defin}{Mode} {}
-Le mode est la valeur distincte correspondant à l'effectif le plus élevé. Il est noté $x_M$.
+Le mode est la valeur distincte correspondant Ã  l'effectif le plus Ã©levÃ©. Il est notÃ© $x_M$.
 \end{defin}
-Le mode peut être calculé pour tout type de variable, n'est pas nécessairement unique. Lorsqu'une variable continue est découpée en classes, il est possible de définir une classe modale (classe correspondant à l'effectif le plus élevé)
-\begin{defin}{Moyennes} {} Les moyennes ne peuvent être définies que sur des variables quantitatives. Plusieurs moyennes peuvent être calculées, parmi lesquelles :
+Le mode peut Ãªtre calculÃ© pour tout type de variable, n'est pas nÃ©cessairement unique. Lorsqu'une variable continue est dÃ©coupÃ©e en classes, il est possible de dÃ©finir une classe modale (classe correspondant Ã  l'effectif le plus Ã©levÃ©)
+\begin{defin}{Moyennes} {} Les moyennes ne peuvent Ãªtre dÃ©finies que sur des variables quantitatives. Plusieurs moyennes peuvent Ãªtre calculÃ©es, parmi lesquelles :
 \begin{itemize}
-\item la moyenne arithmétique  $$\bar{x} = \frac{1}{n}{\displaystyle\sum_{i=1}^nx_i}=  \frac{1}{n}{\displaystyle\sum_{i=1}^J n_ix_i}$$ C'est le moment à l'origine d'ordre 1.
-\item la moyenne géométrique : si les $x_i$ sont positifs, la moyenne géométrique est la quantité $$G=\left (\displaystyle\prod_{i=1}^n x_i\right )^\frac{1}{n}$$C'est donc l'exponentielle de la moyenne arithmétique des logarithmes des valeurs observées. 
-\item la moyenne harmonique : si les $x_i$ sont positifs, la moyenne harmonique est définie par $$H=\frac{n}{\displaystyle\sum_{i=1}^J 1/x_i}$$
-\item la moyenne pondérée : dans certains cas, on n'accorde pas la même importance à toutes les observations (fiabilité, confiance...). La moyenne pondérée est alors définie par 
+\item la moyenne arithmÃ©tique  $$\bar{x} = \frac{1}{n}{\displaystyle\sum_{i=1}^nx_i}=  \frac{1}{n}{\displaystyle\sum_{i=1}^J n_ix_i}$$ C'est le moment Ã  l'origine d'ordre 1.
+\item la moyenne gÃ©omÃ©trique : si les $x_i$ sont positifs, la moyenne gÃ©omÃ©trique est la quantitÃ© $$G=\left (\displaystyle\prod_{i=1}^n x_i\right )^\frac{1}{n}$$C'est donc l'exponentielle de la moyenne arithmÃ©tique des logarithmes des valeurs observÃ©es. 
+\item la moyenne harmonique : si les $x_i$ sont positifs, la moyenne harmonique est dÃ©finie par $$H=\frac{n}{\displaystyle\sum_{i=1}^J 1/x_i}$$
+\item la moyenne pondÃ©rÃ©e : dans certains cas, on n'accorde pas la mÃªme importance Ã  toutes les observations (fiabilitÃ©, confiance...). La moyenne pondÃ©rÃ©e est alors dÃ©finie par 
 $$\bar{x}_w= \frac{\displaystyle\sum_{i=1}^n w_ix_i}{\displaystyle\sum_{i=1}^n w_i}$$
 
 \end{itemize}
 \end{defin}
-Dans le cas où $\forall i,w_i=1/n$, la moyenne pondérée est la moyenne arithmétique. De plus, dans tous les cas, on peut montrer que $H\leq G\leq \bar{x}$.
+Dans le cas oÃ¹ $\forall i,w_i=1/n$, la moyenne pondÃ©rÃ©e est la moyenne arithmÃ©tique. De plus, dans tous les cas, on peut montrer que $H\leq G\leq \bar{x}$.
 
 
 \begin{rem}
-en centrant les moments par rapport à une valeur représentative, on définit les moments centrés :
+en centrant les moments par rapport Ã  une valeur reprÃ©sentative, on dÃ©finit les moments centrÃ©s :
 \end{rem}
-\begin{defin}{Moment centré}{}
-Le moment centré d'ordre $r$ est défini par :
+\begin{defin}{Moment centrÃ©}{}
+Le moment centrÃ© d'ordre $r$ est dÃ©fini par :
 $$m_r=\displaystyle\sum_{i=1}^n \left (x_i-\bar{x}\right )^r$$
 \end{defin}
 
-\begin{defin}{Médiane} {}
-La médiane, notée $x_\frac{1}{2}$ est la valeur centrale de la série statistique triée par ordre croissant. 
+\begin{defin}{MÃ©diane} {}
+La mÃ©diane, notÃ©e $x_\frac{1}{2}$ est la valeur centrale de la sÃ©rie statistique triÃ©e par ordre croissant. 
 \end{defin}
-En d'autres termes, c'est la valeur de la série triée telle qu'au moins 50\% des effectifs soient inférieurs à $x_\frac{1}{2}$. Elle peut être calculée sur des variables quantitatives ou qualitatives ordinales (dans le cas où des échelles de valeur ont été définies).
+En d'autres termes, c'est la valeur de la sÃ©rie triÃ©e telle qu'au moins 50\% des effectifs soient infÃ©rieurs Ã  $x_\frac{1}{2}$. Elle peut Ãªtre calculÃ©e sur des variables quantitatives ou qualitatives ordinales (dans le cas oÃ¹ des Ã©chelles de valeur ont Ã©tÃ© dÃ©finies).
 \begin{defin}{Quantiles} {}
-Le quantile d'ordre $p$ est défini par $x_p=F^{-1}(p)$, où $F$ est la fonction de répartition. 
+Le quantile d'ordre $p$ est dÃ©fini par $x_p=F^{-1}(p)$, oÃ¹ $F$ est la fonction de rÃ©partition. 
 \end{defin}
-La notion de quantile généralise la notion de médiane. Si la fonction de répartition était continue et strictement croissante, la définition de $x_p$ serait unique. Or $F$ est discontinue et définie par paliers et les valeurs de quantiles varient suivant par exemple l'utilisation ou non d'une méthode d'interpolation de $F$. Pour calculer $x_p$, on peut par exemple considérer que si $np$ est pair, 
+La notion de quantile gÃ©nÃ©ralise la notion de mÃ©diane. Si la fonction de rÃ©partition Ã©tait continue et strictement croissante, la dÃ©finition de $x_p$ serait unique. Or $F$ est discontinue et dÃ©finie par paliers et les valeurs de quantiles varient suivant par exemple l'utilisation ou non d'une mÃ©thode d'interpolation de $F$. Pour calculer $x_p$, on peut par exemple considÃ©rer que si $np$ est pair, 
 $$x_p=\frac{x_{np}+x_{np+1}}{2}$$
-on remarque alors que la médiane est le quantile d'ordre $\frac{1}{2}$
+on remarque alors que la mÃ©diane est le quantile d'ordre $\frac{1}{2}$
 et sinon
 $$x_p=x_{\lceil{np}\rceil}$$
-En particulier, un quartile est chacune des 3 valeurs qui divisent les données triées en 4 parts égales, de sorte que chaque partie représente 1/4 de l'échantillon de population.
+En particulier, un quartile est chacune des 3 valeurs qui divisent les donnÃ©es triÃ©es en 4 parts Ã©gales, de sorte que chaque partie reprÃ©sente 1/4 de l'Ã©chantillon de population.
 
 
-\subsection{Paramètres de dispersion}
-Il est très souvent utile d'apprécier la dispersion des mesures autour du paramètre de position. Pour cela, sur des variables quantitatives uniquement, plusieurs outils sont disponibles :
+\subsection{ParamÃ¨tres de dispersion}
+Il est trÃ¨s souvent utile d'apprÃ©cier la dispersion des mesures autour du paramÃ¨tre de position. Pour cela, sur des variables quantitatives uniquement, plusieurs outils sont disponibles :
 \begin{defin}{Etendue}{}
-L'étendue est la simple différence entre la plus grande et la plus petite valeur observée.
+L'Ã©tendue est la simple diffÃ©rence entre la plus grande et la plus petite valeur observÃ©e.
 \end{defin}
 \begin{defin}{Distance interquartile}{}
-La distance interquartile est la différence entre le troisième et le premier quartile.
+La distance interquartile est la diffÃ©rence entre le troisiÃ¨me et le premier quartile.
 \end{defin}
 
 \begin{defin}{Variance}{}
-La variance est la somme des carrés des écarts à la moyenne, normalisée par le nombre d'observations
+La variance est la somme des carrÃ©s des Ã©carts Ã  la moyenne, normalisÃ©e par le nombre d'observations
 $$\sigma^2 = \frac{1}{n}\displaystyle\sum_{i=1}^n\left (x_i-\bar{x}\right )^2$$
 \end{defin}
-Cette variance est dite biaisée. La variance non biaisée est obtenue en divisant non pas par $n$, mais par $n-1$.\\
+Cette variance est dite biaisÃ©e. La variance non biaisÃ©e est obtenue en divisant non pas par $n$, mais par $n-1$.\\
 \begin{defin}{Ecart type}{}
-L'écart type est la racine carrée de la variance. 
+L'Ã©cart type est la racine carrÃ©e de la variance. 
 \end{defin}
 
 \begin{defin}{Ecart moyen absolu}{}
-L'écart moyen absolu est la somme des valeurs absolues des écarts à la moyenne divisée par le nombre d'observations. 
+L'Ã©cart moyen absolu est la somme des valeurs absolues des Ã©carts Ã  la moyenne divisÃ©e par le nombre d'observations. 
 \end{defin}
-Notons qu'il s'agit de la distance $L_1$ du vecteur des observations au vecteur composé de la valeur moyenne, divisé par le nombre d'observations. La variance est la distance $L_2$ entre ces deux vecteurs. Lorsque la distance est calculée par rapport au vecteur composé de la valeur médiane, on parle d'écart médian absolu.
+Notons qu'il s'agit de la distance $L_1$ du vecteur des observations au vecteur composÃ© de la valeur moyenne, divisÃ© par le nombre d'observations. La variance est la distance $L_2$ entre ces deux vecteurs. Lorsque la distance est calculÃ©e par rapport au vecteur composÃ© de la valeur mÃ©diane, on parle d'Ã©cart mÃ©dian absolu.
 
 
-La figure \ref{F:deciles} résume l'ensemble de ces paramètres.
+La figure \ref{F:deciles} rÃ©sume l'ensemble de ces paramÃ¨tres.
 \begin{center}
 \begin{figure}[ht!]
 \includegraphics[width=\textwidth]{figures/deciles.png}
-\caption{\label{F:deciles} Illustration des paramètres de position et de dispersion.}
+\caption{\label{F:deciles} Illustration des paramÃ¨tres de position et de dispersion.}
 \end{figure}
 \end{center}
-\subsection{Paramètres de forme}
-Les paramètres de forme sont souvent calculés en référence à la forme de la loi normale, pour évaluer la symétrie, l'aplatissement ou la dérive par rapport à cette loi.
+\subsection{ParamÃ¨tres de forme}
+Les paramÃ¨tres de forme sont souvent calculÃ©s en rÃ©fÃ©rence Ã  la forme de la loi normale, pour Ã©valuer la symÃ©trie, l'aplatissement ou la dÃ©rive par rapport Ã  cette loi.
 \begin{defin}{Skewness}{}
 $$g_1 = \frac{m_3}{\sigma^3}$$
 \end{defin}
-Le skewness est également appelé coefficient d'asymétrie de Fisher.
+Le skewness est Ã©galement appelÃ© coefficient d'asymÃ©trie de Fisher.
 \begin{defin}{Kurtosis}{}
 $$K=\frac{m_4}{m_2^2}$$
 \end{defin}
 $K$ permet de mesurer l'aplatissement.
-\begin{defin}{Coefficient d'asymétrie de Yule}{}
+\begin{defin}{Coefficient d'asymÃ©trie de Yule}{}
 $$A_Y = \frac{x_{3/4}+x_{1/4}-2x_{1/2}}{x_{3/4}-x_{1/4}}$$
 \end{defin}
-Ce coefficient est fondé sur les positions de trois quartiles (le premier, la médiane et le troisième) et est normalisé par la distance interquartile.
-\begin{defin}{Coefficient d'asymétrie de Pearson}{}
+Ce coefficient est fondÃ© sur les positions de trois quartiles (le premier, la mÃ©diane et le troisiÃ¨me) et est normalisÃ© par la distance interquartile.
+\begin{defin}{Coefficient d'asymÃ©trie de Pearson}{}
 $$A_P = \frac{\bar{x}-x_M}{\sigma}$$
 \end{defin}
-Ce coefficient est fondé sur la comparaison de la moyenne et du mode, et est normalisé par l'écart type.
+Ce coefficient est fondÃ© sur la comparaison de la moyenne et du mode, et est normalisÃ© par l'Ã©cart type.
 \vskip 5pt
-Tous les coefficients d'asymétrie ont des propriétés similaires : ils sont nuls si la distribution est symétrique, négatifs si la distribution est allongée à gauche (left asymmetry), et positifs si la distribution est allongée à droite (right asymmetry).\\
-On peut aussi chercher à mesurer l'aplatissement (ou kurtosis) d'une distribution de mesure. Dans ce cas, on utilise le coefficient d'aplatissement de Pearson ou de Fisher, respectivement donnés par 
+Tous les coefficients d'asymÃ©trie ont des propriÃ©tÃ©s similaires : ils sont nuls si la distribution est symÃ©trique, nÃ©gatifs si la distribution est allongÃ©e Ã  gauche (left asymmetry), et positifs si la distribution est allongÃ©e Ã  droite (right asymmetry).\\
+On peut aussi chercher Ã  mesurer l'aplatissement (ou kurtosis) d'une distribution de mesure. Dans ce cas, on utilise le coefficient d'aplatissement de Pearson ou de Fisher, respectivement donnÃ©s par 
 $$\beta_2=\frac{m_4}{\sigma^4}\quad\textrm{et}\quad g_2=\beta_2-3$$
-Une distribution est alors dite mésokurtique si $g_2$ est proche de 0, leptokurtique si $g_2>0$ (queues plus longues et distribution plus pointue); et platykyrtique si $g_2<0$ (queues plus courtes et distribution arrondie).
+Une distribution est alors dite mÃ©sokurtique si $g_2$ est proche de 0, leptokurtique si $g_2>0$ (queues plus longues et distribution plus pointue); et platykyrtique si $g_2<0$ (queues plus courtes et distribution arrondie).
 
 
-\section {Statistique descriptive bivariée}
-On s'intéresse à deux variables $x$ et $y$, mesurées sur les $n$ unités d'observation. La série statistique est alors une suite de $n$ couples $(x_i,y_i)$ des valeurs prises par les deux variables sur chaque individu.
+\section {Statistique descriptive bivariÃ©e}
+On s'intÃ©resse Ã  deux variables $x$ et $y$, mesurÃ©es sur les $n$ unitÃ©s d'observation. La sÃ©rie statistique est alors une suite de $n$ couples $(x_i,y_i)$ des valeurs prises par les deux variables sur chaque individu.
 \subsection{Cas de deux variables quantitatives}
-Le couple est un couple de valeurs numériques. C'est donc un point dans le plan $\mathbb{R}^2$. Les variables $x$ et $y$ peuvent être analysées séparément, en opérant une statistique univariée sur chacune de ces variables. Les paramètres calculés (de position, de dispersion...) sont dits marginaux. Cependant, il est intéressant d'étudier le lien entre ces deux variables, par l'intermédiaire des valeurs des couples. On définit pour cela un certain nombre d'outils :
+Le couple est un couple de valeurs numÃ©riques. C'est donc un point dans le plan $\mathbb{R}^2$. Les variables $x$ et $y$ peuvent Ãªtre analysÃ©es sÃ©parÃ©ment, en opÃ©rant une statistique univariÃ©e sur chacune de ces variables. Les paramÃ¨tres calculÃ©s (de position, de dispersion...) sont dits marginaux. Cependant, il est intÃ©ressant d'Ã©tudier le lien entre ces deux variables, par l'intermÃ©diaire des valeurs des couples. On dÃ©finit pour cela un certain nombre d'outils :
 \begin{defin}{Covariance}{}
-La covariance de $x$ et $y$ est définie par :
+La covariance de $x$ et $y$ est dÃ©finie par :
 $$\sigma_{xy}=\frac{1}{n}\displaystyle\sum_{i=1}^n\left (x_i-\bar{x}\right )\left (y_i-\bar{y}\right )$$
 \end{defin}
 
-\begin{defin}{Coefficient de corrélation}{}
-Le coefficient de corrélation  de deux variables $x$ et $y$ est défini par 
+\begin{defin}{Coefficient de corrÃ©lation}{}
+Le coefficient de corrÃ©lation  de deux variables $x$ et $y$ est dÃ©fini par 
 $$r_{xy}=\frac{\sigma_{xy}}{\sigma_{x}\sigma_{y}}$$
-Le coefficient de détermination est le carré du coefficient de corrélation.
+Le coefficient de dÃ©termination est le carrÃ© du coefficient de corrÃ©lation.
 \end{defin}
-Le coefficient de corrélation est donc la covariance normalisée par les écarts types marginaux des variables. Il mesure la dépendance linéaire entre $x$ et $y$. Il est compris dans l'intervalle [-1,1] est est positif (resp. négatif) si les points sont alignés le long d'une droite croissante (resp. décroissante), d'autant plus grand en valeur absolue que la dépendance linéaire est vérifiée. Dans le cas où le coefficient est nul, il n'existe pas de dépendance linéaire.
+Le coefficient de corrÃ©lation est donc la covariance normalisÃ©e par les Ã©carts types marginaux des variables. Il mesure la dÃ©pendance linÃ©aire entre $x$ et $y$. Il est compris dans l'intervalle [-1,1] est est positif (resp. nÃ©gatif) si les points sont alignÃ©s le long d'une droite croissante (resp. dÃ©croissante), d'autant plus grand en valeur absolue que la dÃ©pendance linÃ©aire est vÃ©rifiÃ©e. Dans le cas oÃ¹ le coefficient est nul, il n'existe pas de dÃ©pendance linÃ©aire.
 
-Pour connaître plus précisément la relation linéaire qui lie $x$ et $y$, on effectue une régression linéaire en calculant par exemple la droite de régression (chapitre~\ref{ch:regression}).
+Pour connaÃ®tre plus prÃ©cisÃ©ment la relation linÃ©aire qui lie $x$ et $y$, on effectue une rÃ©gression linÃ©aire en calculant par exemple la droite de rÃ©gression (chapitre~\ref{ch:regression}).
 Si $y=a+bx$, il est facile de montrer que 
 $$b=\frac{\sigma_{xy}}{\sigma_x^2}\quad\textrm{et}\quad a=\bar{y}-b\bar{x}$$
 
-et la droite de régression s'écrit $y-\bar{y}=\frac{\sigma_{xy}}{\sigma_x^2}\left ( x-\bar{x}\right )$.
+et la droite de rÃ©gression s'Ã©crit $y-\bar{y}=\frac{\sigma_{xy}}{\sigma_x^2}\left ( x-\bar{x}\right )$.
 
-A partir de cette droite, on peut calculer les valeurs ajustées, obtenues à partir de la droite de régression : $y^*_i=a+bx_i$. Ce sont les valeurs théoriques des $y_i$ et les résidus $e_i=y_i-y_i^*$ représentent la partie inexpliquée des $y_i$ par la droite de régression (ceux là même que l'on essaye de minimiser par la méthode des moindres carrés).
+A partir de cette droite, on peut calculer les valeurs ajustÃ©es, obtenues Ã  partir de la droite de rÃ©gression : $y^*_i=a+bx_i$. Ce sont les valeurs thÃ©oriques des $y_i$ et les rÃ©sidus $e_i=y_i-y_i^*$ reprÃ©sentent la partie inexpliquÃ©e des $y_i$ par la droite de rÃ©gression (ceux lÃ  mÃªme que l'on essaye de minimiser par la mÃ©thode des moindres carrÃ©s).
 
 \subsection{Cas de deux variables qualitatives}
 \label{P:contingence}
-Le couple est un couple de valeurs $(x_i,y_i)$ où $x_i$ et $y_i$ prennent comme valeurs des modalités qualitatives. Notons $x_1\cdots x_J$ et $y_1\cdots y_K$ les valeurs distinctes prises. \\
+Le couple est un couple de valeurs $(x_i,y_i)$ oÃ¹ $x_i$ et $y_i$ prennent comme valeurs des modalitÃ©s qualitatives. Notons $x_1\cdots x_J$ et $y_1\cdots y_K$ les valeurs distinctes prises. \\
 
-Les données peuvent être regroupées sous la forme d'un tableau de contingence prenant la forme suivante :
+Les donnÃ©es peuvent Ãªtre regroupÃ©es sous la forme d'un tableau de contingence prenant la forme suivante :
 
 \begin{center}
 \begin{tabular}{c|ccccc|c}
@@ -227,37 +239,37 @@ total&$n_{.1}$&$\cdots$&$n_{.k}$&$\cdots$&$n_{.K}$&$n$\\
 \end{tabular}
 \end{center}
 
-où $n_{j.}$ (resp $n_{.k}$ )sont les effectifs marginaux représentant le nombre de fois où $x_j$ (resp. $y_k$) apparaît, et $n_{jk}$ le nombre d'apparition du couple $(x_j,y_k)$.
+oÃ¹ $n_{j.}$ (resp $n_{.k}$ )sont les effectifs marginaux reprÃ©sentant le nombre de fois oÃ¹ $x_j$ (resp. $y_k$) apparaÃ®t, et $n_{jk}$ le nombre d'apparition du couple $(x_j,y_k)$.
 
-Le tableau des fréquences $f_{jk}$ s'obtient en divisant tous les effectifs par la taille $n$ dans ce tableau.
+Le tableau des frÃ©quences $f_{jk}$ s'obtient en divisant tous les effectifs par la taille $n$ dans ce tableau.
 
-Un tel tableau s'interprète toujours en comparant les fréquences en lignes ou les fréquences en colonnes (profils lignes ou colonnes), définies  respectivement par 
+Un tel tableau s'interprÃ¨te toujours en comparant les frÃ©quences en lignes ou les frÃ©quences en colonnes (profils lignes ou colonnes), dÃ©finies  respectivement par 
 $$f_k^{(j)}= \frac{n_{jk}}{n_{j.}}=\frac{f_{jk}}{f_{j.}}\quad\textrm{ et }\quad f_j^{(k)}= \frac{n_{jk}}{n_{.k}}=\frac{f_{jk}}{f_{.k}}$$
 
-Si l'on cherche un lien entre les variables, on construit un tableau d'effectifs théoriques qui représente la situation où les variables ne sont pas liées (indépendance). Ce tableau est constitué des effectifs 
+Si l'on cherche un lien entre les variables, on construit un tableau d'effectifs thÃ©oriques qui reprÃ©sente la situation oÃ¹ les variables ne sont pas liÃ©es (indÃ©pendance). Ce tableau est constituÃ© des effectifs 
 $$n_{jk}^*=\frac{n_{j.}n_{.k}}{n}$$
-Les effectifs observés $n_{jk}$ ont les mêmes marges que les $n_{jk}^*$, et les écarts à l'indépendance sont calculés par la différence $e_{jk}=n_{jk}-n_{jk}^*$
+Les effectifs observÃ©s $n_{jk}$ ont les mÃªmes marges que les $n_{jk}^*$, et les Ã©carts Ã  l'indÃ©pendance sont calculÃ©s par la diffÃ©rence $e_{jk}=n_{jk}-n_{jk}^*$
 
 
 
-La dépendance du tableau se mesure au moyen du khi-deux défini par 
+La dÃ©pendance du tableau se mesure au moyen du khi-deux dÃ©fini par 
 $$\chi^2_{obs}= \displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J\frac{e_{jk}^2}{n_{jk}^*}$$
-qui peut être normalisé pour ne plus dépendre du nombre d'observations :
+qui peut Ãªtre normalisÃ© pour ne plus dÃ©pendre du nombre d'observations :
 $$\phi^2=\frac{\chi^2_{obs}}{n}$$
 
-La construction du tableau des effectifs théoriques et sa comparaison au tableau des observations permet dans un premier temps de mettre en évidence les associations significatives entre modalités des deux variables. Pour cela, on calcule la contribution au $\chi^2$ des modalités $j$ et $k$ :
+La construction du tableau des effectifs thÃ©oriques et sa comparaison au tableau des observations permet dans un premier temps de mettre en Ã©vidence les associations significatives entre modalitÃ©s des deux variables. Pour cela, on calcule la contribution au $\chi^2$ des modalitÃ©s $j$ et $k$ :
 $$\frac{1}{\chi^2_{obs}}\frac{\left (n_{jk}-n_{j.}n_{.k}\right )^2}{n_{jk}^*}$$
-Le signe de la différence $n_{jk}-n_{jk}^*$ indique alors s'il y a une association positive ou négative entre les modalités $j$ et $k$.
+Le signe de la diffÃ©rence $n_{jk}-n_{jk}^*$ indique alors s'il y a une association positive ou nÃ©gative entre les modalitÃ©s $j$ et $k$.
 
-Plus généralement, le $\chi^2_{obs}$ est un indicateur de liaison entre les variables.  Dans le cas où $\chi^2_{obs}=0$, il y a indépendance. Pour rechercher la borne supérieure du khi-deux et voir dans quel cas elle est atteinte, on développe le carré et on obtient 
+Plus gÃ©nÃ©ralement, le $\chi^2_{obs}$ est un indicateur de liaison entre les variables.  Dans le cas oÃ¹ $\chi^2_{obs}=0$, il y a indÃ©pendance. Pour rechercher la borne supÃ©rieure du khi-deux et voir dans quel cas elle est atteinte, on dÃ©veloppe le carrÃ© et on obtient 
 $$\chi^2_{obs} = n\left [\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J \frac{n_{jk}^2}{n_{j.}n_{.k}} -1\right ]$$
-Comme $\frac{n_{jk}}{n_{.k}}\leq 1$ on a $ \frac{n_{jk}^2}{n_{j.}n_{.k}} \leq \frac{n_{jk}}{n_{.k}}$ d'où
+Comme $\frac{n_{jk}}{n_{.k}}\leq 1$ on a $ \frac{n_{jk}^2}{n_{j.}n_{.k}} \leq \frac{n_{jk}}{n_{.k}}$ d'oÃ¹
 $$\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J\frac{n_{jk}^2}{n_{j.}n_{.k}}\leq \displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J \frac{n_{jk}}{n_{.k}} = \displaystyle\sum_{k=1}^K \frac{\displaystyle\sum_{j=1}^J n_{jk}}{n_{.k}}=\displaystyle\sum_{k=1}^K \frac{n_{.k}}{n_{.k}}=1$$
 
-d'où $\chi^2_{obs}\leq n(K-1)$. On pourrait de même montrer que $\chi^2_{obs}\leq n(J-1)$ et donc 
+d'oÃ¹ $\chi^2_{obs}\leq n(K-1)$. On pourrait de mÃªme montrer que $\chi^2_{obs}\leq n(J-1)$ et donc 
 $$\phi^2\leq min(J-1,K-1)$$
-la borne étant atteinte dans le cas de la dépendance fonctionnelle (si $\forall j \frac{n_{jk}}{n_{j.}}=1$, i.e. il n'existe qu'une case non nulle dans chaque ligne.)\\
-A partir de ce khi-deux normalisé, on calcule finalement plusieurs coefficients permettant de mesurer l'indépendance, et parmi ceux-ci citons :
+la borne Ã©tant atteinte dans le cas de la dÃ©pendance fonctionnelle (si $\forall j \frac{n_{jk}}{n_{j.}}=1$, i.e. il n'existe qu'une case non nulle dans chaque ligne.)\\
+A partir de ce khi-deux normalisÃ©, on calcule finalement plusieurs coefficients permettant de mesurer l'indÃ©pendance, et parmi ceux-ci citons :
 \begin{itemize}
 \item le coefficient de Cramer:
 $$V=\sqrt{\frac{\phi^2}{min(J-1,K-1)}}$$
@@ -267,67 +279,67 @@ $$C = \sqrt{\frac{\phi^2}{\phi^2 + 1}}$$
 $$T = \sqrt{\frac{\phi^2}{\sqrt{(K-1)(J-1)}}}$$
 \end{itemize}
 
-Ces coefficients sont tous compris entre 0 (indépendance) et 1 (dépendance fonctionnelle). Pour estimer à partir de quelle valeur la dépendance fonctionnelle est significative, on procède de la manière suivante : si les $n$ observations étaient prélevées dans une population où les variables sont indépendantes, on recherche les valeurs probables de $\chi^2_{obs}$. \\
-En s'appuyant sur la loi multinomiale et le test du $\chi^2$, on montre que $\chi^2_{obs}$ est une réalisation d'une variable aléatoire $Z$ suivant approximativement une loi $\chi^2_{(K-1)(J-1)}$\footnote{Soient $U_1\ldots U_p$ $p$ variables i.i.d de loi normale centrée réduite. On appelle loi du $\chi^2$ à $p$ degrés de liberté la loi de la variable $\displaystyle\sum_{i=1}^pU_i^2$.}. En effet, les $e_{jk}$ sont liées par $(K-1)(J-1)$ relations linéaires puisqu'on estime les probabilités de réalisation de $x_j$ et $y_k$ respectivement par $n_{j,.}/n$ et $n_{.k}/n$ Il suffit alors de fixer un risque d'erreur $\alpha$ (une valeur qui, s'il y avait indépendance, n'aurait qu'une probabilité faible d'être dépassée), et on rejette l'hypothèse d'indépendance si $\chi^2_{obs}$  est supérieur à la valeur critique qu'une variable $\chi^2_{(K-1)(J-1)}$ a une probabilité $\alpha$ de dépasser.
-L'espérance d'un $\chi^2_{(K-1)(J-1)}$ étant égale à son degré de liberté, $\chi^2_{obs}$ est d'autant plus grand que le nombre de modalités $J$ et/ou $K$ est grand. 
+Ces coefficients sont tous compris entre 0 (indÃ©pendance) et 1 (dÃ©pendance fonctionnelle). Pour estimer Ã  partir de quelle valeur la dÃ©pendance fonctionnelle est significative, on procÃ¨de de la maniÃ¨re suivante : si les $n$ observations Ã©taient prÃ©levÃ©es dans une population oÃ¹ les variables sont indÃ©pendantes, on recherche les valeurs probables de $\chi^2_{obs}$. \\
+En s'appuyant sur la loi multinomiale et le test du $\chi^2$, on montre que $\chi^2_{obs}$ est une rÃ©alisation d'une variable alÃ©atoire $Z$ suivant approximativement une loi $\chi^2_{(K-1)(J-1)}$\footnote{Soient $U_1\ldots U_p$ $p$ variables i.i.d de loi normale centrÃ©e rÃ©duite. On appelle loi du $\chi^2$ Ã  $p$ degrÃ©s de libertÃ© la loi de la variable $\displaystyle\sum_{i=1}^pU_i^2$.}. En effet, les $e_{jk}$ sont liÃ©es par $(K-1)(J-1)$ relations linÃ©aires puisqu'on estime les probabilitÃ©s de rÃ©alisation de $x_j$ et $y_k$ respectivement par $n_{j,.}/n$ et $n_{.k}/n$ Il suffit alors de fixer un risque d'erreur $\alpha$ (une valeur qui, s'il y avait indÃ©pendance, n'aurait qu'une probabilitÃ© faible d'Ãªtre dÃ©passÃ©e), et on rejette l'hypothÃ¨se d'indÃ©pendance si $\chi^2_{obs}$  est supÃ©rieur Ã  la valeur critique qu'une variable $\chi^2_{(K-1)(J-1)}$ a une probabilitÃ© $\alpha$ de dÃ©passer.
+L'espÃ©rance d'un $\chi^2_{(K-1)(J-1)}$ Ã©tant Ã©gale Ã  son degrÃ© de libertÃ©, $\chi^2_{obs}$ est d'autant plus grand que le nombre de modalitÃ©s $J$ et/ou $K$ est grand. 
 \vskip 10pt
-D'autres indices existent, qui ne dépendent pas de $\chi^2_{obs}$, comme par exemple l'indice $G^2$
+D'autres indices existent, qui ne dÃ©pendent pas de $\chi^2_{obs}$, comme par exemple l'indice $G^2$
 $$G^2 = 2\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J n_{jk} ln \left (\frac{ n_{jk}}{ n^*_{jk}} \right ) $$
 
-qui sous l'hypothèse d'indépendance suit une loi $\chi^2_{(K-1)(J-1)}$.
+qui sous l'hypothÃ¨se d'indÃ©pendance suit une loi $\chi^2_{(K-1)(J-1)}$.
 
 \subsection{Cas d'une variable quantitative et d'une variable qualitative}
-On s'intéresse ici au cas où les modalités $x_i$ sont qualitatives, et où $y$ est une variable quantitative, dont les modalités sont des réalisations d'une variable aléatoire $Y$.
-Le rapport de corrélation théorique entre $x$ et $Y$ est défini par 
+On s'intÃ©resse ici au cas oÃ¹ les modalitÃ©s $x_i$ sont qualitatives, et oÃ¹ $y$ est une variable quantitative, dont les modalitÃ©s sont des rÃ©alisations d'une variable alÃ©atoire $Y$.
+Le rapport de corrÃ©lation thÃ©orique entre $x$ et $Y$ est dÃ©fini par 
 $$\eta^2_{Y\mid x} = \frac{\sigma^2_{\mathbb{E}_{Y\mid x}}}{\sigma^2_Y}$$
-Si $n_j$ est le nombre d'observations de la modalité $x_j,j\in[\![1\,J]\!]$, $y_{ij}$ la valeur de $Y$ du $i^e$ individu de la modalité $j$, $\bar{y}_1\ldots \bar{y}_J$ sont les moyennes de $Y$ pour ces modalités et $\bar{y}$ la moyenne totale sur les $n$ individus, le rapport de corrélation empirique est défini par 
+Si $n_j$ est le nombre d'observations de la modalitÃ© $x_j,j\in[\![1\,J]\!]$, $y_{ij}$ la valeur de $Y$ du $i^e$ individu de la modalitÃ© $j$, $\bar{y}_1\ldots \bar{y}_J$ sont les moyennes de $Y$ pour ces modalitÃ©s et $\bar{y}$ la moyenne totale sur les $n$ individus, le rapport de corrÃ©lation empirique est dÃ©fini par 
 $$e^2 = \frac{\frac{1}{n}\displaystyle\sum_{j=1}^J n_j\left (\bar{y}_j-\bar{y}\right )^2}{\sigma^2_y}$$
 
 
-La quantité 
+La quantitÃ© 
 $$\sigma^2_\cap = \frac{1}{n}\displaystyle\sum_{j=1}^J n_j\sigma_j^2$$
- avec $\sigma_j^2 =  \frac{1}{n_j}\displaystyle\sum_{i=1}^{n_j}\left (y_{ij}-\bar{y}_j \right )^2$,  est appelée variance intra groupe (ou intra classe), et donne une idée de la variabilité à l'intérieur de chaque modalité. \\
- La quantité 
+ avec $\sigma_j^2 =  \frac{1}{n_j}\displaystyle\sum_{i=1}^{n_j}\left (y_{ij}-\bar{y}_j \right )^2$,  est appelÃ©e variance intra groupe (ou intra classe), et donne une idÃ©e de la variabilitÃ© Ã  l'intÃ©rieur de chaque modalitÃ©. \\
+ La quantitÃ© 
  $$\sigma_\cup = \frac{1}{n}\displaystyle\sum_{j=1}^J n_j\left (\bar{y}_j-\bar{y}\right )^2$$
- est la variance inter groupes (ou inter classes), et mesure la variabilité entre les différentes modalités.\\
- Le théorème de décomposition de la variance (ou théorème de Huygens) affirme que la variance totale $\sigma^2_y$, calculée sans distinction de modalité s'écrit :
+ est la variance inter groupes (ou inter classes), et mesure la variabilitÃ© entre les diffÃ©rentes modalitÃ©s.\\
+ Le thÃ©orÃ¨me de dÃ©composition de la variance (ou thÃ©orÃ¨me de Huygens) affirme que la variance totale $\sigma^2_y$, calculÃ©e sans distinction de modalitÃ© s'Ã©crit :
  $$\sigma^2_y = \sigma^2_\cap + \sigma^2_\cup$$
  
- De ces définitions, on a alors :
+ De ces dÃ©finitions, on a alors :
 \begin{itemize}
-\item $e^2=0$ si toutes les moyennes de $Y$ sont égales, d'où l'absence de dépendance en moyenne
-\item $e^2=1$ si tous les individus d'une modalité de $x$ ont même valeur de $Y$ et ceci pour chaque modalité 
-\item $e^2$ permet de comprendre, via le théorème de Huygens,  quelle variation est prédominante dans la variance totale. Ainsi par exemple, si la variable quantitative est la note d'un élève à un examen, et la variable qualitative son assiduité au cours correspondant, la variabilité entre les notes obtenues dans toute la promotion dépend de deux
-facteurs : le fait que les étudiants assistent ou pas aux cours, et le fait qu'à assiduité
-égale (i.e. à l'intérieur d'une même modalité d'assiduité) les étudiants n'ont pas le même niveau. $e^2$  permet alors de savoir lequel de ces deux facteurs est prédominant
-pour expliquer la variabilité des notes dans toute la promotion.
+\item $e^2=0$ si toutes les moyennes de $Y$ sont Ã©gales, d'oÃ¹ l'absence de dÃ©pendance en moyenne
+\item $e^2=1$ si tous les individus d'une modalitÃ© de $x$ ont mÃªme valeur de $Y$ et ceci pour chaque modalitÃ© 
+\item $e^2$ permet de comprendre, via le thÃ©orÃ¨me de Huygens,  quelle variation est prÃ©dominante dans la variance totale. Ainsi par exemple, si la variable quantitative est la note d'un Ã©lÃ¨ve Ã  un examen, et la variable qualitative son assiduitÃ© au cours correspondant, la variabilitÃ© entre les notes obtenues dans toute la promotion dÃ©pend de deux
+facteurs : le fait que les Ã©tudiants assistent ou pas aux cours, et le fait qu'Ã  assiduitÃ©
+Ã©gale (i.e. Ã  l'intÃ©rieur d'une mÃªme modalitÃ© d'assiduitÃ©) les Ã©tudiants n'ont pas le mÃªme niveau. $e^2$  permet alors de savoir lequel de ces deux facteurs est prÃ©dominant
+pour expliquer la variabilitÃ© des notes dans toute la promotion.
 \end{itemize}
 
-Pour déterminer à partir de quelle valeur $e^2$ est significatif, on compare donc $\sigma^2_\cap$ à $\sigma^2_\cup$. On peut montrer que si le rapport de corrélation théorique est nul, alors la variable 
+Pour dÃ©terminer Ã  partir de quelle valeur $e^2$ est significatif, on compare donc $\sigma^2_\cap$ Ã  $\sigma^2_\cup$. On peut montrer que si le rapport de corrÃ©lation thÃ©orique est nul, alors la variable 
 $$\frac{\left (\frac{e^2}{J-1}\right )}{\left (\frac{1-e^2}{n-J}\right )}$$
-suit une loi de Fisher Snedecor \footnote{Soient $U$ et $V$ deux variables aléatoires indépendantes suivant respectivement des lois $\chi^2_n$ et $\chi^2_p$. On définit $F(n,p)=\frac{U/n}{V/P}$} $F(J-1,n-J)$, en supposant que les distributions conditionnelles de $Y$ pour chaque modalité de $x$ sont gaussiennes, de même espérance et de même variance. 
+suit une loi de Fisher Snedecor \footnote{Soient $U$ et $V$ deux variables alÃ©atoires indÃ©pendantes suivant respectivement des lois $\chi^2_n$ et $\chi^2_p$. On dÃ©finit $F(n,p)=\frac{U/n}{V/P}$} $F(J-1,n-J)$, en supposant que les distributions conditionnelles de $Y$ pour chaque modalitÃ© de $x$ sont gaussiennes, de mÃªme espÃ©rance et de mÃªme variance. 
 
-\section{Vers une analyse multivariée}
-Bien évidemment, dans la majorité des cas, un individu sera décrit par $p\geq 2$ variables. Si certains algorithmes de statistique descriptive multidimensionnelle sont abordés dans les chapitres suivants, il est néanmoins possible d'avoir une première approche exploratoire de ce cas.
-\subsection{Matrices de covariance et de corrélation}
-La première idée, lorsque l'on a observé $p$ variables sur $n$ individus, est de calculer les $p$ variances de ces variables, et les $\frac{p(p-1)}{2}$ covariances. Ces mesures sont regroupées dans une matrice $p\times p$, symétrique, semi définie positive, appelée matrice de variance-covariance (ou matrice des covariances), et classiquement notée $\boldsymbol\Sigma$.\\
-De même, on peut former la matrice des corrélations entre les variables, à diagonale unité et symétrique. La matrice résultante, notée $\mathbf R$, est également semi définie positive et sa représentation graphique en fausses couleurs permet d'apprécier les dépendances linéaires entre variables (figure \ref{F:R}).
+\section{Vers une analyse multivariÃ©e}
+Bien Ã©videmment, dans la majoritÃ© des cas, un individu sera dÃ©crit par $p\geq 2$ variables. Si certains algorithmes de statistique descriptive multidimensionnelle sont abordÃ©s dans les chapitres suivants, il est nÃ©anmoins possible d'avoir une premiÃ¨re approche exploratoire de ce cas.
+\subsection{Matrices de covariance et de corrÃ©lation}
+La premiÃ¨re idÃ©e, lorsque l'on a observÃ© $p$ variables sur $n$ individus, est de calculer les $p$ variances de ces variables, et les $\frac{p(p-1)}{2}$ covariances. Ces mesures sont regroupÃ©es dans une matrice $p\times p$, symÃ©trique, semi dÃ©finie positive, appelÃ©e matrice de variance-covariance (ou matrice des covariances), et classiquement notÃ©e $\boldsymbol\Sigma$.\\
+De mÃªme, on peut former la matrice des corrÃ©lations entre les variables, Ã  diagonale unitÃ© et symÃ©trique. La matrice rÃ©sultante, notÃ©e $\mathbf R$, est Ã©galement semi dÃ©finie positive et sa reprÃ©sentation graphique en fausses couleurs permet d'apprÃ©cier les dÃ©pendances linÃ©aires entre variables (figure \ref{F:R}).
 
 
 \begin{figure}[hbtp!]
  \centering
  \includegraphics[width=.7\columnwidth]{figures/R.png}
- \caption{Exemple de matrice de corrélation sur des données énergétiques de bâtiments.}\label{F:R}
+ \caption{Exemple de matrice de corrÃ©lation sur des donnÃ©es Ã©nergÃ©tiques de bÃ¢timents.}\label{F:R}
 \end{figure}
 
-Dans le cas de variables qualitatives, les coefficients de corrélation peuvent être remplacés par les coefficients de Cramer, de Tschuprow...
+Dans le cas de variables qualitatives, les coefficients de corrÃ©lation peuvent Ãªtre remplacÃ©s par les coefficients de Cramer, de Tschuprow...
 
 \subsection{Tableaux de nuages}
-On peut proposer à partir de là des représentations entre sous-ensembles de variables. La figure \ref{F:grid} propose un exemple de tels tableaux, parfois appelés splom (Scatter PLOt Matrix) :
+On peut proposer Ã  partir de lÃ  des reprÃ©sentations entre sous-ensembles de variables. La figure \ref{F:grid} propose un exemple de tels tableaux, parfois appelÃ©s splom (Scatter PLOt Matrix) :
 \begin{itemize}
-\item la partie triangulaire supérieure représente les nuages de points de couples de variables
-\item la diagonale représente les histogrammes des variables
-\item la partie trianglaire inférieure donne le coefficient de corrélation entre les deux variables, et une estimation de la densité de la distribution 2D des données
+\item la partie triangulaire supÃ©rieure reprÃ©sente les nuages de points de couples de variables
+\item la diagonale reprÃ©sente les histogrammes des variables
+\item la partie trianglaire infÃ©rieure donne le coefficient de corrÃ©lation entre les deux variables, et une estimation de la densitÃ© de la distribution 2D des donnÃ©es
 \end{itemize}
 
 \begin{figure}[ht!]
@@ -337,25 +349,25 @@ On peut proposer à partir de là des représentations entre sous-ensembles de vari
 \end{figure}
 
 \subsection{Tableaux de Burt}
-Le tableau de Burt est une généralisation particulière de la table de contingence dans le cas où l'on étudie simultanément $p$ variables qualitatives $X_1\ldots X_p$. Notons $c_j$ le nombre de modalités de $X_j$ et posons $c=\displaystyle\sum_{j=1}^p c_j$. \\
-Le tableau de Burt est une matrice carrée symétrique de taille $c$, constituée de $p^2$ sous-matrices. Chacune des $p$ sous-matrices diagonales est relative à l'une des $p$ variables, la $j^e$ étant carrée de taille $c_j$, diagonale, et de coefficients diagonaux les effectifs marginaux de $X_j$. La sous-matrice dans le bloc $(k,l)$ du tableau, $k\neq l$, est la table de contingence des variables $X_k$ et $X_l$.
+Le tableau de Burt est une gÃ©nÃ©ralisation particuliÃ¨re de la table de contingence dans le cas oÃ¹ l'on Ã©tudie simultanÃ©ment $p$ variables qualitatives $X_1\ldots X_p$. Notons $c_j$ le nombre de modalitÃ©s de $X_j$ et posons $c=\displaystyle\sum_{j=1}^p c_j$. \\
+Le tableau de Burt est une matrice carrÃ©e symÃ©trique de taille $c$, constituÃ©e de $p^2$ sous-matrices. Chacune des $p$ sous-matrices diagonales est relative Ã  l'une des $p$ variables, la $j^e$ Ã©tant carrÃ©e de taille $c_j$, diagonale, et de coefficients diagonaux les effectifs marginaux de $X_j$. La sous-matrice dans le bloc $(k,l)$ du tableau, $k\neq l$, est la table de contingence des variables $X_k$ et $X_l$.
 \newpage
 \section{Exercices}
 \begin{exo}
  Quel est le type de chacune des variables suivantes:
  \begin{multicols}{2}
   \begin{enumerate}
-   \item lieu de résidence,
-   \item citoyenneté,
+   \item lieu de rÃ©sidence,
+   \item citoyennetÃ©,
    \item nombre d'enfants,
    \item sexe,
-   \item état matrimoniale,
-   \item âge,
+   \item Ã©tat matrimoniale,
+   \item Ã¢ge,
    \item revenu annuel,
    \item pointure de chaussure,
-   \item niveau d'étude,
+   \item niveau d'Ã©tude,
    \item langue maternelle,
-   \item nombre de langue parlées,
+   \item nombre de langue parlÃ©es,
    \item tour de taille,
    \item taille de pantalon,
    \item satisfaction.
@@ -365,17 +377,17 @@ Le tableau de Burt est une matrice carrée symétrique de taille $c$, constituée d
 
 % \begin{Answer}[ref=stat_type]
 %    \begin{enumerate}
-%    \item lieu de résidence : qualitatif nominal,
-%    \item citoyenneté : qualitatif nominal (français, anglais, russe),
+%    \item lieu de rÃ©sidence : qualitatif nominal,
+%    \item citoyennetÃ© : qualitatif nominal (franÃ§ais, anglais, russe),
 %    \item nombre d'enfants : quantitatif discret,
 %    \item sexe : qualitatif nominal,
-%    \item état matrimoniale : qualitatif nominal,
-%    \item âge : quantitatif discret (21 ans,\dots) ou quantitatif continu (21.767899 ans, \dots),
+%    \item Ã©tat matrimoniale : qualitatif nominal,
+%    \item Ã¢ge : quantitatif discret (21 ans,\dots) ou quantitatif continu (21.767899 ans, \dots),
 %    \item revenu annuel : quantitatif continu (avec des virgules),
 %    \item pointure de chaussure : quantitatif discret (38,39,\dots,45),
-%    \item niveau d'étude : qualitatif ordinal (DUT<L3) ou quantitatif discret (BAC+2<BAC+3),
+%    \item niveau d'Ã©tude : qualitatif ordinal (DUT<L3) ou quantitatif discret (BAC+2<BAC+3),
 %    \item langue maternelle : qualitatif nominal,
-%    \item nombre de langue parlées : quantitatif discret,
+%    \item nombre de langue parlÃ©es : quantitatif discret,
 %    \item tour de taille : quantitatif continu,
 %    \item taille de pantalon : qualitatif ordinal ($S<M<XL$) ou quantitatif discret (38, 42,\dots), ou quantitatif continu (taille en mm)
 %    \item satisfaction.
@@ -383,7 +395,7 @@ Le tableau de Burt est une matrice carrée symétrique de taille $c$, constituée d
 % \end{Answer}
 
 
-\begin{exo} On considère le tableau suivant : \\
+\begin{exo} On considÃ¨re le tableau suivant : \\
  \begin{center}
   \begin{tabular}{c|cc}
    Salaire moyen en euros & Entreprise A & Entreprise B\\
@@ -393,7 +405,7 @@ Le tableau de Burt est une matrice carrée symétrique de taille $c$, constituée d
   \end{tabular}
   \qquad
   \begin{tabular}{c|cc}
-   Répartition & Entreprise A & Entreprise B\\
+   RÃ©partition & Entreprise A & Entreprise B\\
    \hline
    Hommes & 50\% & 20\%\\
    Femmes & 50\% & 80\%\\
@@ -401,19 +413,19 @@ Le tableau de Burt est une matrice carrée symétrique de taille $c$, constituée d
  \end{center}
  \begin{enumerate}
  \item Calculer pour chaque entreprise la moyenne des salaires.
- \item Commenter les résultats.
+ \item Commenter les rÃ©sultats.
  \end{enumerate}
 \end{exo}
 
 % \begin{Answer}[ref=stat_moy]
 %  \item{Entreprise A : $0.5\times 1700+0.5 \times 1300=1500$\\
 %            Entreprise B : $0.2\times 1800+0.8 \times 1400=1480$}
-%  \item{La pondération a une grande influence sur le salaire moyen !}
+%  \item{La pondÃ©ration a une grande influence sur le salaire moyen !}
 % \end{Answer}
 
 
 \begin{exo}
- La distribution des demandeurs d'emploi selon le sexe et la classe d'âge dans une localité est la suivante :
+ La distribution des demandeurs d'emploi selon le sexe et la classe d'Ã¢ge dans une localitÃ© est la suivante :
  \begin{center}
   \begin{tabular}{|c|c|c|p{1.5cm}|p{1.5cm}|}
    \hline
@@ -434,37 +446,37 @@ Le tableau de Burt est une matrice carrée symétrique de taille $c$, constituée d
   \end{tabular}
  \end{center}
  \begin{enumerate}
- \item{Quelles sont les variables étudiées ? Quels types de variables ?}
- \item{Calculer la moyenne arithmétique d'âge des demandeurs d'emploi hommes, puis celle des femmes, puis la moyenne pour l'ensemble de ces demandeurs d'emploi.}
+ \item{Quelles sont les variables Ã©tudiÃ©es ? Quels types de variables ?}
+ \item{Calculer la moyenne arithmÃ©tique d'Ã¢ge des demandeurs d'emploi hommes, puis celle des femmes, puis la moyenne pour l'ensemble de ces demandeurs d'emploi.}
  \item{Quelle est la classe modale pour les hommes et pour les femmes.}
- \item{Calculer l'âge médian pour l'ensemble des demandeurs d'emploi. Pour simplifier les calculs on utilisera les centres de classe.}
- \item{Déterminer l'étendue et l'écart inter-quartiles pour l'ensemble des demandeurs d'emploi.}
- \item{Déterminer l'écart-type des âges pour les hommes et pour les femmes.}
- \item{Calculer l'écart moyen absolu et l'écart médian absolu pour les hommes et pour les femmes.}
- \item{Commenter l'ensemble des résultats.}
+ \item{Calculer l'Ã¢ge mÃ©dian pour l'ensemble des demandeurs d'emploi. Pour simplifier les calculs on utilisera les centres de classe.}
+ \item{DÃ©terminer l'Ã©tendue et l'Ã©cart inter-quartiles pour l'ensemble des demandeurs d'emploi.}
+ \item{DÃ©terminer l'Ã©cart-type des Ã¢ges pour les hommes et pour les femmes.}
+ \item{Calculer l'Ã©cart moyen absolu et l'Ã©cart mÃ©dian absolu pour les hommes et pour les femmes.}
+ \item{Commenter l'ensemble des rÃ©sultats.}
  \end{enumerate}
 \end{exo}
 
 \begin{exo}
- Le tableau suivant donne, pour un âge en années donné, la pression artérielle moyenne lors de la contraction du c\oe ur.
+ Le tableau suivant donne, pour un Ã¢ge en annÃ©es donnÃ©, la pression artÃ©rielle moyenne lors de la contraction du c\oe ur.
  \begin{center}
   \begin{tabular}{c|ccccc}
    Age $x_i$ & 36 & 42 & 48 & 54 & 60\\
    \hline
-   Tension artérielle $y_i$ & 12 & 13.5 & 12.6 & 14.3 & 15.4
+   Tension artÃ©rielle $y_i$ & 12 & 13.5 & 12.6 & 14.3 & 15.4
   \end{tabular}
  \end{center}
   \begin{enumerate}
- \item{Déterminer les coordonnées du point moyen.}
+ \item{DÃ©terminer les coordonnÃ©es du point moyen.}
  \item{Indiquer si un ajustement affine semble pertinent.}
  \end{enumerate}
 \end{exo}
 
-\begin{exo} On se donne deux critères qualitatifs pour lesquels on cherche une éventuelle dépendance :
+\begin{exo} On se donne deux critÃ¨res qualitatifs pour lesquels on cherche une Ã©ventuelle dÃ©pendance :
   \begin{center}
   \begin{tabular}{|c|c|c|c|c|p{1.5cm}|}
    \hline
-   Yeux $\setminus$ Cheveux & bruns & châtains & roux & blonds & \\
+   Yeux $\setminus$ Cheveux & bruns & chÃ¢tains & roux & blonds & \\
    \hline
    marrons  & 68 & 119 & 26 & 7 & \\
    \hline
@@ -479,11 +491,11 @@ Le tableau de Burt est une matrice carrée symétrique de taille $c$, constituée d
   \end{tabular}
  \end{center}
   \begin{enumerate}
- \item{Compléter le tableau des effectifs théoriques :}
+ \item{ComplÃ©ter le tableau des effectifs thÃ©oriques :}
   \begin{center}
   \begin{tabular}{|c|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|}
    \hline
-   Yeux $\setminus$ Cheveux & bruns & châtains & roux & blonds & \\
+   Yeux $\setminus$ Cheveux & bruns & chÃ¢tains & roux & blonds & \\
    \hline
    marrons  & & & & & \\
    \hline
@@ -498,7 +510,7 @@ Le tableau de Burt est une matrice carrée symétrique de taille $c$, constituée d
   \end{tabular}
  \end{center}
  \item{Calculer le coefficient de Cramer.}
- \item{Les variables semblent-elles dépendantes ?}
+ \item{Les variables semblent-elles dÃ©pendantes ?}
  \end{enumerate}
 \end{exo}
 
