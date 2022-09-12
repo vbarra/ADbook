@@ -132,10 +132,8 @@ Dans le cas où $\forall i,w_i=1/n$, la moyenne pondérée est la moyenne arithm
 
 
 ```{code-cell} ipython3
-!pip3 install seaborn
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 X = np.loadtxt("./data/data.csv", delimiter=",")[:,1]
 
 
@@ -166,7 +164,7 @@ def WeightedMean(X):
 
 
 plt.figure(figsize=(18,6))
-sns.rugplot(X, color='grey', height=0.5)
+plt.plot(X, [0.01]*len(X), '|', color='k')
 for method, style, title in ((ArithmeticMean,'r','Arithmétique'),(GeometricMean,'b','Géométrique'),
                              (HarmonicMean,'g','Harmonique'),(WeightedMean,'y', 'Pondérée')):
     m=method(X)
