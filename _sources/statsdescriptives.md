@@ -98,7 +98,7 @@ Comme dans le cas discret, la fonction de répartition peut être calculée de l
 $F(x) = \left \{
 \begin{eqnarray}
 0&\textrm{ si}& x<c^-_1\\
-F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &s\textrm{ si}& x\in[c^-_j,c^+_j[\\
+F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &\textrm{ si}& x\in[c^-_j,c^+_j[\\
 1& \textrm{ si}&c^+_J\leq x
 \end{eqnarray}\right .$
 
@@ -118,10 +118,10 @@ Le mode est la valeur distincte correspondant à l'effectif le plus élevé. Il 
 Le mode peut être calculé pour tout type de variable, n'est pas nécessairement unique. Lorsqu'une variable continue est découpée en classes, il est possible de définir une classe modale (classe correspondant à l'effectif le plus élevé)
 ````{prf:definition} Moyennes
 Les moyennes ne peuvent être définies que sur des variables quantitatives. Plusieurs moyennes peuvent être calculées, parmi lesquelles :
-- la moyenne arithmétique  $\bar{x} = \frac{1}{n}{\displaystyle\sum_{i=1}^nx_i}=  \frac{1}{n}{\displaystyle\sum_{i=1}^J n_ix_i}$. C'est le moment à l'origine d'ordre 1.
-- la moyenne géométrique : si les $x_i$ sont positifs, la moyenne géométrique est la quantité $G=\left (\displaystyle\prod_{i=1}^n x_i\right )^\frac{1}{n}$. C'est donc l'exponentielle de la moyenne arithmétique des logarithmes des valeurs observées. 
-- a moyenne harmonique : si les $x_i$ sont positifs, la moyenne harmonique est définie par $H=\frac{n}{\displaystyle\sum_{i=1}^J 1/x_i}$
-- la moyenne pondérée : dans certains cas, on n'accorde pas la même importance à toutes les observations (fiabilité, confiance...). La moyenne pondérée est alors définie par 
+- la moyenne **arithmétique**  $\bar{x} = \frac{1}{n}{\displaystyle\sum_{i=1}^nx_i}=  \frac{1}{n}{\displaystyle\sum_{i=1}^J n_ix_i}$. C'est le moment à l'origine d'ordre 1.
+- la moyenne **géométrique** : si les $x_i$ sont positifs, la moyenne géométrique est la quantité $G=\left (\displaystyle\prod_{i=1}^n x_i\right )^\frac{1}{n}$. C'est donc l'exponentielle de la moyenne arithmétique des logarithmes des valeurs observées. 
+- a moyenne **harmonique** : si les $x_i$ sont positifs, la moyenne harmonique est définie par $H=\frac{n}{\displaystyle\sum_{i=1}^J 1/x_i}$
+- la moyenne **pondérée** : dans certains cas, on n'accorde pas la même importance à toutes les observations (fiabilité, confiance...). La moyenne pondérée est alors définie par 
 $\bar{x}_w= \frac{\displaystyle\sum_{i=1}^n w_ix_i}{\displaystyle\sum_{i=1}^n w_i}$
 ````
 
