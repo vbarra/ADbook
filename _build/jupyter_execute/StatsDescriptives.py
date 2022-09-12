@@ -222,19 +222,19 @@
 # 
 # Les données peuvent être regroupées sous la forme d'un tableau de contingence prenant la forme suivante :
 # 
-# \begin{center}
-# \begin{array}{c|ccccc|c}
-# &$y_1$&$\cdots$&$y_k$&$\cdots$&$y_K$&total\\
+# 
+# $\begin{array}{c|ccccc|c}
+# &y_1&\cdots&y_k&\cdots&y_K&total\\
 # \hline
-# $x_1$&$n_{11}$&$\cdots$&$n_{1k}$&$\cdots$&$n_{1K}$&$n_{1.}$\\
-# $\vdots$&$\vdots$&$\vdots$&$\vdots$&$\vdots$&$\vdots$&$\vdots$\\
-# $x_j$&$n_{j1}$&$\cdots$&$n_{jk}$&$\cdots$&$n_{jK}$&$n_{j.}$\\
-# $\vdots$&$\vdots$&$\vdots$&$\vdots$&$\vdots$&$\vdots$&$\vdots$\\
-# $x_J$&$n_{J1}$&$\cdots$&$n_{Jk}$&$\cdots$&$n_{JK}$&$n_{J.}$\\
+# x_1$&$n_{11}$&$\cdots$&$n_{1k}$&$\cdots$&$n_{1K}$&$n_{1.}$\\
+# \vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots\\
+# x_j&n_{j1}&\cdots&n_{jk}&\cdots&n_{jK}&n_{j.}\\
+# \vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots\\
+# x_J&n_{J1}&\cdots&n_{Jk}&\cdots&n_{JK}&n_{J.}\\
 # \hline
-# total&$n_{.1}$&$\cdots$&$n_{.k}$&$\cdots$&$n_{.K}$&$n$\\
+# total&n_{.1}&\cdots&n_{.k}&\cdots&n_{.K}&n\\
 # \end{array}
-# \end{center}
+# $
 # 
 # où $n_{j.}$ (resp $n_{.k}$ )sont les effectifs marginaux représentant le nombre de fois où $x_j$ (resp. $y_k$) apparaît, et $n_{jk}$ le nombre d'apparition du couple $(x_j,y_k)$.
 # 
