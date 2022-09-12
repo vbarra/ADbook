@@ -123,6 +123,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 X = np.loadtxt("./data/data.csv", delimiter=",")[:,1]
 
 
