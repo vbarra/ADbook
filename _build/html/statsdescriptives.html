@@ -388,6 +388,23 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistique-descriptive-univariee">
+   Statistique descriptive univariée
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parametres-de-position">
+     Paramètres de position
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parametres-de-dispersion">
+     Paramètres de dispersion
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </nav>
@@ -435,6 +452,23 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#variable-quantitative-continue">
      Variable quantitative continue
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistique-descriptive-univariee">
+   Statistique descriptive univariée
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parametres-de-position">
+     Paramètres de position
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parametres-de-dispersion">
+     Paramètres de dispersion
     </a>
    </li>
   </ul>
@@ -499,11 +533,11 @@ $<span class="math notranslate nohighlight">\((\forall j\in[\![1,J]\!])\quad N_j
 <p id="index-5">Le domaine d’une telle variable est dénombrable. Comme pour les variables qualitatives ordinales, on peut calculer les effectifs (cumulés ou non) et les fréquences (cumulées ou non).</p>
 <p>La répartition des valeurs de la variable peut être représentée par un diagramme en bâtonnets. Les fréquences cumulées  sont visualisées par la fonction de répartition de la variable , définie par</p>
 <p><span class="math notranslate nohighlight">\(F(x) = \left \{
-\begin{tabular}{ll}
+\begin{array}{ll}
 0&amp;si \)</span>x&lt;x_1<span class="math notranslate nohighlight">\(\\
 \)</span>F_j<span class="math notranslate nohighlight">\( &amp;si  \)</span>x\in[x_j,x_{j+1}[<span class="math notranslate nohighlight">\(\\
 1&amp; si  \)</span>x_J\leq x<span class="math notranslate nohighlight">\(
-\end{tabular}\right .\)</span></p>
+\end{array}\right .\)</span></p>
 <p><img alt="" src="_images/baton2.png" /></p>
 </div>
 <div class="section" id="variable-quantitative-continue">
@@ -527,51 +561,55 @@ $<span class="math notranslate nohighlight">\((\forall j\in[\![1,J]\!])\quad N_j
 \)</span>F</em>{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j)<span class="math notranslate nohighlight">\( &amp;si  \)</span>x\in[c^-_j,c^+_j[<span class="math notranslate nohighlight">\(\\
 1&amp; si  \)</span>c^+_J\leq x<span class="math notranslate nohighlight">\(
 \end{array}\right .\)</span></p>
-<p>\section {Statistique descriptive univariée}
-La statistique descriptive univariée consiste à étudier un ensemble d’unités d’observations, lorsque celles-ci sont décrites par une seule variable.</p>
-<p>Soit donc <span class="math notranslate nohighlight">\(X\)</span> une variable et <span class="math notranslate nohighlight">\(x_j,j\in [\![1,n]\!]\)</span> l’ensemble des valeurs prises par cette variable, <span class="math notranslate nohighlight">\(n_i\)</span> étant le nombre de fois où la valeur <span class="math notranslate nohighlight">\(x_i\)</span> est prise. <span class="math notranslate nohighlight">\(X\)</span> peut être qualitative ou quantitative, les paramètres de description décrits dans la suite s’appliqueront à l’une de ces natures ou au deux.
-\begin{defin}{Moment}{}
-Le moment à l’origine d’ordre <span class="math notranslate nohighlight">\(r\)</span>  est défini par :
-$<span class="math notranslate nohighlight">\(m'_r=\displaystyle\sum_{i=1}^n x_i^r\)</span>$
-\end{defin}</p>
-<p>\subsection{Paramètres de position}
-Plusieurs paramètres permettent de décrire la position “la plus représentative” d’une variable :
-\begin{defin}{Mode} {}
-Le mode est la valeur distincte correspondant à l’effectif le plus élevé. Il est noté <span class="math notranslate nohighlight">\(x_M\)</span>.
-\end{defin}
-Le mode peut être calculé pour tout type de variable, n’est pas nécessairement unique. Lorsqu’une variable continue est découpée en classes, il est possible de définir une classe modale (classe correspondant à l’effectif le plus élevé)
-\begin{defin}{Moyennes} {} Les moyennes ne peuvent être définies que sur des variables quantitatives. Plusieurs moyennes peuvent être calculées, parmi lesquelles :
-\begin{itemize}
-\item la moyenne arithmétique  $<span class="math notranslate nohighlight">\(\bar{x} = \frac{1}{n}{\displaystyle\sum_{i=1}^nx_i}=  \frac{1}{n}{\displaystyle\sum_{i=1}^J n_ix_i}\)</span><span class="math notranslate nohighlight">\( C'est le moment à l'origine d'ordre 1.
-\item la moyenne géométrique : si les \)</span>x_i<span class="math notranslate nohighlight">\( sont positifs, la moyenne géométrique est la quantité \)</span><span class="math notranslate nohighlight">\(G=\left (\displaystyle\prod_{i=1}^n x_i\right )^\frac{1}{n}\)</span><span class="math notranslate nohighlight">\(C'est donc l'exponentielle de la moyenne arithmétique des logarithmes des valeurs observées. 
-\item la moyenne harmonique : si les \)</span>x_i<span class="math notranslate nohighlight">\( sont positifs, la moyenne harmonique est définie par \)</span><span class="math notranslate nohighlight">\(H=\frac{n}{\displaystyle\sum_{i=1}^J 1/x_i}\)</span><span class="math notranslate nohighlight">\(
-\item la moyenne pondérée : dans certains cas, on n'accorde pas la même importance à toutes les observations (fiabilité, confiance...). La moyenne pondérée est alors définie par 
-\)</span><span class="math notranslate nohighlight">\(\bar{x}_w= \frac{\displaystyle\sum_{i=1}^n w_ix_i}{\displaystyle\sum_{i=1}^n w_i}\)</span>$</p>
-<p>\end{itemize}
-\end{defin}
-Dans le cas où <span class="math notranslate nohighlight">\(\forall i,w_i=1/n\)</span>, la moyenne pondérée est la moyenne arithmétique. De plus, dans tous les cas, on peut montrer que <span class="math notranslate nohighlight">\(H\leq G\leq \bar{x}\)</span>.</p>
-<p>\begin{rem}
-en centrant les moments par rapport à une valeur représentative, on définit les moments centrés :
-\end{rem}
-\begin{defin}{Moment centré}{}
-Le moment centré d’ordre <span class="math notranslate nohighlight">\(r\)</span> est défini par :
-$<span class="math notranslate nohighlight">\(m_r=\displaystyle\sum_{i=1}^n \left (x_i-\bar{x}\right )^r\)</span>$
-\end{defin}</p>
-<p>\begin{defin}{Médiane} {}
-La médiane, notée <span class="math notranslate nohighlight">\(x_\frac{1}{2}\)</span> est la valeur centrale de la série statistique triée par ordre croissant.
-\end{defin}
-En d’autres termes, c’est la valeur de la série triée telle qu’au moins 50% des effectifs soient inférieurs à <span class="math notranslate nohighlight">\(x_\frac{1}{2}\)</span>. Elle peut être calculée sur des variables quantitatives ou qualitatives ordinales (dans le cas où des échelles de valeur ont été définies).
-\begin{defin}{Quantiles} {}
-Le quantile d’ordre <span class="math notranslate nohighlight">\(p\)</span> est défini par <span class="math notranslate nohighlight">\(x_p=F^{-1}(p)\)</span>, où <span class="math notranslate nohighlight">\(F\)</span> est la fonction de répartition.
-\end{defin}
-La notion de quantile généralise la notion de médiane. Si la fonction de répartition était continue et strictement croissante, la définition de <span class="math notranslate nohighlight">\(x_p\)</span> serait unique. Or <span class="math notranslate nohighlight">\(F\)</span> est discontinue et définie par paliers et les valeurs de quantiles varient suivant par exemple l’utilisation ou non d’une méthode d’interpolation de <span class="math notranslate nohighlight">\(F\)</span>. Pour calculer <span class="math notranslate nohighlight">\(x_p\)</span>, on peut par exemple considérer que si <span class="math notranslate nohighlight">\(np\)</span> est pair,
+</div>
+</div>
+<div class="section" id="statistique-descriptive-univariee">
+<h2>Statistique descriptive univariée<a class="headerlink" href="#statistique-descriptive-univariee" title="Permalink to this headline">#</a></h2>
+<p id="index-7">La statistique descriptive univariée consiste à étudier un ensemble d’unités d’observations, lorsque celles-ci sont décrites par une seule variable.</p>
+<p>Soit donc <span class="math notranslate nohighlight">\(X\)</span> une variable et <span class="math notranslate nohighlight">\(x_j,j\in [\![1,n]\!]\)</span> l’ensemble des valeurs prises par cette variable, <span class="math notranslate nohighlight">\(n_i\)</span> étant le nombre de fois où la valeur <span class="math notranslate nohighlight">\(x_i\)</span> est prise. <span class="math notranslate nohighlight">\(X\)</span> peut être qualitative ou quantitative, les paramètres de description décrits dans la suite s’appliqueront à l’une de ces natures ou au deux.</p>
+<div class="section" id="parametres-de-position">
+<h3>Paramètres de position<a class="headerlink" href="#parametres-de-position" title="Permalink to this headline">#</a></h3>
+<p>Plusieurs paramètres permettent de décrire la position “la plus représentative” d’une variable :</p>
+<div class="proof definition admonition" id="definition-4">
+<p class="admonition-title"><span class="caption-number">Definition 19 </span> (Mode)</p>
+<div class="definition-content section" id="proof-content">
+<p>Le mode est la valeur distincte correspondant à l’effectif le plus élevé. Il est noté <span class="math notranslate nohighlight">\(x_M\)</span>.</p>
+</div>
+</div><p>Le mode peut être calculé pour tout type de variable, n’est pas nécessairement unique. Lorsqu’une variable continue est découpée en classes, il est possible de définir une classe modale (classe correspondant à l’effectif le plus élevé)</p>
+<div class="proof definition admonition" id="definition-5">
+<p class="admonition-title"><span class="caption-number">Definition 20 </span> (Moyennes)</p>
+<div class="definition-content section" id="proof-content">
+<p>Les moyennes ne peuvent être définies que sur des variables quantitatives. Plusieurs moyennes peuvent être calculées, parmi lesquelles :</p>
+<ul class="simple">
+<li><p>la moyenne arithmétique  $<span class="math notranslate nohighlight">\(\bar{x} = \frac{1}{n}{\displaystyle\sum_{i=1}^nx_i}=  \frac{1}{n}{\displaystyle\sum_{i=1}^J n_ix_i}\)</span>$ C’est le moment à l’origine d’ordre 1.</p></li>
+<li><p>la moyenne géométrique : si les <span class="math notranslate nohighlight">\(x_i\)</span> sont positifs, la moyenne géométrique est la quantité $<span class="math notranslate nohighlight">\(G=\left (\displaystyle\prod_{i=1}^n x_i\right )^\frac{1}{n}\)</span>$C’est donc l’exponentielle de la moyenne arithmétique des logarithmes des valeurs observées.</p></li>
+<li><p>a moyenne harmonique : si les <span class="math notranslate nohighlight">\(x_i\)</span> sont positifs, la moyenne harmonique est définie par $<span class="math notranslate nohighlight">\(H=\frac{n}{\displaystyle\sum_{i=1}^J 1/x_i}\)</span>$</p></li>
+<li><p>la moyenne pondérée : dans certains cas, on n’accorde pas la même importance à toutes les observations (fiabilité, confiance…). La moyenne pondérée est alors définie par
+<span class="math notranslate nohighlight">\(\bar{x}_w= \frac{\displaystyle\sum_{i=1}^n w_ix_i}{\displaystyle\sum_{i=1}^n w_i}\)</span></p></li>
+</ul>
+</div>
+</div><p>Dans le cas où <span class="math notranslate nohighlight">\(\forall i,w_i=1/n\)</span>, la moyenne pondérée est la moyenne arithmétique. De plus, dans tous les cas, on peut montrer que <span class="math notranslate nohighlight">\(H\leq G\leq \bar{x}\)</span>.</p>
+<div class="proof definition admonition" id="definition-6">
+<p class="admonition-title"><span class="caption-number">Definition 21 </span> (Médiane)</p>
+<div class="definition-content section" id="proof-content">
+<p>La médiane, notée <span class="math notranslate nohighlight">\(x_\frac{1}{2}\)</span> est la valeur centrale de la série statistique triée par ordre croissant.</p>
+</div>
+</div><p>En d’autres termes, c’est la valeur de la série triée telle qu’au moins 50% des effectifs soient inférieurs à <span class="math notranslate nohighlight">\(x_\frac{1}{2}\)</span>. Elle peut être calculée sur des variables quantitatives ou qualitatives ordinales (dans le cas où des échelles de valeur ont été définies).</p>
+<div class="proof definition admonition" id="definition-7">
+<p class="admonition-title"><span class="caption-number">Definition 22 </span> (Quantiles)</p>
+<div class="definition-content section" id="proof-content">
+<p>Le quantile d’ordre <span class="math notranslate nohighlight">\(p\)</span> est défini par <span class="math notranslate nohighlight">\(x_p=F^{-1}(p)\)</span>, où <span class="math notranslate nohighlight">\(F\)</span> est la fonction de répartition.</p>
+</div>
+</div><p>La notion de quantile généralise la notion de médiane. Si la fonction de répartition était continue et strictement croissante, la définition de <span class="math notranslate nohighlight">\(x_p\)</span> serait unique. Or <span class="math notranslate nohighlight">\(F\)</span> est discontinue et définie par paliers et les valeurs de quantiles varient suivant par exemple l’utilisation ou non d’une méthode d’interpolation de <span class="math notranslate nohighlight">\(F\)</span>. Pour calculer <span class="math notranslate nohighlight">\(x_p\)</span>, on peut par exemple considérer que si <span class="math notranslate nohighlight">\(np\)</span> est pair,
 $<span class="math notranslate nohighlight">\(x_p=\frac{x_{np}+x_{np+1}}{2}\)</span><span class="math notranslate nohighlight">\(
 on remarque alors que la médiane est le quantile d'ordre \)</span>\frac{1}{2}<span class="math notranslate nohighlight">\(
 et sinon
 \)</span><span class="math notranslate nohighlight">\(x_p=x_{\lceil{np}\rceil}\)</span>$
 En particulier, un quartile est chacune des 3 valeurs qui divisent les données triées en 4 parts égales, de sorte que chaque partie représente 1/4 de l’échantillon de population.</p>
-<p>\subsection{Paramètres de dispersion}
-Il est très souvent utile d’apprécier la dispersion des mesures autour du paramètre de position. Pour cela, sur des variables quantitatives uniquement, plusieurs outils sont disponibles :
+</div>
+<div class="section" id="parametres-de-dispersion">
+<h3>Paramètres de dispersion<a class="headerlink" href="#parametres-de-dispersion" title="Permalink to this headline">#</a></h3>
+<p>Il est très souvent utile d’apprécier la dispersion des mesures autour du paramètre de position. Pour cela, sur des variables quantitatives uniquement, plusieurs outils sont disponibles :
 \begin{defin}{Etendue}{}
 L’étendue est la simple différence entre la plus grande et la plus petite valeur observée.
 \end{defin}

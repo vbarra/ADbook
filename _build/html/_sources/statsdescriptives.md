@@ -67,11 +67,11 @@ Le domaine d'une telle variable est dénombrable. Comme pour les variables quali
 La répartition des valeurs de la variable peut être représentée par un diagramme en bâtonnets. Les fréquences cumulées  sont visualisées par la fonction de répartition de la variable , définie par 
 
 $F(x) = \left \{
-\begin{tabular}{ll}
+\begin{array}{ll}
 0&si $x<x_1$\\
 $F_j$ &si  $x\in[x_j,x_{j+1}[$\\
 1& si  $x_J\leq x$
-\end{tabular}\right .$
+\end{array}\right .$
 
 ![](./images/baton2.png)
 
@@ -102,50 +102,41 @@ $F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j)$ &si  $x\in[c^-_j,c^+_j[$\\
 1& si  $c^+_J\leq x$
 \end{array}\right .$
 
-
-\section {Statistique descriptive univariée}
+## Statistique descriptive univariée
+```{index} Statistique ; univariée
+```
 La statistique descriptive univariée consiste à étudier un ensemble d'unités d'observations, lorsque celles-ci sont décrites par une seule variable. 
 
 Soit donc $X$ une variable et $x_j,j\in [\![1,n]\!]$ l'ensemble des valeurs prises par cette variable, $n_i$ étant le nombre de fois où la valeur $x_i$ est prise. $X$ peut être qualitative ou quantitative, les paramètres de description décrits dans la suite s'appliqueront à l'une de ces natures ou au deux.
-\begin{defin}{Moment}{}
-Le moment à l'origine d'ordre $r$  est défini par :
-$$m'_r=\displaystyle\sum_{i=1}^n x_i^r$$
-\end{defin}
 
-\subsection{Paramètres de position}
+
+### Paramètres de position
 Plusieurs paramètres permettent de décrire la position "la plus représentative" d'une variable :
-\begin{defin}{Mode} {}
+````{prf:definition} Mode
 Le mode est la valeur distincte correspondant à l'effectif le plus élevé. Il est noté $x_M$.
-\end{defin}
+````
 Le mode peut être calculé pour tout type de variable, n'est pas nécessairement unique. Lorsqu'une variable continue est découpée en classes, il est possible de définir une classe modale (classe correspondant à l'effectif le plus élevé)
-\begin{defin}{Moyennes} {} Les moyennes ne peuvent être définies que sur des variables quantitatives. Plusieurs moyennes peuvent être calculées, parmi lesquelles :
-\begin{itemize}
-\item la moyenne arithmétique  $$\bar{x} = \frac{1}{n}{\displaystyle\sum_{i=1}^nx_i}=  \frac{1}{n}{\displaystyle\sum_{i=1}^J n_ix_i}$$ C'est le moment à l'origine d'ordre 1.
-\item la moyenne géométrique : si les $x_i$ sont positifs, la moyenne géométrique est la quantité $$G=\left (\displaystyle\prod_{i=1}^n x_i\right )^\frac{1}{n}$$C'est donc l'exponentielle de la moyenne arithmétique des logarithmes des valeurs observées. 
-\item la moyenne harmonique : si les $x_i$ sont positifs, la moyenne harmonique est définie par $$H=\frac{n}{\displaystyle\sum_{i=1}^J 1/x_i}$$
-\item la moyenne pondérée : dans certains cas, on n'accorde pas la même importance à toutes les observations (fiabilité, confiance...). La moyenne pondérée est alors définie par 
-$$\bar{x}_w= \frac{\displaystyle\sum_{i=1}^n w_ix_i}{\displaystyle\sum_{i=1}^n w_i}$$
+````{prf:definition} Moyennes
+Les moyennes ne peuvent être définies que sur des variables quantitatives. Plusieurs moyennes peuvent être calculées, parmi lesquelles :
+- la moyenne arithmétique  $$\bar{x} = \frac{1}{n}{\displaystyle\sum_{i=1}^nx_i}=  \frac{1}{n}{\displaystyle\sum_{i=1}^J n_ix_i}$$ C'est le moment à l'origine d'ordre 1.
+- la moyenne géométrique : si les $x_i$ sont positifs, la moyenne géométrique est la quantité $$G=\left (\displaystyle\prod_{i=1}^n x_i\right )^\frac{1}{n}$$C'est donc l'exponentielle de la moyenne arithmétique des logarithmes des valeurs observées. 
+- a moyenne harmonique : si les $x_i$ sont positifs, la moyenne harmonique est définie par $$H=\frac{n}{\displaystyle\sum_{i=1}^J 1/x_i}$$
+- la moyenne pondérée : dans certains cas, on n'accorde pas la même importance à toutes les observations (fiabilité, confiance...). La moyenne pondérée est alors définie par 
+$\bar{x}_w= \frac{\displaystyle\sum_{i=1}^n w_ix_i}{\displaystyle\sum_{i=1}^n w_i}$
+````
 
-\end{itemize}
-\end{defin}
 Dans le cas où $\forall i,w_i=1/n$, la moyenne pondérée est la moyenne arithmétique. De plus, dans tous les cas, on peut montrer que $H\leq G\leq \bar{x}$.
 
 
-\begin{rem}
-en centrant les moments par rapport à une valeur représentative, on définit les moments centrés :
-\end{rem}
-\begin{defin}{Moment centré}{}
-Le moment centré d'ordre $r$ est défini par :
-$$m_r=\displaystyle\sum_{i=1}^n \left (x_i-\bar{x}\right )^r$$
-\end{defin}
-
-\begin{defin}{Médiane} {}
+````{prf:definition} Médiane
 La médiane, notée $x_\frac{1}{2}$ est la valeur centrale de la série statistique triée par ordre croissant. 
-\end{defin}
+````
+
 En d'autres termes, c'est la valeur de la série triée telle qu'au moins 50\% des effectifs soient inférieurs à $x_\frac{1}{2}$. Elle peut être calculée sur des variables quantitatives ou qualitatives ordinales (dans le cas où des échelles de valeur ont été définies).
-\begin{defin}{Quantiles} {}
+````{prf:definition} Quantiles
 Le quantile d'ordre $p$ est défini par $x_p=F^{-1}(p)$, où $F$ est la fonction de répartition. 
-\end{defin}
+````
+
 La notion de quantile généralise la notion de médiane. Si la fonction de répartition était continue et strictement croissante, la définition de $x_p$ serait unique. Or $F$ est discontinue et définie par paliers et les valeurs de quantiles varient suivant par exemple l'utilisation ou non d'une méthode d'interpolation de $F$. Pour calculer $x_p$, on peut par exemple considérer que si $np$ est pair, 
 $$x_p=\frac{x_{np}+x_{np+1}}{2}$$
 on remarque alors que la médiane est le quantile d'ordre $\frac{1}{2}$
@@ -154,7 +145,7 @@ $$x_p=x_{\lceil{np}\rceil}$$
 En particulier, un quartile est chacune des 3 valeurs qui divisent les données triées en 4 parts égales, de sorte que chaque partie représente 1/4 de l'échantillon de population.
 
 
-\subsection{Paramètres de dispersion}
+### Paramètres de dispersion
 Il est très souvent utile d'apprécier la dispersion des mesures autour du paramètre de position. Pour cela, sur des variables quantitatives uniquement, plusieurs outils sont disponibles :
 \begin{defin}{Etendue}{}
 L'étendue est la simple différence entre la plus grande et la plus petite valeur observée.
