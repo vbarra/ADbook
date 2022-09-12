@@ -297,7 +297,7 @@
 # 
 # D'autres indices existent, qui ne dépendent pas de $\chi^2_{obs}$, comme par exemple
 # 
-# \begin{equation} G^2 = 2\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J n_{jk} ln \left (\frac{ n_{jk}}{ n^*_{jk}} \right )\end{equation}
+# $\begin{equation} G^2 = 2\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J n_{jk} ln \left (\frac{ n_{jk}}{ n^*_{jk}} \right )\end{equation}$
 # 
 # qui sous l'hypothèse d'indépendance suit une loi $\chi^2_{(K-1)(J-1)}$.
 # 
