@@ -304,7 +304,7 @@ En effet, les $e_{jk}$ sont liées par $(K-1)(J-1)$ relations linéaires puisqu'
 L'espérance d'un $\chi^2_{(K-1)(J-1)}$ étant égale à son degré de liberté, $\chi^2_{obs}$ est d'autant plus grand que le nombre de modalités $J$ et/ou $K$ est grand. 
 
 
-D'autres indices existent, qui ne dépendent pas de $\chi^2_{obs}$, comme par exemple l'indice $G^2$
+D'autres indices existent, qui ne dépendent pas de $\chi^2_{obs}$, comme par exemple
 $G^2 = 2\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J n_{jk} ln \left (\frac{ n_{jk}}{ n^*_{jk}} \right )$
 qui sous l'hypothèse d'indépendance suit une loi $\chi^2_{(K-1)(J-1)}$.
 
