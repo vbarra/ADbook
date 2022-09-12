@@ -147,9 +147,10 @@
 # 
 # ````{prf:definition} Variance
 # La variance est la somme des carrés des écarts à la moyenne, normalisée par le nombre d'observations
-# $$\sigma^2 = \frac{1}{n}\displaystyle\sum_{i=1}^n\left (x_i-\bar{x}\right )^2$$
+# $\sigma^2 = \frac{1}{n}\displaystyle\sum_{i=1}^n\left (x_i-\bar{x}\right )^2$
 # ````
-# Cette variance est dite biaisée. La variance non biaisée est obtenue en divisant non pas par $n$, mais par $n-1$.\\
+# Cette variance est dite biaisée. La variance non biaisée est obtenue en divisant non pas par $n$, mais par $n-1$.
+# 
 # ````{prf:definition} Ecart type
 # L'écart type est la racine carrée de la variance. 
 # ````
@@ -183,7 +184,9 @@
 # Ce coefficient est fondé sur la comparaison de la moyenne et du mode, et est normalisé par l'écart type.
 # 
 # 
-# Tous les coefficients d'asymétrie ont des propriétés similaires : ils sont nuls si la distribution est symétrique, négatifs si la distribution est allongée à gauche (left asymmetry), et positifs si la distribution est allongée à droite (right asymmetry).\\
+# Tous les coefficients d'asymétrie ont des propriétés similaires : ils sont nuls si la distribution est symétrique, négatifs si la distribution est allongée à gauche (left asymmetry), et positifs si la distribution est allongée à droite (right asymmetry).
+# 
+# 
 # On peut aussi chercher à mesurer l'aplatissement (ou kurtosis) d'une distribution de mesure. Dans ce cas, on utilise le coefficient d'aplatissement de Pearson ou de Fisher, respectivement donnés par 
 # $\beta_2=\frac{m_4}{\sigma^4}\quad\textrm{et}\quad g_2=\beta_2-3$
 # Une distribution est alors dite mésokurtique si $g_2$ est proche de 0, leptokurtique si $g_2>0$ (queues plus longues et distribution plus pointue); et platykyrtique si $g_2<0$ (queues plus courtes et distribution arrondie).
@@ -220,7 +223,7 @@
 # Les données peuvent être regroupées sous la forme d'un tableau de contingence prenant la forme suivante :
 # 
 # \begin{center}
-# \begin{tabular}{c|ccccc|c}
+# \begin{array}{c|ccccc|c}
 # &$y_1$&$\cdots$&$y_k$&$\cdots$&$y_K$&total\\
 # \hline
 # $x_1$&$n_{11}$&$\cdots$&$n_{1k}$&$\cdots$&$n_{1K}$&$n_{1.}$\\
@@ -230,7 +233,7 @@
 # $x_J$&$n_{J1}$&$\cdots$&$n_{Jk}$&$\cdots$&$n_{JK}$&$n_{J.}$\\
 # \hline
 # total&$n_{.1}$&$\cdots$&$n_{.k}$&$\cdots$&$n_{.K}$&$n$\\
-# \end{tabular}
+# \end{array}
 # \end{center}
 # 
 # où $n_{j.}$ (resp $n_{.k}$ )sont les effectifs marginaux représentant le nombre de fois où $x_j$ (resp. $y_k$) apparaît, et $n_{jk}$ le nombre d'apparition du couple $(x_j,y_k)$.
