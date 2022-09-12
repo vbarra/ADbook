@@ -68,7 +68,7 @@ La répartition des valeurs de la variable peut être représentée par un diagr
 
 $F(x) = \left \{
 \begin{eqnarray}
-0&\texrtrm{ si} &x<x_1\\
+0&\textrm{ si} &x<x_1\\
 F_j &\textrm{ si}&  x\in[x_j,x_{j+1}[\\
 1& \textrm{ si}&  x_J\leq x
 \end{eqnarray}\right .$
