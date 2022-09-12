@@ -58,7 +58,7 @@
 # La répartition des valeurs de la variable peut être représentée par un diagramme en bâtonnets. Les fréquences cumulées  sont visualisées par la fonction de répartition de la variable , définie par 
 # 
 # $F(x) = \left \{
-# \begin{eqnarray}{ll}
+# \begin{eqnarray}
 # 0&si $x<x_1$\\
 # $F_j$ &si  $x\in[x_j,x_{j+1}[$\\
 # 1& si  $x_J\leq x$
