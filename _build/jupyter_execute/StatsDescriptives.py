@@ -278,7 +278,15 @@
 # 
 # 
 # Ces coefficients sont tous compris entre 0 (indépendance) et 1 (dépendance fonctionnelle). Pour estimer à partir de quelle valeur la dépendance fonctionnelle est significative, on procède de la manière suivante : si les $n$ observations étaient prélevées dans une population où les variables sont indépendantes, on recherche les valeurs probables de $\chi^2_{obs}$. \\
-# En s'appuyant sur la loi multinomiale et le test du $\chi^2$, on montre que $\chi^2_{obs}$ est une réalisation d'une variable aléatoire $Z$ suivant approximativement une loi $\chi^2_{(K-1)(J-1)}$\footnote{Soient $U_1\ldots U_p$ $p$ variables i.i.d de loi normale centrée réduite. On appelle loi du $\chi^2$ à $p$ degrés de liberté la loi de la variable $\displaystyle\sum_{i=1}^pU_i^2$.}. En effet, les $e_{jk}$ sont liées par $(K-1)(J-1)$ relations linéaires puisqu'on estime les probabilités de réalisation de $x_j$ et $y_k$ respectivement par $n_{j,.}/n$ et $n_{.k}/n$ Il suffit alors de fixer un risque d'erreur $\alpha$ (une valeur qui, s'il y avait indépendance, n'aurait qu'une probabilité faible d'être dépassée), et on rejette l'hypothèse d'indépendance si $\chi^2_{obs}$  est supérieur à la valeur critique qu'une variable $\chi^2_{(K-1)(J-1)}$ a une probabilité $\alpha$ de dépasser.
+# En s'appuyant sur la loi multinomiale et le test du $\chi^2$, on montre que $\chi^2_{obs}$ est une réalisation d'une variable aléatoire $Z$ suivant approximativement une loi $\chi^2_{(K-1)(J-1)}$. 
+# 
+# 
+# ```{prf:remark}
+# :class: dropdownSoient $U_1\ldots U_p$ $p$ variables i.i.d de loi normale centrée réduite. On appelle loi du $\chi^2$ à $p$ degrés de liberté la loi de la variable $\displaystyle\sum_{i=1}^pU_i^2$.
+# ```
+# 
+# 
+# En effet, les $e_{jk}$ sont liées par $(K-1)(J-1)$ relations linéaires puisqu'on estime les probabilités de réalisation de $x_j$ et $y_k$ respectivement par $n_{j,.}/n$ et $n_{.k}/n$ Il suffit alors de fixer un risque d'erreur $\alpha$ (une valeur qui, s'il y avait indépendance, n'aurait qu'une probabilité faible d'être dépassée), et on rejette l'hypothèse d'indépendance si $\chi^2_{obs}$  est supérieur à la valeur critique qu'une variable $\chi^2_{(K-1)(J-1)}$ a une probabilité $\alpha$ de dépasser.
 # L'espérance d'un $\chi^2_{(K-1)(J-1)}$ étant égale à son degré de liberté, $\chi^2_{obs}$ est d'autant plus grand que le nombre de modalités $J$ et/ou $K$ est grand. 
 # 
 # 
