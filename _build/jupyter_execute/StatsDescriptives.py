@@ -121,6 +121,7 @@
 # In[1]:
 
 
+get_ipython().system('pip3 install seaborn')
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
