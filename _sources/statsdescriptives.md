@@ -96,11 +96,11 @@ Les effectifs (ou les fréquences) sont représenté(e)s par un histogramme. Si 
 Comme dans le cas discret, la fonction de répartition peut être calculée de la manière suivante :
 
 $F(x) = \left \{
-\begin{array}{ll}
-0&si $x<c^-_1$\\
-$F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j)$ &si  $x\in[c^-_j,c^+_j[$\\
-1& si  $c^+_J\leq x$
-\end{array}\right .$
+\begin{eqnarray}
+0&\textrm{ si}& x<c^-_1\\
+F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &s\textrm{ si}& x\in[c^-_j,c^+_j[\\
+1& \textrm{ si}&c^+_J\leq x
+\end{eqnarray}\right .$
 
 ## Statistique descriptive univariée
 ```{index} Statistique ; univariée
