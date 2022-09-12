@@ -311,8 +311,14 @@
 # 
 # 
 # Pour déterminer à partir de quelle valeur $e^2$ est significatif, on compare donc $\sigma^2_\cap$ à $\sigma^2_\cup$. On peut montrer que si le rapport de corrélation théorique est nul, alors la variable 
-# $$\frac{\left (\frac{e^2}{J-1}\right )}{\left (\frac{1-e^2}{n-J}\right )}$$
-# suit une loi de Fisher Snedecor \footnote{Soient $U$ et $V$ deux variables aléatoires indépendantes suivant respectivement des lois $\chi^2_n$ et $\chi^2_p$. On définit $F(n,p)=\frac{U/n}{V/P}$} $F(J-1,n-J)$, en supposant que les distributions conditionnelles de $Y$ pour chaque modalité de $x$ sont gaussiennes, de même espérance et de même variance. 
+# 
+# $\frac{\left (\frac{e^2}{J-1}\right )}{\left (\frac{1-e^2}{n-J}\right )}$
+# suit une loi de Fisher Snedecor, en supposant que les distributions conditionnelles de $Y$ pour chaque modalité de $X$ sont gaussiennes, de même espérance et de même variance. 
+# 
+# ```{prf:remark}
+# :class: dropdown
+# Soient $U$ et $V$ deux variables aléatoires indépendantes suivant respectivement des lois $\chi^2_n$ et $\chi^2_p$. On définit la loi de Fisher Snedecor par $F(n,p)=\frac{U/n}{V/P}$) $F(J-1,n-J)$
+# ```
 # 
 # ## Vers une analyse multivariée
 # Bien évidemment, dans la majorité des cas, un individu sera décrit par $p\geq 2$ variables. Si certains algorithmes de statistique descriptive multidimensionnelle sont abordés dans les chapitres suivants, il est néanmoins possible d'avoir une première approche exploratoire de ce cas.
