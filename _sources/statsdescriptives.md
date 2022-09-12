@@ -235,7 +235,7 @@ Les données peuvent être regroupées sous la forme d'un tableau de contingence
 $\begin{array}{c|ccccc|c}
 &y_1&\cdots&y_k&\cdots&y_K&total\\
 \hline
-x_1$&$n_{11}$&$\cdots$&$n_{1k}$&$\cdots$&$n_{1K}$&$n_{1.}$\\
+x_1&n_{11}&\cdots&n_{1k}&\cdots&n_{1K}&n_{1.}\\
 \vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots\\
 x_j&n_{j1}&\cdots&n_{jk}&\cdots&n_{jK}&n_{j.}\\
 \vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots\\
