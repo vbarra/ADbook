@@ -282,7 +282,8 @@
 # 
 # 
 # ```{prf:remark}
-# :class: dropdownSoient $U_1\ldots U_p$ $p$ variables i.i.d de loi normale centrée réduite. On appelle loi du $\chi^2$ à $p$ degrés de liberté la loi de la variable $\displaystyle\sum_{i=1}^pU_i^2$.
+# :class: dropdown
+# Soient $U_1\ldots U_p$ $p$ variables i.i.d de loi normale centrée réduite. On appelle loi du $\chi^2$ à $p$ degrés de liberté la loi de la variable $\displaystyle\sum_{i=1}^pU_i^2$.
 # ```
 # 
 # 
