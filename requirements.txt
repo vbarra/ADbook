@@ -1,3 +1,2 @@
-jupyter-book
-matplotlib
-numpy
+numpy==1.23.3
+matplotlib==3.5.3
