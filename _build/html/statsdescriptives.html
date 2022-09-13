@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Statistique descriptive &#8212; Analyse de données</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,10 +36,13 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -47,8 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Index" href="genindex.html" />
@@ -192,7 +196,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/StatsDescriptives.md"
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/statsdescriptives.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -252,7 +256,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FStatsDescriptives.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fstatsdescriptives.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -280,7 +284,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/StatsDescriptives.ipynb"
+        <a href="_sources/statsdescriptives.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -297,7 +301,7 @@ title="Download notebook file"
       </li>
       
       <li>
-        <a href="_sources/StatsDescriptives.md"
+        <a href="_sources/statsdescriptives.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -581,52 +585,52 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="statistique-descriptive">
+  <section class="tex2jax_ignore mathjax_ignore" id="statistique-descriptive">
 <h1>Statistique descriptive<a class="headerlink" href="#statistique-descriptive" title="Permalink to this headline">#</a></h1>
-<div class="section" id="definitions">
+<section id="definitions">
 <h2>Définitions<a class="headerlink" href="#definitions" title="Permalink to this headline">#</a></h2>
 <p>Dans la suite, nous nous intéressons à des unités statistiques ou individus statistiques ou unités d’observation (individus,  entreprises,  ménages, données abstraites…). Bien que le cas infini soit envisageable, nous nous restreignons ici à l’étude d’un nombre fini de ces unités. Un ou plusieurs caractères (ou variables) est mesuré sur chaque unité. Les variables sont désignées par simplicité par une lettre. Leurs valeurs possibles sont appelées modalités et l’ensemble des valeurs possibles ou des modalités est appelé le domaine. L’ensemble des individus statistiques forment la population.</p>
-<div class="section" id="typologie-des-variables">
+<section id="typologie-des-variables">
 <h3>Typologie des variables<a class="headerlink" href="#typologie-des-variables" title="Permalink to this headline">#</a></h3>
 <p>La typologie des variables définit le type de problème statistique que l’on doit aborder :</p>
 <div class="proof definition admonition" id="definition-0">
 <span id="index-0"></span><p class="admonition-title"><span class="caption-number">Definition 16 </span> (Variable qualitative)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>La variable est dite qualitative lorsque les modalités sont des catégories. Suivant qu’il existe une relation d’ordre sur les catégories, on distingue :</p>
 <ul class="simple">
 <li><p>la variable qualitative nominale, si les modalités  ne peuvent pas être ordonnées</p></li>
 <li><p>la variable qualitative ordinale, si les modalités peuvent être ordonnées</p></li>
 </ul>
-</div>
+</section>
 </div><div class="proof definition admonition" id="definition-1">
 <span id="index-1"></span><p class="admonition-title"><span class="caption-number">Definition 17 </span> (Variable quantitative)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>La variable est dite quantitative lorsque les modalités sont des valeurs numériques (scalaires ou vectorielles) :</p>
 <ul class="simple">
 <li><p>la variable est quantitative discrète si les modalités forment un ensemble dénombrable</p></li>
 <li><p>la variable quantitative est continue si les modalités vivent dans un espace continu.</p></li>
 </ul>
-</div>
+</section>
 </div><p>Dans certains cas (l’âge par exemple), une variable d’un type (quantitative continue ici) peut être exprimée d’une autre manière pour des raisons pratiques de collecte ou de mesure. De même, les variables qualitatives ordinales peuvent être codées, par exemple selon une échelle de satisfaction.</p>
 <div class="proof definition admonition" id="definition-2">
 <span id="index-2"></span><p class="admonition-title"><span class="caption-number">Definition 18 </span> (Série statistique)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>On appelle série statistique une suite de <span class="math notranslate nohighlight">\(n\)</span> valeurs prises par une variable <span class="math notranslate nohighlight">\(X\)</span> sur les unités d’observation, notées <span class="math notranslate nohighlight">\(x_1\cdots x_n\)</span>.</p>
-</div>
-</div></div>
-<div class="section" id="variable-qualitative-nominale">
+</section>
+</div></section>
+<section id="variable-qualitative-nominale">
 <h3>Variable qualitative nominale<a class="headerlink" href="#variable-qualitative-nominale" title="Permalink to this headline">#</a></h3>
 <p id="index-3">Une variable qualitative nominale a des valeurs distinctes qui ne peuvent pas être ordonnées. On note <span class="math notranslate nohighlight">\(J\)</span> le nombre de valeurs distinctes ou de modalités, notées <span class="math notranslate nohighlight">\(x_1\cdots x_J\)</span>. On appelle effectif d’une modalité ou d’une valeur distincte le nombre de fois que cette modalité (ou valeur distincte) apparaît dans la série statistique. On note <span class="math notranslate nohighlight">\(n_j\)</span> l’effectif de la modalité <span class="math notranslate nohighlight">\(x_j\)</span>. La fréquence d’une modalité <span class="math notranslate nohighlight">\(j\)</span> est  alors égale à <span class="math notranslate nohighlight">\(f_j=\frac{n_j}{n}\)</span>.</p>
 <p>Le tableau statistique d’une variable qualitative nominale peut être représenté par deux types de graphiques. Les effectifs sont représentés par un diagramme en tuyau d’orgue et les fréquences par un diagramme en secteurs. Pour ce dernier, si le nombre de modalités devient trop important, la représentation perd de son intérêt.</p>
 <p><img alt="" src="_images/baton.png" /></p>
-</div>
-<div class="section" id="variable-qualitative-ordinale">
+</section>
+<section id="variable-qualitative-ordinale">
 <h3>Variable qualitative ordinale<a class="headerlink" href="#variable-qualitative-ordinale" title="Permalink to this headline">#</a></h3>
 <p id="index-4">Le domaine peut être muni d’une relation d’ordre.  Les valeurs distinctes d’une variable ordinale peuvent donc être ordonnées <span class="math notranslate nohighlight">\(x_1\leq x_2\cdots\leq  x_J\)</span>, à permutation près dans l’ordre croissant des indices. L’effectif cumulé <span class="math notranslate nohighlight">\(N_j\)</span> et la fréquence cumulée <span class="math notranslate nohighlight">\(F_j\)</span> des variables sont alors définis par
 <span class="math notranslate nohighlight">\((\forall j\in[\![1,J]\!])\quad N_j=\displaystyle\sum_{i=1}^j n_i\quad \textrm {et}\quad F_j=\displaystyle\sum_{i=1}^j f_i\)</span></p>
 <p>Les fréquences et les effectifs (cumulés ou non) peuvent être représentés sous la forme d’un diagramme en tuyaux d’orgue.</p>
-</div>
-<div class="section" id="variable-quantitative-discrete">
+</section>
+<section id="variable-quantitative-discrete">
 <h3>Variable quantitative discrète<a class="headerlink" href="#variable-quantitative-discrete" title="Permalink to this headline">#</a></h3>
 <p id="index-5">Le domaine d’une telle variable est dénombrable. Comme pour les variables qualitatives ordinales, on peut calculer les effectifs (cumulés ou non) et les fréquences (cumulées ou non).</p>
 <p>La répartition des valeurs de la variable peut être représentée par un diagramme en bâtonnets. Les fréquences cumulées  sont visualisées par la fonction de répartition de la variable , définie par</p>
@@ -637,8 +641,8 @@ F_j &amp;\textrm{ si}&amp;  x\in[x_j,x_{j+1}[\\
 1&amp; \textrm{ si}&amp;  x_J\leq x
 \end{eqnarray}\right .\)</span></p>
 <p><img alt="" src="_images/baton2.png" /></p>
-</div>
-<div class="section" id="variable-quantitative-continue">
+</section>
+<section id="variable-quantitative-continue">
 <h3>Variable quantitative continue<a class="headerlink" href="#variable-quantitative-continue" title="Permalink to this headline">#</a></h3>
 <p id="index-6">Le domaine d’une  variable quantitative continue est infini et est assimilé à <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> ou à un intervalle de <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>. Cependant, la mesure étant limitée en précision, on peut traiter ces variables comme des variables discrètes.</p>
 <p>La représentation graphique de ces variables (et la construction du tableau statistique) passe par le regroupement des modalités ou valeurs en classes. Le tableau ainsi construit est souvent appelé distribution groupée. La classe <span class="math notranslate nohighlight">\(j\)</span> est l’ensemble des valeurs incluses dans <span class="math notranslate nohighlight">\([c^-_j,c^+_j[\)</span>, où <span class="math notranslate nohighlight">\(c^-_j\)</span> et <span class="math notranslate nohighlight">\(c^+_j\)</span> sont les bornes inférieure et supérieure de la classe. Sur cet intervalle, on peut calculer la fréquence <span class="math notranslate nohighlight">\(f_j\)</span> de la classe, la fréquence cumulée, l’effectif <span class="math notranslate nohighlight">\(n_j\)</span>… La répartition en classes nécessite de définir a priori le nombre de classes <span class="math notranslate nohighlight">\(J\)</span> et l’amplitude <span class="math notranslate nohighlight">\(a_j\)</span> des intervalles. Si elles peuvent être définies de manière empirique, quelques règles permettent d’établir <span class="math notranslate nohighlight">\(J\)</span> et l’amplitude pour une série statistique de <span class="math notranslate nohighlight">\(n\)</span> observations. Par exemple :</p>
@@ -701,7 +705,16 @@ Les histogrammes sont des représentations de la distribution des données, agr�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/StatsDescriptives_1_0.png" src="_images/StatsDescriptives_1_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;./data/data.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
 </div>
 </div>
 <p>Le choix de la largeur <span class="math notranslate nohighlight">\(t\)</span> des bins dépend des données, et par exemple on a :</p>
@@ -711,9 +724,9 @@ Les histogrammes sont des représentations de la distribution des données, agr�
 </ul>
 <div class="proof remark dropdown admonition" id="remark-3">
 <p class="admonition-title"><span class="caption-number">Remark 5 </span></p>
-<div class="remark-content section" id="proof-content">
+<section class="remark-content" id="proof-content">
 <p>Toutes les classes n’ont pas nécessairement la même amplitude</p>
-</div>
+</section>
 </div><p>Les effectifs (ou les fréquences) sont représenté(e)s par un histogramme. Si l’on s’intéresse à la représentation des effectifs (resp. des fréquences), la densité d’effectif <span class="math notranslate nohighlight">\(h_j\)</span> (resp. de fréquence <span class="math notranslate nohighlight">\(d_j\)</span>),  définie par <span class="math notranslate nohighlight">\(h_j=\frac{n_j}{a_j}\)</span> (resp. <span class="math notranslate nohighlight">\(d_j=\frac{f_j}{a_j}\)</span>), détermine la hauteur du rectangle représentant la classe <span class="math notranslate nohighlight">\(j\)</span>. L’aire de l’histogramme est égale à l’effectif total <span class="math notranslate nohighlight">\(n\)</span> pour l’histogramme des effectifs, et à 1 pour l’histogramme des fréquences.</p>
 <p>Comme dans le cas discret, la fonction de répartition peut être calculée de la manière suivante :</p>
 <p><span class="math notranslate nohighlight">\(F(x) = \left \{
@@ -722,24 +735,24 @@ Les histogrammes sont des représentations de la distribution des données, agr�
 F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j[\\
 1&amp; \textrm{ si}&amp;c^+_J\leq x
 \end{eqnarray}\right .\)</span></p>
-</div>
-</div>
-<div class="section" id="statistique-descriptive-univariee">
+</section>
+</section>
+<section id="statistique-descriptive-univariee">
 <h2>Statistique descriptive univariée<a class="headerlink" href="#statistique-descriptive-univariee" title="Permalink to this headline">#</a></h2>
 <p id="index-7">La statistique descriptive univariée consiste à étudier un ensemble d’unités d’observations, lorsque celles-ci sont décrites par une seule variable.</p>
 <p>Soit donc <span class="math notranslate nohighlight">\(X\)</span> une variable et <span class="math notranslate nohighlight">\(x_j,j\in [\![1,n]\!]\)</span> l’ensemble des valeurs prises par cette variable, <span class="math notranslate nohighlight">\(n_i\)</span> étant le nombre de fois où la valeur <span class="math notranslate nohighlight">\(x_i\)</span> est prise. <span class="math notranslate nohighlight">\(X\)</span> peut être qualitative ou quantitative, les paramètres de description décrits dans la suite s’appliqueront à l’une de ces natures ou au deux.</p>
-<div class="section" id="parametres-de-position">
+<section id="parametres-de-position">
 <h3>Paramètres de position<a class="headerlink" href="#parametres-de-position" title="Permalink to this headline">#</a></h3>
 <p>Plusieurs paramètres permettent de décrire la position “la plus représentative” d’une variable :</p>
 <div class="proof definition admonition" id="definition-4">
 <p class="admonition-title"><span class="caption-number">Definition 19 </span> (Mode)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>Le mode est la valeur distincte correspondant à l’effectif le plus élevé. Il est noté <span class="math notranslate nohighlight">\(x_M\)</span>.</p>
-</div>
+</section>
 </div><p>Le mode peut être calculé pour tout type de variable, n’est pas nécessairement unique. Lorsqu’une variable continue est découpée en classes, il est possible de définir une classe modale (classe correspondant à l’effectif le plus élevé)</p>
 <div class="proof definition admonition" id="definition-5">
 <p class="admonition-title"><span class="caption-number">Definition 20 </span> (Moyennes)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>Les moyennes ne peuvent être définies que sur des variables quantitatives. Plusieurs moyennes peuvent être calculées, parmi lesquelles :</p>
 <ul class="simple">
 <li><p>la moyenne <strong>arithmétique</strong>  <span class="math notranslate nohighlight">\(\bar{x} = \frac{1}{n}{\displaystyle\sum_{i=1}^nx_i}=  \frac{1}{n}{\displaystyle\sum_{i=1}^J n_ix_i}\)</span>. C’est le moment à l’origine d’ordre 1.</p></li>
@@ -748,7 +761,7 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <li><p>la moyenne <strong>pondérée</strong> : dans certains cas, on n’accorde pas la même importance à toutes les observations (fiabilité, confiance…). La moyenne pondérée est alors définie par
 <span class="math notranslate nohighlight">\(\bar{x}_w= \frac{\displaystyle\sum_{i=1}^n w_ix_i}{\displaystyle\sum_{i=1}^n w_i}\)</span></p></li>
 </ul>
-</div>
+</section>
 </div><p>Dans le cas où <span class="math notranslate nohighlight">\(\forall i,w_i=1/n\)</span>, la moyenne pondérée est la moyenne arithmétique. De plus, dans tous les cas, on peut montrer que <span class="math notranslate nohighlight">\(H\leq G\leq \bar{x}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -794,27 +807,18 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
-GeometricMean  :  1258.4787575642572
-HarmonicMean  :  1198.219210728503
-WeightedMean  :  1291.9283987935116
-</pre></div>
-</div>
-<img alt="_images/StatsDescriptives_3_1.png" src="_images/StatsDescriptives_3_1.png" />
-</div>
 </div>
 <div class="proof definition admonition" id="definition-6">
 <p class="admonition-title"><span class="caption-number">Definition 21 </span> (Médiane)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>La médiane, notée <span class="math notranslate nohighlight">\(x_\frac{1}{2}\)</span> est la valeur centrale de la série statistique triée par ordre croissant.</p>
-</div>
+</section>
 </div><p>En d’autres termes, c’est la valeur de la série triée telle qu’au moins 50% des effectifs soient inférieurs à <span class="math notranslate nohighlight">\(x_\frac{1}{2}\)</span>. Elle peut être calculée sur des variables quantitatives ou qualitatives ordinales (dans le cas où des échelles de valeur ont été définies).</p>
 <div class="proof definition admonition" id="definition-7">
 <p class="admonition-title"><span class="caption-number">Definition 22 </span> (Quantiles)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>Le quantile d’ordre <span class="math notranslate nohighlight">\(p\)</span> est défini par <span class="math notranslate nohighlight">\(x_p=F^{-1}(p)\)</span>, où <span class="math notranslate nohighlight">\(F\)</span> est la fonction de répartition.</p>
-</div>
+</section>
 </div><p>La notion de quantile généralise la notion de médiane. Si la fonction de répartition était continue et strictement croissante, la définition de <span class="math notranslate nohighlight">\(x_p\)</span> serait unique. Or <span class="math notranslate nohighlight">\(F\)</span> est discontinue et définie par paliers et les valeurs de quantiles varient suivant par exemple l’utilisation ou non d’une méthode d’interpolation de <span class="math notranslate nohighlight">\(F\)</span>. Pour calculer <span class="math notranslate nohighlight">\(x_p\)</span>, on peut par exemple considérer que si <span class="math notranslate nohighlight">\(np\)</span> est pair,
 <span class="math notranslate nohighlight">\(x_p=\frac{x_{np}+x_{np+1}}{2}\)</span>
 on remarque alors que la médiane est le quantile d’ordre <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span>
@@ -840,58 +844,50 @@ En particulier, un quartile est chacune des 3 valeurs qui divisent les données 
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>quartile  25  :  905.9190521240237
-quartile  50  :  1399.66320800781
-quartile  75  :  1626.326538085935
-</pre></div>
 </div>
-<img alt="_images/StatsDescriptives_5_1.png" src="_images/StatsDescriptives_5_1.png" />
-</div>
-</div>
-</div>
-<div class="section" id="parametres-de-dispersion">
+</section>
+<section id="parametres-de-dispersion">
 <h3>Paramètres de dispersion<a class="headerlink" href="#parametres-de-dispersion" title="Permalink to this headline">#</a></h3>
 <p>Il est très souvent utile d’apprécier la dispersion des mesures autour du paramètre de position. Pour cela, sur des variables quantitatives uniquement, plusieurs outils sont disponibles :</p>
 <div class="proof definition admonition" id="definition-8">
 <p class="admonition-title"><span class="caption-number">Definition 23 </span> (Etendue)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>L’étendue est la simple différence entre la plus grande et la plus petite valeur observée.</p>
-</div>
+</section>
 </div><div class="proof definition admonition" id="definition-9">
 <p class="admonition-title"><span class="caption-number">Definition 24 </span> (Déviation maximale)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>La déviation maximale est définie par
 <span class="math notranslate nohighlight">\( maxdev(X) = max \{ |X[i] - \bar{x}| \,|\, i=1,\dots,n\}\)</span></p>
-</div>
+</section>
 </div><div class="proof definition admonition" id="definition-10">
 <p class="admonition-title"><span class="caption-number">Definition 25 </span> (Déviation moyenne absolue)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>La déviation moyenne absolue est définie par
 <span class="math notranslate nohighlight">\( mad(X) = \frac{1}{n} \sum_{i=1}^n |X[i] - \bar{x}|\)</span></p>
-</div>
+</section>
 </div><div class="proof definition admonition" id="definition-11">
 <p class="admonition-title"><span class="caption-number">Definition 26 </span> (Distance interquartile)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>La distance interquartile est la différence entre le troisième et le premier quartile. C’est une statistique robuste aux points aberrants.</p>
-</div>
+</section>
 </div><div class="proof definition admonition" id="definition-12">
 <p class="admonition-title"><span class="caption-number">Definition 27 </span> (Variance)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>La variance est la somme des carrés des écarts à la moyenne, normalisée par le nombre d’observations
 <span class="math notranslate nohighlight">\(\sigma^2 = \frac{1}{n}\displaystyle\sum_{i=1}^n\left (x_i-\bar{x}\right )^2\)</span></p>
-</div>
+</section>
 </div><p>Cette variance est dite biaisée. La variance non biaisée est obtenue en divisant non pas par <span class="math notranslate nohighlight">\(n\)</span>, mais par <span class="math notranslate nohighlight">\(n-1\)</span>.</p>
 <div class="proof definition admonition" id="definition-13">
 <p class="admonition-title"><span class="caption-number">Definition 28 </span> (Ecart type)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>L’écart type est la racine carrée de la variance.</p>
-</div>
+</section>
 </div><div class="proof definition admonition" id="definition-14">
 <p class="admonition-title"><span class="caption-number">Definition 29 </span> (Ecart moyen absolu)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>L’écart moyen absolu est la somme des valeurs absolues des écarts à la moyenne divisée par le nombre d’observations.</p>
-</div>
+</section>
 </div><p>Notons qu’il s’agit de la distance <span class="math notranslate nohighlight">\(L_1\)</span> du vecteur des observations au vecteur composé de la valeur moyenne, divisé par le nombre d’observations. La variance est la distance <span class="math notranslate nohighlight">\(L_2\)</span> entre ces deux vecteurs. Lorsque la distance est calculée par rapport au vecteur composé de la valeur médiane, on parle d’écart médian absolu.</p>
 <p><img alt="" src="_images/dispersion.png" /></p>
 <div class="cell docutils container">
@@ -931,47 +927,38 @@ quartile  75  :  1626.326538085935
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>max_dev  :  1316.3086347078017 +/- 738.0729570890783
-mad  :  1316.3086347078017 +/- 327.4656915004233
-sigma  :  1316.3086347078017 +/- 374.5723639541368
-IQR  :  1316.3086347078017 +/- 720.4074859619113
-</pre></div>
 </div>
-<img alt="_images/StatsDescriptives_7_1.png" src="_images/StatsDescriptives_7_1.png" />
-</div>
-</div>
-</div>
-<div class="section" id="parametres-de-forme">
+</section>
+<section id="parametres-de-forme">
 <h3>Paramètres de forme<a class="headerlink" href="#parametres-de-forme" title="Permalink to this headline">#</a></h3>
 <p>Les paramètres de forme sont souvent calculés en référence à la forme de la loi normale, pour évaluer la symétrie, l’aplatissement ou la dérive par rapport à cette loi.</p>
 <div class="proof definition admonition" id="definition-15">
 <p class="admonition-title"><span class="caption-number">Definition 30 </span> (Skewness)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <div class="math notranslate nohighlight">
 \[g_1 = \frac{m_3}{\sigma^3}\]</div>
-</div>
+</section>
 </div><p>Le skewness est également appelé coefficient d’asymétrie de Fisher.</p>
 <div class="proof definition admonition" id="definition-16">
 <p class="admonition-title"><span class="caption-number">Definition 31 </span> (Kurtosis)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <div class="math notranslate nohighlight">
 \[K=\frac{m_4}{m_2^2}\]</div>
-</div>
+</section>
 </div><p><span class="math notranslate nohighlight">\(K\)</span> permet de mesurer l’aplatissement.</p>
 <div class="proof definition admonition" id="definition-17">
 <p class="admonition-title"><span class="caption-number">Definition 32 </span> (Coefficient d’asymétrie de Yule)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <div class="math notranslate nohighlight">
 \[A_Y = \frac{x_{3/4}+x_{1/4}-2x_{1/2}}{x_{3/4}-x_{1/4}}\]</div>
-</div>
+</section>
 </div><p>Ce coefficient est fondé sur les positions de trois quartiles (le premier, la médiane et le troisième) et est normalisé par la distance interquartile.</p>
 <div class="proof definition admonition" id="definition-18">
 <p class="admonition-title"><span class="caption-number">Definition 33 </span> (Coefficient d’asymétrie de Pearson)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <div class="math notranslate nohighlight">
 \[A_P = \frac{\bar{x}-x_M}{\sigma}\]</div>
-</div>
+</section>
 </div><p>Ce coefficient est fondé sur la comparaison de la moyenne et du mode, et est normalisé par l’écart type.</p>
 <p>Tous les coefficients d’asymétrie ont des propriétés similaires : ils sont nuls si la distribution est symétrique, négatifs si la distribution est allongée à gauche (left asymmetry), et positifs si la distribution est allongée à droite (right asymmetry).</p>
 <p>On peut aussi chercher à mesurer l’aplatissement (ou kurtosis) d’une distribution de mesure. Dans ce cas, on utilise le coefficient d’aplatissement de Pearson ou de Fisher, respectivement donnés par
@@ -1024,39 +1011,36 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/StatsDescriptives_9_0.png" src="_images/StatsDescriptives_9_0.png" />
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="statistique-descriptive-bivariee">
+</section>
+</section>
+<section id="statistique-descriptive-bivariee">
 <h2>Statistique descriptive bivariée<a class="headerlink" href="#statistique-descriptive-bivariee" title="Permalink to this headline">#</a></h2>
 <p>On s’intéresse à deux variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>, mesurées sur les <span class="math notranslate nohighlight">\(n\)</span> unités d’observation. La série statistique est alors une suite de <span class="math notranslate nohighlight">\(n\)</span> couples <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> des valeurs prises par les deux variables sur chaque individu.</p>
-<div class="section" id="cas-de-deux-variables-quantitatives">
+<section id="cas-de-deux-variables-quantitatives">
 <h3>Cas de deux variables quantitatives<a class="headerlink" href="#cas-de-deux-variables-quantitatives" title="Permalink to this headline">#</a></h3>
 <p>Le couple est un couple de valeurs numériques. C’est donc un point dans le plan <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>. Les variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> peuvent être analysées séparément, en opérant une statistique univariée sur chacune de ces variables. Les paramètres calculés (de position, de dispersion…) sont dits marginaux. Cependant, il est intéressant d’étudier le lien entre ces deux variables, par l’intermédiaire des valeurs des couples. On définit pour cela un certain nombre d’outils :</p>
 <div class="proof definition admonition" id="definition-19">
 <p class="admonition-title"><span class="caption-number">Definition 34 </span> (Covariance)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>La covariance de <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> est définie par :
 <span class="math notranslate nohighlight">\(\sigma_{xy}=\frac{1}{n}\displaystyle\sum_{i=1}^n\left (x_i-\bar{x}\right )\left (y_i-\bar{y}\right )\)</span></p>
-</div>
+</section>
 </div><div class="proof definition admonition" id="definition-20">
 <p class="admonition-title"><span class="caption-number">Definition 35 </span> (Coefficient de corrélation)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>Le coefficient de corrélation  de deux variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> est défini par
 <span class="math notranslate nohighlight">\(r_{xy}=\frac{\sigma_{xy}}{\sigma_{x}\sigma_{y}}\)</span>
 Le coefficient de détermination est le carré du coefficient de corrélation.</p>
-</div>
+</section>
 </div><p>Le coefficient de corrélation est donc la covariance normalisée par les écarts types marginaux des variables. Il mesure la dépendance linéaire entre <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>. Il est compris dans l’intervalle [-1,1] est est positif (resp. négatif) si les points sont alignés le long d’une droite croissante (resp. décroissante), d’autant plus grand en valeur absolue que la dépendance linéaire est vérifiée. Dans le cas où le coefficient est nul, il n’existe pas de dépendance linéaire.</p>
 <p>Pour connaître plus précisément la relation linéaire qui lie <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>, on effectue une régression linéaire en calculant par exemple la droite de régression (chapitre~\ref{ch:regression}).
 Si <span class="math notranslate nohighlight">\(y=a+bx\)</span>, il est facile de montrer que
 <span class="math notranslate nohighlight">\(b=\frac{\sigma_{xy}}{\sigma_x^2}\quad\textrm{et}\quad a=\bar{y}-b\bar{x}\)</span></p>
 <p>et la droite de régression s’écrit <span class="math notranslate nohighlight">\(y-\bar{y}=\frac{\sigma_{xy}}{\sigma_x^2}\left ( x-\bar{x}\right )\)</span>.</p>
 <p>A partir de cette droite, on peut calculer les valeurs ajustées, obtenues à partir de la droite de régression : <span class="math notranslate nohighlight">\(y^*_i=a+bx_i\)</span>. Ce sont les valeurs théoriques des <span class="math notranslate nohighlight">\(y_i\)</span> et les résidus <span class="math notranslate nohighlight">\(e_i=y_i-y_i^*\)</span> représentent la partie inexpliquée des <span class="math notranslate nohighlight">\(y_i\)</span> par la droite de régression (ceux là même que l’on essaye de minimiser par la méthode des moindres carrés).</p>
-</div>
-<div class="section" id="cas-de-deux-variables-qualitatives">
+</section>
+<section id="cas-de-deux-variables-qualitatives">
 <h3>Cas de deux variables qualitatives<a class="headerlink" href="#cas-de-deux-variables-qualitatives" title="Permalink to this headline">#</a></h3>
 <p>Le couple est un couple de valeurs <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> où <span class="math notranslate nohighlight">\(x_i\)</span> et <span class="math notranslate nohighlight">\(y_i\)</span> prennent comme valeurs des modalités qualitatives. Notons <span class="math notranslate nohighlight">\(x_1\cdots x_J\)</span> et <span class="math notranslate nohighlight">\(y_1\cdots y_K\)</span> les valeurs distinctes prises.</p>
 <p>Les données peuvent être regroupées sous la forme d’un tableau de contingence prenant la forme suivante :</p>
@@ -1106,16 +1090,16 @@ la borne étant atteinte dans le cas de la dépendance fonctionnelle (si <span c
 <p>En s’appuyant sur la loi multinomiale et le test du <span class="math notranslate nohighlight">\(\chi^2\)</span>, on montre que <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span> est une réalisation d’une variable aléatoire <span class="math notranslate nohighlight">\(Z\)</span> suivant approximativement une loi <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span>.</p>
 <div class="proof remark dropdown admonition" id="remark-21">
 <p class="admonition-title"><span class="caption-number">Remark 6 </span></p>
-<div class="remark-content section" id="proof-content">
+<section class="remark-content" id="proof-content">
 <p>Soient <span class="math notranslate nohighlight">\(U_1\ldots U_p\)</span> <span class="math notranslate nohighlight">\(p\)</span> variables i.i.d de loi normale centrée réduite. On appelle loi du <span class="math notranslate nohighlight">\(\chi^2\)</span> à <span class="math notranslate nohighlight">\(p\)</span> degrés de liberté la loi de la variable <span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^pU_i^2\)</span>.</p>
-</div>
+</section>
 </div><p>En effet, les <span class="math notranslate nohighlight">\(e_{jk}\)</span> sont liées par <span class="math notranslate nohighlight">\((K-1)(J-1)\)</span> relations linéaires puisqu’on estime les probabilités de réalisation de <span class="math notranslate nohighlight">\(x_j\)</span> et <span class="math notranslate nohighlight">\(y_k\)</span> respectivement par <span class="math notranslate nohighlight">\(n_{j,.}/n\)</span> et <span class="math notranslate nohighlight">\(n_{.k}/n\)</span> Il suffit alors de fixer un risque d’erreur <span class="math notranslate nohighlight">\(\alpha\)</span> (une valeur qui, s’il y avait indépendance, n’aurait qu’une probabilité faible d’être dépassée), et on rejette l’hypothèse d’indépendance si <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span>  est supérieur à la valeur critique qu’une variable <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span> a une probabilité <span class="math notranslate nohighlight">\(\alpha\)</span> de dépasser.
 L’espérance d’un <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span> étant égale à son degré de liberté, <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span> est d’autant plus grand que le nombre de modalités <span class="math notranslate nohighlight">\(J\)</span> et/ou <span class="math notranslate nohighlight">\(K\)</span> est grand.</p>
 <p>D’autres indices existent, qui ne dépendent pas de <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span>, comme par exemple</p>
 <p><span class="math notranslate nohighlight">\(\begin{equation} G^2 = 2\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J n_{jk} ln \left (\frac{ n_{jk}}{ n^*_{jk}} \right )\end{equation}\)</span></p>
 <p>qui sous l’hypothèse d’indépendance suit une loi <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span>.</p>
-</div>
-<div class="section" id="cas-d-une-variable-quantitative-et-d-une-variable-qualitative">
+</section>
+<section id="cas-d-une-variable-quantitative-et-d-une-variable-qualitative">
 <h3>Cas d’une variable quantitative et d’une variable qualitative<a class="headerlink" href="#cas-d-une-variable-quantitative-et-d-une-variable-qualitative" title="Permalink to this headline">#</a></h3>
 <p>On s’intéresse ici au cas où les modalités <span class="math notranslate nohighlight">\(x_i\)</span> sont qualitatives, et où <span class="math notranslate nohighlight">\(y\)</span> est une variable quantitative, dont les modalités sont des réalisations d’une variable aléatoire <span class="math notranslate nohighlight">\(Y\)</span>.
 Le rapport de corrélation théorique entre <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> est défini par
@@ -1144,22 +1128,22 @@ pour expliquer la variabilité des notes dans toute la promotion.</p></li>
 suit une loi de Fisher Snedecor, en supposant que les distributions conditionnelles de <span class="math notranslate nohighlight">\(Y\)</span> pour chaque modalité de <span class="math notranslate nohighlight">\(X\)</span> sont gaussiennes, de même espérance et de même variance.</p>
 <div class="proof remark dropdown admonition" id="remark-22">
 <p class="admonition-title"><span class="caption-number">Remark 7 </span></p>
-<div class="remark-content section" id="proof-content">
+<section class="remark-content" id="proof-content">
 <p>Soient <span class="math notranslate nohighlight">\(U\)</span> et <span class="math notranslate nohighlight">\(V\)</span> deux variables aléatoires indépendantes suivant respectivement des lois <span class="math notranslate nohighlight">\(\chi^2_n\)</span> et <span class="math notranslate nohighlight">\(\chi^2_p\)</span>. On définit la loi de Fisher Snedecor par <span class="math notranslate nohighlight">\(F(n,p)=\frac{U/n}{V/P}\)</span>) <span class="math notranslate nohighlight">\(F(J-1,n-J)\)</span></p>
-</div>
-</div></div>
-</div>
-<div class="section" id="vers-une-analyse-multivariee">
+</section>
+</div></section>
+</section>
+<section id="vers-une-analyse-multivariee">
 <h2>Vers une analyse multivariée<a class="headerlink" href="#vers-une-analyse-multivariee" title="Permalink to this headline">#</a></h2>
 <p>Bien évidemment, dans la majorité des cas, un individu sera décrit par <span class="math notranslate nohighlight">\(p\geq 2\)</span> variables. Si certains algorithmes de statistique descriptive multidimensionnelle sont abordés dans les chapitres suivants, il est néanmoins possible d’avoir une première approche exploratoire de ce cas.</p>
-<div class="section" id="matrices-de-covariance-et-de-correlation">
+<section id="matrices-de-covariance-et-de-correlation">
 <h3>Matrices de covariance et de corrélation<a class="headerlink" href="#matrices-de-covariance-et-de-correlation" title="Permalink to this headline">#</a></h3>
 <p>La première idée, lorsque l’on a observé <span class="math notranslate nohighlight">\(p\)</span> variables sur <span class="math notranslate nohighlight">\(n\)</span> individus, est de calculer les <span class="math notranslate nohighlight">\(p\)</span> variances de ces variables, et les <span class="math notranslate nohighlight">\(\frac{p(p-1)}{2}\)</span> covariances. Ces mesures sont regroupées dans une matrice <span class="math notranslate nohighlight">\(p\times p\)</span>, symétrique, semi définie positive, appelée matrice de variance-covariance (ou matrice des covariances), et classiquement notée <span class="math notranslate nohighlight">\(\boldsymbol\Sigma\)</span>.</p>
 <p>De même, on peut former la matrice des corrélations entre les variables, à diagonale unité et symétrique. La matrice résultante, notée <span class="math notranslate nohighlight">\(\mathbf R\)</span>, est également semi définie positive et sa représentation graphique en fausses couleurs permet d’apprécier les dépendances linéaires entre variables.</p>
 <p><img alt="" src="_images/batiments.png" /></p>
 <p>Dans le cas de variables qualitatives, les coefficients de corrélation peuvent être remplacés par les coefficients de Cramer, de Tschuprow…</p>
-</div>
-<div class="section" id="tableaux-de-nuages">
+</section>
+<section id="tableaux-de-nuages">
 <h3>Tableaux de nuages<a class="headerlink" href="#tableaux-de-nuages" title="Permalink to this headline">#</a></h3>
 <p>On peut proposer à partir de là des représentations entre sous-ensembles de variables. La figure suivante propose un exemple de tels tableaux, parfois appelés splom (Scatter PLOt Matrix) :</p>
 <ul class="simple">
@@ -1168,14 +1152,14 @@ suit une loi de Fisher Snedecor, en supposant que les distributions conditionnel
 <li><p>la partie trianglaire inférieure donne le coefficient de corrélation entre les deux variables, et une estimation de la densité de la distribution 2D des données</p></li>
 </ul>
 <p><img alt="" src="_images/batiments2.png" /></p>
-</div>
-<div class="section" id="tableaux-de-burt">
+</section>
+<section id="tableaux-de-burt">
 <h3>Tableaux de Burt<a class="headerlink" href="#tableaux-de-burt" title="Permalink to this headline">#</a></h3>
 <p>Le tableau de Burt est une généralisation particulière de la table de contingence dans le cas où l’on étudie simultanément <span class="math notranslate nohighlight">\(p\)</span> variables qualitatives <span class="math notranslate nohighlight">\(X_1\ldots X_p\)</span>. Notons <span class="math notranslate nohighlight">\(c_j\)</span> le nombre de modalités de <span class="math notranslate nohighlight">\(X_j\)</span> et posons <span class="math notranslate nohighlight">\(c=\displaystyle\sum_{j=1}^p c_j\)</span>.</p>
 <p>Le tableau de Burt est une matrice carrée symétrique de taille <span class="math notranslate nohighlight">\(c\)</span>, constituée de <span class="math notranslate nohighlight">\(p^2\)</span> sous-matrices. Chacune des <span class="math notranslate nohighlight">\(p\)</span> sous-matrices diagonales est relative à l’une des <span class="math notranslate nohighlight">\(p\)</span> variables, la <span class="math notranslate nohighlight">\(j^e\)</span> étant carrée de taille <span class="math notranslate nohighlight">\(c_j\)</span>, diagonale, et de coefficients diagonaux les effectifs marginaux de <span class="math notranslate nohighlight">\(X_j\)</span>. La sous-matrice dans le bloc <span class="math notranslate nohighlight">\((k,l)\)</span> du tableau, <span class="math notranslate nohighlight">\(k\neq l\)</span>, est la table de contingence des variables <span class="math notranslate nohighlight">\(X_k\)</span> et <span class="math notranslate nohighlight">\(X_l\)</span>.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
