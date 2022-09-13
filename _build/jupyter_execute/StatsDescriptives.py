@@ -234,7 +234,7 @@ plt.tight_layout()
 # on remarque alors que la médiane est le quantile d'ordre $\frac{1}{2}$
 # et sinon
 # $x_p=x_{\lceil{np}\rceil}$
-# En particulier, un quartile est chacune des 3 valeurs qui divisent les données triées en 4 parts égales, de sorte que chaque partie représente 1/4 de l'échantillon de population.
+# En particulier, un quartile est chacune des 3 valeurs qui divisent les données triées en 4 parts égales, de sorte que chaque partie représente 1/4 de l'échantillon de population. On note $Q_i$ le $i^e$ quartile.
 
 # In[3]:
 
@@ -336,7 +336,7 @@ plt.tight_layout()
 
 # ### Paramètres de forme
 # Les paramètres de forme sont souvent calculés en référence à la forme de la loi normale, pour évaluer la symétrie, l'aplatissement ou la dérive par rapport à cette loi.
-# ````{prf:definition} Skewness}
+# ````{prf:definition} Skewness
 # $$g_1 = \frac{m_3}{\sigma^3}$$
 # ````
 # Le skewness est également appelé coefficient d'asymétrie de Fisher.
@@ -373,6 +373,14 @@ plt.tight_layout()
 # - une boîte entre les premier et le troisième quartile
 # - l'étendue 
 # - les points aberrants.
+# 
+# 
+# Ce mode de représentation consiste à dessiner une boîte dont les extrémités dépendent du premier et du troisième quartiles (soit de manière équivalente, du 25ème et du 75ème centile) Q14 et Q34 , en ajoutant une barre à l’intérieur
+# matérialisant le second quartile Q12 (c’est-à-dire la valeur médiane de l’échantillon). A` cette boîte, on ajoute des “moustaches” dont les extrémités dépendent :
+# — soit des valeurs extrémales prises par l’échantillon (c’est-à-dire le minimum et le maximum);
+# — soit de la plus petite et de la plus grande valeur de l’échantillon appartenant à l’intervalle $[Q_1 -\deltaQ_3+\delta ]$. La grandeur $\delta$ est une mesure de la dispersion des données. Généralement, on utilise : \delta = 1.5(Q_3-Q_1)$. 
+# 
+# Les valeurs de l’ échantillon en dehors des moustaches sont parfois matérialisées par des points et sont alors considérées comme les points aberrants de l'échantillon.
 
 # In[5]:
 
