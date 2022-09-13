@@ -35,8 +35,9 @@ def sigma(X):
 
 def IQR(X): return np.percentile(X,75) - np.percentile(X,25)
 
-plt.figure(figsize=(18,6))
-sns.rugplot(X, color='grey', height=0.5)
+plt.figure(figsize=(8,4))
+plt.rcParams['font.size'] = '16'
+plt.plot(X, [0.01]*len(X), '|', color='k',label='Points')
 m = np.mean(X)
 for method, pos,style,  in ((max_dev,0.5,'r'),(mad,0.6,'b'),(sigma,0.7,'g'),(IQR,0.8,'y')):
     s=method(X)
@@ -52,13 +53,18 @@ plt.tight_layout()
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Input [0;32mIn [4][0m, in [0;36m<cell line: 20>[0;34m()[0m
-[1;32m     17[0m [38;5;28;01mdef[39;00m [38;5;21mIQR[39m(X): [38;5;28;01mreturn[39;00m np[38;5;241m.[39mpercentile(X,[38;5;241m75[39m) [38;5;241m-[39m np[38;5;241m.[39mpercentile(X,[38;5;241m25[39m)
-[1;32m     19[0m plt[38;5;241m.[39mfigure(figsize[38;5;241m=[39m([38;5;241m18[39m,[38;5;241m6[39m))
-[0;32m---> 20[0m [43msns[49m[38;5;241m.[39mrugplot(X, color[38;5;241m=[39m[38;5;124m'[39m[38;5;124mgrey[39m[38;5;124m'[39m, height[38;5;241m=[39m[38;5;241m0.5[39m)
-[1;32m     21[0m m [38;5;241m=[39m np[38;5;241m.[39mmean(X)
-[1;32m     22[0m [38;5;28;01mfor[39;00m method, pos,style,  [38;5;129;01min[39;00m ((max_dev,[38;5;241m0.5[39m,[38;5;124m'[39m[38;5;124mr[39m[38;5;124m'[39m),(mad,[38;5;241m0.6[39m,[38;5;124m'[39m[38;5;124mb[39m[38;5;124m'[39m),(sigma,[38;5;241m0.7[39m,[38;5;124m'[39m[38;5;124mg[39m[38;5;124m'[39m),(IQR,[38;5;241m0.8[39m,[38;5;124m'[39m[38;5;124my[39m[38;5;124m'[39m)):
+Input [0;32mIn [4][0m, in [0;36m<cell line: 23>[0;34m()[0m
+[1;32m     22[0m m [38;5;241m=[39m np[38;5;241m.[39mmean(X)
+[1;32m     23[0m [38;5;28;01mfor[39;00m method, pos,style,  [38;5;129;01min[39;00m ((max_dev,[38;5;241m0.5[39m,[38;5;124m'[39m[38;5;124mr[39m[38;5;124m'[39m),(mad,[38;5;241m0.6[39m,[38;5;124m'[39m[38;5;124mb[39m[38;5;124m'[39m),(sigma,[38;5;241m0.7[39m,[38;5;124m'[39m[38;5;124mg[39m[38;5;124m'[39m),(IQR,[38;5;241m0.8[39m,[38;5;124m'[39m[38;5;124my[39m[38;5;124m'[39m)):
+[0;32m---> 24[0m     s[38;5;241m=[39m[43mmethod[49m[43m([49m[43mX[49m[43m)[49m
+[1;32m     25[0m     [38;5;28mprint[39m (method[38;5;241m.[39m[38;5;18m__name__[39m, [38;5;124m"[39m[38;5;124m : [39m[38;5;124m"[39m,m, [38;5;124m"[39m[38;5;124m+/-[39m[38;5;124m"[39m,s)
+[1;32m     26[0m     plt[38;5;241m.[39mplot([m,m],[[38;5;241m0[39m,[38;5;241m1[39m],[38;5;124m'[39m[38;5;124mblack[39m[38;5;124m'[39m )
 
-[0;31mNameError[0m: name 'sns' is not defined
-NameError: name 'sns' is not defined
+Input [0;32mIn [4][0m, in [0;36msigma[0;34m(X)[0m
+[1;32m     13[0m [38;5;28;01mdef[39;00m [38;5;21msigma[39m(X):
+[1;32m     14[0m     m [38;5;241m=[39m np[38;5;241m.[39mmean(X)
+[0;32m---> 15[0m     [38;5;28;01mreturn[39;00m [43mmath[49m[38;5;241m.[39mpow([38;5;28msum[39m((x [38;5;241m-[39m m)[38;5;241m*[39m[38;5;241m*[39m[38;5;241m2[39m [38;5;28;01mfor[39;00m x [38;5;129;01min[39;00m X) [38;5;241m/[39m [38;5;28mlen[39m(X), [38;5;241m0.5[39m)
+
+[0;31mNameError[0m: name 'math' is not defined
+NameError: name 'math' is not defined
 
