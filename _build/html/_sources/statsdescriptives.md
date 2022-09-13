@@ -168,7 +168,7 @@ for method, style, title in ((ArithmeticMean,'r','Arithmétique'),(GeometricMean
                              (HarmonicMean,'g','Harmonique'),(WeightedMean,'y', 'Pondérée')):
     m=method(X)
     print (method.__name__, " : ",m)
-    plt.plot([m,m],[0,1],style,label=title)
+    plt.plot([m,m],[0,0.2],style,label=title)
 plt.legend()
 plt.tight_layout()
 ```
@@ -204,7 +204,7 @@ plt.plot(X, [0.01]*len(X), '|', color='k',label='Points')
 for q, style  in ((25,'r'),(50,'b'),(75,'g')):
     m=np.percentile(X,q)
     print ("quartile ", q, " : ",m)
-    plt.plot([m,m],[0,1],style,label=q)
+    plt.plot([m,m],[0,0.2],style,label=q)
 plt.legend()
 plt.tight_layout()
 ```
