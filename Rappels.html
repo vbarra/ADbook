@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Rappels &#8212; Analyse de données</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,10 +36,13 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -47,8 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Introduction aux statistiques" href="Stats.html" />
@@ -124,7 +128,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="StatsDescriptives.html">
+  <a class="reference internal" href="statsdescriptives.html">
    Statistique descriptive
   </a>
  </li>
@@ -581,40 +585,40 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="rappels">
+  <section class="tex2jax_ignore mathjax_ignore" id="rappels">
 <h1>Rappels<a class="headerlink" href="#rappels" title="Permalink to this headline">#</a></h1>
-<div class="section" id="experience-aleatoire">
+<section id="experience-aleatoire">
 <h2>Expérience aléatoire<a class="headerlink" href="#experience-aleatoire" title="Permalink to this headline">#</a></h2>
-<div class="section" id="definitions">
+<section id="definitions">
 <h3>Définitions<a class="headerlink" href="#definitions" title="Permalink to this headline">#</a></h3>
 <div class="proof definition admonition" id="expalea">
 <p class="admonition-title"><span class="caption-number">Definition 1 </span> (Expérience aléatoire)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>Une <strong>expérience aléatoire</strong> est une expérience dont on ne peut prévoir le résultat a priori. Répétée dans des conditions identiques, elle peut donner lieu à des résultats différents.</p>
-</div>
+</section>
 </div><div class="proof example admonition" id="example-1">
 <p class="admonition-title"><span class="caption-number">Example 1 </span></p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <ul class="simple">
 <li><p>Le lancé de dé</p></li>
 <li><p>les côtes exactes d’une pièce fabriquée dans un atelier</p></li>
 </ul>
-</div>
+</section>
 </div><div class="proof definition admonition" id="issue">
 <p class="admonition-title"><span class="caption-number">Definition 2 </span> (Issue)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>On appelle <strong>issue</strong> d’une expérience aléatoire l’un des résultats possibles de cette expérience</p>
-</div>
+</section>
 </div><div class="proof definition admonition" id="univers">
 <p class="admonition-title"><span class="caption-number">Definition 3 </span> (Univers des possibles)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>On appelle <strong>univers des possibles</strong> d’une expérience aléatoire l’ensemble  <span class="math notranslate nohighlight">\(\Omega\)</span> des issues de cette expérience.</p>
-</div>
+</section>
 </div><div class="proof example admonition" id="example-4">
 <p class="admonition-title"><span class="caption-number">Example 2 </span></p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <p>Lorsque l’on joue à pile ou face avec une pièce de monnaie, l’expérience a deux issues possibles et <span class="math notranslate nohighlight">\(\Omega = \{P,F\}\)</span>.</p>
-</div>
+</section>
 </div><p>L’univers des possibles n’est pas défini de manière unique, mais dépend de l’usage de l’experience. Par exemple, pour le lancer de deux dés, on peut être intéressé par :</p>
 <ul class="simple">
 <li><p>le résultat du lancer, dans ce cas <span class="math notranslate nohighlight">\(\Omega = \{(1,1), (1,2), \cdots (6,6)\}\)</span></p></li>
@@ -622,12 +626,12 @@ title="Print to PDF"
 </ul>
 <div class="proof definition admonition" id="evenement">
 <span id="index-0"></span><p class="admonition-title"><span class="caption-number">Definition 4 </span> (Evènement)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>Etant donnée une expérience aléatoire, un <strong>évènement</strong> est une assertion vraie ou fausse suivant l’issue de l’expérience. C’est donc un sous-ensemble <span class="math notranslate nohighlight">\(E\)</span> de <span class="math notranslate nohighlight">\(\Omega\)</span>.</p>
-</div>
+</section>
 </div><div class="proof example admonition" id="example-6">
 <p class="admonition-title"><span class="caption-number">Example 3 </span></p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <ul class="simple">
 <li><p>Dans l’expérience du lancer de deux dés, on peut s’intéresser à l’évènement “la somme des deux faces est paire” ou encore  “la somme est supérieure à 7”.</p></li>
 <li><p>Si l’expérience considérée concerne les jobs effectués sur une machine on peut considérer :</p></li>
@@ -636,7 +640,7 @@ title="Print to PDF"
 <li><p><span class="math notranslate nohighlight">\(\Omega=\mathbb{N}\)</span> et l’évènement “le nombre de jobs ne dépasse pas 10” : <span class="math notranslate nohighlight">\(E=[\![0,5]\!]\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\Omega=\mathbb{R}^*\)</span> et  l’évènement “le job dure plus de 15 s” et <span class="math notranslate nohighlight">\(E=]15,+\infty[\)</span></p></li>
 </ol>
-</div>
+</section>
 </div><p>Il existe certains évènements particuliers :</p>
 <ul class="simple">
 <li><p>l’évènement dit certain : c’est l’univers des possibles (par exemple “la somme des deux faces d’un lancer de deux dés est inférieure ou égale à 12”)</p></li>
@@ -644,8 +648,8 @@ title="Print to PDF"
 <li><p>l’évènement simple : tout singleton de <span class="math notranslate nohighlight">\(\Omega\)</span></p></li>
 <li><p>l’évènement composé : tout sous-ensembme de <span class="math notranslate nohighlight">\(\Omega\)</span> de cardinalité au moins égale à 2.</p></li>
 </ul>
-</div>
-<div class="section" id="notation-et-operations-sur-les-evenements">
+</section>
+<section id="notation-et-operations-sur-les-evenements">
 <h3>Notation et opérations sur les évènements<a class="headerlink" href="#notation-et-operations-sur-les-evenements" title="Permalink to this headline">#</a></h3>
 <p>Les évènements peuvent être interprétés soit d’un point de vue ensembliste (Diagrammes de Venn), soit de manière équivalente d’un point de vue probabiliste.</p>
 <table class="colwidths-auto table">
@@ -690,16 +694,16 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="section" id="probabilites">
+</section>
+</section>
+<section id="probabilites">
 <h2>Probabilités<a class="headerlink" href="#probabilites" title="Permalink to this headline">#</a></h2>
-<div class="section" id="objectif">
+<section id="objectif">
 <h3>Objectif<a class="headerlink" href="#objectif" title="Permalink to this headline">#</a></h3>
 <p>L’objectif des probabilités est de donner une <strong>mesure</strong> à la chance qu’a un évènement de se réaliser lors d’une expérience aléatoire. Pour ce faire, on définit une fonction <span class="math notranslate nohighlight">\(P:\Omega\rightarrow [0,1]\)</span> vérifiant certains axiomes et propriétés.</p>
 <div class="proof definition admonition" id="tribu">
 <span id="index-1"></span><p class="admonition-title"><span class="caption-number">Definition 5 </span> (Tribu)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\(T\)</span> une famille d’évènements. Pour que <span class="math notranslate nohighlight">\(T\)</span> soit probabilisable, il faut que :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\emptyset\in T, \Omega\in T\)</span></p></li>
@@ -707,38 +711,38 @@ title="Print to PDF"
 <li><p>Si <span class="math notranslate nohighlight">\(A\in T\)</span> alors <span class="math notranslate nohighlight">\(\bar A\in T\)</span></p></li>
 </ul>
 <p><span class="math notranslate nohighlight">\(T\)</span> est une <strong>tribu</strong> et <span class="math notranslate nohighlight">\((\Omega,T)\)</span> est un <strong>espace probabilisable</strong>.</p>
-</div>
+</section>
 </div><p>En pratique, on choisit souvent la tribu engendrée par une famille de <span class="math notranslate nohighlight">\(n\)</span> d’évènements <span class="math notranslate nohighlight">\(A_i\)</span>, qui est l’ensemble des parties de <span class="math notranslate nohighlight">\(\Omega\)</span> obtenues en effectuant l’union de <span class="math notranslate nohighlight">\(k\)</span> évènements <span class="math notranslate nohighlight">\(A_i,i\in [\![1,n]\!]\)</span>.</p>
 <div class="proof example admonition" id="example-8">
 <p class="admonition-title"><span class="caption-number">Example 4 </span></p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <p>Dans le cas du lancer d’un dé, <span class="math notranslate nohighlight">\(\Omega = \{1,2,3,4,5,6\}\)</span>, et :</p>
 <ul class="simple">
 <li><p>la tribu engendrée par la famille d’évènements <span class="math notranslate nohighlight">\(\{\{1,3,5\},\{2,4,6\}\}\)</span> est <span class="math notranslate nohighlight">\(\{\emptyset,\{1,3,5\},\{2,4,6\},\Omega\}\)</span>.</p></li>
 <li><p>la tribu engendrée par la famille d’évènements <span class="math notranslate nohighlight">\(\{\{1\},\{2\},\{3\},\{4\},\{5\},\{6\}\}\)</span> est l’ensemble des parties de <span class="math notranslate nohighlight">\(\Omega\)</span>. Plus généralement, si <span class="math notranslate nohighlight">\(\Omega\)</span> est dénombrable, cette tribu est appelée <strong>tribu discrète</strong>.</p></li>
 </ul>
-</div>
+</section>
 </div><p>On peut également s’intéresser, si <span class="math notranslate nohighlight">\(\Omega=\mathbb R\)</span>, à la tribu engendrée par les ouverts de <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, on parle alors de <strong>tribu borélienne</strong></p>
-</div>
-<div class="section" id="probabilite">
+</section>
+<section id="probabilite">
 <h3>Probabilité<a class="headerlink" href="#probabilite" title="Permalink to this headline">#</a></h3>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title">A. Kolmogorov</p>
 <p><img alt="" src="_images/kolmogorov.jpeg" /></p>
-</div>
+</aside>
 <div class="proof axiom admonition" id="axiomKolmo">
 <span id="index-2"></span><p class="admonition-title"><span class="caption-number">Axiom 1 </span> (Axiomatique de Kolmogorov)</p>
-<div class="axiom-content section" id="proof-content">
+<section class="axiom-content" id="proof-content">
 <p>On appelle <strong>probabilité</strong> sur <span class="math notranslate nohighlight">\((\Omega,T)\)</span> une application <span class="math notranslate nohighlight">\(P\)</span> de <span class="math notranslate nohighlight">\(T\)</span> dans [0,1] vérifiant :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\((\forall A\in T)\; P(A)\in[0,1]\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(P(\Omega)=1\)</span></p></li>
 <li><p>Pour toute famille dénombrable <span class="math notranslate nohighlight">\((A_i)\)</span> d’évènements disjoints <span class="math notranslate nohighlight">\(P(\displaystyle\bigcup_i A_i) = \displaystyle\sum_iP(A_i)\)</span></p></li>
 </ul>
-</div>
+</section>
 </div><div class="proof property admonition" id="property-10">
 <p class="admonition-title"><span class="caption-number">Property 1 </span></p>
-<div class="property-content section" id="proof-content">
+<section class="property-content" id="proof-content">
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(P(\emptyset)=0\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\((\forall A)\; P(\bar A)=1-P(A)\)</span></p></li>
@@ -747,60 +751,60 @@ title="Print to PDF"
 <li><p><span class="math notranslate nohighlight">\((\forall A,B)\)</span> si <span class="math notranslate nohighlight">\(A\subset B\)</span> alors <span class="math notranslate nohighlight">\(P(A)\leq P(B)\)</span></p></li>
 <li><p>Pour toute famille dénombrable <span class="math notranslate nohighlight">\((A_i)\)</span> d’évènements quelconques <span class="math notranslate nohighlight">\(P(\displaystyle\bigcup_i A_i) \leq \displaystyle\sum_iP(A_i)\)</span></p></li>
 </ul>
-</div>
-</div></div>
-<div class="section" id="conditionnement">
+</section>
+</div></section>
+<section id="conditionnement">
 <h3>Conditionnement<a class="headerlink" href="#conditionnement" title="Permalink to this headline">#</a></h3>
 <p>Les probabilités <strong>conditionnelles</strong> intègrent une information supplémentaire sous la forme de l’observation de la réalisation d’un évènement donné.</p>
 <div class="proof definition admonition" id="definition-11">
 <span id="index-3"></span><p class="admonition-title"><span class="caption-number">Definition 6 </span> (Probabilité conditionnelle)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\(B\)</span> un évènement de probabilité non nulle. On appelle <strong>probabilité conditionnelle</strong> de <span class="math notranslate nohighlight">\(A\)</span> sachant <span class="math notranslate nohighlight">\(B\)</span> le rapport</p>
 <p><span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\bigcap B)}{P(B)}\)</span></p>
-</div>
+</section>
 </div><p><span class="math notranslate nohighlight">\(P(A\mid B)\)</span> représente la probabilité que <span class="math notranslate nohighlight">\(A\)</span> se réalise sachant que <span class="math notranslate nohighlight">\(B\)</span> est réalisé.</p>
 <p>Remarquons que l’on peut écrire <span class="math notranslate nohighlight">\(P(A\bigcap B) = P(A\mid B)P(B) = P(B\mid A)P(A)\)</span>.</p>
 <div class="proof example admonition" id="example-12">
 <p class="admonition-title"><span class="caption-number">Example 5 </span></p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <p>7% des français sont atteints d’un cancer du poumon. 70% des malades sont des fumeurs et 50% des français fument. On recherche la probabilité d’être atteint d’un cancer du poumon lorsque l’on est fumeur.
 L’évènement <span class="math notranslate nohighlight">\(A\)</span> est “avoir un cancer du poumon”, et <span class="math notranslate nohighlight">\(B\)</span> est “être fumeur”. D’après les données on a <span class="math notranslate nohighlight">\(P(A)\)</span>=0.07, <span class="math notranslate nohighlight">\(P(B)\)</span> = 0.5 et <span class="math notranslate nohighlight">\(P(B\mid A)\)</span> = 0.7.
 On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\bigcap B)}{P(B)}\)</span> avec <span class="math notranslate nohighlight">\(P(A\bigcap B)=P(B\mid A)P(A)\)</span> d’où</p>
 <p><span class="math notranslate nohighlight">\(P(B\mid A)=\frac{P(B\mid A)P(A)}{P(B}\)</span> = 0.098</p>
-</div>
-</div></div>
-<div class="section" id="independance">
+</section>
+</div></section>
+<section id="independance">
 <h3>Indépendance<a class="headerlink" href="#independance" title="Permalink to this headline">#</a></h3>
 <div class="proof definition admonition" id="definition-13">
 <span id="index-4"></span><p class="admonition-title"><span class="caption-number">Definition 7 </span> (Indépendance)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>Deux évènements <span class="math notranslate nohighlight">\(A\)</span> et <span class="math notranslate nohighlight">\(B\)</span> sont dits <strong>indépendants</strong> si et seulement si <span class="math notranslate nohighlight">\(P(A\mid B) = P(A)\)</span>.</p>
-</div>
+</section>
 </div><p>On a alors bien évidemment <span class="math notranslate nohighlight">\(P(A\bigcap B) = P(A)P(B)\)</span>.</p>
 <div class="proof remark dropdown admonition" id="remark-14">
 <p class="admonition-title"><span class="caption-number">Remark 1 </span></p>
-<div class="remark-content section" id="proof-content">
+<section class="remark-content" id="proof-content">
 <p>La notion d’indépendance est directement rattachée à <span class="math notranslate nohighlight">\(P\)</span> : <span class="math notranslate nohighlight">\(A\)</span> et <span class="math notranslate nohighlight">\(B\)</span> peuvent être indépendants pour une probabilité donnée, mais pas pour une autre.</p>
-</div>
+</section>
 </div><p>On peut généraliser la notion d’indépendance à une famille d’évènements <span class="math notranslate nohighlight">\((A_i)_{i\in[\![1,n]\!]}\)</span> : on dira que les <span class="math notranslate nohighlight">\(A_i\)</span> sont <strong>mutuellement indépendants</strong> si pour tout <span class="math notranslate nohighlight">\(I\subset [\![1,n]\!]\)</span></p>
 <p><span class="math notranslate nohighlight">\(P\left (\displaystyle\bigcap_{i\in I} A_i\right ) = \displaystyle\prod_{i\in I} P(A_i)\)</span></p>
 <p>L’indépendance mutuelle est plus forte que l’indépendance deux à deux.</p>
 <div class="proof remark dropdown admonition" id="remark-15">
 <p class="admonition-title"><span class="caption-number">Remark 2 </span></p>
-<div class="remark-content section" id="proof-content">
+<section class="remark-content" id="proof-content">
 <p>La notion d’indépendance n’est pas une notion purement ensembliste. Deux évènements peuvent être indépendants pour une loi de probabilité et pas pour une autre.</p>
-</div>
-</div></div>
-<div class="section" id="theoreme-des-probabilites-totales">
+</section>
+</div></section>
+<section id="theoreme-des-probabilites-totales">
 <h3>Théorème des probabilités totales<a class="headerlink" href="#theoreme-des-probabilites-totales" title="Permalink to this headline">#</a></h3>
 <div class="proof theorem admonition" id="theorem-16">
 <p class="admonition-title"><span class="caption-number">Theorem 1 </span></p>
-<div class="theorem-content section" id="proof-content">
+<section class="theorem-content" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\(B_i\)</span> un système complet d’évènements (qui forment donc une partition de <span class="math notranslate nohighlight">\(\Omega\)</span>). Pour tout évènement <span class="math notranslate nohighlight">\(A\)</span>, on peut écrire</p>
 <p><span class="math notranslate nohighlight">\(P(A) = \displaystyle\sum_i P(A\bigcap B_i) = \displaystyle\sum_i P(A| B_i) P(B_i)\)</span></p>
-</div>
-</div></div>
-<div class="section" id="regle-de-bayes">
+</section>
+</div></section>
+<section id="regle-de-bayes">
 <h3>Règle de Bayes<a class="headerlink" href="#regle-de-bayes" title="Permalink to this headline">#</a></h3>
 <p id="index-5">A partir de l’égalité <span class="math notranslate nohighlight">\(P(A\bigcap B) = P(A|B)P(B)=P(B|A)P(A)\)</span>, on définit la règle de Bayes</p>
 <p><span class="math notranslate nohighlight">\((\forall A,B)\quad P(B|A)=\frac{P(A|B)P(B)}{P(A)}\)</span></p>
@@ -808,41 +812,41 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <p><span class="math notranslate nohighlight">\(P(B_i|A)= \frac{P(A|B_i)P(B_i)}{P(A)} = \frac{P(A|B_i)P(B_i)}{\displaystyle\sum_k P(A|B_k)P(B_k)}\)</span></p>
 <div class="proof example admonition" id="example-17">
 <p class="admonition-title"><span class="caption-number">Example 6 </span></p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <p>Un fabricant de boulons a trois usines de fabrication situées à Amiens, Besançon et Clermont-Ferrand. Amiens fournit 25% de la production, Besançon 20% et Clermont-Ferrand 55%. Les boulons de 5mm représentent 20% des boulons produits à Amiens, 30% à Besançon et 15% à Clermont-Ferrand. On répond à la question suivante : sachant que le boulon acheté a une taille de 5mm, quelle est la probabilité qu’il soit produit à Clermont-Ferrand ?</p>
 <p>On note <span class="math notranslate nohighlight">\(B_1\)</span> (respectivement <span class="math notranslate nohighlight">\(B_2,B_3\)</span>) l’évènement “Le boulon est produit à Amiens (resp. Besançon, Clermont-Ferrand)”. On note également <span class="math notranslate nohighlight">\(A\)</span> l’évènement “Le boulon fait 5mm”. On cherche donc</p>
 <p><span class="math notranslate nohighlight">\(P(B_3|A) = \frac{P(A|B_3)P(B_3)}{P(A)}= \frac{0.15*0.55}{0.1925}=0.428\)</span>.</p>
-</div>
+</section>
 </div><p>On a calculé dans l’exemple une <strong>probabilité a posteriori</strong>, c’est à dire sachant une information supplémentaire (le boulon fait 5mm). La prise en compte de cette information modifie la valeur de la probabilité associée à <span class="math notranslate nohighlight">\(B_3\)</span>. La théorie des probabilités au travers de l’approche bayésienne est adaptée pour prendre en compte toute information nouvelle.</p>
-</div>
-</div>
-<div class="section" id="variable-aleatoire">
+</section>
+</section>
+<section id="variable-aleatoire">
 <h2>Variable aléatoire<a class="headerlink" href="#variable-aleatoire" title="Permalink to this headline">#</a></h2>
-<div class="section" id="concept-de-variable-aleatoire">
+<section id="concept-de-variable-aleatoire">
 <h3>Concept de variable aléatoire<a class="headerlink" href="#concept-de-variable-aleatoire" title="Permalink to this headline">#</a></h3>
 <p>Soit un espace probabilisé <span class="math notranslate nohighlight">\((\Omega, T,P)\)</span>, avec <span class="math notranslate nohighlight">\(\Omega\)</span> = (Pile,Face). On considère la loi de probabilité <span class="math notranslate nohighlight">\(P\)</span> telle que : <span class="math notranslate nohighlight">\((\forall \omega\in\Omega)\; P(\omega)=\frac12\)</span></p>
 <div class="proof definition admonition" id="definition-18">
 <span id="index-6"></span><p class="admonition-title"><span class="caption-number">Definition 8 </span> (Variable aléatoire)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>Une variable aléatoire est une application <span class="math notranslate nohighlight">\(X:\Omega\rightarrow E\)</span> (on prendra <span class="math notranslate nohighlight">\(E=\mathbb R\)</span>)</p>
-</div>
+</section>
 </div><p>Pour obtenir la probabilité d’une valeur quelconque image par <span class="math notranslate nohighlight">\(X\)</span>, il suffit de dnombrer les <span class="math notranslate nohighlight">\(\omega\)</span> qui réalisent cette valeur. Ici, <span class="math notranslate nohighlight">\(P(X=1)= P(\{Pile\}) = \frac12\)</span>. On dit que l’on transporte la loi de probabilité de <span class="math notranslate nohighlight">\(\Omega\)</span> sur <span class="math notranslate nohighlight">\(E\)</span> par l’application <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <p>Les éléments de <span class="math notranslate nohighlight">\(E\)</span> sont les <strong>réalisations</strong> de la variable aléatoire.</p>
 <div class="proof example admonition" id="example-19">
 <p class="admonition-title"><span class="caption-number">Example 7 </span></p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <p>Si l’expérience consiste à observer le résultat du tirage de deux dés à 6 faces, <span class="math notranslate nohighlight">\(\Omega = \{(1,1), (1,2), \cdots (6,5), (6,6)\}\)</span>, on considère la loi de probabilité telle que <span class="math notranslate nohighlight">\((\forall \omega\in\Omega)\; P(\omega)=\frac{1}{36}\)</span>.</p>
 <p>Si l’application <span class="math notranslate nohighlight">\(X\)</span> réalise la somme des deux éléments de <span class="math notranslate nohighlight">\(\omega\in\Omega\)</span>, alors on a par exemple <span class="math notranslate nohighlight">\(P(X=3)= P(\{(1,2),(2,1)\}) = \frac{2}{36}\)</span>, ou encore <span class="math notranslate nohighlight">\(P(X=5)= P(\{(1,4),(2,3),(3,2),(4,1)\}) = \frac{4}{36}\)</span></p>
-</div>
-</div></div>
-<div class="section" id="variable-aleatoire-mesurable">
+</section>
+</div></section>
+<section id="variable-aleatoire-mesurable">
 <h3>Variable aléatoire mesurable<a class="headerlink" href="#variable-aleatoire-mesurable" title="Permalink to this headline">#</a></h3>
 <p>On définit sur <span class="math notranslate nohighlight">\(E\)</span> une tribu <span class="math notranslate nohighlight">\(T'\)</span>.  <span class="math notranslate nohighlight">\((E,T')\)</span> est alors un espace probabilisable, et tout élément <span class="math notranslate nohighlight">\(B\)</span> de <span class="math notranslate nohighlight">\(T'\)</span> est un évènement. On note alors <span class="math notranslate nohighlight">\(X^{-1}(B) = \{\omega\in\Omega,\; X(\omega)\in B\}\)</span></p>
 <div class="proof definition admonition" id="definition-20">
 <span id="index-7"></span><p class="admonition-title"><span class="caption-number">Definition 9 </span> (Variable aléatoire mesurabe)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>Une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est dite mesurable  si et seulement si : <span class="math notranslate nohighlight">\((\forall B\in T')\; X^{-1}(B)\in T\)</span></p>
-</div>
+</section>
 </div><p>Dans les deux exemples précédents, on a par exemple <span class="math notranslate nohighlight">\(X^{-1}(1)= \{Pile\}\)</span> ou encore <span class="math notranslate nohighlight">\(X^{-1}(3) = \{(1,2),(2,1)\}\)</span> et <span class="math notranslate nohighlight">\(P(X=3)=P(X^{-1}(3)) = \frac{2}{36}\)</span>.</p>
 <span class="target" id="index-8"></span><p id="index-9">On note souvent <span class="math notranslate nohighlight">\(P_X(B) = P(X^{-1}(B))=P(\{\omega / X(\omega)\in B\})\)</span> et on l’appelle <strong>probabilité image</strong> de <span class="math notranslate nohighlight">\(P\)</span> par <span class="math notranslate nohighlight">\(X\)</span>. En calculant la probabilité de chaque réalisation de la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span>, on peut en déduire la <strong>loi de probabilité</strong> (ou <strong>distribution</strong>) de <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <ul class="simple">
@@ -878,13 +882,24 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Rappels_1_0.png" src="_images/Rappels_1_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">random</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">def</span> <span class="nf">tirage</span><span class="p">():</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
 </div>
 </div>
 <div class="proof definition admonition" id="definition-21">
 <p class="admonition-title"><span class="caption-number">Definition 10 </span> (Fonction de répartition)</p>
-<div class="definition-content section" id="proof-content">
-</div>
+<section class="definition-content" id="proof-content">
+</section>
 </div><p id="index-12">La fonction de répartition d’une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est l’application <span class="math notranslate nohighlight">\(F_X\)</span> de <span class="math notranslate nohighlight">\(\mathbb R\)</span> dans [0,1] telle que <span class="math notranslate nohighlight">\(F_X(x) = P(X\leq x)\)</span>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 $F_X$ est donc monotone croissante, continue à droite et on a en particulier :  
@@ -933,20 +948,20 @@ plt.show()
 <p>La notion de variable aléatoire est ainsi une formalisation de la notion de grandeur variant selon le résultat d’une expérience aléatoire. On peut alors préciser et formaliser la définition précédente.</p>
 <div class="proof definition admonition" id="definition-22">
 <p class="admonition-title"><span class="caption-number">Definition 11 </span> (Variable aléatoire)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>Une variable aléatoire est une application mesurable <span class="math notranslate nohighlight">\(X:(\Omega,T,P) \rightarrow (E,T')\)</span></p>
-</div>
+</section>
 </div><div class="proof remark dropdown admonition" id="remark-23">
 <p class="admonition-title"><span class="caption-number">Remark 3 </span></p>
-<div class="remark-content section" id="proof-content">
+<section class="remark-content" id="proof-content">
 <ul class="simple">
 <li><p>Si <span class="math notranslate nohighlight">\(E=\mathbb N\)</span>, on parle de variable aléatoire (réelle) discrète</p></li>
 <li><p>Si <span class="math notranslate nohighlight">\(E=\mathbb R\)</span>, on parle de variable aléatoire (réelle) continue. <span class="math notranslate nohighlight">\(T'\)</span> est alors la tribu <strong>borélienne</strong></p></li>
 <li><p>Si <span class="math notranslate nohighlight">\(E=\mathbb N^n\)</span> ou <span class="math notranslate nohighlight">\(E=\mathbb R^n\)</span>n on parle de <strong>vecteur aléatoire</strong> de dimension <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
 </ul>
-</div>
-</div></div>
-<div class="section" id="caracteristiques-des-variables-aleatoires">
+</section>
+</div></section>
+<section id="caracteristiques-des-variables-aleatoires">
 <h3>Caractéristiques des variables aléatoires<a class="headerlink" href="#caracteristiques-des-variables-aleatoires" title="Permalink to this headline">#</a></h3>
 <p>Une loi de probabilité est caractérisée par un certain nombre de grandeurs :</p>
 <ul class="simple">
@@ -954,99 +969,99 @@ plt.show()
 <li><p>sa dispersion</p></li>
 <li><p>sa forme</p></li>
 </ul>
-<div class="section" id="esperance-mathematique-d-une-variable-aleatoire">
+<section id="esperance-mathematique-d-une-variable-aleatoire">
 <h4>Espérance mathématique d’une variable aléatoire<a class="headerlink" href="#esperance-mathematique-d-une-variable-aleatoire" title="Permalink to this headline">#</a></h4>
 <div class="proof definition admonition" id="definition-24">
 <span id="index-13"></span><p class="admonition-title"><span class="caption-number">Definition 12 </span> (Espérance)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\(X\)</span> une variable aléatoire. On définit l’espérance mathématique de <span class="math notranslate nohighlight">\(X\)</span>, et on note <span class="math notranslate nohighlight">\(\mathbb E(X)\)</span> par :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbb E(X) = \mu_X = \displaystyle\sum_{x_i} x_iP(X=x_i)= \displaystyle\sum_{x_i} x_i P_X(x_i)\)</span> si <span class="math notranslate nohighlight">\(X\)</span> est discrète et si la somme converge.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb E(X) = \mu_X =\int_x xdP(x) = \int_x x f_X(x) dx\)</span> si <span class="math notranslate nohighlight">\(X\)</span> est continue et si l’intégrale converge.</p></li>
 </ul>
-</div>
+</section>
 </div><p><span class="math notranslate nohighlight">\(\mathbb E(X)\)</span> est la moyenne arithmétique (également notée <span class="math notranslate nohighlight">\(\mu_X\)</span>) des différentes valeurs prises par <span class="math notranslate nohighlight">\(X\)</span> pondérées par leur probabilité.</p>
 <p>On dira que <span class="math notranslate nohighlight">\(X\)</span> est <strong>centrée</strong> si <span class="math notranslate nohighlight">\(\mathbb{E}(X)=0\)</span>.</p>
 <div class="proof example admonition" id="example-25">
 <p class="admonition-title"><span class="caption-number">Example 8 </span></p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <p>Pour l’expérience d’un lancer de dé à 6 faces  : <span class="math notranslate nohighlight">\(\mathbb E(X) = \mu_X = \displaystyle\sum_{i=1}^6 i\frac16 = \frac72\)</span></p>
-</div>
+</section>
 </div><div class="proof property admonition" id="property-26">
 <p class="admonition-title"><span class="caption-number">Property 2 </span></p>
-<div class="property-content section" id="proof-content">
+<section class="property-content" id="proof-content">
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\((\forall a\in\mathbb{R})\; \mathbb{E}(a)= a\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\((\forall a\in\mathbb{R})\; \mathbb{E}(aX)= a\mathbb{E}(X)\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\((\forall a\in\mathbb{R})\; \mathbb{E}(X+a) = \mathbb{E}(X) +a\)</span></p></li>
 </ul>
-</div>
-</div></div>
-<div class="section" id="moment-d-une-fonction-d-une-variable-aleatoire">
+</section>
+</div></section>
+<section id="moment-d-une-fonction-d-une-variable-aleatoire">
 <h4>Moment d’une fonction d’une variable aléatoire<a class="headerlink" href="#moment-d-une-fonction-d-une-variable-aleatoire" title="Permalink to this headline">#</a></h4>
 <p id="index-14">Soit <span class="math notranslate nohighlight">\(\phi\)</span> l’application qui associe à toute variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> la variable aléatoire <span class="math notranslate nohighlight">\(Y=\phi(X)\)</span>.</p>
 <div class="proof definition admonition" id="definition-27">
 <p class="admonition-title"><span class="caption-number">Definition 13 </span> (Moment)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>Le moment  <span class="math notranslate nohighlight">\(\mathbb{E}[\phi(X)]\)</span> de la fonction <span class="math notranslate nohighlight">\(\phi\)</span> de la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est égal à :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbb{E}[\phi(X)] = \displaystyle\sum_{x_i} \phi(x_i)P_X(x_i)\)</span> si <span class="math notranslate nohighlight">\(X\)</span> est discrète</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb{E}[\phi(X)] = \int_x \phi(x) f_X(x)dx\)</span> si <span class="math notranslate nohighlight">\(X\)</span> est continue</p></li>
 </ul>
-</div>
+</section>
 </div><div class="proof definition admonition" id="definition-28">
 <span id="index-15"></span><p class="admonition-title"><span class="caption-number">Definition 14 </span> (Moment d’ordre <span class="math notranslate nohighlight">\(k\)</span>)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>Le moment d’ordre <span class="math notranslate nohighlight">\(k\)</span> d’une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est égal à :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbb{E}(X^k) = \displaystyle\sum_{x_i} x_i^k P_X(x_i)\)</span> si <span class="math notranslate nohighlight">\(X\)</span> est discrète</p></li>
 <li><p><span class="math notranslate nohighlight">\( \mathbb{E}(X^k) = \int_x x^k f_X(x)dx\)</span> si <span class="math notranslate nohighlight">\(X\)</span> est continue</p></li>
 </ul>
-</div>
+</section>
 </div><p>Le moment d’ordre <span class="math notranslate nohighlight">\(k\)</span> est donc un cas particulier avec <span class="math notranslate nohighlight">\(Y=X^k\)</span>.</p>
 <div class="proof remark dropdown admonition" id="remark-29">
 <p class="admonition-title"><span class="caption-number">Remark 4 </span></p>
-<div class="remark-content section" id="proof-content">
+<section class="remark-content" id="proof-content">
 <p>L’espérance <span class="math notranslate nohighlight">\(\mathbb{E}(X)\)</span> est le moment d’ordre 1.</p>
-</div>
+</section>
 </div><div class="proof definition admonition" id="definition-30">
 <span id="index-16"></span><p class="admonition-title"><span class="caption-number">Definition 15 </span> (Moment centré d’ordre <span class="math notranslate nohighlight">\(k\)</span>)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>On appelle moment centré d’ordre <span class="math notranslate nohighlight">\(k\)</span> la quantité <span class="math notranslate nohighlight">\(\mathbb{E}\left [(X-\mathbb{E}(X))^k \right]\)</span></p>
-</div>
+</section>
 </div><p>Ainsi :</p>
 <ul class="simple">
 <li><p>pour une variable aléatoire discrète <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(\mathbb{E}\left [(X-\mathbb{E}(X))^k \right] = \displaystyle\sum_{x_i} (x_i-\mathbb{E}(X))^k P_X(x_i) = \displaystyle\sum_{x_i} (x_i-\mu_X)^k P_X(x_i)\)</span></p></li>
 <li><p>pour une variable aléatoire continue <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(\mathbb{E}\left [(X-\mathbb{E}(X))^k \right] = \int_x (x-\mathbb{E}(X))^k f_X(x)dx = \int_x (x-\mu_X)^k f_X(x)dx\)</span></p></li>
 </ul>
-</div>
-<div class="section" id="variance-d-une-variable-aleatoire">
+</section>
+<section id="variance-d-une-variable-aleatoire">
 <h4>Variance d’une variable aléatoire<a class="headerlink" href="#variance-d-une-variable-aleatoire" title="Permalink to this headline">#</a></h4>
 <span class="target" id="index-17"></span><p id="index-18">Pour <span class="math notranslate nohighlight">\(k\)</span>=2, le moment centré d’ordre 2 est appelé la <strong>variance</strong> et est noté <span class="math notranslate nohighlight">\(\mathbb{V}(X)\)</span>. La racine carrée de la variance est <strong>l’écart type</strong> et est noté <span class="math notranslate nohighlight">\(\sigma_X\)</span>. On a donc <span class="math notranslate nohighlight">\(\sigma_X^2=\mathbb{V}(X)\)</span>.</p>
 <div class="proof proposition admonition" id="proposition-31">
 <p class="admonition-title"><span class="caption-number">Proposition 1 </span> (Formule de Koenig)</p>
-<div class="proposition-content section" id="proof-content">
+<section class="proposition-content" id="proof-content">
 <p><span class="math notranslate nohighlight">\(\mathbb{V}(X) = \mathbb{E}(X^2)-\mu_X^2\)</span></p>
-</div>
+</section>
 </div><p>En effet, <span class="math notranslate nohighlight">\(\mathbb{E}\left [(X-\mu_X)^2 \right] = \mathbb{E}\left [(X^2-2\mu_XX+\mu_X^2 \right] = \mathbb{E}(X^2)-2\mu_X\mathbb{E}(X)+\mu_X^2\)</span>.</p>
 <div class="proof property admonition" id="property-32">
 <p class="admonition-title"><span class="caption-number">Property 3 </span></p>
-<div class="property-content section" id="proof-content">
+<section class="property-content" id="proof-content">
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\((\forall a,b\in\mathbb{R})\; \mathbb{V}(aX+b)= a^2\mathbb{V}(X)\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\((\forall a\in\mathbb{R})\; \mathbb{E}\left [(X-a)^2\right ] = \mathbb V(X) +(\mathbb{E}(X)-a)^2\)</span> (théorème de Huygens)</p></li>
 <li><p><span class="math notranslate nohighlight">\(\forall k&gt;0\; P(|X-\mathbb{E}(X)|\geq k\sigma_X)\leq \frac{1}{k^2}\)</span> (inégalité de Bienaymé-Tchebychev)</p></li>
 </ul>
-</div>
+</section>
 </div><p>On dira que la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est <strong>réduite</strong> (ou <strong>normée</strong>) si <span class="math notranslate nohighlight">\(\mathbb{V}(X)=1\)</span>.</p>
-</div>
-<div class="section" id="moments-d-ordre-superieur">
+</section>
+<section id="moments-d-ordre-superieur">
 <h4>Moments d’ordre supérieur<a class="headerlink" href="#moments-d-ordre-superieur" title="Permalink to this headline">#</a></h4>
 <span class="target" id="index-19"></span><p id="index-20">On considère également souvent les moments d’ordre 3 (coefficient d’asymétrie ou skewness) et 4 (coefficient d’applatissement ou kurtosis).</p>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
