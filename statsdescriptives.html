@@ -705,16 +705,7 @@ Les histogrammes sont des représentations de la distribution des données, agr�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;./data/data.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
-</pre></div>
-</div>
+<img alt="_images/statsdescriptives_1_0.png" src="_images/statsdescriptives_1_0.png" />
 </div>
 </div>
 <p>Le choix de la largeur <span class="math notranslate nohighlight">\(t\)</span> des bins dépend des données, et par exemple on a :</p>
@@ -807,6 +798,15 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
+GeometricMean  :  1258.4787575642572
+HarmonicMean  :  1198.219210728503
+WeightedMean  :  1333.0486798702768
+</pre></div>
+</div>
+<img alt="_images/statsdescriptives_3_1.png" src="_images/statsdescriptives_3_1.png" />
+</div>
 </div>
 <div class="proof definition admonition" id="definition-6">
 <p class="admonition-title"><span class="caption-number">Definition 21 </span> (Médiane)</p>
@@ -843,6 +843,14 @@ En particulier, un quartile est chacune des 3 valeurs qui divisent les données 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>quartile  25  :  905.9190521240237
+quartile  50  :  1399.66320800781
+quartile  75  :  1626.326538085935
+</pre></div>
+</div>
+<img alt="_images/statsdescriptives_5_1.png" src="_images/statsdescriptives_5_1.png" />
 </div>
 </div>
 </section>
@@ -927,6 +935,15 @@ En particulier, un quartile est chacune des 3 valeurs qui divisent les données 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>max_dev  :  1316.3086347078017 +/- 738.0729570890783
+mad  :  1316.3086347078017 +/- 327.4656915004233
+sigma  :  1316.3086347078017 +/- 374.5723639541368
+IQR  :  1316.3086347078017 +/- 720.4074859619113
+</pre></div>
+</div>
+<img alt="_images/statsdescriptives_7_1.png" src="_images/statsdescriptives_7_1.png" />
+</div>
 </div>
 </section>
 <section id="parametres-de-forme">
@@ -1010,6 +1027,9 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/statsdescriptives_9_0.png" src="_images/statsdescriptives_9_0.png" />
 </div>
 </div>
 </section>
