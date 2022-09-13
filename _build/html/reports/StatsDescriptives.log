@@ -21,50 +21,46 @@ import numpy as np
 import matplotlib.pyplot as plt
 X = np.loadtxt("./data/data.csv", delimiter=",")[:,1]
 
-def max_dev(X):
-    m = np.mean(X)
-    return max(abs(x - m) for x in X)
+def annotate_boxplot(bpdict,
+                     x_offset=0.05, x_loc=0,
+                     text_offset_x=35,
+                     text_offset_y=20):
+ 
+    annotate_params = dict(xytext=(text_offset_x, text_offset_y), textcoords='offset points', arrowprops={'arrowstyle':'->'})
 
-def mad(X):
-    m = np.mean(X)
-    return sum(abs(x - m) for x in X) / float(len(X))
+    plt.annotate('Median', (x_loc + 1 + x_offset, bpdict['medians'][x_loc].get_ydata()[0]), **annotate_params)
+    plt.annotate('25%', (x_loc + 1 + x_offset, bpdict['boxes'][x_loc].get_ydata()[0]), **annotate_params)
+    plt.annotate('75%', (x_loc + 1 + x_offset, bpdict['boxes'][x_loc].get_ydata()[2]), **annotate_params)
+    plt.annotate('5%', (x_loc + 1 + x_offset, bpdict['caps'][x_loc*2].get_ydata()[0]), **annotate_params)
+    plt.annotate('95%', (x_loc + 1 + x_offset, bpdict['caps'][(x_loc*2)+1].get_ydata()[0]), **annotate_params)
 
-def sigma(X):
-    m = np.mean(X)
-    return math.pow(sum((x - m)**2 for x in X) / len(X), 0.5)
-
-def IQR(X): return np.percentile(X,75) - np.percentile(X,25)
-
-plt.figure(figsize=(8,4))
-plt.rcParams['font.size'] = '16'
-plt.plot(X, [0.01]*len(X), '|', color='k',label='Points')
-m = np.mean(X)
-for method, pos,style,  in ((max_dev,0.5,'r'),(mad,0.6,'b'),(sigma,0.7,'g'),(IQR,0.8,'y')):
-    s=method(X)
-    print (method.__name__, " : ",m, "+/-",s)
-    plt.plot([m,m],[0,1],'black' )
-    plt.plot([m-s,m-s],[0,1],style,label=method.__name__)
-    plt.plot([m+s,m+s],[0,1],style)
-    plt.plot([m-s,m+s],[pos,pos],style)
-plt.legend()
+plt.figure(figsize=(14,8))
+a = plt.boxplot(x=X)
+annotate_boxplot(a,x_loc=1)
 plt.tight_layout()
+plt.show()
 
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-Input [0;32mIn [4][0m, in [0;36m<cell line: 23>[0;34m()[0m
-[1;32m     22[0m m [38;5;241m=[39m np[38;5;241m.[39mmean(X)
-[1;32m     23[0m [38;5;28;01mfor[39;00m method, pos,style,  [38;5;129;01min[39;00m ((max_dev,[38;5;241m0.5[39m,[38;5;124m'[39m[38;5;124mr[39m[38;5;124m'[39m),(mad,[38;5;241m0.6[39m,[38;5;124m'[39m[38;5;124mb[39m[38;5;124m'[39m),(sigma,[38;5;241m0.7[39m,[38;5;124m'[39m[38;5;124mg[39m[38;5;124m'[39m),(IQR,[38;5;241m0.8[39m,[38;5;124m'[39m[38;5;124my[39m[38;5;124m'[39m)):
-[0;32m---> 24[0m     s[38;5;241m=[39m[43mmethod[49m[43m([49m[43mX[49m[43m)[49m
-[1;32m     25[0m     [38;5;28mprint[39m (method[38;5;241m.[39m[38;5;18m__name__[39m, [38;5;124m"[39m[38;5;124m : [39m[38;5;124m"[39m,m, [38;5;124m"[39m[38;5;124m+/-[39m[38;5;124m"[39m,s)
-[1;32m     26[0m     plt[38;5;241m.[39mplot([m,m],[[38;5;241m0[39m,[38;5;241m1[39m],[38;5;124m'[39m[38;5;124mblack[39m[38;5;124m'[39m )
+[0;31mIndexError[0m                                Traceback (most recent call last)
+Input [0;32mIn [5][0m, in [0;36m<cell line: 20>[0;34m()[0m
+[1;32m     18[0m plt[38;5;241m.[39mfigure(figsize[38;5;241m=[39m([38;5;241m14[39m,[38;5;241m8[39m))
+[1;32m     19[0m a [38;5;241m=[39m plt[38;5;241m.[39mboxplot(x[38;5;241m=[39mX)
+[0;32m---> 20[0m [43mannotate_boxplot[49m[43m([49m[43ma[49m[43m,[49m[43mx_loc[49m[38;5;241;43m=[39;49m[38;5;241;43m1[39;49m[43m)[49m
+[1;32m     21[0m plt[38;5;241m.[39mtight_layout()
+[1;32m     22[0m plt[38;5;241m.[39mshow()
 
-Input [0;32mIn [4][0m, in [0;36msigma[0;34m(X)[0m
-[1;32m     13[0m [38;5;28;01mdef[39;00m [38;5;21msigma[39m(X):
-[1;32m     14[0m     m [38;5;241m=[39m np[38;5;241m.[39mmean(X)
-[0;32m---> 15[0m     [38;5;28;01mreturn[39;00m [43mmath[49m[38;5;241m.[39mpow([38;5;28msum[39m((x [38;5;241m-[39m m)[38;5;241m*[39m[38;5;241m*[39m[38;5;241m2[39m [38;5;28;01mfor[39;00m x [38;5;129;01min[39;00m X) [38;5;241m/[39m [38;5;28mlen[39m(X), [38;5;241m0.5[39m)
+Input [0;32mIn [5][0m, in [0;36mannotate_boxplot[0;34m(bpdict, x_offset, x_loc, text_offset_x, text_offset_y)[0m
+[1;32m      5[0m [38;5;28;01mdef[39;00m [38;5;21mannotate_boxplot[39m(bpdict,
+[1;32m      6[0m                      x_offset[38;5;241m=[39m[38;5;241m0.05[39m, x_loc[38;5;241m=[39m[38;5;241m0[39m,
+[1;32m      7[0m                      text_offset_x[38;5;241m=[39m[38;5;241m35[39m,
+[1;32m      8[0m                      text_offset_y[38;5;241m=[39m[38;5;241m20[39m):
+[1;32m     10[0m     annotate_params [38;5;241m=[39m [38;5;28mdict[39m(xytext[38;5;241m=[39m(text_offset_x, text_offset_y), textcoords[38;5;241m=[39m[38;5;124m'[39m[38;5;124moffset points[39m[38;5;124m'[39m, arrowprops[38;5;241m=[39m{[38;5;124m'[39m[38;5;124marrowstyle[39m[38;5;124m'[39m:[38;5;124m'[39m[38;5;124m->[39m[38;5;124m'[39m})
+[0;32m---> 12[0m     plt[38;5;241m.[39mannotate([38;5;124m'[39m[38;5;124mMedian[39m[38;5;124m'[39m, (x_loc [38;5;241m+[39m [38;5;241m1[39m [38;5;241m+[39m x_offset, [43mbpdict[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mmedians[39;49m[38;5;124;43m'[39;49m[43m][49m[43m[[49m[43mx_loc[49m[43m][49m[38;5;241m.[39mget_ydata()[[38;5;241m0[39m]), [38;5;241m*[39m[38;5;241m*[39mannotate_params)
+[1;32m     13[0m     plt[38;5;241m.[39mannotate([38;5;124m'[39m[38;5;124m25[39m[38;5;124m%[39m[38;5;124m'[39m, (x_loc [38;5;241m+[39m [38;5;241m1[39m [38;5;241m+[39m x_offset, bpdict[[38;5;124m'[39m[38;5;124mboxes[39m[38;5;124m'[39m][x_loc][38;5;241m.[39mget_ydata()[[38;5;241m0[39m]), [38;5;241m*[39m[38;5;241m*[39mannotate_params)
+[1;32m     14[0m     plt[38;5;241m.[39mannotate([38;5;124m'[39m[38;5;124m75[39m[38;5;124m%[39m[38;5;124m'[39m, (x_loc [38;5;241m+[39m [38;5;241m1[39m [38;5;241m+[39m x_offset, bpdict[[38;5;124m'[39m[38;5;124mboxes[39m[38;5;124m'[39m][x_loc][38;5;241m.[39mget_ydata()[[38;5;241m2[39m]), [38;5;241m*[39m[38;5;241m*[39mannotate_params)
 
-[0;31mNameError[0m: name 'math' is not defined
-NameError: name 'math' is not defined
+[0;31mIndexError[0m: list index out of range
+IndexError: list index out of range
 
