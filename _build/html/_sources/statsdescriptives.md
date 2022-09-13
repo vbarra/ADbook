@@ -85,7 +85,7 @@ La représentation graphique de ces variables (et la construction du tableau sta
 - $J=2.5\sqrt[4\,]{n}$ (règle de Yule)
 
 La représentation graphique se fait par exemple par histogramme. 
-Les histogrammes sont des représentations de la distribution des données, agrégées par intervalles. A partir de l'étendue des données `bin_min`, `bin_max`, on subdivise l'intervalle en $k$ bins, de tailles $t_k$ non nécessairement identiques, et on compte le nombre d'individus $n_k$ rentrant dans chaque bin. L'histogramme peut alors être :
+Les histogrammes sont des représentations de la distribution des données, agrégées par intervalles. A partir de l'étendue des données, on subdivise l'intervalle en $k$ bins, de tailles $t_k$ non nécessairement identiques, et on compte le nombre d'individus $n_k$ rentrant dans chaque bin. L'histogramme peut alors être :
 - non normalisé : $h_k = n_k$
 - normalisé: $h_k = n_k/t_k$
 
