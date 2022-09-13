@@ -338,7 +338,7 @@ for method, pos,style,  in ((max_dev,0.5,'r'),(mad,0.6,'b'),(sigma,0.7,'g'),(IQR
     plt.plot([m-s,m-s],[0,1],style,label=method.__name__)
     plt.plot([m+s,m+s],[0,1],style)
     plt.plot([m-s,m+s],[pos,pos],style)
-plt.legend()
+plt.legend(loc='best')
 plt.tight_layout()
 
 ``` 
