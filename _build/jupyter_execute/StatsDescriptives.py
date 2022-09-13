@@ -268,6 +268,13 @@ plt.tight_layout()
 # ````
 # 
 # 
+# ````{prf:definition}  Déviation moyenne absolue
+# La déviation moyenne absolue est définie par 
+#    $ mad(X) = \frac{1}{n} \sum_{i=1}^n |X[i] - \bar{x}|$
+# ````
+# 
+# 
+# 
 # ````{prf:definition} Distance interquartile
 # La distance interquartile est la différence entre le troisième et le premier quartile. C'est une statistique robuste aux points aberrants.
 # ````

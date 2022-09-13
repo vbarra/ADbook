@@ -788,7 +788,7 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
 GeometricMean  :  1258.4787575642572
 HarmonicMean  :  1198.219210728503
-WeightedMean  :  1311.858470683007
+WeightedMean  :  1320.8122812703416
 </pre></div>
 </div>
 <img alt="_images/StatsDescriptives_3_1.png" src="_images/StatsDescriptives_3_1.png" />
@@ -855,24 +855,30 @@ quartile  75  :  1626.326538085935
 <span class="math notranslate nohighlight">\( maxdev(X) = max \{ |X[i] - \bar{x}| \,|\, i=1,\dots,n\}\)</span></p>
 </div>
 </div><div class="proof definition admonition" id="definition-10">
-<p class="admonition-title"><span class="caption-number">Definition 25 </span> (Distance interquartile)</p>
+<p class="admonition-title"><span class="caption-number">Definition 25 </span> (Déviation moyenne absolue)</p>
+<div class="definition-content section" id="proof-content">
+<p>La déviation moyenne absolue est définie par
+<span class="math notranslate nohighlight">\( mad(X) = \frac{1}{n} \sum_{i=1}^n |X[i] - \bar{x}|\)</span></p>
+</div>
+</div><div class="proof definition admonition" id="definition-11">
+<p class="admonition-title"><span class="caption-number">Definition 26 </span> (Distance interquartile)</p>
 <div class="definition-content section" id="proof-content">
 <p>La distance interquartile est la différence entre le troisième et le premier quartile. C’est une statistique robuste aux points aberrants.</p>
 </div>
-</div><div class="proof definition admonition" id="definition-11">
-<p class="admonition-title"><span class="caption-number">Definition 26 </span> (Variance)</p>
+</div><div class="proof definition admonition" id="definition-12">
+<p class="admonition-title"><span class="caption-number">Definition 27 </span> (Variance)</p>
 <div class="definition-content section" id="proof-content">
 <p>La variance est la somme des carrés des écarts à la moyenne, normalisée par le nombre d’observations
 <span class="math notranslate nohighlight">\(\sigma^2 = \frac{1}{n}\displaystyle\sum_{i=1}^n\left (x_i-\bar{x}\right )^2\)</span></p>
 </div>
 </div><p>Cette variance est dite biaisée. La variance non biaisée est obtenue en divisant non pas par <span class="math notranslate nohighlight">\(n\)</span>, mais par <span class="math notranslate nohighlight">\(n-1\)</span>.</p>
-<div class="proof definition admonition" id="definition-12">
-<p class="admonition-title"><span class="caption-number">Definition 27 </span> (Ecart type)</p>
+<div class="proof definition admonition" id="definition-13">
+<p class="admonition-title"><span class="caption-number">Definition 28 </span> (Ecart type)</p>
 <div class="definition-content section" id="proof-content">
 <p>L’écart type est la racine carrée de la variance.</p>
 </div>
-</div><div class="proof definition admonition" id="definition-13">
-<p class="admonition-title"><span class="caption-number">Definition 28 </span> (Ecart moyen absolu)</p>
+</div><div class="proof definition admonition" id="definition-14">
+<p class="admonition-title"><span class="caption-number">Definition 29 </span> (Ecart moyen absolu)</p>
 <div class="definition-content section" id="proof-content">
 <p>L’écart moyen absolu est la somme des valeurs absolues des écarts à la moyenne divisée par le nombre d’observations.</p>
 </div>
@@ -927,29 +933,29 @@ IQR  :  1316.3086347078017 +/- 720.4074859619113
 </div>
 <p>\subsection{Paramètres de forme}
 Les paramètres de forme sont souvent calculés en référence à la forme de la loi normale, pour évaluer la symétrie, l’aplatissement ou la dérive par rapport à cette loi.</p>
-<div class="proof definition admonition" id="definition-14">
-<p class="admonition-title"><span class="caption-number">Definition 29 </span> (Skewness})</p>
+<div class="proof definition admonition" id="definition-15">
+<p class="admonition-title"><span class="caption-number">Definition 30 </span> (Skewness})</p>
 <div class="definition-content section" id="proof-content">
 <div class="math notranslate nohighlight">
 \[g_1 = \frac{m_3}{\sigma^3}\]</div>
 </div>
 </div><p>Le skewness est également appelé coefficient d’asymétrie de Fisher.</p>
-<div class="proof definition admonition" id="definition-15">
-<p class="admonition-title"><span class="caption-number">Definition 30 </span> (Kurtosis)</p>
+<div class="proof definition admonition" id="definition-16">
+<p class="admonition-title"><span class="caption-number">Definition 31 </span> (Kurtosis)</p>
 <div class="definition-content section" id="proof-content">
 <div class="math notranslate nohighlight">
 \[K=\frac{m_4}{m_2^2}\]</div>
 </div>
 </div><p><span class="math notranslate nohighlight">\(K\)</span> permet de mesurer l’aplatissement.</p>
-<div class="proof definition admonition" id="definition-16">
-<p class="admonition-title"><span class="caption-number">Definition 31 </span> (Coefficient d’asymétrie de Yule)</p>
+<div class="proof definition admonition" id="definition-17">
+<p class="admonition-title"><span class="caption-number">Definition 32 </span> (Coefficient d’asymétrie de Yule)</p>
 <div class="definition-content section" id="proof-content">
 <div class="math notranslate nohighlight">
 \[A_Y = \frac{x_{3/4}+x_{1/4}-2x_{1/2}}{x_{3/4}-x_{1/4}}\]</div>
 </div>
 </div><p>Ce coefficient est fondé sur les positions de trois quartiles (le premier, la médiane et le troisième) et est normalisé par la distance interquartile.</p>
-<div class="proof definition admonition" id="definition-17">
-<p class="admonition-title"><span class="caption-number">Definition 32 </span> (Coefficient d’asymétrie de Pearson)</p>
+<div class="proof definition admonition" id="definition-18">
+<p class="admonition-title"><span class="caption-number">Definition 33 </span> (Coefficient d’asymétrie de Pearson)</p>
 <div class="definition-content section" id="proof-content">
 <div class="math notranslate nohighlight">
 \[A_P = \frac{\bar{x}-x_M}{\sigma}\]</div>
@@ -996,14 +1002,14 @@ Une distribution est alors dite :</p>
 <div class="section" id="cas-de-deux-variables-quantitatives">
 <h3>Cas de deux variables quantitatives<a class="headerlink" href="#cas-de-deux-variables-quantitatives" title="Permalink to this headline">#</a></h3>
 <p>Le couple est un couple de valeurs numériques. C’est donc un point dans le plan <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>. Les variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> peuvent être analysées séparément, en opérant une statistique univariée sur chacune de ces variables. Les paramètres calculés (de position, de dispersion…) sont dits marginaux. Cependant, il est intéressant d’étudier le lien entre ces deux variables, par l’intermédiaire des valeurs des couples. On définit pour cela un certain nombre d’outils :</p>
-<div class="proof definition admonition" id="definition-18">
-<p class="admonition-title"><span class="caption-number">Definition 33 </span> (Covariance)</p>
+<div class="proof definition admonition" id="definition-19">
+<p class="admonition-title"><span class="caption-number">Definition 34 </span> (Covariance)</p>
 <div class="definition-content section" id="proof-content">
 <p>La covariance de <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> est définie par :
 <span class="math notranslate nohighlight">\(\sigma_{xy}=\frac{1}{n}\displaystyle\sum_{i=1}^n\left (x_i-\bar{x}\right )\left (y_i-\bar{y}\right )\)</span></p>
 </div>
-</div><div class="proof definition admonition" id="definition-19">
-<p class="admonition-title"><span class="caption-number">Definition 34 </span> (Coefficient de corrélation)</p>
+</div><div class="proof definition admonition" id="definition-20">
+<p class="admonition-title"><span class="caption-number">Definition 35 </span> (Coefficient de corrélation)</p>
 <div class="definition-content section" id="proof-content">
 <p>Le coefficient de corrélation  de deux variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> est défini par
 <span class="math notranslate nohighlight">\(r_{xy}=\frac{\sigma_{xy}}{\sigma_{x}\sigma_{y}}\)</span>
@@ -1064,7 +1070,7 @@ la borne étant atteinte dans le cas de la dépendance fonctionnelle (si <span c
 </ul>
 <p>Ces coefficients sont tous compris entre 0 (indépendance) et 1 (dépendance fonctionnelle). Pour estimer à partir de quelle valeur la dépendance fonctionnelle est significative, on procède de la manière suivante : si les <span class="math notranslate nohighlight">\(n\)</span> observations étaient prélevées dans une population où les variables sont indépendantes, on recherche les valeurs probables de <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span>.</p>
 <p>En s’appuyant sur la loi multinomiale et le test du <span class="math notranslate nohighlight">\(\chi^2\)</span>, on montre que <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span> est une réalisation d’une variable aléatoire <span class="math notranslate nohighlight">\(Z\)</span> suivant approximativement une loi <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span>.</p>
-<div class="proof remark dropdown admonition" id="remark-20">
+<div class="proof remark dropdown admonition" id="remark-21">
 <p class="admonition-title"><span class="caption-number">Remark 6 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Soient <span class="math notranslate nohighlight">\(U_1\ldots U_p\)</span> <span class="math notranslate nohighlight">\(p\)</span> variables i.i.d de loi normale centrée réduite. On appelle loi du <span class="math notranslate nohighlight">\(\chi^2\)</span> à <span class="math notranslate nohighlight">\(p\)</span> degrés de liberté la loi de la variable <span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^pU_i^2\)</span>.</p>
@@ -1102,7 +1108,7 @@ pour expliquer la variabilité des notes dans toute la promotion.</p></li>
 <p>Pour déterminer à partir de quelle valeur <span class="math notranslate nohighlight">\(e^2\)</span> est significatif, on compare donc <span class="math notranslate nohighlight">\(\sigma^2_\cap\)</span> à <span class="math notranslate nohighlight">\(\sigma^2_\cup\)</span>. On peut montrer que si le rapport de corrélation théorique est nul, alors la variable</p>
 <p><span class="math notranslate nohighlight">\(\frac{\left (\frac{e^2}{J-1}\right )}{\left (\frac{1-e^2}{n-J}\right )}\)</span>
 suit une loi de Fisher Snedecor, en supposant que les distributions conditionnelles de <span class="math notranslate nohighlight">\(Y\)</span> pour chaque modalité de <span class="math notranslate nohighlight">\(X\)</span> sont gaussiennes, de même espérance et de même variance.</p>
-<div class="proof remark dropdown admonition" id="remark-21">
+<div class="proof remark dropdown admonition" id="remark-22">
 <p class="admonition-title"><span class="caption-number">Remark 7 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Soient <span class="math notranslate nohighlight">\(U\)</span> et <span class="math notranslate nohighlight">\(V\)</span> deux variables aléatoires indépendantes suivant respectivement des lois <span class="math notranslate nohighlight">\(\chi^2_n\)</span> et <span class="math notranslate nohighlight">\(\chi^2_p\)</span>. On définit la loi de Fisher Snedecor par <span class="math notranslate nohighlight">\(F(n,p)=\frac{U/n}{V/P}\)</span>) <span class="math notranslate nohighlight">\(F(J-1,n-J)\)</span></p>
