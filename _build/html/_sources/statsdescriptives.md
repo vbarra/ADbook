@@ -309,6 +309,7 @@ Notons qu'il s'agit de la distance $L_1$ du vecteur des observations au vecteur 
 
 ```{code-cell} ipython3
 import numpy as np
+import math
 import matplotlib.pyplot as plt
 X = np.loadtxt("./data/data.csv", delimiter=",")[:,1]
 

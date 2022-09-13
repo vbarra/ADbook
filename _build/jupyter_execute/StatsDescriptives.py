@@ -294,6 +294,7 @@ plt.tight_layout()
 
 
 import numpy as np
+import math
 import matplotlib.pyplot as plt
 X = np.loadtxt("./data/data.csv", delimiter=",")[:,1]
 
@@ -366,7 +367,7 @@ plt.tight_layout()
 # - l'étendue 
 # - les points aberrants.
 
-# In[ ]:
+# In[5]:
 
 
 import numpy as np
