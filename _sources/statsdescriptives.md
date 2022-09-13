@@ -392,10 +392,10 @@ Les principales statistiques d'une série statistique peuvent être résumées d
 - les points aberrants.
 
 
-Ce mode de représentation consiste à dessiner une boîte dont les extrémités dépendent du premier et du troisième quartiles (soit de manière équivalente, du 25ème et du 75ème centile) Q14 et Q34 , en ajoutant une barre à l’intérieur
-matérialisant le second quartile Q12 (c’est-à-dire la valeur médiane de l’échantillon). A` cette boîte, on ajoute des “moustaches” dont les extrémités dépendent :
-— soit des valeurs extrémales prises par l’échantillon (c’est-à-dire le minimum et le maximum);
-— soit de la plus petite et de la plus grande valeur de l’échantillon appartenant à l’intervalle $[Q_1 -\deltaQ_3+\delta ]$. La grandeur $\delta$ est une mesure de la dispersion des données. Généralement, on utilise : \delta = 1.5(Q_3-Q_1)$. 
+Ce mode de représentation consiste à dessiner une boîte dont les extrémités dépendent du premier et du troisième quartiles $Q_1$ et $Q_3$ , en ajoutant une barre à l’intérieur
+matérialisant le second quartile  $Q_2$ (la valeur médiane de l’échantillon). A cette boîte, on ajoute des “moustaches” dont les extrémités dépendent :
+- soit des valeurs extrémales prises par l’échantillon (c’est-à-dire le minimum et le maximum);
+- soit de la plus petite et de la plus grande valeur de l’échantillon appartenant à l’intervalle $[Q_1 -\delta Q_3+\delta ]$. La grandeur $\delta$ est une mesure de la dispersion des données. Généralement, on utilise : $\delta = 1.5(Q_3-Q_1)$. 
 
 Les valeurs de l’ échantillon en dehors des moustaches sont parfois matérialisées par des points et sont alors considérées comme les points aberrants de l'échantillon.
 
