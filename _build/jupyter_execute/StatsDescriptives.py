@@ -75,8 +75,59 @@
 # - $J=1+3.3log_{10}(n)$ (règle de Sturge)
 # - $J=2.5\sqrt[4\,]{n}$ (règle de Yule)
 # 
-# 
-# 
+# La représentation graphique se fait par exemple par histogramme. 
+# Les histogrammes sont des représentations de la distribution des données, agrégées par intervalles. A partir de l'étendue des données `bin_min`, `bin_max`, on subdivise l'intervalle en $k$ bins, de tailles $t_k$ non nécessairement identiques, et on compte le nombre d'individus $n_k$ rentrant dans chaque bin. L'histogramme peut alors être :
+# - non normalisé : $h_k = n_k$
+# - normalisé: $h_k = n_k/t_k$
+
+# In[1]:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+X = np.loadtxt("./data/data.csv", delimiter=",")[:,1]
+
+# Comptage des individus
+def count(X, bins):
+    def findBin(x, bins):
+        for i, bin in enumerate(bins):
+            left, right = bin
+            if left <= x and x < right:
+                return i
+        return None
+    
+    count = [0] * len(bins)
+    for x in X:
+        i = findBin(x, bins)
+        if i != None:
+            count[i] += 1
+
+    return count
+
+        
+# Affichage de l'histogramme
+def plot_hist(X,  bin_min, bin_max, bin_width,normed=True):
+    bins =[ [i, i+bin_width] for i in np.arange(bin_min, bin_max, bin_width) ]
+    bin_left = [ l for l, r in bins ]
+    bin_widths = [ r-l  for l,r in bins ]
+    bin_height = [ 
+        float(c) / w if normed else c 
+        for c,w in zip(count(X, bins), bin_widths)
+    ]
+    plt.bar(bin_left,width=bin_width,height=bin_height)
+    plt.tight_layout()
+
+bin_min = min(X)
+bin_max = max(X)
+
+plt.figure(figsize=(16, 4))
+for subplot, binsize in ((141, 5),(142, 20), (143, 80), (144, 1000)):
+    title = 'Taille des bins : ', binsize
+    plt.subplot(subplot)
+    plt.title(title, fontsize=12)
+    plot_hist(X, bin_min, bin_max, binsize)
+
+
 # ```{prf:remark}
 # :class: dropdown
 # Toutes les classes n'ont pas nécessairement la même amplitude
@@ -118,7 +169,7 @@
 # 
 # Dans le cas où $\forall i,w_i=1/n$, la moyenne pondérée est la moyenne arithmétique. De plus, dans tous les cas, on peut montrer que $H\leq G\leq \bar{x}$.
 
-# In[1]:
+# In[2]:
 
 
 import numpy as np
@@ -178,7 +229,7 @@ plt.tight_layout()
 # $x_p=x_{\lceil{np}\rceil}$
 # En particulier, un quartile est chacune des 3 valeurs qui divisent les données triées en 4 parts égales, de sorte que chaque partie représente 1/4 de l'échantillon de population.
 
-# In[2]:
+# In[3]:
 
 
 import numpy as np

@@ -636,6 +636,64 @@ F_j &amp;\textrm{ si}&amp;  x\in[x_j,x_{j+1}[\\
 <li><p><span class="math notranslate nohighlight">\(J=1+3.3log_{10}(n)\)</span> (règle de Sturge)</p></li>
 <li><p><span class="math notranslate nohighlight">\(J=2.5\sqrt[4\,]{n}\)</span> (règle de Yule)</p></li>
 </ul>
+<p>La représentation graphique se fait par exemple par histogramme.
+Les histogrammes sont des représentations de la distribution des données, agrégées par intervalles. A partir de l’étendue des données <code class="docutils literal notranslate"><span class="pre">bin_min</span></code>, <code class="docutils literal notranslate"><span class="pre">bin_max</span></code>, on subdivise l’intervalle en <span class="math notranslate nohighlight">\(k\)</span> bins, de tailles <span class="math notranslate nohighlight">\(t_k\)</span> non nécessairement identiques, et on compte le nombre d’individus <span class="math notranslate nohighlight">\(n_k\)</span> rentrant dans chaque bin. L’histogramme peut alors être :</p>
+<ul class="simple">
+<li><p>non normalisé : <span class="math notranslate nohighlight">\(h_k = n_k\)</span></p></li>
+<li><p>normalisé: <span class="math notranslate nohighlight">\(h_k = n_k/t_k\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;./data/data.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Comptage des individus</span>
+<span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">bins</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">findBin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="nb">bin</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bins</span><span class="p">):</span>
+            <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="nb">bin</span>
+            <span class="k">if</span> <span class="n">left</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">i</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    
+    <span class="n">count</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">findBin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">count</span>
+
+        
+<span class="c1"># Affichage de l&#39;histogramme</span>
+<span class="k">def</span> <span class="nf">plot_hist</span><span class="p">(</span><span class="n">X</span><span class="p">,</span>  <span class="n">bin_min</span><span class="p">,</span> <span class="n">bin_max</span><span class="p">,</span> <span class="n">bin_width</span><span class="p">,</span><span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">bins</span> <span class="o">=</span><span class="p">[</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="n">bin_width</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">bin_min</span><span class="p">,</span> <span class="n">bin_max</span><span class="p">,</span> <span class="n">bin_width</span><span class="p">)</span> <span class="p">]</span>
+    <span class="n">bin_left</span> <span class="o">=</span> <span class="p">[</span> <span class="n">l</span> <span class="k">for</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">bins</span> <span class="p">]</span>
+    <span class="n">bin_widths</span> <span class="o">=</span> <span class="p">[</span> <span class="n">r</span><span class="o">-</span><span class="n">l</span>  <span class="k">for</span> <span class="n">l</span><span class="p">,</span><span class="n">r</span> <span class="ow">in</span> <span class="n">bins</span> <span class="p">]</span>
+    <span class="n">bin_height</span> <span class="o">=</span> <span class="p">[</span> 
+        <span class="nb">float</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="n">w</span> <span class="k">if</span> <span class="n">normed</span> <span class="k">else</span> <span class="n">c</span> 
+        <span class="k">for</span> <span class="n">c</span><span class="p">,</span><span class="n">w</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">count</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">bins</span><span class="p">),</span> <span class="n">bin_widths</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bin_left</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="n">bin_width</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="n">bin_height</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">bin_min</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">bin_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">subplot</span><span class="p">,</span> <span class="n">binsize</span> <span class="ow">in</span> <span class="p">((</span><span class="mi">141</span><span class="p">,</span> <span class="mi">5</span><span class="p">),(</span><span class="mi">142</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">143</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span> <span class="p">(</span><span class="mi">144</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Taille des bins : &#39;</span><span class="p">,</span> <span class="n">binsize</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">subplot</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">plot_hist</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">bin_min</span><span class="p">,</span> <span class="n">bin_max</span><span class="p">,</span> <span class="n">binsize</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/StatsDescriptives_1_0.png" src="_images/StatsDescriptives_1_0.png" />
+</div>
+</div>
 <div class="proof remark dropdown admonition" id="remark-3">
 <p class="admonition-title"><span class="caption-number">Remark 5 </span></p>
 <div class="remark-content section" id="proof-content">
@@ -725,10 +783,10 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
 GeometricMean  :  1258.4787575642572
 HarmonicMean  :  1198.219210728503
-WeightedMean  :  1307.0730425687655
+WeightedMean  :  1325.5367215076537
 </pre></div>
 </div>
-<img alt="_images/StatsDescriptives_1_1.png" src="_images/StatsDescriptives_1_1.png" />
+<img alt="_images/StatsDescriptives_3_1.png" src="_images/StatsDescriptives_3_1.png" />
 </div>
 </div>
 <div class="proof definition admonition" id="definition-6">
@@ -773,7 +831,7 @@ quartile  50  :  1399.66320800781
 quartile  75  :  1626.326538085935
 </pre></div>
 </div>
-<img alt="_images/StatsDescriptives_3_1.png" src="_images/StatsDescriptives_3_1.png" />
+<img alt="_images/StatsDescriptives_5_1.png" src="_images/StatsDescriptives_5_1.png" />
 </div>
 </div>
 </div>
