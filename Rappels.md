@@ -22,7 +22,7 @@ Une **expérience aléatoire** est une expérience dont on ne peut prévoir le r
 
 ````{prf:example}
 - Le lancé de dé
-- les côtes exactes d'une pièce fabriquée dans un atelier
+- Les côtes exactes d'une pièce fabriquée dans un atelier
 ````
 
 ````{prf:definition} Issue
@@ -53,14 +53,14 @@ Etant donnée une expérience aléatoire, un **évènement** est une assertion v
 ````{prf:example}
 - Dans l'expérience du lancer de deux dés, on peut s'intéresser à l'évènement "la somme des deux faces est paire" ou encore  "la somme est supérieure à 7".
 - Si l'expérience considérée concerne les jobs effectués sur une machine on peut considérer :
-1. $\Omega=\mathbb{N}$ et l'évènement "le nombre de jobs ne dépasse pas 10" : $E=[\![0,5]\!]$
+1. $\Omega=\mathbb{N}$ et l'évènement "le nombre de jobs ne dépasse pas 10" : $E=[\![0,10]\!]$
 2. $\Omega=\mathbb{R}^*$ et  l'évènement "le job dure plus de 15 s" et $E=]15,+\infty[$
 ````
 Il existe certains évènements particuliers : 
 - l'évènement dit certain : c'est l'univers des possibles (par exemple "la somme des deux faces d'un lancer de deux dés est inférieure ou égale à 12")
 - l'évènement impossible ("la somme des deux faces d'un lancer de deux dés est supérieure ou égale à 20")
 - l'évènement simple : tout singleton de $\Omega$
-- l'évènement composé : tout sous-ensembme de $\Omega$ de cardinalité au moins égale à 2.
+- l'évènement composé : tout sous-ensemble de $\Omega$ de cardinalité au moins égale à 2.
 
 ### Notation et opérations sur les évènements
 Les évènements peuvent être interprétés soit d'un point de vue ensembliste (Diagrammes de Venn), soit de manière équivalente d'un point de vue probabiliste.
@@ -100,14 +100,14 @@ Soit $T$ une famille d'évènements. Pour que $T$ soit probabilisable, il faut q
 
 $T$ est une **tribu** et $(\Omega,T)$ est un **espace probabilisable**.
 ````
-En pratique, on choisit souvent la tribu engendrée par une famille de $n$ d'évènements $A_i$, qui est l'ensemble des parties de $\Omega$ obtenues en effectuant l'union de $k$ évènements $A_i,i\in [\![1,n]\!]$.
+En pratique, on choisit souvent la tribu engendrée par une famille de $n$ évènements $A_i$, qui est l'ensemble des parties de $\Omega$ obtenues en effectuant l'union de $k$ évènements $A_i,i\in [\![1,n]\!]$.
 
 ````{prf:example}
 Dans le cas du lancer d'un dé, $\Omega = \{1,2,3,4,5,6\}$, et : 
 - la tribu engendrée par la famille d'évènements $\{\{1,3,5\},\{2,4,6\}\}$ est $\{\emptyset,\{1,3,5\},\{2,4,6\},\Omega\}$.
 - la tribu engendrée par la famille d'évènements $\{\{1\},\{2\},\{3\},\{4\},\{5\},\{6\}\}$ est l'ensemble des parties de $\Omega$. Plus généralement, si $\Omega$ est dénombrable, cette tribu est appelée **tribu discrète**.
 ````
-On peut également s'intéresser, si $\Omega=\mathbb R$, à la tribu engendrée par les ouverts de $\mathbb{R}$, on parle alors de **tribu borélienne**
+On peut également s'intéresser, si $\Omega=\mathbb R$, à la tribu engendrée par les ouverts de $\mathbb{R}$, on parle alors de **tribu borélienne**.
 
 ### Probabilité
 ```{margin} A. Kolmogorov
@@ -122,11 +122,14 @@ On appelle **probabilité** sur $(\Omega,T)$ une application $P$ de $T$ dans [0,
 - $P(\Omega)=1$
 - Pour toute famille dénombrable $(A_i)$ d'évènements disjoints $P(\displaystyle\bigcup_i A_i) = \displaystyle\sum_iP(A_i)$
 ```
+
+$(\Omega,T,P)$ est un **espace probabilisé**. 
+
 ````{prf:property}
 - $P(\emptyset)=0$
 - $(\forall A)\; P(\bar A)=1-P(A)$
 - $(\forall A,B)\; P(A\setminus B) = P(A)-P(A\bigcap B)$
-- $(\forall A,B)\; P(A\bigcup B) = P(A+P(B))-P(A\bigcap B)$
+- $(\forall A,B)\; P(A\bigcup B) = P(A)+P(B)-P(A\bigcap B)$
 - $(\forall A,B)$ si $A\subset B$ alors $P(A)\leq P(B)$
 - Pour toute famille dénombrable $(A_i)$ d'évènements quelconques $P(\displaystyle\bigcup_i A_i) \leq \displaystyle\sum_iP(A_i)$
 ````
@@ -210,7 +213,7 @@ On a calculé dans l'exemple une **probabilité a posteriori**, c'est à dire sa
 ## Variable aléatoire
 
 ### Concept de variable aléatoire
-Soit un espace probabilisé $(\Omega, T,P)$, avec $\Omega$ = (Pile,Face). On considère la loi de probabilité $P$ telle que : $(\forall \omega\in\Omega)\; P(\omega)=\frac12$
+Soit un espace probabilisé $(\Omega, T,P)$.
 
 ```{index} Variable aléatoire
 ``` 
@@ -218,14 +221,21 @@ Soit un espace probabilisé $(\Omega, T,P)$, avec $\Omega$ = (Pile,Face). On con
 Une variable aléatoire est une application $X:\Omega\rightarrow E$ (on prendra $E=\mathbb R$)
 ```` 
 
-Pour obtenir la probabilité d'une valeur quelconque image par $X$, il suffit de dnombrer les $\omega$ qui réalisent cette valeur. Ici, $P(X=1)= P(\{Pile\}) = \frac12$. On dit que l'on transporte la loi de probabilité de $\Omega$ sur $E$ par l'application $X$.
+Pour obtenir la probabilité d'une valeur quelconque image par $X$, il suffit de dénombrer les $\omega$ qui réalisent cette valeur. 
+
+````{prf:example}
+Si $\Omega$ = (Pile,Face), on considère la loi de probabilité $P$ telle que : $(\forall \omega\in\Omega)\; P(\omega)=\frac12$. 
+$P(X=1)= P(\{Pile\}) = \frac12$. 
+````
+
+On dit que l'on transporte la loi de probabilité de $\Omega$ sur $E$ par l'application $X$.
 
 Les éléments de $E$ sont les **réalisations** de la variable aléatoire.
 
 ````{prf:example}
 Si l'expérience consiste à observer le résultat du tirage de deux dés à 6 faces, $\Omega = \{(1,1), (1,2), \cdots (6,5), (6,6)\}$, on considère la loi de probabilité telle que $(\forall \omega\in\Omega)\; P(\omega)=\frac{1}{36}$. 
 
-Si l'application $X$ réalise la somme des deux éléments de $\omega\in\Omega$, alors on a par exemple $P(X=3)= P(\{(1,2),(2,1)\}) = \frac{2}{36}$, ou encore $P(X=5)= P(\{(1,4),(2,3),(3,2),(4,1)\}) = \frac{4}{36}$
+Si l'application $X$ réalise la somme des deux éléments de $\omega\in\Omega$, alors on a par exemple $P(X=3)= P(\{(1,2),(2,1)\}) = \frac{2}{36}$, ou encore $P(X=5)= P(\{(1,4),(2,3),(3,2),(4,1)\}) = \frac{4}{36}$.
 ````
 
 ### Variable aléatoire mesurable
@@ -245,12 +255,12 @@ Dans les deux exemples précédents, on a par exemple $X^{-1}(1)= \{Pile\}$ ou e
 ``` 
 On note souvent $P_X(B) = P(X^{-1}(B))=P(\{\omega / X(\omega)\in B\})$ et on l'appelle **probabilité image** de $P$ par $X$. En calculant la probabilité de chaque réalisation de la variable aléatoire $X$, on peut en déduire la **loi de probabilité** (ou **distribution**) de $X$.
 
-- Pour une variable aléatoire discrète $X$, la loi de probabilité est donc $P_X(x_i)= P(X=x_i) = P(\{\omega / X(\omega)=x_i\})$. $P_X$ est appelée **masse ponctuelle**
+- Pour une variable aléatoire discrète $X$, la loi de probabilité est donc $P_X(x_i)= P(X=x_i) = P(\{\omega / X(\omega)=x_i\})$. $P_X$ est appelée **masse ponctuelle**.
 ```{index} Probabilité ; densité de 
 ``` 
 ```{index} Densité de probabilité
 ``` 
-- Pour une variable aléatoire continue $X$, la loi de probabilité est donc $f_X(x)dx = P(x\leq X\leq x+dx) = P(\{\omega /x\leq X(\omega)\leq x+dx\})$. $f_X$ est appelée **densité de probabilité**
+- Pour une variable aléatoire continue $X$, la loi de probabilité est donc $f_X(x)dx = P(x\leq X\leq x+dx) = P(\{\omega /x\leq X(\omega)\leq x+dx\})$. $f_X$ est appelée **densité de probabilité**.
 
 
 ```{code-cell} ipython3
@@ -274,6 +284,7 @@ f=f/n
 plt.plot( x, f, 'o' )   
 plt.vlines( x, 0, f )   
 plt.ylim( bottom=0 ) 
+plt.title("Loi de probabilité d'une variable aléatoire discrète")
 plt.show()
 ```
 
@@ -338,7 +349,7 @@ Une variable aléatoire est une application mesurable $X:(\Omega,T,P) \rightarro
 :class: dropdown
 - Si $E=\mathbb N$, on parle de variable aléatoire (réelle) discrète
 - Si $E=\mathbb R$, on parle de variable aléatoire (réelle) continue. $T'$ est alors la tribu **borélienne**
-- Si $E=\mathbb N^n$ ou $E=\mathbb R^n$n on parle de **vecteur aléatoire** de dimension $n$.
+- Si $E=\mathbb N^n$ ou $E=\mathbb R^n$, on parle de **vecteur aléatoire** de dimension $n$.
 ```
 
 ### Caractéristiques des variables aléatoires
