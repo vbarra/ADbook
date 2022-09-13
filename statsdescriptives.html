@@ -697,7 +697,7 @@ Les histogrammes sont des représentations de la distribution des données, agr�
 <p>Le choix de la largeur <span class="math notranslate nohighlight">\(t\)</span> des bins dépend des données, et par exemple on a :</p>
 <ul class="simple">
 <li><p>Loi de Scott : <span class="math notranslate nohighlight">\(t = \frac{3.5 \sigma}{Card(X)^{1/3}}\)</span>, où <span class="math notranslate nohighlight">\(\sigma\)</span> est l’écart type des données.</p></li>
-<li><p>Loi de Freedman–Diaconis : <span class="math notranslate nohighlight">\( t = \frac{2 IQR}{Card(X)^{1/3}} \)</span></p></li>
+<li><p>Loi de Freedman–Diaconis : <span class="math notranslate nohighlight">\( t = \frac{2 IQR}{Card(X)^{1/3}}\)</span>, où <span class="math notranslate nohighlight">\(IQR\)</span> est la distance interquartile.</p></li>
 </ul>
 <div class="proof remark dropdown admonition" id="remark-3">
 <p class="admonition-title"><span class="caption-number">Remark 5 </span></p>
@@ -788,7 +788,7 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
 GeometricMean  :  1258.4787575642572
 HarmonicMean  :  1198.219210728503
-WeightedMean  :  1300.3021078501654
+WeightedMean  :  1318.1733268876924
 </pre></div>
 </div>
 <img alt="_images/StatsDescriptives_3_1.png" src="_images/StatsDescriptives_3_1.png" />
@@ -849,54 +849,113 @@ quartile  75  :  1626.326538085935
 <p>L’étendue est la simple différence entre la plus grande et la plus petite valeur observée.</p>
 </div>
 </div><div class="proof definition admonition" id="definition-9">
-<p class="admonition-title"><span class="caption-number">Definition 24 </span> (Distance interquartile)</p>
+<p class="admonition-title"><span class="caption-number">Definition 24 </span> (Déviation maximale)</p>
 <div class="definition-content section" id="proof-content">
-<p>La distance interquartile est la différence entre le troisième et le premier quartile.</p>
+<p>La déviation maximale est définie par
+<span class="math notranslate nohighlight">\( maxdev(X) = max \{ |X[i] - \bar{x}| \,|\, i=1,\dots,n\}\)</span></p>
 </div>
 </div><div class="proof definition admonition" id="definition-10">
-<p class="admonition-title"><span class="caption-number">Definition 25 </span> (Variance)</p>
+<p class="admonition-title"><span class="caption-number">Definition 25 </span> (Distance interquartile)</p>
+<div class="definition-content section" id="proof-content">
+<p>La distance interquartile est la différence entre le troisième et le premier quartile. C’est une statistique robuste aux points aberrants.</p>
+</div>
+</div><div class="proof definition admonition" id="definition-11">
+<p class="admonition-title"><span class="caption-number">Definition 26 </span> (Variance)</p>
 <div class="definition-content section" id="proof-content">
 <p>La variance est la somme des carrés des écarts à la moyenne, normalisée par le nombre d’observations
 <span class="math notranslate nohighlight">\(\sigma^2 = \frac{1}{n}\displaystyle\sum_{i=1}^n\left (x_i-\bar{x}\right )^2\)</span></p>
 </div>
 </div><p>Cette variance est dite biaisée. La variance non biaisée est obtenue en divisant non pas par <span class="math notranslate nohighlight">\(n\)</span>, mais par <span class="math notranslate nohighlight">\(n-1\)</span>.</p>
-<div class="proof definition admonition" id="definition-11">
-<p class="admonition-title"><span class="caption-number">Definition 26 </span> (Ecart type)</p>
+<div class="proof definition admonition" id="definition-12">
+<p class="admonition-title"><span class="caption-number">Definition 27 </span> (Ecart type)</p>
 <div class="definition-content section" id="proof-content">
 <p>L’écart type est la racine carrée de la variance.</p>
 </div>
-</div><div class="proof definition admonition" id="definition-12">
-<p class="admonition-title"><span class="caption-number">Definition 27 </span> (Ecart moyen absolu)</p>
+</div><div class="proof definition admonition" id="definition-13">
+<p class="admonition-title"><span class="caption-number">Definition 28 </span> (Ecart moyen absolu)</p>
 <div class="definition-content section" id="proof-content">
 <p>L’écart moyen absolu est la somme des valeurs absolues des écarts à la moyenne divisée par le nombre d’observations.</p>
 </div>
 </div><p>Notons qu’il s’agit de la distance <span class="math notranslate nohighlight">\(L_1\)</span> du vecteur des observations au vecteur composé de la valeur moyenne, divisé par le nombre d’observations. La variance est la distance <span class="math notranslate nohighlight">\(L_2\)</span> entre ces deux vecteurs. Lorsque la distance est calculée par rapport au vecteur composé de la valeur médiane, on parle d’écart médian absolu.</p>
 <p><img alt="" src="_images/dispersion.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;./data/data.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">max_dev</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">mad</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">sigma</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">IQR</span><span class="p">(</span><span class="n">X</span><span class="p">):</span> <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="mi">75</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">method</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span><span class="n">style</span><span class="p">,</span>  <span class="ow">in</span> <span class="p">((</span><span class="n">max_dev</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">),(</span><span class="n">mad</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">),(</span><span class="n">sigma</span><span class="p">,</span><span class="mf">0.7</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">),(</span><span class="n">IQR</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">)):</span>
+    <span class="n">s</span><span class="o">=</span><span class="n">method</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">method</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s2">&quot; : &quot;</span><span class="p">,</span><span class="n">m</span><span class="p">,</span> <span class="s2">&quot;+/-&quot;</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">m</span><span class="p">,</span><span class="n">m</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;black&#39;</span> <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">m</span><span class="o">-</span><span class="n">s</span><span class="p">,</span><span class="n">m</span><span class="o">-</span><span class="n">s</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">style</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">method</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">m</span><span class="o">+</span><span class="n">s</span><span class="p">,</span><span class="n">m</span><span class="o">+</span><span class="n">s</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">style</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">m</span><span class="o">-</span><span class="n">s</span><span class="p">,</span><span class="n">m</span><span class="o">+</span><span class="n">s</span><span class="p">],[</span><span class="n">pos</span><span class="p">,</span><span class="n">pos</span><span class="p">],</span><span class="n">style</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [4],</span> in <span class="ni">&lt;cell line: 20&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="k">def</span> <span class="nf">IQR</span><span class="p">(</span><span class="n">X</span><span class="p">):</span> <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="mi">75</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="ne">---&gt; </span><span class="mi">20</span> <span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="k">for</span> <span class="n">method</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span><span class="n">style</span><span class="p">,</span>  <span class="ow">in</span> <span class="p">((</span><span class="n">max_dev</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">),(</span><span class="n">mad</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">),(</span><span class="n">sigma</span><span class="p">,</span><span class="mf">0.7</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">),(</span><span class="n">IQR</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">)):</span>
+
+<span class="ne">NameError</span>: name &#39;sns&#39; is not defined
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1296x432 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
 <p>\subsection{Paramètres de forme}
 Les paramètres de forme sont souvent calculés en référence à la forme de la loi normale, pour évaluer la symétrie, l’aplatissement ou la dérive par rapport à cette loi.</p>
-<div class="proof definition admonition" id="definition-13">
-<p class="admonition-title"><span class="caption-number">Definition 28 </span> (Skewness})</p>
+<div class="proof definition admonition" id="definition-14">
+<p class="admonition-title"><span class="caption-number">Definition 29 </span> (Skewness})</p>
 <div class="definition-content section" id="proof-content">
 <div class="math notranslate nohighlight">
 \[g_1 = \frac{m_3}{\sigma^3}\]</div>
 </div>
 </div><p>Le skewness est également appelé coefficient d’asymétrie de Fisher.</p>
-<div class="proof definition admonition" id="definition-14">
-<p class="admonition-title"><span class="caption-number">Definition 29 </span> (Kurtosis)</p>
+<div class="proof definition admonition" id="definition-15">
+<p class="admonition-title"><span class="caption-number">Definition 30 </span> (Kurtosis)</p>
 <div class="definition-content section" id="proof-content">
 <div class="math notranslate nohighlight">
 \[K=\frac{m_4}{m_2^2}\]</div>
 </div>
 </div><p><span class="math notranslate nohighlight">\(K\)</span> permet de mesurer l’aplatissement.</p>
-<div class="proof definition admonition" id="definition-15">
-<p class="admonition-title"><span class="caption-number">Definition 30 </span> (Coefficient d’asymétrie de Yule)</p>
+<div class="proof definition admonition" id="definition-16">
+<p class="admonition-title"><span class="caption-number">Definition 31 </span> (Coefficient d’asymétrie de Yule)</p>
 <div class="definition-content section" id="proof-content">
 <div class="math notranslate nohighlight">
 \[A_Y = \frac{x_{3/4}+x_{1/4}-2x_{1/2}}{x_{3/4}-x_{1/4}}\]</div>
 </div>
 </div><p>Ce coefficient est fondé sur les positions de trois quartiles (le premier, la médiane et le troisième) et est normalisé par la distance interquartile.</p>
-<div class="proof definition admonition" id="definition-16">
-<p class="admonition-title"><span class="caption-number">Definition 31 </span> (Coefficient d’asymétrie de Pearson)</p>
+<div class="proof definition admonition" id="definition-17">
+<p class="admonition-title"><span class="caption-number">Definition 32 </span> (Coefficient d’asymétrie de Pearson)</p>
 <div class="definition-content section" id="proof-content">
 <div class="math notranslate nohighlight">
 \[A_P = \frac{\bar{x}-x_M}{\sigma}\]</div>
@@ -911,6 +970,27 @@ Une distribution est alors dite :</p>
 <li><p>leptokurtique si <span class="math notranslate nohighlight">\(g_2&gt;0\)</span> (queues plus longues et distribution plus pointue)</p></li>
 <li><p>platykyrtique si <span class="math notranslate nohighlight">\(g_2&lt;0\)</span> (queues plus courtes et distribution arrondie).</p></li>
 </ul>
+<p>Les principales statistiques d’une série statistique peuvent être résumées dans des <strong>boîtes à moustache</strong>, qui permettent de voir sur un même graphique :</p>
+<ul class="simple">
+<li><p>la médiane</p></li>
+<li><p>une boîte entre les premier et le troisième quartile</p></li>
+<li><p>l’étendue</p></li>
+<li><p>les points aberrants.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;./data/data.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="statistique-descriptive-bivariee">
@@ -919,14 +999,14 @@ Une distribution est alors dite :</p>
 <div class="section" id="cas-de-deux-variables-quantitatives">
 <h3>Cas de deux variables quantitatives<a class="headerlink" href="#cas-de-deux-variables-quantitatives" title="Permalink to this headline">#</a></h3>
 <p>Le couple est un couple de valeurs numériques. C’est donc un point dans le plan <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>. Les variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> peuvent être analysées séparément, en opérant une statistique univariée sur chacune de ces variables. Les paramètres calculés (de position, de dispersion…) sont dits marginaux. Cependant, il est intéressant d’étudier le lien entre ces deux variables, par l’intermédiaire des valeurs des couples. On définit pour cela un certain nombre d’outils :</p>
-<div class="proof definition admonition" id="definition-17">
-<p class="admonition-title"><span class="caption-number">Definition 32 </span> (Covariance)</p>
+<div class="proof definition admonition" id="definition-18">
+<p class="admonition-title"><span class="caption-number">Definition 33 </span> (Covariance)</p>
 <div class="definition-content section" id="proof-content">
 <p>La covariance de <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> est définie par :
 <span class="math notranslate nohighlight">\(\sigma_{xy}=\frac{1}{n}\displaystyle\sum_{i=1}^n\left (x_i-\bar{x}\right )\left (y_i-\bar{y}\right )\)</span></p>
 </div>
-</div><div class="proof definition admonition" id="definition-18">
-<p class="admonition-title"><span class="caption-number">Definition 33 </span> (Coefficient de corrélation)</p>
+</div><div class="proof definition admonition" id="definition-19">
+<p class="admonition-title"><span class="caption-number">Definition 34 </span> (Coefficient de corrélation)</p>
 <div class="definition-content section" id="proof-content">
 <p>Le coefficient de corrélation  de deux variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> est défini par
 <span class="math notranslate nohighlight">\(r_{xy}=\frac{\sigma_{xy}}{\sigma_{x}\sigma_{y}}\)</span>
@@ -987,7 +1067,7 @@ la borne étant atteinte dans le cas de la dépendance fonctionnelle (si <span c
 </ul>
 <p>Ces coefficients sont tous compris entre 0 (indépendance) et 1 (dépendance fonctionnelle). Pour estimer à partir de quelle valeur la dépendance fonctionnelle est significative, on procède de la manière suivante : si les <span class="math notranslate nohighlight">\(n\)</span> observations étaient prélevées dans une population où les variables sont indépendantes, on recherche les valeurs probables de <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span>.</p>
 <p>En s’appuyant sur la loi multinomiale et le test du <span class="math notranslate nohighlight">\(\chi^2\)</span>, on montre que <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span> est une réalisation d’une variable aléatoire <span class="math notranslate nohighlight">\(Z\)</span> suivant approximativement une loi <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span>.</p>
-<div class="proof remark dropdown admonition" id="remark-19">
+<div class="proof remark dropdown admonition" id="remark-20">
 <p class="admonition-title"><span class="caption-number">Remark 6 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Soient <span class="math notranslate nohighlight">\(U_1\ldots U_p\)</span> <span class="math notranslate nohighlight">\(p\)</span> variables i.i.d de loi normale centrée réduite. On appelle loi du <span class="math notranslate nohighlight">\(\chi^2\)</span> à <span class="math notranslate nohighlight">\(p\)</span> degrés de liberté la loi de la variable <span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^pU_i^2\)</span>.</p>
@@ -1025,7 +1105,7 @@ pour expliquer la variabilité des notes dans toute la promotion.</p></li>
 <p>Pour déterminer à partir de quelle valeur <span class="math notranslate nohighlight">\(e^2\)</span> est significatif, on compare donc <span class="math notranslate nohighlight">\(\sigma^2_\cap\)</span> à <span class="math notranslate nohighlight">\(\sigma^2_\cup\)</span>. On peut montrer que si le rapport de corrélation théorique est nul, alors la variable</p>
 <p><span class="math notranslate nohighlight">\(\frac{\left (\frac{e^2}{J-1}\right )}{\left (\frac{1-e^2}{n-J}\right )}\)</span>
 suit une loi de Fisher Snedecor, en supposant que les distributions conditionnelles de <span class="math notranslate nohighlight">\(Y\)</span> pour chaque modalité de <span class="math notranslate nohighlight">\(X\)</span> sont gaussiennes, de même espérance et de même variance.</p>
-<div class="proof remark dropdown admonition" id="remark-20">
+<div class="proof remark dropdown admonition" id="remark-21">
 <p class="admonition-title"><span class="caption-number">Remark 7 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Soient <span class="math notranslate nohighlight">\(U\)</span> et <span class="math notranslate nohighlight">\(V\)</span> deux variables aléatoires indépendantes suivant respectivement des lois <span class="math notranslate nohighlight">\(\chi^2_n\)</span> et <span class="math notranslate nohighlight">\(\chi^2_p\)</span>. On définit la loi de Fisher Snedecor par <span class="math notranslate nohighlight">\(F(n,p)=\frac{U/n}{V/P}\)</span>) <span class="math notranslate nohighlight">\(F(J-1,n-J)\)</span></p>

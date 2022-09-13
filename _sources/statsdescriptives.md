@@ -139,10 +139,8 @@ for subplot, binsize in ((141, 5),(142, 20), (143, 80), (144, 1000)):
 
 Le choix de la largeur $t$ des bins dépend des données, et par exemple on a : 
 - Loi de Scott : $t = \frac{3.5 \sigma}{Card(X)^{1/3}}$, où $\sigma$ est l'écart type des données.
-- Loi de Freedman–Diaconis : $ t = \frac{2 IQR}{Card(X)^{1/3}} $
+- Loi de Freedman–Diaconis : $ t = \frac{2 IQR}{Card(X)^{1/3}}$, où $IQR$ est la distance interquartile.
   
-
-
 
 
 
@@ -276,8 +274,16 @@ Il est très souvent utile d'apprécier la dispersion des mesures autour du para
 ````{prf:definition} Etendue
 L'étendue est la simple différence entre la plus grande et la plus petite valeur observée.
 ````
+
+
+````{prf:definition}  Déviation maximale
+La déviation maximale est définie par 
+   $ maxdev(X) = max \{ |X[i] - \bar{x}| \,|\, i=1,\dots,n\}$
+````
+
+
 ````{prf:definition} Distance interquartile
-La distance interquartile est la différence entre le troisième et le premier quartile.
+La distance interquartile est la différence entre le troisième et le premier quartile. C'est une statistique robuste aux points aberrants.
 ````
 
 ````{prf:definition} Variance
@@ -297,6 +303,43 @@ Notons qu'il s'agit de la distance $L_1$ du vecteur des observations au vecteur 
 
 
 ![](./images/dispersion.png)
+
+
+
+
+```{code-cell} ipython3
+import numpy as np
+import matplotlib.pyplot as plt
+X = np.loadtxt("./data/data.csv", delimiter=",")[:,1]
+
+def max_dev(X):
+    m = np.mean(X)
+    return max(abs(x - m) for x in X)
+
+def mad(X):
+    m = np.mean(X)
+    return sum(abs(x - m) for x in X) / float(len(X))
+
+def sigma(X):
+    m = np.mean(X)
+    return math.pow(sum((x - m)**2 for x in X) / len(X), 0.5)
+
+def IQR(X): return np.percentile(X,75) - np.percentile(X,25)
+
+plt.figure(figsize=(18,6))
+sns.rugplot(X, color='grey', height=0.5)
+m = np.mean(X)
+for method, pos,style,  in ((max_dev,0.5,'r'),(mad,0.6,'b'),(sigma,0.7,'g'),(IQR,0.8,'y')):
+    s=method(X)
+    print (method.__name__, " : ",m, "+/-",s)
+    plt.plot([m,m],[0,1],'black' )
+    plt.plot([m-s,m-s],[0,1],style,label=method.__name__)
+    plt.plot([m+s,m+s],[0,1],style)
+    plt.plot([m-s,m+s],[pos,pos],style)
+plt.legend()
+plt.tight_layout()
+
+``` 
 
 
 \subsection{Paramètres de forme}
@@ -328,6 +371,28 @@ Une distribution est alors dite :
 - mésokurtique si $g_2$ est proche de 0
 - leptokurtique si $g_2>0$ (queues plus longues et distribution plus pointue)
 - platykyrtique si $g_2<0$ (queues plus courtes et distribution arrondie).
+
+
+
+
+Les principales statistiques d'une série statistique peuvent être résumées dans des **boîtes à moustache**, qui permettent de voir sur un même graphique :
+
+- la médiane
+- une boîte entre les premier et le troisième quartile
+- l'étendue 
+- les points aberrants.
+
+```{code-cell} ipython3
+import numpy as np
+import matplotlib.pyplot as plt
+X = np.loadtxt("./data/data.csv", delimiter=",")[:,1]
+
+plt.figure(figsize=(14,8))
+plt.boxplot(x=X)
+plt.tight_layout()
+plt.show()
+
+```
 
 
 ## Statistique descriptive bivariée
