@@ -394,8 +394,8 @@ Les principales statistiques d'une série statistique peuvent être résumées d
 
 Ce mode de représentation consiste à dessiner une boîte dont les extrémités dépendent du premier et du troisième quartiles $Q_1$ et $Q_3$ , en ajoutant une barre à l’intérieur
 matérialisant le second quartile  $Q_2$ (la valeur médiane de l’échantillon). A cette boîte, on ajoute des “moustaches” dont les extrémités dépendent :
-- soit des valeurs extrémales prises par l’échantillon (c’est-à-dire le minimum et le maximum);
-- soit de la plus petite et de la plus grande valeur de l’échantillon appartenant à l’intervalle $[Q_1 -\delta Q_3+\delta ]$. La grandeur $\delta$ est une mesure de la dispersion des données. Généralement, on utilise : $\delta = 1.5(Q_3-Q_1)$. 
+- soit des valeurs extrémales prises par l’échantillon (minimum et maximum);
+- soit de la plus petite et de la plus grande valeur de l’échantillon appartenant à l’intervalle $[Q_1 -\delta, Q_3+\delta ]$. La grandeur $\delta$ est une mesure de la dispersion des données. Généralement, on utilise $\delta = 1.5(Q_3-Q_1)$. 
 
 Les valeurs de l’ échantillon en dehors des moustaches sont parfois matérialisées par des points et sont alors considérées comme les points aberrants de l'échantillon.
 
@@ -405,8 +405,22 @@ import numpy as np
 import matplotlib.pyplot as plt
 X = np.loadtxt("./data/data.csv", delimiter=",")[:,1]
 
+def annotate_boxplot(bpdict,
+                     x_offset=0.05, x_loc=0,
+                     text_offset_x=35,
+                     text_offset_y=20):
+ 
+    annotate_params = dict(xytext=(text_offset_x, text_offset_y), textcoords='offset points', arrowprops={'arrowstyle':'->'})
+
+    plt.annotate('Median', (x_loc + 1 + x_offset, bpdict['medians'][x_loc].get_ydata()[0]), **annotate_params)
+    plt.annotate('25%', (x_loc + 1 + x_offset, bpdict['boxes'][x_loc].get_ydata()[0]), **annotate_params)
+    plt.annotate('75%', (x_loc + 1 + x_offset, bpdict['boxes'][x_loc].get_ydata()[2]), **annotate_params)
+    plt.annotate('5%', (x_loc + 1 + x_offset, bpdict['caps'][x_loc*2].get_ydata()[0]), **annotate_params)
+    plt.annotate('95%', (x_loc + 1 + x_offset, bpdict['caps'][(x_loc*2)+1].get_ydata()[0]), **annotate_params)
+
 plt.figure(figsize=(14,8))
-plt.boxplot(x=X)
+a = plt.boxplot(x=X)
+annotate_boxplot(a,x_loc=1)
 plt.tight_layout()
 plt.show()
 
