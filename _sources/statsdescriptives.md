@@ -418,7 +418,7 @@ def annotate_boxplot(bpdict,
     plt.annotate('5%', (x_loc + 1 + x_offset, bpdict['caps'][x_loc*2].get_ydata()[0]), **annotate_params)
     plt.annotate('95%', (x_loc + 1 + x_offset, bpdict['caps'][(x_loc*2)+1].get_ydata()[0]), **annotate_params)
 
-plt.figure(figsize=(14,8))
+plt.figure(figsize=(10,5))
 a = plt.boxplot(x=X)
 annotate_boxplot(a,x_loc=0)
 plt.tight_layout()
