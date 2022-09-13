@@ -311,8 +311,9 @@ def sigma(X):
 
 def IQR(X): return np.percentile(X,75) - np.percentile(X,25)
 
-plt.figure(figsize=(18,6))
-sns.rugplot(X, color='grey', height=0.5)
+plt.figure(figsize=(8,4))
+plt.rcParams['font.size'] = '16'
+plt.plot(X, [0.01]*len(X), '|', color='k',label='Points')
 m = np.mean(X)
 for method, pos,style,  in ((max_dev,0.5,'r'),(mad,0.6,'b'),(sigma,0.7,'g'),(IQR,0.8,'y')):
     s=method(X)
