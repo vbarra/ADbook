@@ -351,7 +351,7 @@ plt.tight_layout()
 ``` 
 
 
-\subsection{Paramètres de forme}
+### Paramètres de forme
 Les paramètres de forme sont souvent calculés en référence à la forme de la loi normale, pour évaluer la symétrie, l'aplatissement ou la dérive par rapport à cette loi.
 ````{prf:definition} Skewness}
 $$g_1 = \frac{m_3}{\sigma^3}$$
