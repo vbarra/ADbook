@@ -270,55 +270,57 @@ plt.ylim( bottom=0 )
 plt.show()
 
 
-# ```{prf:definition} Fonction de répartition
 # ```{index} Fonction de répartition
 # ``` 
+# ```{prf:definition} Fonction de répartition
+# 
 # La fonction de répartition d'une variable aléatoire $X$ est l'application $F_X$ de $\mathbb R$ dans [0,1] telle que $F_X(x) = P(X\leq x)$.
 # ```
 # 
 # $F_X$ est donc monotone croissante, continue à droite et on a en particulier :  
 # - $P(a\leq X\leq b) = F_X(b)-F_X(a)$
 # - $P(X>x) = 1-P(X\leq x) = 1-F_X(x)$
-# 
-# 
-# ```{code-cell} ipython3
-# from math import floor
-# from random import random
-# import numpy as np
-# import matplotlib.pyplot as plt
-# 
-# def tirage():
-#     d1=floor(6*random()+1)   
-#     d2=floor(6*random()+1)  
-#     return d1+d2 -1          
-# 
-# x = np.arange(0,12)+1
-# f = np.zeros(12)
-# n=10000                       
-# for i in range(n):        
-#     f[tirage() ] += 1
-# f=f/n     
-# 
-# data = np.arange(0, 14)
-# fn = np.insert(np.cumsum(f), 0, 0)
-# 
-# plt.figure(figsize=(10,5))          
-# plt.subplot(121)
-# plt.plot( x, f, 'o' )   
-# plt.vlines( x, 0, f )   
-# plt.ylim( bottom=0 ) 
-# plt.title("Distribution")
-# plt.subplot(122)
-# 
-# plt.hlines(y=fn, xmin=data[:-1], xmax=data[1:],
-#           color='red', zorder=1)
-# plt.vlines(x=data[1:-1], ymin=fn[:-1], ymax=fn[1:], color='red',
-#           linestyle='dashed', zorder=1)
-# plt.ylim( bottom=0 ) 
-# plt.title("Fonction de répartition")
-# plt.show()
-# ```
-# 
+
+# In[2]:
+
+
+from math import floor
+from random import random
+import numpy as np
+import matplotlib.pyplot as plt
+
+def tirage():
+    d1=floor(6*random()+1)   
+    d2=floor(6*random()+1)  
+    return d1+d2 -1          
+
+x = np.arange(0,12)+1
+f = np.zeros(12)
+n=10000                       
+for i in range(n):        
+    f[tirage() ] += 1
+f=f/n     
+
+data = np.arange(0, 14)
+fn = np.insert(np.cumsum(f), 0, 0)
+
+plt.figure(figsize=(10,5))          
+plt.subplot(121)
+plt.plot( x, f, 'o' )   
+plt.vlines( x, 0, f )   
+plt.ylim( bottom=0 ) 
+plt.title("Distribution")
+plt.subplot(122)
+
+plt.hlines(y=fn, xmin=data[:-1], xmax=data[1:],
+          color='red', zorder=1)
+plt.vlines(x=data[1:-1], ymin=fn[:-1], ymax=fn[1:], color='red',
+          linestyle='dashed', zorder=1)
+plt.ylim( bottom=0 ) 
+plt.title("Fonction de répartition")
+plt.show()
+
+
 # La notion de variable aléatoire est ainsi une formalisation de la notion de grandeur variant selon le résultat d'une expérience aléatoire. On peut alors préciser et formaliser la définition précédente.
 # 
 # ````{prf:definition} Variable aléatoire
