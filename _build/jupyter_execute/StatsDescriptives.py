@@ -312,7 +312,7 @@ def sigma(X):
 
 def IQR(X): return np.percentile(X,75) - np.percentile(X,25)
 
-plt.figure(figsize=(8,4))
+plt.figure(figsize=(12,4))
 plt.rcParams['font.size'] = '16'
 plt.plot(X, [0.01]*len(X), '|', color='k',label='Points')
 m = np.mean(X)
