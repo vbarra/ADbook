@@ -176,7 +176,7 @@ for subplot, binsize in ((141, 5),(142, 20), (143, 80), (144, 1000)):
 # 
 # Dans le cas où $\forall i,w_i=1/n$, la moyenne pondérée est la moyenne arithmétique. De plus, dans tous les cas, on peut montrer que $H\leq G\leq \bar{x}$.
 
-# In[2]:
+# In[ ]:
 
 
 import numpy as np
@@ -236,7 +236,7 @@ plt.tight_layout()
 # $x_p=x_{\lceil{np}\rceil}$
 # En particulier, un quartile est chacune des 3 valeurs qui divisent les données triées en 4 parts égales, de sorte que chaque partie représente 1/4 de l'échantillon de population. On note $Q_i$ le $i^e$ quartile.
 
-# In[3]:
+# In[ ]:
 
 
 import numpy as np
@@ -297,7 +297,7 @@ plt.tight_layout()
 # 
 # ![](./images/dispersion.png)
 
-# In[4]:
+# In[ ]:
 
 
 import numpy as np
@@ -382,7 +382,7 @@ plt.tight_layout()
 # 
 # Les valeurs de l’ échantillon en dehors des moustaches sont parfois matérialisées par des points et sont alors considérées comme les points aberrants de l'échantillon.
 
-# In[5]:
+# In[ ]:
 
 
 import numpy as np
