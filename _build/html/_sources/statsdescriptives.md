@@ -421,6 +421,7 @@ def annotate_boxplot(bpdict,
 plt.figure(figsize=(10,5))
 a = plt.boxplot(x=X)
 annotate_boxplot(a,x_loc=0)
+plt.axis('off')
 plt.tight_layout()
 plt.show()
 
