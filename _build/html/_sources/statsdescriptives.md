@@ -137,6 +137,12 @@ for subplot, binsize in ((141, 5),(142, 20), (143, 80), (144, 1000)):
 
 ``` 
 
+Le choix de la largeur $t$ des bins dépend des données, et par exemple on a : 
+- Loi de Scott : $t = \frac{3.5 \sigma}{Card(X)^{1/3}}$, où $\sigma$ est l'écart type des données.
+- Loi de Freedman–Diaconis : $ t = \frac{2 IQR}{Card(X)^{1/3}} $
+  
+
+
 
 
 
