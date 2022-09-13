@@ -84,64 +84,6 @@ La représentation graphique de ces variables (et la construction du tableau sta
 - $J=1+3.3log_{10}(n)$ (règle de Sturge)
 - $J=2.5\sqrt[4\,]{n}$ (règle de Yule)
 
-La représentation graphique se fait par exemple par histogramme. 
-Les histogrammes sont des représentations de la distribution des données, agrégées par intervalles. A partir de l'étendue des données, on subdivise l'intervalle en $k$ bins, de tailles $t_k$ non nécessairement identiques, et on compte le nombre d'individus $n_k$ rentrant dans chaque bin. L'histogramme peut alors être :
-- non normalisé : $h_k = n_k$
-- normalisé: $h_k = n_k/t_k$
-
-
-```{code-cell} ipython3
-import numpy as np
-import matplotlib.pyplot as plt
-X = np.loadtxt("./data/data.csv", delimiter=",")[:,1]
-
-# Comptage des individus
-def count(X, bins):
-    def findBin(x, bins):
-        for i, bin in enumerate(bins):
-            left, right = bin
-            if left <= x and x < right:
-                return i
-        return None
-    
-    count = [0] * len(bins)
-    for x in X:
-        i = findBin(x, bins)
-        if i != None:
-            count[i] += 1
-
-    return count
-
-        
-# Affichage de l'histogramme
-def plot_hist(X,  bin_min, bin_max, bin_width,normed=True):
-    bins =[ [i, i+bin_width] for i in np.arange(bin_min, bin_max, bin_width) ]
-    bin_left = [ l for l, r in bins ]
-    bin_widths = [ r-l  for l,r in bins ]
-    bin_height = [ 
-        float(c) / w if normed else c 
-        for c,w in zip(count(X, bins), bin_widths)
-    ]
-    plt.bar(bin_left,width=bin_width,height=bin_height)
-    plt.tight_layout()
-
-bin_min = min(X)
-bin_max = max(X)
-
-plt.figure(figsize=(16, 4))
-for subplot, binsize in ((141, 5),(142, 20), (143, 80), (144, 1000)):
-    title = 'Taille des bins : ', binsize
-    plt.subplot(subplot)
-    plt.title(title, fontsize=12)
-    plot_hist(X, bin_min, bin_max, binsize)
-
-``` 
-
-Le choix de la largeur $t$ des bins dépend des données, et par exemple on a : 
-- Loi de Scott : $t = \frac{3.5 \sigma}{Card(X)^{1/3}}$, où $\sigma$ est l'écart type des données.
-- Loi de Freedman–Diaconis : $ t = \frac{2 IQR}{Card(X)^{1/3}}$, où $IQR$ est la distance interquartile.
-  
-
 
 
 ```{prf:remark}
@@ -226,7 +168,7 @@ for method, style, title in ((ArithmeticMean,'r','Arithmétique'),(GeometricMean
                              (HarmonicMean,'g','Harmonique'),(WeightedMean,'y', 'Pondérée')):
     m=method(X)
     print (method.__name__, " : ",m)
-    plt.plot([m,m],[0,0.2],style,label=title)
+    plt.plot([m,m],[0,1],style,label=title)
 plt.legend()
 plt.tight_layout()
 ```
@@ -247,7 +189,7 @@ $x_p=\frac{x_{np}+x_{np+1}}{2}$
 on remarque alors que la médiane est le quantile d'ordre $\frac{1}{2}$
 et sinon
 $x_p=x_{\lceil{np}\rceil}$
-En particulier, un quartile est chacune des 3 valeurs qui divisent les données triées en 4 parts égales, de sorte que chaque partie représente 1/4 de l'échantillon de population. On note $Q_i$ le $i^e$ quartile.
+En particulier, un quartile est chacune des 3 valeurs qui divisent les données triées en 4 parts égales, de sorte que chaque partie représente 1/4 de l'échantillon de population.
 
 
 ```{code-cell} ipython3
@@ -262,7 +204,7 @@ plt.plot(X, [0.01]*len(X), '|', color='k',label='Points')
 for q, style  in ((25,'r'),(50,'b'),(75,'g')):
     m=np.percentile(X,q)
     print ("quartile ", q, " : ",m)
-    plt.plot([m,m],[0,0.2],style,label=q)
+    plt.plot([m,m],[0,1],style,label=q)
 plt.legend()
 plt.tight_layout()
 ```
@@ -274,23 +216,8 @@ Il est très souvent utile d'apprécier la dispersion des mesures autour du para
 ````{prf:definition} Etendue
 L'étendue est la simple différence entre la plus grande et la plus petite valeur observée.
 ````
-
-
-````{prf:definition}  Déviation maximale
-La déviation maximale est définie par 
-   $ maxdev(X) = max \{ |X[i] - \bar{x}| \,|\, i=1,\dots,n\}$
-````
-
-
-````{prf:definition}  Déviation moyenne absolue
-La déviation moyenne absolue est définie par 
-   $ mad(X) = \frac{1}{n} \sum_{i=1}^n |X[i] - \bar{x}|$
-````
-
-
-
 ````{prf:definition} Distance interquartile
-La distance interquartile est la différence entre le troisième et le premier quartile. C'est une statistique robuste aux points aberrants.
+La distance interquartile est la différence entre le troisième et le premier quartile.
 ````
 
 ````{prf:definition} Variance
@@ -312,48 +239,9 @@ Notons qu'il s'agit de la distance $L_1$ du vecteur des observations au vecteur 
 ![](./images/dispersion.png)
 
 
-
-
-```{code-cell} ipython3
-import numpy as np
-import math
-import matplotlib.pyplot as plt
-X = np.loadtxt("./data/data.csv", delimiter=",")[:,1]
-
-def max_dev(X):
-    m = np.mean(X)
-    return max(abs(x - m) for x in X)
-
-def mad(X):
-    m = np.mean(X)
-    return sum(abs(x - m) for x in X) / float(len(X))
-
-def sigma(X):
-    m = np.mean(X)
-    return math.pow(sum((x - m)**2 for x in X) / len(X), 0.5)
-
-def IQR(X): return np.percentile(X,75) - np.percentile(X,25)
-
-plt.figure(figsize=(12,4))
-plt.rcParams['font.size'] = '16'
-plt.plot(X, [0.01]*len(X), '|', color='k',label='Points')
-m = np.mean(X)
-for method, pos,style,  in ((max_dev,0.5,'r'),(mad,0.6,'b'),(sigma,0.7,'g'),(IQR,0.8,'y')):
-    s=method(X)
-    print (method.__name__, " : ",m, "+/-",s)
-    plt.plot([m,m],[0,1],'black' )
-    plt.plot([m-s,m-s],[0,1],style,label=method.__name__)
-    plt.plot([m+s,m+s],[0,1],style)
-    plt.plot([m-s,m+s],[pos,pos],style)
-plt.legend(loc='best')
-plt.tight_layout()
-
-``` 
-
-
-### Paramètres de forme
+\subsection{Paramètres de forme}
 Les paramètres de forme sont souvent calculés en référence à la forme de la loi normale, pour évaluer la symétrie, l'aplatissement ou la dérive par rapport à cette loi.
-````{prf:definition} Skewness
+````{prf:definition} Skewness}
 $$g_1 = \frac{m_3}{\sigma^3}$$
 ````
 Le skewness est également appelé coefficient d'asymétrie de Fisher.
@@ -380,52 +268,6 @@ Une distribution est alors dite :
 - mésokurtique si $g_2$ est proche de 0
 - leptokurtique si $g_2>0$ (queues plus longues et distribution plus pointue)
 - platykyrtique si $g_2<0$ (queues plus courtes et distribution arrondie).
-
-
-
-
-Les principales statistiques d'une série statistique peuvent être résumées dans des **boîtes à moustache**, qui permettent de voir sur un même graphique :
-
-- la médiane
-- une boîte entre les premier et le troisième quartile
-- l'étendue 
-- les points aberrants.
-
-
-Ce mode de représentation consiste à dessiner une boîte dont les extrémités dépendent du premier et du troisième quartiles $Q_1$ et $Q_3$ , en ajoutant une barre à l’intérieur
-matérialisant le second quartile  $Q_2$ (la valeur médiane de l’échantillon). A cette boîte, on ajoute des “moustaches” dont les extrémités dépendent :
-- soit des valeurs extrémales prises par l’échantillon (minimum et maximum);
-- soit de la plus petite et de la plus grande valeur de l’échantillon appartenant à l’intervalle $[Q_1 -\delta, Q_3+\delta ]$. La grandeur $\delta$ est une mesure de la dispersion des données. Généralement, on utilise $\delta = 1.5(Q_3-Q_1)$. 
-
-Les valeurs de l’ échantillon en dehors des moustaches sont parfois matérialisées par des points et sont alors considérées comme les points aberrants de l'échantillon.
-
-
-```{code-cell} ipython3
-import numpy as np
-import matplotlib.pyplot as plt
-X = np.loadtxt("./data/data.csv", delimiter=",")[:,1]
-
-def annotate_boxplot(bpdict,
-                     x_offset=0.05, x_loc=0,
-                     text_offset_x=35,
-                     text_offset_y=20):
- 
-    annotate_params = dict(xytext=(text_offset_x, text_offset_y), textcoords='offset points', arrowprops={'arrowstyle':'->'})
-
-    plt.annotate('Median', (x_loc + 1 + x_offset, bpdict['medians'][x_loc].get_ydata()[0]), **annotate_params)
-    plt.annotate('25%', (x_loc + 1 + x_offset, bpdict['boxes'][x_loc].get_ydata()[0]), **annotate_params)
-    plt.annotate('75%', (x_loc + 1 + x_offset, bpdict['boxes'][x_loc].get_ydata()[2]), **annotate_params)
-    plt.annotate('5%', (x_loc + 1 + x_offset, bpdict['caps'][x_loc*2].get_ydata()[0]), **annotate_params)
-    plt.annotate('95%', (x_loc + 1 + x_offset, bpdict['caps'][(x_loc*2)+1].get_ydata()[0]), **annotate_params)
-
-plt.figure(figsize=(10,5))
-a = plt.boxplot(x=X)
-annotate_boxplot(a,x_loc=0)
-plt.axis('off')
-plt.tight_layout()
-plt.show()
-
-```
 
 
 ## Statistique descriptive bivariée
