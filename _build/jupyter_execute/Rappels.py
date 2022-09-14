@@ -380,7 +380,7 @@ plt.show()
 # Soit $\phi$ l'application qui associe à toute variable aléatoire $X$ la variable aléatoire $Y=\phi(X)$.
 # 
 # ````{prf:definition} Moment
-# Le moment  $\mathbb{E}[\phi(X)]$ de la fonction $\phi$ de la variable aléatoire $X$ est égal à :
+# Le moment  $\mathbb{E}[\phi(X)]$ de la fonction $\phi$ de la variable aléatoire $X$ est égal à 
 # - $\mathbb{E}[\phi(X)] = \displaystyle\sum_{x_i} \phi(x_i)P_X(x_i)$ si $X$ est discrète
 # - $\mathbb{E}[\phi(X)] = \int_x \phi(x) f_X(x)dx$ si $X$ est continue
 # ```` 
