@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 # ## Statistique monovariée
 # 
 # Le tableau suivant donne les notes (sur 10) obtenues à un examen par un groupe d'élèves. 
-# \begin{array}{c|c}
+# $\begin{array}{c|c}
 # Nom & Note \\
 #   \hline
 # Alain &6\\
@@ -37,7 +37,7 @@ import matplotlib.pyplot as plt
 # Sidonie &1\\
 # Thérèse &1\\
 # Yves &1
-# \end{array}
+# \end{array}$
 
 # In[2]:
 
