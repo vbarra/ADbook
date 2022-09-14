@@ -137,7 +137,7 @@ plt.show()
 
 # Calculer la covariance entre les deux variables. Conclusion ?
 
-# In[15]:
+# In[11]:
 
 
 #TODO
@@ -145,7 +145,7 @@ plt.show()
 
 # Calculer la corrélation entre les deux variables. Conclusion ?
 
-# In[16]:
+# In[12]:
 
 
 #TODO
@@ -155,7 +155,7 @@ plt.show()
 # 
 # On s'intéresse à un fichier décrivant la réussite d'étudiants en mathématiques (données décrites [ici](https://archive.ics.uci.edu/ml/datasets/Student+Performance)) 
 
-# In[18]:
+# In[13]:
 
 
 import pandas as pd
