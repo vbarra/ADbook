@@ -162,7 +162,7 @@ import pandas as pd
 result = pd.read_csv('./student.csv',delimiter=';')
 
 
-# In[19]:
+# In[14]:
 
 
 print(result)
@@ -170,7 +170,7 @@ print(result)
 
 # On regarde les deux premières colonnes des données (code de l'école et genre de l'étudiant)
 
-# In[20]:
+# In[15]:
 
 
 x = result.values[:,0]
@@ -179,7 +179,7 @@ g = result.values[:,1]
 
 # Construire le tableau de contingence de ces deux variables
 
-# In[21]:
+# In[16]:
 
 
 #TODO
@@ -187,7 +187,7 @@ g = result.values[:,1]
 
 # Construire le tableau théorique associé en supposant l’indépendance des deux variables.
 
-# In[22]:
+# In[17]:
 
 
 #TODO
@@ -195,7 +195,7 @@ g = result.values[:,1]
 
 # Calculer la distance du $\chi^2$ entre les variables $x$ et $g$. Ces deux variables sont elles liées ou sont elles indépendantes ?
 
-# In[23]:
+# In[18]:
 
 
 #TODO
@@ -210,19 +210,19 @@ g = result.values[:,1]
 # 
 # Récupérer cette variable et calculer les effectifs de chacune des modalités. Calculer le tableau de contingence  entre les variables $x$ et $ne$
 
-# In[24]:
+# In[19]:
 
 
 #TODO
 
 
-# In[25]:
+# In[20]:
 
 
 #TODO
 
 
-# In[26]:
+# In[21]:
 
 
 N
