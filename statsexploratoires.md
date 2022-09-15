@@ -270,7 +270,7 @@ et son analyse spectrale donne
 
 $\begin{array}{|c||c|c|c|}
 \hline
-                      &    Valeur propre  &      Variance expliquée  &  Variance cumulative expliquée\\
+                      &    \textrm{Valeur propre}  &      \textrm{Variance expliquée}  &  \textrm{Variance cumulative expliquée}\\
 \hline
                      1  &  6.20794684      &      0.7760  &      0.7760\\
                      2   & 0.87968139      &      0.1100    &    0.8860\\
@@ -292,6 +292,7 @@ Le critère de Kaiser  conduit à sélectionner un seul axe, qui retient 77\% de
 L'interprétation de ce plan se fait séquentiellement, pour chaque axe et chaque nuage de points, en regardant les contributions à la formation des axes: 
 
 - Axe 1 : 
+- 
 1- Variables :  les variables contribuant le plus à la formation de l'axe 1 sont celles dont les coordonnées sur cet axe sont proches de 1 en valeur absolue. 
 PAA et VIO sont très proches de la contribution moyenne, on les intègre donc dans l'interprétation de l'axe si elles vont dans le sens de l'interprétation que l'on peut en faire, sans elles. L'axe 1 oppose les individus consommant du pain ordinaire, des légumes secs (et éventuellement du vin ordinaire) à ceux qui consomment du raisin, du vin (éventuellement du pain) plus sophistiqué et des plats préparés. L'axe 1, et donc la première composante principale, mesure la répartition entre aliments ordinaires bon marché et aliments plus recherchés.
 
@@ -301,6 +302,7 @@ Toutes les variables sont bien représentées sur l'axe (la qualité de représe
 \end{itemize}
 
 - Axe 2 : 
+- 
 1- Variables : L'axe 2 est défini par les variables POT et PAA. Compte tenu de la différence de contribution existant entre ces deux variables, de la contribution élevée de POT (55\%), et de la qualité de représentation moyenne de PAA, la deuxième composante principale peut être considérée comme essentiellement liée à la consommation de pommes de terre. Les variables, à l'exception de POT et de PAA (dans une moindre mesure) sont assez mal représentées sur l'axe. La deuxième composante principale n'explique donc qu'un aspect très particulier de la consommation alimentaire.
 2- Individus : Pour repérer les individus ayant une contribution significative, on compare les coordonnées des individus sur l'axe 2, à la racine de la deuxième valeur propre  =0,94, le signe donnant le sens de contribution.
 
