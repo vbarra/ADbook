@@ -198,7 +198,8 @@ Notons que dans le cas de la métrique $D_{1/\sigma}$, le cercle des corrélatio
 Dire que $\mathbf{c_1}$ est très corrélée à $x^j$ signifie que les individus ayant une forte coordonnée positive sur l'axe 1 sont caractérisés par une valeur de $x^j$ nettement supérieure à la moyenne. 
 
 Il est très utile aussi de calculer pour chaque axe la contribution apportée par les divers individus à cet axe. Si $c_{ki}$ est la valeur de la composante $k$ pour le $i^e$ individu, alors par construction 
-$$\displaystyle\sum_{i=1}^np_ic_{ki}^2=\lambda_k$$
+
+$\displaystyle\sum_{i=1}^np_ic_{ki}^2=\lambda_k$
 où $p_i$ est le poids de l'individu $i$. On appelle alors contribution de l'individu $i$ à la composante $\mathbf{c_k}$ la quantité $\frac{p_ic_{ki}^2}{\lambda_k}$. Dans le cas où le poids est différent de $1/n$ (certains individus sont "plus importants" que d'autres), la contribution est riche d'interprétation. Dans le cas contraire, elle n'apporte rien de plus que les coordonnées de l'individu.
 
 On peut alors positionner les individus sur les sous-espaces des premières composantes principales (plans factoriels). La figure \ref{F:plan2} présente le positionnement de 329 villes américaines, où les 9 variables de qualité de vie précédentes ont été mesurées. Par soucis de lisibilité, seul les villes qui contribuent le plus à la création de la première composante principale ont leurs noms inscrits.
