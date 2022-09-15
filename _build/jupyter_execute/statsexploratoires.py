@@ -58,151 +58,134 @@
 # Le problème posé est donc de trouver la projection ${\bf P}$, de rang $k$ maximisant $Tr({\bf VMP})$. La projection ${\bf P}$ réalisant cette optimisation donnera alors $F_k$.
 # 
 # L'analyse en composantes principales consiste alors, de manière itérative, à chercher un sous-espace de dimension 1 d'inertie maximale, puis le sous-espace de dimension 1 orthogonal au précédent d'inertie maximale et ainsi de suite. Elle s'appuie sur le résultat suivant :
-# \begin{theo}{}{}
-# Soit $F_k$ un sous-espace portant l'inertie maximale. Alors le sous-espace de dimension $k+1$ portant l'inertie maximale est la somme directe de $F_k$ et de la droite orthogonale à $F_k$ portant l'inertie maximale.
-# \end{theo}
 # 
-# \subsection{Elements principaux}
-# \subsubsection*{Axes principaux}
+# ```{prf:theorem}
+# 
+# Soit $F_k$ un sous-espace portant l'inertie maximale. Alors le sous-espace de dimension $k+1$ portant l'inertie maximale est la somme directe de $F_k$ et de la droite orthogonale à $F_k$ portant l'inertie maximale.
+# ```
+# #### Elements principaux
+# ##### Axes principaux
 # Rechercher un sous-espace de dimension 1 d'inertie maximale revient à rechercher une droite de $\mathbb{R}^n$ passant par le centre de gravité des données $\mathbf{g}$ maximisant l'inertie du nuage projeté sur cet axe. Soit $\mathbf{a}$ un vecteur directeur de cette droite. La projection orthogonale sur la droite est définie par la matrice de projection 
 # $$\mathbf P=\frac{\mathbf{a}\mathbf{a}^T{\bf M}}{\mathbf{a}^T{\bf M}\mathbf{a}}$$
 # 
 # L'inertie du nuage projeté sur $Lin(\mathbf{a})$ vaut alors
-# \begin{eqnarray*}
+# $\begin{eqnarray*}
 # Tr({\bf VMP})&=&Tr\left ({\bf VM}\frac{\mathbf{a}\mathbf{a}^T{\bf M}}{\mathbf{a}^T{\bf M}\mathbf{a}}\right )\\
 # &=& \frac{1}{\mathbf{a^T}{\bf M}\mathbf{a}}Tr({\bf VM}\mathbf{a}\mathbf{a^T}{\bf M})\\
 # &=& \frac{1}{\mathbf{a^T}{\bf M}\mathbf{a}}Tr(\mathbf{a^T}{\bf MVM}\mathbf{a})\quad \text{car } Tr(\mathbf{AB})=Tr(\mathbf{BA})\\
 # &=& \frac{1}{\mathbf{a^T}{\bf M}\mathbf{a}}\mathbf{a^T}{\bf MVM}\mathbf{a}\quad \text{car } \mathbf{a^T}{\bf MVM}\mathbf{a}\in\mathbb{R}
-# \end{eqnarray*}
+# \end{eqnarray*}$
 # 
 # La matrice ${\bf MVM}$ est la matrice d'inertie du nuage (égale à la matrice de variance-covariance si ${\bf M}=\mathbb I$).  Maximiser cette quantité revient à annuler sa dérivée par rapport à $\mathbf{a}$ d'où :
-# $$
+# 
+# $
 # \frac{d}{d\mathbf{a}}\frac{\mathbf{a^T}{\bf MVM}\mathbf{a}}{\mathbf{a^T}{\bf M}\mathbf{a}}=\frac{(\mathbf{a^T}{\bf M}\mathbf{a})2{\bf MVM}\mathbf{a}-(\mathbf{a^T}{\bf MVM}\mathbf{a})2{\bf M}\mathbf{a}}{(\mathbf{a^T}{\bf M}\mathbf{a})^2}
-# $$
+# $
 # et donc 
-# $${\bf MVM}\mathbf{a}=\left (\frac{\mathbf{a^T}{\bf MVM}\mathbf{a}}{\mathbf{a^T}{\bf M}\mathbf{a}} \right ){\bf M}\mathbf{a}$$
+# 
+# ${\bf MVM}\mathbf{a}=\left (\frac{\mathbf{a^T}{\bf MVM}\mathbf{a}}{\mathbf{a^T}{\bf M}\mathbf{a}} \right ){\bf M}\mathbf{a}$
+# 
 # soit ${\bf VM}\mathbf{a}=\lambda \mathbf{a}$ car ${\bf M}$ est de rang plein. Donc $\mathbf{a}$ est vecteur propre de ${\bf VM}$, et $\lambda$ est la plus grande des valeurs propres de ${\bf VM}$. Or ${\bf M}$ est symétrique, elle est diagonalisable sur une base de vecteurs propres orthonormés et on a le résultat suivant :
-# \begin{theo}{}{}
+# 
+# ```{prf:theorem}
 # Le sous-espace $F_k$ de dimension $k$ portant l'inertie maximale est engendré par les $k$ premiers vecteurs propres de ${\bf VM}$
-# \end{theo}
+# ```
 # Les droites portées par ces vecteurs propres sont les axes principaux. Dans la suite on supposera $\mathbf{a}$ $\mathbf M$-normé.
 # 
-# \subsubsection*{Facteurs principaux}
+# ##### Facteurs principaux
 # On associe à  $Lin(\mathbf{a})$ la forme linéaire $\mathbf{u}$, coordonnée orthogonale sur l'axe $Lin(\mathbf{a})$. Le vecteur $\mathbf{u}$ définit une combinaison linéaire des variables descriptives $x^1\cdots x^p$. A l'axe principal $\mathbf{a}$ est associé le facteur principal $\mathbf{u}=\mathbf{Ma}$. Puisque $\mathbf{a}$ est vecteur propre de ${\bf VM}$, on peut alors écrire 
-# $${\bf MVM}\mathbf{a}=\lambda {\bf M}\mathbf{a}$$ 
+# 
+# ${\bf MVM}\mathbf{a}=\lambda {\bf M}\mathbf{a}$
+# 
 # et donc ${\bf MV}\mathbf{u}=\lambda \mathbf{u}$.  Les facteurs principaux sont donc les vecteurs propres de ${\bf MV}$
 # 
-# \subsubsection*{Composantes principales}
+# ##### Composantes principales
 # Les composantes principales sont les éléments de $\mathbb{R}^n$ définis par $\mathbf{c_i}=\mathbf{Xu_i}$. Ce sont donc les vecteurs coordonnées des projections orthogonales des individus sur les axes propres $\mathbf{a_i}$.  Ce sont donc les combinaisons linéaires des $x^1\cdots x^p$ de variance maximale sous la contrainte $\mathbf{u_i}^T{\bf M}\mathbf{u_i}=1$, et cette variance est égale à la valeur propre $\lambda_i$ associée à $\mathbf{a_i}$.
-# \vskip 6pt
+# 
 # En pratique, l'analyse en composantes principales consiste à calculer les $\mathbf{u}$ par diagonalisation de ${\bf MV}$, puis à calculer les $\mathbf{c}=\mathbf{Xu}$. Le calcul explicite des vecteurs propres $\mathbf{a}$ n'a que peu d'intérêt.
 # 
-# \subsubsection*{Reconstitution}
+# ##### Reconstitution
 # Il est possible de reconstituer le tableau ${\bf X}$ centré des données (ou une approximation par une matrice de rang $k$) en utilisant les composantes. En effet, puisque $\mathbf{Xu_j}=\mathbf{c_j}$ on a 
-# $${\bf X}\displaystyle\sum_j \mathbf{u_j}\mathbf{u_j}^T{\bf M^{-1}} = \displaystyle\sum_j\mathbf{c_j}\mathbf{u_j}^T{\bf M^{-1}}$$
+# 
+# ${\bf X}\displaystyle\sum_j \mathbf{u_j}\mathbf{u_j}^T{\bf M^{-1}} = \displaystyle\sum_j\mathbf{c_j}\mathbf{u_j}^T{\bf M^{-1}}$
+# 
 # Mais $\displaystyle\sum_j \mathbf{u_j}\mathbf{u_j}^T{\bf M^{-1}}=\mathbb{I}$  car les $\mathbf{u_j}$ sont orthonormés pour la métrique ${\bf M^{-1}}$ donc 
-# $${\bf X}=\displaystyle\sum_j\mathbf{c_j}\mathbf{u_j}^T{\bf M^{-1}}$$
+# 
+# ${\bf X}=\displaystyle\sum_j\mathbf{c_j}\mathbf{u_j}^T{\bf M^{-1}}$
 # et si l'on s'intéresse à l'approximation de ${\bf X}$ on ne somme que les $k$ premiers termes.
 # 
 # A noter que lorsque ${\bf M}=\mathbb{I}, {\bf X}= \displaystyle\sum_j\sqrt{\lambda_j}\mathbf{z_j}\mathbf{v_j^T}$ où les $\mathbf{z_j}$ sont les vecteurs propres unitaires de ${\bf XX^T}$ et les $\mathbf{v_j}$ les vecteurs propres unitaires de ${\bf X^TX}$ (décomposition en valeurs singulières).
 #  
-#  \section{Interprétation des résultats}
-#  \subsection{Quelle dimension pour $F_k$ ?}
+# ### Interprétation des résultats
+# #### Quelle dimension pour $F_k$ ?
 # Le but premier de l'ACP est de réduire la dimension pour permettre une visualisation efficace des données, tout en préservant l'information (ici représentée par la variance du nuage de points).  Il faut donc se doter d'outils permettant de répondre à la question : quelle dimension pour $F_k$ ? Il n'y a pas de réponse théorique satisfaisante, l'essentiel étant d'avoir une représentation suffisamment expressive pour permettre une interprétation correcte du nuage de points.
 # En préambule, il convient de remarquer que la réduction de dimension ne sera possible que si les variables $x^1\cdots x^p$ ne sont pas indépendantes.
 # 
 # 
-# \subsubsection*{Critère théorique}
+# ##### Critère théorique
 # On détermine ici si les valeurs propres sont significativement différentes entre elles à partir d'un certain rang: si la réponse est négative on conserve les
 # premières valeurs propres.
 # 
 # On fait l'hypothèse que les $n$ individus proviennent d'un tirage aléatoire dans une population gaussienne  où $\lambda_{k+1}=\cdots =\lambda_{p}$. Si l'hypothèse est vérifiée, la moyenne arithmétique $\alpha$ des $p-k$ dernières valeurs propres et leur moyenne géométrique $\gamma$ sont peu différentes. On admet que :
-# $$c=\left ( n-\frac{2p+11}{6}\right )(p-k) ln\frac{\alpha}{\gamma}$$
+# 
+# $c=\left ( n-\frac{2p+11}{6}\right )(p-k) ln\frac{\alpha}{\gamma}$
 # suit une loi du $\chi^2$ de degré de liberté $\frac{(p-k+2)(p-k-1)}{2}$ et on rejette l'hypothèse d'égalité des $p-k$ valeurs propres si $c$ est trop grand.
 # 
-# \subsubsection*{Pourcentage d'inertie}
+# ##### Pourcentage d'inertie
 # Le critère couramment utilisé est le pourcentage d'inertie totale expliquée (figure \ref{F:inertie}), qui s'exprime sur les $k$ premiers axes par :
-# $$\frac{\displaystyle\sum_{j=1}^k \lambda_j}{\displaystyle\sum_{j=1}^p \lambda_j}$$
+# 
+# $\frac{\displaystyle\sum_{j=1}^k \lambda_j}{\displaystyle\sum_{j=1}^p \lambda_j}$
 # Un seuil par exemple de 90\% d'inertie totale expliquée donne une valeur de $k$ correspondante. Attention cependant, le pourcentage d'inertie doit faire intervenir le nombre de variables initiales.
 # 
-# \begin{center}
-# \begin{figure}[hbtp]
-# \centering
-#  \includegraphics[width=\columnwidth]{figures/scree}
-# \caption{Pourcentage d'inertie (ou variance) expliquée par les composantes principales}
-# \label{F:inertie}
-# \end{figure}
-# \end{center}
+# ![](./images/scree.png)
 # 
-# \subsubsection*{Mesures locales}
+# ##### Mesures locales
 # Le pourcentage d'inertie expliquée est un critère global qui doit être complété par d'autres considérations. Supposons que le plan $F_2$ explique une part importante d'inertie, et que, en projection sur ce plan, deux individus soient très proches (figure \ref{F:projImA}). Cette proximité peut être illusoire si les deux individus se trouvent éloignés dans l'orthogonal de $F_2$. Pour prendre en compte ce phénomène, il faut envisager pour chaque individu $\mathbf{e_i}$ la qualité de sa représentation, souvent exprimée par le cosinus de l'angle entre le plan principal et le vecteur $\mathbf{e_i}$. Si ce cosinus est grand, $\mathbf{e_i}$ est voisin du plan, on peut  alors examiner la position de sa projection sur le plan par rapport à d'autres points.
 # 
+# Dans la figure suivante, ${\bf e_i} $ et ${\bf e_j}$ se projettent sur $F_2$ en ${\bf p}$ mais sont éloignés dans $F_2^\perp$.
 # 
-# \begin{figure}[hbtp!]
-# \begin{center}
-# \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.5]
-# \clip(-3.52,-5.76) rectangle (7.36,5.76);
-# \filldraw[fill=blue!20!] (-3.5,-2) -- (3.5,-2) --  (5.5,1) -- (-0.5,1) -- (-3.5,-2);
-# \draw[-](0,0) -- (0,4);
+# ![](./images/proj.png)
 # 
-# \draw [->,line width=1.6pt,blue] (0.,0.) -- (3.84,3.62);
-# \draw [->,line width=1.6pt,blue] (0.,0.) -- (3.84,-3.62);
-# \draw [->,line width=1.2pt,cyan] (0.,0.) -- (3.84,-1.64);
-# \draw [->,line width=1.6pt,red] (0.,0.) -- (0,3.62);
-# \draw [dash pattern=on 4pt off 4pt] (3.84,3.62)-- (3.84,-1.64);
-# \draw [dash pattern=on 4pt off 4pt] (3.84,-3.62)-- (3.84,-1.64);
-# \draw (-0.54,4.74) node[anchor=north west] { $F_2^\perp$ };
 # 
-# \draw (3.84,3.62) node[anchor=north west] { $\textcolor{blue}{{\bf e_i}}$ };
-# \draw (3.84,-3.62) node[anchor=north west] { $\textcolor{blue}{{\bf e_j}}$ };
-# \draw (3.84,-1.64) node[anchor=north west] { $\textcolor{cyan}{{\bf p}}$ };
-# \draw (1.54,3.62) node[anchor=north west] { $\textcolor{red}{{\bf u}}$ };
-# \draw (-3.5,-2) node[anchor=north west] { $F_2$ };
-# \end{tikzpicture}
 # 
-# \end{center}
-# \caption{${\bf e_i} $ et ${\bf e_j}$ se projettent sur $F_2$ en ${\bf p}$ mais sont éloignés dans $F_2^\perp$}  
-# \label{F:projImA}
-# \end{figure}
-# 
-# \subsubsection*{Critères empiriques}
+# ##### Critères empiriques
 # 
 # Lorsqu'on travaille sur données centrées réduites, on retient les composantes principales correspondant à des valeurs propres supérieures à 1 (critère de Kaiser) : en effet les composantes principales $c_j$ étant des combinaisons linéaires des $z-j$ de variance maximale $V(c_j)=\lambda$, seules les composantes de variance supérieure à celle des variables initiales présentent un intérêt.
 # 
 # 
-# \subsection{Interprétation des résultats : exemple}
+# #### Interprétation des résultats : exemple
 # 
 # Une analyse en composantes principales est réalisée sur un jeu de données composé de 9 indicateurs de qualité pour 329 villes américaines. Les paragraphes suivants sont illustrés par ces données.
 # 
-# \subsubsection*{Corrélation variables-facteurs}
+# ##### Corrélation variables-facteurs
 # Pour donner du sens aux composantes principales $\mathbf{c}$, il faut les relier aux variables initiales $x^j$ en calculant les coefficients de corrélation linéaire  $r(\mathbf{c},x^j)$ et en seuillant ces coefficients en valeur absolue.
 # 
 # Lorsque l'on travaille sur des données centrées réduites (métrique $\mathbf D_{1/\sigma}$), le calcul de $r(\mathbf{c},x^j)$ se réduit à 
-# $$r(\mathbf{c},x^j)=\frac{\mathbf{c}^T\mathbf D\mathbf{z^j}}{\sqrt{\lambda}}$$
+# 
+# $r(\mathbf{c},x^j)=\frac{\mathbf{c}^T\mathbf D\mathbf{z^j}}{\sqrt{\lambda}}$
+# 
 # Or $\mathbf{c}=Z\mathbf{u}$ où $\mathbf{u}$, facteur principal associé à $\mathbf{c}$, est vecteur propre de la matrice de corrélation $\mathbf R$ associé à $\lambda$. Donc
-# $$r(\mathbf{c},x^j)=\frac{\mathbf{u}^T\mathbf Z^T\mathbf D\mathbf{z^j}}{\sqrt{\lambda}}=\frac{(\mathbf{z^j})^T\mathbf D\mathbf Z\mathbf{u}}{\sqrt{\lambda}}$$
+# 
+# $r(\mathbf{c},x^j)=\frac{\mathbf{u}^T\mathbf Z^T\mathbf D\mathbf{z^j}}{\sqrt{\lambda}}=\frac{(\mathbf{z^j})^T\mathbf D\mathbf Z\mathbf{u}}{\sqrt{\lambda}}$
+# 
 # $(\mathbf{z^j})^T\mathbf D\mathbf Z$ est la $j^e$ ligne de $\mathbf Z^T\mathbf D\mathbf Z=\mathbf R$ donc $(\mathbf{z^j})^T\mathbf D \mathbf Z \mathbf{u}$ est la $j^e$ composante de $\mathbf R\mathbf{u}=\lambda \mathbf{u}$ d'où
-# $$r(\mathbf{c},x^j)=\sqrt{\lambda}u_j$$
+# 
+# $r(\mathbf{c},x^j)=\sqrt{\lambda}u_j$
 # 
 # 
 # Ces calculs s'effectuent pour chaque composante principale. Pour un couple de composantes principales $\mathbf{c_1}$ et $\mathbf{c_2}$ par exemple on représente fréquemment les corrélations sur une figure appelée « cercle des corrélations» (figure \ref{F:cercle}) où chaque variable $x^j$ est repérée par un point d'abscisse $r(\mathbf{c_1},x^j)$ et d'ordonnée $r(\mathbf{c_2},x^j)$.
 # 
-# \begin{center}
-# \begin{figure}[hbtp!]
-# \centering
-#  \includegraphics[width=.7\textwidth]{figures/cercle}
-# \caption{Cercle des corrélations : exemple sur des variables de qualité de vie mesurés dans des villes américaines.}
-# \label{F:cercle}
-# \end{figure}
-# \end{center}
+# ![](./images/cercle.png)
 # 
-# \begin{rem}
+# 
+# ```{prf:remark}
+# :class: dropdown
 # Attention de ne pas interpréter des proximités entre points variables, si ceux-ci ne sont pas proches de la circonférence.
-# \end{rem}
+# ```
 # 
 # Notons que dans le cas de la métrique $D_{1/\sigma}$, le cercle des corrélations est la projection de l'ensemble des variables centrées-réduites sur le sous-espace engendré par $\mathbf{c_1},\mathbf{c_2}$. En ce sens, le cercle de corrélation est le pendant, dans l'espace des variables, de la projection des individus sur le premier plan principal. 
 # 
-# \subsection{Positionnement des individus}
+# #### Positionnement des individus
 # Dire que $\mathbf{c_1}$ est très corrélée à $x^j$ signifie que les individus ayant une forte coordonnée positive sur l'axe 1 sont caractérisés par une valeur de $x^j$ nettement supérieure à la moyenne. 
 # 
 # Il est très utile aussi de calculer pour chaque axe la contribution apportée par les divers individus à cet axe. Si $c_{ki}$ est la valeur de la composante $k$ pour le $i^e$ individu, alors par construction 
@@ -211,45 +194,32 @@
 # 
 # On peut alors positionner les individus sur les sous-espaces des premières composantes principales (plans factoriels). La figure \ref{F:plan2} présente le positionnement de 329 villes américaines, où les 9 variables de qualité de vie précédentes ont été mesurées. Par soucis de lisibilité, seul les villes qui contribuent le plus à la création de la première composante principale ont leurs noms inscrits.
 # 
-# \begin{center}
-# \begin{figure}[hbtp!]
-# \centering
-#  \includegraphics[width=\columnwidth]{figures/individus}
-# \caption{Projection des individus  (villes) sur le plan des deux premières composantes principales}
-# \label{F:plan2}
-# \end{figure}
-# \end{center}
+# On peut afficher la projection des individus  (villes) sur le plan des deux premières composantes principales.
+# ![](./images/individus.png)
+# 
 # 
 # On peut également superposer les deux informations précédentes pour corréler le positionnement des villes selon les variables originales. La figure \ref{F:biplot} présente les 329 villes précédentes, plongées dans $F_3$, les  anciennes variables étant matérialisées par des vecteurs dont la direction et la norme indiquent à quel point chaque variable contribue aux 3 premières composantes principales.
 # 
-# 
-# \begin{center}
-# \begin{figure}[hbtp!]
-# \centering
-#  \includegraphics[width=\columnwidth]{figures/biplot}
-# \caption{Représentation des individus et des variables originales dans l'espace des trois premières composantes principales}
-# \label{F:biplot}
-# \end{figure}
-# \end{center}
+# ![](./images/biplot.png)
 # 
 # 
 # Il n'est pas souhaitable, et ceci surtout pour les premières composantes,  qu'un individu ait une contribution excessive car cela serait un facteur d'instabilité, le fait de retirer cet individu modifiant profondément le résultat de l'analyse. Si ce cas se produisait il y aurait intérêt à effectuer l'analyse en éliminant cet individu puis en le mettant en élément supplémentaire, s'il ne s'agit pas d'une donnée erronée qui a été ainsi mise en évidence.
 # 
 # 
-# \subsection*{Facteur de taille, facteur de forme}
+# #### Facteur de taille, facteur de forme
 # Le théorème de Frobenius stipule qu'une matrice symétrique n'ayant que des termes positifs admet un premier vecteur propre dont toutes les composantes sont de même signe. Si ce signe est positif, la première composante est alors corrélée positivement avec toutes les variables et les individus sont rangés sur l'axe 1 par valeurs croissantes de l'ensemble des variables. Si de plus les corrélations entre variables sont du même ordre de grandeur, la première composante principale est proportionnelle à la moyenne des variables initiales. Cette première composante définit alors un facteur de taille.
 # 
 # La deuxième composante principale différencie alors des individus de "taille" semblable, on l'appelle souvent facteur de forme.
 # 
-# \subsection{Ajout de variable et ou d'individu}
+# #### Ajout de variable et ou d'individu
 # Toutes les interprétations précédentes expliquent les résultats à l'aide des données initiales, qui ont permis de les calculer. On risque alors de prendre pour une propriété intrinsèque des données un simple artefact de la méthode (par exemple il existe de fortes corrélations entre la première composante principale et certaines variables, puisque $\mathbf{c_1}$ maximise $\sum_j r^2(\mathbf{c},x^j)$).
 # 
 # En revanche une forte corrélation entre une composante principale et une variable qui n'a pas servi à l'analyse sera significative. D'où la pratique courante de partager en deux groupes l'ensemble des variables: d'une part les variables actives qui servent à déterminer les axes principaux, d'autre part les variables passives ou supplémentaires que l'on relie a posteriori aux composantes principales. On distingue alors les variables supplémentaires suivant leur type, numérique (à placer dans les cercles de corrélation) ou qualitative (donnée d'une partition des $n$ individus en $k$ classes).
 # 
-# \section{Exemple}
+# ### Exemple
 # On étudie les consommations annuelles en 1972, exprimées en devises, de 8 denrées alimentaires (les variables), les individus étant 8 catégories socio-professionnelles (CSP) . Les données sont des moyennes par CSP : 
 # 
-# \begin{center}
+# $\begin{center}
 # \begin{tabular}{|c|cccccccc|}
 # \hline
 #   &PAO  &PAA  &VIO& VIA&  POT&  LEC &RAI& PLP\\
@@ -264,23 +234,19 @@
 # INAC  &138  &7  &117  &74&  53& 8 &12 &20\\
 # \hline
 # \end{tabular}
-# \end{center}
+# \end{center}$
 # 
 # avec les notations suivantes : 
 # 
-# \begin{tiny}
 # AGRI = Exploitants agricoles, SAAG= Salariés agricoles,   PRIN = Professions indépendantes, CSUP = Cadres supérieurs, CMOY= Cadres moyens, EMPL= Employés, OUVR = Ouvriers, INAC = Inactifs.
-# \end{tiny}
 # 
 # et 
 # 
-# \begin{tiny}
 # PAO = Pain ordinaire, PAA = Autre pain, VIO = Vin ordinaire, VIA=Autre vin, POT= Pommes de terre, LEC=Légumes secs, RAI=Raisin de table, PLP= Plats préparés.
-# \end{tiny}
 # 
 # La matrice de corrélation des variables est alors
 # 
-# $$\begin{pmatrix}
+# $\begin{pmatrix}
 #    1.0000   &  -.7737    & 0.9262    & -.9058    & 0.6564  &   0.8886   &  -.8334  &   -.8558\\
 #     -.7737    & 1.0000    & -.6040    & 0.9044    & -.3329    & -.6734    & 0.9588    & 0.7712\\
 #    0.9262    & -.6040    & 1.0000    & -.7502    & 0.5171    & 0.7917   &  -.6690     &-.8280\\
@@ -289,11 +255,11 @@
 #   0.8886   &  -.6734    & 0.7917   &  -.8386    & 0.6029   &  1.0000   &  -.8245    & -.7509\\
 #   -.8334    & 0.9588    & -.6690    & 0.9239    & -.4099    & -.8245    & 1.0000     &0.8344\\
 #    -.8558    & 0.7712   &  -.8280   &  0.7198   &  -.5540    & -.7509  &   0.8344    & 1.0000\\
-# \end{pmatrix}$$
+# \end{pmatrix}$
 # 
 # et son analyse spectrale donne
 # 
-# \begin{tabular}{|c||c|c|c|}
+# $\begin{tabular}{|c||c|c|c|}
 # \hline
 #                       &    Valeur propre  &      Variance expliquée  &  Variance cumulative expliquée\\
 # \hline
@@ -306,54 +272,30 @@
 #                      7    &0.00344677    &       0.0004       & 1.0000\\
 #                      8    &0.00000000        &              0.0000      &  1.0000\\
 # \hline
-# \end{tabular}
+# \end{tabular}$
 # 
 # 
 # Le critère de Kaiser  conduit à sélectionner un seul axe, qui retient 77\% de l'inertie totale. L'axe 2 retenant 11\% de l'inertie, il peut être  intéressant de le rajouter à l'étude pour expliquer près de 90\% de la variance des données. Les figures \ref{Fig:var} et \ref{Fig:ind} représentent les variables et les individus dans le plan des deux premiers vecteurs propres.
 # 
-# % \begin{figure}
-# %  \begin{center}
-# %  \hspace*{\stretch{1}}
-# %  \subfigure[Représentation des variables\label{Fig:var}]{
-# %  \includegraphics[width=.45\columnwidth]{figures/ACP12var}}
-# %  \hspace*{\stretch{2}}
-# %  \subfigure[Représentation des individus.\label{Fig:ind}]{
-# %  \includegraphics[width=.45\columnwidth]{figures/ACP12ind}}
-# %  \hspace*{\stretch{1}}
-# %  \caption{Représentation sur le plan des deux premiers vecteurs propres.}
-# %  \end{center}
-# % \end{figure}
+# ![](./images/ex1.png)
 # 
-# \begin{figure}[hbtp!]
-#  \begin{center}
-#  \hspace*{\stretch{1}}
-#  \subfigure[Représentation des variables\label{Fig:var}]{
-#  \includegraphics[width=.4\columnwidth]{figures/pca_circle_12}}
-#  \hspace*{\stretch{2}}
-#  \subfigure[Représentation des individus.\label{Fig:ind}]{
-#  \includegraphics[width=.5\columnwidth]{figures/pca_points_12}}
-#  \hspace*{\stretch{1}}
-#  \caption{Représentation sur le plan des deux premiers vecteurs propres.}
-#  \end{center}
-# \end{figure}
 # 
 # L'interprétation de ce plan se fait séquentiellement, pour chaque axe et chaque nuage de points, en regardant les contributions à la formation des axes: 
-# \begin{itemize}
-# \item Axe 1 : 
-# \begin{itemize}
-# \item Variables :  les variables contribuant le plus à la formation de l'axe 1 sont celles dont les coordonnées sur cet axe sont proches de 1 en valeur absolue. 
+# 
+# - Axe 1 : 
+# 1- Variables :  les variables contribuant le plus à la formation de l'axe 1 sont celles dont les coordonnées sur cet axe sont proches de 1 en valeur absolue. 
 # PAA et VIO sont très proches de la contribution moyenne, on les intègre donc dans l'interprétation de l'axe si elles vont dans le sens de l'interprétation que l'on peut en faire, sans elles. L'axe 1 oppose les individus consommant du pain ordinaire, des légumes secs (et éventuellement du vin ordinaire) à ceux qui consomment du raisin, du vin (éventuellement du pain) plus sophistiqué et des plats préparés. L'axe 1, et donc la première composante principale, mesure la répartition entre aliments ordinaires bon marché et aliments plus recherchés.
 # 
 # Toutes les variables sont bien représentées sur l'axe (la qualité de représentation est égale à la coordonnée au carré). D'un point de vue graphique, une variable bien représentée est proche du bord du cercle des corrélation et à proximité de l'axe. La première composante principale explique donc correctement tous les types de consommations alimentaires.
 # 
-# \item Individus : de même, les individus contribuant le plus à la formation de l'axe 1 sont ceux dont les coordonnées sur cet axe sont les plus élevées en valeur absolue. Le premier axe met donc en opposition les agriculteurs et les cadres supérieurs quant à leurs habitudes alimentaires. Les autres catégories socio-professionnelles, assez bien représentées sur l'axe à l'exception des inactifs (cf. contributions des individus sur l'axe 1), s'échelonnent suivant la hiérarchie habituelle. Elles sont bien expliquées par l'axe.
+# 2- Individus : de même, les individus contribuant le plus à la formation de l'axe 1 sont ceux dont les coordonnées sur cet axe sont les plus élevées en valeur absolue. Le premier axe met donc en opposition les agriculteurs et les cadres supérieurs quant à leurs habitudes alimentaires. Les autres catégories socio-professionnelles, assez bien représentées sur l'axe à l'exception des inactifs (cf. contributions des individus sur l'axe 1), s'échelonnent suivant la hiérarchie habituelle. Elles sont bien expliquées par l'axe.
 # \end{itemize}
-# \item Axe 2 : 
-# \begin{itemize}
-# \item Variables : L'axe 2 est défini par les variables POT et PAA. Compte tenu de la différence de contribution existant entre ces deux variables, de la contribution élevée de POT (55\%), et de la qualité de représentation moyenne de PAA, la deuxième composante principale peut être considérée comme essentiellement liée à la consommation de pommes de terre. Les variables, à l'exception de POT et de PAA (dans une moindre mesure) sont assez mal représentées sur l'axe. La deuxième composante principale n'explique donc qu'un aspect très particulier de la consommation alimentaire.
-# \item Individus : Pour repérer les individus ayant une contribution significative, on compare les coordonnées des individus sur l'axe 2, à la racine de la deuxième valeur propre  =0,94, le signe donnant le sens de contribution.
-# \end{itemize}
-# \end{itemize}
+# 
+# - Axe 2 : 
+# 1- Variables : L'axe 2 est défini par les variables POT et PAA. Compte tenu de la différence de contribution existant entre ces deux variables, de la contribution élevée de POT (55\%), et de la qualité de représentation moyenne de PAA, la deuxième composante principale peut être considérée comme essentiellement liée à la consommation de pommes de terre. Les variables, à l'exception de POT et de PAA (dans une moindre mesure) sont assez mal représentées sur l'axe. La deuxième composante principale n'explique donc qu'un aspect très particulier de la consommation alimentaire.
+# 2- Individus : Pour repérer les individus ayant une contribution significative, on compare les coordonnées des individus sur l'axe 2, à la racine de la deuxième valeur propre  =0,94, le signe donnant le sens de contribution.
+# 
+# 
 # 
 # L'axe 1 reflète donc l'opposition qui existe entre les catégories socio-professionnelles dans leur alimentation, opposant les CSP modestes qui consomment des produits basiques aux catégories favorisées qui consomment des produits plus recherchés. L'axe 2 reflète quant à lui la particularité des inactifs quant à leur alimentation, fortement composée de pommes de terre (un retour aux données d'origine vient confirmer cette conclusion).
 # 
