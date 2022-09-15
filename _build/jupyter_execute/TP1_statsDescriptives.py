@@ -222,15 +222,15 @@ g = result.values[:,1]
 #TODO
 
 
-# In[21]:
+# In[26]:
 
 
-N
+
 
 
 # Les effectifs étant trop faibles, fusionner les deux premières colonnes
 
-# In[27]:
+# In[21]:
 
 
 #TODO
@@ -238,7 +238,7 @@ N
 
 # Construire le tableau théorique, en supposant l'indépendance des variables
 
-# In[28]:
+# In[22]:
 
 
 #TODO
@@ -246,7 +246,7 @@ N
 
 # Calculer la distance du $\chi^2$ entre les variables $x$ et $ne$. Ces deux variables sont elles liées ou sont elles indépendantes ? Que peut on en déduire sur le choix de l’école ?
 
-# In[29]:
+# In[23]:
 
 
 #TODO
