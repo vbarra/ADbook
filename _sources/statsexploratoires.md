@@ -30,15 +30,17 @@ Dans la suite, les données seront des tableaux $n\times p$ de variables quantit
  En analyse en composantes principales, on raisonne souvent sur des variables centrées et/ou réduites.
 ##### Données centrées
  Notons $\mathbf{g} = \left ( \bar{x}^1\cdots \bar{x}^p\right )$ le vecteur des moyennes arithmétiques de chaque variable (centre de gravité) : 
- $$\mathbf{g}={\bf X^TD\mathbf{1}}$$
+ 
+ $\mathbf{g}={\bf X^TD\mathbf{1}}$
+ 
  où ${\bf D}$ est une matrice diagonale de poids,  chaque $d_{ii}$ donnant l'importance de l'individu $i$ dans les données (le plus souvent ${\bf D}=\frac{1}{n}{ \mathbb{I}}$),  et $\mathbf{1}$ est le vecteur de $\mathbb{R}^n$ dont toutes les composantes sont égales à 1. Le tableau ${\bf Y}={\bf X}-\mathbf{1}\mathbf{g}^T=({ \mathbb{I}}-\mathbf{1}\mathbf{1}^T{\bf D}){\bf X}$ est le tableau centré associé à ${\bf X}$.
+
 ##### Données réduites
  La matrice de variance/covariance des données centrées est égale à 
- $${\bf V} = {\bf X^TDX} - \mathbf{g}\mathbf{g^T} = {\bf Y^TDY}$$
- Si on note ${\bf D_{1/\sigma}}$ la matrice diagonale des inverses des écarts-types des variables, alors 
- $${\bf Z}={\bf YD_{1/\sigma}}$$
- est la matrice des données centrées réduites. La matrice 
- $${\bf R}={\bf D_{1/\sigma}VD_{1/\sigma}}={\bf Z^TDZ}$$ 
+ {\bf V} = {\bf X^TDX} - \mathbf{g}\mathbf{g^T} = {\bf Y^TDY}$.
+
+ Si on note ${\bf D_{1/\sigma}}$ la matrice diagonale des inverses des écarts-types des variables, alors  ${\bf Z}={\bf YD_{1/\sigma}}$ 
+ est la matrice des données centrées réduites. La matrice ${\bf R}={\bf D_{1/\sigma}VD_{1/\sigma}}={\bf Z^TDZ}$ 
  est la matrice de corrélation des données et résume la structure des dépendances linéaires entre les $p$ variables.
  
 

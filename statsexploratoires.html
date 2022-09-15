@@ -508,19 +508,17 @@ title="Print to PDF"
 <p>En analyse en composantes principales, on raisonne souvent sur des variables centrées et/ou réduites.</p>
 <div class="section" id="donnees-centrees">
 <h5>Données centrées<a class="headerlink" href="#donnees-centrees" title="Permalink to this headline">#</a></h5>
-<p>Notons <span class="math notranslate nohighlight">\(\mathbf{g} = \left ( \bar{x}^1\cdots \bar{x}^p\right )\)</span> le vecteur des moyennes arithmétiques de chaque variable (centre de gravité) :
-$<span class="math notranslate nohighlight">\(\mathbf{g}={\bf X^TD\mathbf{1}}\)</span><span class="math notranslate nohighlight">\(
- où \)</span>{\bf D}<span class="math notranslate nohighlight">\( est une matrice diagonale de poids,  chaque \)</span>d_{ii}<span class="math notranslate nohighlight">\( donnant l'importance de l'individu \)</span>i<span class="math notranslate nohighlight">\( dans les données (le plus souvent \)</span>{\bf D}=\frac{1}{n}{ \mathbb{I}}<span class="math notranslate nohighlight">\(),  et \)</span>\mathbf{1}<span class="math notranslate nohighlight">\( est le vecteur de \)</span>\mathbb{R}^n<span class="math notranslate nohighlight">\( dont toutes les composantes sont égales à 1. Le tableau \)</span>{\bf Y}={\bf X}-\mathbf{1}\mathbf{g}^T=({ \mathbb{I}}-\mathbf{1}\mathbf{1}^T{\bf D}){\bf X}<span class="math notranslate nohighlight">\( est le tableau centré associé à \)</span>{\bf X}$.</p>
+<p>Notons <span class="math notranslate nohighlight">\(\mathbf{g} = \left ( \bar{x}^1\cdots \bar{x}^p\right )\)</span> le vecteur des moyennes arithmétiques de chaque variable (centre de gravité) :</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{g}={\bf X^TD\mathbf{1}}\)</span></p>
+<p>où <span class="math notranslate nohighlight">\({\bf D}\)</span> est une matrice diagonale de poids,  chaque <span class="math notranslate nohighlight">\(d_{ii}\)</span> donnant l’importance de l’individu <span class="math notranslate nohighlight">\(i\)</span> dans les données (le plus souvent <span class="math notranslate nohighlight">\({\bf D}=\frac{1}{n}{ \mathbb{I}}\)</span>),  et <span class="math notranslate nohighlight">\(\mathbf{1}\)</span> est le vecteur de <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> dont toutes les composantes sont égales à 1. Le tableau <span class="math notranslate nohighlight">\({\bf Y}={\bf X}-\mathbf{1}\mathbf{g}^T=({ \mathbb{I}}-\mathbf{1}\mathbf{1}^T{\bf D}){\bf X}\)</span> est le tableau centré associé à <span class="math notranslate nohighlight">\({\bf X}\)</span>.</p>
 </div>
 <div class="section" id="donnees-reduites">
 <h5>Données réduites<a class="headerlink" href="#donnees-reduites" title="Permalink to this headline">#</a></h5>
 <p>La matrice de variance/covariance des données centrées est égale à
-$<span class="math notranslate nohighlight">\({\bf V} = {\bf X^TDX} - \mathbf{g}\mathbf{g^T} = {\bf Y^TDY}\)</span><span class="math notranslate nohighlight">\(
- Si on note \)</span>{\bf D_{1/\sigma}}<span class="math notranslate nohighlight">\( la matrice diagonale des inverses des écarts-types des variables, alors 
- \)</span><span class="math notranslate nohighlight">\({\bf Z}={\bf YD_{1/\sigma}}\)</span><span class="math notranslate nohighlight">\(
- est la matrice des données centrées réduites. La matrice 
- \)</span><span class="math notranslate nohighlight">\({\bf R}={\bf D_{1/\sigma}VD_{1/\sigma}}={\bf Z^TDZ}\)</span><span class="math notranslate nohighlight">\( 
- est la matrice de corrélation des données et résume la structure des dépendances linéaires entre les \)</span>p$ variables.</p>
+{\bf V} = {\bf X^TDX} - \mathbf{g}\mathbf{g^T} = {\bf Y^TDY}$.</p>
+<p>Si on note <span class="math notranslate nohighlight">\({\bf D_{1/\sigma}}\)</span> la matrice diagonale des inverses des écarts-types des variables, alors  <span class="math notranslate nohighlight">\({\bf Z}={\bf YD_{1/\sigma}}\)</span>
+est la matrice des données centrées réduites. La matrice <span class="math notranslate nohighlight">\({\bf R}={\bf D_{1/\sigma}VD_{1/\sigma}}={\bf Z^TDZ}\)</span>
+est la matrice de corrélation des données et résume la structure des dépendances linéaires entre les <span class="math notranslate nohighlight">\(p\)</span> variables.</p>
 </div>
 </div>
 <div class="section" id="projection-des-individus-sur-un-sous-espace">
