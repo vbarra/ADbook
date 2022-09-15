@@ -322,77 +322,83 @@ Nous proposons ici d'implémenter entièrement l'ACP, pour bien comprendre les m
 ```{code-cell} ipython3
 import numpy as np
 import matplotlib.pyplot as plt
-plt.rcParams['axes.labelsize'] = 12
-plt.rcParams['xtick.labelsize'] = 12
-plt.rcParams['ytick.labelsize'] = 12
+import pandas as pd 
+
+pd.options.mode.chained_assignment = None
+
+# Données
+vins = pd.read_csv("../data/vins.csv",delimiter=",",header=None)
+cat_vins = vins.loc[: , 0]
+X = vins.loc[:,1:vins.shape[1]]
+X = np.array(X)
+n,p = X.shape
+ind = np.arange(n)
+variables = ['% alcool', 'acide malique', 'cendres', 'alcalinité', 'magnésium', 'phénols' , 
+                'flavonoïdes', 'non flavanoïdes', 'proanthocyanidines', 'couleur', 'teinte', 
+                'OD280/OD315','proline']
+
+# Affichage d'un tableau
+def print_tab (n, p, ind, tab):
+    r = " " * 12 + "\t"
+    c = ['CP'+str(i+1) for i in range(p)]
+    for j in range(p - 1):
+        r += c[j] + "\t"
+    r += c[p - 1] + " \n"
+    for i in range(n):
+        r += "  %8.8s\t" % ind[i]
+        for j in range(p - 1):
+            r += "%.2f \t" % tab[i][j]
+        r += "%.2f\n" % tab[i][p - 1]
+    return r
 ``` 
 
-#### Définition de quelques outils
 
-On définit ici quelques fonctions utiles pour l'affichage des résultats :
-- screeplot : variance expliquée en fonction des composantes principales
-- CercleCorrelation : affichage du cercle des corrélations
-- biplot : affichage simultané des individus et des variables dans un plan principal
 
-```{code-cell} ipython3
-def screeplot(Xtr, displayx = True):
-    y = np.std(Xtr, axis=0)**2
-    x = np.arange(len(y)) + 1
-    plt.plot(x, y, "o-")
-    if displayx :
-        plt.xticks(x, ["CP "+str(i) for i in x], rotation=60)
-    plt.ylabel("Variance")
-    plt.xlabel("CP")
-    plt.title("Scree Plot")
-```
+#### Préparation des données
+
+##### Données centrées
+$g=X^TD{\bf 1}$ = Vecteur des moyennes arithmétiques de chaque variable
+
+$D=\frac{1}{n}I$ = Matrice diagonale de poids, chaque $d_{ii}$ donnant l'importance de l'individu $i$ dans les données
 
 ```{code-cell} ipython3
-def CercleCorrelation(pca,np1,np2,data,nom_features):
-    plt.Circle((0,0),radius=10, color='b', fill=False)
-    circle1=plt.Circle((0,0),radius=1, color='b', fill=False)
-    fig = plt.gcf()
-    fig.gca().add_artist(circle1)
-
-    for idx in range(len(nom_features)):
-        str1 = "CP" + str(np1)
-        str2 = "CP" + str(np2)
-        x = pca.components_[np1][idx]
-        y = pca.components_[np2][idx]
-        plt.plot([0.0,x],[0.0,y],'k-')
-        plt.plot(x, y, 'rx')
-        plt.annotate(nom_features[idx], xy=(x,y))
-    plt.xlabel(str1 +" (%s%%)" % str(pca.explained_variance_ratio_[np1])[:4].lstrip("0."))
-    plt.ylabel(str2 +" (%s%%)"% str(pca.explained_variance_ratio_[np2])[:4].lstrip("0."))
-    plt.xlim((-1,1))
-    plt.ylim((-1,1))
-    plt.title("Cercle des corrélations")
+Xt = np.transpose(X)
+D = 1./n * np.identity(n)
+un = np.transpose(np.array([n * [1]]))
+g = np.matmul (np.matmul (Xt, D), un)
+print ('g = \n',g)
 ```
 
+$Y = X - {\bf 1} g^T = (I - {\bf 11}^TD)X$ = Tableau centré associé à $X$
 
 ```{code-cell} ipython3
-def biplot(pca,np1,np2,data,nom_features):  
-    cp1 = pca.components_[np1]
-    cp2 = pca.components_[np2]
-    xs = pca.transform(data)[:,np1] 
-    ys = pca.transform(data)[:,np2]
-    for i in range(len(cp1)):
-        plt.arrow(0, 0, cp1[i]*max(xs), cp2[i]*max(ys),
-                  color='r', width=0.0005, head_width=0.0025)
-        plt.text(cp1[i]*max(xs)*1.2, cp2[i]*max(ys)*1.2,
-                 nom_features[i], color='r')
-
-    for i in range(len(xs)):
-        plt.plot(xs[i], ys[i], 'bo')
-        plt.text(xs[i]*1.2, ys[i]*1.2, i, color='b')
-    plt.xlabel("CP" + str(np1) +" (%s%%)" % str(pca.explained_variance_ratio_[np1])[:4].lstrip("0."))
-    plt.ylabel("CP" + str(np2) +" (%s%%)"% str(pca.explained_variance_ratio_[np2])[:4].lstrip("0."))
-    plt.title("Biplot individus / variables sur les CP" +str(np1)+" et " + str(np2))
-    plt.tight_layout()
+gt = np.transpose(g)
+Y = X - np.matmul (un, gt)
 ```
 
+##### Données réduites
+$V=X^TDX-gg^T=Y^TDY$ = Matrice de variance/covariance.
 
+```{code-cell} ipython3
+Yt = np.transpose(Y)
+V = np.matmul (np.matmul (Yt, D), Y)
+```
 
+$Z = Y D_{1/\sigma}$ = Matrice des données centrées réduites
 
+$R = D_{1/\sigma}VD_{1/\sigma} = Z^T  D  Z$ = Matrice (symétrique) de variance/covariance des données centrées réduites.
+
+```{code-cell} ipython3
+sigma = seq = [np.std(x) for x in Xt]
+i_sigma = [1./s for s in sigma]
+D_sigma = i_sigma * np.identity(p)
+Z = np.matmul (Y, D_sigma)
+R = np.matmul (np.matmul(D_sigma, V), D_sigma)
+plt.imshow(R)
+plt.title("Matrice de corrélation")
+plt.tight_layout()
+plt.colorbar();
+```
 
 ## Analyse Factorielle des correspondances
 
