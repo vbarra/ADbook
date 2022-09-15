@@ -8,4 +8,6 @@ chapters:
 - file: Stats
 - file: statsdescriptives
 - file: TP1_statsDescriptives
+- file: statsexploratoires
+- file: regression
 - file: genindex
