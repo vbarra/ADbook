@@ -320,7 +320,7 @@ import pandas as pd
 pd.options.mode.chained_assignment = None
 
 # Données
-vins = pd.read_csv("../data/vins.csv",delimiter=",",header=None)
+vins = pd.read_csv("./data/vins.csv",delimiter=",",header=None)
 cat_vins = vins.loc[: , 0]
 X = vins.loc[:,1:vins.shape[1]]
 X = np.array(X)
@@ -352,7 +352,7 @@ def print_tab (n, p, ind, tab):
 # 
 # $D=\frac{1}{n}I$ = Matrice diagonale de poids, chaque $d_{ii}$ donnant l'importance de l'individu $i$ dans les données
 
-# In[ ]:
+# In[2]:
 
 
 Xt = np.transpose(X)
@@ -364,7 +364,7 @@ print ('g = \n',g)
 
 # $Y = X - {\bf 1} g^T = (I - {\bf 11}^TD)X$ = Tableau centré associé à $X$
 
-# In[ ]:
+# In[3]:
 
 
 gt = np.transpose(g)
@@ -374,7 +374,7 @@ Y = X - np.matmul (un, gt)
 # ##### Données réduites
 # $V=X^TDX-gg^T=Y^TDY$ = Matrice de variance/covariance.
 
-# In[ ]:
+# In[4]:
 
 
 Yt = np.transpose(Y)
@@ -385,7 +385,7 @@ V = np.matmul (np.matmul (Yt, D), Y)
 # 
 # $R = D_{1/\sigma}VD_{1/\sigma} = Z^T  D  Z$ = Matrice (symétrique) de variance/covariance des données centrées réduites.
 
-# In[ ]:
+# In[5]:
 
 
 sigma = seq = [np.std(x) for x in Xt]
