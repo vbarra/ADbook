@@ -806,7 +806,7 @@ suit une loi du <span class="math notranslate nohighlight">\(\chi^2\)</span> de 
 <p>Le critère couramment utilisé est le pourcentage d’inertie totale expliquée (figure \ref{F:inertie}), qui s’exprime sur les <span class="math notranslate nohighlight">\(k\)</span> premiers axes par :</p>
 <p><span class="math notranslate nohighlight">\(\frac{\displaystyle\sum_{j=1}^k \lambda_j}{\displaystyle\sum_{j=1}^p \lambda_j}\)</span>
 Un seuil par exemple de 90% d’inertie totale expliquée donne une valeur de <span class="math notranslate nohighlight">\(k\)</span> correspondante. Attention cependant, le pourcentage d’inertie doit faire intervenir le nombre de variables initiales.</p>
-<p><img alt="" src="images/scree.png" /></p>
+<p><img alt="" src="_images/scree.png" /></p>
 </div>
 <div class="section" id="mesures-locales">
 <h5>Mesures locales<a class="headerlink" href="#mesures-locales" title="Permalink to this headline">#</a></h5>
@@ -832,7 +832,7 @@ Un seuil par exemple de 90% d’inertie totale expliquée donne une valeur de <s
 <p><span class="math notranslate nohighlight">\((\mathbf{z^j})^T\mathbf D\mathbf Z\)</span> est la <span class="math notranslate nohighlight">\(j^e\)</span> ligne de <span class="math notranslate nohighlight">\(\mathbf Z^T\mathbf D\mathbf Z=\mathbf R\)</span> donc <span class="math notranslate nohighlight">\((\mathbf{z^j})^T\mathbf D \mathbf Z \mathbf{u}\)</span> est la <span class="math notranslate nohighlight">\(j^e\)</span> composante de <span class="math notranslate nohighlight">\(\mathbf R\mathbf{u}=\lambda \mathbf{u}\)</span> d’où</p>
 <p><span class="math notranslate nohighlight">\(r(\mathbf{c},x^j)=\sqrt{\lambda}u_j\)</span></p>
 <p>Ces calculs s’effectuent pour chaque composante principale. Pour un couple de composantes principales <span class="math notranslate nohighlight">\(\mathbf{c_1}\)</span> et <span class="math notranslate nohighlight">\(\mathbf{c_2}\)</span> par exemple on représente fréquemment les corrélations sur une figure appelée « cercle des corrélations» (figure \ref{F:cercle}) où chaque variable <span class="math notranslate nohighlight">\(x^j\)</span> est repérée par un point d’abscisse <span class="math notranslate nohighlight">\(r(\mathbf{c_1},x^j)\)</span> et d’ordonnée <span class="math notranslate nohighlight">\(r(\mathbf{c_2},x^j)\)</span>.</p>
-<p><img alt="" src="images/cercle.png" /></p>
+<p><img alt="" src="_images/cercle.png" /></p>
 <div class="proof remark dropdown admonition" id="remark-2">
 <p class="admonition-title"><span class="caption-number">Remark 8 </span></p>
 <div class="remark-content section" id="proof-content">
@@ -848,9 +848,9 @@ Un seuil par exemple de 90% d’inertie totale expliquée donne une valeur de <s
 <p><span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^np_ic_{ki}^2=\lambda_k\)</span>
 où <span class="math notranslate nohighlight">\(p_i\)</span> est le poids de l’individu <span class="math notranslate nohighlight">\(i\)</span>. On appelle alors contribution de l’individu <span class="math notranslate nohighlight">\(i\)</span> à la composante <span class="math notranslate nohighlight">\(\mathbf{c_k}\)</span> la quantité <span class="math notranslate nohighlight">\(\frac{p_ic_{ki}^2}{\lambda_k}\)</span>. Dans le cas où le poids est différent de <span class="math notranslate nohighlight">\(1/n\)</span> (certains individus sont “plus importants” que d’autres), la contribution est riche d’interprétation. Dans le cas contraire, elle n’apporte rien de plus que les coordonnées de l’individu.</p>
 <p>On peut alors positionner les individus sur les sous-espaces des premières composantes principales (plans factoriels). La figure suivante présente le positionnement de 329 villes américaines, où les 9 variables de qualité de vie précédentes ont été mesurées. Par soucis de lisibilité, seul les villes qui contribuent le plus à la création de la première composante principale ont leurs noms inscrits.</p>
-<p><img alt="" src="images/individus.png" /></p>
+<p><img alt="" src="_images/individus.png" /></p>
 <p>On peut également superposer les deux informations précédentes pour corréler le positionnement des villes selon les variables originales. La figure suivante présente les 329 villes précédentes, plongées dans <span class="math notranslate nohighlight">\(F_3\)</span>, les  anciennes variables étant matérialisées par des vecteurs dont la direction et la norme indiquent à quel point chaque variable contribue aux 3 premières composantes principales.</p>
-<p><img alt="" src="images/biplot.png" /></p>
+<p><img alt="" src="_images/biplot.png" /></p>
 <p>Il n’est pas souhaitable, et ceci surtout pour les premières composantes,  qu’un individu ait une contribution excessive car cela serait un facteur d’instabilité, le fait de retirer cet individu modifiant profondément le résultat de l’analyse. Si ce cas se produisait il y aurait intérêt à effectuer l’analyse en éliminant cet individu puis en le mettant en élément supplémentaire, s’il ne s’agit pas d’une donnée erronée qui a été ainsi mise en évidence.</p>
 </div>
 <div class="section" id="facteur-de-taille-facteur-de-forme">
