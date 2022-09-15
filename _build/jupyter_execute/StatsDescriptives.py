@@ -427,8 +427,7 @@ plt.show()
 # ```` 
 # Le coefficient de corrélation est donc la covariance normalisée par les écarts types marginaux des variables. Il mesure la dépendance linéaire entre $x$ et $y$. Il est compris dans l'intervalle [-1,1] est est positif (resp. négatif) si les points sont alignés le long d'une droite croissante (resp. décroissante), d'autant plus grand en valeur absolue que la dépendance linéaire est vérifiée. Dans le cas où le coefficient est nul, il n'existe pas de dépendance linéaire.
 # 
-# Pour connaître plus précisément la relation linéaire qui lie $x$ et $y$, on effectue une régression linéaire en calculant par exemple la droite de régression (chapitre~\ref{ch:regression}).
-# Si $y=a+bx$, il est facile de montrer que 
+# Pour connaître plus précisément la relation linéaire qui lie $x$ et $y$, on effectue une régression linéaire en calculant par exemple la droite de régression : si $y=a+bx$, il est facile de montrer que 
 # $b=\frac{\sigma_{xy}}{\sigma_x^2}\quad\textrm{et}\quad a=\bar{y}-b\bar{x}$
 # 
 # et la droite de régression s'écrit $y-\bar{y}=\frac{\sigma_{xy}}{\sigma_x^2}\left ( x-\bar{x}\right )$.
@@ -558,7 +557,7 @@ plt.show()
 # ```
 # 
 # ## Vers une analyse multivariée
-# Bien évidemment, dans la majorité des cas, un individu sera décrit par $p\geq 2$ variables. Si certains algorithmes de statistique descriptive multidimensionnelle sont abordés dans les chapitres suivants, il est néanmoins possible d'avoir une première approche exploratoire de ce cas.
+# Bien évidemment, dans la majorité des cas, un individu sera décrit par $p\geq 2$ variables. Si certains algorithmes de statistique descriptive multidimensionnelle sont abordés dans ce cours, il est néanmoins possible d'avoir une première approche exploratoire de ce cas.
 # 
 # ### Matrices de covariance et de corrélation
 # La première idée, lorsque l'on a observé $p$ variables sur $n$ individus, est de calculer les $p$ variances de ces variables, et les $\frac{p(p-1)}{2}$ covariances. Ces mesures sont regroupées dans une matrice $p\times p$, symétrique, semi définie positive, appelée matrice de variance-covariance (ou matrice des covariances), et classiquement notée $\boldsymbol\Sigma$.
