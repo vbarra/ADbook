@@ -327,7 +327,7 @@ import pandas as pd
 pd.options.mode.chained_assignment = None
 
 # Données
-vins = pd.read_csv("../data/vins.csv",delimiter=",",header=None)
+vins = pd.read_csv("./data/vins.csv",delimiter=",",header=None)
 cat_vins = vins.loc[: , 0]
 X = vins.loc[:,1:vins.shape[1]]
 X = np.array(X)
