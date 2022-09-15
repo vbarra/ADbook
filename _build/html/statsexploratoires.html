@@ -502,6 +502,18 @@ title="Print to PDF"
      Exemple
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation">
+     Implémentation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#definition-de-quelques-outils">
+       Définition de quelques outils
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -664,6 +676,18 @@ title="Print to PDF"
      Exemple
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation">
+     Implémentation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#definition-de-quelques-outils">
+       Définition de quelques outils
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -742,8 +766,8 @@ Tr({\bf PVP^TM})&amp;=&amp;Tr({\bf PVMP})\quad \textrm{car }{\bf P^TM}={\bf MP}\
 <h4>Elements principaux<a class="headerlink" href="#elements-principaux" title="Permalink to this headline">#</a></h4>
 <div class="section" id="axes-principaux">
 <h5>Axes principaux<a class="headerlink" href="#axes-principaux" title="Permalink to this headline">#</a></h5>
-<p>Rechercher un sous-espace de dimension 1 d’inertie maximale revient à rechercher une droite de <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> passant par le centre de gravité des données <span class="math notranslate nohighlight">\(\mathbf{g}\)</span> maximisant l’inertie du nuage projeté sur cet axe. Soit <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> un vecteur directeur de cette droite. La projection orthogonale sur la droite est définie par la matrice de projection
-$<span class="math notranslate nohighlight">\(\mathbf P=\frac{\mathbf{a}\mathbf{a}^T{\bf M}}{\mathbf{a}^T{\bf M}\mathbf{a}}\)</span>$</p>
+<p>Rechercher un sous-espace de dimension 1 d’inertie maximale revient à rechercher une droite de <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> passant par le centre de gravité des données <span class="math notranslate nohighlight">\(\mathbf{g}\)</span> maximisant l’inertie du nuage projeté sur cet axe. Soit <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> un vecteur directeur de cette droite. La projection orthogonale sur la droite est définie par la matrice de projection</p>
+<p><span class="math notranslate nohighlight">\(\mathbf P=\frac{\mathbf{a}\mathbf{a}^T{\bf M}}{\mathbf{a}^T{\bf M}\mathbf{a}}\)</span></p>
 <p>L’inertie du nuage projeté sur <span class="math notranslate nohighlight">\(Lin(\mathbf{a})\)</span> vaut alors
 <span class="math notranslate nohighlight">\(\begin{eqnarray*}
 Tr({\bf VMP})&amp;=&amp;Tr\left ({\bf VM}\frac{\mathbf{a}\mathbf{a}^T{\bf M}}{\mathbf{a}^T{\bf M}\mathbf{a}}\right )\\
@@ -913,7 +937,7 @@ INAC  &amp;138  &amp;7  &amp;117  &amp;74&amp;  53&amp; 8 &amp;12 &amp;20\\
                      8    &amp;0.00000000        &amp;              0.0000      &amp;  1.0000\\
 \hline
 \end{array}\)</span></p>
-<p>Le critère de Kaiser  conduit à sélectionner un seul axe, qui retient 77% de l’inertie totale. L’axe 2 retenant 11% de l’inertie, il peut être  intéressant de le rajouter à l’étude pour expliquer près de 90% de la variance des données. Les figures \ref{Fig:var} et \ref{Fig:ind} représentent les variables et les individus dans le plan des deux premiers vecteurs propres.</p>
+<p>Le critère de Kaiser  conduit à sélectionner un seul axe, qui retient 77% de l’inertie totale. L’axe 2 retenant 11% de l’inertie, il peut être  intéressant de le rajouter à l’étude pour expliquer près de 90% de la variance des données. Les suivantes représentent les variables et les individus dans le plan des deux premiers vecteurs propres.</p>
 <p><img alt="" src="_images/ex1.png" /></p>
 <p>L’interprétation de ce plan se fait séquentiellement, pour chaque axe et chaque nuage de points, en regardant les contributions à la formation des axes:</p>
 <ul class="simple">
@@ -930,6 +954,95 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 <p>1- <strong>Variables</strong> : L’axe 2 est défini par les variables POT et PAA. Compte tenu de la différence de contribution existant entre ces deux variables, de la contribution élevée de POT (55%), et de la qualité de représentation moyenne de PAA, la deuxième composante principale peut être considérée comme essentiellement liée à la consommation de pommes de terre. Les variables, à l’exception de POT et de PAA (dans une moindre mesure) sont assez mal représentées sur l’axe. La deuxième composante principale n’explique donc qu’un aspect très particulier de la consommation alimentaire.</p>
 <p>2- <strong>Individus</strong> : Pour repérer les individus ayant une contribution significative, on compare les coordonnées des individus sur l’axe 2, à la racine de la deuxième valeur propre  =0,94, le signe donnant le sens de contribution.</p>
 <p>L’axe 1 reflète donc l’opposition qui existe entre les catégories socio-professionnelles dans leur alimentation, opposant les CSP modestes qui consomment des produits basiques aux catégories favorisées qui consomment des produits plus recherchés. L’axe 2 reflète quant à lui la particularité des inactifs quant à leur alimentation, fortement composée de pommes de terre (un retour aux données d’origine vient confirmer cette conclusion).</p>
+</div>
+<div class="section" id="implementation">
+<h3>Implémentation<a class="headerlink" href="#implementation" title="Permalink to this headline">#</a></h3>
+<p>De nombreuses librairies Python permettent d’utiliser facilement l’ACP, notamment <a class="reference external" href="https://scikit-learn.org/stable/">scikit-learn</a> qui propose une méthode <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html?highlight=pca#sklearn.decomposition.PCA">PCA</a>.</p>
+<p>Nous proposons ici d’implémenter entièrement l’ACP, pour bien comprendre les mécanismes de cette approche.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.labelsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.labelsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.labelsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="definition-de-quelques-outils">
+<h4>Définition de quelques outils<a class="headerlink" href="#definition-de-quelques-outils" title="Permalink to this headline">#</a></h4>
+<p>On définit ici quelques fonctions utiles pour l’affichage des résultats :</p>
+<ul class="simple">
+<li><p>screeplot : variance expliquée en fonction des composantes principales</p></li>
+<li><p>CercleCorrelation : affichage du cercle des corrélations</p></li>
+<li><p>biplot : affichage simultané des individus et des variables dans un plan principal</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">screeplot</span><span class="p">(</span><span class="n">Xtr</span><span class="p">,</span> <span class="n">displayx</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">Xtr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;o-&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">displayx</span> <span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;CP &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Variance&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;CP&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Scree Plot&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">CercleCorrelation</span><span class="p">(</span><span class="n">pca</span><span class="p">,</span><span class="n">np1</span><span class="p">,</span><span class="n">np2</span><span class="p">,</span><span class="n">data</span><span class="p">,</span><span class="n">nom_features</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">radius</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">circle1</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">radius</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">circle1</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nom_features</span><span class="p">)):</span>
+        <span class="n">str1</span> <span class="o">=</span> <span class="s2">&quot;CP&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np1</span><span class="p">)</span>
+        <span class="n">str2</span> <span class="o">=</span> <span class="s2">&quot;CP&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np2</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">components_</span><span class="p">[</span><span class="n">np1</span><span class="p">][</span><span class="n">idx</span><span class="p">]</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">components_</span><span class="p">[</span><span class="n">np2</span><span class="p">][</span><span class="n">idx</span><span class="p">]</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="n">x</span><span class="p">],[</span><span class="mf">0.0</span><span class="p">,</span><span class="n">y</span><span class="p">],</span><span class="s1">&#39;k-&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;rx&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">nom_features</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">str1</span> <span class="o">+</span><span class="s2">&quot; (</span><span class="si">%s%%</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">[</span><span class="n">np1</span><span class="p">])[:</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;0.&quot;</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">str2</span> <span class="o">+</span><span class="s2">&quot; (</span><span class="si">%s%%</span><span class="s2">)&quot;</span><span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">[</span><span class="n">np2</span><span class="p">])[:</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;0.&quot;</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Cercle des corrélations&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">biplot</span><span class="p">(</span><span class="n">pca</span><span class="p">,</span><span class="n">np1</span><span class="p">,</span><span class="n">np2</span><span class="p">,</span><span class="n">data</span><span class="p">,</span><span class="n">nom_features</span><span class="p">):</span>  
+    <span class="n">cp1</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">components_</span><span class="p">[</span><span class="n">np1</span><span class="p">]</span>
+    <span class="n">cp2</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">components_</span><span class="p">[</span><span class="n">np2</span><span class="p">]</span>
+    <span class="n">xs</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)[:,</span><span class="n">np1</span><span class="p">]</span> 
+    <span class="n">ys</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)[:,</span><span class="n">np2</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cp1</span><span class="p">)):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">cp1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">xs</span><span class="p">),</span> <span class="n">cp2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">ys</span><span class="p">),</span>
+                  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.0005</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.0025</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">cp1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span><span class="o">*</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">cp2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">ys</span><span class="p">)</span><span class="o">*</span><span class="mf">1.2</span><span class="p">,</span>
+                 <span class="n">nom_features</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ys</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">ys</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;CP&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np1</span><span class="p">)</span> <span class="o">+</span><span class="s2">&quot; (</span><span class="si">%s%%</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">[</span><span class="n">np1</span><span class="p">])[:</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;0.&quot;</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;CP&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np2</span><span class="p">)</span> <span class="o">+</span><span class="s2">&quot; (</span><span class="si">%s%%</span><span class="s2">)&quot;</span><span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">[</span><span class="n">np2</span><span class="p">])[:</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;0.&quot;</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Biplot individus / variables sur les CP&quot;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">np1</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; et &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np2</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="analyse-factorielle-des-correspondances">

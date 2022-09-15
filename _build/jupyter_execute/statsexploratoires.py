@@ -67,7 +67,8 @@
 # #### Elements principaux
 # ##### Axes principaux
 # Rechercher un sous-espace de dimension 1 d'inertie maximale revient à rechercher une droite de $\mathbb{R}^n$ passant par le centre de gravité des données $\mathbf{g}$ maximisant l'inertie du nuage projeté sur cet axe. Soit $\mathbf{a}$ un vecteur directeur de cette droite. La projection orthogonale sur la droite est définie par la matrice de projection 
-# $$\mathbf P=\frac{\mathbf{a}\mathbf{a}^T{\bf M}}{\mathbf{a}^T{\bf M}\mathbf{a}}$$
+# 
+# $\mathbf P=\frac{\mathbf{a}\mathbf{a}^T{\bf M}}{\mathbf{a}^T{\bf M}\mathbf{a}}$
 # 
 # L'inertie du nuage projeté sur $Lin(\mathbf{a})$ vaut alors
 # $\begin{eqnarray*}
@@ -276,7 +277,7 @@
 # \end{array}$
 # 
 # 
-# Le critère de Kaiser  conduit à sélectionner un seul axe, qui retient 77\% de l'inertie totale. L'axe 2 retenant 11\% de l'inertie, il peut être  intéressant de le rajouter à l'étude pour expliquer près de 90\% de la variance des données. Les figures \ref{Fig:var} et \ref{Fig:ind} représentent les variables et les individus dans le plan des deux premiers vecteurs propres.
+# Le critère de Kaiser  conduit à sélectionner un seul axe, qui retient 77\% de l'inertie totale. L'axe 2 retenant 11\% de l'inertie, il peut être  intéressant de le rajouter à l'étude pour expliquer près de 90\% de la variance des données. Les suivantes représentent les variables et les individus dans le plan des deux premiers vecteurs propres.
 # 
 # ![](./images/ex1.png)
 # 
@@ -303,7 +304,90 @@
 # 
 # L'axe 1 reflète donc l'opposition qui existe entre les catégories socio-professionnelles dans leur alimentation, opposant les CSP modestes qui consomment des produits basiques aux catégories favorisées qui consomment des produits plus recherchés. L'axe 2 reflète quant à lui la particularité des inactifs quant à leur alimentation, fortement composée de pommes de terre (un retour aux données d'origine vient confirmer cette conclusion).
 # 
+# ### Implémentation
 # 
+# De nombreuses librairies Python permettent d'utiliser facilement l'ACP, notamment [scikit-learn](https://scikit-learn.org/stable/) qui propose une méthode [PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html?highlight=pca#sklearn.decomposition.PCA).
+# 
+# Nous proposons ici d'implémenter entièrement l'ACP, pour bien comprendre les mécanismes de cette approche.
+
+# In[1]:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+plt.rcParams['axes.labelsize'] = 12
+plt.rcParams['xtick.labelsize'] = 12
+plt.rcParams['ytick.labelsize'] = 12
+
+
+# #### Définition de quelques outils
+# 
+# On définit ici quelques fonctions utiles pour l'affichage des résultats :
+# - screeplot : variance expliquée en fonction des composantes principales
+# - CercleCorrelation : affichage du cercle des corrélations
+# - biplot : affichage simultané des individus et des variables dans un plan principal
+
+# In[2]:
+
+
+def screeplot(Xtr, displayx = True):
+    y = np.std(Xtr, axis=0)**2
+    x = np.arange(len(y)) + 1
+    plt.plot(x, y, "o-")
+    if displayx :
+        plt.xticks(x, ["CP "+str(i) for i in x], rotation=60)
+    plt.ylabel("Variance")
+    plt.xlabel("CP")
+    plt.title("Scree Plot")
+
+
+# In[3]:
+
+
+def CercleCorrelation(pca,np1,np2,data,nom_features):
+    plt.Circle((0,0),radius=10, color='b', fill=False)
+    circle1=plt.Circle((0,0),radius=1, color='b', fill=False)
+    fig = plt.gcf()
+    fig.gca().add_artist(circle1)
+
+    for idx in range(len(nom_features)):
+        str1 = "CP" + str(np1)
+        str2 = "CP" + str(np2)
+        x = pca.components_[np1][idx]
+        y = pca.components_[np2][idx]
+        plt.plot([0.0,x],[0.0,y],'k-')
+        plt.plot(x, y, 'rx')
+        plt.annotate(nom_features[idx], xy=(x,y))
+    plt.xlabel(str1 +" (%s%%)" % str(pca.explained_variance_ratio_[np1])[:4].lstrip("0."))
+    plt.ylabel(str2 +" (%s%%)"% str(pca.explained_variance_ratio_[np2])[:4].lstrip("0."))
+    plt.xlim((-1,1))
+    plt.ylim((-1,1))
+    plt.title("Cercle des corrélations")
+
+
+# In[4]:
+
+
+def biplot(pca,np1,np2,data,nom_features):  
+    cp1 = pca.components_[np1]
+    cp2 = pca.components_[np2]
+    xs = pca.transform(data)[:,np1] 
+    ys = pca.transform(data)[:,np2]
+    for i in range(len(cp1)):
+        plt.arrow(0, 0, cp1[i]*max(xs), cp2[i]*max(ys),
+                  color='r', width=0.0005, head_width=0.0025)
+        plt.text(cp1[i]*max(xs)*1.2, cp2[i]*max(ys)*1.2,
+                 nom_features[i], color='r')
+
+    for i in range(len(xs)):
+        plt.plot(xs[i], ys[i], 'bo')
+        plt.text(xs[i]*1.2, ys[i]*1.2, i, color='b')
+    plt.xlabel("CP" + str(np1) +" (%s%%)" % str(pca.explained_variance_ratio_[np1])[:4].lstrip("0."))
+    plt.ylabel("CP" + str(np2) +" (%s%%)"% str(pca.explained_variance_ratio_[np2])[:4].lstrip("0."))
+    plt.title("Biplot individus / variables sur les CP" +str(np1)+" et " + str(np2))
+    plt.tight_layout()
+
+
 # ## Analyse Factorielle des correspondances
 # 
 # ## Analyse des correspondances multiples
