@@ -49,7 +49,7 @@ Le principe de la méthode est d'obtenir une représentation approchée du nuage
 
 Le choix de l'espace de projection est dicté par le critère suivant, qui revient à déformer le moins possible les distances en projection: le sous-espace de dimension $k$ recherché est tel que la moyenne des carrés des distances entre projections soit la plus grande possible. En définissant l'inertie d'un nuage de points comme la moyenne pondérée des carrés des distances au centre de gravité, le critère revient alors à maximiser l'inertie du nuage projeté sur $F_k$.
 
-Soit ${\bf P}$ la projection orthogonale sur $F_k$. Le nuage de points projeté est associé au tableau ${\bf XP^T}$ puisque chaque individu $\mathbf{e_i}$ se projette sur $F_k$ selon un vecteur colonne $\mathbf{Pe_i}$ ou un vecteur ligne $\mathbf{e_iP^T}$. 
+Soit ${\bf P}$ la projection orthogonale sur $F_k$. Le nuage de points projeté est associé au tableau ${\bf XP^T}$ puisque chaque individu $\mathbf{e_i}$ se projette sur $F_k$ selon un vecteur colonne $\mathbf{Pe_i}$ ou un vecteur ligne $\mathbf{e_i P^T}$. 
 
 La matrice de variance du tableau ${\bf XP^T}$ est, dans le cas où les variables sont centrées :
 ${\bf (XP^T)^TD(XP^T) }= {\bf PVP^T}$
