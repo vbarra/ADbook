@@ -844,13 +844,12 @@ Un seuil par exemple de 90% d’inertie totale expliquée donne une valeur de <s
 <div class="section" id="positionnement-des-individus">
 <h4>Positionnement des individus<a class="headerlink" href="#positionnement-des-individus" title="Permalink to this headline">#</a></h4>
 <p>Dire que <span class="math notranslate nohighlight">\(\mathbf{c_1}\)</span> est très corrélée à <span class="math notranslate nohighlight">\(x^j\)</span> signifie que les individus ayant une forte coordonnée positive sur l’axe 1 sont caractérisés par une valeur de <span class="math notranslate nohighlight">\(x^j\)</span> nettement supérieure à la moyenne.</p>
-<p>Il est très utile aussi de calculer pour chaque axe la contribution apportée par les divers individus à cet axe. Si <span class="math notranslate nohighlight">\(c_{ki}\)</span> est la valeur de la composante <span class="math notranslate nohighlight">\(k\)</span> pour le <span class="math notranslate nohighlight">\(i^e\)</span> individu, alors par construction
-$<span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^np_ic_{ki}^2=\lambda_k\)</span><span class="math notranslate nohighlight">\(
-où \)</span>p_i<span class="math notranslate nohighlight">\( est le poids de l'individu \)</span>i<span class="math notranslate nohighlight">\(. On appelle alors contribution de l'individu \)</span>i<span class="math notranslate nohighlight">\( à la composante \)</span>\mathbf{c_k}<span class="math notranslate nohighlight">\( la quantité \)</span>\frac{p_ic_{ki}^2}{\lambda_k}<span class="math notranslate nohighlight">\(. Dans le cas où le poids est différent de \)</span>1/n$ (certains individus sont “plus importants” que d’autres), la contribution est riche d’interprétation. Dans le cas contraire, elle n’apporte rien de plus que les coordonnées de l’individu.</p>
-<p>On peut alors positionner les individus sur les sous-espaces des premières composantes principales (plans factoriels). La figure \ref{F:plan2} présente le positionnement de 329 villes américaines, où les 9 variables de qualité de vie précédentes ont été mesurées. Par soucis de lisibilité, seul les villes qui contribuent le plus à la création de la première composante principale ont leurs noms inscrits.</p>
-<p>On peut afficher la projection des individus  (villes) sur le plan des deux premières composantes principales.
-<img alt="" src="images/individus.png" /></p>
-<p>On peut également superposer les deux informations précédentes pour corréler le positionnement des villes selon les variables originales. La figure \ref{F:biplot} présente les 329 villes précédentes, plongées dans <span class="math notranslate nohighlight">\(F_3\)</span>, les  anciennes variables étant matérialisées par des vecteurs dont la direction et la norme indiquent à quel point chaque variable contribue aux 3 premières composantes principales.</p>
+<p>Il est très utile aussi de calculer pour chaque axe la contribution apportée par les divers individus à cet axe. Si <span class="math notranslate nohighlight">\(c_{ki}\)</span> est la valeur de la composante <span class="math notranslate nohighlight">\(k\)</span> pour le <span class="math notranslate nohighlight">\(i^e\)</span> individu, alors par construction</p>
+<p><span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^np_ic_{ki}^2=\lambda_k\)</span>
+où <span class="math notranslate nohighlight">\(p_i\)</span> est le poids de l’individu <span class="math notranslate nohighlight">\(i\)</span>. On appelle alors contribution de l’individu <span class="math notranslate nohighlight">\(i\)</span> à la composante <span class="math notranslate nohighlight">\(\mathbf{c_k}\)</span> la quantité <span class="math notranslate nohighlight">\(\frac{p_ic_{ki}^2}{\lambda_k}\)</span>. Dans le cas où le poids est différent de <span class="math notranslate nohighlight">\(1/n\)</span> (certains individus sont “plus importants” que d’autres), la contribution est riche d’interprétation. Dans le cas contraire, elle n’apporte rien de plus que les coordonnées de l’individu.</p>
+<p>On peut alors positionner les individus sur les sous-espaces des premières composantes principales (plans factoriels). La figure suivante présente le positionnement de 329 villes américaines, où les 9 variables de qualité de vie précédentes ont été mesurées. Par soucis de lisibilité, seul les villes qui contribuent le plus à la création de la première composante principale ont leurs noms inscrits.</p>
+<p><img alt="" src="images/individus.png" /></p>
+<p>On peut également superposer les deux informations précédentes pour corréler le positionnement des villes selon les variables originales. La figure suivante présente les 329 villes précédentes, plongées dans <span class="math notranslate nohighlight">\(F_3\)</span>, les  anciennes variables étant matérialisées par des vecteurs dont la direction et la norme indiquent à quel point chaque variable contribue aux 3 premières composantes principales.</p>
 <p><img alt="" src="images/biplot.png" /></p>
 <p>Il n’est pas souhaitable, et ceci surtout pour les premières composantes,  qu’un individu ait une contribution excessive car cela serait un facteur d’instabilité, le fait de retirer cet individu modifiant profondément le résultat de l’analyse. Si ce cas se produisait il y aurait intérêt à effectuer l’analyse en éliminant cet individu puis en le mettant en élément supplémentaire, s’il ne s’agit pas d’une donnée erronée qui a été ainsi mise en évidence.</p>
 </div>
@@ -868,8 +867,8 @@ où \)</span>p_i<span class="math notranslate nohighlight">\( est le poids de l'
 <div class="section" id="exemple">
 <h3>Exemple<a class="headerlink" href="#exemple" title="Permalink to this headline">#</a></h3>
 <p>On étudie les consommations annuelles en 1972, exprimées en devises, de 8 denrées alimentaires (les variables), les individus étant 8 catégories socio-professionnelles (CSP) . Les données sont des moyennes par CSP :</p>
-<p><span class="math notranslate nohighlight">\(\begin{center}
-\begin{tabular}{|c|cccccccc|}
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{|c|cccccccc|}
 \hline
   &amp;PAO  &amp;PAA  &amp;VIO&amp; VIA&amp;  POT&amp;  LEC &amp;RAI&amp; PLP\\
 \hline
@@ -882,8 +881,8 @@ EMPL  &amp;111  &amp;4  &amp;72 &amp;66 &amp;34&amp;  6 &amp;10 &amp;28\\
 OUVR  &amp;130  &amp;3  &amp;76 &amp;52 &amp;43&amp;  7 &amp;7  &amp;16\\
 INAC  &amp;138  &amp;7  &amp;117  &amp;74&amp;  53&amp; 8 &amp;12 &amp;20\\
 \hline
-\end{tabular}
-\end{center}\)</span></p>
+\end{array}
+\)</span></p>
 <p>avec les notations suivantes :</p>
 <p>AGRI = Exploitants agricoles, SAAG= Salariés agricoles,   PRIN = Professions indépendantes, CSUP = Cadres supérieurs, CMOY= Cadres moyens, EMPL= Employés, OUVR = Ouvriers, INAC = Inactifs.</p>
 <p>et</p>
@@ -900,7 +899,7 @@ INAC  &amp;138  &amp;7  &amp;117  &amp;74&amp;  53&amp; 8 &amp;12 &amp;20\\
    -.8558    &amp; 0.7712   &amp;  -.8280   &amp;  0.7198   &amp;  -.5540    &amp; -.7509  &amp;   0.8344    &amp; 1.0000\\
 \end{pmatrix}\)</span></p>
 <p>et son analyse spectrale donne</p>
-<p><span class="math notranslate nohighlight">\(\begin{tabular}{|c||c|c|c|}
+<p><span class="math notranslate nohighlight">\(\begin{array}{|c||c|c|c|}
 \hline
                       &amp;    Valeur propre  &amp;      Variance expliquée  &amp;  Variance cumulative expliquée\\
 \hline
@@ -913,7 +912,7 @@ INAC  &amp;138  &amp;7  &amp;117  &amp;74&amp;  53&amp; 8 &amp;12 &amp;20\\
                      7    &amp;0.00344677    &amp;       0.0004       &amp; 1.0000\\
                      8    &amp;0.00000000        &amp;              0.0000      &amp;  1.0000\\
 \hline
-\end{tabular}\)</span></p>
+\end{array}\)</span></p>
 <p>Le critère de Kaiser  conduit à sélectionner un seul axe, qui retient 77% de l’inertie totale. L’axe 2 retenant 11% de l’inertie, il peut être  intéressant de le rajouter à l’étude pour expliquer près de 90% de la variance des données. Les figures \ref{Fig:var} et \ref{Fig:ind} représentent les variables et les individus dans le plan des deux premiers vecteurs propres.</p>
 <p><img alt="" src="_images/ex1.png" /></p>
 <p>L’interprétation de ce plan se fait séquentiellement, pour chaque axe et chaque nuage de points, en regardant les contributions à la formation des axes:</p>

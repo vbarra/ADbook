@@ -202,13 +202,12 @@ Il est très utile aussi de calculer pour chaque axe la contribution apportée p
 $\displaystyle\sum_{i=1}^np_ic_{ki}^2=\lambda_k$
 où $p_i$ est le poids de l'individu $i$. On appelle alors contribution de l'individu $i$ à la composante $\mathbf{c_k}$ la quantité $\frac{p_ic_{ki}^2}{\lambda_k}$. Dans le cas où le poids est différent de $1/n$ (certains individus sont "plus importants" que d'autres), la contribution est riche d'interprétation. Dans le cas contraire, elle n'apporte rien de plus que les coordonnées de l'individu.
 
-On peut alors positionner les individus sur les sous-espaces des premières composantes principales (plans factoriels). La figure \ref{F:plan2} présente le positionnement de 329 villes américaines, où les 9 variables de qualité de vie précédentes ont été mesurées. Par soucis de lisibilité, seul les villes qui contribuent le plus à la création de la première composante principale ont leurs noms inscrits.
+On peut alors positionner les individus sur les sous-espaces des premières composantes principales (plans factoriels). La figure suivante présente le positionnement de 329 villes américaines, où les 9 variables de qualité de vie précédentes ont été mesurées. Par soucis de lisibilité, seul les villes qui contribuent le plus à la création de la première composante principale ont leurs noms inscrits.
 
-On peut afficher la projection des individus  (villes) sur le plan des deux premières composantes principales.
 ![](./images/individus.png)
 
 
-On peut également superposer les deux informations précédentes pour corréler le positionnement des villes selon les variables originales. La figure \ref{F:biplot} présente les 329 villes précédentes, plongées dans $F_3$, les  anciennes variables étant matérialisées par des vecteurs dont la direction et la norme indiquent à quel point chaque variable contribue aux 3 premières composantes principales.
+On peut également superposer les deux informations précédentes pour corréler le positionnement des villes selon les variables originales. La figure suivante présente les 329 villes précédentes, plongées dans $F_3$, les  anciennes variables étant matérialisées par des vecteurs dont la direction et la norme indiquent à quel point chaque variable contribue aux 3 premières composantes principales.
 
 ![](./images/biplot.png)
 
@@ -229,8 +228,8 @@ En revanche une forte corrélation entre une composante principale et une variab
 ### Exemple
 On étudie les consommations annuelles en 1972, exprimées en devises, de 8 denrées alimentaires (les variables), les individus étant 8 catégories socio-professionnelles (CSP) . Les données sont des moyennes par CSP : 
 
-$\begin{center}
-\begin{tabular}{|c|cccccccc|}
+$
+\begin{array}{|c|cccccccc|}
 \hline
   &PAO  &PAA  &VIO& VIA&  POT&  LEC &RAI& PLP\\
 \hline
@@ -243,8 +242,8 @@ EMPL  &111  &4  &72 &66 &34&  6 &10 &28\\
 OUVR  &130  &3  &76 &52 &43&  7 &7  &16\\
 INAC  &138  &7  &117  &74&  53& 8 &12 &20\\
 \hline
-\end{tabular}
-\end{center}$
+\end{array}
+$
 
 avec les notations suivantes : 
 
@@ -269,7 +268,7 @@ $\begin{pmatrix}
 
 et son analyse spectrale donne
 
-$\begin{tabular}{|c||c|c|c|}
+$\begin{array}{|c||c|c|c|}
 \hline
                       &    Valeur propre  &      Variance expliquée  &  Variance cumulative expliquée\\
 \hline
@@ -282,7 +281,7 @@ $\begin{tabular}{|c||c|c|c|}
                      7    &0.00344677    &       0.0004       & 1.0000\\
                      8    &0.00000000        &              0.0000      &  1.0000\\
 \hline
-\end{tabular}$
+\end{array}$
 
 
 Le critère de Kaiser  conduit à sélectionner un seul axe, qui retient 77\% de l'inertie totale. L'axe 2 retenant 11\% de l'inertie, il peut être  intéressant de le rajouter à l'étude pour expliquer près de 90\% de la variance des données. Les figures \ref{Fig:var} et \ref{Fig:ind} représentent les variables et les individus dans le plan des deux premiers vecteurs propres.
