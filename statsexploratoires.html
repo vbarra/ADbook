@@ -522,6 +522,63 @@ title="Print to PDF"
          Données réduites
         </a>
        </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#inertie-du-nuage-de-points">
+         Inertie du nuage de points
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analyse-spectrale">
+       Analyse spectrale
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#calcul-des-composantes-principales">
+         Calcul des composantes principales
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#pourcentage-d-inertie-expliquee-par-un-axe">
+         Pourcentage d’inertie expliquée par un axe
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#critere-de-kaiser">
+         Critère de Kaiser
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id3">
+         Corrélation variables/facteurs
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#cercle-des-correlations-pour-un-couple-de-composantes-principales">
+         Cercle des corrélations pour un couple de composantes principales
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#contribution-des-variables">
+         Contribution des variables
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#representation-des-individus">
+         Représentation des individus
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#contribution-des-individus">
+         Contribution des individus
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#tableau-des-cosinus-carres">
+         Tableau des cosinus carrés
+        </a>
+       </li>
       </ul>
      </li>
     </ul>
@@ -706,6 +763,63 @@ title="Print to PDF"
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#id2">
          Données réduites
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#inertie-du-nuage-de-points">
+         Inertie du nuage de points
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analyse-spectrale">
+       Analyse spectrale
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#calcul-des-composantes-principales">
+         Calcul des composantes principales
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#pourcentage-d-inertie-expliquee-par-un-axe">
+         Pourcentage d’inertie expliquée par un axe
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#critere-de-kaiser">
+         Critère de Kaiser
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id3">
+         Corrélation variables/facteurs
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#cercle-des-correlations-pour-un-couple-de-composantes-principales">
+         Cercle des corrélations pour un couple de composantes principales
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#contribution-des-variables">
+         Contribution des variables
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#representation-des-individus">
+         Représentation des individus
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#contribution-des-individus">
+         Contribution des individus
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#tableau-des-cosinus-carres">
+         Tableau des cosinus carrés
         </a>
        </li>
       </ul>
@@ -1093,6 +1207,672 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/statsexploratoires_9_0.png" src="_images/statsexploratoires_9_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="inertie-du-nuage-de-points">
+<h5>Inertie du nuage de points<a class="headerlink" href="#inertie-du-nuage-de-points" title="Permalink to this headline">#</a></h5>
+<p><span class="math notranslate nohighlight">\(M\)</span> est une matrice symétrique définie positive correspondant à la métrique</p>
+<ul class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(M=D^2_{1/\sigma}\)</span> on calcule <span class="math notranslate nohighlight">\( \frac{1}{n}\displaystyle\sum_{i=1}^n (e_i - g)^T M (e_i-g) = \frac{1}{n}\displaystyle\sum_{i=1}^n (y_i)^T M y_i = Tr(VM)\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(M=I\)</span> on calcule <span class="math notranslate nohighlight">\( \frac{1}{n}\displaystyle\sum_{i=1}^n (z_i)^T M z_i = Tr(RM)\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calcul_inertie_somme</span> <span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
+    <span class="n">inertie</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">inertie</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> 
+    <span class="k">return</span> <span class="n">inertie</span> <span class="o">/</span> <span class="n">n</span>
+    
+<span class="k">def</span> <span class="nf">calcul_inertie_trace</span> <span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span> <span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">M</span><span class="p">))</span>
+
+<span class="c1"># Si les données sont centrées mais pas encore réduites  on travaille avec Y et V</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">D_sigma</span><span class="p">,</span> <span class="n">D_sigma</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">calcul_inertie_somme</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">M</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">calcul_inertie_trace</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">M</span><span class="p">))</span>
+
+<span class="c1"># Si les données sont centrées réduites, on travaille avec Z et R</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">calcul_inertie_somme</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">M</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">calcul_inertie_trace</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">M</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.999999999999995
+13.000000000000004
+12.999999999999998
+13.000000000000004
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="analyse-spectrale">
+<h4>Analyse spectrale<a class="headerlink" href="#analyse-spectrale" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eigenvalues</span><span class="p">,</span><span class="n">eigenvectors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+<span class="n">eigenvalues</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">u</span> <span class="o">=</span> <span class="p">[</span><span class="n">eigenvectors</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="calcul-des-composantes-principales">
+<h5>Calcul des composantes principales<a class="headerlink" href="#calcul-des-composantes-principales" title="Permalink to this headline">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span> <span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">u</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pourcentage-d-inertie-expliquee-par-un-axe">
+<h5>Pourcentage d’inertie expliquée par un axe<a class="headerlink" href="#pourcentage-d-inertie-expliquee-par-un-axe" title="Permalink to this headline">#</a></h5>
+<p>Pourcentage d’inertie cumulée expliquée par les <span class="math notranslate nohighlight">\(k\)</span> premiers axes : <span class="math notranslate nohighlight">\(\frac{\displaystyle\sum_{j=1}^k\lambda_j}{\displaystyle\sum_{j=1}^p\lambda_j}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i_lambda</span> <span class="o">=</span> <span class="p">[</span><span class="n">l</span><span class="o">/</span><span class="n">p</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">eigenvalues</span><span class="p">]</span>
+<span class="n">i_cum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">)</span><span class="o">/</span><span class="n">p</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">i_lambda</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Valeurs propres&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">i_cum</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">% d</span><span class="s1">e variance expliquée&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/statsexploratoires_17_0.png" src="_images/statsexploratoires_17_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="critere-de-kaiser">
+<h5>Critère de Kaiser<a class="headerlink" href="#critere-de-kaiser" title="Permalink to this headline">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nb_l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;On retient &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">nb_l</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; axes&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On retient 3 axes
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h5>Corrélation variables/facteurs<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">*</span> <span class="n">u</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="cercle-des-correlations-pour-un-couple-de-composantes-principales">
+<h5>Cercle des corrélations pour un couple de composantes principales<a class="headerlink" href="#cercle-des-correlations-pour-un-couple-de-composantes-principales" title="Permalink to this headline">#</a></h5>
+<p>Pour <span class="math notranslate nohighlight">\(c_1\)</span> et <span class="math notranslate nohighlight">\(c_2\)</span>, chaque variable <span class="math notranslate nohighlight">\(x_j\)</span> est repérée par un point d’abscisse <span class="math notranslate nohighlight">\(r(c_1,x^j)\)</span> et d’ordonnée <span class="math notranslate nohighlight">\(r(c_2, x_j)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i1</span> <span class="o">=</span> <span class="n">i_lambda</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">i2</span> <span class="o">=</span> <span class="n">i_lambda</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">i3</span> <span class="o">=</span> <span class="n">i_lambda</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">i12</span> <span class="o">=</span> <span class="n">i1</span> <span class="o">+</span> <span class="n">i2</span>
+<span class="n">i13</span> <span class="o">=</span> <span class="n">i1</span> <span class="o">+</span> <span class="n">i3</span>
+<span class="n">i23</span> <span class="o">=</span> <span class="n">i2</span> <span class="o">+</span> <span class="n">i3</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;CP1/CP2 (</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i12</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="se">\&#39;</span><span class="s1">inertie)</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Axe 1 (</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i1</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="se">\&#39;</span><span class="s1">inertie)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Axe 2 (</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i2</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="se">\&#39;</span><span class="s1">inertie)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">txt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;CP1/CP3 (</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i13</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="se">\&#39;</span><span class="s1">inertie)</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Axe 1 (</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i1</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="se">\&#39;</span><span class="s1">inertie)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Axe 3 (</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i3</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="se">\&#39;</span><span class="s1">inertie)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">txt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">i</span><span class="p">]))</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;CP2/CP3 (</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i23</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="se">\&#39;</span><span class="s1">inertie)</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Axe 1 (</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i2</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="se">\&#39;</span><span class="s1">inertie)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Axe 3 (</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i3</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="se">\&#39;</span><span class="s1">inertie)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">txt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">i</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/statsexploratoires_23_0.png" src="_images/statsexploratoires_23_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="contribution-des-variables">
+<h5>Contribution des variables<a class="headerlink" href="#contribution-des-variables" title="Permalink to this headline">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contributions_variables</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">p</span><span class="p">):</span>
+        <span class="n">line</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">u</span><span class="p">)[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">u</span><span class="p">)[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+    <span class="n">contributions_variables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">print_tab</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">contributions_variables</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            	CP1	CP2	CP3	CP4	CP5	CP6	CP7	CP8	CP9	CP10	CP11	CP12	CP13 
+  % alcool	0.02 	0.23 	0.04 	0.00 	0.07 	0.05 	0.00 	0.00 	0.16 	0.07 	0.26 	0.05 	0.04
+  acide ma	0.06 	0.05 	0.01 	0.29 	0.00 	0.29 	0.18 	0.00 	0.00 	0.01 	0.01 	0.01 	0.10
+   cendres	0.00 	0.10 	0.39 	0.05 	0.02 	0.02 	0.02 	0.02 	0.03 	0.00 	0.09 	0.25 	0.00
+  alcalini	0.06 	0.00 	0.37 	0.00 	0.00 	0.01 	0.08 	0.01 	0.18 	0.00 	0.04 	0.23 	0.00
+  magnésiu	0.02 	0.09 	0.02 	0.12 	0.53 	0.00 	0.10 	0.00 	0.02 	0.00 	0.07 	0.01 	0.00
+   phénols	0.16 	0.00 	0.02 	0.04 	0.02 	0.01 	0.00 	0.22 	0.16 	0.09 	0.08 	0.09 	0.10
+  flavonoï	0.18 	0.00 	0.02 	0.02 	0.01 	0.00 	0.00 	0.69 	0.04 	0.00 	0.00 	0.00 	0.03
+  non flav	0.09 	0.00 	0.03 	0.04 	0.25 	0.07 	0.35 	0.01 	0.05 	0.00 	0.04 	0.01 	0.05
+  proantho	0.10 	0.00 	0.02 	0.16 	0.02 	0.28 	0.14 	0.01 	0.14 	0.01 	0.04 	0.06 	0.02
+   couleur	0.01 	0.28 	0.02 	0.00 	0.01 	0.18 	0.05 	0.00 	0.00 	0.37 	0.00 	0.00 	0.08
+    teinte	0.09 	0.08 	0.01 	0.18 	0.03 	0.01 	0.05 	0.01 	0.19 	0.07 	0.01 	0.00 	0.27
+  OD280/OD	0.14 	0.03 	0.03 	0.03 	0.01 	0.07 	0.00 	0.02 	0.01 	0.36 	0.02 	0.00 	0.27
+   proline	0.08 	0.13 	0.02 	0.05 	0.02 	0.01 	0.01 	0.00 	0.01 	0.01 	0.33 	0.29 	0.03
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="representation-des-individus">
+<h5>Représentation des individus<a class="headerlink" href="#representation-des-individus" title="Permalink to this headline">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;CP1/CP2 (</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i12</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="se">\&#39;</span><span class="s1">inertie)</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Axe 1 (</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i1</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="se">\&#39;</span><span class="s1">inertie)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Axe 2 (</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i2</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="se">\&#39;</span><span class="s1">inertie)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">txt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ind</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;CP1/CP3 (</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i13</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="se">\&#39;</span><span class="s1">inertie)</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Axe 1 (</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i1</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="se">\&#39;</span><span class="s1">inertie)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Axe 3 (</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i3</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="se">\&#39;</span><span class="s1">inertie)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">txt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ind</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">i</span><span class="p">]))</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;CP2/CP3 (</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i23</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="se">\&#39;</span><span class="s1">inertie)</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Axe 1 (</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i2</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="se">\&#39;</span><span class="s1">inertie)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Axe 3 (</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i3</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="se">\&#39;</span><span class="s1">inertie)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">txt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ind</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">i</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/statsexploratoires_27_0.png" src="_images/statsexploratoires_27_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="contribution-des-individus">
+<h5>Contribution des individus<a class="headerlink" href="#contribution-des-individus" title="Permalink to this headline">#</a></h5>
+<p><span class="math notranslate nohighlight">\(\frac{p_ic_{ki}^2}{\lambda_k}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contributions_individus</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">p</span><span class="p">):</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">c</span><span class="p">)[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">c</span><span class="p">)[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">eigenvalues</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> 
+        <span class="n">line</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+    <span class="n">contributions_individus</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    
+<span class="nb">print</span> <span class="p">(</span><span class="n">print_tab</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">ind</span><span class="p">,</span> <span class="n">contributions_individus</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            	CP1	CP2	CP3	CP4	CP5	CP6	CP7	CP8	CP9	CP10	CP11	CP12	CP13 
+         0	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.01 	0.06
+         1	0.01 	0.00 	0.02 	0.00 	0.00 	0.01 	0.00 	0.00 	0.02 	0.00 	0.00 	0.00 	0.00
+         2	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03 	0.00 	0.00
+         3	0.02 	0.02 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.02 	0.00
+         4	0.00 	0.00 	0.02 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00
+         5	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00
+         6	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.06
+         7	0.01 	0.01 	0.00 	0.01 	0.00 	0.02 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03
+         8	0.01 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.01 	0.00
+         9	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00
+        10	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03 	0.00 	0.01 	0.02 	0.00
+        11	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01 	0.00 	0.00
+        12	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.00
+        13	0.01 	0.00 	0.01 	0.00 	0.03 	0.00 	0.02 	0.00 	0.00 	0.01 	0.00 	0.05 	0.00
+        14	0.02 	0.01 	0.01 	0.00 	0.01 	0.01 	0.01 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01
+        15	0.01 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.03
+        16	0.01 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00
+        17	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01
+        18	0.01 	0.01 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03 	0.03
+        19	0.01 	0.00 	0.00 	0.00 	0.01 	0.02 	0.00 	0.00 	0.01 	0.00 	0.00 	0.02 	0.00
+        20	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.04 	0.01 	0.01
+        21	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.01 	0.01 	0.01 	0.00
+        22	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.04
+        23	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.01
+        24	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02
+        25	0.00 	0.00 	0.06 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01
+        26	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01 	0.00 	0.01
+        27	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.02 	0.00
+        28	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00
+        29	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03
+        30	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.01 	0.01 	0.00 	0.01
+        31	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.02 	0.04 	0.00
+        32	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
+        33	0.00 	0.01 	0.01 	0.03 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.01 	0.01 	0.00
+        34	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
+        35	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01
+        36	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.00 	0.04 	0.00
+        37	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01
+        38	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
+        39	0.01 	0.01 	0.00 	0.01 	0.01 	0.02 	0.01 	0.00 	0.01 	0.00 	0.01 	0.05 	0.00
+        40	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.02 	0.00 	0.01
+        41	0.00 	0.00 	0.00 	0.01 	0.00 	0.02 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00
+        42	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.02 	0.00 	0.00 	0.01 	0.00
+        43	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00
+        44	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.01
+        45	0.00 	0.01 	0.00 	0.00 	0.00 	0.03 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00
+        46	0.01 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
+        47	0.01 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
+        48	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00
+        49	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01
+        50	0.01 	0.00 	0.02 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.04 	0.00 	0.02
+        51	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.02 	0.01 	0.00
+        52	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.04 	0.00 	0.00 	0.00 	0.01
+        53	0.01 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
+        54	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01
+        55	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00
+        56	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01
+        57	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.02 	0.00 	0.01
+        58	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00
+        59	0.00 	0.02 	0.08 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.01
+        60	0.00 	0.00 	0.00 	0.05 	0.01 	0.00 	0.01 	0.00 	0.02 	0.00 	0.00 	0.00 	0.02
+        61	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.02 	0.00 	0.02
+        62	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.04 	0.00 	0.01
+        63	0.01 	0.01 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.11
+        64	0.00 	0.01 	0.00 	0.03 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03 	0.06
+        65	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.02 	0.03
+        66	0.01 	0.01 	0.02 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01
+        67	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.00 	0.03 	0.00 	0.01 	0.00
+        68	0.00 	0.00 	0.00 	0.04 	0.00 	0.00 	0.00 	0.00 	0.03 	0.02 	0.02 	0.00 	0.00
+        69	0.00 	0.00 	0.01 	0.01 	0.12 	0.00 	0.02 	0.00 	0.02 	0.01 	0.00 	0.00 	0.01
+        70	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.03 	0.00 	0.02
+        71	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.02 	0.00 	0.05 	0.00 	0.03 	0.02 	0.03
+        72	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03 	0.00 	0.02 	0.00 	0.02 	0.00 	0.01
+        73	0.01 	0.00 	0.04 	0.01 	0.03 	0.00 	0.00 	0.00 	0.02 	0.00 	0.03 	0.11 	0.00
+        74	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.02 	0.02 	0.01 	0.00 	0.01 	0.04 	0.00
+        75	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.05
+        76	0.00 	0.01 	0.02 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.02 	0.00 	0.01
+        77	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00
+        78	0.00 	0.00 	0.01 	0.01 	0.04 	0.02 	0.04 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02
+        79	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.02 	0.00 	0.02
+        80	0.00 	0.03 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.02
+        81	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00
+        82	0.00 	0.01 	0.01 	0.01 	0.01 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01 	0.00 	0.00
+        83	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00
+        84	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.01 	0.00 	0.01 	0.00 	0.04 	0.05 	0.04
+        85	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00
+        86	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.00 	0.00 	0.01
+        87	0.00 	0.01 	0.02 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00
+        88	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01
+        89	0.00 	0.02 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.03
+        90	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00
+        91	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.02
+        92	0.00 	0.01 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.03
+        93	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.01
+        94	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01 	0.02 	0.00 	0.00 	0.00 	0.09
+        95	0.01 	0.00 	0.00 	0.01 	0.09 	0.02 	0.07 	0.00 	0.01 	0.00 	0.00 	0.00 	0.02
+        96	0.00 	0.00 	0.01 	0.01 	0.07 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.02 	0.00
+        97	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.03
+        98	0.01 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01 	0.00 	0.01 	0.01 	0.00 	0.01 	0.05
+        99	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.04 	0.00 	0.01 	0.00 	0.00 	0.01 	0.08
+       100	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.03 	0.02
+       101	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.02
+       102	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.00 	0.00 	0.02
+       103	0.00 	0.02 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.02 	0.00
+       104	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.02 	0.03
+       105	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01 	0.00 	0.01 	0.01 	0.00 	0.11
+       106	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.02
+       107	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.05
+       108	0.00 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.04
+       109	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.04 	0.01 	0.01
+       110	0.00 	0.00 	0.00 	0.07 	0.03 	0.02 	0.03 	0.00 	0.00 	0.01 	0.01 	0.02 	0.00
+       111	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00
+       112	0.00 	0.00 	0.02 	0.02 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01 	0.01 	0.02 	0.01
+       113	0.00 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.01
+       114	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.02 	0.00 	0.00 	0.00 	0.01
+       115	0.00 	0.03 	0.01 	0.00 	0.01 	0.01 	0.02 	0.00 	0.01 	0.01 	0.00 	0.00 	0.10
+       116	0.00 	0.02 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.04
+       117	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01
+       118	0.01 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00
+       119	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01
+       120	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.04 	0.00 	0.01 	0.00 	0.00
+       121	0.00 	0.00 	0.11 	0.00 	0.00 	0.01 	0.00 	0.04 	0.06 	0.02 	0.00 	0.00 	0.00
+       122	0.00 	0.00 	0.04 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
+       123	0.00 	0.00 	0.00 	0.08 	0.00 	0.02 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00
+       124	0.00 	0.00 	0.01 	0.09 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.01 	0.00
+       125	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00
+       126	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01 	0.01 	0.02 	0.01 	0.01 	0.00 	0.01
+       127	0.00 	0.00 	0.04 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
+       128	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.02
+       129	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00
+       130	0.00 	0.00 	0.01 	0.01 	0.03 	0.00 	0.01 	0.00 	0.00 	0.02 	0.00 	0.01 	0.00
+       131	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01
+       132	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.03 	0.01 	0.01 	0.01 	0.00 	0.00 	0.00
+       133	0.01 	0.00 	0.00 	0.00 	0.02 	0.01 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.06
+       134	0.01 	0.00 	0.00 	0.00 	0.01 	0.02 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.01
+       135	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00
+       136	0.02 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.01 	0.04 	0.00 	0.01
+       137	0.02 	0.00 	0.01 	0.00 	0.00 	0.01 	0.02 	0.00 	0.00 	0.00 	0.00 	0.01 	0.02
+       138	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00
+       139	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.01 	0.00
+       140	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.03
+       141	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.05
+       142	0.01 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00
+       143	0.01 	0.00 	0.00 	0.00 	0.00 	0.02 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01
+       144	0.01 	0.00 	0.01 	0.00 	0.02 	0.00 	0.00 	0.00 	0.00 	0.02 	0.02 	0.01 	0.00
+       145	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01 	0.03
+       146	0.02 	0.00 	0.01 	0.01 	0.00 	0.02 	0.00 	0.00 	0.01 	0.01 	0.00 	0.01 	0.00
+       147	0.02 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
+       148	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
+       149	0.01 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.02
+       150	0.01 	0.01 	0.00 	0.00 	0.03 	0.00 	0.02 	0.01 	0.00 	0.00 	0.00 	0.01 	0.01
+       151	0.01 	0.01 	0.00 	0.00 	0.02 	0.01 	0.03 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01
+       152	0.00 	0.01 	0.01 	0.00 	0.02 	0.01 	0.02 	0.00 	0.00 	0.02 	0.00 	0.01 	0.00
+       153	0.01 	0.01 	0.00 	0.00 	0.00 	0.03 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
+       154	0.01 	0.00 	0.01 	0.00 	0.00 	0.03 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.04
+       155	0.02 	0.01 	0.00 	0.01 	0.00 	0.00 	0.02 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00
+       156	0.01 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00
+       157	0.01 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.06 	0.01
+       158	0.00 	0.03 	0.01 	0.01 	0.01 	0.09 	0.00 	0.01 	0.01 	0.00 	0.02 	0.00 	0.01
+       159	0.00 	0.01 	0.00 	0.00 	0.01 	0.07 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00
+       160	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.00 	0.01 	0.02
+       161	0.01 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00
+       162	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
+       163	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
+       164	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00
+       165	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01 	0.00 	0.00
+       166	0.01 	0.02 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.04
+       167	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03 	0.01 	0.00 	0.02
+       168	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.02 	0.00 	0.00 	0.00 	0.00
+       169	0.01 	0.02 	0.01 	0.00 	0.01 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03
+       170	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00
+       171	0.02 	0.00 	0.01 	0.00 	0.00 	0.01 	0.01 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00
+       172	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00
+       173	0.01 	0.01 	0.00 	0.01 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01
+       174	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00
+       175	0.01 	0.02 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00
+       176	0.01 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01
+       177	0.01 	0.02 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tableau-des-cosinus-carres">
+<h5>Tableau des cosinus carrés<a class="headerlink" href="#tableau-des-cosinus-carres" title="Permalink to this headline">#</a></h5>
+<p><span class="math notranslate nohighlight">\(\frac{c_{ki}^2}{\displaystyle\sum_{j=1}^p c_{ji}^2}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cosinus_carres</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># on prend la représentation de l&#39;individu i sur chacune des composantes</span>
+    <span class="n">tot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">c</span><span class="p">[:,</span><span class="n">i</span><span class="p">]])</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+        <span class="n">line</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">[:,</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">c</span><span class="p">[:,</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">/</span><span class="n">tot</span><span class="p">)</span>
+    <span class="n">cosinus_carres</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">print_tab</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">ind</span><span class="p">,</span> <span class="n">cosinus_carres</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            	CP1	CP2	CP3	CP4	CP5	CP6	CP7	CP8	CP9	CP10	CP11	CP12	CP13 
+         0	0.69 	0.13 	0.00 	0.00 	0.03 	0.00 	0.02 	0.00 	0.00 	0.02 	0.03 	0.01 	0.07
+         1	0.43 	0.01 	0.36 	0.01 	0.01 	0.08 	0.00 	0.00 	0.09 	0.01 	0.01 	0.00 	0.00
+         2	0.57 	0.10 	0.09 	0.05 	0.01 	0.03 	0.02 	0.00 	0.01 	0.00 	0.13 	0.01 	0.00
+         3	0.60 	0.32 	0.00 	0.01 	0.00 	0.00 	0.01 	0.01 	0.02 	0.00 	0.00 	0.02 	0.00
+         4	0.14 	0.11 	0.58 	0.02 	0.01 	0.02 	0.03 	0.00 	0.02 	0.01 	0.02 	0.04 	0.00
+         5	0.60 	0.29 	0.03 	0.02 	0.03 	0.00 	0.01 	0.00 	0.01 	0.01 	0.00 	0.01 	0.00
+         6	0.52 	0.12 	0.08 	0.00 	0.09 	0.03 	0.00 	0.01 	0.01 	0.00 	0.02 	0.02 	0.09
+         7	0.38 	0.23 	0.00 	0.13 	0.00 	0.18 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.05
+         8	0.51 	0.07 	0.25 	0.00 	0.06 	0.00 	0.00 	0.00 	0.02 	0.03 	0.03 	0.02 	0.00
+         9	0.71 	0.06 	0.09 	0.01 	0.02 	0.00 	0.07 	0.00 	0.00 	0.03 	0.00 	0.00 	0.00
+        10	0.73 	0.10 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.09 	0.00 	0.02 	0.03 	0.00
+        11	0.39 	0.05 	0.18 	0.10 	0.07 	0.04 	0.02 	0.00 	0.12 	0.00 	0.03 	0.00 	0.01
+        12	0.53 	0.05 	0.09 	0.02 	0.17 	0.01 	0.01 	0.00 	0.03 	0.00 	0.09 	0.00 	0.00
+        13	0.50 	0.05 	0.06 	0.00 	0.17 	0.02 	0.09 	0.00 	0.01 	0.02 	0.00 	0.06 	0.00
+        14	0.65 	0.15 	0.06 	0.00 	0.04 	0.02 	0.04 	0.00 	0.01 	0.00 	0.02 	0.00 	0.00
+        15	0.45 	0.24 	0.00 	0.18 	0.02 	0.02 	0.00 	0.00 	0.00 	0.02 	0.01 	0.00 	0.05
+        16	0.39 	0.44 	0.06 	0.07 	0.00 	0.00 	0.00 	0.01 	0.01 	0.02 	0.00 	0.00 	0.00
+        17	0.39 	0.29 	0.07 	0.13 	0.02 	0.01 	0.00 	0.03 	0.00 	0.01 	0.02 	0.01 	0.02
+        18	0.54 	0.27 	0.01 	0.04 	0.06 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.04 	0.03
+        19	0.45 	0.12 	0.00 	0.02 	0.08 	0.20 	0.00 	0.00 	0.03 	0.01 	0.00 	0.07 	0.00
+        20	0.70 	0.04 	0.01 	0.00 	0.07 	0.00 	0.01 	0.00 	0.00 	0.02 	0.13 	0.02 	0.01
+        21	0.19 	0.01 	0.14 	0.17 	0.02 	0.24 	0.01 	0.02 	0.00 	0.08 	0.05 	0.07 	0.00
+        22	0.74 	0.00 	0.01 	0.00 	0.02 	0.12 	0.00 	0.00 	0.00 	0.03 	0.00 	0.00 	0.08
+        23	0.50 	0.05 	0.00 	0.03 	0.03 	0.11 	0.08 	0.02 	0.01 	0.04 	0.09 	0.00 	0.04
+        24	0.49 	0.02 	0.12 	0.00 	0.05 	0.13 	0.06 	0.01 	0.02 	0.02 	0.00 	0.02 	0.07
+        25	0.05 	0.05 	0.77 	0.09 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01
+        26	0.44 	0.07 	0.00 	0.01 	0.18 	0.05 	0.03 	0.00 	0.12 	0.01 	0.08 	0.00 	0.03
+        27	0.26 	0.00 	0.32 	0.04 	0.02 	0.06 	0.02 	0.00 	0.01 	0.02 	0.09 	0.13 	0.02
+        28	0.51 	0.05 	0.21 	0.06 	0.07 	0.04 	0.00 	0.00 	0.00 	0.00 	0.02 	0.03 	0.00
+        29	0.65 	0.00 	0.15 	0.01 	0.03 	0.01 	0.00 	0.03 	0.03 	0.00 	0.00 	0.00 	0.08
+        30	0.49 	0.12 	0.15 	0.01 	0.03 	0.03 	0.01 	0.00 	0.09 	0.03 	0.02 	0.01 	0.01
+        31	0.59 	0.18 	0.01 	0.01 	0.00 	0.00 	0.02 	0.01 	0.02 	0.00 	0.05 	0.10 	0.00
+        32	0.52 	0.00 	0.01 	0.11 	0.08 	0.00 	0.19 	0.01 	0.05 	0.01 	0.00 	0.01 	0.01
+        33	0.23 	0.17 	0.09 	0.35 	0.00 	0.01 	0.06 	0.00 	0.02 	0.00 	0.03 	0.03 	0.00
+        34	0.42 	0.10 	0.05 	0.24 	0.00 	0.11 	0.01 	0.00 	0.01 	0.01 	0.03 	0.01 	0.01
+        35	0.75 	0.01 	0.04 	0.02 	0.01 	0.01 	0.09 	0.00 	0.03 	0.01 	0.01 	0.01 	0.02
+        36	0.28 	0.06 	0.03 	0.24 	0.01 	0.06 	0.00 	0.00 	0.13 	0.00 	0.01 	0.17 	0.01
+        37	0.35 	0.00 	0.00 	0.25 	0.03 	0.05 	0.05 	0.00 	0.00 	0.04 	0.20 	0.00 	0.03
+        38	0.37 	0.10 	0.34 	0.10 	0.00 	0.03 	0.00 	0.02 	0.00 	0.01 	0.01 	0.01 	0.01
+        39	0.34 	0.17 	0.01 	0.08 	0.09 	0.13 	0.05 	0.00 	0.03 	0.00 	0.03 	0.08 	0.00
+        40	0.67 	0.06 	0.00 	0.02 	0.02 	0.05 	0.03 	0.00 	0.05 	0.00 	0.07 	0.01 	0.01
+        41	0.08 	0.01 	0.11 	0.30 	0.02 	0.30 	0.00 	0.03 	0.02 	0.00 	0.01 	0.12 	0.00
+        42	0.67 	0.09 	0.01 	0.02 	0.01 	0.05 	0.07 	0.00 	0.06 	0.00 	0.00 	0.01 	0.00
+        43	0.05 	0.03 	0.01 	0.47 	0.02 	0.24 	0.08 	0.01 	0.07 	0.00 	0.02 	0.00 	0.00
+        44	0.66 	0.00 	0.06 	0.09 	0.03 	0.02 	0.00 	0.00 	0.06 	0.00 	0.01 	0.03 	0.03
+        45	0.14 	0.34 	0.00 	0.05 	0.00 	0.39 	0.00 	0.00 	0.01 	0.00 	0.03 	0.04 	0.00
+        46	0.56 	0.11 	0.02 	0.15 	0.02 	0.08 	0.04 	0.00 	0.00 	0.00 	0.02 	0.00 	0.00
+        47	0.70 	0.04 	0.12 	0.09 	0.00 	0.01 	0.02 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01
+        48	0.58 	0.22 	0.00 	0.01 	0.02 	0.04 	0.01 	0.00 	0.09 	0.01 	0.00 	0.00 	0.00
+        49	0.57 	0.24 	0.03 	0.00 	0.02 	0.04 	0.00 	0.02 	0.00 	0.04 	0.00 	0.02 	0.01
+        50	0.53 	0.00 	0.20 	0.06 	0.00 	0.08 	0.00 	0.00 	0.01 	0.01 	0.08 	0.01 	0.02
+        51	0.68 	0.05 	0.00 	0.00 	0.05 	0.00 	0.01 	0.00 	0.10 	0.01 	0.08 	0.03 	0.00
+        52	0.68 	0.14 	0.02 	0.00 	0.02 	0.00 	0.00 	0.00 	0.11 	0.00 	0.01 	0.00 	0.01
+        53	0.45 	0.32 	0.01 	0.13 	0.03 	0.01 	0.02 	0.00 	0.01 	0.00 	0.01 	0.01 	0.00
+        54	0.56 	0.13 	0.11 	0.01 	0.09 	0.02 	0.02 	0.01 	0.01 	0.00 	0.01 	0.00 	0.03
+        55	0.61 	0.18 	0.03 	0.01 	0.08 	0.03 	0.01 	0.01 	0.03 	0.00 	0.00 	0.01 	0.00
+        56	0.66 	0.18 	0.03 	0.00 	0.02 	0.00 	0.00 	0.00 	0.01 	0.00 	0.08 	0.00 	0.01
+        57	0.56 	0.17 	0.01 	0.03 	0.06 	0.01 	0.01 	0.00 	0.04 	0.00 	0.08 	0.00 	0.02
+        58	0.66 	0.20 	0.01 	0.00 	0.00 	0.01 	0.05 	0.00 	0.03 	0.02 	0.01 	0.00 	0.00
+        59	0.03 	0.28 	0.61 	0.03 	0.01 	0.00 	0.00 	0.01 	0.01 	0.01 	0.00 	0.00 	0.01
+        60	0.14 	0.11 	0.04 	0.49 	0.06 	0.00 	0.07 	0.00 	0.07 	0.01 	0.00 	0.00 	0.02
+        61	0.29 	0.06 	0.22 	0.18 	0.01 	0.04 	0.01 	0.01 	0.08 	0.00 	0.07 	0.00 	0.03
+        62	0.00 	0.17 	0.35 	0.16 	0.02 	0.04 	0.04 	0.00 	0.04 	0.00 	0.16 	0.01 	0.01
+        63	0.33 	0.29 	0.00 	0.04 	0.00 	0.05 	0.09 	0.01 	0.01 	0.00 	0.03 	0.00 	0.15
+        64	0.03 	0.32 	0.04 	0.40 	0.00 	0.00 	0.02 	0.00 	0.00 	0.01 	0.01 	0.07 	0.10
+        65	0.17 	0.12 	0.07 	0.10 	0.00 	0.22 	0.01 	0.00 	0.00 	0.01 	0.07 	0.14 	0.10
+        66	0.28 	0.20 	0.23 	0.11 	0.03 	0.09 	0.01 	0.00 	0.00 	0.00 	0.04 	0.00 	0.01
+        67	0.00 	0.54 	0.11 	0.00 	0.03 	0.00 	0.17 	0.00 	0.00 	0.11 	0.01 	0.02 	0.00
+        68	0.06 	0.00 	0.04 	0.53 	0.03 	0.01 	0.01 	0.01 	0.13 	0.09 	0.09 	0.00 	0.00
+        69	0.13 	0.06 	0.05 	0.04 	0.57 	0.01 	0.07 	0.01 	0.04 	0.02 	0.00 	0.00 	0.01
+        70	0.29 	0.09 	0.05 	0.16 	0.11 	0.01 	0.00 	0.02 	0.06 	0.02 	0.14 	0.01 	0.05
+        71	0.18 	0.06 	0.25 	0.00 	0.04 	0.01 	0.14 	0.01 	0.15 	0.01 	0.09 	0.04 	0.03
+        72	0.08 	0.17 	0.00 	0.00 	0.00 	0.04 	0.38 	0.01 	0.16 	0.00 	0.12 	0.00 	0.02
+        73	0.23 	0.00 	0.39 	0.03 	0.14 	0.00 	0.01 	0.00 	0.04 	0.00 	0.04 	0.11 	0.00
+        74	0.30 	0.15 	0.02 	0.00 	0.09 	0.00 	0.17 	0.09 	0.03 	0.02 	0.02 	0.10 	0.01
+        75	0.06 	0.50 	0.20 	0.06 	0.04 	0.00 	0.01 	0.01 	0.00 	0.03 	0.00 	0.00 	0.07
+        76	0.01 	0.35 	0.46 	0.00 	0.00 	0.02 	0.03 	0.00 	0.04 	0.00 	0.05 	0.01 	0.02
+        77	0.26 	0.24 	0.01 	0.06 	0.14 	0.08 	0.11 	0.00 	0.09 	0.01 	0.00 	0.00 	0.00
+        78	0.09 	0.03 	0.08 	0.05 	0.37 	0.14 	0.22 	0.00 	0.00 	0.00 	0.00 	0.01 	0.02
+        79	0.02 	0.13 	0.38 	0.11 	0.00 	0.05 	0.17 	0.00 	0.01 	0.00 	0.08 	0.01 	0.04
+        80	0.04 	0.83 	0.01 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.02 	0.03 	0.00 	0.03
+        81	0.25 	0.48 	0.03 	0.02 	0.02 	0.00 	0.05 	0.01 	0.08 	0.03 	0.02 	0.00 	0.00
+        82	0.02 	0.49 	0.15 	0.09 	0.09 	0.00 	0.04 	0.01 	0.08 	0.00 	0.02 	0.00 	0.00
+        83	0.61 	0.00 	0.02 	0.05 	0.12 	0.00 	0.13 	0.03 	0.02 	0.00 	0.00 	0.00 	0.00
+        84	0.07 	0.22 	0.04 	0.03 	0.08 	0.08 	0.07 	0.01 	0.03 	0.00 	0.15 	0.16 	0.07
+        85	0.10 	0.64 	0.01 	0.10 	0.01 	0.00 	0.01 	0.01 	0.00 	0.01 	0.04 	0.06 	0.00
+        86	0.07 	0.56 	0.07 	0.12 	0.01 	0.01 	0.01 	0.00 	0.13 	0.00 	0.00 	0.00 	0.03
+        87	0.02 	0.38 	0.36 	0.07 	0.02 	0.00 	0.02 	0.01 	0.05 	0.04 	0.01 	0.01 	0.00
+        88	0.17 	0.45 	0.13 	0.02 	0.07 	0.00 	0.00 	0.00 	0.01 	0.00 	0.11 	0.01 	0.01
+        89	0.03 	0.60 	0.06 	0.00 	0.15 	0.00 	0.05 	0.01 	0.02 	0.00 	0.01 	0.03 	0.04
+        90	0.20 	0.49 	0.00 	0.02 	0.09 	0.03 	0.06 	0.00 	0.00 	0.00 	0.04 	0.05 	0.00
+        91	0.28 	0.39 	0.07 	0.04 	0.03 	0.06 	0.00 	0.00 	0.02 	0.02 	0.02 	0.02 	0.04
+        92	0.36 	0.23 	0.00 	0.03 	0.13 	0.08 	0.03 	0.02 	0.03 	0.02 	0.00 	0.02 	0.05
+        93	0.06 	0.60 	0.00 	0.18 	0.01 	0.03 	0.00 	0.01 	0.00 	0.01 	0.00 	0.07 	0.02
+        94	0.09 	0.47 	0.00 	0.01 	0.08 	0.01 	0.05 	0.04 	0.08 	0.00 	0.00 	0.00 	0.15
+        95	0.20 	0.00 	0.02 	0.03 	0.44 	0.06 	0.22 	0.00 	0.01 	0.01 	0.00 	0.00 	0.01
+        96	0.02 	0.01 	0.10 	0.09 	0.65 	0.03 	0.01 	0.01 	0.00 	0.00 	0.06 	0.03 	0.00
+        97	0.11 	0.67 	0.12 	0.01 	0.00 	0.02 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.05
+        98	0.42 	0.17 	0.00 	0.07 	0.00 	0.09 	0.06 	0.01 	0.05 	0.03 	0.00 	0.02 	0.07
+        99	0.12 	0.29 	0.03 	0.09 	0.03 	0.02 	0.27 	0.00 	0.02 	0.00 	0.00 	0.02 	0.09
+       100	0.06 	0.50 	0.22 	0.00 	0.03 	0.01 	0.01 	0.00 	0.01 	0.04 	0.00 	0.08 	0.03
+       101	0.03 	0.56 	0.24 	0.01 	0.01 	0.00 	0.02 	0.00 	0.07 	0.00 	0.00 	0.00 	0.05
+       102	0.01 	0.27 	0.20 	0.09 	0.02 	0.09 	0.05 	0.01 	0.18 	0.00 	0.02 	0.00 	0.07
+       103	0.04 	0.74 	0.06 	0.02 	0.00 	0.02 	0.00 	0.01 	0.02 	0.03 	0.01 	0.05 	0.00
+       104	0.02 	0.64 	0.03 	0.03 	0.01 	0.01 	0.03 	0.00 	0.02 	0.04 	0.00 	0.08 	0.08
+       105	0.25 	0.23 	0.07 	0.01 	0.08 	0.00 	0.09 	0.02 	0.01 	0.02 	0.05 	0.00 	0.16
+       106	0.02 	0.70 	0.03 	0.02 	0.03 	0.01 	0.01 	0.02 	0.01 	0.05 	0.02 	0.01 	0.06
+       107	0.37 	0.26 	0.01 	0.00 	0.05 	0.05 	0.00 	0.06 	0.07 	0.01 	0.00 	0.01 	0.12
+       108	0.00 	0.60 	0.02 	0.09 	0.01 	0.14 	0.01 	0.00 	0.01 	0.00 	0.04 	0.00 	0.07
+       109	0.22 	0.19 	0.28 	0.03 	0.01 	0.06 	0.01 	0.00 	0.03 	0.00 	0.14 	0.03 	0.01
+       110	0.07 	0.07 	0.00 	0.44 	0.18 	0.08 	0.10 	0.00 	0.00 	0.01 	0.01 	0.02 	0.00
+       111	0.01 	0.55 	0.00 	0.13 	0.01 	0.07 	0.11 	0.00 	0.01 	0.05 	0.05 	0.00 	0.00
+       112	0.12 	0.04 	0.29 	0.21 	0.04 	0.02 	0.09 	0.01 	0.05 	0.04 	0.04 	0.03 	0.02
+       113	0.02 	0.53 	0.12 	0.07 	0.01 	0.10 	0.03 	0.00 	0.06 	0.01 	0.02 	0.00 	0.03
+       114	0.03 	0.43 	0.20 	0.00 	0.08 	0.00 	0.11 	0.00 	0.11 	0.00 	0.02 	0.00 	0.02
+       115	0.01 	0.61 	0.07 	0.03 	0.04 	0.04 	0.08 	0.00 	0.02 	0.02 	0.00 	0.00 	0.07
+       116	0.01 	0.80 	0.01 	0.02 	0.01 	0.00 	0.03 	0.00 	0.00 	0.01 	0.00 	0.02 	0.07
+       117	0.00 	0.57 	0.07 	0.01 	0.18 	0.00 	0.00 	0.01 	0.02 	0.00 	0.10 	0.00 	0.03
+       118	0.44 	0.12 	0.27 	0.06 	0.02 	0.05 	0.00 	0.01 	0.03 	0.01 	0.00 	0.01 	0.00
+       119	0.03 	0.54 	0.01 	0.20 	0.01 	0.04 	0.10 	0.00 	0.00 	0.00 	0.03 	0.01 	0.02
+       120	0.07 	0.25 	0.16 	0.18 	0.02 	0.00 	0.01 	0.00 	0.24 	0.00 	0.05 	0.02 	0.01
+       121	0.05 	0.00 	0.75 	0.00 	0.00 	0.02 	0.01 	0.06 	0.08 	0.02 	0.00 	0.00 	0.00
+       122	0.10 	0.03 	0.63 	0.09 	0.01 	0.10 	0.03 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00
+       123	0.01 	0.02 	0.01 	0.75 	0.00 	0.13 	0.03 	0.01 	0.00 	0.01 	0.01 	0.00 	0.00
+       124	0.05 	0.10 	0.11 	0.69 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03 	0.01 	0.00
+       125	0.00 	0.60 	0.03 	0.15 	0.01 	0.00 	0.04 	0.01 	0.10 	0.00 	0.03 	0.02 	0.01
+       126	0.00 	0.21 	0.06 	0.21 	0.02 	0.12 	0.09 	0.06 	0.13 	0.04 	0.04 	0.00 	0.03
+       127	0.15 	0.09 	0.66 	0.00 	0.02 	0.04 	0.00 	0.01 	0.00 	0.01 	0.00 	0.01 	0.00
+       128	0.03 	0.47 	0.21 	0.06 	0.00 	0.06 	0.02 	0.03 	0.01 	0.05 	0.02 	0.00 	0.05
+       129	0.34 	0.14 	0.06 	0.23 	0.03 	0.10 	0.01 	0.00 	0.01 	0.01 	0.06 	0.02 	0.00
+       130	0.14 	0.00 	0.11 	0.17 	0.41 	0.00 	0.05 	0.01 	0.01 	0.08 	0.00 	0.02 	0.00
+       131	0.53 	0.01 	0.05 	0.01 	0.17 	0.05 	0.08 	0.02 	0.00 	0.01 	0.01 	0.03 	0.02
+       132	0.63 	0.01 	0.00 	0.01 	0.09 	0.00 	0.19 	0.03 	0.02 	0.02 	0.01 	0.00 	0.00
+       133	0.39 	0.01 	0.02 	0.00 	0.25 	0.09 	0.09 	0.00 	0.01 	0.04 	0.01 	0.00 	0.09
+       134	0.44 	0.02 	0.10 	0.06 	0.09 	0.16 	0.01 	0.02 	0.06 	0.04 	0.01 	0.00 	0.01
+       135	0.68 	0.01 	0.09 	0.04 	0.04 	0.05 	0.04 	0.00 	0.04 	0.00 	0.00 	0.01 	0.00
+       136	0.78 	0.00 	0.00 	0.00 	0.01 	0.06 	0.04 	0.00 	0.00 	0.02 	0.07 	0.00 	0.01
+       137	0.67 	0.02 	0.13 	0.01 	0.01 	0.03 	0.09 	0.00 	0.00 	0.00 	0.00 	0.01 	0.02
+       138	0.74 	0.01 	0.08 	0.00 	0.09 	0.01 	0.05 	0.00 	0.00 	0.00 	0.02 	0.00 	0.00
+       139	0.59 	0.01 	0.16 	0.06 	0.02 	0.02 	0.00 	0.06 	0.01 	0.01 	0.03 	0.03 	0.00
+       140	0.71 	0.01 	0.03 	0.07 	0.03 	0.05 	0.00 	0.01 	0.02 	0.00 	0.00 	0.02 	0.05
+       141	0.56 	0.01 	0.10 	0.01 	0.01 	0.09 	0.10 	0.01 	0.00 	0.01 	0.01 	0.00 	0.09
+       142	0.65 	0.02 	0.07 	0.08 	0.02 	0.11 	0.00 	0.01 	0.01 	0.00 	0.02 	0.01 	0.01
+       143	0.51 	0.02 	0.01 	0.04 	0.04 	0.22 	0.09 	0.01 	0.01 	0.01 	0.02 	0.00 	0.02
+       144	0.37 	0.10 	0.12 	0.01 	0.22 	0.01 	0.00 	0.00 	0.01 	0.07 	0.08 	0.02 	0.00
+       145	0.63 	0.03 	0.07 	0.01 	0.04 	0.02 	0.03 	0.00 	0.01 	0.07 	0.01 	0.04 	0.05
+       146	0.70 	0.02 	0.08 	0.05 	0.00 	0.10 	0.00 	0.00 	0.02 	0.02 	0.00 	0.01 	0.00
+       147	0.77 	0.10 	0.00 	0.07 	0.02 	0.02 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00
+       148	0.68 	0.21 	0.02 	0.03 	0.01 	0.03 	0.02 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
+       149	0.51 	0.25 	0.02 	0.01 	0.13 	0.00 	0.01 	0.03 	0.00 	0.01 	0.00 	0.00 	0.02
+       150	0.28 	0.29 	0.01 	0.00 	0.26 	0.00 	0.08 	0.03 	0.01 	0.00 	0.00 	0.02 	0.01
+       151	0.34 	0.22 	0.01 	0.01 	0.18 	0.05 	0.14 	0.01 	0.00 	0.02 	0.00 	0.01 	0.01
+       152	0.21 	0.15 	0.12 	0.00 	0.20 	0.06 	0.15 	0.00 	0.00 	0.07 	0.01 	0.01 	0.01
+       153	0.41 	0.25 	0.05 	0.02 	0.01 	0.18 	0.06 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00
+       154	0.53 	0.01 	0.10 	0.03 	0.01 	0.25 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.05
+       155	0.63 	0.16 	0.00 	0.08 	0.02 	0.00 	0.10 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00
+       156	0.53 	0.24 	0.04 	0.11 	0.02 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.03 	0.00
+       157	0.60 	0.09 	0.13 	0.01 	0.02 	0.03 	0.00 	0.00 	0.00 	0.00 	0.01 	0.09 	0.01
+       158	0.04 	0.42 	0.05 	0.03 	0.03 	0.36 	0.01 	0.02 	0.01 	0.00 	0.03 	0.00 	0.00
+       159	0.13 	0.29 	0.01 	0.03 	0.05 	0.42 	0.03 	0.03 	0.00 	0.00 	0.00 	0.01 	0.00
+       160	0.72 	0.04 	0.00 	0.07 	0.01 	0.01 	0.00 	0.01 	0.09 	0.00 	0.00 	0.02 	0.03
+       161	0.53 	0.15 	0.00 	0.14 	0.01 	0.07 	0.03 	0.02 	0.00 	0.00 	0.03 	0.01 	0.01
+       162	0.73 	0.03 	0.06 	0.07 	0.01 	0.01 	0.07 	0.00 	0.01 	0.01 	0.01 	0.00 	0.01
+       163	0.70 	0.05 	0.08 	0.01 	0.06 	0.05 	0.01 	0.00 	0.01 	0.00 	0.01 	0.00 	0.01
+       164	0.60 	0.17 	0.07 	0.00 	0.01 	0.02 	0.07 	0.00 	0.04 	0.02 	0.01 	0.00 	0.00
+       165	0.77 	0.05 	0.01 	0.02 	0.03 	0.01 	0.02 	0.00 	0.07 	0.00 	0.01 	0.00 	0.00
+       166	0.38 	0.44 	0.01 	0.00 	0.01 	0.02 	0.00 	0.00 	0.03 	0.04 	0.00 	0.00 	0.05
+       167	0.60 	0.11 	0.10 	0.01 	0.01 	0.01 	0.03 	0.00 	0.00 	0.08 	0.02 	0.00 	0.03
+       168	0.40 	0.36 	0.05 	0.01 	0.01 	0.03 	0.05 	0.00 	0.07 	0.00 	0.00 	0.00 	0.00
+       169	0.30 	0.36 	0.11 	0.02 	0.07 	0.05 	0.05 	0.01 	0.00 	0.00 	0.00 	0.00 	0.03
+       170	0.82 	0.01 	0.06 	0.00 	0.03 	0.01 	0.01 	0.00 	0.03 	0.00 	0.03 	0.00 	0.00
+       171	0.70 	0.04 	0.09 	0.00 	0.01 	0.04 	0.05 	0.00 	0.02 	0.03 	0.00 	0.00 	0.00
+       172	0.43 	0.34 	0.06 	0.00 	0.03 	0.03 	0.05 	0.00 	0.01 	0.00 	0.01 	0.03 	0.01
+       173	0.56 	0.24 	0.01 	0.06 	0.02 	0.06 	0.05 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
+       174	0.64 	0.29 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.03 	0.01 	0.00 	0.01 	0.00
+       175	0.38 	0.41 	0.05 	0.01 	0.09 	0.00 	0.02 	0.00 	0.00 	0.03 	0.00 	0.01 	0.00
+       176	0.38 	0.36 	0.02 	0.03 	0.04 	0.09 	0.03 	0.00 	0.01 	0.01 	0.00 	0.01 	0.02
+       177	0.49 	0.36 	0.05 	0.02 	0.04 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03 	0.00 	0.00
+</pre></div>
+</div>
 </div>
 </div>
 </div>

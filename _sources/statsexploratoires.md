@@ -400,6 +400,222 @@ plt.tight_layout()
 plt.colorbar();
 ```
 
+##### Inertie du nuage de points
+ $M$ est une matrice symétrique définie positive correspondant à la métrique
+ 
+- Si $M=D^2_{1/\sigma}$ on calcule $ \frac{1}{n}\displaystyle\sum_{i=1}^n (e_i - g)^T M (e_i-g) = \frac{1}{n}\displaystyle\sum_{i=1}^n (y_i)^T M y_i = Tr(VM)$  
+
+- Si $M=I$ on calcule $ \frac{1}{n}\displaystyle\sum_{i=1}^n (z_i)^T M z_i = Tr(RM)$
+
+```{code-cell} ipython3
+def calcul_inertie_somme (Y, M):
+    inertie = 0
+    for i in range(n):
+        inertie += np.matmul(np.transpose(Y[i]), np.matmul(M, Y[i])) 
+    return inertie / n
+    
+def calcul_inertie_trace (V, M):
+    return np.trace (np.matmul (V, M))
+
+# Si les données sont centrées mais pas encore réduites  on travaille avec Y et V
+M = np.matmul(D_sigma, D_sigma)
+print (calcul_inertie_somme(Y, M))
+print (calcul_inertie_trace(V, M))
+
+# Si les données sont centrées réduites, on travaille avec Z et R
+M = np.identity(p)
+print (calcul_inertie_somme(Z, M))
+print (calcul_inertie_trace(R, M))
+```
+
+#### Analyse spectrale
+
+```{code-cell} ipython3
+eigenvalues,eigenvectors = np.linalg.eig(R)
+eigenvalues = sorted(eigenvalues, reverse=True)
+u = [eigenvectors[:,i] for i in range(p)]
+```
+
+##### Calcul des composantes principales
+```{code-cell} ipython3
+c = []
+for j in range(p):
+    c.append(np.matmul (Z, u[j]))
+```
+
+##### Pourcentage d'inertie expliquée par un axe
+Pourcentage d'inertie cumulée expliquée par les $k$ premiers axes : $\frac{\displaystyle\sum_{j=1}^k\lambda_j}{\displaystyle\sum_{j=1}^p\lambda_j}$
+
+```{code-cell} ipython3
+i_lambda = [l/p for l in eigenvalues]
+i_cum = np.cumsum(eigenvalues)/p
+plt.figure(figsize=(10,5))
+plt.subplot(121)
+plt.plot(np.arange(1,p+1),i_lambda)
+plt.title('Valeurs propres')
+plt.subplot(122)
+plt.plot(np.arange(1,p+1),i_cum)
+plt.title('% de variance expliquée');
+plt.tight_layout()
+```
+
+##### Critère de Kaiser
+
+```{code-cell} ipython3
+nb_l = np.sum(np.array(eigenvalues)>1)
+print ("On retient " + str(nb_l) + " axes")
+```
+
+##### Corrélation variables/facteurs
+
+```{code-cell} ipython3
+r = []
+for j in range(p):
+    r.append(np.sqrt(eigenvalues[j]) * u[j])
+```
+
+##### Cercle des corrélations pour un couple de composantes principales
+Pour $c_1$ et $c_2$, chaque variable $x_j$ est repérée par un point d'abscisse $r(c_1,x^j)$ et d'ordonnée $r(c_2, x_j)$.
+
+```{code-cell} ipython3
+i1 = i_lambda[0] * 100
+i2 = i_lambda[1] * 100
+i3 = i_lambda[2] * 100
+i12 = i1 + i2
+i13 = i1 + i3
+i23 = i2 + i3
+
+
+plt.figure(figsize=(18, 6))
+plt.subplot(131)
+plt.title('CP1/CP2 (%.2f' % i12 + '% d\'inertie)\n')
+plt.xlabel('Axe 1 (%.2f' % i1 + '% d\'inertie)')
+plt.ylabel('Axe 2 (%.2f' % i2 + '% d\'inertie)')
+plt.xlim([-1, 1])
+plt.ylim([-1, 1])
+plt.axhline(0)
+plt.axvline(0)
+plt.gca().add_patch(plt.Circle((0,0), radius= 1, facecolor='none', edgecolor='r'))
+plt.scatter(r[0], r[1])
+for i, txt in enumerate(variables):
+    plt.annotate(txt, (r[0][i], r[1][i]))
+
+plt.subplot(132)
+plt.title('CP1/CP3 (%.2f' % i13 + '% d\'inertie)\n')
+plt.xlabel('Axe 1 (%.2f' % i1 + '% d\'inertie)')
+plt.ylabel('Axe 3 (%.2f' % i3 + '% d\'inertie)')
+plt.xlim([-1, 1])
+plt.ylim([-1, 1])
+plt.axhline(0)
+plt.axvline(0)
+plt.gca().add_patch(plt.Circle((0,0), radius= 1, facecolor='none', edgecolor='r'))
+plt.scatter(r[0], r[2])
+for i, txt in enumerate(variables):
+    plt.annotate(txt, (r[0][i], r[2][i]))
+    
+plt.subplot(133)
+plt.title('CP2/CP3 (%.2f' % i23 + '% d\'inertie)\n')
+plt.xlabel('Axe 1 (%.2f' % i2 + '% d\'inertie)')
+plt.ylabel('Axe 3 (%.2f' % i3 + '% d\'inertie)')
+plt.xlim([-1, 1])
+plt.ylim([-1, 1])
+plt.axhline(0)
+plt.axvline(0)
+plt.gca().add_patch(plt.Circle((0,0), radius= 1, facecolor='none', edgecolor='r'))
+plt.scatter(r[1], r[2])
+for i, txt in enumerate(variables):
+    plt.annotate(txt, (r[1][i], r[2][i]))
+plt.tight_layout()
+```
+
+##### Contribution des variables
+
+```{code-cell} ipython3
+contributions_variables = []
+for i in range (p):
+    line = []
+    for j in range (p):
+        line.append(np.transpose(u)[i][j]*np.transpose(u)[i][j])
+    contributions_variables.append(line)
+print (print_tab (p, p, variables, contributions_variables))
+```
+
+##### Représentation des individus
+```{code-cell} ipython3
+plt.figure(figsize=(18, 6))
+plt.subplot(131)
+plt.title('CP1/CP2 (%.2f' % i12 + '% d\'inertie)\n')
+plt.xlabel('Axe 1 (%.2f' % i1 + '% d\'inertie)')
+plt.ylabel('Axe 2 (%.2f' % i2 + '% d\'inertie)')
+plt.xlim([-4, 4])
+plt.ylim([-4, 4])
+plt.axhline(0)
+plt.axvline(0)
+plt.scatter(c[0], c[1])
+for i, txt in enumerate(ind):
+    plt.annotate(txt, (c[0][i], c[1][i]))
+
+plt.subplot(132)
+plt.title('CP1/CP3 (%.2f' % i13 + '% d\'inertie)\n')
+plt.xlabel('Axe 1 (%.2f' % i1 + '% d\'inertie)')
+plt.ylabel('Axe 3 (%.2f' % i3 + '% d\'inertie)')
+plt.xlim([-4, 4])
+plt.ylim([-4, 4])
+plt.axhline(0)
+plt.axvline(0)
+plt.scatter(c[0], c[2])
+for i, txt in enumerate(ind):
+    plt.annotate(txt, (c[0][i], c[2][i]))
+    
+plt.subplot(133)
+plt.title('CP2/CP3 (%.2f' % i23 + '% d\'inertie)\n')
+plt.xlabel('Axe 1 (%.2f' % i2 + '% d\'inertie)')
+plt.ylabel('Axe 3 (%.2f' % i3 + '% d\'inertie)')
+plt.xlim([-4, 4])
+plt.ylim([-4, 4])
+plt.axhline(0)
+plt.axvline(0)
+plt.scatter(c[1], c[2])
+for i, txt in enumerate(ind):
+    plt.annotate(txt, (c[1][i], c[2][i]))
+plt.tight_layout()
+```
+
+##### Contribution des individus
+$\frac{p_ic_{ki}^2}{\lambda_k}$
+
+```{code-cell} ipython3
+contributions_individus = []
+for i in range (n):
+    line = []
+    for k in range (p):
+        val = (np.transpose(c)[i][k]*np.transpose(c)[i][k]) / (n * eigenvalues[k]) 
+        line.append(val)
+    contributions_individus.append(line)
+    
+print (print_tab (n, p, ind, contributions_individus))
+```
+
+##### Tableau des cosinus carrés
+$\frac{c_{ki}^2}{\displaystyle\sum_{j=1}^p c_{ji}^2}$
+
+
+```{code-cell} ipython3
+cosinus_carres = []
+c = np.array(c)
+
+for i in range(n):
+    line = []
+    # on prend la représentation de l'individu i sur chacune des composantes
+    tot = np.sum([x*x for x in c[:,i]])
+    for k in range(p):
+        line.append(c[:,i][k]*c[:,i][k]/tot)
+    cosinus_carres.append(line)
+
+print (print_tab (n, p, ind, cosinus_carres))
+```
+
+
 ## Analyse Factorielle des correspondances
 
 ## Analyse des correspondances multiples
