@@ -719,13 +719,13 @@ est la matrice de corrélation des données et résume la structure des dépenda
 <h4>Projection des individus sur un sous-espace<a class="headerlink" href="#projection-des-individus-sur-un-sous-espace" title="Permalink to this headline">#</a></h4>
 <p>Le principe de la méthode est d’obtenir une représentation approchée du nuage des <span class="math notranslate nohighlight">\(n\)</span> individus dans un sous-espace <span class="math notranslate nohighlight">\(F_k\)</span> de dimension faible. Ceci s’effectue par un mécanisme de projection.</p>
 <p>Le choix de l’espace de projection est dicté par le critère suivant, qui revient à déformer le moins possible les distances en projection: le sous-espace de dimension <span class="math notranslate nohighlight">\(k\)</span> recherché est tel que la moyenne des carrés des distances entre projections soit la plus grande possible. En définissant l’inertie d’un nuage de points comme la moyenne pondérée des carrés des distances au centre de gravité, le critère revient alors à maximiser l’inertie du nuage projeté sur <span class="math notranslate nohighlight">\(F_k\)</span>.</p>
-<p>Soit <span class="math notranslate nohighlight">\({\bf P}\)</span> la projection orthogonale sur <span class="math notranslate nohighlight">\(F_k\)</span>. Le nuage de points projeté est associé au tableau <span class="math notranslate nohighlight">\({\bf XP^T}\)</span> puisque chaque individu <span class="math notranslate nohighlight">\(\mathbf{e_i}\)</span> se projette sur <span class="math notranslate nohighlight">\(F_k\)</span> selon un vecteur colonne <span class="math notranslate nohighlight">\(\mathbf{Pe_i}\)</span> ou un vecteur ligne <span class="math notranslate nohighlight">\(\mathbf{e_i P^T}\)</span>.</p>
+<p>Soit <span class="math notranslate nohighlight">\({\bf P}\)</span> la projection orthogonale sur <span class="math notranslate nohighlight">\(F_k\)</span>. Le nuage de points projeté est associé au tableau <span class="math notranslate nohighlight">\({\bf XP^T}\)</span> puisque chaque individu <span class="math notranslate nohighlight">\(\mathbf{e_i}\)</span> se projette sur <span class="math notranslate nohighlight">\(F_k\)</span> selon un vecteur colonne <span class="math notranslate nohighlight">\(\mathbf{Pe_i}\)</span> ou ligne <span class="math notranslate nohighlight">\(\mathbf{e_i P^T}\)</span>.</p>
 <p>La matrice de variance du tableau <span class="math notranslate nohighlight">\({\bf XP^T}\)</span> est, dans le cas où les variables sont centrées :
-<span class="math notranslate nohighlight">\({\bf (XP^T)^TD(XP^T) }= {\bf PVP^T}\)</span>
+<span class="math notranslate nohighlight">\({\bf (XP^T)^TD(XP^T) }= {\bf PVP^T}\)</span>.
 L’inertie du nuage projeté est donc égale à <span class="math notranslate nohighlight">\(Tr({\bf PVP^TM})\)</span>, où <span class="math notranslate nohighlight">\({\bf M}\)</span> est une matrice symétrique définie positive de taille <span class="math notranslate nohighlight">\(p\)</span>, définissant la distance entre deux individus</p>
 <p><span class="math notranslate nohighlight">\(d^2(\mathbf{e_i},\mathbf{e_j}) = (\mathbf{e_i}-\mathbf{e_j})^T{\bf M}(\mathbf{e_i}-\mathbf{e_j})\)</span></p>
-<p>Mais
-<span class="math notranslate nohighlight">\(\begin{eqnarray*}
+<p>Mais</p>
+<p><span class="math notranslate nohighlight">\(\begin{eqnarray*}
 Tr({\bf PVP^TM})&amp;=&amp;Tr({\bf PVMP})\quad \textrm{car }{\bf P^TM}={\bf MP}\\
 &amp;=&amp; Tr({\bf VMP^2})\quad \textrm{car }Tr({\bf AB})=Tr({\bf BA})\\
 &amp;=&amp;Tr({\bf VMP})\quad \textrm{car } P\textrm{ est une projection}
@@ -918,7 +918,6 @@ INAC  &amp;138  &amp;7  &amp;117  &amp;74&amp;  53&amp; 8 &amp;12 &amp;20\\
 <p>L’interprétation de ce plan se fait séquentiellement, pour chaque axe et chaque nuage de points, en regardant les contributions à la formation des axes:</p>
 <ul class="simple">
 <li><p>Axe 1 :</p></li>
-<li></li>
 </ul>
 <p>1- <strong>Variables</strong> :  les variables contribuant le plus à la formation de l’axe 1 sont celles dont les coordonnées sur cet axe sont proches de 1 en valeur absolue.
 PAA et VIO sont très proches de la contribution moyenne, on les intègre donc dans l’interprétation de l’axe si elles vont dans le sens de l’interprétation que l’on peut en faire, sans elles. L’axe 1 oppose les individus consommant du pain ordinaire, des légumes secs (et éventuellement du vin ordinaire) à ceux qui consomment du raisin, du vin (éventuellement du pain) plus sophistiqué et des plats préparés. L’axe 1, et donc la première composante principale, mesure la répartition entre aliments ordinaires bon marché et aliments plus recherchés.</p>
