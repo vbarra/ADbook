@@ -22,38 +22,33 @@
 # ````
 # 
 # Le code Python de la question 2 peut s'écrire
-
-# In[1]:
-
-
-#importation des librairies
-import matplotlib.pyplot as plt import math
-# initialisation
-N=41 n=[]
-
-Q=[]
-QQ=1
-#boucle et remplissage de la probaQ
-for j in range(1,N):
-    n.append(j)
-    QQ=QQ*(1-(j-1)/365) 
-    Q.append(QQ*100) 
-plt.figure()
-plt.subplot(211)
-plt.plot(n,Q,color=’red’,label=’proba dates differentes’)
-plt.plot(n,Q,’k+’)
-plt.xlabel(’entier n’)
-plt.ylabel(’proba Q en %’)
-plt.title(’probleme des anniversaires’)
-plt.grid(True)
-plt.legend()
-plt.subplot(212)
-plt.plot(n,Q,color=’red’,label=’proba dates differentes’)
-plt.plot(n,Q,’k+’)
-plt.xlim(15,25)
-plt.ylim(40,70)
-plt.ylabel(’proba Q en %’) 
-plt.grid(True) 
-plt.legend()
-plt.show()
-
+# ``{code-cell} ipython3
+# import matplotlib.pyplot as plt 
+# import math
+# N=41 n=[]
+# Q=[]
+# QQ=1
+# #boucle et remplissage de la probaQ
+# for j in range(1,N):
+#     n.append(j)
+#     QQ=QQ*(1-(j-1)/365) 
+#     Q.append(QQ*100) 
+# plt.figure()
+# plt.subplot(211)
+# plt.plot(n,Q,color=’red’,label=’proba dates differentes’)
+# plt.plot(n,Q,’k+’)
+# plt.xlabel(’entier n’)
+# plt.ylabel(’proba Q en %’)
+# plt.title(’probleme des anniversaires’)
+# plt.grid(True)
+# plt.legend()
+# plt.subplot(212)
+# plt.plot(n,Q,color=’red’,label=’proba dates differentes’)
+# plt.plot(n,Q,’k+’)
+# plt.xlim(15,25)
+# plt.ylim(40,70)
+# plt.ylabel(’proba Q en %’) 
+# plt.grid(True) 
+# plt.legend()
+# plt.show()
+# ```

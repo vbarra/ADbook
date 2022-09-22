@@ -31,7 +31,7 @@ Soient $n\leq 365$ personnes. On suppose qu’une année dure 365 jours. On sup
 ````
 
 Le code Python de la question 2 peut s'écrire
-``{code-cell} ipython3
+```{code-cell} ipython3
 import matplotlib.pyplot as plt 
 import math
 N=41 n=[]

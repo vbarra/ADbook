@@ -436,21 +436,18 @@ title="Print to PDF"
 <li><p>la probabilité est approximativement égale à 0.97</p></li>
 </ol>
 </div>
-<p>Le code Python de la question 2 peut s’écrire</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#importation des librairies
-import matplotlib.pyplot as plt import math
-# initialisation
+<p>Le code Python de la question 2 peut s’écrire
+``{code-cell} ipython3
+import matplotlib.pyplot as plt
+import math
 N=41 n=[]
-
 Q=[]
 QQ=1
 #boucle et remplissage de la probaQ
 for j in range(1,N):
-    n.append(j)
-    QQ=QQ*(1-(j-1)/365) 
-    Q.append(QQ*100) 
+n.append(j)
+QQ=QQ*(1-(j-1)/365)
+Q.append(QQ*100)
 plt.figure()
 plt.subplot(211)
 plt.plot(n,Q,color=’red’,label=’proba dates differentes’)
@@ -465,21 +462,12 @@ plt.plot(n,Q,color=’red’,label=’proba dates differentes’)
 plt.plot(n,Q,’k+’)
 plt.xlim(15,25)
 plt.ylim(40,70)
-plt.ylabel(’proba Q en %’) 
-plt.grid(True) 
+plt.ylabel(’proba Q en %’)
+plt.grid(True)
 plt.legend()
-plt.show()
+plt.show()</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="kn">import</span> <span class="nn">math</span>
-                                    <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 </div>
