@@ -466,6 +466,8 @@ nb_l = np.sum(np.array(eigenvalues)>1)
 print ("On retient " + str(nb_l) + " axes")
 ```
 
+#### Analyse des résultats
+
 ##### Corrélation variables/facteurs
 
 ```{code-cell} ipython3
