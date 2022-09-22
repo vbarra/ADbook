@@ -441,29 +441,30 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pyplot as plt 
 import math
-N=41 n=[]
-Q=[]
-QQ=1
-#boucle et remplissage de la probaQ
+N=41 
+n=[]
+P=[]
+t=1
+
 for j in range(1,N):
     n.append(j)
-    QQ=QQ*(1-(j-1)/365) 
-    Q.append(QQ*100) 
+    t=t*(1-(j-1)/365) 
+    P.append(t*100) 
 plt.figure()
 plt.subplot(211)
-plt.plot(n,Q,color=’red’,label=’proba dates differentes’)
-plt.plot(n,Q,’k+’)
-plt.xlabel(’entier n’)
-plt.ylabel(’proba Q en %’)
+plt.plot(n,P,color=’red’,label=’proba dates differentes’)
+plt.plot(n,P,’k+’)
+plt.xlabel(’n’)
+plt.ylabel(’P’)
 plt.title(’probleme des anniversaires’)
 plt.grid(True)
 plt.legend()
 plt.subplot(212)
 plt.plot(n,Q,color=’red’,label=’proba dates differentes’)
-plt.plot(n,Q,’k+’)
+plt.plot(n,P,’k+’)
 plt.xlim(15,25)
 plt.ylim(40,70)
-plt.ylabel(’proba Q en %’) 
+plt.ylabel(’P’) 
 plt.grid(True) 
 plt.legend()
 plt.show()
@@ -471,10 +472,10 @@ plt.show()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">N</span><span class="o">=</span><span class="mi">41</span> <span class="n">n</span><span class="o">=</span><span class="p">[]</span>
-         <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  Input In [1]
+    plt.plot(n,P,color=’red’,label=’proba dates differentes’)
+                       ^
+SyntaxError: invalid character &#39;’&#39; (U+2019)
 </pre></div>
 </div>
 </div>
