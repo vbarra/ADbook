@@ -31,12 +31,10 @@ Soient $n\leq 365$ personnes. On suppose qu’une année dure 365 jours. On sup
 ````
 
 Le code Python de la question 2 peut s'écrire
-```{code-cell} ipython3
-#importation des librairies
-import matplotlib.pyplot as plt import math
-# initialisation
+``{code-cell} ipython3
+import matplotlib.pyplot as plt 
+import math
 N=41 n=[]
-
 Q=[]
 QQ=1
 #boucle et remplissage de la probaQ
