@@ -22,7 +22,7 @@ Soient $n\leq 365$ personnes. On suppose qu’une année dure 365 jours. On sup
 5. Si $n$=50, quelle est la probabilité que deux au moins de ces personnes aient la même date anniversaire ?
 
 
-```{admonition} Solution
+````{admonition} Solution
 :class: dropdown
 1. $P\approx 0.9973$
 2. 
@@ -61,7 +61,7 @@ plt.show()
 3. $n=23$
 4. $n=35$
 5. la probabilité est approximativement égale à 0.97
-```
+````
 
 
 
