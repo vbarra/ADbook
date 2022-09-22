@@ -30,28 +30,28 @@ for j in range(1,N):
     P.append(t*100) 
 plt.figure()
 plt.subplot(211)
-plt.plot(n,P,color=’red’,label=’proba dates differentes’)
-plt.plot(n,P,’k+’)
-plt.xlabel(’n’)
-plt.ylabel(’P’)
-plt.title(’probleme des anniversaires’)
+plt.plot(n,P,color='red',label='proba dates differentes')
+plt.plot(n,P,'k+'')
+plt.xlabel('n')
+plt.ylabel('P')
+plt.title('probleme des anniversaires')
 plt.grid(True)
 plt.legend()
 plt.subplot(212)
-plt.plot(n,Q,color=’red’,label=’proba dates differentes’)
-plt.plot(n,P,’k+’)
+plt.plot(n,Q,color='red',label='proba dates differentes')
+plt.plot(n,P,'k+')
 plt.xlim(15,25)
 plt.ylim(40,70)
-plt.ylabel(’P’) 
+plt.ylabel('P') 
 plt.grid(True) 
 plt.legend()
 plt.show()
 ------------------
 
 [0;36m  Input [0;32mIn [1][0;36m[0m
-[0;31m    plt.plot(n,P,color=’red’,label=’proba dates differentes’)[0m
+[0;31m    plt.plot(n,P,'k+'')[0m
 [0m                       ^[0m
-[0;31mSyntaxError[0m[0;31m:[0m invalid character '’' (U+2019)
+[0;31mSyntaxError[0m[0;31m:[0m EOL while scanning string literal
 
-SyntaxError: invalid character '’' (U+2019) (<ipython-input-1-2cb123ca71d6>, line 14)
+SyntaxError: EOL while scanning string literal (<ipython-input-1-8f98151d4709>, line 15)
 
