@@ -25,8 +25,12 @@ Soient $n\leq 365$ personnes. On suppose qu’une année dure 365 jours. On sup
 ````{admonition} Solution
 :class: dropdown
 1. $P\approx 0.9973$
-2. 
+3. $n=23$
+4. $n=35$
+5. la probabilité est approximativement égale à 0.97
+````
 
+Le code Python de la question 2 peut s'écrire
 ```{code-cell} ipython3
 #importation des librairies
 import matplotlib.pyplot as plt import math
@@ -59,10 +63,6 @@ plt.grid(True)
 plt.legend()
 plt.show()
 ```
-3. $n=23$
-4. $n=35$
-5. la probabilité est approximativement égale à 0.97
-````
 
 
 

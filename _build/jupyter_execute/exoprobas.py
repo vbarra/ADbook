@@ -17,6 +17,7 @@
 # :class: dropdown
 # 1. $P\approx 0.9973$
 # 2. 
+# 
 # ```{code-cell} ipython3
 # #importation des librairies
 # import matplotlib.pyplot as plt import math
