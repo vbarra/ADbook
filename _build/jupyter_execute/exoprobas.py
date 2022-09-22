@@ -28,29 +28,30 @@
 
 import matplotlib.pyplot as plt 
 import math
-N=41 n=[]
-Q=[]
-QQ=1
-#boucle et remplissage de la probaQ
+N=41 
+n=[]
+P=[]
+t=1
+
 for j in range(1,N):
     n.append(j)
-    QQ=QQ*(1-(j-1)/365) 
-    Q.append(QQ*100) 
+    t=t*(1-(j-1)/365) 
+    P.append(t*100) 
 plt.figure()
 plt.subplot(211)
-plt.plot(n,Q,color=’red’,label=’proba dates differentes’)
-plt.plot(n,Q,’k+’)
-plt.xlabel(’entier n’)
-plt.ylabel(’proba Q en %’)
+plt.plot(n,P,color=’red’,label=’proba dates differentes’)
+plt.plot(n,P,’k+’)
+plt.xlabel(’n’)
+plt.ylabel(’P’)
 plt.title(’probleme des anniversaires’)
 plt.grid(True)
 plt.legend()
 plt.subplot(212)
 plt.plot(n,Q,color=’red’,label=’proba dates differentes’)
-plt.plot(n,Q,’k+’)
+plt.plot(n,P,’k+’)
 plt.xlim(15,25)
 plt.ylim(40,70)
-plt.ylabel(’proba Q en %’) 
+plt.ylabel(’P’) 
 plt.grid(True) 
 plt.legend()
 plt.show()
