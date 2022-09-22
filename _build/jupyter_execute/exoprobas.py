@@ -36,7 +36,7 @@ t=1
 for j in range(1,N):
     n.append(j)
     t=t*(1-(j-1)/365) 
-    P.append(t*100) 
+    P.append(t) 
 plt.figure()
 plt.subplot(211)
 plt.plot(n,P,color='red',label='proba dates differentes')
