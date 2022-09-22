@@ -31,7 +31,7 @@ for j in range(1,N):
 plt.figure()
 plt.subplot(211)
 plt.plot(n,P,color='red',label='proba dates differentes')
-plt.plot(n,P,'k+'')
+plt.plot(n,P,'k+')
 plt.xlabel('n')
 plt.ylabel('P')
 plt.title('probleme des anniversaires')
@@ -48,10 +48,15 @@ plt.legend()
 plt.show()
 ------------------
 
-[0;36m  Input [0;32mIn [1][0;36m[0m
-[0;31m    plt.plot(n,P,'k+'')[0m
-[0m                       ^[0m
-[0;31mSyntaxError[0m[0;31m:[0m EOL while scanning string literal
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Input [0;32mIn [1][0m, in [0;36m<module>[0;34m[0m
+[1;32m     20[0m plt[38;5;241m.[39mlegend()
+[1;32m     21[0m plt[38;5;241m.[39msubplot([38;5;241m212[39m)
+[0;32m---> 22[0m plt[38;5;241m.[39mplot(n,[43mQ[49m,color[38;5;241m=[39m[38;5;124m'[39m[38;5;124mred[39m[38;5;124m'[39m,label[38;5;241m=[39m[38;5;124m'[39m[38;5;124mproba dates differentes[39m[38;5;124m'[39m)
+[1;32m     23[0m plt[38;5;241m.[39mplot(n,P,[38;5;124m'[39m[38;5;124mk+[39m[38;5;124m'[39m)
+[1;32m     24[0m plt[38;5;241m.[39mxlim([38;5;241m15[39m,[38;5;241m25[39m)
 
-SyntaxError: EOL while scanning string literal (<ipython-input-1-8f98151d4709>, line 15)
+[0;31mNameError[0m: name 'Q' is not defined
+NameError: name 'Q' is not defined
 
