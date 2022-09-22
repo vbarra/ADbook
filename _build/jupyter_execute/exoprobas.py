@@ -40,7 +40,7 @@ for j in range(1,N):
 plt.figure()
 plt.subplot(211)
 plt.plot(n,P,color='red',label='proba dates differentes')
-plt.plot(n,P,'k+'')
+plt.plot(n,P,'k+')
 plt.xlabel('n')
 plt.ylabel('P')
 plt.title('probleme des anniversaires')
