@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>TP Statistiques descriptives &#8212; Analyse de données</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,10 +36,13 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -47,8 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Statistique exploratoire" href="statsexploratoires.html" />
@@ -432,7 +436,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="tp-statistiques-descriptives">
+  <section class="tex2jax_ignore mathjax_ignore" id="tp-statistiques-descriptives">
 <h1>TP Statistiques descriptives<a class="headerlink" href="#tp-statistiques-descriptives" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -442,7 +446,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="section" id="statistique-monovariee">
+<section id="statistique-monovariee">
 <h2>Statistique monovariée<a class="headerlink" href="#statistique-monovariee" title="Permalink to this headline">#</a></h2>
 <p>Le tableau suivant donne les notes (sur 10) obtenues à un examen par un groupe d’élèves.
 <span class="math notranslate nohighlight">\(\begin{array}{c|c}
@@ -532,10 +536,10 @@ Yves &amp;1
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="statistique-bivariee">
+</section>
+<section id="statistique-bivariee">
 <h2>Statistique bivariée<a class="headerlink" href="#statistique-bivariee" title="Permalink to this headline">#</a></h2>
-<div class="section" id="cas-de-variables-quantitatives">
+<section id="cas-de-variables-quantitatives">
 <h3>Cas de variables quantitatives<a class="headerlink" href="#cas-de-variables-quantitatives" title="Permalink to this headline">#</a></h3>
 <p>On donne le fichier de données suivant</p>
 <div class="cell docutils container">
@@ -585,14 +589,25 @@ Yves &amp;1
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="cas-de-variables-qualitatives">
+</section>
+<section id="cas-de-variables-qualitatives">
 <h3>Cas de variables qualitatives<a class="headerlink" href="#cas-de-variables-qualitatives" title="Permalink to this headline">#</a></h3>
 <p>On s’intéresse à un fichier décrivant la réussite d’étudiants en mathématiques (données décrites <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Student+Performance">ici</a>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./student.csv&#39;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./student.csv&#39;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
 </pre></div>
 </div>
 </div>
@@ -651,6 +666,12 @@ Yves &amp;1
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[183. 166.]
+ [ 25.  21.]]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Construire le tableau théorique associé en supposant l’indépendance des deux variables.</p>
 <div class="cell docutils container">
@@ -659,11 +680,22 @@ Yves &amp;1
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[183.77721519, 165.22278481],
+       [ 24.22278481,  21.77721519]])
+</pre></div>
+</div>
+</div>
 </div>
 <p>Calculer la distance du <span class="math notranslate nohighlight">\(\chi^2\)</span> entre les variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(g\)</span>. Ces deux variables sont elles liées ou sont elles indépendantes ?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distance du chi2 :  0.059619131674428574
 </pre></div>
 </div>
 </div>
@@ -683,6 +715,11 @@ Yves &amp;1
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0, 1, 2, 3, 4], dtype=object), array([  2,  82, 115, 100,  96]))
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -695,6 +732,12 @@ Yves &amp;1
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 69., 103.,  90.,  87.],
+       [ 15.,  12.,  10.,   9.]])
 </pre></div>
 </div>
 </div>
@@ -714,10 +757,15 @@ Yves &amp;1
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distance du chi2 :  4.057906794285899
+</pre></div>
 </div>
 </div>
 </div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

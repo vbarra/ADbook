@@ -352,7 +352,7 @@ def print_tab (n, p, ind, tab):
 # 
 # $D=\frac{1}{n}I$ = Matrice diagonale de poids, chaque $d_{ii}$ donnant l'importance de l'individu $i$ dans les données
 
-# In[2]:
+# In[ ]:
 
 
 Xt = np.transpose(X)
@@ -364,7 +364,7 @@ print ('g = \n',g)
 
 # $Y = X - {\bf 1} g^T = (I - {\bf 11}^TD)X$ = Tableau centré associé à $X$
 
-# In[3]:
+# In[ ]:
 
 
 gt = np.transpose(g)
@@ -374,7 +374,7 @@ Y = X - np.matmul (un, gt)
 # ##### Données réduites
 # $V=X^TDX-gg^T=Y^TDY$ = Matrice de variance/covariance.
 
-# In[4]:
+# In[ ]:
 
 
 Yt = np.transpose(Y)
@@ -385,7 +385,7 @@ V = np.matmul (np.matmul (Yt, D), Y)
 # 
 # $R = D_{1/\sigma}VD_{1/\sigma} = Z^T  D  Z$ = Matrice (symétrique) de variance/covariance des données centrées réduites.
 
-# In[5]:
+# In[ ]:
 
 
 sigma = seq = [np.std(x) for x in Xt]
@@ -406,7 +406,7 @@ plt.colorbar();
 # 
 # - Si $M=I$ on calcule $ \frac{1}{n}\displaystyle\sum_{i=1}^n (z_i)^T M z_i = Tr(RM)$
 
-# In[6]:
+# In[ ]:
 
 
 def calcul_inertie_somme (Y, M):
@@ -431,7 +431,7 @@ print (calcul_inertie_trace(R, M))
 
 # #### Analyse spectrale
 
-# In[7]:
+# In[ ]:
 
 
 eigenvalues,eigenvectors = np.linalg.eig(R)
@@ -441,7 +441,7 @@ u = [eigenvectors[:,i] for i in range(p)]
 
 # ##### Calcul des composantes principales
 
-# In[8]:
+# In[ ]:
 
 
 c = []
@@ -452,7 +452,7 @@ for j in range(p):
 # ##### Pourcentage d'inertie expliquée par un axe
 # Pourcentage d'inertie cumulée expliquée par les $k$ premiers axes : $\frac{\displaystyle\sum_{j=1}^k\lambda_j}{\displaystyle\sum_{j=1}^p\lambda_j}$
 
-# In[9]:
+# In[ ]:
 
 
 i_lambda = [l/p for l in eigenvalues]
@@ -469,7 +469,7 @@ plt.tight_layout()
 
 # ##### Critère de Kaiser
 
-# In[10]:
+# In[ ]:
 
 
 nb_l = np.sum(np.array(eigenvalues)>1)
@@ -480,7 +480,7 @@ print ("On retient " + str(nb_l) + " axes")
 # 
 # ##### Corrélation variables/facteurs
 
-# In[11]:
+# In[ ]:
 
 
 r = []
@@ -491,7 +491,7 @@ for j in range(p):
 # ##### Cercle des corrélations pour un couple de composantes principales
 # Pour $c_1$ et $c_2$, chaque variable $x_j$ est repérée par un point d'abscisse $r(c_1,x^j)$ et d'ordonnée $r(c_2, x_j)$.
 
-# In[12]:
+# In[ ]:
 
 
 i1 = i_lambda[0] * 100
@@ -546,7 +546,7 @@ plt.tight_layout()
 
 # ##### Contribution des variables
 
-# In[13]:
+# In[ ]:
 
 
 contributions_variables = []
@@ -560,7 +560,7 @@ print (print_tab (p, p, variables, contributions_variables))
 
 # ##### Représentation des individus
 
-# In[14]:
+# In[ ]:
 
 
 plt.figure(figsize=(18, 6))
@@ -605,7 +605,7 @@ plt.tight_layout()
 # ##### Contribution des individus
 # $\frac{p_ic_{ki}^2}{\lambda_k}$
 
-# In[15]:
+# In[ ]:
 
 
 contributions_individus = []
@@ -622,7 +622,7 @@ print (print_tab (n, p, ind, contributions_individus))
 # ##### Tableau des cosinus carrés
 # $\frac{c_{ki}^2}{\displaystyle\sum_{j=1}^p c_{ji}^2}$
 
-# In[16]:
+# In[ ]:
 
 
 cosinus_carres = []

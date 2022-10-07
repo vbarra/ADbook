@@ -162,7 +162,7 @@ import pandas as pd
 result = pd.read_csv('./student.csv',delimiter=';')
 
 
-# In[14]:
+# In[19]:
 
 
 print(result)
@@ -170,7 +170,7 @@ print(result)
 
 # On regarde les deux premières colonnes des données (code de l'école et genre de l'étudiant)
 
-# In[15]:
+# In[20]:
 
 
 x = result.values[:,0]
@@ -179,7 +179,7 @@ g = result.values[:,1]
 
 # Construire le tableau de contingence de ces deux variables
 
-# In[16]:
+# In[21]:
 
 
 #TODO
@@ -187,7 +187,7 @@ g = result.values[:,1]
 
 # Construire le tableau théorique associé en supposant l’indépendance des deux variables.
 
-# In[17]:
+# In[22]:
 
 
 #TODO
@@ -195,7 +195,7 @@ g = result.values[:,1]
 
 # Calculer la distance du $\chi^2$ entre les variables $x$ et $g$. Ces deux variables sont elles liées ou sont elles indépendantes ?
 
-# In[18]:
+# In[23]:
 
 
 #TODO
@@ -210,13 +210,13 @@ g = result.values[:,1]
 # 
 # Récupérer cette variable et calculer les effectifs de chacune des modalités. Calculer le tableau de contingence  entre les variables $x$ et $ne$
 
-# In[19]:
+# In[24]:
 
 
 #TODO
 
 
-# In[20]:
+# In[25]:
 
 
 #TODO
@@ -230,7 +230,7 @@ g = result.values[:,1]
 
 # Les effectifs étant trop faibles, fusionner les deux premières colonnes
 
-# In[21]:
+# In[27]:
 
 
 #TODO
@@ -238,7 +238,7 @@ g = result.values[:,1]
 
 # Construire le tableau théorique, en supposant l'indépendance des variables
 
-# In[22]:
+# In[28]:
 
 
 #TODO
@@ -246,7 +246,7 @@ g = result.values[:,1]
 
 # Calculer la distance du $\chi^2$ entre les variables $x$ et $ne$. Ces deux variables sont elles liées ou sont elles indépendantes ? Que peut on en déduire sur le choix de l’école ?
 
-# In[23]:
+# In[29]:
 
 
 #TODO

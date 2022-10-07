@@ -10,5 +10,6 @@ chapters:
 - file: statsdescriptives
 - file: TP1_statsDescriptives
 - file: statsexploratoires
+- file: TP2_ACP
 - file: regression
 - file: genindex

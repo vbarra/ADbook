@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Statistique exploratoire &#8212; Analyse de données</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,10 +36,13 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -47,8 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Régression" href="regression.html" />
@@ -867,36 +871,36 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="statistique-exploratoire">
+  <section class="tex2jax_ignore mathjax_ignore" id="statistique-exploratoire">
 <h1>Statistique exploratoire<a class="headerlink" href="#statistique-exploratoire" title="Permalink to this headline">#</a></h1>
 <p>Les méthodes factorielles ont pour but de traiter et visualiser des données multidimensionnelles. La prise en compte simultanée de l’ensemble des variables est un problème difficile, rendu parfois plus simple car l’information apportée par les variables est redondante. Les méthodes factorielles visent alors à exploiter cette redondance pour tenter de remplacer les variables initiales par un nombre réduit de nouvelles variables, conservant au mieux l’information initiale.</p>
 <p>Les principales méthodes de ce type incluent l’analyse factorielle des correspondances, l’analyse des correspondances multiples, l’analyse factorielle d’un tableau de distance (pour les tableaux de proximité) ou encore l’analyse factorielle discriminante.</p>
-<div class="section" id="analyse-en-composantes-principales">
+<section id="analyse-en-composantes-principales">
 <h2>Analyse en composantes principales<a class="headerlink" href="#analyse-en-composantes-principales" title="Permalink to this headline">#</a></h2>
 <p>Pour les données quantitatives, l’Analyse en Composantes Principales (ACP) est l’une des méthodes les plus utilisées. Elle considère que les nouvelles variables sont des combinaisons linéaires des variables initiales, non corrélées.</p>
 <p><img alt="" src="_images/acpintro.png" /></p>
 <p>Dans la suite, les données seront des tableaux <span class="math notranslate nohighlight">\(n\times p\)</span> de variables quantitatives, une ligne étant un individu, et les colonnes décrivant les paramètres mesurés. Les observations de <span class="math notranslate nohighlight">\(p\)</span> variables sur <span class="math notranslate nohighlight">\(n\)</span> individus sont donc rassemblées dans une matrice <span class="math notranslate nohighlight">\({\bf X}\in\mathcal{M}_{np}(\mathbb{R})\)</span> .  On notera <span class="math notranslate nohighlight">\(x^j\)</span> la j-ème variable, identifiée par la j-ème colonne <span class="math notranslate nohighlight">\({\bf X_{\bullet,j}}\)</span> de <span class="math notranslate nohighlight">\({\bf X}\)</span>, et <span class="math notranslate nohighlight">\(\mathbf{e_i}\)</span> le i-ème individu (i.e. <span class="math notranslate nohighlight">\({\bf X_{i,\bullet}^T}\)</span>).</p>
-<div class="section" id="principe-de-la-methode">
+<section id="principe-de-la-methode">
 <h3>Principe de la méthode<a class="headerlink" href="#principe-de-la-methode" title="Permalink to this headline">#</a></h3>
-<div class="section" id="pre-traitement-du-tableau">
+<section id="pre-traitement-du-tableau">
 <h4>Pré-traitement du tableau<a class="headerlink" href="#pre-traitement-du-tableau" title="Permalink to this headline">#</a></h4>
 <p>En analyse en composantes principales, on raisonne souvent sur des variables centrées et/ou réduites.</p>
-<div class="section" id="donnees-centrees">
+<section id="donnees-centrees">
 <h5>Données centrées<a class="headerlink" href="#donnees-centrees" title="Permalink to this headline">#</a></h5>
 <p>Notons <span class="math notranslate nohighlight">\(\mathbf{g} = \left ( \bar{x}^1\cdots \bar{x}^p\right )\)</span> le vecteur des moyennes arithmétiques de chaque variable (centre de gravité) :</p>
 <p><span class="math notranslate nohighlight">\(\mathbf{g}={\bf X^TD\mathbf{1}}\)</span></p>
 <p>où <span class="math notranslate nohighlight">\({\bf D}\)</span> est une matrice diagonale de poids,  chaque <span class="math notranslate nohighlight">\(d_{ii}\)</span> donnant l’importance de l’individu <span class="math notranslate nohighlight">\(i\)</span> dans les données (le plus souvent <span class="math notranslate nohighlight">\({\bf D}=\frac{1}{n}{ \mathbb{I}}\)</span>),  et <span class="math notranslate nohighlight">\(\mathbf{1}\)</span> est le vecteur de <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> dont toutes les composantes sont égales à 1. Le tableau <span class="math notranslate nohighlight">\({\bf Y}={\bf X}-\mathbf{1}\mathbf{g}^T=({ \mathbb{I}}-\mathbf{1}\mathbf{1}^T{\bf D}){\bf X}\)</span> est le tableau centré associé à <span class="math notranslate nohighlight">\({\bf X}\)</span>.</p>
-</div>
-<div class="section" id="donnees-reduites">
+</section>
+<section id="donnees-reduites">
 <h5>Données réduites<a class="headerlink" href="#donnees-reduites" title="Permalink to this headline">#</a></h5>
 <p>La matrice de variance/covariance des données centrées est égale à
 <span class="math notranslate nohighlight">\({\bf V} = {\bf X^TDX} - \mathbf{g}\mathbf{g^T} = {\bf Y^TDY}\)</span>.</p>
 <p>Si on note <span class="math notranslate nohighlight">\({\bf D_{1/\sigma}}\)</span> la matrice diagonale des inverses des écarts-types des variables, alors  <span class="math notranslate nohighlight">\({\bf Z}={\bf YD_{1/\sigma}}\)</span>
 est la matrice des données centrées réduites. La matrice <span class="math notranslate nohighlight">\({\bf R}={\bf D_{1/\sigma}VD_{1/\sigma}}={\bf Z^TDZ}\)</span>
 est la matrice de corrélation des données et résume la structure des dépendances linéaires entre les <span class="math notranslate nohighlight">\(p\)</span> variables.</p>
-</div>
-</div>
-<div class="section" id="projection-des-individus-sur-un-sous-espace">
+</section>
+</section>
+<section id="projection-des-individus-sur-un-sous-espace">
 <h4>Projection des individus sur un sous-espace<a class="headerlink" href="#projection-des-individus-sur-un-sous-espace" title="Permalink to this headline">#</a></h4>
 <p>Le principe de la méthode est d’obtenir une représentation approchée du nuage des <span class="math notranslate nohighlight">\(n\)</span> individus dans un sous-espace <span class="math notranslate nohighlight">\(F_k\)</span> de dimension faible. Ceci s’effectue par un mécanisme de projection.</p>
 <p>Le choix de l’espace de projection est dicté par le critère suivant, qui revient à déformer le moins possible les distances en projection: le sous-espace de dimension <span class="math notranslate nohighlight">\(k\)</span> recherché est tel que la moyenne des carrés des distances entre projections soit la plus grande possible. En définissant l’inertie d’un nuage de points comme la moyenne pondérée des carrés des distances au centre de gravité, le critère revient alors à maximiser l’inertie du nuage projeté sur <span class="math notranslate nohighlight">\(F_k\)</span>.</p>
@@ -915,13 +919,13 @@ Tr({\bf PVP^TM})&amp;=&amp;Tr({\bf PVMP})\quad \textrm{car }{\bf P^TM}={\bf MP}\
 <p>L’analyse en composantes principales consiste alors, de manière itérative, à chercher un sous-espace de dimension 1 d’inertie maximale, puis le sous-espace de dimension 1 orthogonal au précédent d’inertie maximale et ainsi de suite. Elle s’appuie sur le résultat suivant :</p>
 <div class="proof theorem admonition" id="theorem-0">
 <p class="admonition-title"><span class="caption-number">Theorem 2 </span></p>
-<div class="theorem-content section" id="proof-content">
+<section class="theorem-content" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\(F_k\)</span> un sous-espace portant l’inertie maximale. Alors le sous-espace de dimension <span class="math notranslate nohighlight">\(k+1\)</span> portant l’inertie maximale est la somme directe de <span class="math notranslate nohighlight">\(F_k\)</span> et de la droite orthogonale à <span class="math notranslate nohighlight">\(F_k\)</span> portant l’inertie maximale.</p>
-</div>
-</div></div>
-<div class="section" id="elements-principaux">
+</section>
+</div></section>
+<section id="elements-principaux">
 <h4>Elements principaux<a class="headerlink" href="#elements-principaux" title="Permalink to this headline">#</a></h4>
-<div class="section" id="axes-principaux">
+<section id="axes-principaux">
 <h5>Axes principaux<a class="headerlink" href="#axes-principaux" title="Permalink to this headline">#</a></h5>
 <p>Rechercher un sous-espace de dimension 1 d’inertie maximale revient à rechercher une droite de <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> passant par le centre de gravité des données <span class="math notranslate nohighlight">\(\mathbf{g}\)</span> maximisant l’inertie du nuage projeté sur cet axe. Soit <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> un vecteur directeur de cette droite. La projection orthogonale sur la droite est définie par la matrice de projection</p>
 <p><span class="math notranslate nohighlight">\(\mathbf P=\frac{\mathbf{a}\mathbf{a}^T{\bf M}}{\mathbf{a}^T{\bf M}\mathbf{a}}\)</span></p>
@@ -941,23 +945,23 @@ et donc</p>
 <p>soit <span class="math notranslate nohighlight">\({\bf VM}\mathbf{a}=\lambda \mathbf{a}\)</span> car <span class="math notranslate nohighlight">\({\bf M}\)</span> est de rang plein. Donc <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> est vecteur propre de <span class="math notranslate nohighlight">\({\bf VM}\)</span>, et <span class="math notranslate nohighlight">\(\lambda\)</span> est la plus grande des valeurs propres de <span class="math notranslate nohighlight">\({\bf VM}\)</span>. Or <span class="math notranslate nohighlight">\({\bf M}\)</span> est symétrique, elle est diagonalisable sur une base de vecteurs propres orthonormés et on a le résultat suivant :</p>
 <div class="proof theorem admonition" id="theorem-1">
 <p class="admonition-title"><span class="caption-number">Theorem 3 </span></p>
-<div class="theorem-content section" id="proof-content">
+<section class="theorem-content" id="proof-content">
 <p>Le sous-espace <span class="math notranslate nohighlight">\(F_k\)</span> de dimension <span class="math notranslate nohighlight">\(k\)</span> portant l’inertie maximale est engendré par les <span class="math notranslate nohighlight">\(k\)</span> premiers vecteurs propres de <span class="math notranslate nohighlight">\({\bf VM}\)</span></p>
-</div>
+</section>
 </div><p>Les droites portées par ces vecteurs propres sont les axes principaux. Dans la suite on supposera <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> <span class="math notranslate nohighlight">\(\mathbf M\)</span>-normé.</p>
-</div>
-<div class="section" id="facteurs-principaux">
+</section>
+<section id="facteurs-principaux">
 <h5>Facteurs principaux<a class="headerlink" href="#facteurs-principaux" title="Permalink to this headline">#</a></h5>
 <p>On associe à  <span class="math notranslate nohighlight">\(Lin(\mathbf{a})\)</span> la forme linéaire <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, coordonnée orthogonale sur l’axe <span class="math notranslate nohighlight">\(Lin(\mathbf{a})\)</span>. Le vecteur <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> définit une combinaison linéaire des variables descriptives <span class="math notranslate nohighlight">\(x^1\cdots x^p\)</span>. A l’axe principal <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> est associé le facteur principal <span class="math notranslate nohighlight">\(\mathbf{u}=\mathbf{Ma}\)</span>. Puisque <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> est vecteur propre de <span class="math notranslate nohighlight">\({\bf VM}\)</span>, on peut alors écrire</p>
 <p><span class="math notranslate nohighlight">\({\bf MVM}\mathbf{a}=\lambda {\bf M}\mathbf{a}\)</span></p>
 <p>et donc <span class="math notranslate nohighlight">\({\bf MV}\mathbf{u}=\lambda \mathbf{u}\)</span>.  Les facteurs principaux sont donc les vecteurs propres de <span class="math notranslate nohighlight">\({\bf MV}\)</span></p>
-</div>
-<div class="section" id="composantes-principales">
+</section>
+<section id="composantes-principales">
 <h5>Composantes principales<a class="headerlink" href="#composantes-principales" title="Permalink to this headline">#</a></h5>
 <p>Les composantes principales sont les éléments de <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> définis par <span class="math notranslate nohighlight">\(\mathbf{c_i}=\mathbf{Xu_i}\)</span>. Ce sont donc les vecteurs coordonnées des projections orthogonales des individus sur les axes propres <span class="math notranslate nohighlight">\(\mathbf{a_i}\)</span>.  Ce sont donc les combinaisons linéaires des <span class="math notranslate nohighlight">\(x^1\cdots x^p\)</span> de variance maximale sous la contrainte <span class="math notranslate nohighlight">\(\mathbf{u_i}^T{\bf M}\mathbf{u_i}=1\)</span>, et cette variance est égale à la valeur propre <span class="math notranslate nohighlight">\(\lambda_i\)</span> associée à <span class="math notranslate nohighlight">\(\mathbf{a_i}\)</span>.</p>
 <p>En pratique, l’analyse en composantes principales consiste à calculer les <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> par diagonalisation de <span class="math notranslate nohighlight">\({\bf MV}\)</span>, puis à calculer les <span class="math notranslate nohighlight">\(\mathbf{c}=\mathbf{Xu}\)</span>. Le calcul explicite des vecteurs propres <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> n’a que peu d’intérêt.</p>
-</div>
-<div class="section" id="reconstitution">
+</section>
+<section id="reconstitution">
 <h5>Reconstitution<a class="headerlink" href="#reconstitution" title="Permalink to this headline">#</a></h5>
 <p>Il est possible de reconstituer le tableau <span class="math notranslate nohighlight">\({\bf X}\)</span> centré des données (ou une approximation par une matrice de rang <span class="math notranslate nohighlight">\(k\)</span>) en utilisant les composantes. En effet, puisque <span class="math notranslate nohighlight">\(\mathbf{Xu_j}=\mathbf{c_j}\)</span> on a</p>
 <p><span class="math notranslate nohighlight">\({\bf X}\displaystyle\sum_j \mathbf{u_j}\mathbf{u_j}^T{\bf M^{-1}} = \displaystyle\sum_j\mathbf{c_j}\mathbf{u_j}^T{\bf M^{-1}}\)</span></p>
@@ -965,45 +969,45 @@ et donc</p>
 <p><span class="math notranslate nohighlight">\({\bf X}=\displaystyle\sum_j\mathbf{c_j}\mathbf{u_j}^T{\bf M^{-1}}\)</span>
 et si l’on s’intéresse à l’approximation de <span class="math notranslate nohighlight">\({\bf X}\)</span> on ne somme que les <span class="math notranslate nohighlight">\(k\)</span> premiers termes.</p>
 <p>A noter que lorsque <span class="math notranslate nohighlight">\({\bf M}=\mathbb{I}, {\bf X}= \displaystyle\sum_j\sqrt{\lambda_j}\mathbf{z_j}\mathbf{v_j^T}\)</span> où les <span class="math notranslate nohighlight">\(\mathbf{z_j}\)</span> sont les vecteurs propres unitaires de <span class="math notranslate nohighlight">\({\bf XX^T}\)</span> et les <span class="math notranslate nohighlight">\(\mathbf{v_j}\)</span> les vecteurs propres unitaires de <span class="math notranslate nohighlight">\({\bf X^TX}\)</span> (décomposition en valeurs singulières).</p>
-</div>
-</div>
-</div>
-<div class="section" id="interpretation-des-resultats">
+</section>
+</section>
+</section>
+<section id="interpretation-des-resultats">
 <h3>Interprétation des résultats<a class="headerlink" href="#interpretation-des-resultats" title="Permalink to this headline">#</a></h3>
-<div class="section" id="quelle-dimension-pour-f-k">
+<section id="quelle-dimension-pour-f-k">
 <h4>Quelle dimension pour <span class="math notranslate nohighlight">\(F_k\)</span> ?<a class="headerlink" href="#quelle-dimension-pour-f-k" title="Permalink to this headline">#</a></h4>
 <p>Le but premier de l’ACP est de réduire la dimension pour permettre une visualisation efficace des données, tout en préservant l’information (ici représentée par la variance du nuage de points).  Il faut donc se doter d’outils permettant de répondre à la question : quelle dimension pour <span class="math notranslate nohighlight">\(F_k\)</span> ? Il n’y a pas de réponse théorique satisfaisante, l’essentiel étant d’avoir une représentation suffisamment expressive pour permettre une interprétation correcte du nuage de points.
 En préambule, il convient de remarquer que la réduction de dimension ne sera possible que si les variables <span class="math notranslate nohighlight">\(x^1\cdots x^p\)</span> ne sont pas indépendantes.</p>
-<div class="section" id="critere-theorique">
+<section id="critere-theorique">
 <h5>Critère théorique<a class="headerlink" href="#critere-theorique" title="Permalink to this headline">#</a></h5>
 <p>On détermine ici si les valeurs propres sont significativement différentes entre elles à partir d’un certain rang: si la réponse est négative on conserve les
 premières valeurs propres.</p>
 <p>On fait l’hypothèse que les <span class="math notranslate nohighlight">\(n\)</span> individus proviennent d’un tirage aléatoire dans une population gaussienne  où <span class="math notranslate nohighlight">\(\lambda_{k+1}=\cdots =\lambda_{p}\)</span>. Si l’hypothèse est vérifiée, la moyenne arithmétique <span class="math notranslate nohighlight">\(\alpha\)</span> des <span class="math notranslate nohighlight">\(p-k\)</span> dernières valeurs propres et leur moyenne géométrique <span class="math notranslate nohighlight">\(\gamma\)</span> sont peu différentes. On admet que :</p>
 <p><span class="math notranslate nohighlight">\(c=\left ( n-\frac{2p+11}{6}\right )(p-k) ln\frac{\alpha}{\gamma}\)</span>
 suit une loi du <span class="math notranslate nohighlight">\(\chi^2\)</span> de degré de liberté <span class="math notranslate nohighlight">\(\frac{(p-k+2)(p-k-1)}{2}\)</span> et on rejette l’hypothèse d’égalité des <span class="math notranslate nohighlight">\(p-k\)</span> valeurs propres si <span class="math notranslate nohighlight">\(c\)</span> est trop grand.</p>
-</div>
-<div class="section" id="pourcentage-d-inertie">
+</section>
+<section id="pourcentage-d-inertie">
 <h5>Pourcentage d’inertie<a class="headerlink" href="#pourcentage-d-inertie" title="Permalink to this headline">#</a></h5>
 <p>Le critère couramment utilisé est le pourcentage d’inertie totale expliquée (figure \ref{F:inertie}), qui s’exprime sur les <span class="math notranslate nohighlight">\(k\)</span> premiers axes par :</p>
 <p><span class="math notranslate nohighlight">\(\frac{\displaystyle\sum_{j=1}^k \lambda_j}{\displaystyle\sum_{j=1}^p \lambda_j}\)</span>
 Un seuil par exemple de 90% d’inertie totale expliquée donne une valeur de <span class="math notranslate nohighlight">\(k\)</span> correspondante. Attention cependant, le pourcentage d’inertie doit faire intervenir le nombre de variables initiales.</p>
 <p><img alt="" src="_images/scree.png" /></p>
-</div>
-<div class="section" id="mesures-locales">
+</section>
+<section id="mesures-locales">
 <h5>Mesures locales<a class="headerlink" href="#mesures-locales" title="Permalink to this headline">#</a></h5>
 <p>Le pourcentage d’inertie expliquée est un critère global qui doit être complété par d’autres considérations. Supposons que le plan <span class="math notranslate nohighlight">\(F_2\)</span> explique une part importante d’inertie, et que, en projection sur ce plan, deux individus soient très proches (figure \ref{F:projImA}). Cette proximité peut être illusoire si les deux individus se trouvent éloignés dans l’orthogonal de <span class="math notranslate nohighlight">\(F_2\)</span>. Pour prendre en compte ce phénomène, il faut envisager pour chaque individu <span class="math notranslate nohighlight">\(\mathbf{e_i}\)</span> la qualité de sa représentation, souvent exprimée par le cosinus de l’angle entre le plan principal et le vecteur <span class="math notranslate nohighlight">\(\mathbf{e_i}\)</span>. Si ce cosinus est grand, <span class="math notranslate nohighlight">\(\mathbf{e_i}\)</span> est voisin du plan, on peut  alors examiner la position de sa projection sur le plan par rapport à d’autres points.</p>
 <p>Dans la figure suivante, <span class="math notranslate nohighlight">\({\bf e_i} \)</span> et <span class="math notranslate nohighlight">\({\bf e_j}\)</span> se projettent sur <span class="math notranslate nohighlight">\(F_2\)</span> en <span class="math notranslate nohighlight">\({\bf p}\)</span> mais sont éloignés dans <span class="math notranslate nohighlight">\(F_2^\perp\)</span>.</p>
 <p><img alt="" src="_images/proj.png" /></p>
-</div>
-<div class="section" id="criteres-empiriques">
+</section>
+<section id="criteres-empiriques">
 <h5>Critères empiriques<a class="headerlink" href="#criteres-empiriques" title="Permalink to this headline">#</a></h5>
 <p>Lorsqu’on travaille sur données centrées réduites, on retient les composantes principales correspondant à des valeurs propres supérieures à 1 (critère de Kaiser) : en effet les composantes principales <span class="math notranslate nohighlight">\(c_j\)</span> étant des combinaisons linéaires des <span class="math notranslate nohighlight">\(z-j\)</span> de variance maximale <span class="math notranslate nohighlight">\(V(c_j)=\lambda\)</span>, seules les composantes de variance supérieure à celle des variables initiales présentent un intérêt.</p>
-</div>
-</div>
-<div class="section" id="interpretation-des-resultats-exemple">
+</section>
+</section>
+<section id="interpretation-des-resultats-exemple">
 <h4>Interprétation des résultats : exemple<a class="headerlink" href="#interpretation-des-resultats-exemple" title="Permalink to this headline">#</a></h4>
 <p>Une analyse en composantes principales est réalisée sur un jeu de données composé de 9 indicateurs de qualité pour 329 villes américaines. Les paragraphes suivants sont illustrés par ces données.</p>
-<div class="section" id="correlation-variables-facteurs">
+<section id="correlation-variables-facteurs">
 <h5>Corrélation variables-facteurs<a class="headerlink" href="#correlation-variables-facteurs" title="Permalink to this headline">#</a></h5>
 <p>Pour donner du sens aux composantes principales <span class="math notranslate nohighlight">\(\mathbf{c}\)</span>, il faut les relier aux variables initiales <span class="math notranslate nohighlight">\(x^j\)</span> en calculant les coefficients de corrélation linéaire  <span class="math notranslate nohighlight">\(r(\mathbf{c},x^j)\)</span> et en seuillant ces coefficients en valeur absolue.</p>
 <p>Lorsque l’on travaille sur des données centrées réduites (métrique <span class="math notranslate nohighlight">\(\mathbf D_{1/\sigma}\)</span>), le calcul de <span class="math notranslate nohighlight">\(r(\mathbf{c},x^j)\)</span> se réduit à</p>
@@ -1016,13 +1020,13 @@ Un seuil par exemple de 90% d’inertie totale expliquée donne une valeur de <s
 <p><img alt="" src="_images/cercle.png" /></p>
 <div class="proof remark dropdown admonition" id="remark-2">
 <p class="admonition-title"><span class="caption-number">Remark 8 </span></p>
-<div class="remark-content section" id="proof-content">
+<section class="remark-content" id="proof-content">
 <p>Attention de ne pas interpréter des proximités entre points variables, si ceux-ci ne sont pas proches de la circonférence.</p>
-</div>
+</section>
 </div><p>Notons que dans le cas de la métrique <span class="math notranslate nohighlight">\(D_{1/\sigma}\)</span>, le cercle des corrélations est la projection de l’ensemble des variables centrées-réduites sur le sous-espace engendré par <span class="math notranslate nohighlight">\(\mathbf{c_1},\mathbf{c_2}\)</span>. En ce sens, le cercle de corrélation est le pendant, dans l’espace des variables, de la projection des individus sur le premier plan principal.</p>
-</div>
-</div>
-<div class="section" id="positionnement-des-individus">
+</section>
+</section>
+<section id="positionnement-des-individus">
 <h4>Positionnement des individus<a class="headerlink" href="#positionnement-des-individus" title="Permalink to this headline">#</a></h4>
 <p>Dire que <span class="math notranslate nohighlight">\(\mathbf{c_1}\)</span> est très corrélée à <span class="math notranslate nohighlight">\(x^j\)</span> signifie que les individus ayant une forte coordonnée positive sur l’axe 1 sont caractérisés par une valeur de <span class="math notranslate nohighlight">\(x^j\)</span> nettement supérieure à la moyenne.</p>
 <p>Il est très utile aussi de calculer pour chaque axe la contribution apportée par les divers individus à cet axe. Si <span class="math notranslate nohighlight">\(c_{ki}\)</span> est la valeur de la composante <span class="math notranslate nohighlight">\(k\)</span> pour le <span class="math notranslate nohighlight">\(i^e\)</span> individu, alors par construction</p>
@@ -1033,19 +1037,19 @@ où <span class="math notranslate nohighlight">\(p_i\)</span> est le poids de l�
 <p>On peut également superposer les deux informations précédentes pour corréler le positionnement des villes selon les variables originales. La figure suivante présente les 329 villes précédentes, plongées dans <span class="math notranslate nohighlight">\(F_3\)</span>, les  anciennes variables étant matérialisées par des vecteurs dont la direction et la norme indiquent à quel point chaque variable contribue aux 3 premières composantes principales.</p>
 <p><img alt="" src="_images/biplot.png" /></p>
 <p>Il n’est pas souhaitable, et ceci surtout pour les premières composantes,  qu’un individu ait une contribution excessive car cela serait un facteur d’instabilité, le fait de retirer cet individu modifiant profondément le résultat de l’analyse. Si ce cas se produisait il y aurait intérêt à effectuer l’analyse en éliminant cet individu puis en le mettant en élément supplémentaire, s’il ne s’agit pas d’une donnée erronée qui a été ainsi mise en évidence.</p>
-</div>
-<div class="section" id="facteur-de-taille-facteur-de-forme">
+</section>
+<section id="facteur-de-taille-facteur-de-forme">
 <h4>Facteur de taille, facteur de forme<a class="headerlink" href="#facteur-de-taille-facteur-de-forme" title="Permalink to this headline">#</a></h4>
 <p>Le théorème de Frobenius stipule qu’une matrice symétrique n’ayant que des termes positifs admet un premier vecteur propre dont toutes les composantes sont de même signe. Si ce signe est positif, la première composante est alors corrélée positivement avec toutes les variables et les individus sont rangés sur l’axe 1 par valeurs croissantes de l’ensemble des variables. Si de plus les corrélations entre variables sont du même ordre de grandeur, la première composante principale est proportionnelle à la moyenne des variables initiales. Cette première composante définit alors un facteur de taille.</p>
 <p>La deuxième composante principale différencie alors des individus de “taille” semblable, on l’appelle souvent facteur de forme.</p>
-</div>
-<div class="section" id="ajout-de-variable-et-ou-d-individu">
+</section>
+<section id="ajout-de-variable-et-ou-d-individu">
 <h4>Ajout de variable et ou d’individu<a class="headerlink" href="#ajout-de-variable-et-ou-d-individu" title="Permalink to this headline">#</a></h4>
 <p>Toutes les interprétations précédentes expliquent les résultats à l’aide des données initiales, qui ont permis de les calculer. On risque alors de prendre pour une propriété intrinsèque des données un simple artefact de la méthode (par exemple il existe de fortes corrélations entre la première composante principale et certaines variables, puisque <span class="math notranslate nohighlight">\(\mathbf{c_1}\)</span> maximise <span class="math notranslate nohighlight">\(\sum_j r^2(\mathbf{c},x^j)\)</span>).</p>
 <p>En revanche une forte corrélation entre une composante principale et une variable qui n’a pas servi à l’analyse sera significative. D’où la pratique courante de partager en deux groupes l’ensemble des variables: d’une part les variables actives qui servent à déterminer les axes principaux, d’autre part les variables passives ou supplémentaires que l’on relie a posteriori aux composantes principales. On distingue alors les variables supplémentaires suivant leur type, numérique (à placer dans les cercles de corrélation) ou qualitative (donnée d’une partition des <span class="math notranslate nohighlight">\(n\)</span> individus en <span class="math notranslate nohighlight">\(k\)</span> classes).</p>
-</div>
-</div>
-<div class="section" id="exemple">
+</section>
+</section>
+<section id="exemple">
 <h3>Exemple<a class="headerlink" href="#exemple" title="Permalink to this headline">#</a></h3>
 <p>On étudie les consommations annuelles en 1972, exprimées en devises, de 8 denrées alimentaires (les variables), les individus étant 8 catégories socio-professionnelles (CSP) . Les données sont des moyennes par CSP :</p>
 <p><span class="math notranslate nohighlight">\(
@@ -1111,8 +1115,8 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 <p>1- <strong>Variables</strong> : L’axe 2 est défini par les variables POT et PAA. Compte tenu de la différence de contribution existant entre ces deux variables, de la contribution élevée de POT (55%), et de la qualité de représentation moyenne de PAA, la deuxième composante principale peut être considérée comme essentiellement liée à la consommation de pommes de terre. Les variables, à l’exception de POT et de PAA (dans une moindre mesure) sont assez mal représentées sur l’axe. La deuxième composante principale n’explique donc qu’un aspect très particulier de la consommation alimentaire.</p>
 <p>2- <strong>Individus</strong> : Pour repérer les individus ayant une contribution significative, on compare les coordonnées des individus sur l’axe 2, à la racine de la deuxième valeur propre  =0,94, le signe donnant le sens de contribution.</p>
 <p>L’axe 1 reflète donc l’opposition qui existe entre les catégories socio-professionnelles dans leur alimentation, opposant les CSP modestes qui consomment des produits basiques aux catégories favorisées qui consomment des produits plus recherchés. L’axe 2 reflète quant à lui la particularité des inactifs quant à leur alimentation, fortement composée de pommes de terre (un retour aux données d’origine vient confirmer cette conclusion).</p>
-</div>
-<div class="section" id="implementation">
+</section>
+<section id="implementation">
 <h3>Implémentation<a class="headerlink" href="#implementation" title="Permalink to this headline">#</a></h3>
 <p>De nombreuses librairies Python permettent d’utiliser facilement l’ACP, notamment <a class="reference external" href="https://scikit-learn.org/stable/">scikit-learn</a> qui propose une méthode <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html?highlight=pca#sklearn.decomposition.PCA">PCA</a>.</p>
 <p>Nous proposons ici d’implémenter entièrement l’ACP, pour bien comprendre les mécanismes de cette approche.</p>
@@ -1151,10 +1155,24 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">chained_assignment</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># Données</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
 </div>
-<div class="section" id="preparation-des-donnees">
+</div>
+</div>
+<section id="preparation-des-donnees">
 <h4>Préparation des données<a class="headerlink" href="#preparation-des-donnees" title="Permalink to this headline">#</a></h4>
-<div class="section" id="id1">
+<section id="id1">
 <h5>Données centrées<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h5>
 <p><span class="math notranslate nohighlight">\(g=X^TD{\bf 1}\)</span> = Vecteur des moyennes arithmétiques de chaque variable</p>
 <p><span class="math notranslate nohighlight">\(D=\frac{1}{n}I\)</span> = Matrice diagonale de poids, chaque <span class="math notranslate nohighlight">\(d_{ii}\)</span> donnant l’importance de l’individu <span class="math notranslate nohighlight">\(i\)</span> dans les données</p>
@@ -1168,24 +1186,6 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>g = 
- [[1.30006180e+01]
- [2.33634831e+00]
- [2.36651685e+00]
- [1.94949438e+01]
- [9.97415730e+01]
- [2.29511236e+00]
- [2.02926966e+00]
- [3.61853933e-01]
- [1.59089888e+00]
- [5.05808988e+00]
- [9.57449438e-01]
- [2.61168539e+00]
- [7.46893258e+02]]
-</pre></div>
-</div>
-</div>
 </div>
 <p><span class="math notranslate nohighlight">\(Y = X - {\bf 1} g^T = (I - {\bf 11}^TD)X\)</span> = Tableau centré associé à <span class="math notranslate nohighlight">\(X\)</span></p>
 <div class="cell docutils container">
@@ -1196,8 +1196,8 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id2">
+</section>
+<section id="id2">
 <h5>Données réduites<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h5>
 <p><span class="math notranslate nohighlight">\(V=X^TDX-gg^T=Y^TDY\)</span> = Matrice de variance/covariance.</p>
 <div class="cell docutils container">
@@ -1224,12 +1224,9 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/statsexploratoires_9_0.png" src="_images/statsexploratoires_9_0.png" />
 </div>
-</div>
-</div>
-<div class="section" id="inertie-du-nuage-de-points">
+</section>
+<section id="inertie-du-nuage-de-points">
 <h5>Inertie du nuage de points<a class="headerlink" href="#inertie-du-nuage-de-points" title="Permalink to this headline">#</a></h5>
 <p><span class="math notranslate nohighlight">\(M\)</span> est une matrice symétrique définie positive correspondant à la métrique</p>
 <ul class="simple">
@@ -1259,18 +1256,10 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.999999999999995
-13.000000000000004
-12.999999999999998
-13.000000000000004
-</pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="analyse-spectrale">
+</section>
+</section>
+<section id="analyse-spectrale">
 <h4>Analyse spectrale<a class="headerlink" href="#analyse-spectrale" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1281,7 +1270,7 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </div>
 </div>
 </div>
-<div class="section" id="calcul-des-composantes-principales">
+<section id="calcul-des-composantes-principales">
 <h5>Calcul des composantes principales<a class="headerlink" href="#calcul-des-composantes-principales" title="Permalink to this headline">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1292,8 +1281,8 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="pourcentage-d-inertie-expliquee-par-un-axe">
+</section>
+<section id="pourcentage-d-inertie-expliquee-par-un-axe">
 <h5>Pourcentage d’inertie expliquée par un axe<a class="headerlink" href="#pourcentage-d-inertie-expliquee-par-un-axe" title="Permalink to this headline">#</a></h5>
 <p>Pourcentage d’inertie cumulée expliquée par les <span class="math notranslate nohighlight">\(k\)</span> premiers axes : <span class="math notranslate nohighlight">\(\frac{\displaystyle\sum_{j=1}^k\lambda_j}{\displaystyle\sum_{j=1}^p\lambda_j}\)</span></p>
 <div class="cell docutils container">
@@ -1311,12 +1300,9 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/statsexploratoires_17_0.png" src="_images/statsexploratoires_17_0.png" />
 </div>
-</div>
-</div>
-<div class="section" id="critere-de-kaiser">
+</section>
+<section id="critere-de-kaiser">
 <h5>Critère de Kaiser<a class="headerlink" href="#critere-de-kaiser" title="Permalink to this headline">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1325,17 +1311,12 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On retient 3 axes
-</pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="analyse-des-resultats">
+</section>
+</section>
+<section id="analyse-des-resultats">
 <h4>Analyse des résultats<a class="headerlink" href="#analyse-des-resultats" title="Permalink to this headline">#</a></h4>
-<div class="section" id="id3">
+<section id="id3">
 <h5>Corrélation variables/facteurs<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1346,8 +1327,8 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="cercle-des-correlations-pour-un-couple-de-composantes-principales">
+</section>
+<section id="cercle-des-correlations-pour-un-couple-de-composantes-principales">
 <h5>Cercle des corrélations pour un couple de composantes principales<a class="headerlink" href="#cercle-des-correlations-pour-un-couple-de-composantes-principales" title="Permalink to this headline">#</a></h5>
 <p>Pour <span class="math notranslate nohighlight">\(c_1\)</span> et <span class="math notranslate nohighlight">\(c_2\)</span>, chaque variable <span class="math notranslate nohighlight">\(x_j\)</span> est repérée par un point d’abscisse <span class="math notranslate nohighlight">\(r(c_1,x^j)\)</span> et d’ordonnée <span class="math notranslate nohighlight">\(r(c_2, x_j)\)</span>.</p>
 <div class="cell docutils container">
@@ -1403,12 +1384,9 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/statsexploratoires_23_0.png" src="_images/statsexploratoires_23_0.png" />
 </div>
-</div>
-</div>
-<div class="section" id="contribution-des-variables">
+</section>
+<section id="contribution-des-variables">
 <h5>Contribution des variables<a class="headerlink" href="#contribution-des-variables" title="Permalink to this headline">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1422,27 +1400,9 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            	CP1	CP2	CP3	CP4	CP5	CP6	CP7	CP8	CP9	CP10	CP11	CP12	CP13 
-  % alcool	0.02 	0.23 	0.04 	0.00 	0.07 	0.05 	0.00 	0.00 	0.16 	0.07 	0.26 	0.05 	0.04
-  acide ma	0.06 	0.05 	0.01 	0.29 	0.00 	0.29 	0.18 	0.00 	0.00 	0.01 	0.01 	0.01 	0.10
-   cendres	0.00 	0.10 	0.39 	0.05 	0.02 	0.02 	0.02 	0.02 	0.03 	0.00 	0.09 	0.25 	0.00
-  alcalini	0.06 	0.00 	0.37 	0.00 	0.00 	0.01 	0.08 	0.01 	0.18 	0.00 	0.04 	0.23 	0.00
-  magnésiu	0.02 	0.09 	0.02 	0.12 	0.53 	0.00 	0.10 	0.00 	0.02 	0.00 	0.07 	0.01 	0.00
-   phénols	0.16 	0.00 	0.02 	0.04 	0.02 	0.01 	0.00 	0.22 	0.16 	0.09 	0.08 	0.09 	0.10
-  flavonoï	0.18 	0.00 	0.02 	0.02 	0.01 	0.00 	0.00 	0.69 	0.04 	0.00 	0.00 	0.00 	0.03
-  non flav	0.09 	0.00 	0.03 	0.04 	0.25 	0.07 	0.35 	0.01 	0.05 	0.00 	0.04 	0.01 	0.05
-  proantho	0.10 	0.00 	0.02 	0.16 	0.02 	0.28 	0.14 	0.01 	0.14 	0.01 	0.04 	0.06 	0.02
-   couleur	0.01 	0.28 	0.02 	0.00 	0.01 	0.18 	0.05 	0.00 	0.00 	0.37 	0.00 	0.00 	0.08
-    teinte	0.09 	0.08 	0.01 	0.18 	0.03 	0.01 	0.05 	0.01 	0.19 	0.07 	0.01 	0.00 	0.27
-  OD280/OD	0.14 	0.03 	0.03 	0.03 	0.01 	0.07 	0.00 	0.02 	0.01 	0.36 	0.02 	0.00 	0.27
-   proline	0.08 	0.13 	0.02 	0.05 	0.02 	0.01 	0.01 	0.00 	0.01 	0.01 	0.33 	0.29 	0.03
-</pre></div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="representation-des-individus">
+</section>
+<section id="representation-des-individus">
 <h5>Représentation des individus<a class="headerlink" href="#representation-des-individus" title="Permalink to this headline">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1486,12 +1446,9 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/statsexploratoires_27_0.png" src="_images/statsexploratoires_27_0.png" />
 </div>
-</div>
-</div>
-<div class="section" id="contribution-des-individus">
+</section>
+<section id="contribution-des-individus">
 <h5>Contribution des individus<a class="headerlink" href="#contribution-des-individus" title="Permalink to this headline">#</a></h5>
 <p><span class="math notranslate nohighlight">\(\frac{p_ic_{ki}^2}{\lambda_k}\)</span></p>
 <div class="cell docutils container">
@@ -1508,192 +1465,9 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            	CP1	CP2	CP3	CP4	CP5	CP6	CP7	CP8	CP9	CP10	CP11	CP12	CP13 
-         0	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.01 	0.06
-         1	0.01 	0.00 	0.02 	0.00 	0.00 	0.01 	0.00 	0.00 	0.02 	0.00 	0.00 	0.00 	0.00
-         2	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03 	0.00 	0.00
-         3	0.02 	0.02 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.02 	0.00
-         4	0.00 	0.00 	0.02 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00
-         5	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00
-         6	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.06
-         7	0.01 	0.01 	0.00 	0.01 	0.00 	0.02 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03
-         8	0.01 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.01 	0.00
-         9	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00
-        10	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03 	0.00 	0.01 	0.02 	0.00
-        11	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01 	0.00 	0.00
-        12	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.00
-        13	0.01 	0.00 	0.01 	0.00 	0.03 	0.00 	0.02 	0.00 	0.00 	0.01 	0.00 	0.05 	0.00
-        14	0.02 	0.01 	0.01 	0.00 	0.01 	0.01 	0.01 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01
-        15	0.01 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.03
-        16	0.01 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00
-        17	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01
-        18	0.01 	0.01 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03 	0.03
-        19	0.01 	0.00 	0.00 	0.00 	0.01 	0.02 	0.00 	0.00 	0.01 	0.00 	0.00 	0.02 	0.00
-        20	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.04 	0.01 	0.01
-        21	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.01 	0.01 	0.01 	0.00
-        22	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.04
-        23	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.01
-        24	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02
-        25	0.00 	0.00 	0.06 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01
-        26	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01 	0.00 	0.01
-        27	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.02 	0.00
-        28	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00
-        29	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03
-        30	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.01 	0.01 	0.00 	0.01
-        31	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.02 	0.04 	0.00
-        32	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
-        33	0.00 	0.01 	0.01 	0.03 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.01 	0.01 	0.00
-        34	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
-        35	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01
-        36	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.00 	0.04 	0.00
-        37	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01
-        38	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
-        39	0.01 	0.01 	0.00 	0.01 	0.01 	0.02 	0.01 	0.00 	0.01 	0.00 	0.01 	0.05 	0.00
-        40	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.02 	0.00 	0.01
-        41	0.00 	0.00 	0.00 	0.01 	0.00 	0.02 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00
-        42	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.02 	0.00 	0.00 	0.01 	0.00
-        43	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00
-        44	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.01
-        45	0.00 	0.01 	0.00 	0.00 	0.00 	0.03 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00
-        46	0.01 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
-        47	0.01 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
-        48	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00
-        49	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01
-        50	0.01 	0.00 	0.02 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.04 	0.00 	0.02
-        51	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.02 	0.01 	0.00
-        52	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.04 	0.00 	0.00 	0.00 	0.01
-        53	0.01 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
-        54	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01
-        55	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00
-        56	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01
-        57	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.02 	0.00 	0.01
-        58	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00
-        59	0.00 	0.02 	0.08 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.01
-        60	0.00 	0.00 	0.00 	0.05 	0.01 	0.00 	0.01 	0.00 	0.02 	0.00 	0.00 	0.00 	0.02
-        61	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.02 	0.00 	0.02
-        62	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.04 	0.00 	0.01
-        63	0.01 	0.01 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.11
-        64	0.00 	0.01 	0.00 	0.03 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03 	0.06
-        65	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.02 	0.03
-        66	0.01 	0.01 	0.02 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01
-        67	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.00 	0.03 	0.00 	0.01 	0.00
-        68	0.00 	0.00 	0.00 	0.04 	0.00 	0.00 	0.00 	0.00 	0.03 	0.02 	0.02 	0.00 	0.00
-        69	0.00 	0.00 	0.01 	0.01 	0.12 	0.00 	0.02 	0.00 	0.02 	0.01 	0.00 	0.00 	0.01
-        70	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.03 	0.00 	0.02
-        71	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.02 	0.00 	0.05 	0.00 	0.03 	0.02 	0.03
-        72	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03 	0.00 	0.02 	0.00 	0.02 	0.00 	0.01
-        73	0.01 	0.00 	0.04 	0.01 	0.03 	0.00 	0.00 	0.00 	0.02 	0.00 	0.03 	0.11 	0.00
-        74	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.02 	0.02 	0.01 	0.00 	0.01 	0.04 	0.00
-        75	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.05
-        76	0.00 	0.01 	0.02 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.02 	0.00 	0.01
-        77	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00
-        78	0.00 	0.00 	0.01 	0.01 	0.04 	0.02 	0.04 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02
-        79	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.02 	0.00 	0.02
-        80	0.00 	0.03 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.02
-        81	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00
-        82	0.00 	0.01 	0.01 	0.01 	0.01 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01 	0.00 	0.00
-        83	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00
-        84	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.01 	0.00 	0.01 	0.00 	0.04 	0.05 	0.04
-        85	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00
-        86	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.00 	0.00 	0.01
-        87	0.00 	0.01 	0.02 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00
-        88	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01
-        89	0.00 	0.02 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.03
-        90	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00
-        91	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.02
-        92	0.00 	0.01 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.03
-        93	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.01
-        94	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01 	0.02 	0.00 	0.00 	0.00 	0.09
-        95	0.01 	0.00 	0.00 	0.01 	0.09 	0.02 	0.07 	0.00 	0.01 	0.00 	0.00 	0.00 	0.02
-        96	0.00 	0.00 	0.01 	0.01 	0.07 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.02 	0.00
-        97	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.03
-        98	0.01 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01 	0.00 	0.01 	0.01 	0.00 	0.01 	0.05
-        99	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.04 	0.00 	0.01 	0.00 	0.00 	0.01 	0.08
-       100	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.03 	0.02
-       101	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.02
-       102	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.00 	0.00 	0.02
-       103	0.00 	0.02 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.02 	0.00
-       104	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.02 	0.03
-       105	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01 	0.00 	0.01 	0.01 	0.00 	0.11
-       106	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.02
-       107	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.05
-       108	0.00 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.04
-       109	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.04 	0.01 	0.01
-       110	0.00 	0.00 	0.00 	0.07 	0.03 	0.02 	0.03 	0.00 	0.00 	0.01 	0.01 	0.02 	0.00
-       111	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00
-       112	0.00 	0.00 	0.02 	0.02 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01 	0.01 	0.02 	0.01
-       113	0.00 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.01
-       114	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.02 	0.00 	0.00 	0.00 	0.01
-       115	0.00 	0.03 	0.01 	0.00 	0.01 	0.01 	0.02 	0.00 	0.01 	0.01 	0.00 	0.00 	0.10
-       116	0.00 	0.02 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.04
-       117	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01
-       118	0.01 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00
-       119	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01
-       120	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.04 	0.00 	0.01 	0.00 	0.00
-       121	0.00 	0.00 	0.11 	0.00 	0.00 	0.01 	0.00 	0.04 	0.06 	0.02 	0.00 	0.00 	0.00
-       122	0.00 	0.00 	0.04 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
-       123	0.00 	0.00 	0.00 	0.08 	0.00 	0.02 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00
-       124	0.00 	0.00 	0.01 	0.09 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.01 	0.00
-       125	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00
-       126	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01 	0.01 	0.02 	0.01 	0.01 	0.00 	0.01
-       127	0.00 	0.00 	0.04 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
-       128	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.02
-       129	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00
-       130	0.00 	0.00 	0.01 	0.01 	0.03 	0.00 	0.01 	0.00 	0.00 	0.02 	0.00 	0.01 	0.00
-       131	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01
-       132	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.03 	0.01 	0.01 	0.01 	0.00 	0.00 	0.00
-       133	0.01 	0.00 	0.00 	0.00 	0.02 	0.01 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.06
-       134	0.01 	0.00 	0.00 	0.00 	0.01 	0.02 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.01
-       135	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00
-       136	0.02 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.01 	0.04 	0.00 	0.01
-       137	0.02 	0.00 	0.01 	0.00 	0.00 	0.01 	0.02 	0.00 	0.00 	0.00 	0.00 	0.01 	0.02
-       138	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00
-       139	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.01 	0.00
-       140	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.03
-       141	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.05
-       142	0.01 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00
-       143	0.01 	0.00 	0.00 	0.00 	0.00 	0.02 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01
-       144	0.01 	0.00 	0.01 	0.00 	0.02 	0.00 	0.00 	0.00 	0.00 	0.02 	0.02 	0.01 	0.00
-       145	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01 	0.03
-       146	0.02 	0.00 	0.01 	0.01 	0.00 	0.02 	0.00 	0.00 	0.01 	0.01 	0.00 	0.01 	0.00
-       147	0.02 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
-       148	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
-       149	0.01 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.02
-       150	0.01 	0.01 	0.00 	0.00 	0.03 	0.00 	0.02 	0.01 	0.00 	0.00 	0.00 	0.01 	0.01
-       151	0.01 	0.01 	0.00 	0.00 	0.02 	0.01 	0.03 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01
-       152	0.00 	0.01 	0.01 	0.00 	0.02 	0.01 	0.02 	0.00 	0.00 	0.02 	0.00 	0.01 	0.00
-       153	0.01 	0.01 	0.00 	0.00 	0.00 	0.03 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
-       154	0.01 	0.00 	0.01 	0.00 	0.00 	0.03 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.04
-       155	0.02 	0.01 	0.00 	0.01 	0.00 	0.00 	0.02 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00
-       156	0.01 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00
-       157	0.01 	0.00 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.06 	0.01
-       158	0.00 	0.03 	0.01 	0.01 	0.01 	0.09 	0.00 	0.01 	0.01 	0.00 	0.02 	0.00 	0.01
-       159	0.00 	0.01 	0.00 	0.00 	0.01 	0.07 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00
-       160	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.00 	0.01 	0.02
-       161	0.01 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00
-       162	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
-       163	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
-       164	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00
-       165	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00 	0.01 	0.00 	0.00
-       166	0.01 	0.02 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01 	0.00 	0.00 	0.04
-       167	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03 	0.01 	0.00 	0.02
-       168	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.02 	0.00 	0.00 	0.00 	0.00
-       169	0.01 	0.02 	0.01 	0.00 	0.01 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03
-       170	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00
-       171	0.02 	0.00 	0.01 	0.00 	0.00 	0.01 	0.01 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00
-       172	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00
-       173	0.01 	0.01 	0.00 	0.01 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01
-       174	0.01 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00
-       175	0.01 	0.02 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00
-       176	0.01 	0.01 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01
-       177	0.01 	0.02 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00
-</pre></div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="tableau-des-cosinus-carres">
+</section>
+<section id="tableau-des-cosinus-carres">
 <h5>Tableau des cosinus carrés<a class="headerlink" href="#tableau-des-cosinus-carres" title="Permalink to this headline">#</a></h5>
 <p><span class="math notranslate nohighlight">\(\frac{c_{ki}^2}{\displaystyle\sum_{j=1}^p c_{ji}^2}\)</span></p>
 <div class="cell docutils container">
@@ -1713,201 +1487,18 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            	CP1	CP2	CP3	CP4	CP5	CP6	CP7	CP8	CP9	CP10	CP11	CP12	CP13 
-         0	0.69 	0.13 	0.00 	0.00 	0.03 	0.00 	0.02 	0.00 	0.00 	0.02 	0.03 	0.01 	0.07
-         1	0.43 	0.01 	0.36 	0.01 	0.01 	0.08 	0.00 	0.00 	0.09 	0.01 	0.01 	0.00 	0.00
-         2	0.57 	0.10 	0.09 	0.05 	0.01 	0.03 	0.02 	0.00 	0.01 	0.00 	0.13 	0.01 	0.00
-         3	0.60 	0.32 	0.00 	0.01 	0.00 	0.00 	0.01 	0.01 	0.02 	0.00 	0.00 	0.02 	0.00
-         4	0.14 	0.11 	0.58 	0.02 	0.01 	0.02 	0.03 	0.00 	0.02 	0.01 	0.02 	0.04 	0.00
-         5	0.60 	0.29 	0.03 	0.02 	0.03 	0.00 	0.01 	0.00 	0.01 	0.01 	0.00 	0.01 	0.00
-         6	0.52 	0.12 	0.08 	0.00 	0.09 	0.03 	0.00 	0.01 	0.01 	0.00 	0.02 	0.02 	0.09
-         7	0.38 	0.23 	0.00 	0.13 	0.00 	0.18 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01 	0.05
-         8	0.51 	0.07 	0.25 	0.00 	0.06 	0.00 	0.00 	0.00 	0.02 	0.03 	0.03 	0.02 	0.00
-         9	0.71 	0.06 	0.09 	0.01 	0.02 	0.00 	0.07 	0.00 	0.00 	0.03 	0.00 	0.00 	0.00
-        10	0.73 	0.10 	0.01 	0.00 	0.01 	0.00 	0.00 	0.00 	0.09 	0.00 	0.02 	0.03 	0.00
-        11	0.39 	0.05 	0.18 	0.10 	0.07 	0.04 	0.02 	0.00 	0.12 	0.00 	0.03 	0.00 	0.01
-        12	0.53 	0.05 	0.09 	0.02 	0.17 	0.01 	0.01 	0.00 	0.03 	0.00 	0.09 	0.00 	0.00
-        13	0.50 	0.05 	0.06 	0.00 	0.17 	0.02 	0.09 	0.00 	0.01 	0.02 	0.00 	0.06 	0.00
-        14	0.65 	0.15 	0.06 	0.00 	0.04 	0.02 	0.04 	0.00 	0.01 	0.00 	0.02 	0.00 	0.00
-        15	0.45 	0.24 	0.00 	0.18 	0.02 	0.02 	0.00 	0.00 	0.00 	0.02 	0.01 	0.00 	0.05
-        16	0.39 	0.44 	0.06 	0.07 	0.00 	0.00 	0.00 	0.01 	0.01 	0.02 	0.00 	0.00 	0.00
-        17	0.39 	0.29 	0.07 	0.13 	0.02 	0.01 	0.00 	0.03 	0.00 	0.01 	0.02 	0.01 	0.02
-        18	0.54 	0.27 	0.01 	0.04 	0.06 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.04 	0.03
-        19	0.45 	0.12 	0.00 	0.02 	0.08 	0.20 	0.00 	0.00 	0.03 	0.01 	0.00 	0.07 	0.00
-        20	0.70 	0.04 	0.01 	0.00 	0.07 	0.00 	0.01 	0.00 	0.00 	0.02 	0.13 	0.02 	0.01
-        21	0.19 	0.01 	0.14 	0.17 	0.02 	0.24 	0.01 	0.02 	0.00 	0.08 	0.05 	0.07 	0.00
-        22	0.74 	0.00 	0.01 	0.00 	0.02 	0.12 	0.00 	0.00 	0.00 	0.03 	0.00 	0.00 	0.08
-        23	0.50 	0.05 	0.00 	0.03 	0.03 	0.11 	0.08 	0.02 	0.01 	0.04 	0.09 	0.00 	0.04
-        24	0.49 	0.02 	0.12 	0.00 	0.05 	0.13 	0.06 	0.01 	0.02 	0.02 	0.00 	0.02 	0.07
-        25	0.05 	0.05 	0.77 	0.09 	0.00 	0.00 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.01
-        26	0.44 	0.07 	0.00 	0.01 	0.18 	0.05 	0.03 	0.00 	0.12 	0.01 	0.08 	0.00 	0.03
-        27	0.26 	0.00 	0.32 	0.04 	0.02 	0.06 	0.02 	0.00 	0.01 	0.02 	0.09 	0.13 	0.02
-        28	0.51 	0.05 	0.21 	0.06 	0.07 	0.04 	0.00 	0.00 	0.00 	0.00 	0.02 	0.03 	0.00
-        29	0.65 	0.00 	0.15 	0.01 	0.03 	0.01 	0.00 	0.03 	0.03 	0.00 	0.00 	0.00 	0.08
-        30	0.49 	0.12 	0.15 	0.01 	0.03 	0.03 	0.01 	0.00 	0.09 	0.03 	0.02 	0.01 	0.01
-        31	0.59 	0.18 	0.01 	0.01 	0.00 	0.00 	0.02 	0.01 	0.02 	0.00 	0.05 	0.10 	0.00
-        32	0.52 	0.00 	0.01 	0.11 	0.08 	0.00 	0.19 	0.01 	0.05 	0.01 	0.00 	0.01 	0.01
-        33	0.23 	0.17 	0.09 	0.35 	0.00 	0.01 	0.06 	0.00 	0.02 	0.00 	0.03 	0.03 	0.00
-        34	0.42 	0.10 	0.05 	0.24 	0.00 	0.11 	0.01 	0.00 	0.01 	0.01 	0.03 	0.01 	0.01
-        35	0.75 	0.01 	0.04 	0.02 	0.01 	0.01 	0.09 	0.00 	0.03 	0.01 	0.01 	0.01 	0.02
-        36	0.28 	0.06 	0.03 	0.24 	0.01 	0.06 	0.00 	0.00 	0.13 	0.00 	0.01 	0.17 	0.01
-        37	0.35 	0.00 	0.00 	0.25 	0.03 	0.05 	0.05 	0.00 	0.00 	0.04 	0.20 	0.00 	0.03
-        38	0.37 	0.10 	0.34 	0.10 	0.00 	0.03 	0.00 	0.02 	0.00 	0.01 	0.01 	0.01 	0.01
-        39	0.34 	0.17 	0.01 	0.08 	0.09 	0.13 	0.05 	0.00 	0.03 	0.00 	0.03 	0.08 	0.00
-        40	0.67 	0.06 	0.00 	0.02 	0.02 	0.05 	0.03 	0.00 	0.05 	0.00 	0.07 	0.01 	0.01
-        41	0.08 	0.01 	0.11 	0.30 	0.02 	0.30 	0.00 	0.03 	0.02 	0.00 	0.01 	0.12 	0.00
-        42	0.67 	0.09 	0.01 	0.02 	0.01 	0.05 	0.07 	0.00 	0.06 	0.00 	0.00 	0.01 	0.00
-        43	0.05 	0.03 	0.01 	0.47 	0.02 	0.24 	0.08 	0.01 	0.07 	0.00 	0.02 	0.00 	0.00
-        44	0.66 	0.00 	0.06 	0.09 	0.03 	0.02 	0.00 	0.00 	0.06 	0.00 	0.01 	0.03 	0.03
-        45	0.14 	0.34 	0.00 	0.05 	0.00 	0.39 	0.00 	0.00 	0.01 	0.00 	0.03 	0.04 	0.00
-        46	0.56 	0.11 	0.02 	0.15 	0.02 	0.08 	0.04 	0.00 	0.00 	0.00 	0.02 	0.00 	0.00
-        47	0.70 	0.04 	0.12 	0.09 	0.00 	0.01 	0.02 	0.00 	0.00 	0.00 	0.01 	0.00 	0.01
-        48	0.58 	0.22 	0.00 	0.01 	0.02 	0.04 	0.01 	0.00 	0.09 	0.01 	0.00 	0.00 	0.00
-        49	0.57 	0.24 	0.03 	0.00 	0.02 	0.04 	0.00 	0.02 	0.00 	0.04 	0.00 	0.02 	0.01
-        50	0.53 	0.00 	0.20 	0.06 	0.00 	0.08 	0.00 	0.00 	0.01 	0.01 	0.08 	0.01 	0.02
-        51	0.68 	0.05 	0.00 	0.00 	0.05 	0.00 	0.01 	0.00 	0.10 	0.01 	0.08 	0.03 	0.00
-        52	0.68 	0.14 	0.02 	0.00 	0.02 	0.00 	0.00 	0.00 	0.11 	0.00 	0.01 	0.00 	0.01
-        53	0.45 	0.32 	0.01 	0.13 	0.03 	0.01 	0.02 	0.00 	0.01 	0.00 	0.01 	0.01 	0.00
-        54	0.56 	0.13 	0.11 	0.01 	0.09 	0.02 	0.02 	0.01 	0.01 	0.00 	0.01 	0.00 	0.03
-        55	0.61 	0.18 	0.03 	0.01 	0.08 	0.03 	0.01 	0.01 	0.03 	0.00 	0.00 	0.01 	0.00
-        56	0.66 	0.18 	0.03 	0.00 	0.02 	0.00 	0.00 	0.00 	0.01 	0.00 	0.08 	0.00 	0.01
-        57	0.56 	0.17 	0.01 	0.03 	0.06 	0.01 	0.01 	0.00 	0.04 	0.00 	0.08 	0.00 	0.02
-        58	0.66 	0.20 	0.01 	0.00 	0.00 	0.01 	0.05 	0.00 	0.03 	0.02 	0.01 	0.00 	0.00
-        59	0.03 	0.28 	0.61 	0.03 	0.01 	0.00 	0.00 	0.01 	0.01 	0.01 	0.00 	0.00 	0.01
-        60	0.14 	0.11 	0.04 	0.49 	0.06 	0.00 	0.07 	0.00 	0.07 	0.01 	0.00 	0.00 	0.02
-        61	0.29 	0.06 	0.22 	0.18 	0.01 	0.04 	0.01 	0.01 	0.08 	0.00 	0.07 	0.00 	0.03
-        62	0.00 	0.17 	0.35 	0.16 	0.02 	0.04 	0.04 	0.00 	0.04 	0.00 	0.16 	0.01 	0.01
-        63	0.33 	0.29 	0.00 	0.04 	0.00 	0.05 	0.09 	0.01 	0.01 	0.00 	0.03 	0.00 	0.15
-        64	0.03 	0.32 	0.04 	0.40 	0.00 	0.00 	0.02 	0.00 	0.00 	0.01 	0.01 	0.07 	0.10
-        65	0.17 	0.12 	0.07 	0.10 	0.00 	0.22 	0.01 	0.00 	0.00 	0.01 	0.07 	0.14 	0.10
-        66	0.28 	0.20 	0.23 	0.11 	0.03 	0.09 	0.01 	0.00 	0.00 	0.00 	0.04 	0.00 	0.01
-        67	0.00 	0.54 	0.11 	0.00 	0.03 	0.00 	0.17 	0.00 	0.00 	0.11 	0.01 	0.02 	0.00
-        68	0.06 	0.00 	0.04 	0.53 	0.03 	0.01 	0.01 	0.01 	0.13 	0.09 	0.09 	0.00 	0.00
-        69	0.13 	0.06 	0.05 	0.04 	0.57 	0.01 	0.07 	0.01 	0.04 	0.02 	0.00 	0.00 	0.01
-        70	0.29 	0.09 	0.05 	0.16 	0.11 	0.01 	0.00 	0.02 	0.06 	0.02 	0.14 	0.01 	0.05
-        71	0.18 	0.06 	0.25 	0.00 	0.04 	0.01 	0.14 	0.01 	0.15 	0.01 	0.09 	0.04 	0.03
-        72	0.08 	0.17 	0.00 	0.00 	0.00 	0.04 	0.38 	0.01 	0.16 	0.00 	0.12 	0.00 	0.02
-        73	0.23 	0.00 	0.39 	0.03 	0.14 	0.00 	0.01 	0.00 	0.04 	0.00 	0.04 	0.11 	0.00
-        74	0.30 	0.15 	0.02 	0.00 	0.09 	0.00 	0.17 	0.09 	0.03 	0.02 	0.02 	0.10 	0.01
-        75	0.06 	0.50 	0.20 	0.06 	0.04 	0.00 	0.01 	0.01 	0.00 	0.03 	0.00 	0.00 	0.07
-        76	0.01 	0.35 	0.46 	0.00 	0.00 	0.02 	0.03 	0.00 	0.04 	0.00 	0.05 	0.01 	0.02
-        77	0.26 	0.24 	0.01 	0.06 	0.14 	0.08 	0.11 	0.00 	0.09 	0.01 	0.00 	0.00 	0.00
-        78	0.09 	0.03 	0.08 	0.05 	0.37 	0.14 	0.22 	0.00 	0.00 	0.00 	0.00 	0.01 	0.02
-        79	0.02 	0.13 	0.38 	0.11 	0.00 	0.05 	0.17 	0.00 	0.01 	0.00 	0.08 	0.01 	0.04
-        80	0.04 	0.83 	0.01 	0.01 	0.00 	0.00 	0.01 	0.00 	0.00 	0.02 	0.03 	0.00 	0.03
-        81	0.25 	0.48 	0.03 	0.02 	0.02 	0.00 	0.05 	0.01 	0.08 	0.03 	0.02 	0.00 	0.00
-        82	0.02 	0.49 	0.15 	0.09 	0.09 	0.00 	0.04 	0.01 	0.08 	0.00 	0.02 	0.00 	0.00
-        83	0.61 	0.00 	0.02 	0.05 	0.12 	0.00 	0.13 	0.03 	0.02 	0.00 	0.00 	0.00 	0.00
-        84	0.07 	0.22 	0.04 	0.03 	0.08 	0.08 	0.07 	0.01 	0.03 	0.00 	0.15 	0.16 	0.07
-        85	0.10 	0.64 	0.01 	0.10 	0.01 	0.00 	0.01 	0.01 	0.00 	0.01 	0.04 	0.06 	0.00
-        86	0.07 	0.56 	0.07 	0.12 	0.01 	0.01 	0.01 	0.00 	0.13 	0.00 	0.00 	0.00 	0.03
-        87	0.02 	0.38 	0.36 	0.07 	0.02 	0.00 	0.02 	0.01 	0.05 	0.04 	0.01 	0.01 	0.00
-        88	0.17 	0.45 	0.13 	0.02 	0.07 	0.00 	0.00 	0.00 	0.01 	0.00 	0.11 	0.01 	0.01
-        89	0.03 	0.60 	0.06 	0.00 	0.15 	0.00 	0.05 	0.01 	0.02 	0.00 	0.01 	0.03 	0.04
-        90	0.20 	0.49 	0.00 	0.02 	0.09 	0.03 	0.06 	0.00 	0.00 	0.00 	0.04 	0.05 	0.00
-        91	0.28 	0.39 	0.07 	0.04 	0.03 	0.06 	0.00 	0.00 	0.02 	0.02 	0.02 	0.02 	0.04
-        92	0.36 	0.23 	0.00 	0.03 	0.13 	0.08 	0.03 	0.02 	0.03 	0.02 	0.00 	0.02 	0.05
-        93	0.06 	0.60 	0.00 	0.18 	0.01 	0.03 	0.00 	0.01 	0.00 	0.01 	0.00 	0.07 	0.02
-        94	0.09 	0.47 	0.00 	0.01 	0.08 	0.01 	0.05 	0.04 	0.08 	0.00 	0.00 	0.00 	0.15
-        95	0.20 	0.00 	0.02 	0.03 	0.44 	0.06 	0.22 	0.00 	0.01 	0.01 	0.00 	0.00 	0.01
-        96	0.02 	0.01 	0.10 	0.09 	0.65 	0.03 	0.01 	0.01 	0.00 	0.00 	0.06 	0.03 	0.00
-        97	0.11 	0.67 	0.12 	0.01 	0.00 	0.02 	0.00 	0.00 	0.00 	0.00 	0.00 	0.02 	0.05
-        98	0.42 	0.17 	0.00 	0.07 	0.00 	0.09 	0.06 	0.01 	0.05 	0.03 	0.00 	0.02 	0.07
-        99	0.12 	0.29 	0.03 	0.09 	0.03 	0.02 	0.27 	0.00 	0.02 	0.00 	0.00 	0.02 	0.09
-       100	0.06 	0.50 	0.22 	0.00 	0.03 	0.01 	0.01 	0.00 	0.01 	0.04 	0.00 	0.08 	0.03
-       101	0.03 	0.56 	0.24 	0.01 	0.01 	0.00 	0.02 	0.00 	0.07 	0.00 	0.00 	0.00 	0.05
-       102	0.01 	0.27 	0.20 	0.09 	0.02 	0.09 	0.05 	0.01 	0.18 	0.00 	0.02 	0.00 	0.07
-       103	0.04 	0.74 	0.06 	0.02 	0.00 	0.02 	0.00 	0.01 	0.02 	0.03 	0.01 	0.05 	0.00
-       104	0.02 	0.64 	0.03 	0.03 	0.01 	0.01 	0.03 	0.00 	0.02 	0.04 	0.00 	0.08 	0.08
-       105	0.25 	0.23 	0.07 	0.01 	0.08 	0.00 	0.09 	0.02 	0.01 	0.02 	0.05 	0.00 	0.16
-       106	0.02 	0.70 	0.03 	0.02 	0.03 	0.01 	0.01 	0.02 	0.01 	0.05 	0.02 	0.01 	0.06
-       107	0.37 	0.26 	0.01 	0.00 	0.05 	0.05 	0.00 	0.06 	0.07 	0.01 	0.00 	0.01 	0.12
-       108	0.00 	0.60 	0.02 	0.09 	0.01 	0.14 	0.01 	0.00 	0.01 	0.00 	0.04 	0.00 	0.07
-       109	0.22 	0.19 	0.28 	0.03 	0.01 	0.06 	0.01 	0.00 	0.03 	0.00 	0.14 	0.03 	0.01
-       110	0.07 	0.07 	0.00 	0.44 	0.18 	0.08 	0.10 	0.00 	0.00 	0.01 	0.01 	0.02 	0.00
-       111	0.01 	0.55 	0.00 	0.13 	0.01 	0.07 	0.11 	0.00 	0.01 	0.05 	0.05 	0.00 	0.00
-       112	0.12 	0.04 	0.29 	0.21 	0.04 	0.02 	0.09 	0.01 	0.05 	0.04 	0.04 	0.03 	0.02
-       113	0.02 	0.53 	0.12 	0.07 	0.01 	0.10 	0.03 	0.00 	0.06 	0.01 	0.02 	0.00 	0.03
-       114	0.03 	0.43 	0.20 	0.00 	0.08 	0.00 	0.11 	0.00 	0.11 	0.00 	0.02 	0.00 	0.02
-       115	0.01 	0.61 	0.07 	0.03 	0.04 	0.04 	0.08 	0.00 	0.02 	0.02 	0.00 	0.00 	0.07
-       116	0.01 	0.80 	0.01 	0.02 	0.01 	0.00 	0.03 	0.00 	0.00 	0.01 	0.00 	0.02 	0.07
-       117	0.00 	0.57 	0.07 	0.01 	0.18 	0.00 	0.00 	0.01 	0.02 	0.00 	0.10 	0.00 	0.03
-       118	0.44 	0.12 	0.27 	0.06 	0.02 	0.05 	0.00 	0.01 	0.03 	0.01 	0.00 	0.01 	0.00
-       119	0.03 	0.54 	0.01 	0.20 	0.01 	0.04 	0.10 	0.00 	0.00 	0.00 	0.03 	0.01 	0.02
-       120	0.07 	0.25 	0.16 	0.18 	0.02 	0.00 	0.01 	0.00 	0.24 	0.00 	0.05 	0.02 	0.01
-       121	0.05 	0.00 	0.75 	0.00 	0.00 	0.02 	0.01 	0.06 	0.08 	0.02 	0.00 	0.00 	0.00
-       122	0.10 	0.03 	0.63 	0.09 	0.01 	0.10 	0.03 	0.00 	0.00 	0.00 	0.01 	0.00 	0.00
-       123	0.01 	0.02 	0.01 	0.75 	0.00 	0.13 	0.03 	0.01 	0.00 	0.01 	0.01 	0.00 	0.00
-       124	0.05 	0.10 	0.11 	0.69 	0.01 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03 	0.01 	0.00
-       125	0.00 	0.60 	0.03 	0.15 	0.01 	0.00 	0.04 	0.01 	0.10 	0.00 	0.03 	0.02 	0.01
-       126	0.00 	0.21 	0.06 	0.21 	0.02 	0.12 	0.09 	0.06 	0.13 	0.04 	0.04 	0.00 	0.03
-       127	0.15 	0.09 	0.66 	0.00 	0.02 	0.04 	0.00 	0.01 	0.00 	0.01 	0.00 	0.01 	0.00
-       128	0.03 	0.47 	0.21 	0.06 	0.00 	0.06 	0.02 	0.03 	0.01 	0.05 	0.02 	0.00 	0.05
-       129	0.34 	0.14 	0.06 	0.23 	0.03 	0.10 	0.01 	0.00 	0.01 	0.01 	0.06 	0.02 	0.00
-       130	0.14 	0.00 	0.11 	0.17 	0.41 	0.00 	0.05 	0.01 	0.01 	0.08 	0.00 	0.02 	0.00
-       131	0.53 	0.01 	0.05 	0.01 	0.17 	0.05 	0.08 	0.02 	0.00 	0.01 	0.01 	0.03 	0.02
-       132	0.63 	0.01 	0.00 	0.01 	0.09 	0.00 	0.19 	0.03 	0.02 	0.02 	0.01 	0.00 	0.00
-       133	0.39 	0.01 	0.02 	0.00 	0.25 	0.09 	0.09 	0.00 	0.01 	0.04 	0.01 	0.00 	0.09
-       134	0.44 	0.02 	0.10 	0.06 	0.09 	0.16 	0.01 	0.02 	0.06 	0.04 	0.01 	0.00 	0.01
-       135	0.68 	0.01 	0.09 	0.04 	0.04 	0.05 	0.04 	0.00 	0.04 	0.00 	0.00 	0.01 	0.00
-       136	0.78 	0.00 	0.00 	0.00 	0.01 	0.06 	0.04 	0.00 	0.00 	0.02 	0.07 	0.00 	0.01
-       137	0.67 	0.02 	0.13 	0.01 	0.01 	0.03 	0.09 	0.00 	0.00 	0.00 	0.00 	0.01 	0.02
-       138	0.74 	0.01 	0.08 	0.00 	0.09 	0.01 	0.05 	0.00 	0.00 	0.00 	0.02 	0.00 	0.00
-       139	0.59 	0.01 	0.16 	0.06 	0.02 	0.02 	0.00 	0.06 	0.01 	0.01 	0.03 	0.03 	0.00
-       140	0.71 	0.01 	0.03 	0.07 	0.03 	0.05 	0.00 	0.01 	0.02 	0.00 	0.00 	0.02 	0.05
-       141	0.56 	0.01 	0.10 	0.01 	0.01 	0.09 	0.10 	0.01 	0.00 	0.01 	0.01 	0.00 	0.09
-       142	0.65 	0.02 	0.07 	0.08 	0.02 	0.11 	0.00 	0.01 	0.01 	0.00 	0.02 	0.01 	0.01
-       143	0.51 	0.02 	0.01 	0.04 	0.04 	0.22 	0.09 	0.01 	0.01 	0.01 	0.02 	0.00 	0.02
-       144	0.37 	0.10 	0.12 	0.01 	0.22 	0.01 	0.00 	0.00 	0.01 	0.07 	0.08 	0.02 	0.00
-       145	0.63 	0.03 	0.07 	0.01 	0.04 	0.02 	0.03 	0.00 	0.01 	0.07 	0.01 	0.04 	0.05
-       146	0.70 	0.02 	0.08 	0.05 	0.00 	0.10 	0.00 	0.00 	0.02 	0.02 	0.00 	0.01 	0.00
-       147	0.77 	0.10 	0.00 	0.07 	0.02 	0.02 	0.00 	0.00 	0.01 	0.00 	0.01 	0.00 	0.00
-       148	0.68 	0.21 	0.02 	0.03 	0.01 	0.03 	0.02 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
-       149	0.51 	0.25 	0.02 	0.01 	0.13 	0.00 	0.01 	0.03 	0.00 	0.01 	0.00 	0.00 	0.02
-       150	0.28 	0.29 	0.01 	0.00 	0.26 	0.00 	0.08 	0.03 	0.01 	0.00 	0.00 	0.02 	0.01
-       151	0.34 	0.22 	0.01 	0.01 	0.18 	0.05 	0.14 	0.01 	0.00 	0.02 	0.00 	0.01 	0.01
-       152	0.21 	0.15 	0.12 	0.00 	0.20 	0.06 	0.15 	0.00 	0.00 	0.07 	0.01 	0.01 	0.01
-       153	0.41 	0.25 	0.05 	0.02 	0.01 	0.18 	0.06 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00
-       154	0.53 	0.01 	0.10 	0.03 	0.01 	0.25 	0.00 	0.00 	0.01 	0.00 	0.00 	0.01 	0.05
-       155	0.63 	0.16 	0.00 	0.08 	0.02 	0.00 	0.10 	0.00 	0.00 	0.00 	0.00 	0.02 	0.00
-       156	0.53 	0.24 	0.04 	0.11 	0.02 	0.01 	0.00 	0.00 	0.00 	0.00 	0.01 	0.03 	0.00
-       157	0.60 	0.09 	0.13 	0.01 	0.02 	0.03 	0.00 	0.00 	0.00 	0.00 	0.01 	0.09 	0.01
-       158	0.04 	0.42 	0.05 	0.03 	0.03 	0.36 	0.01 	0.02 	0.01 	0.00 	0.03 	0.00 	0.00
-       159	0.13 	0.29 	0.01 	0.03 	0.05 	0.42 	0.03 	0.03 	0.00 	0.00 	0.00 	0.01 	0.00
-       160	0.72 	0.04 	0.00 	0.07 	0.01 	0.01 	0.00 	0.01 	0.09 	0.00 	0.00 	0.02 	0.03
-       161	0.53 	0.15 	0.00 	0.14 	0.01 	0.07 	0.03 	0.02 	0.00 	0.00 	0.03 	0.01 	0.01
-       162	0.73 	0.03 	0.06 	0.07 	0.01 	0.01 	0.07 	0.00 	0.01 	0.01 	0.01 	0.00 	0.01
-       163	0.70 	0.05 	0.08 	0.01 	0.06 	0.05 	0.01 	0.00 	0.01 	0.00 	0.01 	0.00 	0.01
-       164	0.60 	0.17 	0.07 	0.00 	0.01 	0.02 	0.07 	0.00 	0.04 	0.02 	0.01 	0.00 	0.00
-       165	0.77 	0.05 	0.01 	0.02 	0.03 	0.01 	0.02 	0.00 	0.07 	0.00 	0.01 	0.00 	0.00
-       166	0.38 	0.44 	0.01 	0.00 	0.01 	0.02 	0.00 	0.00 	0.03 	0.04 	0.00 	0.00 	0.05
-       167	0.60 	0.11 	0.10 	0.01 	0.01 	0.01 	0.03 	0.00 	0.00 	0.08 	0.02 	0.00 	0.03
-       168	0.40 	0.36 	0.05 	0.01 	0.01 	0.03 	0.05 	0.00 	0.07 	0.00 	0.00 	0.00 	0.00
-       169	0.30 	0.36 	0.11 	0.02 	0.07 	0.05 	0.05 	0.01 	0.00 	0.00 	0.00 	0.00 	0.03
-       170	0.82 	0.01 	0.06 	0.00 	0.03 	0.01 	0.01 	0.00 	0.03 	0.00 	0.03 	0.00 	0.00
-       171	0.70 	0.04 	0.09 	0.00 	0.01 	0.04 	0.05 	0.00 	0.02 	0.03 	0.00 	0.00 	0.00
-       172	0.43 	0.34 	0.06 	0.00 	0.03 	0.03 	0.05 	0.00 	0.01 	0.00 	0.01 	0.03 	0.01
-       173	0.56 	0.24 	0.01 	0.06 	0.02 	0.06 	0.05 	0.00 	0.00 	0.00 	0.00 	0.00 	0.00
-       174	0.64 	0.29 	0.00 	0.01 	0.01 	0.00 	0.00 	0.00 	0.03 	0.01 	0.00 	0.01 	0.00
-       175	0.38 	0.41 	0.05 	0.01 	0.09 	0.00 	0.02 	0.00 	0.00 	0.03 	0.00 	0.01 	0.00
-       176	0.38 	0.36 	0.02 	0.03 	0.04 	0.09 	0.03 	0.00 	0.01 	0.01 	0.00 	0.01 	0.02
-       177	0.49 	0.36 	0.05 	0.02 	0.04 	0.00 	0.00 	0.00 	0.00 	0.00 	0.03 	0.00 	0.00
-</pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="analyse-factorielle-des-correspondances">
+</section>
+</section>
+</section>
+</section>
+<section id="analyse-factorielle-des-correspondances">
 <h2>Analyse Factorielle des correspondances<a class="headerlink" href="#analyse-factorielle-des-correspondances" title="Permalink to this headline">#</a></h2>
-</div>
-<div class="section" id="analyse-des-correspondances-multiples">
+</section>
+<section id="analyse-des-correspondances-multiples">
 <h2>Analyse des correspondances multiples<a class="headerlink" href="#analyse-des-correspondances-multiples" title="Permalink to this headline">#</a></h2>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
