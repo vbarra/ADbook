@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # TP ANALYSE EN COMPOSANTES PRINCIPALES
+# # TP ACP
 
 # In[1]:
 
@@ -91,7 +91,7 @@ def biplot(pca,np1,np2,data,nom_features):
 import pandas as pd 
 pd.options.mode.chained_assignment = None
 
-vins = pd.read_csv("vins.csv",delimiter=",",header=None)
+vins = pd.read_csv("./data/vins.csv",delimiter=",",header=None)
 cat_vins = vins.loc[: , 0]
 features_vins = vins.loc[:,1:vins.shape[1]]
 nom_features = ['% alcool', 'acide malique', 'cendres', 'alcalinité', 'magnésium', 'phénols' , 
