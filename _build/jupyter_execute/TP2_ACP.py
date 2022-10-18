@@ -114,7 +114,7 @@ nom_features = ['% alcool', 'acide malique', 'cendres', 'alcalinité', 'magnési
 # # Exercice 2 : étude de données image
 # Nous étudions des données image, représentant des chiffres manuscrits. Nous utilisons pour cela la base de données standard MNIST (Mixed National Institute of Standards and Technology), très employée pour le test de nouveaux algorithmes de reconnaissance de ces chiffres. Elle est composée de 60000 images d’apprentissage et 10000 images de test. Les images en noir et blanc, normalisées centrées de 28 pixels de côté.
 
-# In[35]:
+# In[6]:
 
 
 from sklearn.datasets import fetch_openml
