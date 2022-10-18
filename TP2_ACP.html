@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TP ACP &#8212; Analyse de données</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -21,7 +20,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -36,13 +35,10 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -51,8 +47,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Régression" href="regression.html" />
@@ -489,7 +485,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="tp-acp">
+  <div class="tex2jax_ignore mathjax_ignore section" id="tp-acp">
 <h1>TP ACP<a class="headerlink" href="#tp-acp" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -503,8 +499,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="definition-de-quelques-outils">
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="definition-de-quelques-outils">
 <h1>Définition de quelques outils<a class="headerlink" href="#definition-de-quelques-outils" title="Permalink to this headline">#</a></h1>
 <p>On définit ici quelques fonctions utiles pour l’affichage des résultats, non présents dans sklearn :</p>
 <ul class="simple">
@@ -576,8 +572,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="exercice-1-etude-de-proprietes-de-vins">
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="exercice-1-etude-de-proprietes-de-vins">
 <h1>Exercice 1 : étude de propriétés de vins<a class="headerlink" href="#exercice-1-etude-de-proprietes-de-vins" title="Permalink to this headline">#</a></h1>
 <p>Le fichier vins.csv contient les résultats d’analyses chimiques de trois classes de vins italiens, provenant de la même région mais de viticulteurs différents. Les analyses portent sur la quantification de 13 indices quantitatifs continus reliés aux vins : degré d’alcool, acide malique, présence de cendres, alcalinité des cendres, magnésium, phénols totaux, flavonoïdes, phénols non flavanoïdes, proanthocyanidines, intensité de la couleur du vin, teinte, OD280/OD315 des vins dilués et proline. Le fichier décrit un vin par ligne (sa classe et ses 13 attributs).</p>
 <div class="cell docutils container">
@@ -594,38 +590,26 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">chained_assignment</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">vins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./data/vins.csv&quot;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
-</pre></div>
 </div>
-</div>
-</div>
-<section id="votre-travail">
+<div class="section" id="votre-travail">
 <h2>===== Votre travail : =====<a class="headerlink" href="#votre-travail" title="Permalink to this headline">#</a></h2>
-<section id="appliquer-une-acp-a-ces-donnees-de-deux-manieres">
+<div class="section" id="appliquer-une-acp-a-ces-donnees-de-deux-manieres">
 <h3>Appliquer une <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html">ACP</a> à ces données, de deux manières :<a class="headerlink" href="#appliquer-une-acp-a-ces-donnees-de-deux-manieres" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>sur les données brutes du tableau</p></li>
 <li><p>sur les données normalisées, en utilisant la fonction <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html">StandardScaler</a> de ScikitLearn</p></li>
 </ul>
-</section>
-<section id="pour-chacune-de-ces-analyses">
+</div>
+<div class="section" id="pour-chacune-de-ces-analyses">
 <h3>Pour chacune de ces analyses :<a class="headerlink" href="#pour-chacune-de-ces-analyses" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>déterminer si l’analyse est pertinente et si oui pourquoi</p></li>
 <li><p>Si elle l’est effectivement, déterminer le nombre de composantes principales à retenir, interpréter les axes principaux, afficher le(s) plan(s) principal(aux) et interpréter graphiquement les résultats</p></li>
 </ul>
-</section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="exercice-2-etude-de-donnees-image">
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="exercice-2-etude-de-donnees-image">
 <h1>Exercice 2 : étude de données image<a class="headerlink" href="#exercice-2-etude-de-donnees-image" title="Permalink to this headline">#</a></h1>
 <p>Nous étudions des données image, représentant des chiffres manuscrits. Nous utilisons pour cela la base de données standard MNIST (Mixed National Institute of Standards and Technology), très employée pour le test de nouveaux algorithmes de reconnaissance de ces chiffres. Elle est composée de 60000 images d’apprentissage et 10000 images de test. Les images en noir et blanc, normalisées centrées de 28 pixels de côté.</p>
 <div class="cell docutils container">
@@ -658,11 +642,119 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/TP2_ACP_10_0.svg" src="_images/TP2_ACP_10_0.svg" /></div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">Xmnist</span><span class="p">,</span> <span class="n">ymnist</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s1">&#39;mnist_784&#39;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span> <span class="nf">planche</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/sklearn/datasets/_openml.py:958,</span> in <span class="ni">fetch_openml</span><span class="nt">(name, version, data_id, data_home, target_column, cache, return_X_y, as_frame)</span>
+<span class="g g-Whitespace">    </span><span class="mi">956</span> <span class="c1"># obtain the data</span>
+<span class="g g-Whitespace">    </span><span class="mi">957</span> <span class="n">url</span> <span class="o">=</span> <span class="n">_DATA_FILE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data_description</span><span class="p">[</span><span class="s2">&quot;file_id&quot;</span><span class="p">])</span>
+<span class="ne">--&gt; </span><span class="mi">958</span> <span class="n">bunch</span> <span class="o">=</span> <span class="n">_download_data_to_bunch</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">959</span>     <span class="n">url</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">960</span>     <span class="n">return_sparse</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">961</span>     <span class="n">data_home</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">962</span>     <span class="n">as_frame</span><span class="o">=</span><span class="nb">bool</span><span class="p">(</span><span class="n">as_frame</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">963</span>     <span class="n">features_list</span><span class="o">=</span><span class="n">features_list</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">964</span>     <span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">965</span>     <span class="n">target_columns</span><span class="o">=</span><span class="n">target_columns</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">966</span>     <span class="n">data_columns</span><span class="o">=</span><span class="n">data_columns</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">967</span>     <span class="n">md5_checksum</span><span class="o">=</span><span class="n">data_description</span><span class="p">[</span><span class="s2">&quot;md5_checksum&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">    </span><span class="mi">968</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">970</span> <span class="k">if</span> <span class="n">return_X_y</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">971</span>     <span class="k">return</span> <span class="n">bunch</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">bunch</span><span class="o">.</span><span class="n">target</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/sklearn/datasets/_openml.py:655,</span> in <span class="ni">_download_data_to_bunch</span><span class="nt">(url, sparse, data_home, as_frame, features_list, data_columns, target_columns, shape, md5_checksum)</span>
+<span class="g g-Whitespace">    </span><span class="mi">652</span>             <span class="n">y</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">653</span>         <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="n">nominal_attributes</span>
+<span class="ne">--&gt; </span><span class="mi">655</span> <span class="n">out</span> <span class="o">=</span> <span class="n">_retry_with_clean_cache</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data_home</span><span class="p">)(</span><span class="n">_load_arff_response</span><span class="p">)(</span>
+<span class="g g-Whitespace">    </span><span class="mi">656</span>     <span class="n">url</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">657</span>     <span class="n">data_home</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">658</span>     <span class="n">return_type</span><span class="o">=</span><span class="n">return_type</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">659</span>     <span class="n">encode_nominal</span><span class="o">=</span><span class="ow">not</span> <span class="n">as_frame</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">660</span>     <span class="n">parse_arff</span><span class="o">=</span><span class="n">parse_arff</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">661</span>     <span class="n">md5_checksum</span><span class="o">=</span><span class="n">md5_checksum</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">662</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">663</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="n">nominal_attributes</span> <span class="o">=</span> <span class="n">postprocess</span><span class="p">(</span><span class="o">*</span><span class="n">out</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">665</span> <span class="k">return</span> <span class="n">Bunch</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">666</span>     <span class="n">data</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">667</span>     <span class="n">target</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">671</span>     <span class="n">target_names</span><span class="o">=</span><span class="n">target_columns</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">672</span> <span class="p">)</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/sklearn/datasets/_openml.py:61,</span> in <span class="ni">_retry_with_clean_cache.&lt;locals&gt;.decorator.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kw)</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span>     <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">61</span>     <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span> <span class="k">except</span> <span class="n">HTTPError</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span>     <span class="k">raise</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/sklearn/datasets/_openml.py:529,</span> in <span class="ni">_load_arff_response</span><span class="nt">(url, data_home, return_type, encode_nominal, parse_arff, md5_checksum)</span>
+<span class="g g-Whitespace">    </span><span class="mi">523</span> <span class="n">stream</span> <span class="o">=</span> <span class="n">_stream_checksum_generator</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">525</span> <span class="n">arff</span> <span class="o">=</span> <span class="n">_arff</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">526</span>     <span class="n">stream</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="n">return_type</span><span class="p">,</span> <span class="n">encode_nominal</span><span class="o">=</span><span class="n">encode_nominal</span>
+<span class="g g-Whitespace">    </span><span class="mi">527</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">529</span> <span class="n">parsed_arff</span> <span class="o">=</span> <span class="n">parse_arff</span><span class="p">(</span><span class="n">arff</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">531</span> <span class="c1"># consume remaining stream, if early exited</span>
+<span class="g g-Whitespace">    </span><span class="mi">532</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/sklearn/datasets/_openml.py:361,</span> in <span class="ni">_convert_arff_data_dataframe</span><span class="nt">(arff, columns, features_dict)</span>
+<span class="g g-Whitespace">    </span><span class="mi">359</span> <span class="n">dfs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">    </span><span class="mi">360</span> <span class="n">dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">first_df</span><span class="p">[</span><span class="n">columns_to_keep</span><span class="p">])</span>
+<span class="ne">--&gt; </span><span class="mi">361</span> <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">_chunk_generator</span><span class="p">(</span><span class="n">arff</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">],</span> <span class="n">chunksize</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">362</span>     <span class="n">dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">arff_columns</span><span class="p">)[</span><span class="n">columns_to_keep</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">363</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">dfs</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/sklearn/utils/__init__.py:705,</span> in <span class="ni">_chunk_generator</span><span class="nt">(gen, chunksize)</span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span> <span class="sd">&quot;&quot;&quot;Chunk generator, ``gen`` into lists of length ``chunksize``. The last</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span><span class="sd"> chunk may have a length less than ``chunksize``.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">705</span>     <span class="n">chunk</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">islice</span><span class="p">(</span><span class="n">gen</span><span class="p">,</span> <span class="n">chunksize</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span>     <span class="k">if</span> <span class="n">chunk</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">707</span>         <span class="k">yield</span> <span class="n">chunk</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/sklearn/externals/_arff.py:461,</span> in <span class="ni">DenseGeneratorData.decode_rows</span><span class="nt">(self, stream, conversors)</span>
+<span class="g g-Whitespace">    </span><span class="mi">460</span> <span class="k">def</span> <span class="nf">decode_rows</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stream</span><span class="p">,</span> <span class="n">conversors</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">461</span>     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">462</span>         <span class="n">values</span> <span class="o">=</span> <span class="n">_parse_values</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">464</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/sklearn/externals/_arff.py:864,</span> in <span class="ni">ArffDecoder._decode.&lt;locals&gt;.stream</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">863</span> <span class="k">def</span> <span class="nf">stream</span><span class="p">():</span>
+<span class="ne">--&gt; </span><span class="mi">864</span>     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">865</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_current_line</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">    </span><span class="mi">866</span>         <span class="n">row</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/sklearn/datasets/_openml.py:519,</span> in <span class="ni">_load_arff_response.&lt;locals&gt;._stream_checksum_generator</span><span class="nt">(response)</span>
+<span class="g g-Whitespace">    </span><span class="mi">518</span> <span class="k">def</span> <span class="nf">_stream_checksum_generator</span><span class="p">(</span><span class="n">response</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">519</span>     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">520</span>         <span class="n">actual_md5_checksum</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">521</span>         <span class="k">yield</span> <span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+
+<span class="nn">File /usr/local/Cellar/python@3.9/3.9.13/Frameworks/Python.framework/Versions/3.9/lib/python3.9/gzip.py:398,</span> in <span class="ni">GzipFile.readline</span><span class="nt">(self, size)</span>
+<span class="g g-Whitespace">    </span><span class="mi">396</span> <span class="k">def</span> <span class="nf">readline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">397</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_not_closed</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">398</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="o">.</span><span class="n">readline</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+
+<span class="nn">File /usr/local/Cellar/python@3.9/3.9.13/Frameworks/Python.framework/Versions/3.9/lib/python3.9/_compression.py:67,</span> in <span class="ni">DecompressReader.readinto</span><span class="nt">(self, b)</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span> <span class="k">def</span> <span class="nf">readinto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">67</span>     <span class="k">with</span> <span class="nb">memoryview</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">as</span> <span class="n">view</span><span class="p">,</span> <span class="n">view</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">byte_view</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span>         <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">byte_view</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>         <span class="n">byte_view</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)]</span> <span class="o">=</span> <span class="n">data</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
 </div>
 <p>L’ACP est ici utilisée pour réduire la représentation des données (un point ici est un vecteur de 28*28=784, l’espace original est donc <span class="math notranslate nohighlight">\(\mathbb{R}^{784}\)</span>). Intuitivement, on comprend bien que, de nombreux pixels étant noirs et communs à toutes les images, 784 dimensions sont inutiles.</p>
 <p>Pour ne pas surcharger la visualisation, vous utiliserez un sous-ensemble de <span class="math notranslate nohighlight">\({\tt nb\_digits}\)</span> images de MNIST (code donné)</p>
-<section id="votre-travail-consiste-a">
+<div class="section" id="votre-travail-consiste-a">
 <h2>===== Votre travail consiste à : =====<a class="headerlink" href="#votre-travail-consiste-a" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Calculer une ACP de ces données (normalisées ? non normalisées ? jusitifier)</p></li>
@@ -715,8 +807,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

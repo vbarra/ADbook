@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Introduction aux statistiques &#8212; Analyse de données</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -21,7 +20,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -36,13 +35,10 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -51,8 +47,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Statistique descriptive" href="statsdescriptives.html" />
@@ -468,9 +464,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction-aux-statistiques">
+  <div class="tex2jax_ignore mathjax_ignore section" id="introduction-aux-statistiques">
 <h1>Introduction aux statistiques<a class="headerlink" href="#introduction-aux-statistiques" title="Permalink to this headline">#</a></h1>
-<section id="elements-de-vocabulaire">
+<div class="section" id="elements-de-vocabulaire">
 <h2>Eléments de vocabulaire<a class="headerlink" href="#elements-de-vocabulaire" title="Permalink to this headline">#</a></h2>
 <p>On définit ici de manière informelle les termes utilisés dans la suite :</p>
 <ul class="simple" id="index-0">
@@ -485,36 +481,36 @@ title="Print to PDF"
 <ul class="simple" id="index-3">
 <li><p><strong>Caractère</strong> : nature de la caractéristique à laquelle on s’intéresse statistiquement. Il peut être <strong>qualitatif</strong> (nominal ou ordinal) ou <strong>quantitatif</strong> (discret ou continu).</p></li>
 </ul>
-</section>
-<section id="probabilites-et-statistiques">
+</div>
+<div class="section" id="probabilites-et-statistiques">
 <h2>Probabilités et statistiques<a class="headerlink" href="#probabilites-et-statistiques" title="Permalink to this headline">#</a></h2>
 <p>La question qui se pose est la suivante : comment définir ou estimer la valeur de probabilité associée à un  évènement ?
 Plusieurs points de vue ont été proposés et adoptés que nous synthétisons très brièvement.</p>
-<section id="approche-frequentiste">
+<div class="section" id="approche-frequentiste">
 <h3>Approche fréquentiste<a class="headerlink" href="#approche-frequentiste" title="Permalink to this headline">#</a></h3>
 <p>Ce point de vue historique, souvent présenté comme le plus “naturel” ou “objectif”, consiste à définir une probabilité comme la limite de la fréquence d’observation de la caractéristique lorsque la taille de l’echantillon devient infinie. On suppose ici que les probabilités sont une loi de la nature qu’il faut mesurer par l’expérience. En pratique, la probabilité d’un  évènement est donc estimée/approximée en répétant un très grand nombre de fois l’expérience dans les mêmes conditions. C’est de ces expériences répétées que sont nés les outils de la statistique tels que la régression linéaire ou le test du <span class="math notranslate nohighlight">\(\chi^2\)</span>.
 On rencontre néanmoins très rapidement des limitations avec ce type d’approche. D’une part, il est impossible d’un point de vue fréquentiste de traiter de petits échantillons de données. De plus, certains types de données ne sont
 pas exploitables en raison de leur caractère non expérimental (par exemple, quelle probabilité associer à un évènement du type “nombre de votants aux prochaines élections” qui n’est pas répétable). Enfin, il est parfois difficile de définir un modèle  permettant de modéliser une erreur de mesure ou la variation observée d’un caractère dans une population.</p>
-</section>
-<section id="approche-bayesienne">
+</div>
+<div class="section" id="approche-bayesienne">
 <h3>Approche bayésienne<a class="headerlink" href="#approche-bayesienne" title="Permalink to this headline">#</a></h3>
-<aside class="margin sidebar">
+<div class="margin sidebar">
 <p class="sidebar-title">T. Bayes</p>
 <p><img alt="" src="_images/bayes.jpeg" /></p>
-</aside>
+</div>
 <p>Un point de vue bien différent consiste à définir les probabilités comme une mesure subjective de l’incertitude. Dans ce cadre, tout événement peut être probabilisé à partir d’un a priori de l’observateur. Ce point de vue est appelé Bayésien (fait appel à la règle de Bayes) pour calculer la loi de probabilité des évènements à partir des échantillons de données a posteriori. L’intérêt majeur de ce type de démarche est que tout est probabilisable (jusqu’aux paramètres du modèle utilisé) et qu’il s’appuie sur des résultats de la théorie des probabilités, comme le théorème central limite.
 Ce point de vue “subjectif” a longtemps été dénoncé par les adeptes de l’approche fréquentiste qui rejettent l’idée que l’on puisse définir un tel a priori sur les évènements. En effet, l’objection majeure que l’on oppose souvent à la méthodologie bayésienne est que deux observateurs différents, ayant des a priori différents, donneront des résultats ou des interprétations différentes.</p>
-</section>
-</section>
-<section id="demarche-generale">
+</div>
+</div>
+<div class="section" id="demarche-generale">
 <h2>Démarche générale<a class="headerlink" href="#demarche-generale" title="Permalink to this headline">#</a></h2>
 <p>De manière assez générale, une étude statistique consiste à obtenir des informations sur un caractère concernant une population de grande taille en s’appuyant sur celles d’un sous-ensemble de taille réduite (l’échantillon), afin le plus souvent d’orienter une décision. Le choix de l’échantillon se fera par tirage avec ou sans remise, par tirage uniforme (“au hasard”) ou non (tirage stratifié dans le cas d’un sondage par exemple, ou selon une loi de probabilité précise si une information a priori est disponible).
 On estime alors des propriétés d’un caractère de l’échantillon. A partir de ces estimations, on cherche à donner “au mieux” des valeurs aux paramètres correspondant de la population (la moyenne, la variance,…). L’estimation pourra être ponctuelle ou par intervalle de confiance. On pourra également s’intéresser à des tests d’ajustement (ou d’adéquation) à une loi de type donné. La décision, étape finale de l’analyse statistique, se fera par des tests statistiques.</p>
 <div class="proof example admonition" id="example-0">
 <p class="admonition-title"><span class="caption-number">Example 10 </span></p>
-<section class="example-content" id="proof-content">
+<div class="example-content section" id="proof-content">
 <p>Un cuisinier cherche à savoir si sa sauce est suffisamment salée. Après avoir remué sa casserole, il prélève une cuillérée de sauce (l’échantillon). Il la goûte (il estime le caractère salé de l’échantillon). En fonction du résultat, il décide que la casserole de sauce (la population) est suffisamment salée ou pas.</p>
-</section>
+</div>
 </div><div class="admonition important">
 <p class="admonition-title">Important</p>
 <span class="target" id="index-4"></span><p id="index-5">La science des statistiques se décompose donc en :</p>
@@ -524,8 +520,8 @@ On estime alors des propriétés d’un caractère de l’échantillon. A partir
 </ul>
 </div>
 <p id="index-6">A cette dichotomie s’ajoute la <strong>statistique exploratoire</strong>, branche de l’analyse de données, qui cherche à comprendre l’organisation des individus de l’échantillon (existe-t-il des groupes d’individus semblables ? les caractères mesurés sont-ils les plus pertinents ?…)</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
