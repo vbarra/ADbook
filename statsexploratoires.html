@@ -700,6 +700,66 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#analyse-des-correspondances-multiples">
    Analyse des correspondances multiples
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Notations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analyse">
+     Analyse
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tableau-de-contingence-de-l-acm">
+       Tableau de contingence de l’ACM
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#distances-entre-individus-et-entre-modalites">
+       Distances entre individus et entre modalités
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#principe-de-l-acm">
+       Principe de l’ACM
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Interprétation des résultats
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Inertie expliquée
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#contributions-et-representation">
+       Contributions et représentation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cas-particulier-p-2">
+     Cas particulier
+     <span class="math notranslate nohighlight">
+      \(p\)
+     </span>
+     =2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Exemple
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -1039,6 +1099,66 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#analyse-des-correspondances-multiples">
    Analyse des correspondances multiples
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Notations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analyse">
+     Analyse
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tableau-de-contingence-de-l-acm">
+       Tableau de contingence de l’ACM
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#distances-entre-individus-et-entre-modalites">
+       Distances entre individus et entre modalités
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#principe-de-l-acm">
+       Principe de l’ACM
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Interprétation des résultats
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Inertie expliquée
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#contributions-et-representation">
+       Contributions et représentation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cas-particulier-p-2">
+     Cas particulier
+     <span class="math notranslate nohighlight">
+      \(p\)
+     </span>
+     =2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Exemple
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -2717,6 +2837,269 @@ On réalise ensuite une AFC, par analyse spectrale des matrices <span class="mat
 </div>
 <div class="section" id="analyse-des-correspondances-multiples">
 <h2>Analyse des correspondances multiples<a class="headerlink" href="#analyse-des-correspondances-multiples" title="Permalink to this headline">#</a></h2>
+<p>Tandis que l’analyse factorielle des correspondances permet d’expliquer la liaison entre deux variables qualitatives, l’analyse des correspondances multiples (ACM) s’intéresse au cas où l’on dispose de <span class="math notranslate nohighlight">\(p\geq 2\)</span> variables. C’est l’équivalent de l’ACP pour les variables qualitatives.</p>
+<div class="section" id="id5">
+<h3>Notations<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<p>On dispose d’un tableau de données <span class="math notranslate nohighlight">\(\mathbf{H}=(h_{i,j})\)</span> à <span class="math notranslate nohighlight">\(n\)</span> lignes et <span class="math notranslate nohighlight">\(p\)</span> colonnes, où <span class="math notranslate nohighlight">\(n\)</span> est le nombre d’individus, <span class="math notranslate nohighlight">\(p\)</span> le nombre de variables qualitatives mesurées et pour <span class="math notranslate nohighlight">\(i\in[\![1,n]\!],j\in[\![1,p]\!],h_{ij}\in\mathcal{M}_j\)</span>, <span class="math notranslate nohighlight">\(\mathcal{M}_j\)</span> étant l’ensemble des modalités de la j<span class="math notranslate nohighlight">\(^e\)</span> variable. Si <span class="math notranslate nohighlight">\(m_j\)</span> est le cardinal de <span class="math notranslate nohighlight">\(\mathcal{M}_j\)</span>, alors <span class="math notranslate nohighlight">\(m=\sum_{k=1}^p m_k\)</span> est le nombre total de modalités.</p>
+<div class="proof definition admonition" id="definition-3">
+<p class="admonition-title"><span class="caption-number">Definition 36 </span> ({Tableau disjonctif complet)</p>
+<div class="definition-content section" id="proof-content">
+<p>Le tableau disjonctif complet <span class="math notranslate nohighlight">\(\mathbf T\)</span> des données est un tableau <span class="math notranslate nohighlight">\(n\times m\)</span> tel que</p>
+<p><span class="math notranslate nohighlight">\((\forall i\in[\![1,n]\!],j\in[\![1, m]\!])\; \mathbf T_{ij} = \left \{ \begin{array}{cl} 1&amp;\textrm{si l'individu i possède la modalité j}\\0 &amp; \textrm{sinon}\end{array}\right\)</span></p>
+</div>
+</div><p>On déduit de ce tableau disjonctif le tableau de Burt correspondant, <span class="math notranslate nohighlight">\(\mathbf B=\mathbf T^T \mathbf T\)</span>, qui rassemble les croisements deux à  deux de toutes les variables, i.e tous les tableaux de contingence des variables deux à deux. Sur la diagonale de <span class="math notranslate nohighlight">\(\mathbf B\)</span> se trouvent les coefficients <span class="math notranslate nohighlight">\(B_{ii}=n_i\)</span>, donnant le nombre d’individus possédant la modalité <span class="math notranslate nohighlight">\(i\)</span>.  Les autres coefficients <span class="math notranslate nohighlight">\(B_{ij} = \mathbf{T_{\bullet i}}^T \mathbf {T_{\bullet j}}\)</span> quantifient le nombre d’individus ayant les modalités <span class="math notranslate nohighlight">\(i\)</span> et <span class="math notranslate nohighlight">\(j\)</span>.</p>
+</div>
+<div class="section" id="analyse">
+<h3>Analyse<a class="headerlink" href="#analyse" title="Permalink to this headline">#</a></h3>
+<div class="section" id="tableau-de-contingence-de-l-acm">
+<h4>Tableau de contingence de l’ACM<a class="headerlink" href="#tableau-de-contingence-de-l-acm" title="Permalink to this headline">#</a></h4>
+<p>En analyse des correspondances multiples, on traite <span class="math notranslate nohighlight">\(\mathbf T\)</span> comme un tableau de contingence. Les totaux en ligne sont alors égaux au nombre de variables <span class="math notranslate nohighlight">\(p\)</span>, les totaux en colonne correspondent au nombre d’individus ayant la modalité correspondant à la colonne traitée. Pour une colonne <span class="math notranslate nohighlight">\(j\)</span>, on note ce total <span class="math notranslate nohighlight">\(n_j\)</span> Le total de tous les coefficients de <span class="math notranslate nohighlight">\(\mathbf T\)</span> vaut donc <span class="math notranslate nohighlight">\(np\)</span>.\
+Comme dans le cas de l’AFC, l’ACM considère les fréquences, les profils ligne et les profils colonne.</p>
+<p>Pour les fréquences :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f_{ij}=T_{ij}/np\)</span> est la fréquence conjointe et vaut donc <span class="math notranslate nohighlight">\(1/np\)</span> si l’individu <span class="math notranslate nohighlight">\(i\)</span> possède la modalité <span class="math notranslate nohighlight">\(j\)</span> et 0 sinon. On range ces coefficients dans une matrice <span class="math notranslate nohighlight">\(\mathbf{F}\in\mathcal{M}_{nm}(\mathbb{R})\)</span></p></li>
+<li><p>le poids des lignes est constant et vaut <span class="math notranslate nohighlight">\(1/n\)</span>. On note alors <span class="math notranslate nohighlight">\(\mathbf{a} = (\frac{1}{n}\cdots \frac{1}{n})^T\in\mathbb{R}^n\)</span> le vecteur des poids des individus.</p></li>
+<li><p>le poids des colonnes vaut <span class="math notranslate nohighlight">\(n_j/np\)</span>, et est d’autant plus fort que la modalité <span class="math notranslate nohighlight">\(j\)</span> est fréquente. On note alors <span class="math notranslate nohighlight">\(\mathbf{b} = (\frac{n_1}{np}\cdots \frac{n_m}{np})^T\in\mathbb{R}^m\)</span> le vecteur des poids des modalités.</p></li>
+</ul>
+<p>Comme en analyse factorielle des correspondances, on note <span class="math notranslate nohighlight">\({\bf D_n}=diag\left ({\bf a}\right )\)</span> et <span class="math notranslate nohighlight">\({\bf D_m}=diag\left ({\bf b} \right )\)</span>.</p>
+<p>Pour les profils ligne et colonne :</p>
+<ul class="simple">
+<li><p>on lit dans <span class="math notranslate nohighlight">\(\mathbf T\)</span> le i<span class="math notranslate nohighlight">\(^e\)</span> profil ligne, considéré comme un vecteur de <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>, de composantes <span class="math notranslate nohighlight">\(T_{ij}/p,j\in[\![1,m]\!]\)</span>. Ces profils sont rangés dans une matrice <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{nm}(\mathbb{R})\)</span> et on a <span class="math notranslate nohighlight">\({\bf A}={\bf D_n^{-1}F}\)</span>.</p></li>
+<li><p>on lit dans <span class="math notranslate nohighlight">\(\mathbf T\)</span> le j<span class="math notranslate nohighlight">\(^e\)</span> profil colonne, considéré comme un vecteur de <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, de composantes <span class="math notranslate nohighlight">\(T_{ij}/n_j,i\in[\![1,n]\!]\)</span>. Ces profils sont rangés dans <span class="math notranslate nohighlight">\({\bf B}\in\mathcal{M}_{nm}(\mathbb{R})\)</span> et on a <span class="math notranslate nohighlight">\({\bf B}={\bf FD_m^{-1}}\)</span>.</p></li>
+</ul>
+<p>L’ACM considère, comme l’AFC, deux nuages de points centrés :</p>
+<ol class="simple">
+<li><p>le nuage des <span class="math notranslate nohighlight">\(n\)</span> individus dans <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>, i.e. les <span class="math notranslate nohighlight">\(n\)</span> lignes de la matrice <span class="math notranslate nohighlight">\({\bf D_n^{-1}(F-ab^T})\)</span>. Chaque individu est pondéré par <span class="math notranslate nohighlight">\(1/n\)</span></p></li>
+<li><p>le nuage des <span class="math notranslate nohighlight">\(m\)</span> modalités dans <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, i.e. les <span class="math notranslate nohighlight">\(n\)</span> lignes de la matrice <span class="math notranslate nohighlight">\({\bf (F-ab^T)D_m^{-1}}\)</span>. Chaque modalité <span class="math notranslate nohighlight">\(j\)</span> est pondérée par <span class="math notranslate nohighlight">\(n_j/np\)</span>.</p></li>
+</ol>
+</div>
+<div class="section" id="distances-entre-individus-et-entre-modalites">
+<h4>Distances entre individus et entre modalités<a class="headerlink" href="#distances-entre-individus-et-entre-modalites" title="Permalink to this headline">#</a></h4>
+<p>En analyse des correspondances multiples, on utilise la distance du <span class="math notranslate nohighlight">\(\chi^2\)</span> dans <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span> et <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> :</p>
+<ul class="simple">
+<li><p>dans l’espace des individus, la métrique est <span class="math notranslate nohighlight">\(\mathbf {D_m}^{-1}\)</span> :</p></li>
+<li></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(\chi^2(i,i') = (\mathbf{A}_{i\bullet}-\mathbf{A}_{i'\bullet})^T\mathbf {D_m}^{-1} (\mathbf{A}_{i\bullet}-\mathbf{A}_{i'\bullet}) = \displaystyle\sum_{j=1}^m\frac{1}{f_{\bullet j}}\left (\frac{T_{ij}-T_{i'j}}{p} \right )^2 = \frac {n}{p}\displaystyle\sum_{j=1}^m\frac{1}{{n_j}}\left (T_{ij}-T_{i'j}\right )^2\)</span>
+Deux individus sont proches s’ils possèdent les mêmes modalités, sachant que l’on donne plus de poids au fait que ces deux individus ont en commun une modalité rare (<span class="math notranslate nohighlight">\(n_s\)</span> petit).</p>
+<ul class="simple">
+<li><p>dans l’espace des modalités, la métrique est <span class="math notranslate nohighlight">\(\mathbf {D_n}^{-1}\)</span> :</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(\chi^2(j,j') = (\mathbf{B}_{\bullet j}-\mathbf{B}_{\bullet j'})^T\mathbf {D_n}^{-1} (\mathbf{B}_{\bullet j}-\mathbf{B}_{\bullet j'}) = n\displaystyle\sum_{i=1}^n\left (\frac{T_{ij}}{n_j} -\frac{T_{ij'}}{n_{j'}}\right )^2\)</span>
+et deux modalités sont proches si elles sont possédées par les mêmes individus.</p>
+<div class="proof remark dropdown admonition" id="remark-4">
+<p class="admonition-title"><span class="caption-number">Remark 9 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>On a de plus  <span class="math notranslate nohighlight">\(\chi^2(j,\mathbf{a}) = \frac{n}{n_j}-1\)</span> et  <span class="math notranslate nohighlight">\(f_{\bullet j}\chi^2(j,\mathbf{a}) = \frac{1}{p}\left( 1-\frac{n_j}{n}\right )\)</span>. Donc la distance d’une modalité au centre du nuage est d’autant plus grande que la modalité est rare et la part de l’inertie totale, due à une modalité est d’autant plus grande que la modalité est rare.  On  évite donc en pratique de conserver dans l’analyse les modalités trop rares. \
+De même, puisque <span class="math notranslate nohighlight">\(\displaystyle\sum_{k\in \mathcal{M}_j}f_{\bullet k}\chi^2(k,\mathbf{a}) = \frac{1}{p}\left( m_j-1\right )\)</span>, la part de l’inertie totale, due à une variable  <span class="math notranslate nohighlight">\(j\)</span> est d’autant plus grande que le nombre de modalités  de cette variable est grand. Là aussi, on  évite en pratique de conserver dans l’analyse des variables ayant des nombres de modalités trop différents.</p>
+</div>
+</div></div>
+<div class="section" id="principe-de-l-acm">
+<h4>Principe de l’ACM<a class="headerlink" href="#principe-de-l-acm" title="Permalink to this headline">#</a></h4>
+<p>L’analyse en composantes multiples consiste alors à appliquer l’analyse factorielle des correspondances  du tableau des  contingences <span class="math notranslate nohighlight">\(\mathbf T\)</span>, c’est-à-dire effectuer une ACP pondérée des nuages des point-individus et des point-modalités .\
+Une différence notable vient cependant de l’interprétation de l’inertie de ces nuages de points  individus (<span class="math notranslate nohighlight">\(I(\mathbf{A})\)</span>) et modalités (<span class="math notranslate nohighlight">\(I(\mathbf{B})\)</span>). En AFC, on pouvait interpréter statistiquement cette inertie en terme de <span class="math notranslate nohighlight">\(\chi^2/n\)</span> mesurant l’indépendance entre les deux variables qualitatives. Ici, ce n’est plus le cas puisque l’on peut montrer que <span class="math notranslate nohighlight">\(I(\mathbf{A}) = I(\mathbf{B})= m/p-1\)</span>. L’inertie dépend donc du nombre moyen <span class="math notranslate nohighlight">\(m/p\)</span> de catégories par variable.</p>
+<div class="proof remark dropdown admonition" id="remark-5">
+<p class="admonition-title"><span class="caption-number">Remark 10 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Les anglo-saxons considère que l’ACM consiste à effectuer l’analyse factorielle des correspondances  du tableau de Burt <span class="math notranslate nohighlight">\(\mathbf T^T \mathbf T\)</span>, matrice symétrique de taille <span class="math notranslate nohighlight">\(m\)</span>. Les profils ligne et colonne sont alors identiques et correspondent aux modalités que l’on veut analyser. On ne peut donc pas effectuer d’analyse des individus.</p>
+</div>
+</div></div>
+</div>
+<div class="section" id="id6">
+<h3>Interprétation des résultats<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<div class="section" id="id7">
+<h4>Inertie expliquée<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h4>
+<p>L’inertie totale, égale comme nous l’avons vu à <span class="math notranslate nohighlight">\(m/p-1\)</span> se calcule  également comme la somme des valeurs propres <span class="math notranslate nohighlight">\(\lambda_1+\cdots +\lambda_r\)</span>, où <span class="math notranslate nohighlight">\(r=min(n-1,m-p)\)</span> est le nombre de valeurs propres non nulles issues de l’ACP. La part d’inertie expliquée par l’axe <span class="math notranslate nohighlight">\(z\)</span> est alors <span class="math notranslate nohighlight">\(\lambda_z/(\lambda_1+\cdots +\lambda_r)\)</span>. En revanche, point important, le nombre d’axes retenus pour l’interprétation ou le recodage ne peut pas être choisi à partir de ces pourcentages d’inertie expliquées, contrairement à l’ACP (voir section \ref{S:ACMAFC}).</p>
+</div>
+<div class="section" id="contributions-et-representation">
+<h4>Contributions et représentation<a class="headerlink" href="#contributions-et-representation" title="Permalink to this headline">#</a></h4>
+<p>En reprenant les résultats de l’AFC, on montre que :</p>
+<ul class="simple">
+<li><p>les individus les plus excentrés sur les plans factoriels sont ceux qui contribuent le plus</p></li>
+<li><p>les modalités les plus excentrées ne sont pas nécessairement celles qui
+contribuent le plus. En effet, leur contribution dépend de leur fréquence.</p></li>
+<li><p>la contribution d’une variable qualitative <span class="math notranslate nohighlight">\(j\)</span> à un axe <span class="math notranslate nohighlight">\(z\)</span> donne une idée de la liaison entre cette variable et la composante principale correspondant à <span class="math notranslate nohighlight">\(z\)</span></p></li>
+<li><p>une représentation graphique consiste alors à représenter les variables qualitatives sur un plan factoriel <span class="math notranslate nohighlight">\((z,z')\)</span> : on propose en abscisses (respectivement ordonnées) les contributions des variables à l’axe <span class="math notranslate nohighlight">\(z\)</span> (resp. <span class="math notranslate nohighlight">\(z'\)</span>)</p></li>
+<li><p>on évalue la qualité de la représentation de la même manière qu’en ACP, à l’aide des cosinus carrés. Si deux individus sont bien projetés alors s’ils sont proches en projections, ils sont effectivement proches dans leur espace d’origine et on peut alors interpréter leur proximité :
+deux individus se ressemblent (au sens de la distance du <span class="math notranslate nohighlight">\(\chi^2\)</span>) s’ils ont choisis les mêmes modalités et ; deux modalités se ressemblent (en terme de <span class="math notranslate nohighlight">\(\chi^2\)</span>) si elles sont possédées par les mêmes individus.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="cas-particulier-p-2">
+<h3>Cas particulier <span class="math notranslate nohighlight">\(p\)</span>=2<a class="headerlink" href="#cas-particulier-p-2" title="Permalink to this headline">#</a></h3>
+<p>\label{S:ACMAFC}
+Dans le cas <span class="math notranslate nohighlight">\(p=2\)</span>, on observe <span class="math notranslate nohighlight">\(2\)</span> variables ayant respectivement <span class="math notranslate nohighlight">\(m_1\)</span> et <span class="math notranslate nohighlight">\(m_2\)</span> modalités. On se retrouve donc dans le cas où l’AFC s’applique et on peut :</p>
+<ul class="simple">
+<li><p>soit analyser le tableau <span class="math notranslate nohighlight">\(\mathbf{T}\in\mathcal{M}_{n,m_1+m_2}(\mathbb{R})\)</span> par analyse en composantes multiples,</p></li>
+<li><p>soit analyser le tableau de contingence <span class="math notranslate nohighlight">\(\mathbf{K}\in\mathcal{M}_{m_1,m_2}(\mathbb{R})\)</span> par AFC.</p></li>
+</ul>
+<p>Si on note <span class="math notranslate nohighlight">\(Sp(\mathbf{K}) = (\mu_i)\)</span> et <span class="math notranslate nohighlight">\(Sp(\mathbf{T}) = (\lambda_i)\)</span> alors on montre  que</p>
+<p><span class="math notranslate nohighlight">\(\mu_r = (2\lambda_r - 1)^2\)</span>
+On en déduit qu’à chaque valeur  propre de l’AFC correspondent deux valeurs propres de l’ACM</p>
+<p><span class="math notranslate nohighlight">\(\lambda_r = \frac{1\pm \sqrt{\mu_r}}{2}\)</span>
+et une relation entre les coordonnées factorielles des deux analyses
+\begin{eqnarray*}
+\mathbf{c}_1 = \begin{pmatrix} \mathbf{x_K}\mathbf{y_K}\end{pmatrix}\ &amp;\textrm{pour}&amp; \lambda_r = \frac{1+ \sqrt{\mu_r}}{2}\
+\mathbf{c}_2 = \begin{pmatrix} \mathbf{x_K}-\mathbf{y_K}\end{pmatrix}\ &amp;\textrm{pour}&amp; \lambda_r = \frac{1- \sqrt{\mu_r}}{2}
+\end{eqnarray*}
+où <span class="math notranslate nohighlight">\(\mathbf{x_K},\mathbf{y_K}\)</span> sont les composantes principales des profils ligne et colonne de <span class="math notranslate nohighlight">\(K\)</span>.
+De là viennent deux constats :</p>
+<ul class="simple">
+<li><p>dans l’analyse en composantes multiples de 2 variables, on ne retient que les valeurs propres supérieures strictement à 1/2, les composantes correspondant  aux valeurs propres inférieures se déduisant facilement</p></li>
+<li><p>Les pourcentages d’inertie expliqués par les axes en ACM sont souvent très faibles et
+ne peuvent donc pas être interprétés comme en AFC et en ACP.</p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3>Exemple<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<p>On souhaite évaluer l’effet de l’espèce de chêne sur des vins rouges vieillis en barrique. Un même vin a été vieilli dans six barriques différentes fabriquées avec deux types de chêne : les vins <span class="math notranslate nohighlight">\(V_1\)</span>, <span class="math notranslate nohighlight">\(V_5\)</span> et <span class="math notranslate nohighlight">\(V_6\)</span> ont été élevés avec le premier type de chêne, tandis que les vins <span class="math notranslate nohighlight">\(V_2\)</span>, <span class="math notranslate nohighlight">\(V_3\)</span> et <span class="math notranslate nohighlight">\(V_4\)</span> ont été élevés avec le second. Trois experts <span class="math notranslate nohighlight">\(E_1,E_2,E_3\)</span> ont ensuite choisi entre deux et cinq variables pour décrire les vins. Pour chaque vin et pour chaque variable, l’expert évalue l’intensité, codée soit comme une réponse binaire (i.e. fruité vs. non fruité), soit comme une réponse ternaire (i.e. pas fruité, un peu fruité, très fruité). On code le tout par un tableau disjonctif complet :
+\vskip 10pt</p>
+<p>\begin{tabular}{lccccccc|ccccccccc|cccccc}
+\toprule
+Expert &amp; \multicolumn{7}{c}{<span class="math notranslate nohighlight">\(E_1\)</span>} &amp; \multicolumn{9}{c}{<span class="math notranslate nohighlight">\(E_2\)</span>} &amp; \multicolumn{6}{c}{<span class="math notranslate nohighlight">\(E_3\)</span>} \
+\hline
+&amp; \multicolumn{2}{c}{fruité} &amp; \multicolumn{3}{c}{boisé} &amp; \multicolumn{2}{c}{caféiné} &amp; \multicolumn{2}{c}{fruité} &amp; \multicolumn{2}{c}{grillé} &amp; \multicolumn{3}{c}{vanillé} &amp; \multicolumn{2}{c}{boisé} &amp; \multicolumn{2}{c}{fruité} &amp; \multicolumn{2}{c}{beurré} &amp; \multicolumn{2}{c}{boisé} \
+&amp;        o &amp;  n &amp;     1 &amp;  2 &amp;  3 &amp;      o &amp;  n &amp;        o &amp;  n &amp;       o &amp;  n &amp;        1 &amp;  2 &amp;  3 &amp;     o &amp;  n &amp;        o &amp;  n &amp;      o &amp;  n &amp;     o &amp;  n \
+&amp;          &amp;    &amp;       &amp;    &amp;    &amp;        &amp;    &amp;          &amp;    &amp;         &amp;    &amp;          &amp;    &amp;    &amp;       &amp;    &amp;          &amp;    &amp;        &amp;    &amp;       &amp;    \
+\midrule
+<span class="math notranslate nohighlight">\(V_1\)</span>   &amp;        1 &amp;  0 &amp;     0 &amp;  0 &amp;  1 &amp;      0 &amp;  1 &amp;        1 &amp;  0 &amp;       0 &amp;  1 &amp;        0 &amp;  0 &amp;  1 &amp;     0 &amp;  1 &amp;        0 &amp;  1 &amp;      0 &amp;  1 &amp;     0 &amp;  1 \
+<span class="math notranslate nohighlight">\(V_2\)</span>   &amp;        0 &amp;  1 &amp;     0 &amp;  1 &amp;  0 &amp;      1 &amp;  0 &amp;        0 &amp;  1 &amp;       1 &amp;  0 &amp;        0 &amp;  1 &amp;  0 &amp;     1 &amp;  0 &amp;        0 &amp;  1 &amp;      1 &amp;  0 &amp;     1 &amp;  0 \
+<span class="math notranslate nohighlight">\(V_3\)</span>   &amp;        0 &amp;  1 &amp;     1 &amp;  0 &amp;  0 &amp;      1 &amp;  0 &amp;        0 &amp;  1 &amp;       1 &amp;  0 &amp;        1 &amp;  0 &amp;  0 &amp;     1 &amp;  0 &amp;        0 &amp;  1 &amp;      1 &amp;  0 &amp;     1 &amp;  0 \
+<span class="math notranslate nohighlight">\(V_4\)</span>   &amp;        0 &amp;  1 &amp;     1 &amp;  0 &amp;  0 &amp;      1 &amp;  0 &amp;        0 &amp;  1 &amp;       1 &amp;  0 &amp;        1 &amp;  0 &amp;  0 &amp;     1 &amp;  0 &amp;        1 &amp;  0 &amp;      1 &amp;  0 &amp;     1 &amp;  0 \
+<span class="math notranslate nohighlight">\(V_5\)</span>   &amp;        1 &amp;  0 &amp;     0 &amp;  0 &amp;  1 &amp;      0 &amp;  1 &amp;        1 &amp;  0 &amp;       0 &amp;  1 &amp;        0 &amp;  0 &amp;  1 &amp;     0 &amp;  1 &amp;        1 &amp;  0 &amp;      0 &amp;  1 &amp;     0 &amp;  1 \
+<span class="math notranslate nohighlight">\(V_6\)</span>   &amp;        1 &amp;  0 &amp;     0 &amp;  1 &amp;  0 &amp;      0 &amp;  1 &amp;        1 &amp;  0 &amp;       0 &amp;  1 &amp;        0 &amp;  1 &amp;  0 &amp;     0 &amp;  1 &amp;        1 &amp;  0 &amp;      0 &amp;  1 &amp;     0 &amp;  1 \
+\bottomrule
+\end{tabular}
+\vskip 10pt
+L’objectif de l’étude est d’une part de proposer une typologie des vins et d’autre part de savoir s’il y a un accord entre les échelles utilisées par les experts.</p>
+<p>La figure suivante présente le résultat de l’analyse spectrale en lignes. Les tableaux qui suivent donnent les coordonnées des individus (<span class="math notranslate nohighlight">\(S\)</span>), la qualité de leur représentation et leur contribution  (C<span class="math notranslate nohighlight">\(\times 10^3\)</span> sur les trois premiers axes factoriels.</p>
+<p>\vskip 10pt</p>
+<p><img alt="" src="_images/spectralACM.png" /></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Vin</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(V_1\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(V_2\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(V_3\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(V_4\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(V_5\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(V_6\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(S\)</span></p></td>
+<td><p>1</p></td>
+<td><p>-0.951</p></td>
+<td><p>0.787</p></td>
+<td><p>1.018</p></td>
+<td><p>0.951</p></td>
+<td><p>-1.018</p></td>
+<td><p>-0.787</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>2</p></td>
+<td><p>-0.316</p></td>
+<td><p>0.632</p></td>
+<td><p>-0.316</p></td>
+<td><p>-0.316</p></td>
+<td><p>-0.316</p></td>
+<td><p>0.632</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>3</p></td>
+<td><p>0.43</p></td>
+<td><p>0.387</p></td>
+<td><p>0.103</p></td>
+<td><p>-0.43</p></td>
+<td><p>-0.103</p></td>
+<td><p>-0.387</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(cos^2\)</span></p></td>
+<td><p>1</p></td>
+<td><p>0.754</p></td>
+<td><p>0.516</p></td>
+<td><p>0.863</p></td>
+<td><p>0.754</p></td>
+<td><p>0.863</p></td>
+<td><p>0.516</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>2</p></td>
+<td><p>0.083</p></td>
+<td><p>0.333</p></td>
+<td><p>0.083</p></td>
+<td><p>0.083</p></td>
+<td><p>0.083</p></td>
+<td><p>0.333</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>3</p></td>
+<td><p>0.154</p></td>
+<td><p>0.125</p></td>
+<td><p>0.009</p></td>
+<td><p>0.154</p></td>
+<td><p>0.009</p></td>
+<td><p>0.125</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(C\)</span></p></td>
+<td><p>1</p></td>
+<td><p>176.68</p></td>
+<td><p>120.986</p></td>
+<td><p>202.334</p></td>
+<td><p>176.68</p></td>
+<td><p>202.334</p></td>
+<td><p>120.986</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>2</p></td>
+<td><p>83.333</p></td>
+<td><p>333.333</p></td>
+<td><p>83.333</p></td>
+<td><p>83.333</p></td>
+<td><p>83.333</p></td>
+<td><p>333.333</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>3</p></td>
+<td><p>267.821</p></td>
+<td><p>216.945</p></td>
+<td><p>15.234</p></td>
+<td><p>267.821</p></td>
+<td><p>15.234</p></td>
+<td><p>216.945</p></td>
+</tr>
+</tbody>
+</table>
+<p>\begin{landscape}
+\begin{table}
+\begin{tiny}</p>
+<p>\begin{tabular}{lcccccccc|ccccccccc|cccccc}
+\toprule
+&amp;  &amp; \multicolumn{7}{c}{<span class="math notranslate nohighlight">\(E_1\)</span>} &amp; \multicolumn{9}{c}{<span class="math notranslate nohighlight">\(E_2\)</span>} &amp; \multicolumn{6}{c}{<span class="math notranslate nohighlight">\(E_3\)</span>} \
+&amp;  &amp; \multicolumn{2}{c}{fruité} &amp; \multicolumn{3}{c}{boisé} &amp; \multicolumn{2}{c}{caféiné} &amp; \multicolumn{2}{c}{fruité} &amp; \multicolumn{2}{c}{grillé} &amp; \multicolumn{3}{c}{vanillé} &amp; \multicolumn{2}{c}{boisé} &amp; \multicolumn{2}{c}{fruité} &amp; \multicolumn{2}{c}{beurré} &amp; \multicolumn{2}{c}{boisé} \
+&amp;  &amp;        o &amp; n &amp;       1 &amp;        2 &amp;       3 &amp;       o &amp; n &amp;        o &amp; n &amp;       o &amp; n &amp;        1 &amp;        2 &amp;       3 &amp;       o &amp; n &amp;        y &amp;        n &amp;       o &amp; n &amp;       o &amp; n \
+\midrule
+<span class="math notranslate nohighlight">\(S\)</span> &amp; 1 &amp;    -0.99 &amp;   0.99 &amp;   1.07 &amp;    -0.0 &amp;  -1.07 &amp;   0.99 &amp;  -0.99 &amp;    -0.99 &amp;   0.99 &amp;    0.99 &amp;  -0.99 &amp;     1.07 &amp;    -0.0 &amp;  -1.07 &amp;   0.99 &amp;  -0.99 &amp;    -0.31 &amp;    0.31 &amp;   0.99 &amp;  -0.99 &amp;   0.99 &amp;  -0.99 \
+&amp; 2 &amp;     -0.0 &amp;   -0.0 &amp;  -0.71 &amp;    1.41 &amp;  -0.71 &amp;    0.0 &amp;   -0.0 &amp;     -0.0 &amp;    0.0 &amp;     0.0 &amp;   -0.0 &amp;    -0.71 &amp;    1.41 &amp;  -0.71 &amp;    0.0 &amp;   -0.0 &amp;      0.0 &amp;    -0.0 &amp;    0.0 &amp;   -0.0 &amp;    0.0 &amp;   -0.0 \
+&amp; 3 &amp;    -0.06 &amp;   0.06 &amp;  -0.48 &amp;     0.0 &amp;   0.48 &amp;   0.06 &amp;  -0.06 &amp;    -0.06 &amp;   0.06 &amp;    0.06 &amp;  -0.06 &amp;    -0.48 &amp;     0.0 &amp;   0.48 &amp;   0.06 &amp;  -0.06 &amp;     -0.9 &amp;     0.9 &amp;   0.06 &amp;  -0.06 &amp;   0.06 &amp;  -0.06 \
+<span class="math notranslate nohighlight">\(cos^2\)</span> &amp; 1 &amp;     0.99 &amp;   0.99 &amp;   0.57 &amp;     0.0 &amp;   0.57 &amp;   0.99 &amp;   0.99 &amp;     0.99 &amp;   0.99 &amp;    0.99 &amp;   0.99 &amp;     0.57 &amp;     0.0 &amp;   0.57 &amp;   0.99 &amp;   0.99 &amp;     0.09 &amp;    0.09 &amp;   0.99 &amp;   0.99 &amp;   0.99 &amp;   0.99 \
+&amp; 2 &amp;      0.0 &amp;    0.0 &amp;   0.25 &amp;     1.0 &amp;   0.25 &amp;    0.0 &amp;    0.0 &amp;      0.0 &amp;    0.0 &amp;     0.0 &amp;    0.0 &amp;     0.25 &amp;     1.0 &amp;   0.25 &amp;    0.0 &amp;    0.0 &amp;      0.0 &amp;     0.0 &amp;    0.0 &amp;    0.0 &amp;    0.0 &amp;    0.0 \
+&amp; 3 &amp;      0.0 &amp;    0.0 &amp;   0.12 &amp;     0.0 &amp;   0.12 &amp;    0.0 &amp;    0.0 &amp;      0.0 &amp;    0.0 &amp;     0.0 &amp;    0.0 &amp;     0.12 &amp;     0.0 &amp;   0.12 &amp;    0.0 &amp;    0.0 &amp;     0.82 &amp;    0.82 &amp;    0.0 &amp;    0.0 &amp;    0.0 &amp;    0.0 \
+<span class="math notranslate nohighlight">\(C\)</span> &amp; 1 &amp;    57.96 &amp;  57.96 &amp;  44.37 &amp;     0.0 &amp;  44.37 &amp;  57.96 &amp;  57.96 &amp;    57.96 &amp;  57.96 &amp;   57.96 &amp;  57.96 &amp;    44.37 &amp;     0.0 &amp;  44.37 &amp;  57.96 &amp;  57.96 &amp;     5.56 &amp;    5.56 &amp;  57.96 &amp;  57.96 &amp;  57.96 &amp;  57.96 \
+&amp; 2 &amp;      0.0 &amp;    0.0 &amp;  83.33 &amp;  333.33 &amp;  83.33 &amp;    0.0 &amp;    0.0 &amp;      0.0 &amp;    0.0 &amp;     0.0 &amp;    0.0 &amp;    83.33 &amp;  333.33 &amp;  83.33 &amp;    0.0 &amp;    0.0 &amp;      0.0 &amp;     0.0 &amp;    0.0 &amp;    0.0 &amp;    0.0 &amp;    0.0 \
+&amp; 3 &amp;     1.49 &amp;   1.49 &amp;  67.46 &amp;     0.0 &amp;  67.46 &amp;   1.49 &amp;   1.49 &amp;     1.49 &amp;   1.49 &amp;    1.49 &amp;   1.49 &amp;    67.46 &amp;     0.0 &amp;  67.46 &amp;   1.49 &amp;   1.49 &amp;   354.67 &amp;  354.67 &amp;   1.49 &amp;   1.49 &amp;   1.49 &amp;   1.49 \
+\bottomrule
+\end{tabular}
+\caption{\label{tab:anacol}Résultats de l’analyse en colonnes}
+\end{tiny}
+\end{table}
+\end{landscape}</p>
+<p>On peut alors projeter les individus lignes ou colonnes sur le premier plan factoriel.</p>
+<p><img alt="" src="_images/plan12lig.png" /><img alt="" src="_images/plan12col.png" /></p>
+<p>On peut alors par exemple utiliser le type de chêne (MONCHENE) comme une variable supplémentaire (ou illustrative) à projeter sur l’analyse après coup. On peut également projeter après analyse un nouveau vin (MONVIN, donc une observation supplémentaire), testé par les experts. Lorsque ces derniers n’étaient pas sûrs de la façon d’utiliser un descripteur, un modèle de réponse (1/2, 1/2) est utilisé pour représenter la réponse.</p>
+<p><img alt="" src="_images/plan12lig2.png" /><img alt="" src="_images/plan12col2.png" /></p>
+</div>
 </div>
 </div>
 
