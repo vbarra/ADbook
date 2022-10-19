@@ -2105,7 +2105,7 @@ total&amp;<span class="math notranslate nohighlight">\(n_{.1}\)</span>&amp;<span
 \end{tabular}
 \end{center}</p>
 <p>où <span class="math notranslate nohighlight">\(n_{j.}\)</span> (resp <span class="math notranslate nohighlight">\(n_{.k}\)</span> )sont les effectifs marginaux représentant le nombre de fois où <span class="math notranslate nohighlight">\(x_j\)</span> (resp. <span class="math notranslate nohighlight">\(y_k\)</span>) apparaît, et <span class="math notranslate nohighlight">\(n_{jk}\)</span> le nombre d’apparition du couple <span class="math notranslate nohighlight">\((x_j,y_k)\)</span>.\</p>
-<p>Les fréquences conjointes <span class="math notranslate nohighlight">\(f_{jk}=\frac{n_{jk}}{n}\)</span> et les fréquences marginales sont stockées dans des vecteurs <span class="math notranslate nohighlight">\({\bf g_J}=\begin{pmatrix}f_{1.}\ldots f_{J.} \end{pmatrix}^T\)</span> et <span class="math notranslate nohighlight">\({\bf g_K}=\begin{pmatrix}f_{.1}\ldots f_{.K} \end{pmatrix}^T\)</span>.\</p>
+<p>Les fréquences conjointes <span class="math notranslate nohighlight">\(f_{jk}=\frac{n_{jk}}{n}\)</span> et les fréquences marginales sont stockées dans des vecteurs <span class="math notranslate nohighlight">\({\bf g_J}=\begin{pmatrix}f_{1.}\ldots f_{J.} \end{pmatrix}^T\)</span> et <span class="math notranslate nohighlight">\({\bf g_K}=\begin{pmatrix}f_{.1}\ldots f_{.K} \end{pmatrix}^T\)</span>.</p>
 <p>On note aussi <span class="math notranslate nohighlight">\({\bf D_J}=diag\left (f_{1.}\ldots f_{J.}\right )\)</span> et <span class="math notranslate nohighlight">\({\bf D_K}=diag\left (f_{.1}\ldots f_{.K} \right )\)</span>.</p>
 <p>Dans le tableau de contingence <span class="math notranslate nohighlight">\(\mathbf T\)</span>, on lit le <span class="math notranslate nohighlight">\(j^e\)</span> profil ligne <span class="math notranslate nohighlight">\([\frac{n_{j1}}{n_{j.}}\ldots \frac{n_{jK}}{n_{j.}}]\)</span>, considéré comme un vecteur de <span class="math notranslate nohighlight">\(\mathbb{R}^K\)</span> et le <span class="math notranslate nohighlight">\(k^e\)</span> profil colonne <span class="math notranslate nohighlight">\([\frac{n_{1k}}{n_{.k}}\ldots \frac{n_{Jk}}{n_{.k}}]\)</span> considéré comme un vecteur de <span class="math notranslate nohighlight">\(\mathbb{R}^J\)</span>. Ces profils sont rangés dans des matrices de profils lignes <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{KJ}(\mathbb{R})\)</span> et de colonnes <span class="math notranslate nohighlight">\({\bf B}\in\mathcal{M}_{JK}(\mathbb{R})\)</span> définies par :
 <span class="math notranslate nohighlight">\({\bf A}=\frac{1}{n}{\bf T^TD_J^{-1}}\textrm{  et  } {\bf B}=\frac{1}{n}{\bf T D_K^{-1}}\)</span></p>
@@ -2309,22 +2309,14 @@ Analyse spectrale en ligne &amp; Analyse spectrale en colonne
 \bottomrule
 \end{tabular}
 \end{center}</p>
-<p>On représente alors graphiquement les individus ligne et colonne sur le premier plan factoriel (figure~\ref{F:plan}).</p>
-<p>\begin{figure}[ht!]
-\centering
-\begin{tabular}{cc}
-\includegraphics[width=.5\textwidth]{figures/planlig.png}&amp;\includegraphics[width=.5\textwidth]{figures/plancol.png}\
-Représentation des individus ligne &amp; Représentation des individus colonne
-\end{tabular}
-\caption{\label{F:plan} Représentation des régions et candidats dans le premier plan factoriel.}
-\end{figure}
-On en déduit alors l’analyse suivante (ici proposée sur les candidats) :</p>
+<p>On représente alors graphiquement les individus ligne et colonne sur le premier plan factoriel.</p>
+<p><img alt="" src="_images/planlig.png" /><img alt="" src="_images/plancol.png" /></p>
+<p>On en déduit alors l’analyse suivante (ici proposée sur les candidats) :</p>
 <ul class="simple">
 <li><p>Premier axe : Le Pen représente 67% de l’inertie de cet axe. Macron, à l’opposé en représente 19%. Clairement, cet axe oppose Le Pen à Macron, mais les autres candidats “les plus importants” ont un score du même signe que celui de Macron.</p></li>
 <li><p>Fillon représente 63% de son inertie et s’oppose à Hamon, Poutou et Mélenchon. Macron et Le Pen sont insignifiants sur cet axe. Cet axe représente l’opposition classique droite / gauche.</p></li>
 <li><p>Le Pen est placée assez loin de l’origine sur la représentation graphique:  l’inertie de la modalité Le Pen (54%) est bien plus importante que sa masse (21%). Dit autrement, les scores de Le Pen présentent une grande variabilité selon les régions, plus élevée que celle des scores de Macron (inertie 16% pour une masse de 24,3%) ou encore Mélenchon (inertie 5%, inertie 19,8%). Les électeurs de Le Pen, même s’ils sont plus nombreux que lors des scrutins précédents, restent inégalement répartis sur le territoire.</p></li>
-<li><p>Enfin, la première source de variation dans les votes est une opposition Le Pen / Macron, indépendante des oppositions  droite / gauche traditionnels.
-\end{itemize}</p></li>
+<li><p>Enfin, la première source de variation dans les votes est une opposition Le Pen / Macron, indépendante des oppositions  droite / gauche traditionnels.</p></li>
 </ul>
 </div>
 </div>

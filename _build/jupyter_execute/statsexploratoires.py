@@ -665,7 +665,7 @@ print (print_tab (n, p, ind, cosinus_carres))
 # 
 # où $n_{j.}$ (resp $n_{.k}$ )sont les effectifs marginaux représentant le nombre de fois où $x_j$ (resp. $y_k$) apparaît, et $n_{jk}$ le nombre d'apparition du couple $(x_j,y_k)$.\\
 # 
-# Les fréquences conjointes $f_{jk}=\frac{n_{jk}}{n}$ et les fréquences marginales sont stockées dans des vecteurs ${\bf g_J}=\begin{pmatrix}f_{1.}\ldots f_{J.} \end{pmatrix}^T$ et ${\bf g_K}=\begin{pmatrix}f_{.1}\ldots f_{.K} \end{pmatrix}^T$.\\
+# Les fréquences conjointes $f_{jk}=\frac{n_{jk}}{n}$ et les fréquences marginales sont stockées dans des vecteurs ${\bf g_J}=\begin{pmatrix}f_{1.}\ldots f_{J.} \end{pmatrix}^T$ et ${\bf g_K}=\begin{pmatrix}f_{.1}\ldots f_{.K} \end{pmatrix}^T$.
 # 
 # 
 # On note aussi ${\bf D_J}=diag\left (f_{1.}\ldots f_{J.}\right )$ et ${\bf D_K}=diag\left (f_{.1}\ldots f_{.K} \right )$.
@@ -890,22 +890,16 @@ print (print_tab (n, p, ind, cosinus_carres))
 # \end{tabular}
 # \end{center}
 # 
-# On représente alors graphiquement les individus ligne et colonne sur le premier plan factoriel (figure~\ref{F:plan}).
+# On représente alors graphiquement les individus ligne et colonne sur le premier plan factoriel.
 # 
-# \begin{figure}[ht!]
-# \centering
-# \begin{tabular}{cc}
-# \includegraphics[width=.5\textwidth]{figures/planlig.png}&\includegraphics[width=.5\textwidth]{figures/plancol.png}\\ 
-# Représentation des individus ligne & Représentation des individus colonne
-# \end{tabular}
-# \caption{\label{F:plan} Représentation des régions et candidats dans le premier plan factoriel.}
-# \end{figure}
+# ![](./images/planlig.png)![](./images/plancol.png)
+# 
+# 
 # On en déduit alors l'analyse suivante (ici proposée sur les candidats) :
 # - Premier axe : Le Pen représente 67\% de l'inertie de cet axe. Macron, à l'opposé en représente 19\%. Clairement, cet axe oppose Le Pen à Macron, mais les autres candidats "les plus importants" ont un score du même signe que celui de Macron.
 # - Fillon représente 63\% de son inertie et s'oppose à Hamon, Poutou et Mélenchon. Macron et Le Pen sont insignifiants sur cet axe. Cet axe représente l'opposition classique droite / gauche.
 # - Le Pen est placée assez loin de l'origine sur la représentation graphique:  l'inertie de la modalité Le Pen (54\%) est bien plus importante que sa masse (21\%). Dit autrement, les scores de Le Pen présentent une grande variabilité selon les régions, plus élevée que celle des scores de Macron (inertie 16\% pour une masse de 24,3\%) ou encore Mélenchon (inertie 5\%, inertie 19,8\%). Les électeurs de Le Pen, même s'ils sont plus nombreux que lors des scrutins précédents, restent inégalement répartis sur le territoire.
 # - Enfin, la première source de variation dans les votes est une opposition Le Pen / Macron, indépendante des oppositions  droite / gauche traditionnels.
-# \end{itemize}
 # 
 # 
 # 
