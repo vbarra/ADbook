@@ -639,15 +639,14 @@ Le tableau de contingence ${\bf T}$ entre les $X$ et $Y$, vu comme une matrice, 
 | total    | $n_{.1}$ | $\cdots$ | $n_{.k}$ | $\cdots$ | $n_{.K}$ | $n$      |
 
 
-où $n_{j.}$ (resp $n_{.k}$ )sont les effectifs marginaux représentant le nombre de fois où $x_j$ (resp. $y_k$) apparaît, et $n_{jk}$ le nombre d'apparition du couple $(x_j,y_k)$.\\
+où $n_{j.}$ (resp $n_{.k}$ )sont les effectifs marginaux représentant le nombre de fois où $x_j$ (resp. $y_k$) apparaît, et $n_{jk}$ le nombre d'apparitions du couple $(x_j,y_k)$.
 
 Les fréquences conjointes $f_{jk}=\frac{n_{jk}}{n}$ et les fréquences marginales sont stockées dans des vecteurs ${\bf g_J}=\begin{pmatrix}f_{1.}\ldots f_{J.} \end{pmatrix}^T$ et ${\bf g_K}=\begin{pmatrix}f_{.1}\ldots f_{.K} \end{pmatrix}^T$.
 
 
 On note aussi ${\bf D_J}=diag\left (f_{1.}\ldots f_{J.}\right )$ et ${\bf D_K}=diag\left (f_{.1}\ldots f_{.K} \right )$.
 
-Dans le tableau de contingence $\mathbf T$, on lit le $j^e$ profil ligne $[\frac{n_{j1}}{n_{j.}}\ldots \frac{n_{jK}}{n_{j.}}]$, considéré comme un vecteur de $\mathbb{R}^K$ et le $k^e$ profil colonne $[\frac{n_{1k}}{n_{.k}}\ldots \frac{n_{Jk}}{n_{.k}}]$ considéré comme un vecteur de $\mathbb{R}^J$. Ces profils sont rangés dans des matrices de profils lignes ${\bf A}\in\mathcal{M}_{KJ}(\mathbb{R})$ et de colonnes ${\bf B}\in\mathcal{M}_{JK}(\mathbb{R})$ définies par :
-${\bf A}=\frac{1}{n}{\bf T^TD_J^{-1}}\textrm{  et  } {\bf B}=\frac{1}{n}{\bf T D_K^{-1}}$
+Dans le tableau de contingence $\mathbf T$, on lit le $j^e$ profil ligne $[\frac{n_{j1}}{n_{j.}}\ldots \frac{n_{jK}}{n_{j.}}]$, considéré comme un vecteur de $\mathbb{R}^K$ et le $k^e$ profil colonne $[\frac{n_{1k}}{n_{.k}}\ldots \frac{n_{Jk}}{n_{.k}}]$ considéré comme un vecteur de $\mathbb{R}^J$. Ces profils sont rangés dans des matrices de profils lignes ${\bf A}\in\mathcal{M}_{KJ}(\mathbb{R})$ et de colonnes ${\bf B}\in\mathcal{M}_{JK}(\mathbb{R})$ définies par ${\bf A}=\frac{1}{n}{\bf T^TD_J^{-1}}\textrm{  et  } {\bf B}=\frac{1}{n}{\bf T D_K^{-1}}$
 
 
 ### Double ACP
@@ -656,7 +655,8 @@ L'analyse factorielle des correspondances peut être considérée comme le résu
 - une effectuée sur les profils colonnes dans $\mathbb{R}^J$
 - une effectuée sur les profils lignes dans $\mathbb{R}^K$
 
-relativement à la métrique du $\chi^2$ de matrice ${\bf D_K^{-1}}$ pour l'analyse en lignes et ${\bf D_J^{-1}}$ pour l'analyse en colonnes.\\
+relativement à la métrique du $\chi^2$ de matrice ${\bf D_K^{-1}}$ pour l'analyse en lignes et ${\bf D_J^{-1}}$ pour l'analyse en colonnes.
+
 Ainsi, par exemple, la distance entre deux modalités $x_l$ et $x_p$ de $X$ est donnée par :
 
 $\Vert {\bf A_{.l}}-{\bf A_{.p}}\Vert^2_{{\bf D_K^{-1}}} = \displaystyle\sum_{i=1}^K\frac{1}{f_{.i}}\left (A_{i,l}-A_{i,p} \right )^2$
@@ -673,8 +673,7 @@ L'ACP sur les profils colonnes est réalisée en recherchant les éléments prop
 #### ACP dans $\mathbb{R}^K$
 L'ACP sur les profils lignes est réalisée en recherchant les éléments propres de ${\bf AB}$, symétrique par rapport à la métrique ${\bf D_K^{-1}}$ et semi définie positive. On note $\bf V$ la matrice des vecteurs propres. Cette ACP fournit une représentation des modalités de $X$, réalisée au moyen des lignes de la matrice des composantes principales ${\bf C_J}={\bf A^TD_K^{-1}V}$.
 
-Puisque $\bf U$ contient les vecteurs propres de ${\bf BA}$ et $\bf V$ ceux de ${\bf AB}$, il suffit de réaliser en fait une seule ACP \footnote {Rappel : Soit deux matrices ${\bf A}\in\mathcal{M}_{KJ}(\mathbb{R)}$  et ${\bf B}\in\mathcal{M}_{JK}(\mathbb{R})$. Les valeurs propres non nulles de ${\bf AB}$ et ${\bf BA}$ sont identiques avec le même degré de multiplicité. De plus, si $\bf u$ est vecteur propre de ${\bf BA}$ associé à la valeur propre $\lambda\neq 0$, alors ${\bf v} = {\bf Au} $ est vecteur propre de ${\bf AB}$ associé à la même valeur
-propre.}, les résultats de l'autre s'en déduisant simplement : si $\bf \Lambda$ est la matrice des valeurs propres (hors $\lambda_0=0$) communes aux deux ACP :
+Puisque $\bf U$ contient les vecteurs propres de ${\bf BA}$ et $\bf V$ ceux de ${\bf AB}$, il suffit de réaliser en fait une seule ACP, les résultats de l'autre s'en déduisant simplement : si $\bf \Lambda$ est la matrice des valeurs propres (hors $\lambda_0=0$) communes aux deux ACP :
 
 ${\bf V} ={\bf AU\Lambda^{-\frac{1}{2}}}\textrm {  et  } {\bf U} ={\bf BV\Lambda^{-\frac{1}{2}}}$
 Alors 
@@ -686,6 +685,12 @@ ${\bf C_J}={\bf A^TD_K^{-1}V}= {\bf D_J^{-1}U \Lambda^{\frac{1}{2}}}$
 d'où 
 
 ${\bf C_K}={\bf B^TC_J\Lambda^{-\frac{1}{2}}} \textrm{    et    } {\bf C_J}={\bf A^TC_K\Lambda^{-\frac{1}{2}}}$
+
+```{prf:remark}
+:class: dropdown
+Soit deux matrices ${\bf A}\in\mathcal{M}_{KJ}(\mathbb{R)}$  et ${\bf B}\in\mathcal{M}_{JK}(\mathbb{R})$. Les valeurs propres non nulles de ${\bf AB}$ et ${\bf BA}$ sont identiques avec le même degré de multiplicité. De plus, si $\bf u$ est vecteur propre de ${\bf BA}$ associé à la valeur propre $\lambda\neq 0$, alors ${\bf v} = {\bf Au} $ est vecteur propre de ${\bf AB}$ associé à la même valeur
+propre.
+``` 
 
 ### Représentation graphique
 La décomposition de $\mathbf T/n$ donne :
@@ -710,13 +715,14 @@ La valeur de l'inertie est donc un indicateur de la dispersion des nuages de poi
 #### Interprétation des valeurs propres
 Les valeurs propres des ACP renseignent sur la dispersion des nuages de profils lignes et colonnes : 
 - Une valeur propre proche de 1 indique une dichotomie parfaite du tableau $\mathbf T$, qui peut être décomposé après reclassement des modalités en deux blocs distincts
-- plus généralement $p$ valeurs propres proches amènent à $k+1$ blocs distincts
-- si toutes les valeurs propres sont proches de 1, on aboutit à l'effet Guttman : il existe une correspondance entre chaque modalité ligne et une modalité colonne "associée". Avec une réorganisation des modalités, les effectifs importants se trouvent alors le long de la diagonale.
+- Plus généralement $p$ valeurs propres proches amènent à $k+1$ blocs distincts
+- Si toutes les valeurs propres sont proches de 1, on aboutit à l'effet Guttman : il existe une correspondance entre chaque modalité ligne et une modalité colonne "associée". Avec une réorganisation des modalités, les effectifs importants se trouvent alors le long de la diagonale.
 
 
 
 #### Qualité globale
-A $q$ fixé, la qualité globale de la représentation se mesure comme dans le cadre de l'ACP, comme le rapport entre les $q$ premières valeurs propres $\lambda_i$ et la somme sur tout le spectre. \\
+A $q$ fixé, la qualité globale de la représentation se mesure comme dans le cadre de l'ACP, comme le rapport entre les $q$ premières valeurs propres $\lambda_i$ et la somme sur tout le spectre. 
+
 On montre que la qualité de la représentation dans la $i^e$ dimension s'écrit $\frac{n\lambda_i}{\chi^2}$
 
 #### Qualité de chaque modalité
@@ -724,7 +730,7 @@ Comme dans l'ACP également, la qualité d'une modalité de $X$ (resp. $Y$) se q
 
 #### Inertie expliquée
 L'inertie totale du nuage des profils lignes (resp. colonnes) est égale à la somme de toutes les valeurs propres $\lambda_i$. La part due au $j^e$ profil ligne (resp. $k^e$ profil colonne) est $f_{j.}\displaystyle\sum_i \left (\mathbf{C_J}(ji) \right )^2$ (resp. $f_{.k}\displaystyle\sum_i \left (\mathbf{C_K}(ik) \right )^2$).
-\vskip 10pt
+
 Les contributions à l'inertie selon chaque axe se calculent de la même manière, sans sommation sur $i$. Elles sont utilisées pour sélectionner les modalités les plus importantes (i.e. celles qui importent le plus dans la définition de la liaison entre $X$ et $Y$).
 
 #### Choix de q
@@ -739,8 +745,9 @@ suit approximativement une loi $\chi^2$ à $(J-q-1)(K-q-1)$ degrés de liberté.
 
 ### Modèle statistique
 On suppose que chaque fréquence $f_{jk}$ correspond à l'observation d'une probabilité   théorique $\pi_{jk}$ et on modélise donc $\bf T$ par la distribution correspondante. Le modèle décrivant cette distribution permet d'expliciter la probabilité.
-\subsection{Modèle log linéaire}
-Souvent, le nombre $n$ est fixé a priori. La distribution conjointe des effectifs $n_{jk}$ est alors conditionnée par $n$ et est une loi multinomiale de paramètre $\pi_{jk}$ et d'espérance $n\pi_{jk}$.\\
+#### Modèle log linéaire
+Souvent, le nombre $n$ est fixé a priori. La distribution conjointe des effectifs $n_{jk}$ est alors conditionnée par $n$ et est une loi multinomiale de paramètre $\pi_{jk}$ et d'espérance $n\pi_{jk}$.
+
 Par définition, les variables $X$ et $Y$ sont indépendantes si $\pi_{jk}=\pi_{j.}\pi_{.k}$. Dans le cas contraire, on peut écrire 
 
 $\pi_{jk} = \pi_{j.}\pi_{.k}\frac{\pi_{jk}}{\pi_{j.}\pi_{.k}}$
@@ -757,7 +764,8 @@ Dans ce modèle, on écrit
 
 $\pi_{jk} = \pi_{j.}\pi_{.k} + \displaystyle\sum_{i=1}^q \sqrt{\lambda_i} u^i_jv^i_k$
 
-où ${\bf u^i}$ (resp. ${\bf v^i}$) sont les vecteurs propres de ${\bf BA}$ (resp. ${\bf AB}$),  $\lambda_i$ les valeurs propres associées (qui sont identiques pour les deux matrices), et $q\leq min(J-1,K-1)$. \\
+où ${\bf u^i}$ (resp. ${\bf v^i}$) sont les vecteurs propres de ${\bf BA}$ (resp. ${\bf AB}$),  $\lambda_i$ les valeurs propres associées (qui sont identiques pour les deux matrices), et $q\leq min(J-1,K-1)$. 
+
 Les contraintes $\displaystyle\sum_{j=1}^J u^i_j =  \displaystyle\sum_{k=1}^K v^i_k = 0$  et ${\bf (u^i)^TD_J^{-1} u^l }= {\bf (v^i)^TD_K^{-1} v^l} = \delta_{il}$ (vecteurs propres orthonormés) permettent d'identifier les paramètres du modèle. \\
 Les estimations des paramètres $\pi_{j.}\pi_{.k} ,\lambda_i,u^i,v^i$ peuvent être réalisées par maximum de vraisemblance ou par moindres carrés.
 
@@ -812,8 +820,10 @@ Comme en ACP, on s'intéresse à l'inertie du nuage de points, mais pour ce fair
 
 ![](./images/presdist.png)
 
-On peut également calculer les taux de liaisons, définis pour deux individus $j$ et $k$ par $\frac{f_{jk}-f_{j.}f_{.k}}{f_{j.}f_{.k}}$. Par exemple, le taux de liaison entre HAMON et Grand-Est est égal à  -0.2003, tandis que le taux de liaison entre CHEMINADE et Nouvelle-Aquitaine est égal à 0.2068. Le taux de liaison s'interpréte comme suit : le score du candidat dans la région est 20\% moins élevé (ou 20.6\% moins élevé) que le score théorique que l'on observerait si les votes étaient indépendants des régions.\\ 
-Notons que $f_{j.}f_{.k}$ représente le poids théorique de chaque case du tableau des fréquences. La somme de ces coefficients vaut 1. La moyenne de la série des taux de liaisons pondérée par les $f_{j.}f_{.k}$ est nulle. De même, la variance de cette série avec la même pondération vaut $\chi^2$, et ici est égale à 0.0301.\\ 
+On peut également calculer les taux de liaisons, définis pour deux individus $j$ et $k$ par $\frac{f_{jk}-f_{j.}f_{.k}}{f_{j.}f_{.k}}$. Par exemple, le taux de liaison entre HAMON et Grand-Est est égal à  -0.2003, tandis que le taux de liaison entre CHEMINADE et Nouvelle-Aquitaine est égal à 0.2068. Le taux de liaison s'interpréte comme suit : le score du candidat dans la région est 20\% moins élevé (ou 20.6\% moins élevé) que le score théorique que l'on observerait si les votes étaient indépendants des régions.
+
+Notons que $f_{j.}f_{.k}$ représente le poids théorique de chaque case du tableau des fréquences. La somme de ces coefficients vaut 1. La moyenne de la série des taux de liaisons pondérée par les $f_{j.}f_{.k}$ est nulle. De même, la variance de cette série avec la même pondération vaut $\chi^2$, et ici est égale à 0.0301.
+
 On réalise ensuite une AFC, par analyse spectrale des matrices $\bf X^T\bf X$ et $\bf X\bf X^T$, où $\bf X$ est la matrice de terme général $f_{jk}/\sqrt{f_{j.}f_{.k}}$.  
 
 Le nombre de valeurs propres produites par la recherche des facteurs principaux est égal au minimum du nombre de lignes et du nombre de colonnes du tableau de contingence. La première valeur propre est systématiquement égale à 1, et n'est pas utilisée dans les résultats. Les autres valeurs propres sont des nombres positifs inférieurs à 1 et leur somme est égale à $\chi^2$.
@@ -867,7 +877,7 @@ Tandis que l'analyse factorielle des correspondances permet d'expliquer la liais
 ### Notations
 On dispose d'un tableau de données $\mathbf{H}=(h_{i,j})$ à $n$ lignes et $p$ colonnes, où $n$ est le nombre d'individus, $p$ le nombre de variables qualitatives mesurées et pour $i\in[\![1,n]\!],j\in[\![1,p]\!],h_{ij}\in\mathcal{M}_j$, $\mathcal{M}_j$ étant l'ensemble des modalités de la j$^e$ variable. Si $m_j$ est le cardinal de $\mathcal{M}_j$, alors $m=\sum_{k=1}^p m_k$ est le nombre total de modalités. 
 
-````{prf:definition} {Tableau disjonctif complet
+````{prf:definition} Tableau disjonctif complet
 Le tableau disjonctif complet $\mathbf T$ des données est un tableau $n\times m$ tel que 
 
 $(\forall i\in[\![1,n]\!],j\in[\![1, m]\!])\; \mathbf T_{ij} = \left \{ \begin{array}{cl} 1&\textrm{si l'individu i possède la modalité j}\\0 & \textrm{sinon}\end{array}\right .$
@@ -877,7 +887,8 @@ On déduit de ce tableau disjonctif le tableau de Burt correspondant, $\mathbf B
 
 ### Analyse
 #### Tableau de contingence de l'ACM
-En analyse des correspondances multiples, on traite $\mathbf T$ comme un tableau de contingence. Les totaux en ligne sont alors égaux au nombre de variables $p$, les totaux en colonne correspondent au nombre d'individus ayant la modalité correspondant à la colonne traitée. Pour une colonne $j$, on note ce total $n_j$ Le total de tous les coefficients de $\mathbf T$ vaut donc $np$.\\
+En analyse des correspondances multiples, on traite $\mathbf T$ comme un tableau de contingence. Les totaux en ligne sont alors égaux au nombre de variables $p$, les totaux en colonne correspondent au nombre d'individus ayant la modalité correspondant à la colonne traitée. Pour une colonne $j$, on note ce total $n_j$ Le total de tous les coefficients de $\mathbf T$ vaut donc $np$.
+
 Comme dans le cas de l'AFC, l'ACM considère les fréquences, les profils ligne et les profils colonne.
 
 Pour les fréquences : 
@@ -905,7 +916,7 @@ En analyse des correspondances multiples, on utilise la distance du $\chi^2$ dan
 
 
 - dans l'espace des individus, la métrique est $\mathbf {D_m}^{-1}$ : 
-- 
+
 $\chi^2(i,i') = (\mathbf{A}_{i\bullet}-\mathbf{A}_{i'\bullet})^T\mathbf {D_m}^{-1} (\mathbf{A}_{i\bullet}-\mathbf{A}_{i'\bullet}) = \displaystyle\sum_{j=1}^m\frac{1}{f_{\bullet j}}\left (\frac{T_{ij}-T_{i'j}}{p} \right )^2 = \frac {n}{p}\displaystyle\sum_{j=1}^m\frac{1}{{n_j}}\left (T_{ij}-T_{i'j}\right )^2$
 Deux individus sont proches s'ils possèdent les mêmes modalités, sachant que l'on donne plus de poids au fait que ces deux individus ont en commun une modalité rare ($n_s$ petit).
 - dans l'espace des modalités, la métrique est $\mathbf {D_n}^{-1}$ : 
@@ -939,7 +950,7 @@ Les anglo-saxons considère que l'ACM consiste à effectuer l'analyse factoriell
 
 ### Interprétation des résultats
 #### Inertie expliquée
-L'inertie totale, égale comme nous l'avons vu à $m/p-1$ se calcule  également comme la somme des valeurs propres $\lambda_1+\cdots +\lambda_r$, où $r=min(n-1,m-p)$ est le nombre de valeurs propres non nulles issues de l'ACP. La part d'inertie expliquée par l'axe $z$ est alors $\lambda_z/(\lambda_1+\cdots +\lambda_r)$. En revanche, point important, le nombre d'axes retenus pour l'interprétation ou le recodage ne peut pas être choisi à partir de ces pourcentages d'inertie expliquées, contrairement à l'ACP (voir section \ref{S:ACMAFC}).
+L'inertie totale, égale comme nous l'avons vu à $m/p-1$ se calcule  également comme la somme des valeurs propres $\lambda_1+\cdots +\lambda_r$, où $r=min(n-1,m-p)$ est le nombre de valeurs propres non nulles issues de l'ACP. La part d'inertie expliquée par l'axe $z$ est alors $\lambda_z/(\lambda_1+\cdots +\lambda_r)$. En revanche, point important, le nombre d'axes retenus pour l'interprétation ou le recodage ne peut pas être choisi à partir de ces pourcentages d'inertie expliquées, contrairement à l'ACP.
 
 #### Contributions et représentation
 En reprenant les résultats de l'AFC, on montre que :
@@ -954,25 +965,20 @@ deux individus se ressemblent (au sens de la distance du $\chi^2$) s'ils ont cho
 
 
 ### Cas particulier $p$=2
-\label{S:ACMAFC}
+
 Dans le cas $p=2$, on observe $2$ variables ayant respectivement $m_1$ et $m_2$ modalités. On se retrouve donc dans le cas où l'AFC s'applique et on peut :
 
 - soit analyser le tableau $\mathbf{T}\in\mathcal{M}_{n,m_1+m_2}(\mathbb{R})$ par analyse en composantes multiples,
 - soit analyser le tableau de contingence $\mathbf{K}\in\mathcal{M}_{m_1,m_2}(\mathbb{R})$ par AFC.
 
 
-Si on note $Sp(\mathbf{K}) = (\mu_i)$ et $Sp(\mathbf{T}) = (\lambda_i)$ alors on montre  que 
+Si on note $Sp(\mathbf{K}) = (\mu_i)$ et $Sp(\mathbf{T}) = (\lambda_i)$ alors on montre  que  $\mu_r = (2\lambda_r - 1)^2$
+On en déduit qu'à chaque valeur  propre de l'AFC correspondent deux valeurs propres de l'ACM $\lambda_r = \frac{1\pm \sqrt{\mu_r}}{2}$, et une relation entre les coordonnées factorielles des deux analyses 
 
-$\mu_r = (2\lambda_r - 1)^2$
-On en déduit qu'à chaque valeur  propre de l'AFC correspondent deux valeurs propres de l'ACM
-
-$\lambda_r = \frac{1\pm \sqrt{\mu_r}}{2}$
-et une relation entre les coordonnées factorielles des deux analyses 
-
-\begin{eqnarray*}
+$\begin{eqnarray*}
 \mathbf{c}_1 = \begin{pmatrix} \mathbf{x_K}\\\mathbf{y_K}\end{pmatrix}\ &\textrm{pour}& \lambda_r = \frac{1+ \sqrt{\mu_r}}{2}\\
 \mathbf{c}_2 = \begin{pmatrix} \mathbf{x_K}\\-\mathbf{y_K}\end{pmatrix}\ &\textrm{pour}& \lambda_r = \frac{1- \sqrt{\mu_r}}{2}
-\end{eqnarray*}
+\end{eqnarray*}$
 
 où $\mathbf{x_K},\mathbf{y_K}$ sont les composantes principales des profils ligne et colonne de $K$.
 De là viennent deux constats :
@@ -983,31 +989,15 @@ ne peuvent donc pas être interprétés comme en AFC et en ACP.
 
 ### Exemple
 On souhaite évaluer l'effet de l'espèce de chêne sur des vins rouges vieillis en barrique. Un même vin a été vieilli dans six barriques différentes fabriquées avec deux types de chêne : les vins $V_1$, $V_5$ et $V_6$ ont été élevés avec le premier type de chêne, tandis que les vins $V_2$, $V_3$ et $V_4$ ont été élevés avec le second. Trois experts $E_1,E_2,E_3$ ont ensuite choisi entre deux et cinq variables pour décrire les vins. Pour chaque vin et pour chaque variable, l'expert évalue l'intensité, codée soit comme une réponse binaire (i.e. fruité vs. non fruité), soit comme une réponse ternaire (i.e. pas fruité, un peu fruité, très fruité). On code le tout par un tableau disjonctif complet :
-\vskip 10pt
 
-\begin{tabular}{lccccccc|ccccccccc|cccccc}
-\toprule
-Expert & \multicolumn{7}{c}{$E_1$} & \multicolumn{9}{c}{$E_2$} & \multicolumn{6}{c}{$E_3$} \\
-\hline 
- & \multicolumn{2}{c}{fruité} & \multicolumn{3}{c}{boisé} & \multicolumn{2}{c}{caféiné} & \multicolumn{2}{c}{fruité} & \multicolumn{2}{c}{grillé} & \multicolumn{3}{c}{vanillé} & \multicolumn{2}{c}{boisé} & \multicolumn{2}{c}{fruité} & \multicolumn{2}{c}{beurré} & \multicolumn{2}{c}{boisé} \\
- &        o &  n &     1 &  2 &  3 &      o &  n &        o &  n &       o &  n &        1 &  2 &  3 &     o &  n &        o &  n &      o &  n &     o &  n \\
- &          &    &       &    &    &        &    &          &    &         &    &          &    &    &       &    &          &    &        &    &       &    \\
-\midrule
-$V_1$   &        1 &  0 &     0 &  0 &  1 &      0 &  1 &        1 &  0 &       0 &  1 &        0 &  0 &  1 &     0 &  1 &        0 &  1 &      0 &  1 &     0 &  1 \\
-$V_2$   &        0 &  1 &     0 &  1 &  0 &      1 &  0 &        0 &  1 &       1 &  0 &        0 &  1 &  0 &     1 &  0 &        0 &  1 &      1 &  0 &     1 &  0 \\
-$V_3$   &        0 &  1 &     1 &  0 &  0 &      1 &  0 &        0 &  1 &       1 &  0 &        1 &  0 &  0 &     1 &  0 &        0 &  1 &      1 &  0 &     1 &  0 \\
-$V_4$   &        0 &  1 &     1 &  0 &  0 &      1 &  0 &        0 &  1 &       1 &  0 &        1 &  0 &  0 &     1 &  0 &        1 &  0 &      1 &  0 &     1 &  0 \\
-$V_5$   &        1 &  0 &     0 &  0 &  1 &      0 &  1 &        1 &  0 &       0 &  1 &        0 &  0 &  1 &     0 &  1 &        1 &  0 &      0 &  1 &     0 &  1 \\
-$V_6$   &        1 &  0 &     0 &  1 &  0 &      0 &  1 &        1 &  0 &       0 &  1 &        0 &  1 &  0 &     0 &  1 &        1 &  0 &      0 &  1 &     0 &  1 \\
-\bottomrule
-\end{tabular}
-\vskip 10pt
+
+![](./images/tab0.png)
+
 L'objectif de l'étude est d'une part de proposer une typologie des vins et d'autre part de savoir s'il y a un accord entre les échelles utilisées par les experts. 
 
 
-La figure suivante présente le résultat de l'analyse spectrale en lignes. Les tableaux qui suivent donnent les coordonnées des individus ($S$), la qualité de leur représentation et leur contribution  (C$\times 10^3$ sur les trois premiers axes factoriels.
+La figure suivante présente le résultat de l'analyse spectrale en lignes. Les tableaux qui suivent donnent les coordonnées des individus ($S$), la qualité de leur représentation et leur contribution  (C$\times 10^3$) sur les trois premiers axes factoriels.
 
-\vskip 10pt
 
 ![](./images/spectralACM.png)
 
@@ -1028,31 +1018,7 @@ La figure suivante présente le résultat de l'analyse spectrale en lignes. Les 
 
 
 
-\begin{landscape}
-\begin{table}
-\begin{tiny}
-
-\begin{tabular}{lcccccccc|ccccccccc|cccccc}
-\toprule
-                           &  & \multicolumn{7}{c}{$E_1$} & \multicolumn{9}{c}{$E_2$} & \multicolumn{6}{c}{$E_3$} \\
-                           &  & \multicolumn{2}{c}{fruité} & \multicolumn{3}{c}{boisé} & \multicolumn{2}{c}{caféiné} & \multicolumn{2}{c}{fruité} & \multicolumn{2}{c}{grillé} & \multicolumn{3}{c}{vanillé} & \multicolumn{2}{c}{boisé} & \multicolumn{2}{c}{fruité} & \multicolumn{2}{c}{beurré} & \multicolumn{2}{c}{boisé} \\
-                           &  &        o & n &       1 &        2 &       3 &       o & n &        o & n &       o & n &        1 &        2 &       3 &       o & n &        y &        n &       o & n &       o & n \\
-\midrule
-$S$ & 1 &    -0.99 &   0.99 &   1.07 &    -0.0 &  -1.07 &   0.99 &  -0.99 &    -0.99 &   0.99 &    0.99 &  -0.99 &     1.07 &    -0.0 &  -1.07 &   0.99 &  -0.99 &    -0.31 &    0.31 &   0.99 &  -0.99 &   0.99 &  -0.99 \\
-                           & 2 &     -0.0 &   -0.0 &  -0.71 &    1.41 &  -0.71 &    0.0 &   -0.0 &     -0.0 &    0.0 &     0.0 &   -0.0 &    -0.71 &    1.41 &  -0.71 &    0.0 &   -0.0 &      0.0 &    -0.0 &    0.0 &   -0.0 &    0.0 &   -0.0 \\
-                           & 3 &    -0.06 &   0.06 &  -0.48 &     0.0 &   0.48 &   0.06 &  -0.06 &    -0.06 &   0.06 &    0.06 &  -0.06 &    -0.48 &     0.0 &   0.48 &   0.06 &  -0.06 &     -0.9 &     0.9 &   0.06 &  -0.06 &   0.06 &  -0.06 \\
-$cos^2$ & 1 &     0.99 &   0.99 &   0.57 &     0.0 &   0.57 &   0.99 &   0.99 &     0.99 &   0.99 &    0.99 &   0.99 &     0.57 &     0.0 &   0.57 &   0.99 &   0.99 &     0.09 &    0.09 &   0.99 &   0.99 &   0.99 &   0.99 \\
-                           & 2 &      0.0 &    0.0 &   0.25 &     1.0 &   0.25 &    0.0 &    0.0 &      0.0 &    0.0 &     0.0 &    0.0 &     0.25 &     1.0 &   0.25 &    0.0 &    0.0 &      0.0 &     0.0 &    0.0 &    0.0 &    0.0 &    0.0 \\
-                           & 3 &      0.0 &    0.0 &   0.12 &     0.0 &   0.12 &    0.0 &    0.0 &      0.0 &    0.0 &     0.0 &    0.0 &     0.12 &     0.0 &   0.12 &    0.0 &    0.0 &     0.82 &    0.82 &    0.0 &    0.0 &    0.0 &    0.0 \\
-$C$ & 1 &    57.96 &  57.96 &  44.37 &     0.0 &  44.37 &  57.96 &  57.96 &    57.96 &  57.96 &   57.96 &  57.96 &    44.37 &     0.0 &  44.37 &  57.96 &  57.96 &     5.56 &    5.56 &  57.96 &  57.96 &  57.96 &  57.96 \\
-                           & 2 &      0.0 &    0.0 &  83.33 &  333.33 &  83.33 &    0.0 &    0.0 &      0.0 &    0.0 &     0.0 &    0.0 &    83.33 &  333.33 &  83.33 &    0.0 &    0.0 &      0.0 &     0.0 &    0.0 &    0.0 &    0.0 &    0.0 \\
-                           & 3 &     1.49 &   1.49 &  67.46 &     0.0 &  67.46 &   1.49 &   1.49 &     1.49 &   1.49 &    1.49 &   1.49 &    67.46 &     0.0 &  67.46 &   1.49 &   1.49 &   354.67 &  354.67 &   1.49 &   1.49 &   1.49 &   1.49 \\
-\bottomrule
-\end{tabular}
-\caption{\label{tab:anacol}Résultats de l'analyse en colonnes}
-\end{tiny}
-\end{table}
-\end{landscape}
+![](./images/tab.png)
 
 
 On peut alors projeter les individus lignes ou colonnes sur le premier plan factoriel.

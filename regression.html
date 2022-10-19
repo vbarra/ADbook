@@ -47,10 +47,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Index" href="genindex.html" />
-    <link rel="prev" title="TP ACP" href="TP2_ACP.html" />
+    <link rel="prev" title="TP AFC / ACM" href="TP3_AFC_ACM.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -144,6 +146,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="TP2_ACP.html">
    TP ACP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP3_AFC_ACM.html">
+   TP AFC / ACM
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -357,41 +364,12 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#regression-lineaire">
-   Régression linéaire
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#regression-logistique">
-   Régression logistique
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
@@ -403,24 +381,6 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#regression-lineaire">
-   Régression linéaire
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#regression-logistique">
-   Régression logistique
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -430,12 +390,309 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="regression">
 <h1>Régression<a class="headerlink" href="#regression" title="Permalink to this headline">#</a></h1>
-<div class="section" id="regression-lineaire">
-<h2>Régression linéaire<a class="headerlink" href="#regression-lineaire" title="Permalink to this headline">#</a></h2>
-</div>
-<div class="section" id="regression-logistique">
-<h2>Régression logistique<a class="headerlink" href="#regression-logistique" title="Permalink to this headline">#</a></h2>
-</div>
+<p>On s’intéresse ici à l’explication d’une variable (aléatoire) <span class="math notranslate nohighlight">\(Y\)</span> (la variable expliquée) par une (ou plusieurs) variable(s) aléatoire(s) <span class="math notranslate nohighlight">\(X_j\)</span> (prédicteurs, ou variables explicatives).</p>
+<p>\section{Régression simple}
+On dispose de <span class="math notranslate nohighlight">\(n\)</span> couples de variables quantitatives <span class="math notranslate nohighlight">\((\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]\)</span> constituant un échantillon d’observations indépendantes de <span class="math notranslate nohighlight">\((X,Y)\)</span> et on cherche une relation statistique pouvant exister entre <span class="math notranslate nohighlight">\(Y\)</span> et <span class="math notranslate nohighlight">\(X\)</span>. On rappelle ici quelques résultats élémentaires sur la régression linéaire simple.</p>
+<p>\subsection{Modèle théorique}
+Théoriquement, on cherche une fonction <span class="math notranslate nohighlight">\(f\)</span> telle que <span class="math notranslate nohighlight">\(f(X)\)</span> soit aussi proche que possible de <span class="math notranslate nohighlight">\(Y\)</span>. Par proximité, on entend ici au sens des moindres carrés, et donc on cherche <span class="math notranslate nohighlight">\(f\)</span> telle que <span class="math notranslate nohighlight">\(\mathbb{E}\left ( (Y-f(X))^2\right )\)</span> soit minimale. On sait alors que la fonction <span class="math notranslate nohighlight">\(f\)</span> qui satisfait cette propriété est :</p>
+<div class="math notranslate nohighlight">
+\[f(X) = \mathbb{E}(Y\mid X)\]</div>
+<p>\begin{defin}{Fonction de régression}{}
+La fonction <span class="math notranslate nohighlight">\(x\mapsto \mathbb{E}(Y\mid X=x)\)</span> est la fonction de régression de <span class="math notranslate nohighlight">\(Y\)</span> en <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>\end{defin}</p>
+<p>La qualité de l’approximation est mesurée par le rapport de corrélation.</p>
+<p>\begin{defin}{Rapport de corrélation}{}
+Le rapport de corrélation entre deux variables aléatoires <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> est défini par le rapport entre la variation expliquée et la variation totale :</p>
+<div class="math notranslate nohighlight">
+\[\eta_{Y\mid X}^2 = \frac{\sigma_{\mathbb{E}(Y\mid X)}^2}{\sigma_Y^2}\]</div>
+<p>\end{defin}</p>
+<p>En pratique, <span class="math notranslate nohighlight">\(Y\)</span> est approchée par <span class="math notranslate nohighlight">\(Y=\mathbb{E}(Y\mid X)+\epsilon\)</span>, où <span class="math notranslate nohighlight">\(\epsilon\)</span> est un résidu aléatoire de moyenne nulle, non corrélé à <span class="math notranslate nohighlight">\(X\)</span> et à <span class="math notranslate nohighlight">\(\mathbb{E}(Y\mid X)\)</span> et tel que <span class="math notranslate nohighlight">\(\sigma_\epsilon^2= (1-\eta_{Y\mid X}^2)\sigma_Y^2\)</span>.</p>
+<p>Le cadre le plus utilisé est celui de la régression linéaire, c’est-à-dire lorsque
+$<span class="math notranslate nohighlight">\(Y=a+bX+\epsilon\)</span><span class="math notranslate nohighlight">\(
+et donc \)</span>\mathbb{E}(Y\mid X)=a+bX<span class="math notranslate nohighlight">\(, ce qui est le cas lorsque \)</span>(X,Y)<span class="math notranslate nohighlight">\( est un couple de variables aléatoires gaussiennes.\\
+Puisque \)</span>\mathbb{E}(\epsilon)=0<span class="math notranslate nohighlight">\(, la droite de régression passe par le point \)</span>(\mathbb{E}(X),\mathbb{E}(Y))$. Ainsi</p>
+<div class="math notranslate nohighlight">
+\[Y-\mathbb{E}(Y)=b(X-\mathbb{E}(X))+\epsilon\]</div>
+<p>En multipliant par <span class="math notranslate nohighlight">\(X-\mathbb{E}(X)\)</span> et en prenant l’espérance, on trouve à gauche la covariance de <span class="math notranslate nohighlight">\((X,Y)\)</span> et à droite la variance de <span class="math notranslate nohighlight">\(X\)</span>, soit</p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{ccll}
+\sigma_{XY}&amp;=&amp; b\sigma_X^2+\mathbb{E}(\epsilon(X-\mathbb{E}(X)))&amp;\\
+&amp;=&amp; b\sigma_X^2 + \sigma_{\epsilon X}&amp;[\mathbb{E}(\epsilon)=0]\\ 
+&amp;=&amp; b\sigma_X^2 &amp;[X\text{ et } \epsilon\text{ non corrélés}]\\ 
+\end{array}
+\)</span></p>
+<p>d’où
+$<span class="math notranslate nohighlight">\(b = \frac{\sigma_{XY}}{\sigma_X^2} = r_{XY}\frac{\sigma_Y}{\sigma_X}\)</span>$</p>
+<p>L’équation de la droite de régression est donc finalement</p>
+<div class="math notranslate nohighlight">
+\[Y-\mathbb{E}(Y)=r_{XY}\frac{\sigma_Y}{\sigma_X}(X-\mathbb{E}(X))+\epsilon\]</div>
+<p>En calculant la variance des deux termes, et puisque <span class="math notranslate nohighlight">\(\epsilon\)</span> et <span class="math notranslate nohighlight">\(X\)</span> ne sont pas corrélés, on trouve
+$<span class="math notranslate nohighlight">\(r_{XY}^2 = \eta_{Y\mid X}^2\)</span>$</p>
+<p>\subsection{Ajustement aux données}
+On cherche ici à ajuster le modèle linéaire théorique aux <span class="math notranslate nohighlight">\(n\)</span> couples d’observations indépendantes <span class="math notranslate nohighlight">\((\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]\)</span>. Il s’agit donc de trouver <span class="math notranslate nohighlight">\(a,b\)</span> ainsi que la variance du résidu <span class="math notranslate nohighlight">\(\epsilon\)</span>.\
+La méthode la plus classique est la méthode des moindres carrés\footnote{On trouvera dans le cours d’analyse numérique 1 une résolution de ce problème par le système aux équations normales.} : on cherche à ajuster au nuage de points  <span class="math notranslate nohighlight">\((\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]\)</span> une droite d’équation <span class="math notranslate nohighlight">\(y^*=\alpha +\beta x\)</span> de sorte à minimiser
+$<span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^n (y_i^*-y_i)^2 = \displaystyle\sum_{i=1}^n (\alpha + \beta x_i-y_i)^2\)</span>$</p>
+<p>En annulant le gradient de cette fonction à deux variables <span class="math notranslate nohighlight">\((\alpha,\beta)\)</span>, on trouve facilement
+$<span class="math notranslate nohighlight">\(\beta = \frac{\sigma_{xy}}{\sigma_x^2} = r_{xy}\frac{\sigma_y}{\sigma_x}\)</span><span class="math notranslate nohighlight">\(
+de sorte que 
+\)</span><span class="math notranslate nohighlight">\(y^* = \bar y + r_{xy}\frac{\sigma_y}{\sigma_x}(x-\bar x)\)</span><span class="math notranslate nohighlight">\(
+La droite de régression linéaire passe donc par le centre de masse du nuage de points (figure~\ref{F:reglin}).
+\begin{rem}
+les \)</span>x_i<span class="math notranslate nohighlight">\( et \)</span>y_i$ étant des réalisations de variables aléatoires, tous les termes de l’équation de la droite de régression linéaire le sont également.
+\end{rem}</p>
+<p>\begin{rem}
+On peut montrer que <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span> et <span class="math notranslate nohighlight">\(y^*\)</span> sont des estimateurs sans biais de <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span> et <span class="math notranslate nohighlight">\(\mathbb{E}(Y\mid X)\)</span>.
+\end{rem}</p>
+<p>\begin{figure}[ht!]
+\includegraphics[width=.9\textwidth]{figures/regressionlin.png}
+\caption{\label{F:reglin}Régression linéaire d’un ensemble de points, décomposé en un ensemble d’apprentissage (bleu) sur lequel la droite de régression a été apprise et un ensemble de test (vert) sur lequel les valeurs ont été prédites (magenta).}
+\end{figure}</p>
+<p>\section{Régression multiple}
+\subsection{Ajustement linéaire d’un ensemble d’observations}
+La régression multiple généralise la régression simple au cas de <span class="math notranslate nohighlight">\(p\geq 2\)</span> prédicteurs quantitatifs (ou variables explicatives). Ici on considère un échantillon de <span class="math notranslate nohighlight">\(n\)</span> individus, sur lesquels <span class="math notranslate nohighlight">\(p+1\)</span> variables sont mesurées : une variable à expliquer <span class="math notranslate nohighlight">\(\mathbf Y = (y_1\cdots y_n)^T\in\mathbb{R}^n\)</span> et <span class="math notranslate nohighlight">\(p\)</span> variables explicatives <span class="math notranslate nohighlight">\(\mathbf X_i\)</span> linéairement indépendantes, mais possiblement en relation.\
+On cherche
+$<span class="math notranslate nohighlight">\(\mathbf Y^* = \beta_0 \mathbf{1} + \displaystyle\sum_{i=1}^p \beta_i\mathbf X_i\)</span><span class="math notranslate nohighlight">\(
+proche de \)</span>\mathbf Y<span class="math notranslate nohighlight">\( au sens des moindres carrés. \)</span>\mathbf{1}<span class="math notranslate nohighlight">\( est le vecteur de \)</span>\mathbb{R}^n<span class="math notranslate nohighlight">\( dont toutes les composantes valent 1.\\ 
+En notant 
+\)</span><span class="math notranslate nohighlight">\(X = \begin{pmatrix}\mathbf{1} &amp; \mathbf{X_1}\cdots \mathbf{X_p}\end{pmatrix}\in\mathcal{M}_{n,p+1}(\mathbb{R})\quad\text{et}\quad \boldsymbol{\beta}=(\beta_0\cdots \beta_p)^T
+\in\mathbb{R}^{p+1}\)</span><span class="math notranslate nohighlight">\(
+on a 
+\)</span><span class="math notranslate nohighlight">\(\mathbf Y^*=\mathbf X\boldsymbol \beta\)</span><span class="math notranslate nohighlight">\(
+\)</span>\mathbf Y^*<span class="math notranslate nohighlight">\( est par définition des moindres carrés la projection de \)</span>\mathbf Y<span class="math notranslate nohighlight">\( sur \)</span>Im(\mathbf X)<span class="math notranslate nohighlight">\(, soit\footnote{Voir cours analyse numérique 1, chapitre 4.} :
+\)</span><span class="math notranslate nohighlight">\(\mathbf Y^* = \mathbf X(\mathbf X^T\mathbf X)^{-1}\mathbf X^T \mathbf Y\)</span><span class="math notranslate nohighlight">\(
+et donc 
+\)</span><span class="math notranslate nohighlight">\(\boldsymbol\beta = (\mathbf X^T\mathbf X)^{-1}\mathbf X^T \mathbf Y\)</span><span class="math notranslate nohighlight">\(
+et on a donc les paramètres de la régression multiple.
+\begin{rem}
+Dans le cas où la métrique utilisée est définie par une matrice symétrique définie positive \)</span>D<span class="math notranslate nohighlight">\( de taille \)</span>p<span class="math notranslate nohighlight">\(, alors 
+\)</span><span class="math notranslate nohighlight">\(\boldsymbol\beta = (\mathbf X^T\mathbf D \mathbf X)^{-1}\mathbf X^T \mathbf D \mathbf Y\)</span>$
+\end{rem}</p>
+<p>\subsection{Modèle}
+On suppose que les <span class="math notranslate nohighlight">\(\mathbf X_i\)</span> et <span class="math notranslate nohighlight">\(\mathbf Y\)</span> sont <span class="math notranslate nohighlight">\(n\)</span> réalisations indépendantes de <span class="math notranslate nohighlight">\(p+1\)</span> variables aléatoires <span class="math notranslate nohighlight">\(\chi_i\)</span> et <span class="math notranslate nohighlight">\(\omega\)</span>. De même qu’en régression simple, la recherche de la meilleure approximation de <span class="math notranslate nohighlight">\(\omega\)</span> par une fonction des <span class="math notranslate nohighlight">\(\chi_i\)</span> amène à <span class="math notranslate nohighlight">\(\mathbb{E}(\omega\mid \chi_1\cdots \chi_p)\)</span> et l’hypothèse de régression multiple est
+$<span class="math notranslate nohighlight">\(\mathbb{E}(\omega\mid \chi_0\cdots \chi_p) = b_0+\displaystyle\sum_{i=1}^p b_i\chi_i+\epsilon\)</span><span class="math notranslate nohighlight">\(
+avec \)</span>\mathbb{E}(\epsilon)=0, \sigma_\epsilon=\sigma^2<span class="math notranslate nohighlight">\( et \)</span>\epsilon<span class="math notranslate nohighlight">\( non corrélée aux \)</span>\chi_i$.</p>
+<p>On peut montrer que <span class="math notranslate nohighlight">\(\boldsymbol\beta\)</span> est un estimateur sans biais du vecteur aléatoire  <span class="math notranslate nohighlight">\((b_0\cdots b_p)\)</span>, et en est la meilleure approximation. De plus, la meilleure estimation sans biais de la variance <span class="math notranslate nohighlight">\(\sigma^2\)</span> est</p>
+<div class="math notranslate nohighlight">
+\[\hat{\sigma}^2 = \frac{\|\mathbf Y -\mathbf Y^*\|^2}{n-p-1}\]</div>
+<p>\section{Modèle linéaire généralisé}
+\subsection{Position du problème}
+Dans le cas le plus général, on ne cherche pas à expliquer une seule variable mais <span class="math notranslate nohighlight">\(k\in\mathbb{N}\)</span>, obtenues par répétition de l’expérience, les <span class="math notranslate nohighlight">\(\mathbf X_j\)</span> restant identiques : pour <span class="math notranslate nohighlight">\(i\in[\![1,k]\!]\)</span> <span class="math notranslate nohighlight">\(\mathbf{Y}_i\in\mathbb{R}^n\)</span> est la <span class="math notranslate nohighlight">\(i^e\)</span> observation.</p>
+<p>\subsection{Solution à partir des données}
+Le modèle fait l’hypothèse que le centre de gravité <span class="math notranslate nohighlight">\(\mathbf g\)</span> des <span class="math notranslate nohighlight">\(k\)</span> observations se situe dans <span class="math notranslate nohighlight">\(Im(\mathbf X)\)</span>, soit <span class="math notranslate nohighlight">\(\mathbf g = \mathbf X \boldsymbol \beta\)</span>. La plupart du temps, on ne connaît cependant qu’une seule des <span class="math notranslate nohighlight">\(k\)</span> observations <span class="math notranslate nohighlight">\(\mathbf Y\)</span>, et le problème revient à approximer le mieux possible <span class="math notranslate nohighlight">\(\mathbf g\)</span> en ne connaissant que <span class="math notranslate nohighlight">\(\mathbf Y\)</span>.\
+Cette approximation <span class="math notranslate nohighlight">\(\mathbf g^*\)</span> s’exprime comme la projection orthogonale de <span class="math notranslate nohighlight">\(\mathbf Y\)</span> sur <span class="math notranslate nohighlight">\(Im(\mathbf X)\)</span>, selon une métrique <span class="math notranslate nohighlight">\(\mathbf M\)</span>, à choisir de sorte que <span class="math notranslate nohighlight">\(\mathbf g^*\)</span> soit la plus proche possible de <span class="math notranslate nohighlight">\(\mathbf g\)</span>. Dit autrement, en répétant la projection avec <span class="math notranslate nohighlight">\(\mathbf Y_1\cdots \mathbf Y_k\)</span>, les <span class="math notranslate nohighlight">\(k\)</span> approximations <span class="math notranslate nohighlight">\(g^*_i=\mathbf X (\mathbf X^T\mathbf M\mathbf X)^{-1} \mathbf X^T \mathbf M \mathbf Y_i, i\in[\![1,k]\!]\)</span> doivent être le plus concentrées possible autour de <span class="math notranslate nohighlight">\(\mathbf g\)</span>.\
+Ceci revient donc à trouver <span class="math notranslate nohighlight">\(\mathbf M\)</span> de sorte à ce que l’inertie du nuage des <span class="math notranslate nohighlight">\(\mathbf g_i^*\)</span> soit minimale. On montre (théorème de Gauss-Markov généralisé) que <span class="math notranslate nohighlight">\(\mathbf M=\mathbf V^{-1}\)</span>, où <span class="math notranslate nohighlight">\(\mathbf V\)</span> est la matrice de variance-covariance du nuage des <span class="math notranslate nohighlight">\(\mathbf Y_i\)</span>. Ainsi, pour une seule observation, on en déduit
+\begin{eqnarray*}
+\mathbf g^<em>&amp;=&amp;\mathbf X(\mathbf X^T\mathbf V^{-1}\mathbf X)^{-1}\mathbf X^T\mathbf V^{-1}\mathbf Y\
+\boldsymbol \beta&amp;=&amp;(\mathbf X^T\mathbf V^{-1}\mathbf X)^{-1}\mathbf X^T\mathbf V^{-1}\mathbf Y
+\end{eqnarray</em>}</p>
+<p>\subsection{Modèle}
+En ayant une infinité d’observations, on approche le modèle probabiliste. On suppose que <span class="math notranslate nohighlight">\(\mathbf Y\)</span> est une réalisation d’un vecteur aléatoire d’espérance <span class="math notranslate nohighlight">\(\mathbf X\mathbf b\)</span> et de matrice de variance-covariance <span class="math notranslate nohighlight">\(\boldsymbol\Sigma\)</span>. Le modèle s’écrit alors  <span class="math notranslate nohighlight">\(\mathbf Y=\mathbf X\mathbf b+\epsilon\)</span>, avec <span class="math notranslate nohighlight">\(\epsilon\)</span> centré de variance <span class="math notranslate nohighlight">\(\boldsymbol\Sigma\)</span>, et le problème est donc d’estimer <span class="math notranslate nohighlight">\(\mathbf b\)</span>. On montre que  <span class="math notranslate nohighlight">\(\mathbf b = (\mathbf X^T \boldsymbol\Sigma^{-1}\mathbf X)^{-1}\mathbf X^T\boldsymbol\Sigma^{-1}\mathbf Y\)</span>, appelé estimation des moindres carrés généralisés est, sous des hypothèses larges, l’estimation de variance minimale de <span class="math notranslate nohighlight">\(\mathbf b\)</span>.</p>
+<p>\section{Modèles régularisés}
+On peut montrer que l’estimateur des moindres carrés est de variance minimale parmi les estimateurs linéaires sans biais. Cependant, la variance aboutit dans certains cas à des erreurs de prédiction importantes. Dans ce cas, on cherche des estimateurs de variance plus petite quitte à avoir un (léger) biais. Pour ce faire, on peut supprimer l’effet de certaines variables explicatives ce qui revient à leur attribuer un poids nul.
+Par ailleurs, dans le cas où <span class="math notranslate nohighlight">\(p\)</span> est grand, l’interprétation des réultats obtenus est parfois complexe. Ainsi, on pourra préférer un modèle estimé avec moins de variables explicatives afin de privilégier l’interprétation plutôt que la précision.\
+Dans cette section, on s’intéresse à des méthodes permettant de produire des estimateurs dont les valeurs sont d’amplitudes réduites. On parle de modèles parcimonieux lorsque des variables ont des coefficients nuls.</p>
+<p>\subsection{Régression Ridge}
+Dans l’approche moindres carrés linéaires classique, on cherche <span class="math notranslate nohighlight">\(\mathbf Y^* = \beta_0 \mathbf{1} + \displaystyle\sum_{i=1}^p \beta_i\mathbf X_i\)</span> proche de <span class="math notranslate nohighlight">\(\mathbf Y\)</span> au sens de la minimisation de <span class="math notranslate nohighlight">\(\|\mathbf Y^*-\mathbf Y\|^2 \)</span>. On cherche donc <span class="math notranslate nohighlight">\(\boldsymbol\beta_{mc}\in\mathbb{R}^{p+1}\)</span> tel que :
+$<span class="math notranslate nohighlight">\(\boldsymbol\beta_{mc} = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p+1}}\left [\displaystyle\sum_{i=1}^n \left (y_i-(\beta_0+\displaystyle\sum_{j=1}^p \beta_j x_{ij})\right )^2\right ]\)</span><span class="math notranslate nohighlight">\(
+Dans l'approche Ridge regression (ou régression de Tikhonov), on pénalise l'amplitude des coefficients \)</span>\beta_j<span class="math notranslate nohighlight">\(. Pour ce faire, on pose \)</span>\boldsymbol\beta_{\setminus 0}<span class="math notranslate nohighlight">\( le vecteur des \)</span>p<span class="math notranslate nohighlight">\( dernières composantes de \)</span>\boldsymbol\beta<span class="math notranslate nohighlight">\( et on cherche le vecteur \)</span>\boldsymbol\beta_r$ tel que</p>
+<div class="math notranslate nohighlight">
+\[\boldsymbol\beta_r = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p+1}}\left [\displaystyle\sum_{i=1}^n \left (y_i-(\beta_0+\displaystyle\sum_{j=1}^p \beta_j x_{ij})\right )^2+\lambda \| \boldsymbol\beta_{\setminus 0}\|^2_2\right ]\]</div>
+<p>Le réel positif <span class="math notranslate nohighlight">\(\lambda\)</span>, pondérant  <span class="math notranslate nohighlight">\(\| \boldsymbol\beta_{\setminus 0}\|^2_2\)</span> appelée fonction de pénalité, permet de réguler l’importance du second terme sur la minimisation. Un <span class="math notranslate nohighlight">\(\lambda\)</span> grand impose à la minimisation d’avoir une amplitude faible des coefficients <span class="math notranslate nohighlight">\(\beta_j,j\in[\![1,p]\!]\)</span>, et une variance faible de l’estimateur de <span class="math notranslate nohighlight">\(\boldsymbol\beta\)</span>.\
+Contrairement à la régression linéaire multiple classique où les variables ne sont pas nécessairement normalisées, ici il est nécessaire de réduire les variables explicatives. En pratique on les centre également, et dans ce cas :
+\begin{enumerate}
+\item la première composante de <span class="math notranslate nohighlight">\(\boldsymbol\beta_r\)</span> est prise égale à la moyenne empirique des <span class="math notranslate nohighlight">\(y_i\)</span> avant centrage
+\item les <span class="math notranslate nohighlight">\(p\)</span> autres composantes de <span class="math notranslate nohighlight">\(\boldsymbol\beta_r\)</span>  sont obtenues par minimisation :<br />
+$<span class="math notranslate nohighlight">\(\hat{\boldsymbol \beta}_r = arg\displaystyle\min_{\mathbf v\in\mathbb{R}^{p}} \left ((\mathbf Y-\mathbf X\mathbf v)^T(\mathbf Y-\mathbf X\mathbf v) + \lambda \mathbf v^T\mathbf v\right )\)</span><span class="math notranslate nohighlight">\(
+dont la solution analytique est \)</span>(\mathbf X^T\mathbf X + \lambda \mathbb{I})^{-1}\mathbf X^T\mathbf Y$.
+\end{enumerate}</p>
+<p>Le choix de <span class="math notranslate nohighlight">\(\lambda\)</span> n’est pas évident. La solution la plus simple consiste à prendre plusieurs valeurs, à tester les solutions proposées par ces valeurs et à retenir le <span class="math notranslate nohighlight">\(\lambda\)</span> ayant obtenu le meilleur score (par exemple la précision sur un ensemble de test). De manière moins expérimentale, il existe des algorithmes (basés sur la décomposition en valeurs singulières) permettant de choisir une ‘’bonne’’ valeur de paramètre.</p>
+<p>\subsection{Régression Lasso}
+La régression Lasso (Least Absolute Shrinkage and Selection Operator) est, dans son principe, très proche de la régression Ridge, la seule différence résidant dans la norme utilisée dans la fonction de pénalité : on cherche <span class="math notranslate nohighlight">\(\boldsymbol\beta\)</span> minimisant</p>
+<div class="math notranslate nohighlight">
+\[\boldsymbol\beta_l = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p+1}}\left [\displaystyle\sum_{i=1}^n \left (y_i-(\beta_0+\displaystyle\sum_{j=1}^p \beta_j x_{ij})\right )^2+\lambda \| \boldsymbol\beta_{\setminus 0}\|^2_1\right ]\]</div>
+<p>Contrairement à la régression Ridge, il n’y a pas de solution analytique (la norme <span class="math notranslate nohighlight">\(\ell_1\)</span> rend la fonction non différentiable) et on doit donc recourir à des méthodes de résolution numérique. Lorsque <span class="math notranslate nohighlight">\(\lambda\)</span> est grand, la minimisation force la fonction de pénalité à être petite : étant donné que cette dernière est une somme de valeurs absolues, la minimisation impose à certains coefficients <span class="math notranslate nohighlight">\(\beta_j,j\in[\![1,p]\!]\)</span> d’être nuls. On parle alors de régression parcimonieuse (et la régression peut donc être vue comme une méthode de sélection de variables).\
+Quand <span class="math notranslate nohighlight">\(p&gt;n\)</span>, la méthode ne sélectionne que <span class="math notranslate nohighlight">\(n\)</span> variables. De plus, si plusieurs variables sont corrélées entre elles, Lasso ignore toutes sauf une. Et, pire, même si <span class="math notranslate nohighlight">\(n&gt;p\)</span>, et s’il y a de fortes corrélations entre les variables explicatives, on trouve empiriquement que Ridge donne de meilleurs résultats que Lasso.</p>
+<p>\subsection{Régression Elasticnet}
+On suppose ici que <span class="math notranslate nohighlight">\(\mathbf X\)</span> est centré réduit, et <span class="math notranslate nohighlight">\(\mathbf Y\)</span> est centré (donc <span class="math notranslate nohighlight">\(\beta_0=0\)</span>). La régression Elasticnet est un mélange de Ridge et Lasso : on cherche <span class="math notranslate nohighlight">\(\boldsymbol\beta_e\)</span> tel que</p>
+<div class="math notranslate nohighlight">
+\[\boldsymbol\beta_e = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p}}\left [\displaystyle\sum_{i=1}^n \left (y_i-\displaystyle\sum_{j=1}^p \beta_j x_{ij}\right )^2+\lambda_1 \| \boldsymbol\beta\|^2_1 + \lambda_2 \| \boldsymbol\beta\|^2_2\right ]\]</div>
+<p>En notant <span class="math notranslate nohighlight">\(\lambda =\lambda_1+\lambda_2\)</span> et <span class="math notranslate nohighlight">\( \alpha = \lambda_1/\lambda\)</span> on minimise alors $<span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^n \left (y_i-\displaystyle\sum_{j=1}^p \beta_j x_{ij}\right )^2+\lambda(\alpha \| \boldsymbol\beta\|^2_1 + (1-\alpha) \| \boldsymbol\beta\|^2_2)\)</span>$</p>
+<p>On montre alors que la solution de la régression Elasticnet peut être obtenue à l’aide de la solution de la régression Lasso.
+\begin{prop}{}{}
+Soit <span class="math notranslate nohighlight">\(\mathbf X\in\mathcal{M}_{np}(\mathbb R)\)</span> la matrice des variables explicatives, et <span class="math notranslate nohighlight">\(\mathbf Y\in\mathbb{R}^n\)</span> le vecteur des valeurs de la variable expliquée. Soient <span class="math notranslate nohighlight">\(\lambda_1,\lambda_2\in\mathbb{R}^+\)</span>. On pose
+$<span class="math notranslate nohighlight">\(\mathbf X^*\in\mathcal{M}_{(n+p)p}(\mathbb R) = \frac{1}{\sqrt{1+\lambda_2}}\begin{pmatrix}\mathbf X\\\sqrt{\lambda_2 }\mathbb{I}\end{pmatrix}\quad\text{et}\quad \mathbf Y^*=\begin{pmatrix}\mathbf Y\\0\end{pmatrix}\)</span><span class="math notranslate nohighlight">\(
+et on note \)</span>\gamma=\lambda_1/(\lambda_1+\lambda_2)<span class="math notranslate nohighlight">\(. \\ 
+Alors la fonction objectif de la régression Elasticnet s'écrit \)</span>|\mathbf Y^<em>-\mathbf X^</em>\boldsymbol\beta^<em>|_2^2+\gamma|\boldsymbol\beta^</em>|_1<span class="math notranslate nohighlight">\(. Si \)</span>\hat{\boldsymbol\beta}<span class="math notranslate nohighlight">\( minimise cette fonction, alors l'estimateur naïf de la régression Elasticnet est 
+\)</span><span class="math notranslate nohighlight">\(\boldsymbol\beta_e = \frac{1}{\sqrt{1+\lambda_2}}\hat{\boldsymbol\beta}\)</span>$
+\end{prop}</p>
+<p>Puisque <span class="math notranslate nohighlight">\(\mathbf X^*\)</span> est de rang <span class="math notranslate nohighlight">\(p\)</span>, la solution peut sélectionner <span class="math notranslate nohighlight">\(p\)</span> variables contrairement à la régression Lasso.\
+En pratique, cet estimateur naïf ne donne satisfaction que lorsqu’il est proche de <span class="math notranslate nohighlight">\(\boldsymbol\beta_r\)</span> ou de <span class="math notranslate nohighlight">\(\boldsymbol\beta_l\)</span>. On retient généralement l’estimateur rééchelonné <span class="math notranslate nohighlight">\((1+\lambda_2)\boldsymbol\beta_e = \sqrt{1+\lambda_2}\hat{\boldsymbol\beta}\)</span> (Elasticnet peut être vu comme un Lasso où la matrice de variance-covariance est proche de la matrice Identité, et on montre que le facteur <span class="math notranslate nohighlight">\(1+\lambda_2\)</span> intervient alors).</p>
+<p>La figure~\ref{F:compar} compare les différentes méthodes de régression sur la fonction
+$<span class="math notranslate nohighlight">\(f(x) = x-\frac35 x^2+\frac15x^3 + 18sin(x)\)</span><span class="math notranslate nohighlight">\(
+avec \)</span>p=8<span class="math notranslate nohighlight">\( et \)</span>n=20$.</p>
+<p>\begin{center}
+\begin{figure}[ht!]
+\includegraphics[width=\textwidth]{figures/comparregression.png}
+\caption{\label{F:compar}Comparaison des 4 types de régression. Les <span class="math notranslate nohighlight">\(n=20\)</span> points  échantillonnés sur la courbe <span class="math notranslate nohighlight">\(y=f(x)\)</span> sont utilisés pour faire la régression sur l’intervalle [-10,10].}
+\end{figure}
+\end{center}</p>
+<p>\section{Régression logistique}
+Dans les sections précédentes, nous n’avons pas abordé les cas où les prédicteurs exhibent des dépendances non linéaires ou lorsque la variable à prédire n’est pas quantitative.\
+La régression logistique est un modèle linéaire généralisé utilisé pour prédire une variable binaire, ou catégorielle, à partir de prédicteurs quantitatifs ou catégoriels.</p>
+<p>\subsection{Régression logistique binaire}
+Dans un premier temps, la variable à prédire est binaire : elle ne prend donc que deux valeurs 0/1 (ou -1/1). Dans le chapitre~\ref{ch:classif}, nous étudierons des algorithmes permettant d’aborder ce problème sous un angle classification. Ici, nous nous intéressons à une modélisation probabiliste, permettant notamment de prendre en compte le bruit dans les données.
+\subsubsection{Modèle}
+On recherche une distribution conditionnelle <span class="math notranslate nohighlight">\(P(Y|X)\)</span> de la variable à prédire sachant les prédicteurs. Si le problème est en 0/1, alors <span class="math notranslate nohighlight">\(Y\)</span> est une variable indicatrice et on a <span class="math notranslate nohighlight">\(P(Y=1)=\mathbb{E}(Y)\)</span> et <span class="math notranslate nohighlight">\(P(Y=1|X=x)=\mathbb{E}(Y|X=x)\)</span>. La probabilité conditionnelle est donc l’espérance conditionnelle de l’indicatrice.\
+Supposons que <span class="math notranslate nohighlight">\(P(Y=1|X=x)=p(x,\boldsymbol\theta)\)</span> avec <span class="math notranslate nohighlight">\(p\)</span> fonction paramétrée par <span class="math notranslate nohighlight">\(\boldsymbol\theta\)</span>. On suppose également que les observations sont indépendantes. La vraisemblance est alors donnée par\footnote{pour <span class="math notranslate nohighlight">\(n\)</span> tirages d’une variable de Bernoulli dont la probabilité de succès est constante et vaut <span class="math notranslate nohighlight">\(p\)</span>, la vraisemblance est <span class="math notranslate nohighlight">\(\prod_{i=1}^n p^{y_i}(1-p)^{1-y_i}\)</span>. Cette vraisemblance est maximisée lorsque
+<span class="math notranslate nohighlight">\(p=n^{-1}\displaystyle\sum_{i=1}^n y_i\)</span>}
+$<span class="math notranslate nohighlight">\(\prod_{i=1}^n P(Y=y_i|X=x_i) = \prod_{i=1}^n p(x_i,\boldsymbol\theta)^{y_i}(1-p(x_i,\boldsymbol\theta))^{1-y_i}\)</span>$</p>
+<p>En notant <span class="math notranslate nohighlight">\(p_i=p(x_i,\boldsymbol\theta)\)</span>, maximiser la vraisemblance sans contrainte amène à la solution non informative <span class="math notranslate nohighlight">\(p_i=1\)</span> si <span class="math notranslate nohighlight">\(y_i=1\)</span> et 0 sinon. Si l’on essaye d’ajouter des contraintes (relations entre les <span class="math notranslate nohighlight">\(p_i\)</span>), alors l’estimation du maximum de vraisemblance devient difficile.\
+Ici le modèle  <span class="math notranslate nohighlight">\(p_i=p(x_i,\boldsymbol\theta)\)</span> suppose que si <span class="math notranslate nohighlight">\(p\)</span> est continue, alors des valeurs proches de <span class="math notranslate nohighlight">\(x_i\)</span> amènent à des valeurs proches de <span class="math notranslate nohighlight">\(p_i\)</span>. En supposant <span class="math notranslate nohighlight">\(p\)</span> connue comme fonction de <span class="math notranslate nohighlight">\(\boldsymbol\theta\)</span>, la vraisemblance est une fonction de <span class="math notranslate nohighlight">\(\boldsymbol\theta\)</span> et on peut estimer ce paramètre en maximisant la vraisemblance.</p>
+<p>\subsubsection{Régression logistique}
+On recherche un ``bon’’ modèle pour <span class="math notranslate nohighlight">\(p\)</span> :
+\begin{enumerate}
+\item On peut dans un premier temps supposer que <span class="math notranslate nohighlight">\(p(\mathbf x)\)</span> est une fonction linéaire de <span class="math notranslate nohighlight">\(\mathbf x\)</span>. Les fonctions linéaires étant non bornées, elles ne peuvent modéliser des probabilités.<br />
+\item On peut alors supposer que <span class="math notranslate nohighlight">\(log\ p(\mathbf x)\)</span> est une fonction linéaire de <span class="math notranslate nohighlight">\(\mathbf x\)</span>. Là aussi, la fonction logarithme est non bornée supérieurement, et ne peut modéliser une probabilité.
+\item Partant de cette idée, on borne le logarithme en utilisant la transformation logistique (ou logit) <span class="math notranslate nohighlight">\(log\frac{p(\mathbf x)}{1-p(\mathbf x)}\)</span>. Etant donné un événement ayant une probabilité <span class="math notranslate nohighlight">\(p\)</span> de réussir, le rapport <span class="math notranslate nohighlight">\(p/(1-p)\)</span> est appelé la côte de l’événement\footnote{La côte d’un événement est le rapport de la probabilité qu’il se produise sur celle qu’il ne se produise pas. Si vous avez <span class="math notranslate nohighlight">\(p\)</span>=3/4 de chances de réussir à votre examen de permis, cotre côte est <span class="math notranslate nohighlight">\(p/(1-p)=\frac{3/4}{1/4}\)</span>=3 contre un.}. On peut alors supposer que cette fonction de <span class="math notranslate nohighlight">\(p\)</span> est linéaire en <span class="math notranslate nohighlight">\(\mathbf x\)</span>.
+\end{enumerate}</p>
+<p>Le modèle de régression logistique s’écrit alors formellement</p>
+<div class="math notranslate nohighlight">
+\[logit(p(\mathbf x)) = log \frac{p(\mathbf x)}{1-p(\mathbf x)} = \beta_0\mathbf 1 + \boldsymbol\beta\mathbf x\]</div>
+<p>En résolvant par rapport à <span class="math notranslate nohighlight">\(p\)</span> on trouve alors</p>
+<div class="math notranslate nohighlight">
+\[p(\mathbf x,\boldsymbol\theta) = \frac{e^{\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x}}{1+e^{\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x}}=\frac{1}{1+e^{-(\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x)}}\quad\text{avec }\boldsymbol\theta=(\beta_0,\boldsymbol\beta)^T\]</div>
+<p>Pour minimiser les erreurs de prédiction, on doit prédire <span class="math notranslate nohighlight">\(Y=1\)</span> si <span class="math notranslate nohighlight">\(p\geq 0.5\)</span>, soit <span class="math notranslate nohighlight">\(\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x\geq 0\)</span> et <span class="math notranslate nohighlight">\(Y=0\)</span> sinon. La régression logistique est donc un classifieur linéaire, dont la frontière de décision est justement l’hyperplan <span class="math notranslate nohighlight">\(\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x= 0\)</span>. On peut montrer que la distance de <span class="math notranslate nohighlight">\(\mathbf x\)</span> à cet hyperplan est <span class="math notranslate nohighlight">\(\beta_0/\|\boldsymbol\beta\| + \mathbf x^T\boldsymbol\beta/\|\boldsymbol\beta\|\)</span>. Les probabilités d’appartenance de <span class="math notranslate nohighlight">\(\mathbf x\)</span> aux classes décroissent donc d’autant plus vite que <span class="math notranslate nohighlight">\(\|\boldsymbol\beta\|\)</span> est grand (figure~\ref{F:reg}).</p>
+<p>\begin{figure}[ht!]
+\centering
+\includegraphics[width=.7\textwidth]{figures/regression}
+\caption{\label{F:reg} Régression logistique. La probabilité d’appartenance à la classe 1 (points rouges) est donnée en fausses couleurs.}
+\end{figure}</p>
+<p>\subsection{Régression logistique à plusieurs classes}
+Dans ce cas, <span class="math notranslate nohighlight">\(Y\)</span> peut prendre <span class="math notranslate nohighlight">\(k\)</span> valeurs. Le modèle reste le même, chaque classe <span class="math notranslate nohighlight">\(c\in[\![0,k-1]\!]\)</span> ayant son jeu de paramètres <span class="math notranslate nohighlight">\(\boldsymbol\theta_c=(\beta^c_0,\boldsymbol\beta^c)^T\)</span>. Les probabilités conditionnelles prédites sont alors</p>
+<div class="math notranslate nohighlight">
+\[(\forall c\in[\![0,k-1]\!])\;\;P(Y=c|X=\mathbf x) = \frac{e^{\beta^c_0\mathbf 1 + \boldsymbol\beta^c\mathbf x}}{1+e^{\beta^c_0\mathbf 1 + \boldsymbol\beta^c\mathbf x}}\]</div>
+<p>\subsection{Interprétation}
+Si <span class="math notranslate nohighlight">\(\mathbf x=\mathbf 0\)</span>, alors <span class="math notranslate nohighlight">\(p(\mathbf x)=\frac{1}{1+e^{-\beta_0}}\)</span>. L’ordonnée à l’origine fixe donc le taux d’événements “de base”. \
+Supposons <span class="math notranslate nohighlight">\(\boldsymbol\beta\in\mathbb{R}\)</span> (l’interprétation sera la même dans le cas général). Considérons l’effet sur la probabilité d’un évènement du changement de <span class="math notranslate nohighlight">\(x\in\mathbb{R}\)</span> d’une unité, passant de <span class="math notranslate nohighlight">\(x_0\)</span> à <span class="math notranslate nohighlight">\(x_0+1\)</span>. Alors :
+$<span class="math notranslate nohighlight">\(logit(p(x_0+1))-logit(p(x_0)) = \beta_0+\beta(x_0+1)-(\beta_0+\beta(x_0)) = \beta\)</span><span class="math notranslate nohighlight">\(
+et en utilisant la définition de la fonction logit :
+\begin{eqnarray*}
+log \frac{p( x_0+1)}{1-p(x_0+1)}-log \frac{p( x_0)}{1-p(x_0)} &amp;=&amp; \beta\\
+log \left  [\frac{\frac{p( x_0+1)}{1-p(x_0+1)}}{\frac{p( x_0)}{1-p(x_0)}} \right ]&amp;=&amp; \beta\\
+\end{eqnarray*}
+En notant OR (Odds Ratio, ou rapport de côte) le terme en argument du log, et en prenant l'exponentielle, on trouve
+\)</span><span class="math notranslate nohighlight">\(OR=e^\beta\)</span><span class="math notranslate nohighlight">\(
+Le coefficient \)</span>\beta<span class="math notranslate nohighlight">\( est donc tel que \)</span>e^\beta<span class="math notranslate nohighlight">\( est le rapport de côte pour un changement unitaire de l'entrée \)</span>x<span class="math notranslate nohighlight">\(. Si \)</span>x<span class="math notranslate nohighlight">\( est incrémenté de deux unités, alors le rapport de côte est de \)</span>e^{2\beta}=(e^\beta)^2<span class="math notranslate nohighlight">\(, que l'on généralise facilement au cas d'un changement de \)</span>n<span class="math notranslate nohighlight">\( unités à OR=\)</span>(e^\beta)^n<span class="math notranslate nohighlight">\(. \\ 
+Dans le cas où \)</span>\boldsymbol\beta<span class="math notranslate nohighlight">\( est un vecteur, sa ième composante est une estimation du changement de la probabilité d'un évènement correspondant à une augmentation d'une unité de la ième composante de \)</span>\mathbf x$, les autres composantes étant constantes.</p>
+<p>\subsection{Estimation des coefficients de la régression logistique}
+D’après le modèle probabiliste, la distribution associée à la régression logistique est la loi binomiale. Pour <span class="math notranslate nohighlight">\(n\)</span> échantillons <span class="math notranslate nohighlight">\((x_i,y_i),i\in[\![1,n]\!]\)</span>, la vraisemblance s’écrit
+$<span class="math notranslate nohighlight">\(\prod_{i=1}^n p(x_i,\boldsymbol\theta)^{y_i}(1-p(x_i,\boldsymbol\theta))^{1-y_i}\)</span><span class="math notranslate nohighlight">\(
+Pour estimer les paramètres \)</span>\beta_0<span class="math notranslate nohighlight">\( et \)</span>\boldsymbol\beta$ à partir des données, on maximise cette vraisemblance. On prend son logarithme, on calcule son gradient et on en déduit un système d’équations à résoudre. Cette approche amène à des calculs complexes, la formulation analytique n’étant pas simple, et une approximation numérique est en pratique mise en oeuvre pour trouver l’optimal.</p>
+<p>\section{Analyse des résultats d’une régression}
+\subsection{Etude des résidus}
+L’étude des résidus <span class="math notranslate nohighlight">\( y_i- y^*_i\)</span> permet de repérer les observations aberrantes ou au contraire qui jouent un rôle fondamental dans la détermination de la régression. Elle permet également de vérifier que  le modèle linéaire est justifié.\
+Comme <span class="math notranslate nohighlight">\(\mathbf Y = \mathbf Y -\mathbf X\boldsymbol \beta +\mathbf X\boldsymbol \beta\)</span> , où <span class="math notranslate nohighlight">\(\mathbf Y-\mathbf X\boldsymbol \beta \)</span> est orthogonal à <span class="math notranslate nohighlight">\(\mathbf X\boldsymbol \beta\)</span>, la matrice de variance des résidus s’écrit
+\begin{eqnarray*}
+\mathbb{V}(\mathbf Y) &amp;=&amp; \mathbb{V}(\mathbf Y-\mathbf X\boldsymbol \beta)+\mathbb{V}(\mathbf X\boldsymbol \beta)\
+\sigma^2 \mathbf{I} &amp;=&amp;\mathbb{V}(\mathbf Y-\mathbf X\boldsymbol \beta)+ \sigma^2 \mathbf X(\mathbf X^T\mathbf X)^{-1}\mathbf X^T\
+\text {soit }\mathbb{V}(\mathbf Y-\mathbf X\boldsymbol \beta)&amp;=&amp;\sigma^2(\mathbf{I}-\mathbf X(\mathbf X^T\mathbf X)^{-1}\mathbf X^T)
+\end{eqnarray*}
+et les résidus sont donc en général corrélés entre eux.
+\begin{rem}
+<span class="math notranslate nohighlight">\(\mathbf{I}-\mathbf X(\mathbf X^T\mathbf X)^{-1}\mathbf X^T\)</span> est la projection orthogonale sur <span class="math notranslate nohighlight">\(Im(\mathbf X)^\perp\)</span>
+\end{rem}
+Si <span class="math notranslate nohighlight">\(p_i\)</span> est le <span class="math notranslate nohighlight">\(i^e\)</span> terme diagonal du projecteur <span class="math notranslate nohighlight">\(\mathbf X(\mathbf X^T\mathbf X)^{-1}\mathbf X^T\)</span>, alors
+$<span class="math notranslate nohighlight">\(\mathbb{V}( y_i- y^*_i) = (1-p_i)\sigma^2\)</span><span class="math notranslate nohighlight">\(
+d'où l'estimation de la variance du résidu
+\)</span><span class="math notranslate nohighlight">\(\hat{\mathbb{V}}(y_i-y^*_i) = (1-p_i)\hat{\sigma}^2\)</span>$</p>
+<p>Si le modèle linéaire est justifié, alors la distribution des résidus suit approximativement une loi normale (figure~\ref{F:residu}). Un test statistique (par exemple le test de Jarque-Berra) viendra confirmer ou infirmer l’hypothèse selon laquelle la distribution peut être considérée comme telle.</p>
+<p>\begin{figure}
+\begin{tabular}{cc}
+\includegraphics[width=.45\textwidth]{figures/nuagelin.png}&amp;\includegraphics[width=.45\textwidth]{figures/nuagepaslin.png}\
+Nuage de points linéaire &amp; Nuage de points non linéaire \
+\includegraphics[width=.45\textwidth]{figures/reslin.png}&amp;\includegraphics[width=.45\textwidth]{figures/respaslin.png}\
+Distribution des résidus &amp;Distribution des résidus
+\end{tabular}
+\caption{\label{F:residu}Distribution des résidus dans les cas où le modèle linéaire est justifié ou pas.}
+\end{figure}</p>
+<p>\begin{defin}{Résidu studentisé}{}
+On appelle résidu studentisé la quantité <span class="math notranslate nohighlight">\(\frac{y_i-y^*_i}{\hat{\sigma}\sqrt{1-hp}}\)</span>
+\end{defin}</p>
+<p>Lorsque <span class="math notranslate nohighlight">\(n\)</span> est grand, ces résidus doivent être compris dans l’intervalle [-2,2]. \
+\vskip 10pt
+Un fort résidu peut indiquer une valeur aberrante, mais la réciproque n’est pas vraie. Il est donc nécessaire d’étudier l’influence de chaque observation sur les résultats.</p>
+<p>\subsection{Influence des observations}
+Pour étudier l’influence des observations sur la prédiction, deux approches sont possibles (et complémentaires) :
+\begin{enumerate}
+\item étudier l’influence d’une observation sur sa propre prédiction. On calcule le résidu prédit <span class="math notranslate nohighlight">\(y_i-y_{\bar{i}}^*\)</span>, où <span class="math notranslate nohighlight">\(y_{\bar{i}}^*\)</span> est la prévision obtenue avec les <span class="math notranslate nohighlight">\(n-1\)</span> autres observations que <span class="math notranslate nohighlight">\(y_i\)</span>. Il est facile de montrer que ce résidu vaut <span class="math notranslate nohighlight">\(\frac{y_i-y_i^*}{1-p_i}\)</span>\footnote{il convient de rester prudent lorsque <span class="math notranslate nohighlight">\(p_i\)</span> est grand}, et la quantité
+$<span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^n  \frac{(y_i-y_i^*)^2}{(1-p_i)^2}\)</span><span class="math notranslate nohighlight">\(
+ est une mesure du pouvoir prédictif du modèle.
+ \item étudier l'influence d'une observation sur les estimations des paramètres de la régression \)</span>\beta_i<span class="math notranslate nohighlight">\(. On peut par exemple calculer une distance, dite de Cook, entre \)</span>\boldsymbol \beta<span class="math notranslate nohighlight">\( et \)</span>\boldsymbol \beta_{\bar{i}}<span class="math notranslate nohighlight">\( :
+ \)</span><span class="math notranslate nohighlight">\(d(\boldsymbol \beta,\boldsymbol\beta_{\bar{i}}) = \frac{(\boldsymbol \beta-\boldsymbol\beta_{\bar{i}})^T\mathbf X^T \mathbf X(\boldsymbol \beta-\boldsymbol\beta_{\bar{i}})}{\hat{\sigma}^2(p+1)}=\frac{\|\mathbf Y^*-\mathbf Y_{\bar{i}}^*\|^2}{\hat{\sigma}^2(p+1)}\)</span><span class="math notranslate nohighlight">\(
+ où \)</span>\mathbf Y_{\bar{i}}^*=\mathbf X\boldsymbol\beta_{\bar{i}}<span class="math notranslate nohighlight">\(. Si \)</span>d(\boldsymbol \beta,\boldsymbol\beta_{\bar{i}})&gt;1<span class="math notranslate nohighlight">\(, alors en général l'observation \)</span>i$ a une influence anormale.
+\end{enumerate}</p>
+<p>\subsection{Stabilité des coefficients de régression}
+La source principale d’instabilité dans l’estimation des paramètres de régression réside dans le fait que les variables explicatives sont très corrélées entre elles. Comme <span class="math notranslate nohighlight">\(\mathbb{V}(\boldsymbol \beta)=\sigma^2(\mathbf X^T\mathbf X)^{-1}\)</span> alors si les <span class="math notranslate nohighlight">\(\mathbf X_i\)</span> sont corrélés, la matrice <span class="math notranslate nohighlight">\(\mathbf X^T\mathbf X\)</span> est mal conditionnée. Dans ce cas, les paramètres sont estimés avec imprécision et les prédictions sont entâchées d’erreur. Il est donc essentiel de mesurer les colinéarités entre prédicteurs. Par simplicité (sans que cela nuise à la généralité), on suppose ici que les variables sont centrées et réduites : <span class="math notranslate nohighlight">\((\mathbf X^T\mathbf X)\)</span> est donc une matrice de taille <span class="math notranslate nohighlight">\(p\)</span> (le fait de centrer les données supprime la constante) et <span class="math notranslate nohighlight">\(\boldsymbol\beta\in\mathbb{R}^p\)</span>. Ainsi <span class="math notranslate nohighlight">\((\mathbf X^T\mathbf X)=n\mathbf R\)</span> où <span class="math notranslate nohighlight">\(\mathbf R\)</span> est la matrice de corrélation entre les prédicteurs.\
+Deux stratégies sont classiquement proposées :
+\begin{enumerate}
+\item Facteur d’inflation de la variance : on a <span class="math notranslate nohighlight">\(\mathbb{V}(\boldsymbol \beta) = \sigma^2\frac{\mathbf{R}^{-1}}{n}\)</span> et <span class="math notranslate nohighlight">\(\sigma^2_{\beta_j} = \frac{\sigma^2}{n}(\mathbf{R}^{-1})_{jj}\)</span>. Or le <span class="math notranslate nohighlight">\(j^e\)</span> terme de <span class="math notranslate nohighlight">\(\mathbf{R}^{-1}\)</span> est <span class="math notranslate nohighlight">\(\frac{1}{1-R^2_j}\)</span> où <span class="math notranslate nohighlight">\(R^2_j\)</span> est le carré du coefficient de corrélation multiple de <span class="math notranslate nohighlight">\(\mathbf X_j\)</span> et des <span class="math notranslate nohighlight">\(p-1\)</span> autres variables explicatives. Ce terme est le facteur d’inflation de la variance. La moyenne de ces <span class="math notranslate nohighlight">\(p\)</span> termes est parfois utilisée comme indice global de colinéarité multiple.
+\begin{rem}
+Si les variables explicatives sont orthogonales, la régression multiple revient à <span class="math notranslate nohighlight">\(p\)</span> régressions simples.
+\end{rem}
+\item La factorisation spectrale de <span class="math notranslate nohighlight">\(\mathbf R\)</span> s’écrit <span class="math notranslate nohighlight">\(\mathbf R = \mathbf U\boldsymbol\Lambda \mathbf U^T\)</span>. Donc <span class="math notranslate nohighlight">\(\mathbf{R}^{-1}=\mathbf U\Lambda^{-1}\mathbf U^T\)</span> et la variance de <span class="math notranslate nohighlight">\(\beta_j\)</span> s’écrit
+$<span class="math notranslate nohighlight">\(\mathbb{V}(\beta_j) = \frac{\sigma^2}{n}\displaystyle\sum_{i=1}^p \frac{u_{ji}^2}{\lambda_i}\)</span><span class="math notranslate nohighlight">\(
+ et dépend donc des inverses des valeurs propres de \)</span>\mathbf R$. Dans le cas où les prédicteurs sont fortement corrélés, les dernières valeurs propres sont proches de 0 ce qui entraîne l’instabilité des paramètres de régression.
+\end{enumerate}</p>
+<p>Pour améliorer la stabilité des paramètres de régression, on peut alors :
+\begin{itemize}
+\item rejeter certains termes de la somme précédente, par exemple en remplaçant les <span class="math notranslate nohighlight">\(p\)</span> prédicteurs par leurs <span class="math notranslate nohighlight">\(p\)</span> composantes principales\footnote{Ceci revient à effectuer <span class="math notranslate nohighlight">\(p\)</span> régressions simples} (voir chapitre~\ref{ch:ACP}).
+\item régulariser la régression en utilisant des approche de type Ridge regression.
+\end{itemize}</p>
+<p>\section{Sélection des variables}
+Plutôt que d’expliquer <span class="math notranslate nohighlight">\(\mathbf Y\)</span> par l’ensemble des prédicteurs, on peut chercher un sous-ensemble de ces <span class="math notranslate nohighlight">\(p\)</span> variables permettant d’obtenir quasiment le même résultat (régression). Contrairement aux méthodes d’extraction (telles que l’analyse en composantes principales, chapitre~\ref{ch:ACP}), les méthodes de sélection utilisent les variables initiales.</p>
+<p>\subsection{Exploration de l’ensemble des régressions possibles}
+Si <span class="math notranslate nohighlight">\(p\)</span> n’est pas trop grand, on peut envisager d’étudier les <span class="math notranslate nohighlight">\(2^p-1\)</span> régressions obtenues avec tous les sous-ensembles de variables. On peut alémiorer cette stratégie en testant pour chaque régression les coefficients à l’aide du test de Fisher pour mettre en évidence les variables ou combinaisons de variables les plus significatives. On choisit alors le sous-ensemble de variables qui donne le coefficient de détermination maximum (à <span class="math notranslate nohighlight">\(p\)</span> fixe) ou le <span class="math notranslate nohighlight">\(\hat{\sigma}^2\)</span> minimum (à <span class="math notranslate nohighlight">\(p\)</span> variable).</p>
+<p>\subsection{Méthodes pas à pas}
+On ajoute (ou retire) les variables à partir d’un ensemble initial :
+\begin{itemize}
+\item pour l’ajout, on part de la meilleure régression à une variable et on ajoute itérativement celle qui améliore le plus le coefficient de détermination
+\item pour l’élimination, on supprime la variable la moins significative (par exemple celle qui amène à la plus petite diminution du coefficient de détermination). On recalcule alors la régression correspondante et on itère.
+\end{itemize}
+En plus de ces stratégies simples, on peut ajouter une méthode dite de stepwise qui consiste à effectuer en plus à chaque itération des tests de signification de type Student ou F pour ne pas introduire une variable non significative et pour éliminer éventuellement des variables déjà introduites qui deviendraient inutiles compte tenu de la dernière opération effecuté. \
+L’arrêt des itérations s’effectue en fonction d’un critère sur le coefficient de détermination, le nombre de variables à garder, …</p>
+<p>\section{Exemple}
+\subsection{Données}
+On s’intéresse aux données suivantes et on cherche s’il existe une relation entre la production <span class="math notranslate nohighlight">\(Y\)</span> et les deux variables prédictives <span class="math notranslate nohighlight">\(X_1\)</span> et <span class="math notranslate nohighlight">\(X_2\)</span>.</p>
+<p>\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Usine&amp; Travail (h) <span class="math notranslate nohighlight">\(X_1\)</span>&amp; Capital (machines/h) <span class="math notranslate nohighlight">\(X_2\)</span> &amp; Production (<span class="math notranslate nohighlight">\(10^2\)</span> T)\
+\hline
+1 &amp; 1100&amp;300&amp;60\
+2&amp;1200&amp;400 &amp; 120\
+3&amp;1430&amp;420&amp;190\
+4&amp;1500&amp;400&amp;250\
+5&amp;1520&amp;510&amp;300\
+6&amp;1620&amp;590&amp;360\
+7&amp;1800&amp;600&amp;380\
+8&amp;1820&amp;630&amp;430\
+9&amp;1800&amp;610&amp;440\
+\hline
+\end{tabular}
+\end{center}</p>
+<p>\subsection{Modèle}
+On fait l’hypothèse d’un modèle linéaire $<span class="math notranslate nohighlight">\(y = \beta_0+\beta_1 X_1 + \beta_2 X_2+\epsilon = \mathbf X \boldsymbol\beta+\boldsymbol\epsilon\)</span><span class="math notranslate nohighlight">\(
+On a alors \)</span>\boldsymbol\beta = (\mathbf X^T\mathbf X)^{-1}\mathbf X^T \mathbf Y = \begin{pmatrix} -437.714\0.336\0.410\end{pmatrix}<span class="math notranslate nohighlight">\( et l'équation du modèle linéaire (hyperplan) aux moindres carrés est 
+\)</span><span class="math notranslate nohighlight">\(y = -437.714+0.336 X_1+0.41X_2\)</span><span class="math notranslate nohighlight">\(
+de plus
+\)</span><span class="math notranslate nohighlight">\(\hat{\sigma}^2 = \frac{\|\mathbf Y -\mathbf Y^*\|^2}{n-p-1} = \frac{3194}{6} = 639\)</span><span class="math notranslate nohighlight">\(
+de sorte que la covariance des paramètres de régression vaut
+\)</span><span class="math notranslate nohighlight">\(\hat{\sigma}^2 (\mathbf X^T\mathbf X)^{-1} = \begin{pmatrix} 3355.56 &amp; -4.152 &amp; 6.184\\-4.152 &amp; 0.008 &amp; -0.016 \\ 6.184 &amp; -0.016 &amp; 0.038\end{pmatrix}\)</span>$</p>
+<p>\begin{center}
+\begin{figure}[ht]
+\includegraphics[width=.5\textwidth]{figures/plan}\includegraphics[width=.5\textwidth]{figures/plan2}
+\caption{Plan régresseur. Les points au-dessus du plan sont en bleu, les autres en vert.}
+\end{figure}
+\end{center}</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -465,11 +722,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="TP2_ACP.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="TP3_AFC_ACM.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">TP ACP</p>
+            <p class="prev-next-title">TP AFC / ACM</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="genindex.html" title="next page">
