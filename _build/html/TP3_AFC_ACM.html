@@ -1,0 +1,1515 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TP AFC / ACM &#8212; Analyse de données</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Régression" href="regression.html" />
+    <link rel="prev" title="TP ACP" href="TP2_ACP.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/isimainp.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Analyse de données</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Rappels.html">
+   Rappels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exoprobas.html">
+   Exercices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Stats.html">
+   Introduction aux statistiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="statsdescriptives.html">
+   Statistique descriptive
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP1_statsDescriptives.html">
+   TP Statistiques descriptives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="statsexploratoires.html">
+   Statistique exploratoire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP2_ACP.html">
+   TP ACP
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   TP AFC / ACM
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="regression.html">
+   Régression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/TP3_AFC_ACM.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTP3_AFC_ACM.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/TP3_AFC_ACM.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   TP AFC / ACM
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-1-analyse-factorielle-des-correspondances">
+   Exercice 1 : Analyse Factorielle des Correspondances
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#votre-travail">
+     ===== Votre travail : =====
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analyse-factorielle-des-correspondances">
+       Analyse Factorielle des correspondances
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#valeurs-propres">
+       Valeurs propres
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analyse-des-profils-lignes">
+       Analyse des profils lignes
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#calcul-de-la-distance-du-chi-2">
+       Calcul de la distance du
+       <span class="math notranslate nohighlight">
+        \(\chi^2\)
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analyse-des-profils-colonnes">
+       Analyse des profils colonnes
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analyse-de-l-association-lignes-colonnes">
+       Analyse de l’association lignes-colonnes
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#representation-simultanee-lignes-colonnes">
+       Représentation simultanée lignes/colonnes
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-2-analyse-des-correspondances-multiples">
+   Exercice 2 : Analyse des Correspondances Multiples
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analyse-des-individus">
+     Analyse des individus
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     ===== Votre travail : =====
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analyse-des-colonnes">
+       Analyse des colonnes
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#acm">
+       ACM
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analyse-des-valeurs-propres">
+       Analyse des valeurs propres
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#representation-graphique">
+       Représentation graphique
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analyse-du-1er-axe">
+       Analyse du 1er axe
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analyse-du-deuxieme-axe">
+       Analyse du deuxième axe
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>TP AFC / ACM</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   TP AFC / ACM
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-1-analyse-factorielle-des-correspondances">
+   Exercice 1 : Analyse Factorielle des Correspondances
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#votre-travail">
+     ===== Votre travail : =====
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analyse-factorielle-des-correspondances">
+       Analyse Factorielle des correspondances
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#valeurs-propres">
+       Valeurs propres
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analyse-des-profils-lignes">
+       Analyse des profils lignes
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#calcul-de-la-distance-du-chi-2">
+       Calcul de la distance du
+       <span class="math notranslate nohighlight">
+        \(\chi^2\)
+       </span>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analyse-des-profils-colonnes">
+       Analyse des profils colonnes
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analyse-de-l-association-lignes-colonnes">
+       Analyse de l’association lignes-colonnes
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#representation-simultanee-lignes-colonnes">
+       Représentation simultanée lignes/colonnes
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-2-analyse-des-correspondances-multiples">
+   Exercice 2 : Analyse des Correspondances Multiples
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analyse-des-individus">
+     Analyse des individus
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     ===== Votre travail : =====
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analyse-des-colonnes">
+       Analyse des colonnes
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#acm">
+       ACM
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analyse-des-valeurs-propres">
+       Analyse des valeurs propres
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#representation-graphique">
+       Représentation graphique
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analyse-du-1er-axe">
+       Analyse du 1er axe
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analyse-du-deuxieme-axe">
+       Analyse du deuxième axe
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># n&#39;exécuter qu&#39;une fois</span>
+<span class="o">!</span>pip3 install seaborn numpy matplotlib pandas mca
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">DEPRECATION: Configuring installation scheme with distutils config files is deprecated and will no longer work in the near future. If you are using a Homebrew or Linuxbrew Python, please see discussion at https://github.com/Homebrew/homebrew-core/issues/76621</span>
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: seaborn in /usr/local/lib/python3.9/site-packages (0.11.2)
+Requirement already satisfied: numpy in /usr/local/lib/python3.9/site-packages (1.22.0)
+Requirement already satisfied: matplotlib in /usr/local/lib/python3.9/site-packages (3.5.2)
+Requirement already satisfied: pandas in /usr/local/lib/python3.9/site-packages (1.4.2)
+Requirement already satisfied: mca in /usr/local/lib/python3.9/site-packages (1.0.3)
+Requirement already satisfied: scipy&gt;=1.0 in /usr/local/lib/python3.9/site-packages (from seaborn) (1.7.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (20.9)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.9/site-packages (from matplotlib) (1.3.1)
+Requirement already satisfied: pillow&gt;=6.2.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (9.1.0)
+Requirement already satisfied: pyparsing&gt;=2.2.1 in /usr/local/lib/python3.9/site-packages (from matplotlib) (2.4.7)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.9/site-packages (from matplotlib) (2.8.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (4.29.1)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.9/site-packages (from matplotlib) (0.10.0)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.9/site-packages (from pandas) (2021.1)
+Requirement already satisfied: six in /usr/local/lib/python3.9/site-packages (from cycler&gt;=0.10-&gt;matplotlib) (1.15.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">DEPRECATION: Configuring installation scheme with distutils config files is deprecated and will no longer work in the near future. If you are using a Homebrew or Linuxbrew Python, please see discussion at https://github.com/Homebrew/homebrew-core/issues/76621</span>
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: There was an error checking the latest version of pip.</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span> 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="tp-afc-acm">
+<h1>TP AFC / ACM<a class="headerlink" href="#tp-afc-acm" title="Permalink to this headline">#</a></h1>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="exercice-1-analyse-factorielle-des-correspondances">
+<h1>Exercice 1 : Analyse Factorielle des Correspondances<a class="headerlink" href="#exercice-1-analyse-factorielle-des-correspondances" title="Permalink to this headline">#</a></h1>
+<p>Le fichier de données est un tableau d’effectifs, croisant l’origine sociale des sondés (CSP, version simplifiée) avec les médias d’informations utilisés</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">media</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s2">&quot;./data/mediaCSP.txt&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">media</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                Radio  Tel.  Quot.Nat.  Quot.Reg.  Press.Mag.  Press.TV
+Prof                                                                   
+Agriculteur        96   118          2         71          50        17
+Petit.Patr.       122   136         11         76          49        41
+Prof.Cad.Sup      193   184         74         63         103        79
+Prof.Int.         360   365         63        145         141       184
+Employe           511   593         57        217         172       306
+Ouvr.Qualif.      385   457         42        174         104       220
+Ouvr.Non-Qual.    156   185          8         69          42        85
+Inactif          1474  1931        181        852         642       782
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="votre-travail">
+<h2>===== Votre travail : =====<a class="headerlink" href="#votre-travail" title="Permalink to this headline">#</a></h2>
+<p>Vous avez à disposition un fichier <a class="reference external" href="http://ca.py">ca.py</a>, permettant de réaliser les calculs relatifs à une analyse factorielle des correspondances. L’objectif est de répondre aux questions suivantes :</p>
+<ul class="simple">
+<li><p>Quelle est la structure des moyens d’information choisis selon la CSP ? (profils lignes).</p></li>
+<li><p>La structure est-elle différente d’une CSP à l’autre ?</p></li>
+<li><p>Les médias sont-ils différents en termes de CSP ? (profils colonnes)</p></li>
+<li><p>Existe-t-il des relations entre CSP et médias  (des CSP ont-elles une préférences pour certains médias ? Certains médias attirent-ils des catégories particulières de CSP ?)</p></li>
+</ul>
+<div class="section" id="analyse-factorielle-des-correspondances">
+<h3>Analyse Factorielle des correspondances<a class="headerlink" href="#analyse-factorielle-des-correspondances" title="Permalink to this headline">#</a></h3>
+<p>On créé une instance de l’objet CA, que l’on applique sur le tableau des valeurs</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ca</span> <span class="kn">import</span> <span class="n">CA</span>
+<span class="n">afc</span> <span class="o">=</span> <span class="n">CA</span><span class="p">(</span><span class="n">row_labels</span><span class="o">=</span><span class="n">media</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">col_labels</span><span class="o">=</span><span class="n">media</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">afc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">media</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">ca</span> <span class="kn">import</span> <span class="n">CA</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">afc</span> <span class="o">=</span> <span class="n">CA</span><span class="p">(</span><span class="n">row_labels</span><span class="o">=</span><span class="n">media</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">col_labels</span><span class="o">=</span><span class="n">media</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">afc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">media</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;ca&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="valeurs-propres">
+<h3>Valeurs propres<a class="headerlink" href="#valeurs-propres" title="Permalink to this headline">#</a></h3>
+<p>En utilisant l’attribut <span class="math notranslate nohighlight">\(eig\_\)</span> et la fonction plot_eigenvalues (ligne 294 du fichier <span class="math notranslate nohighlight">\(base.py\)</span>),afficher et interpréter les valeurs propres issues de l’analyse factorielle (nombre, contribution des facteurs…)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.38572868e-02 7.21068498e-03 8.24731391e-04 3.03851641e-04
+  8.26930155e-05]
+ [6.21981806e+01 3.23650288e+01 3.70179190e+00 1.36383258e+00
+  3.71166101e-01]
+ [6.21981806e+01 9.45632094e+01 9.82650013e+01 9.96288339e+01
+  1.00000000e+02]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/TP3_AFC_ACM_10_0.png" src="_images/TP3_AFC_ACM_10_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="analyse-des-profils-lignes">
+<h3>Analyse des profils lignes<a class="headerlink" href="#analyse-des-profils-lignes" title="Permalink to this headline">#</a></h3>
+<p>On affiche ici, pour chaque modalité ligne, la distribution des individus colonnes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span><span class="n">arr</span><span class="o">=</span><span class="n">media</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">func1d</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">data_cum</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">media</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;RdYlGn&#39;</span><span class="p">)(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">9.2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">colname</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">afc</span><span class="o">.</span><span class="n">col_labels_short_</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">colors</span><span class="p">)):</span>
+    <span class="n">widths</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">starts</span> <span class="o">=</span> <span class="n">data_cum</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">widths</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">widths</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="n">starts</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">colname</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">xcenters</span> <span class="o">=</span> <span class="n">starts</span> <span class="o">+</span> <span class="n">widths</span> <span class="o">/</span> <span class="mi">2</span>
+
+    <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">color</span>
+    <span class="n">text_color</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span> <span class="k">if</span> <span class="n">r</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mf">0.5</span> <span class="k">else</span> <span class="s1">&#39;darkgrey&#39;</span>
+    <span class="k">for</span> <span class="n">y</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">xcenters</span><span class="p">,</span> <span class="n">widths</span><span class="p">)):</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="mi">2</span><span class="p">))),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+                    <span class="n">color</span><span class="o">=</span><span class="n">text_color</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">ncol</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">afc</span><span class="o">.</span><span class="n">col_labels_short_</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+              <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower left&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;small&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/TP3_AFC_ACM_13_0.png" src="_images/TP3_AFC_ACM_13_0.png" />
+</div>
+</div>
+<p>En utilisant l’attribut row_coord_, afficher les coordonnées des modalités lignes par facteur. Calculer la moyenne pondérée et la variance des coordonnées des modalités lignes sur le premier facteur. Qu’obtenez-vous ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                       0         1         2         3         4
+Prof                                                            
+Agriculteur     0.166150  0.309612 -0.071838 -0.014433  0.021440
+Petit.Patr.     0.068377  0.143151 -0.064422  0.020370 -0.025687
+Prof.Cad.Sup   -0.429976  0.060873 -0.003021  0.016811  0.011233
+Prof.Int.      -0.106603 -0.032597 -0.030898 -0.025333 -0.011955
+Employe         0.015729 -0.095469 -0.005087 -0.020294  0.003462
+Ouvr.Qualif.    0.043713 -0.101379 -0.019323  0.035411 -0.001730
+Ouvr.Non-Qual.  0.117797 -0.094864 -0.039728  0.003493  0.022484
+Inactif         0.032584  0.033395  0.025968  0.000553 -0.000935
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Moyenne :  1.3877787807814457e-17
+Variance :  0.013857286816774693
+</pre></div>
+</div>
+</div>
+</div>
+<p>Moyenne :  1.3877787807814457e-17  égale à 0</p>
+<p>Variance :  0.013857286816774693 égale à la valeur propre associée</p>
+<p>En utilisant la fonction mapping_row (ligne 389, ficher <a class="reference external" href="http://base.py">base.py</a>), représenter les individus lignes dans le premier plan factoriel (qui restitue 94.5% de l’information disponible). Analyser le résultat</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/TP3_AFC_ACM_19_0.png" src="_images/TP3_AFC_ACM_19_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="calcul-de-la-distance-du-chi-2">
+<h3>Calcul de la distance du <span class="math notranslate nohighlight">\(\chi^2\)</span><a class="headerlink" href="#calcul-de-la-distance-du-chi-2" title="Permalink to this headline">#</a></h3>
+<p>La distance du <span class="math notranslate nohighlight">\(\chi^2\)</span> entre les modalités lignes dans l’espace initial devient distance euclidienne dans l’espace factoriel. Comme en ACP, la restitution est parfaite lorsque tous les facteurs sont pris en compte, et approchée si une partie est utilisée. La précision dépend alors d’une part de la qualité de restitution du repère factoriel choisi, d’autre part de la qualité de représentation des modalités impliquées dans le calcul (les <span class="math notranslate nohighlight">\(cos^2\)</span>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
+
+    <span class="c1"># Distances entre modalités sur le l-eme facteur</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">distPairesLigF1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">l</span><span class="p">],</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">l</span><span class="p">]))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">l</span><span class="p">]):</span>
+            <span class="n">distPairesLigF1</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">afc</span><span class="o">.</span><span class="n">row_coord_</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">afc</span><span class="o">.</span><span class="n">row_coord_</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> 
+    <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">distPairesLigF1</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">distPairesLigF1</span><span class="p">),</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;Greens&#39;</span><span class="p">,</span><span class="n">xticklabels</span><span class="o">=</span><span class="n">media</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">yticklabels</span><span class="o">=</span><span class="n">media</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distance sur le facteur &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">f</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/TP3_AFC_ACM_21_0.png" src="_images/TP3_AFC_ACM_21_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="analyse-des-profils-colonnes">
+<h3>Analyse des profils colonnes<a class="headerlink" href="#analyse-des-profils-colonnes" title="Permalink to this headline">#</a></h3>
+<p>Faire la même analsye sur les profils colonnes. Interpréter les résultats</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/TP3_AFC_ACM_23_0.png" src="_images/TP3_AFC_ACM_23_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="analyse-de-l-association-lignes-colonnes">
+<h3>Analyse de l’association lignes-colonnes<a class="headerlink" href="#analyse-de-l-association-lignes-colonnes" title="Permalink to this headline">#</a></h3>
+<p>Au-delà de la comparaison des profils, l’intérêt majeur de l’AFC est d’identifier les associations entre les modalités lignes et colonnes : est ce que les agriculteurs s’informent plus par la radio que les autres ? Est ce que la presse magazine attire plus les cadres ?</p>
+<p>Avant de s’intéresser aux relations entre les modalités, il faut déjà vérifier qu’il existe bien une liaison exploitable entre les variables en ligne et colonne du tableau de contingence. La statistique du <span class="math notranslate nohighlight">\(\chi^2\)</span> de l’écart à l’indépendance permet de le faire</p>
+<p>Faire un test du <span class="math notranslate nohighlight">\(\chi^2\)</span> (voir le cours statistiques bivariées), en utilisant la fonction <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.chi2.html"><span class="math notranslate nohighlight">\(scipy.stats.chi2.cdf\)</span></a> du module <span class="math notranslate nohighlight">\(scipy\)</span>. Conclure.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p= 0.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Le test conduit au rejet de l’hypothèse nulle : les variables lignes et colonnes sont donc manifestement fortement liées.</p>
+<p>Pour approfondir la nature des relations entre les modalités lignes et colonnes du tableau, on peut calculer l’indice d’attraction / répulsion, défini par
+$<span class="math notranslate nohighlight">\(\frac{P(Y=y_k, X=x_l)}{P(Y=y_k)P(X=x_l)}\)</span>$</p>
+<p>où <span class="math notranslate nohighlight">\(x_l\)</span> et <span class="math notranslate nohighlight">\(y_k\)</span> sont les profils ligne et colonne. En pratique, cet indice est calculé comme le rapport entre les effectifs observés et théoriques : s’il est supérieur à 1, il y a une attraction ; sinon il y a répulsion entre les modalités.</p>
+<p>Calculer cet indice, effectuer uin test du <span class="math notranslate nohighlight">\(\chi^2\)</span> et conclure.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p= 0.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="representation-simultanee-lignes-colonnes">
+<h3>Représentation simultanée lignes/colonnes<a class="headerlink" href="#representation-simultanee-lignes-colonnes" title="Permalink to this headline">#</a></h3>
+<p>En utilisant la fonction <span class="math notranslate nohighlight">\(mapping\)</span> (ligne 329 du fichier <a class="reference external" href="http://base.py">base.py</a>), projeter sur le premier plan factoriel les individus ligne et colonne. Interpreter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/TP3_AFC_ACM_30_0.png" src="_images/TP3_AFC_ACM_30_0.png" />
+</div>
+</div>
+<p>Comme en ACP où il est possible de reconstituer approximativement les données originelles à partir des coordonnées factorielles des individus, on peut approcher le tableau des indices d’attraction-répulsion <span class="math notranslate nohighlight">\(i_{kl}\)</span> à partir des coordonnées factorielles des modalités lignes et colonnes : en reconstruisant à partir des <span class="math notranslate nohighlight">\(P\)</span> premiers facteurs, si <span class="math notranslate nohighlight">\(F_{kp}\)</span> ett <span class="math notranslate nohighlight">\(G_{lp}\)</span> sont les coordonnées factorielles des modalités lignes et colonnes
+$<span class="math notranslate nohighlight">\(i_{kl} = 1+\displaystyle\sum_{p=1}^P \frac{F_{kp}G_{lp}}{\sqrt{\lambda_p}}\)</span>$</p>
+<p>Ainsi :</p>
+<ul class="simple">
+<li><p>Deux modalités s’attirent (resp. se repoussent) si leurs coordonnées sont de même signe (resp. de signe contraire) sur les axes factoriels.</p></li>
+<li><p>Le trait est d’autant plus marqué que les valeurs des coordonnées sont élevées (en valeur absolue) c.-à-d. que les points sont situés aux extrémités des facteurs.</p></li>
+<li><p>Les  coordonnées doivent être relativisées par le pouvoir de restitution du facteur (<span class="math notranslate nohighlight">\(\lambda_h\)</span>).</p></li>
+</ul>
+<p>Calculer l’approximation des inices d’attraction-répulsion à parit des données du premier facteur (P=1). Interpréter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                   Radio      Tel.  Quot.Nat.  Quot.Reg.  Press.Mag.  Press.TV
+Prof                                                                          
+Agriculteur     1.018944  1.040396   0.159792   1.490461    1.342838  0.347085
+Petit.Patr.     1.053787  0.975820   0.715205   1.298344    1.070936  0.681216
+Prof.Cad.Sup    1.041910  0.825142   3.007112   0.672662    1.406970  0.820367
+Prof.Int.       1.075237  0.905591   1.416404   0.856550    1.065603  1.057128
+Employe         1.034487  0.997233   0.868608   0.868855    0.881064  1.191609
+Ouvr.Qualif.    1.046731  1.032115   0.859544   0.935636    0.715455  1.150549
+Ouvr.Non-Qual.  1.075500  1.059486   0.415165   0.940845    0.732672  1.127231
+Inactif         0.944787  1.028150   0.873293   1.080089    1.041228  0.964165
+                   Radio      Tel.  Quot.Nat.  Quot.Reg.  Press.Mag.  Press.TV
+Prof                                                                          
+Agriculteur     0.978913  1.075205   0.236872   1.153604    0.866178  1.013767
+Petit.Patr.     0.991322  1.030950   0.685943   1.063214    0.944927  1.005665
+Prof.Cad.Sup    1.054571  0.805378   2.974881   0.602491    1.346314  0.964374
+Prof.Int.       1.013530  0.951748   1.489626   0.901447    1.085861  0.991167
+Employe         0.998004  1.007119   0.927759   1.014541    0.987332  1.001303
+Ouvr.Qualif.    0.994452  1.019786   0.799228   1.040412    0.964793  1.003622
+Ouvr.Non-Qual.  0.985050  1.053319   0.458958   1.108902    0.905123  1.009760
+Inactif         0.995865  1.014749   0.850343   1.030123    0.973756  1.002700
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="exercice-2-analyse-des-correspondances-multiples">
+<h1>Exercice 2 : Analyse des Correspondances Multiples<a class="headerlink" href="#exercice-2-analyse-des-correspondances-multiples" title="Permalink to this headline">#</a></h1>
+<p>Ici on s’intéresse à 6 traits de caractères de 27 races de chien, et on souhaite analyser le tableau par ACM</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chiens</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s2">&quot;./data/chiens.txt&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chiens</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                   Taille    Poids Velocite Intelligence Affection Agressivite
+Chien                                                                         
+Beauceron        Taille++   Poids+  Veloc++      Intell+    Affec+     Agress+
+Basset            Taille-   Poids-   Veloc-      Intell-    Affec-     Agress+
+Berger All       Taille++   Poids+  Veloc++     Intell++    Affec+     Agress+
+Boxer             Taille+   Poids+   Veloc+      Intell+    Affec+     Agress+
+Bull-Dog          Taille-   Poids-   Veloc-      Intell+    Affec+     Agress-
+Bull-Mastif      Taille++  Poids++   Veloc-     Intell++    Affec-     Agress+
+Caniche           Taille-   Poids-   Veloc+     Intell++    Affec+     Agress-
+Chihuahua         Taille-   Poids-   Veloc-      Intell-    Affec+     Agress-
+Cocker            Taille+   Poids-   Veloc-      Intell+    Affec+     Agress+
+Colley           Taille++   Poids+  Veloc++      Intell+    Affec+     Agress-
+Dalmatien         Taille+   Poids+   Veloc+      Intell+    Affec+     Agress-
+Doberman         Taille++   Poids+  Veloc++     Intell++    Affec-     Agress+
+Dogue-All        Taille++  Poids++  Veloc++      Intell-    Affec-     Agress+
+Epag.-Breton      Taille+   Poids+   Veloc+     Intell++    Affec+     Agress-
+Epag.-FranÃ§ais  Taille++   Poids+   Veloc+      Intell+    Affec-     Agress-
+Fox-Hound        Taille++   Poids+  Veloc++      Intell-    Affec-     Agress+
+Fox-Terrier       Taille-   Poids-   Veloc+      Intell+    Affec+     Agress+
+Gd-Bleu-Gasc     Taille++   Poids+   Veloc+      Intell-    Affec-     Agress+
+Labrador          Taille+   Poids+   Veloc+      Intell+    Affec+     Agress-
+Levrier          Taille++   Poids+  Veloc++      Intell-    Affec-     Agress-
+Mastiff          Taille++  Poids++   Veloc-      Intell-    Affec-     Agress+
+Pekinois          Taille-   Poids-   Veloc-      Intell-    Affec+     Agress-
+Pointer          Taille++   Poids+  Veloc++     Intell++    Affec-     Agress-
+St-Bernard       Taille++  Poids++   Veloc-      Intell+    Affec-     Agress+
+Setter           Taille++   Poids+  Veloc++      Intell+    Affec-     Agress-
+Teckel            Taille-   Poids-   Veloc-      Intell+    Affec+     Agress-
+Terre-Neuve      Taille++  Poids++   Veloc-      Intell+    Affec-     Agress-
+</pre></div>
+</div>
+</div>
+</div>
+<p>On récupère les variables actives : on s’intéresse à un sous-ensemble de cardinal <span class="math notranslate nohighlight">\(k\)</span> de variables du jeu de données (vous pouvez changer les variables utilisées).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var_chiens</span> <span class="o">=</span> <span class="n">chiens</span><span class="p">[[</span><span class="s1">&#39;Taille&#39;</span><span class="p">,</span><span class="s1">&#39;Velocite&#39;</span><span class="p">,</span><span class="s1">&#39;Affection&#39;</span><span class="p">]]</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="n">var_chiens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                   Taille Velocite Affection
+Chien                                       
+Beauceron        Taille++  Veloc++    Affec+
+Basset            Taille-   Veloc-    Affec-
+Berger All       Taille++  Veloc++    Affec+
+Boxer             Taille+   Veloc+    Affec+
+Bull-Dog          Taille-   Veloc-    Affec+
+Bull-Mastif      Taille++   Veloc-    Affec-
+Caniche           Taille-   Veloc+    Affec+
+Chihuahua         Taille-   Veloc-    Affec+
+Cocker            Taille+   Veloc-    Affec+
+Colley           Taille++  Veloc++    Affec+
+Dalmatien         Taille+   Veloc+    Affec+
+Doberman         Taille++  Veloc++    Affec-
+Dogue-All        Taille++  Veloc++    Affec-
+Epag.-Breton      Taille+   Veloc+    Affec+
+Epag.-FranÃ§ais  Taille++   Veloc+    Affec-
+Fox-Hound        Taille++  Veloc++    Affec-
+Fox-Terrier       Taille-   Veloc+    Affec+
+Gd-Bleu-Gasc     Taille++   Veloc+    Affec-
+Labrador          Taille+   Veloc+    Affec+
+Levrier          Taille++  Veloc++    Affec-
+Mastiff          Taille++   Veloc-    Affec-
+Pekinois          Taille-   Veloc-    Affec+
+Pointer          Taille++  Veloc++    Affec-
+St-Bernard       Taille++   Veloc-    Affec-
+Setter           Taille++  Veloc++    Affec-
+Teckel            Taille-   Veloc-    Affec+
+Terre-Neuve      Taille++   Veloc-    Affec-
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="analyse-des-individus">
+<h2>Analyse des individus<a class="headerlink" href="#analyse-des-individus" title="Permalink to this headline">#</a></h2>
+<p>Dans la suite, on travaille sur le tableau disjonctif complet des données (variables transformées en indicatrices 0/1).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#codage en 0/1 des propriétés des chiens : tableau disjonctif complet</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">var_chiens</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">prefix_sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">n</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span>  <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                 Taille+  Taille++  Taille-  Veloc+  Veloc++  Veloc-  Affec+  \
+Chien                                                                          
+Beauceron              0         1        0       0        1       0       1   
+Basset                 0         0        1       0        0       1       0   
+Berger All             0         1        0       0        1       0       1   
+Boxer                  1         0        0       1        0       0       1   
+Bull-Dog               0         0        1       0        0       1       1   
+Bull-Mastif            0         1        0       0        0       1       0   
+Caniche                0         0        1       1        0       0       1   
+Chihuahua              0         0        1       0        0       1       1   
+Cocker                 1         0        0       0        0       1       1   
+Colley                 0         1        0       0        1       0       1   
+Dalmatien              1         0        0       1        0       0       1   
+Doberman               0         1        0       0        1       0       0   
+Dogue-All              0         1        0       0        1       0       0   
+Epag.-Breton           1         0        0       1        0       0       1   
+Epag.-FranÃ§ais        0         1        0       1        0       0       0   
+Fox-Hound              0         1        0       0        1       0       0   
+Fox-Terrier            0         0        1       1        0       0       1   
+Gd-Bleu-Gasc           0         1        0       1        0       0       0   
+Labrador               1         0        0       1        0       0       1   
+Levrier                0         1        0       0        1       0       0   
+Mastiff                0         1        0       0        0       1       0   
+Pekinois               0         0        1       0        0       1       1   
+Pointer                0         1        0       0        1       0       0   
+St-Bernard             0         1        0       0        0       1       0   
+Setter                 0         1        0       0        1       0       0   
+Teckel                 0         0        1       0        0       1       1   
+Terre-Neuve            0         1        0       0        0       1       0   
+
+                 Affec-  
+Chien                    
+Beauceron             0  
+Basset                1  
+Berger All            0  
+Boxer                 0  
+Bull-Dog              0  
+Bull-Mastif           1  
+Caniche               0  
+Chihuahua             0  
+Cocker                0  
+Colley                0  
+Dalmatien             0  
+Doberman              1  
+Dogue-All             1  
+Epag.-Breton          0  
+Epag.-FranÃ§ais       1  
+Fox-Hound             1  
+Fox-Terrier           0  
+Gd-Bleu-Gasc          1  
+Labrador              0  
+Levrier               1  
+Mastiff               1  
+Pekinois              0  
+Pointer               1  
+St-Bernard            1  
+Setter                1  
+Teckel                0  
+Terre-Neuve           1  
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>===== Votre travail : =====<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p>Vous avez à disposition un fichier <a class="reference external" href="http://mca.py">mca.py</a>, permettant de réaliser les calculs relatifs à une analyse des correspondances multiples
+Faire une analyse en composantes multiples de ces données et plus précisément :</p>
+<ul class="simple">
+<li><p>Déterminer l’importance des axes principaux calculés lors de l’ACP (attribut <span class="math notranslate nohighlight">\(eig\_\)</span>, descripion ligne 74 de <a class="reference external" href="http://mca.py">mca.py</a>).</p></li>
+<li><p>Déterminer les contributions des points lignes à la variance des axes (attribut r<span class="math notranslate nohighlight">\(ow\_contrib\_\)</span>, descripion ligne 86 de <a class="reference external" href="http://mca.py">mca.py</a>)</p></li>
+<li><p>Déterminer les contributions des points colonnes à la variance de l’axe (attribut <span class="math notranslate nohighlight">\(col\_contrib\_\)</span>, descripion ligne 90 de <a class="reference external" href="http://mca.py">mca.py</a>)</p></li>
+<li><p>Déterminer la qualité de représentation des des points lignes et colonnes (attributs <span class="math notranslate nohighlight">\(row\_cos2\_\)</span> et <span class="math notranslate nohighlight">\(col\_cos2\_\)</span>, descripion lignes 94 et 97 de <a class="reference external" href="http://mca.py">mca.py</a>)</p></li>
+<li><p>Tracer la projection des points lignes et colonnes (fonctions <span class="math notranslate nohighlight">\(mapping\)</span>, <span class="math notranslate nohighlight">\(mapping\_row\)</span> et <span class="math notranslate nohighlight">\(mapping\_col\)</span> de <a class="reference external" href="http://mca.py">mca.py</a>) sur les plans princpaux</p></li>
+<li><p>Commenter l’ensemble de vos analyses</p></li>
+</ul>
+<p>Calculer la distance entre individus : on utilise dans ce cas la distance du Chi2 sur modalités catégorielles (voir chapitre 1 du cours) qui met en valeur les différences entre les modalités rares</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#profil individu moyen</span>
+<span class="n">ind_moy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">p</span><span class="p">)</span> 
+
+<span class="n">distchi2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+
+<span class="c1">#TODO : calcul de la distance </span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">distchi2</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">distchi2</span><span class="p">),</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;Greens&#39;</span><span class="p">,</span><span class="n">xticklabels</span><span class="o">=</span><span class="n">chiens</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">yticklabels</span><span class="o">=</span><span class="n">chiens</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/TP3_AFC_ACM_41_1.png" src="_images/TP3_AFC_ACM_41_1.png" />
+</div>
+</div>
+<p>Ainsi, par exemple, le Basset a plus de caractères en commun avec le Caniche qu’avec le Beauceron.</p>
+<p>Calculer la distance à l’origine (profil moyen). Interpréter</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#profil moyen des variables-modalités</span>
+<span class="n">moda_moy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="n">n</span>
+
+<span class="n">distO</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+
+<span class="c1">#TODO : calcul de la distance</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">distO</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">distO</span><span class="p">),</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;Greens&#39;</span><span class="p">,</span><span class="n">xticklabels</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/TP3_AFC_ACM_44_1.png" src="_images/TP3_AFC_ACM_44_1.png" />
+</div>
+</div>
+<p>Ainsi par exemple, le Pointer est plus proche du chien moyen que le Cocker.</p>
+<div class="section" id="analyse-des-colonnes">
+<h3>Analyse des colonnes<a class="headerlink" href="#analyse-des-colonnes" title="Permalink to this headline">#</a></h3>
+<p>L’analyse des associations entre les modalités revient à travailler sur les profils colonnes. Le tableau de données est normalisé par les sommes en colonne. Le profil moyen est égal au poids des observations</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#somme en colonne</span>
+<span class="n">somme_col</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+
+<span class="n">n</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span>  <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+
+<span class="c1">#On utilise la distance du Chi2 sur modalités catégorielles qui met en valeur les différences entre les modalités rares </span>
+<span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">p</span><span class="p">):</span>
+        <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="p">((</span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">somme_col</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span><span class="n">j</span><span class="p">]</span><span class="o">/</span><span class="n">somme_col</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">dist</span><span class="p">),</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;Greens&#39;</span><span class="p">,</span><span class="n">xticklabels</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">yticklabels</span><span class="o">=</span><span class="n">chiens</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/TP3_AFC_ACM_47_1.png" src="_images/TP3_AFC_ACM_47_1.png" />
+</div>
+</div>
+<p>Calculer la distance à l’origine, qui  donne une information sur la fréquence de la modalité dans la base. Elle est définie par la disance du <span class="math notranslate nohighlight">\(\chi^2\)</span> au profil moyen. Interpréter</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#profil moyen des variables-modalités</span>
+<span class="n">moda_moy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="n">n</span>
+
+<span class="n">distO</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">p</span><span class="p">))</span>
+
+<span class="c1">#TODO calcul distance</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">distO</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">distO</span><span class="p">),</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;Greens&#39;</span><span class="p">,</span><span class="n">xticklabels</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/TP3_AFC_ACM_49_1.png" src="_images/TP3_AFC_ACM_49_1.png" />
+</div>
+</div>
+<p>Ainsi, Veloc+ est moins présent que Veloc- dans les exemples.</p>
+</div>
+<div class="section" id="acm">
+<h3>ACM<a class="headerlink" href="#acm" title="Permalink to this headline">#</a></h3>
+<p>On créé une instance de l’objet MCA (défini dans <a class="reference external" href="http://mca.py">mca.py</a>) et on estime le modèle des correspondances multiples sur les données <span class="math notranslate nohighlight">\(X\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mca</span> <span class="kn">import</span> <span class="n">MCA</span>
+<span class="n">acm</span> <span class="o">=</span> <span class="n">MCA</span><span class="p">(</span><span class="n">row_labels</span><span class="o">=</span><span class="n">var_chiens</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">var_labels</span><span class="o">=</span><span class="n">var_chiens</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">acm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">var_chiens</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MCA(row_labels=Index([&#39;Beauceron&#39;, &#39;Basset&#39;, &#39;Berger All&#39;, &#39;Boxer&#39;, &#39;Bull-Dog&#39;, &#39;Bull-Mastif&#39;,
+       &#39;Caniche&#39;, &#39;Chihuahua&#39;, &#39;Cocker&#39;, &#39;Colley&#39;, &#39;Dalmatien&#39;, &#39;Doberman&#39;,
+       &#39;Dogue-All&#39;, &#39;Epag.-Breton&#39;, &#39;Epag.-FranÃ§ais&#39;, &#39;Fox-Hound&#39;,
+       &#39;Fox-Terrier&#39;, &#39;Gd-Bleu-Gasc&#39;, &#39;Labrador&#39;, &#39;Levrier&#39;, &#39;Mastiff&#39;,
+       &#39;Pekinois&#39;, &#39;Pointer&#39;, &#39;St-Bernard&#39;, &#39;Setter&#39;, &#39;Teckel&#39;, &#39;Terre-Neuve&#39;],
+      dtype=&#39;object&#39;, name=&#39;Chien&#39;),
+    var_labels=Index([&#39;Taille&#39;, &#39;Velocite&#39;, &#39;Affection&#39;], dtype=&#39;object&#39;))
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="analyse-des-valeurs-propres">
+<h3>Analyse des valeurs propres<a class="headerlink" href="#analyse-des-valeurs-propres" title="Permalink to this headline">#</a></h3>
+<p>L’objectif de l’Analyse des Correspondances Multiples est de décomposer l’information sur une succession d’axes factoriels orthogonaux. Le nouveau système de représentation est calculé pour préserver au mieux les distances entre individus. L nombre maximum de facteurs est <span class="math notranslate nohighlight">\(p-k\)</span>, où <span class="math notranslate nohighlight">\(p\)</span> est la somme du nombre de modalités des variables (le nombre de colonnes de <span class="math notranslate nohighlight">\(X\)</span>), et <span class="math notranslate nohighlight">\(k\)</span> le nombre de variables initiales.</p>
+<p>De même que pour l’analyse facrtorielle, calculer les valeurs propres et interpréter les facteurs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/TP3_AFC_ACM_55_0.png" src="_images/TP3_AFC_ACM_55_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="representation-graphique">
+<h3>Représentation graphique<a class="headerlink" href="#representation-graphique" title="Permalink to this headline">#</a></h3>
+<p>2 types de graphiques peuvent être réalisés :</p>
+<ul class="simple">
+<li><p>Les mappings classiques qui représentent les points lignes et colonnes sur un plan factoriel</p></li>
+<li><p>Des graphiques qui permettent d’interpréter rapidement les axes : on choisit un axe factoriel et on observe quels sont les points lignes et colonnes qui présentent les plus fortes contributions et cos2 pour cet axe</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span><span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">acm</span><span class="o">.</span><span class="n">mapping</span><span class="p">(</span><span class="n">ax1</span><span class="p">,</span><span class="n">num_x_axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_y_axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">acm</span><span class="o">.</span><span class="n">mapping_row</span><span class="p">(</span><span class="n">ax2</span><span class="p">,</span><span class="n">num_x_axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_y_axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">acm</span><span class="o">.</span><span class="n">mapping_col</span><span class="p">(</span><span class="n">ax3</span><span class="p">,</span><span class="n">num_x_axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_y_axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.52</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/TP3_AFC_ACM_58_0.png" src="_images/TP3_AFC_ACM_58_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span><span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">acm</span><span class="o">.</span><span class="n">mapping</span><span class="p">(</span><span class="n">ax1</span><span class="p">,</span><span class="n">num_x_axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_y_axis</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">acm</span><span class="o">.</span><span class="n">mapping_row</span><span class="p">(</span><span class="n">ax2</span><span class="p">,</span><span class="n">num_x_axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_y_axis</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">acm</span><span class="o">.</span><span class="n">mapping_col</span><span class="p">(</span><span class="n">ax3</span><span class="p">,</span><span class="n">num_x_axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_y_axis</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.52</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/TP3_AFC_ACM_59_0.png" src="_images/TP3_AFC_ACM_59_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="analyse-du-1er-axe">
+<h3>Analyse du 1er axe<a class="headerlink" href="#analyse-du-1er-axe" title="Permalink to this headline">#</a></h3>
+<p>On utilise les formules de <span class="math notranslate nohighlight">\(cos^2\)</span> pour mesurer la qualité de la projection des individus et des modalités sur les axes factoriels.
+En pratique, si deux individus sont bien projetés alors s’ils sont proches en projections, ils sont effectivement proches dans leur espace d’origine et on peut alors interprèter leur proximité :</p>
+<p>— La proximité entre deux individus s’interprète en terme de distance (du <span class="math notranslate nohighlight">\(\chi^2\)</span>) : deux individus se ressemblent s’ils ont choisis les mêmes modalités.</p>
+<p>— La proximité entre deux modalités de deux variables différentes s’interprète en terme de distance (du <span class="math notranslate nohighlight">\(\chi^2\)</span>) : deux modalités se ressemblent si elles sont possédées par les mêmes individus.</p>
+<p>On peut exhiber les coordonnées des individus sur les facteurs. Par exemple sur le premier facteur</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">acm</span><span class="o">.</span><span class="n">row_coord_</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">index</span><span class="o">=</span><span class="n">var_chiens</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                        0
+Chien                    
+Beauceron       -0.410650
+Basset           0.049305
+Berger All      -0.410650
+Boxer            1.207263
+Bull-Dog         0.689967
+Bull-Mastif     -0.598234
+Caniche          0.991235
+Chihuahua        0.689967
+Cocker           0.905995
+Colley          -0.410650
+Dalmatien        1.207263
+Doberman        -1.051312
+Dogue-All       -1.051312
+Epag.-Breton     1.207263
+Epag.-FranÃ§ais -0.296967
+Fox-Hound       -1.051312
+Fox-Terrier      0.991235
+Gd-Bleu-Gasc    -0.296967
+Labrador         1.207263
+Levrier         -1.051312
+Mastiff         -0.598234
+Pekinois         0.689967
+Pointer         -1.051312
+St-Bernard      -0.598234
+Setter          -1.051312
+Teckel           0.689967
+Terre-Neuve     -0.598234
+</pre></div>
+</div>
+</div>
+</div>
+<p>et de même pour les modalités</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">acm</span><span class="o">.</span><span class="n">col_coord_</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">index</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                 0
+Taille+   1.357789
+Taille++ -0.830741
+Taille-   0.810311
+Veloc+    0.920019
+Veloc++  -0.991708
+Veloc-    0.156521
+Affec+    0.781744
+Affec-   -0.841878
+\begin{tabular}{lrrr}
+\toprule
+{} &amp;         0 &amp;         1 &amp;         2 \\
+\midrule
+Taille+  &amp;  1.357789 &amp; -1.208698 &amp;  0.511177 \\
+Taille++ &amp; -0.830741 &amp; -0.183303 &amp;  0.043597 \\
+Taille-  &amp;  0.810311 &amp;  1.256148 &amp; -0.458548 \\
+Veloc+   &amp;  0.920019 &amp; -0.854578 &amp;  0.301665 \\
+Veloc++  &amp; -0.991708 &amp; -0.433463 &amp; -0.855715 \\
+Veloc-   &amp;  0.156521 &amp;  1.073779 &amp;  0.528811 \\
+Affec+   &amp;  0.781744 &amp; -0.020376 &amp; -0.484442 \\
+Affec-   &amp; -0.841878 &amp;  0.021943 &amp;  0.521706 \\
+\bottomrule
+\end{tabular}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Calculer la moyenne des  coordonnées pour chaque variable. Qu’observez-vous ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.469446951953614e-18
+-3.1803263726241462e-18
+-6.938893903907228e-18
+</pre></div>
+</div>
+</div>
+</div>
+<p>En utillisant les fonctions plot_row_contrib et plot_row_cos2 (voir fichier <a class="reference external" href="http://base.py">base.py</a>), interpréter la contribution des individus aux deux premiers facteurs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/TP3_AFC_ACM_68_0.svg" src="_images/TP3_AFC_ACM_68_0.svg" /><img alt="_images/TP3_AFC_ACM_68_1.svg" src="_images/TP3_AFC_ACM_68_1.svg" /></div>
+</div>
+</div>
+<div class="section" id="analyse-du-deuxieme-axe">
+<h3>Analyse du deuxième axe<a class="headerlink" href="#analyse-du-deuxieme-axe" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/TP3_AFC_ACM_70_0.svg" src="_images/TP3_AFC_ACM_70_0.svg" /><img alt="_images/TP3_AFC_ACM_70_1.svg" src="_images/TP3_AFC_ACM_70_1.svg" /></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="TP2_ACP.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">TP ACP</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="regression.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Régression</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Vincent BARRA<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

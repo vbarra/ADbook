@@ -996,7 +996,7 @@ On souhaite évaluer l'effet de l'espèce de chêne sur des vins rouges vieillis
 L'objectif de l'étude est d'une part de proposer une typologie des vins et d'autre part de savoir s'il y a un accord entre les échelles utilisées par les experts. 
 
 
-La figure suivante présente le résultat de l'analyse spectrale en lignes. Les tableaux qui suivent donnent les coordonnées des individus ($S$), la qualité de leur représentation et leur contribution  (C$\times 10^3$ sur les trois premiers axes factoriels.
+La figure suivante présente le résultat de l'analyse spectrale en lignes. Les tableaux qui suivent donnent les coordonnées des individus ($S$), la qualité de leur représentation et leur contribution  (C$\times 10^3$) sur les trois premiers axes factoriels.
 
 
 ![](./images/spectralACM.png)
