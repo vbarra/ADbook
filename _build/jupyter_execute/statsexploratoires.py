@@ -891,7 +891,7 @@ print (print_tab (n, p, ind, cosinus_carres))
 # ````{prf:definition} {Tableau disjonctif complet
 # Le tableau disjonctif complet $\mathbf T$ des données est un tableau $n\times m$ tel que 
 # 
-# $(\forall i\in[\![1,n]\!],j\in[\![1, m]\!])\; \mathbf T_{ij} = \left \{ \begin{array}{cl} 1&\textrm{si l'individu i possède la modalité j}\\0 & \textrm{sinon}\end{array}\right$
+# $(\forall i\in[\![1,n]\!],j\in[\![1, m]\!])\; \mathbf T_{ij} = \left \{ \begin{array}{cl} 1&\textrm{si l'individu i possède la modalité j}\\0 & \textrm{sinon}\end{array}\right .$
 # ````
 # 
 # On déduit de ce tableau disjonctif le tableau de Burt correspondant, $\mathbf B=\mathbf T^T \mathbf T$, qui rassemble les croisements deux à  deux de toutes les variables, i.e tous les tableaux de contingence des variables deux à deux. Sur la diagonale de $\mathbf B$ se trouvent les coefficients $B_{ii}=n_i$, donnant le nombre d'individus possédant la modalité $i$.  Les autres coefficients $B_{ij} = \mathbf{T_{\bullet i}}^T \mathbf {T_{\bullet j}}$ quantifient le nombre d'individus ayant les modalités $i$ et $j$.
