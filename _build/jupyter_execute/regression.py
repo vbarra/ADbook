@@ -348,9 +348,14 @@
 # ### Influence des observations
 #  Pour étudier l'influence des observations sur la prédiction, deux approches sont possibles (et complémentaires) : 
 # 
-# 1. étudier l'influence d'une observation sur sa propre prédiction. On calcule le résidu prédit $y_i-y_{\bar{i}}^*$, où $y_{\bar{i}}^*$ est la prévision obtenue avec les $n-1$ autres observations que $y_i$. Il est facile de montrer que ce résidu vaut $\frac{y_i-y_i^*}{1-p_i}$\footnote{il convient de rester prudent lorsque $p_i$ est grand}, et la quantité 
+# 1. étudier l'influence d'une observation sur sa propre prédiction. On calcule le résidu prédit $y_i-y_{\bar{i}}^*$, où $y_{\bar{i}}^*$ est la prévision obtenue avec les $n-1$ autres observations que $y_i$. Il est facile de montrer que ce résidu vaut $\frac{y_i-y_i^*}{1-p_i}$
+# 
+# ```{prf:remark}
+# :class: dropdown
+# Il convient de rester prudent lorsque $p_i$ est grand}, et la quantité 
 #  $\displaystyle\sum_{i=1}^n  \frac{(y_i-y_i^*)^2}{(1-p_i)^2}$
 #  est une mesure du pouvoir prédictif du modèle.
+#  ```
 # 2. étudier l'influence d'une observation sur les estimations des paramètres de la régression $\beta_i$. On peut par exemple calculer une distance, dite de Cook, entre $\boldsymbol \beta$ et $\boldsymbol \beta_{\bar{i}}$ :
 # 3. 
 #  $d(\boldsymbol \beta,\boldsymbol\beta_{\bar{i}}) = \frac{(\boldsymbol \beta-\boldsymbol\beta_{\bar{i}})^T\mathbf X^T \mathbf X(\boldsymbol \beta-\boldsymbol\beta_{\bar{i}})}{\hat{\sigma}^2(p+1)}=\frac{\|\mathbf Y^*-\mathbf Y_{\bar{i}}^*\|^2}{\hat{\sigma}^2(p+1)}$
@@ -434,4 +439,7 @@
 # 
 # Dans la figure suivante, les points au-dessus du plan regresseur sont en bleu, les autres en vert.
 # 
+# 
+# 
 # | ![](./images/plan.png) | ![](./images/plan2.png) |
+# |------------------------------------------------------------|----------------------------------------------------------------|

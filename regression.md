@@ -364,7 +364,7 @@ On appelle résidu studentisé la quantité $\frac{y_i-y^*_i}{\hat{\sigma}\sqrt{
 Il convient de rester prudent lorsque $p_i$ est grand}, et la quantité 
  $\displaystyle\sum_{i=1}^n  \frac{(y_i-y_i^*)^2}{(1-p_i)^2}$
  est une mesure du pouvoir prédictif du modèle.
- ```
+ ``` 
 2. étudier l'influence d'une observation sur les estimations des paramètres de la régression $\beta_i$. On peut par exemple calculer une distance, dite de Cook, entre $\boldsymbol \beta$ et $\boldsymbol \beta_{\bar{i}}$ :
 3. 
  $d(\boldsymbol \beta,\boldsymbol\beta_{\bar{i}}) = \frac{(\boldsymbol \beta-\boldsymbol\beta_{\bar{i}})^T\mathbf X^T \mathbf X(\boldsymbol \beta-\boldsymbol\beta_{\bar{i}})}{\hat{\sigma}^2(p+1)}=\frac{\|\mathbf Y^*-\mathbf Y_{\bar{i}}^*\|^2}{\hat{\sigma}^2(p+1)}$
@@ -448,10 +448,7 @@ $\hat{\sigma}^2 (\mathbf X^T\mathbf X)^{-1} = \begin{pmatrix} 3355.56 & -4.152 &
 
 Dans la figure suivante, les points au-dessus du plan regresseur sont en bleu, les autres en vert.
 
-
-
 | ![](./images/plan.png) | ![](./images/plan2.png) |
-|------------------------------------------------------------|----------------------------------------------------------------|
 
 
 
