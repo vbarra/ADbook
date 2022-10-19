@@ -6,6 +6,13 @@
 # In[1]:
 
 
+# n'exécuter qu'une fois
+get_ipython().system('pip3 install sklearn numpy matplotlib')
+
+
+# In[2]:
+
+
 get_ipython().run_line_magic('matplotlib', 'inline')
 import numpy as np
 import matplotlib.pyplot as plt
@@ -21,7 +28,7 @@ plt.rcParams['ytick.labelsize'] = 12
 # - CercleCorrelation : affichage du cercle des corrélations
 # - biplot : affichage simultané des individus et des variables dans un plan principal
 
-# In[2]:
+# In[3]:
 
 
 def screeplot(Xtr, displayx = True):
@@ -35,7 +42,7 @@ def screeplot(Xtr, displayx = True):
     plt.title("Scree Plot")
 
 
-# In[3]:
+# In[4]:
 
 
 def CercleCorrelation(pca,np1,np2,data,nom_features):
@@ -59,7 +66,7 @@ def CercleCorrelation(pca,np1,np2,data,nom_features):
     plt.title("Cercle des corrélations")
 
 
-# In[4]:
+# In[5]:
 
 
 def biplot(pca,np1,np2,data,nom_features):  
@@ -85,7 +92,7 @@ def biplot(pca,np1,np2,data,nom_features):
 # # Exercice 1 : étude de propriétés de vins
 # Le fichier vins.csv contient les résultats d'analyses chimiques de trois classes de vins italiens, provenant de la même région mais de viticulteurs différents. Les analyses portent sur la quantification de 13 indices quantitatifs continus reliés aux vins : degré d'alcool, acide malique, présence de cendres, alcalinité des cendres, magnésium, phénols totaux, flavonoïdes, phénols non flavanoïdes, proanthocyanidines, intensité de la couleur du vin, teinte, OD280/OD315 des vins dilués et proline. Le fichier décrit un vin par ligne (sa classe et ses 13 attributs).
 
-# In[5]:
+# In[6]:
 
 
 import pandas as pd 
@@ -114,7 +121,7 @@ nom_features = ['% alcool', 'acide malique', 'cendres', 'alcalinité', 'magnési
 # # Exercice 2 : étude de données image
 # Nous étudions des données image, représentant des chiffres manuscrits. Nous utilisons pour cela la base de données standard MNIST (Mixed National Institute of Standards and Technology), très employée pour le test de nouveaux algorithmes de reconnaissance de ces chiffres. Elle est composée de 60000 images d’apprentissage et 10000 images de test. Les images en noir et blanc, normalisées centrées de 28 pixels de côté.
 
-# In[6]:
+# In[7]:
 
 
 from sklearn.datasets import fetch_openml
