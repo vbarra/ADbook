@@ -2857,7 +2857,7 @@ Comme en ACP, on s’intéresse à l’inertie du nuage de points, mais pour ce 
 <h3>Notations<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
 <p>On dispose d’un tableau de données <span class="math notranslate nohighlight">\(\mathbf{H}=(h_{i,j})\)</span> à <span class="math notranslate nohighlight">\(n\)</span> lignes et <span class="math notranslate nohighlight">\(p\)</span> colonnes, où <span class="math notranslate nohighlight">\(n\)</span> est le nombre d’individus, <span class="math notranslate nohighlight">\(p\)</span> le nombre de variables qualitatives mesurées et pour <span class="math notranslate nohighlight">\(i\in[\![1,n]\!],j\in[\![1,p]\!],h_{ij}\in\mathcal{M}_j\)</span>, <span class="math notranslate nohighlight">\(\mathcal{M}_j\)</span> étant l’ensemble des modalités de la j<span class="math notranslate nohighlight">\(^e\)</span> variable. Si <span class="math notranslate nohighlight">\(m_j\)</span> est le cardinal de <span class="math notranslate nohighlight">\(\mathcal{M}_j\)</span>, alors <span class="math notranslate nohighlight">\(m=\sum_{k=1}^p m_k\)</span> est le nombre total de modalités.</p>
 <div class="proof definition admonition" id="definition-4">
-<p class="admonition-title"><span class="caption-number">Definition 36 </span> ({Tableau disjonctif complet)</p>
+<p class="admonition-title"><span class="caption-number">Definition 36 </span> (Tableau disjonctif complet)</p>
 <div class="definition-content section" id="proof-content">
 <p>Le tableau disjonctif complet <span class="math notranslate nohighlight">\(\mathbf T\)</span> des données est un tableau <span class="math notranslate nohighlight">\(n\times m\)</span> tel que</p>
 <p><span class="math notranslate nohighlight">\((\forall i\in[\![1,n]\!],j\in[\![1, m]\!])\; \mathbf T_{ij} = \left \{ \begin{array}{cl} 1&amp;\textrm{si l'individu i possède la modalité j}\\0 &amp; \textrm{sinon}\end{array}\right .\)</span></p>
@@ -2868,8 +2868,8 @@ Comme en ACP, on s’intéresse à l’inertie du nuage de points, mais pour ce 
 <h3>Analyse<a class="headerlink" href="#analyse" title="Permalink to this headline">#</a></h3>
 <div class="section" id="tableau-de-contingence-de-l-acm">
 <h4>Tableau de contingence de l’ACM<a class="headerlink" href="#tableau-de-contingence-de-l-acm" title="Permalink to this headline">#</a></h4>
-<p>En analyse des correspondances multiples, on traite <span class="math notranslate nohighlight">\(\mathbf T\)</span> comme un tableau de contingence. Les totaux en ligne sont alors égaux au nombre de variables <span class="math notranslate nohighlight">\(p\)</span>, les totaux en colonne correspondent au nombre d’individus ayant la modalité correspondant à la colonne traitée. Pour une colonne <span class="math notranslate nohighlight">\(j\)</span>, on note ce total <span class="math notranslate nohighlight">\(n_j\)</span> Le total de tous les coefficients de <span class="math notranslate nohighlight">\(\mathbf T\)</span> vaut donc <span class="math notranslate nohighlight">\(np\)</span>.\
-Comme dans le cas de l’AFC, l’ACM considère les fréquences, les profils ligne et les profils colonne.</p>
+<p>En analyse des correspondances multiples, on traite <span class="math notranslate nohighlight">\(\mathbf T\)</span> comme un tableau de contingence. Les totaux en ligne sont alors égaux au nombre de variables <span class="math notranslate nohighlight">\(p\)</span>, les totaux en colonne correspondent au nombre d’individus ayant la modalité correspondant à la colonne traitée. Pour une colonne <span class="math notranslate nohighlight">\(j\)</span>, on note ce total <span class="math notranslate nohighlight">\(n_j\)</span> Le total de tous les coefficients de <span class="math notranslate nohighlight">\(\mathbf T\)</span> vaut donc <span class="math notranslate nohighlight">\(np\)</span>.</p>
+<p>Comme dans le cas de l’AFC, l’ACM considère les fréquences, les profils ligne et les profils colonne.</p>
 <p>Pour les fréquences :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(f_{ij}=T_{ij}/np\)</span> est la fréquence conjointe et vaut donc <span class="math notranslate nohighlight">\(1/np\)</span> si l’individu <span class="math notranslate nohighlight">\(i\)</span> possède la modalité <span class="math notranslate nohighlight">\(j\)</span> et 0 sinon. On range ces coefficients dans une matrice <span class="math notranslate nohighlight">\(\mathbf{F}\in\mathcal{M}_{nm}(\mathbb{R})\)</span></p></li>
@@ -2893,7 +2893,6 @@ Comme dans le cas de l’AFC, l’ACM considère les fréquences, les profils li
 <p>En analyse des correspondances multiples, on utilise la distance du <span class="math notranslate nohighlight">\(\chi^2\)</span> dans <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span> et <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> :</p>
 <ul class="simple">
 <li><p>dans l’espace des individus, la métrique est <span class="math notranslate nohighlight">\(\mathbf {D_m}^{-1}\)</span> :</p></li>
-<li></li>
 </ul>
 <p><span class="math notranslate nohighlight">\(\chi^2(i,i') = (\mathbf{A}_{i\bullet}-\mathbf{A}_{i'\bullet})^T\mathbf {D_m}^{-1} (\mathbf{A}_{i\bullet}-\mathbf{A}_{i'\bullet}) = \displaystyle\sum_{j=1}^m\frac{1}{f_{\bullet j}}\left (\frac{T_{ij}-T_{i'j}}{p} \right )^2 = \frac {n}{p}\displaystyle\sum_{j=1}^m\frac{1}{{n_j}}\left (T_{ij}-T_{i'j}\right )^2\)</span>
 Deux individus sont proches s’ils possèdent les mêmes modalités, sachant que l’on donne plus de poids au fait que ces deux individus ont en commun une modalité rare (<span class="math notranslate nohighlight">\(n_s\)</span> petit).</p>
@@ -2924,7 +2923,7 @@ et deux modalités sont proches si elles sont possédées par les mêmes individ
 <h3>Interprétation des résultats<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <div class="section" id="id7">
 <h4>Inertie expliquée<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h4>
-<p>L’inertie totale, égale comme nous l’avons vu à <span class="math notranslate nohighlight">\(m/p-1\)</span> se calcule  également comme la somme des valeurs propres <span class="math notranslate nohighlight">\(\lambda_1+\cdots +\lambda_r\)</span>, où <span class="math notranslate nohighlight">\(r=min(n-1,m-p)\)</span> est le nombre de valeurs propres non nulles issues de l’ACP. La part d’inertie expliquée par l’axe <span class="math notranslate nohighlight">\(z\)</span> est alors <span class="math notranslate nohighlight">\(\lambda_z/(\lambda_1+\cdots +\lambda_r)\)</span>. En revanche, point important, le nombre d’axes retenus pour l’interprétation ou le recodage ne peut pas être choisi à partir de ces pourcentages d’inertie expliquées, contrairement à l’ACP (voir section \ref{S:ACMAFC}).</p>
+<p>L’inertie totale, égale comme nous l’avons vu à <span class="math notranslate nohighlight">\(m/p-1\)</span> se calcule  également comme la somme des valeurs propres <span class="math notranslate nohighlight">\(\lambda_1+\cdots +\lambda_r\)</span>, où <span class="math notranslate nohighlight">\(r=min(n-1,m-p)\)</span> est le nombre de valeurs propres non nulles issues de l’ACP. La part d’inertie expliquée par l’axe <span class="math notranslate nohighlight">\(z\)</span> est alors <span class="math notranslate nohighlight">\(\lambda_z/(\lambda_1+\cdots +\lambda_r)\)</span>. En revanche, point important, le nombre d’axes retenus pour l’interprétation ou le recodage ne peut pas être choisi à partir de ces pourcentages d’inertie expliquées, contrairement à l’ACP.</p>
 </div>
 <div class="section" id="contributions-et-representation">
 <h4>Contributions et représentation<a class="headerlink" href="#contributions-et-representation" title="Permalink to this headline">#</a></h4>
@@ -2942,21 +2941,17 @@ deux individus se ressemblent (au sens de la distance du <span class="math notra
 </div>
 <div class="section" id="cas-particulier-p-2">
 <h3>Cas particulier <span class="math notranslate nohighlight">\(p\)</span>=2<a class="headerlink" href="#cas-particulier-p-2" title="Permalink to this headline">#</a></h3>
-<p>\label{S:ACMAFC}
-Dans le cas <span class="math notranslate nohighlight">\(p=2\)</span>, on observe <span class="math notranslate nohighlight">\(2\)</span> variables ayant respectivement <span class="math notranslate nohighlight">\(m_1\)</span> et <span class="math notranslate nohighlight">\(m_2\)</span> modalités. On se retrouve donc dans le cas où l’AFC s’applique et on peut :</p>
+<p>Dans le cas <span class="math notranslate nohighlight">\(p=2\)</span>, on observe <span class="math notranslate nohighlight">\(2\)</span> variables ayant respectivement <span class="math notranslate nohighlight">\(m_1\)</span> et <span class="math notranslate nohighlight">\(m_2\)</span> modalités. On se retrouve donc dans le cas où l’AFC s’applique et on peut :</p>
 <ul class="simple">
 <li><p>soit analyser le tableau <span class="math notranslate nohighlight">\(\mathbf{T}\in\mathcal{M}_{n,m_1+m_2}(\mathbb{R})\)</span> par analyse en composantes multiples,</p></li>
 <li><p>soit analyser le tableau de contingence <span class="math notranslate nohighlight">\(\mathbf{K}\in\mathcal{M}_{m_1,m_2}(\mathbb{R})\)</span> par AFC.</p></li>
 </ul>
-<p>Si on note <span class="math notranslate nohighlight">\(Sp(\mathbf{K}) = (\mu_i)\)</span> et <span class="math notranslate nohighlight">\(Sp(\mathbf{T}) = (\lambda_i)\)</span> alors on montre  que</p>
-<p><span class="math notranslate nohighlight">\(\mu_r = (2\lambda_r - 1)^2\)</span>
-On en déduit qu’à chaque valeur  propre de l’AFC correspondent deux valeurs propres de l’ACM</p>
-<p><span class="math notranslate nohighlight">\(\lambda_r = \frac{1\pm \sqrt{\mu_r}}{2}\)</span>
-et une relation entre les coordonnées factorielles des deux analyses</p>
-<p>\begin{eqnarray*}
-\mathbf{c}_1 = \begin{pmatrix} \mathbf{x_K}\mathbf{y_K}\end{pmatrix}\ &amp;\textrm{pour}&amp; \lambda_r = \frac{1+ \sqrt{\mu_r}}{2}\
-\mathbf{c}_2 = \begin{pmatrix} \mathbf{x_K}-\mathbf{y_K}\end{pmatrix}\ &amp;\textrm{pour}&amp; \lambda_r = \frac{1- \sqrt{\mu_r}}{2}
-\end{eqnarray*}</p>
+<p>Si on note <span class="math notranslate nohighlight">\(Sp(\mathbf{K}) = (\mu_i)\)</span> et <span class="math notranslate nohighlight">\(Sp(\mathbf{T}) = (\lambda_i)\)</span> alors on montre  que  <span class="math notranslate nohighlight">\(\mu_r = (2\lambda_r - 1)^2\)</span>
+On en déduit qu’à chaque valeur  propre de l’AFC correspondent deux valeurs propres de l’ACM <span class="math notranslate nohighlight">\(\lambda_r = \frac{1\pm \sqrt{\mu_r}}{2}\)</span>, et une relation entre les coordonnées factorielles des deux analyses</p>
+<p><span class="math notranslate nohighlight">\(\begin{eqnarray*}
+\mathbf{c}_1 = \begin{pmatrix} \mathbf{x_K}\\\mathbf{y_K}\end{pmatrix}\ &amp;\textrm{pour}&amp; \lambda_r = \frac{1+ \sqrt{\mu_r}}{2}\\
+\mathbf{c}_2 = \begin{pmatrix} \mathbf{x_K}\\-\mathbf{y_K}\end{pmatrix}\ &amp;\textrm{pour}&amp; \lambda_r = \frac{1- \sqrt{\mu_r}}{2}
+\end{eqnarray*}\)</span></p>
 <p>où <span class="math notranslate nohighlight">\(\mathbf{x_K},\mathbf{y_K}\)</span> sont les composantes principales des profils ligne et colonne de <span class="math notranslate nohighlight">\(K\)</span>.
 De là viennent deux constats :</p>
 <ul class="simple">

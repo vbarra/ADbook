@@ -898,7 +898,7 @@ print (print_tab (n, p, ind, cosinus_carres))
 # ### Notations
 # On dispose d'un tableau de données $\mathbf{H}=(h_{i,j})$ à $n$ lignes et $p$ colonnes, où $n$ est le nombre d'individus, $p$ le nombre de variables qualitatives mesurées et pour $i\in[\![1,n]\!],j\in[\![1,p]\!],h_{ij}\in\mathcal{M}_j$, $\mathcal{M}_j$ étant l'ensemble des modalités de la j$^e$ variable. Si $m_j$ est le cardinal de $\mathcal{M}_j$, alors $m=\sum_{k=1}^p m_k$ est le nombre total de modalités. 
 # 
-# ````{prf:definition} {Tableau disjonctif complet
+# ````{prf:definition} Tableau disjonctif complet
 # Le tableau disjonctif complet $\mathbf T$ des données est un tableau $n\times m$ tel que 
 # 
 # $(\forall i\in[\![1,n]\!],j\in[\![1, m]\!])\; \mathbf T_{ij} = \left \{ \begin{array}{cl} 1&\textrm{si l'individu i possède la modalité j}\\0 & \textrm{sinon}\end{array}\right .$
@@ -908,7 +908,8 @@ print (print_tab (n, p, ind, cosinus_carres))
 # 
 # ### Analyse
 # #### Tableau de contingence de l'ACM
-# En analyse des correspondances multiples, on traite $\mathbf T$ comme un tableau de contingence. Les totaux en ligne sont alors égaux au nombre de variables $p$, les totaux en colonne correspondent au nombre d'individus ayant la modalité correspondant à la colonne traitée. Pour une colonne $j$, on note ce total $n_j$ Le total de tous les coefficients de $\mathbf T$ vaut donc $np$.\\
+# En analyse des correspondances multiples, on traite $\mathbf T$ comme un tableau de contingence. Les totaux en ligne sont alors égaux au nombre de variables $p$, les totaux en colonne correspondent au nombre d'individus ayant la modalité correspondant à la colonne traitée. Pour une colonne $j$, on note ce total $n_j$ Le total de tous les coefficients de $\mathbf T$ vaut donc $np$.
+# 
 # Comme dans le cas de l'AFC, l'ACM considère les fréquences, les profils ligne et les profils colonne.
 # 
 # Pour les fréquences : 
@@ -936,7 +937,7 @@ print (print_tab (n, p, ind, cosinus_carres))
 # 
 # 
 # - dans l'espace des individus, la métrique est $\mathbf {D_m}^{-1}$ : 
-# - 
+# 
 # $\chi^2(i,i') = (\mathbf{A}_{i\bullet}-\mathbf{A}_{i'\bullet})^T\mathbf {D_m}^{-1} (\mathbf{A}_{i\bullet}-\mathbf{A}_{i'\bullet}) = \displaystyle\sum_{j=1}^m\frac{1}{f_{\bullet j}}\left (\frac{T_{ij}-T_{i'j}}{p} \right )^2 = \frac {n}{p}\displaystyle\sum_{j=1}^m\frac{1}{{n_j}}\left (T_{ij}-T_{i'j}\right )^2$
 # Deux individus sont proches s'ils possèdent les mêmes modalités, sachant que l'on donne plus de poids au fait que ces deux individus ont en commun une modalité rare ($n_s$ petit).
 # - dans l'espace des modalités, la métrique est $\mathbf {D_n}^{-1}$ : 
@@ -970,7 +971,7 @@ print (print_tab (n, p, ind, cosinus_carres))
 # 
 # ### Interprétation des résultats
 # #### Inertie expliquée
-# L'inertie totale, égale comme nous l'avons vu à $m/p-1$ se calcule  également comme la somme des valeurs propres $\lambda_1+\cdots +\lambda_r$, où $r=min(n-1,m-p)$ est le nombre de valeurs propres non nulles issues de l'ACP. La part d'inertie expliquée par l'axe $z$ est alors $\lambda_z/(\lambda_1+\cdots +\lambda_r)$. En revanche, point important, le nombre d'axes retenus pour l'interprétation ou le recodage ne peut pas être choisi à partir de ces pourcentages d'inertie expliquées, contrairement à l'ACP (voir section \ref{S:ACMAFC}).
+# L'inertie totale, égale comme nous l'avons vu à $m/p-1$ se calcule  également comme la somme des valeurs propres $\lambda_1+\cdots +\lambda_r$, où $r=min(n-1,m-p)$ est le nombre de valeurs propres non nulles issues de l'ACP. La part d'inertie expliquée par l'axe $z$ est alors $\lambda_z/(\lambda_1+\cdots +\lambda_r)$. En revanche, point important, le nombre d'axes retenus pour l'interprétation ou le recodage ne peut pas être choisi à partir de ces pourcentages d'inertie expliquées, contrairement à l'ACP.
 # 
 # #### Contributions et représentation
 # En reprenant les résultats de l'AFC, on montre que :
@@ -985,25 +986,20 @@ print (print_tab (n, p, ind, cosinus_carres))
 # 
 # 
 # ### Cas particulier $p$=2
-# \label{S:ACMAFC}
+# 
 # Dans le cas $p=2$, on observe $2$ variables ayant respectivement $m_1$ et $m_2$ modalités. On se retrouve donc dans le cas où l'AFC s'applique et on peut :
 # 
 # - soit analyser le tableau $\mathbf{T}\in\mathcal{M}_{n,m_1+m_2}(\mathbb{R})$ par analyse en composantes multiples,
 # - soit analyser le tableau de contingence $\mathbf{K}\in\mathcal{M}_{m_1,m_2}(\mathbb{R})$ par AFC.
 # 
 # 
-# Si on note $Sp(\mathbf{K}) = (\mu_i)$ et $Sp(\mathbf{T}) = (\lambda_i)$ alors on montre  que 
+# Si on note $Sp(\mathbf{K}) = (\mu_i)$ et $Sp(\mathbf{T}) = (\lambda_i)$ alors on montre  que  $\mu_r = (2\lambda_r - 1)^2$
+# On en déduit qu'à chaque valeur  propre de l'AFC correspondent deux valeurs propres de l'ACM $\lambda_r = \frac{1\pm \sqrt{\mu_r}}{2}$, et une relation entre les coordonnées factorielles des deux analyses 
 # 
-# $\mu_r = (2\lambda_r - 1)^2$
-# On en déduit qu'à chaque valeur  propre de l'AFC correspondent deux valeurs propres de l'ACM
-# 
-# $\lambda_r = \frac{1\pm \sqrt{\mu_r}}{2}$
-# et une relation entre les coordonnées factorielles des deux analyses 
-# 
-# \begin{eqnarray*}
+# $\begin{eqnarray*}
 # \mathbf{c}_1 = \begin{pmatrix} \mathbf{x_K}\\\mathbf{y_K}\end{pmatrix}\ &\textrm{pour}& \lambda_r = \frac{1+ \sqrt{\mu_r}}{2}\\
 # \mathbf{c}_2 = \begin{pmatrix} \mathbf{x_K}\\-\mathbf{y_K}\end{pmatrix}\ &\textrm{pour}& \lambda_r = \frac{1- \sqrt{\mu_r}}{2}
-# \end{eqnarray*}
+# \end{eqnarray*}$
 # 
 # où $\mathbf{x_K},\mathbf{y_K}$ sont les composantes principales des profils ligne et colonne de $K$.
 # De là viennent deux constats :
