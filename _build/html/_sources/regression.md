@@ -65,7 +65,7 @@ $r_{XY}^2 = \eta_{Y\mid X}^2$
 ### Ajustement aux données
 On cherche ici à ajuster le modèle linéaire théorique aux $n$ couples d'observations indépendantes $(\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]$. Il s'agit donc de trouver $a,b$ ainsi que la variance du résidu $\epsilon$.
 
-La méthode la plus classique est la méthode des moindres carrés\footnote{On trouvera dans le cours d'analyse numérique 1 une résolution de ce problème par le système aux équations normales.} : on cherche à ajuster au nuage de points  $(\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]$ une droite d'équation $y^*=\alpha +\beta x$ de sorte à minimiser 
+La méthode la plus classique est la méthode des moindres carrés : on cherche à ajuster au nuage de points  $(\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]$ une droite d'équation $y^*=\alpha +\beta x$ de sorte à minimiser 
 
 $\displaystyle\sum_{i=1}^n (y_i^*-y_i)^2 = \displaystyle\sum_{i=1}^n (\alpha + \beta x_i-y_i)^2$
 
@@ -262,7 +262,7 @@ On recherche un ''bon'' modèle pour $p$ :
 
 1. On peut dans un premier temps supposer que $p(\mathbf x)$ est une fonction linéaire de $\mathbf x$. Les fonctions linéaires étant non bornées, elles ne peuvent modéliser des probabilités.  
 2. On peut alors supposer que $log\ p(\mathbf x)$ est une fonction linéaire de $\mathbf x$. Là aussi, la fonction logarithme est non bornée supérieurement, et ne peut modéliser une probabilité.
-3. Partant de cette idée, on borne le logarithme en utilisant la transformation logistique (ou logit) $log\frac{p(\mathbf x)}{1-p(\mathbf x)}$. Etant donné un événement ayant une probabilité $p$ de réussir, le rapport $p/(1-p)$ est appelé la côte de l'événement\footnote{La côte d'un événement est le rapport de la probabilité qu'il se produise sur celle qu'il ne se produise pas. Si vous avez $p$=3/4 de chances de réussir à votre examen de permis, cotre côte est $p/(1-p)=\frac{3/4}{1/4}$=3 contre un.}. On peut alors supposer que cette fonction de $p$ est linéaire en $\mathbf x$.
+3. Partant de cette idée, on borne le logarithme en utilisant la transformation logistique (ou logit) $log\frac{p(\mathbf x)}{1-p(\mathbf x)}$. Etant donné un événement ayant une probabilité $p$ de réussir, le rapport $p/(1-p)$ est appelé la côte de l'événement (rapport de la probabilité qu'il se produise sur celle qu'il ne se produise pas. Si vous avez $p$=3/4 de chances de réussir à votre examen de permis, cotre côte est $p/(1-p)=\frac{3/4}{1/4}$=3 contre un. On peut alors supposer que cette fonction de $p$ est linéaire en $\mathbf x$.
 
 
 Le modèle de régression logistique s'écrit alors formellement 
@@ -345,97 +345,106 @@ Si le modèle linéaire est justifié, alors la distribution des résidus suit a
 
 
 
-\begin{defin}{Résidu studentisé}{}
+````{prf:definition} Résidu studentisé
 On appelle résidu studentisé la quantité $\frac{y_i-y^*_i}{\hat{\sigma}\sqrt{1-hp}}$
-\end{defin}
+```` 
 
- Lorsque $n$ est grand, ces résidus doivent être compris dans l'intervalle [-2,2]. \\ 
- \vskip 10pt
+ Lorsque $n$ est grand, ces résidus doivent être compris dans l'intervalle [-2,2]. 
+
+
  Un fort résidu peut indiquer une valeur aberrante, mais la réciproque n'est pas vraie. Il est donc nécessaire d'étudier l'influence de chaque observation sur les résultats.
 
- \subsection{Influence des observations}
+### Influence des observations
  Pour étudier l'influence des observations sur la prédiction, deux approches sont possibles (et complémentaires) : 
- \begin{enumerate}
- \item étudier l'influence d'une observation sur sa propre prédiction. On calcule le résidu prédit $y_i-y_{\bar{i}}^*$, où $y_{\bar{i}}^*$ est la prévision obtenue avec les $n-1$ autres observations que $y_i$. Il est facile de montrer que ce résidu vaut $\frac{y_i-y_i^*}{1-p_i}$\footnote{il convient de rester prudent lorsque $p_i$ est grand}, et la quantité 
- $$\displaystyle\sum_{i=1}^n  \frac{(y_i-y_i^*)^2}{(1-p_i)^2}$$
- est une mesure du pouvoir prédictif du modèle.
- \item étudier l'influence d'une observation sur les estimations des paramètres de la régression $\beta_i$. On peut par exemple calculer une distance, dite de Cook, entre $\boldsymbol \beta$ et $\boldsymbol \beta_{\bar{i}}$ :
- $$d(\boldsymbol \beta,\boldsymbol\beta_{\bar{i}}) = \frac{(\boldsymbol \beta-\boldsymbol\beta_{\bar{i}})^T\mathbf X^T \mathbf X(\boldsymbol \beta-\boldsymbol\beta_{\bar{i}})}{\hat{\sigma}^2(p+1)}=\frac{\|\mathbf Y^*-\mathbf Y_{\bar{i}}^*\|^2}{\hat{\sigma}^2(p+1)}$$
- où $\mathbf Y_{\bar{i}}^*=\mathbf X\boldsymbol\beta_{\bar{i}}$. Si $d(\boldsymbol \beta,\boldsymbol\beta_{\bar{i}})>1$, alors en général l'observation $i$ a une influence anormale.
- \end{enumerate}
 
- \subsection{Stabilité des coefficients de régression}
- La source principale d'instabilité dans l'estimation des paramètres de régression réside dans le fait que les variables explicatives sont très corrélées entre elles. Comme $\mathbb{V}(\boldsymbol \beta)=\sigma^2(\mathbf X^T\mathbf X)^{-1}$ alors si les $\mathbf X_i$ sont corrélés, la matrice $\mathbf X^T\mathbf X$ est mal conditionnée. Dans ce cas, les paramètres sont estimés avec imprécision et les prédictions sont entâchées d'erreur. Il est donc essentiel de mesurer les colinéarités entre prédicteurs. Par simplicité (sans que cela nuise à la généralité), on suppose ici que les variables sont centrées et réduites : $(\mathbf X^T\mathbf X)$ est donc une matrice de taille $p$ (le fait de centrer les données supprime la constante) et $\boldsymbol\beta\in\mathbb{R}^p$. Ainsi $(\mathbf X^T\mathbf X)=n\mathbf R$ où $\mathbf R$ est la matrice de corrélation entre les prédicteurs.\\ 
+1. étudier l'influence d'une observation sur sa propre prédiction. On calcule le résidu prédit $y_i-y_{\bar{i}}^*$, où $y_{\bar{i}}^*$ est la prévision obtenue avec les $n-1$ autres observations que $y_i$. Il est facile de montrer que ce résidu vaut $\frac{y_i-y_i^*}{1-p_i}$\footnote{il convient de rester prudent lorsque $p_i$ est grand}, et la quantité 
+ $\displaystyle\sum_{i=1}^n  \frac{(y_i-y_i^*)^2}{(1-p_i)^2}$
+ est une mesure du pouvoir prédictif du modèle.
+2. étudier l'influence d'une observation sur les estimations des paramètres de la régression $\beta_i$. On peut par exemple calculer une distance, dite de Cook, entre $\boldsymbol \beta$ et $\boldsymbol \beta_{\bar{i}}$ :
+3. 
+ $d(\boldsymbol \beta,\boldsymbol\beta_{\bar{i}}) = \frac{(\boldsymbol \beta-\boldsymbol\beta_{\bar{i}})^T\mathbf X^T \mathbf X(\boldsymbol \beta-\boldsymbol\beta_{\bar{i}})}{\hat{\sigma}^2(p+1)}=\frac{\|\mathbf Y^*-\mathbf Y_{\bar{i}}^*\|^2}{\hat{\sigma}^2(p+1)}$
+
+ où $\mathbf Y_{\bar{i}}^*=\mathbf X\boldsymbol\beta_{\bar{i}}$. Si $d(\boldsymbol \beta,\boldsymbol\beta_{\bar{i}})>1$, alors en général l'observation $i$ a une influence anormale.
+
+
+### Stabilité des coefficients de régression
+ La source principale d'instabilité dans l'estimation des paramètres de régression réside dans le fait que les variables explicatives sont très corrélées entre elles. Comme $\mathbb{V}(\boldsymbol \beta)=\sigma^2(\mathbf X^T\mathbf X)^{-1}$ alors si les $\mathbf X_i$ sont corrélés, la matrice $\mathbf X^T\mathbf X$ est mal conditionnée. Dans ce cas, les paramètres sont estimés avec imprécision et les prédictions sont entâchées d'erreur. Il est donc essentiel de mesurer les colinéarités entre prédicteurs. Par simplicité (sans que cela nuise à la généralité), on suppose ici que les variables sont centrées et réduites : $(\mathbf X^T\mathbf X)$ est donc une matrice de taille $p$ (le fait de centrer les données supprime la constante) et $\boldsymbol\beta\in\mathbb{R}^p$. Ainsi $(\mathbf X^T\mathbf X)=n\mathbf R$ où $\mathbf R$ est la matrice de corrélation entre les prédicteurs.
+
  Deux stratégies sont classiquement proposées : 
- \begin{enumerate}
- \item Facteur d'inflation de la variance : on a $\mathbb{V}(\boldsymbol \beta) = \sigma^2\frac{\mathbf{R}^{-1}}{n}$ et $\sigma^2_{\beta_j} = \frac{\sigma^2}{n}(\mathbf{R}^{-1})_{jj}$. Or le $j^e$ terme de $\mathbf{R}^{-1}$ est $\frac{1}{1-R^2_j}$ où $R^2_j$ est le carré du coefficient de corrélation multiple de $\mathbf X_j$ et des $p-1$ autres variables explicatives. Ce terme est le facteur d'inflation de la variance. La moyenne de ces $p$ termes est parfois utilisée comme indice global de colinéarité multiple.
- \begin{rem}
+
+1. Facteur d'inflation de la variance : on a $\mathbb{V}(\boldsymbol \beta) = \sigma^2\frac{\mathbf{R}^{-1}}{n}$ et $\sigma^2_{\beta_j} = \frac{\sigma^2}{n}(\mathbf{R}^{-1})_{jj}$. Or le $j^e$ terme de $\mathbf{R}^{-1}$ est $\frac{1}{1-R^2_j}$ où $R^2_j$ est le carré du coefficient de corrélation multiple de $\mathbf X_j$ et des $p-1$ autres variables explicatives. Ce terme est le facteur d'inflation de la variance. La moyenne de ces $p$ termes est parfois utilisée comme indice global de colinéarité multiple.
+
+```{prf:remark}
+:class: dropdown
  Si les variables explicatives sont orthogonales, la régression multiple revient à $p$ régressions simples.
- \end{rem}
- \item La factorisation spectrale de $\mathbf R$ s'écrit $\mathbf R = \mathbf U\boldsymbol\Lambda \mathbf U^T$. Donc $\mathbf{R}^{-1}=\mathbf U\Lambda^{-1}\mathbf U^T$ et la variance de $\beta_j$ s'écrit
- $$\mathbb{V}(\beta_j) = \frac{\sigma^2}{n}\displaystyle\sum_{i=1}^p \frac{u_{ji}^2}{\lambda_i}$$
+```
+2. La factorisation spectrale de $\mathbf R$ s'écrit $\mathbf R = \mathbf U\boldsymbol\Lambda \mathbf U^T$. Donc $\mathbf{R}^{-1}=\mathbf U\Lambda^{-1}\mathbf U^T$ et la variance de $\beta_j$ s'écrit
+
+ $\mathbb{V}(\beta_j) = \frac{\sigma^2}{n}\displaystyle\sum_{i=1}^p \frac{u_{ji}^2}{\lambda_i}$
+
  et dépend donc des inverses des valeurs propres de $\mathbf R$. Dans le cas où les prédicteurs sont fortement corrélés, les dernières valeurs propres sont proches de 0 ce qui entraîne l'instabilité des paramètres de régression.
- \end{enumerate}
 
  Pour améliorer la stabilité des paramètres de régression, on peut alors :
- \begin{itemize}
- \item rejeter certains termes de la somme précédente, par exemple en remplaçant les $p$ prédicteurs par leurs $p$ composantes principales\footnote{Ceci revient à effectuer $p$ régressions simples} (voir chapitre~\ref{ch:ACP}).
- \item régulariser la régression en utilisant des approche de type Ridge regression.
- \end{itemize}
 
- \section{Sélection des variables}
+- rejeter certains termes de la somme précédente, par exemple en remplaçant les $p$ prédicteurs par leurs $p$ composantes principales\footnote{Ceci revient à effectuer $p$ régressions simples} (voir chapitre~\ref{ch:ACP}).
+- régulariser la régression en utilisant des approche de type Ridge regression.
+
+
+## Sélection des variables
  Plutôt que d'expliquer $\mathbf Y$ par l'ensemble des prédicteurs, on peut chercher un sous-ensemble de ces $p$ variables permettant d'obtenir quasiment le même résultat (régression). Contrairement aux méthodes d'extraction (telles que l'analyse en composantes principales, chapitre~\ref{ch:ACP}), les méthodes de sélection utilisent les variables initiales. 
 
- \subsection{Exploration de l'ensemble des régressions possibles}
+### Exploration de l'ensemble des régressions possibles
  Si $p$ n'est pas trop grand, on peut envisager d'étudier les $2^p-1$ régressions obtenues avec tous les sous-ensembles de variables. On peut alémiorer cette stratégie en testant pour chaque régression les coefficients à l'aide du test de Fisher pour mettre en évidence les variables ou combinaisons de variables les plus significatives. On choisit alors le sous-ensemble de variables qui donne le coefficient de détermination maximum (à $p$ fixe) ou le $\hat{\sigma}^2$ minimum (à $p$ variable).
 
-\subsection{Méthodes pas à pas}
+### Méthodes pas à pas
 On ajoute (ou retire) les variables à partir d'un ensemble initial : 
-\begin{itemize}
-    \item pour l'ajout, on part de la meilleure régression à une variable et on ajoute itérativement celle qui améliore le plus le coefficient de détermination
-    \item pour l'élimination, on supprime la variable la moins significative (par exemple celle qui amène à la plus petite diminution du coefficient de détermination). On recalcule alors la régression correspondante et on itère.
-\end{itemize}
-En plus de ces stratégies simples, on peut ajouter une méthode dite de stepwise qui consiste à effectuer en plus à chaque itération des tests de signification de type Student ou F pour ne pas introduire une variable non significative et pour éliminer éventuellement des variables déjà introduites qui deviendraient inutiles compte tenu de la dernière opération effecuté. \\ 
+- pour l'ajout, on part de la meilleure régression à une variable et on ajoute itérativement celle qui améliore le plus le coefficient de détermination
+- pour l'élimination, on supprime la variable la moins significative (par exemple celle qui amène à la plus petite diminution du coefficient de détermination). On recalcule alors la régression correspondante et on itère.
+
+
+En plus de ces stratégies simples, on peut ajouter une méthode dite de stepwise qui consiste à effectuer en plus à chaque itération des tests de signification de type Student ou F pour ne pas introduire une variable non significative et pour éliminer éventuellement des variables déjà introduites qui deviendraient inutiles compte tenu de la dernière opération effecuté. 
+
 L'arrêt des itérations s'effectue en fonction d'un critère sur le coefficient de détermination, le nombre de variables à garder, ...
 
 
-\section{Exemple}
-\subsection{Données}
+## Exemple
+### Données
 On s'intéresse aux données suivantes et on cherche s'il existe une relation entre la production $Y$ et les deux variables prédictives $X_1$ et $X_2$.
 
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-Usine& Travail (h) $X_1$& Capital (machines/h) $X_2$ & Production ($10^2$ T)\\
-\hline
-1 & 1100&300&60\\
-2&1200&400 & 120\\
-3&1430&420&190\\
-4&1500&400&250\\ 
-5&1520&510&300\\
-6&1620&590&360\\
-7&1800&600&380\\
-8&1820&630&430\\
-9&1800&610&440\\
-\hline 
-\end{tabular}
-\end{center}
 
-\subsection{Modèle}
-On fait l'hypothèse d'un modèle linéaire $$y = \beta_0+\beta_1 X_1 + \beta_2 X_2+\epsilon = \mathbf X \boldsymbol\beta+\boldsymbol\epsilon$$
+| Usine | Travail (h) $X_1$ | Capital (machines/h) $X_2$ | Production ($10^2$ T) |
+|-------|-------------------|----------------------------|-----------------------|
+| 1     | 1100              | 300                        | 60                    |
+| 2     | 1200              | 400                        | 120                   |
+| 3     | 1430              | 420                        | 190                   |
+| 4     | 1500              | 400                        | 250                   |
+| 5     | 1520              | 510                        | 300                   |
+| 6     | 1620              | 590                        | 360                   |
+| 7     | 1800              | 600                        | 380                   |
+| 8     | 1820              | 630                        | 430                   |
+| 9     | 1800              | 610                        | 440                   |
+
+
+### Modèle
+On fait l'hypothèse d'un modèle linéaire 
+
+$y = \beta_0+\beta_1 X_1 + \beta_2 X_2+\epsilon = \mathbf X \boldsymbol\beta+\boldsymbol\epsilon$
+
 On a alors $\boldsymbol\beta = (\mathbf X^T\mathbf X)^{-1}\mathbf X^T \mathbf Y = \begin{pmatrix} -437.714\\0.336\\0.410\end{pmatrix}$ et l'équation du modèle linéaire (hyperplan) aux moindres carrés est 
-$$y = -437.714+0.336 X_1+0.41X_2$$
-de plus
-$$\hat{\sigma}^2 = \frac{\|\mathbf Y -\mathbf Y^*\|^2}{n-p-1} = \frac{3194}{6} = 639$$
+
+$y = -437.714+0.336 X_1+0.41X_2$
+
+De plus
+$\hat{\sigma}^2 = \frac{\|\mathbf Y -\mathbf Y^*\|^2}{n-p-1} = \frac{3194}{6} = 639$
+
 de sorte que la covariance des paramètres de régression vaut
-$$\hat{\sigma}^2 (\mathbf X^T\mathbf X)^{-1} = \begin{pmatrix} 3355.56 & -4.152 & 6.184\\-4.152 & 0.008 & -0.016 \\ 6.184 & -0.016 & 0.038\end{pmatrix}$$
+
+$\hat{\sigma}^2 (\mathbf X^T\mathbf X)^{-1} = \begin{pmatrix} 3355.56 & -4.152 & 6.184\\-4.152 & 0.008 & -0.016 \\ 6.184 & -0.016 & 0.038\end{pmatrix}$
+
+Dans la figure suivante, les points au-dessus du plan regresseur sont en bleu, les autres en vert.
+
+| ![](./images/plan.png) | ![](./images/plan2.png) |
 
 
-\begin{center}
-\begin{figure}[ht]
-\includegraphics[width=.5\textwidth]{figures/plan}\includegraphics[width=.5\textwidth]{figures/plan2}
-\caption{Plan régresseur. Les points au-dessus du plan sont en bleu, les autres en vert.}
-\end{figure}
-\end{center}
 
 

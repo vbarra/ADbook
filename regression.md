@@ -65,7 +65,7 @@ $r_{XY}^2 = \eta_{Y\mid X}^2$
 ### Ajustement aux données
 On cherche ici à ajuster le modèle linéaire théorique aux $n$ couples d'observations indépendantes $(\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]$. Il s'agit donc de trouver $a,b$ ainsi que la variance du résidu $\epsilon$.
 
-La méthode la plus classique est la méthode des moindres carrés\footnote{On trouvera dans le cours d'analyse numérique 1 une résolution de ce problème par le système aux équations normales.} : on cherche à ajuster au nuage de points  $(\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]$ une droite d'équation $y^*=\alpha +\beta x$ de sorte à minimiser 
+La méthode la plus classique est la méthode des moindres carrés : on cherche à ajuster au nuage de points  $(\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]$ une droite d'équation $y^*=\alpha +\beta x$ de sorte à minimiser 
 
 $\displaystyle\sum_{i=1}^n (y_i^*-y_i)^2 = \displaystyle\sum_{i=1}^n (\alpha + \beta x_i-y_i)^2$
 
@@ -262,7 +262,7 @@ On recherche un ''bon'' modèle pour $p$ :
 
 1. On peut dans un premier temps supposer que $p(\mathbf x)$ est une fonction linéaire de $\mathbf x$. Les fonctions linéaires étant non bornées, elles ne peuvent modéliser des probabilités.  
 2. On peut alors supposer que $log\ p(\mathbf x)$ est une fonction linéaire de $\mathbf x$. Là aussi, la fonction logarithme est non bornée supérieurement, et ne peut modéliser une probabilité.
-3. Partant de cette idée, on borne le logarithme en utilisant la transformation logistique (ou logit) $log\frac{p(\mathbf x)}{1-p(\mathbf x)}$. Etant donné un événement ayant une probabilité $p$ de réussir, le rapport $p/(1-p)$ est appelé la côte de l'événement\footnote{La côte d'un événement est le rapport de la probabilité qu'il se produise sur celle qu'il ne se produise pas. Si vous avez $p$=3/4 de chances de réussir à votre examen de permis, cotre côte est $p/(1-p)=\frac{3/4}{1/4}$=3 contre un.}. On peut alors supposer que cette fonction de $p$ est linéaire en $\mathbf x$.
+3. Partant de cette idée, on borne le logarithme en utilisant la transformation logistique (ou logit) $log\frac{p(\mathbf x)}{1-p(\mathbf x)}$. Etant donné un événement ayant une probabilité $p$ de réussir, le rapport $p/(1-p)$ est appelé la côte de l'événement (rapport de la probabilité qu'il se produise sur celle qu'il ne se produise pas. Si vous avez $p$=3/4 de chances de réussir à votre examen de permis, cotre côte est $p/(1-p)=\frac{3/4}{1/4}$=3 contre un. On peut alors supposer que cette fonction de $p$ est linéaire en $\mathbf x$.
 
 
 Le modèle de régression logistique s'écrit alors formellement 
@@ -357,9 +357,14 @@ On appelle résidu studentisé la quantité $\frac{y_i-y^*_i}{\hat{\sigma}\sqrt{
 ### Influence des observations
  Pour étudier l'influence des observations sur la prédiction, deux approches sont possibles (et complémentaires) : 
 
-1. étudier l'influence d'une observation sur sa propre prédiction. On calcule le résidu prédit $y_i-y_{\bar{i}}^*$, où $y_{\bar{i}}^*$ est la prévision obtenue avec les $n-1$ autres observations que $y_i$. Il est facile de montrer que ce résidu vaut $\frac{y_i-y_i^*}{1-p_i}$\footnote{il convient de rester prudent lorsque $p_i$ est grand}, et la quantité 
+1. étudier l'influence d'une observation sur sa propre prédiction. On calcule le résidu prédit $y_i-y_{\bar{i}}^*$, où $y_{\bar{i}}^*$ est la prévision obtenue avec les $n-1$ autres observations que $y_i$. Il est facile de montrer que ce résidu vaut $\frac{y_i-y_i^*}{1-p_i}$
+
+```{prf:remark}
+:class: dropdown
+Il convient de rester prudent lorsque $p_i$ est grand}, et la quantité 
  $\displaystyle\sum_{i=1}^n  \frac{(y_i-y_i^*)^2}{(1-p_i)^2}$
  est une mesure du pouvoir prédictif du modèle.
+ ```
 2. étudier l'influence d'une observation sur les estimations des paramètres de la régression $\beta_i$. On peut par exemple calculer une distance, dite de Cook, entre $\boldsymbol \beta$ et $\boldsymbol \beta_{\bar{i}}$ :
 3. 
  $d(\boldsymbol \beta,\boldsymbol\beta_{\bar{i}}) = \frac{(\boldsymbol \beta-\boldsymbol\beta_{\bar{i}})^T\mathbf X^T \mathbf X(\boldsymbol \beta-\boldsymbol\beta_{\bar{i}})}{\hat{\sigma}^2(p+1)}=\frac{\|\mathbf Y^*-\mathbf Y_{\bar{i}}^*\|^2}{\hat{\sigma}^2(p+1)}$
@@ -443,7 +448,10 @@ $\hat{\sigma}^2 (\mathbf X^T\mathbf X)^{-1} = \begin{pmatrix} 3355.56 & -4.152 &
 
 Dans la figure suivante, les points au-dessus du plan regresseur sont en bleu, les autres en vert.
 
+
+
 | ![](./images/plan.png) | ![](./images/plan2.png) |
+|------------------------------------------------------------|----------------------------------------------------------------|
 
 
 
