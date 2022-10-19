@@ -683,6 +683,11 @@ title="Print to PDF"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modele-log-lineaire">
+       Modèle log linéaire
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#modele-de-correlation">
        Modèle de corrélation
       </a>
@@ -1081,6 +1086,11 @@ title="Print to PDF"
      Modèle statistique
     </a>
     <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modele-log-lineaire">
+       Modèle log linéaire
+      </a>
+     </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#modele-de-correlation">
        Modèle de corrélation
@@ -2340,14 +2350,14 @@ La valeur de l’inertie est donc un indicateur de la dispersion des nuages de p
 <p>Les valeurs propres des ACP renseignent sur la dispersion des nuages de profils lignes et colonnes :</p>
 <ul class="simple">
 <li><p>Une valeur propre proche de 1 indique une dichotomie parfaite du tableau <span class="math notranslate nohighlight">\(\mathbf T\)</span>, qui peut être décomposé après reclassement des modalités en deux blocs distincts</p></li>
-<li><p>plus généralement <span class="math notranslate nohighlight">\(p\)</span> valeurs propres proches amènent à <span class="math notranslate nohighlight">\(k+1\)</span> blocs distincts</p></li>
-<li><p>si toutes les valeurs propres sont proches de 1, on aboutit à l’effet Guttman : il existe une correspondance entre chaque modalité ligne et une modalité colonne “associée”. Avec une réorganisation des modalités, les effectifs importants se trouvent alors le long de la diagonale.</p></li>
+<li><p>Plus généralement <span class="math notranslate nohighlight">\(p\)</span> valeurs propres proches amènent à <span class="math notranslate nohighlight">\(k+1\)</span> blocs distincts</p></li>
+<li><p>Si toutes les valeurs propres sont proches de 1, on aboutit à l’effet Guttman : il existe une correspondance entre chaque modalité ligne et une modalité colonne “associée”. Avec une réorganisation des modalités, les effectifs importants se trouvent alors le long de la diagonale.</p></li>
 </ul>
 </div>
 <div class="section" id="qualite-globale">
 <h4>Qualité globale<a class="headerlink" href="#qualite-globale" title="Permalink to this headline">#</a></h4>
-<p>A <span class="math notranslate nohighlight">\(q\)</span> fixé, la qualité globale de la représentation se mesure comme dans le cadre de l’ACP, comme le rapport entre les <span class="math notranslate nohighlight">\(q\)</span> premières valeurs propres <span class="math notranslate nohighlight">\(\lambda_i\)</span> et la somme sur tout le spectre. \
-On montre que la qualité de la représentation dans la <span class="math notranslate nohighlight">\(i^e\)</span> dimension s’écrit <span class="math notranslate nohighlight">\(\frac{n\lambda_i}{\chi^2}\)</span></p>
+<p>A <span class="math notranslate nohighlight">\(q\)</span> fixé, la qualité globale de la représentation se mesure comme dans le cadre de l’ACP, comme le rapport entre les <span class="math notranslate nohighlight">\(q\)</span> premières valeurs propres <span class="math notranslate nohighlight">\(\lambda_i\)</span> et la somme sur tout le spectre.</p>
+<p>On montre que la qualité de la représentation dans la <span class="math notranslate nohighlight">\(i^e\)</span> dimension s’écrit <span class="math notranslate nohighlight">\(\frac{n\lambda_i}{\chi^2}\)</span></p>
 </div>
 <div class="section" id="qualite-de-chaque-modalite">
 <h4>Qualité de chaque modalité<a class="headerlink" href="#qualite-de-chaque-modalite" title="Permalink to this headline">#</a></h4>
@@ -2369,20 +2379,22 @@ est l’estimation d’ordre <span class="math notranslate nohighlight">\(q\)</s
 </div>
 <div class="section" id="modele-statistique">
 <h3>Modèle statistique<a class="headerlink" href="#modele-statistique" title="Permalink to this headline">#</a></h3>
-<p>On suppose que chaque fréquence <span class="math notranslate nohighlight">\(f_{jk}\)</span> correspond à l’observation d’une probabilité   théorique <span class="math notranslate nohighlight">\(\pi_{jk}\)</span> et on modélise donc <span class="math notranslate nohighlight">\(\bf T\)</span> par la distribution correspondante. Le modèle décrivant cette distribution permet d’expliciter la probabilité.
-\subsection{Modèle log linéaire}
-Souvent, le nombre <span class="math notranslate nohighlight">\(n\)</span> est fixé a priori. La distribution conjointe des effectifs <span class="math notranslate nohighlight">\(n_{jk}\)</span> est alors conditionnée par <span class="math notranslate nohighlight">\(n\)</span> et est une loi multinomiale de paramètre <span class="math notranslate nohighlight">\(\pi_{jk}\)</span> et d’espérance <span class="math notranslate nohighlight">\(n\pi_{jk}\)</span>.\
-Par définition, les variables <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> sont indépendantes si <span class="math notranslate nohighlight">\(\pi_{jk}=\pi_{j.}\pi_{.k}\)</span>. Dans le cas contraire, on peut écrire</p>
+<p>On suppose que chaque fréquence <span class="math notranslate nohighlight">\(f_{jk}\)</span> correspond à l’observation d’une probabilité   théorique <span class="math notranslate nohighlight">\(\pi_{jk}\)</span> et on modélise donc <span class="math notranslate nohighlight">\(\bf T\)</span> par la distribution correspondante. Le modèle décrivant cette distribution permet d’expliciter la probabilité.</p>
+<div class="section" id="modele-log-lineaire">
+<h4>Modèle log linéaire<a class="headerlink" href="#modele-log-lineaire" title="Permalink to this headline">#</a></h4>
+<p>Souvent, le nombre <span class="math notranslate nohighlight">\(n\)</span> est fixé a priori. La distribution conjointe des effectifs <span class="math notranslate nohighlight">\(n_{jk}\)</span> est alors conditionnée par <span class="math notranslate nohighlight">\(n\)</span> et est une loi multinomiale de paramètre <span class="math notranslate nohighlight">\(\pi_{jk}\)</span> et d’espérance <span class="math notranslate nohighlight">\(n\pi_{jk}\)</span>.</p>
+<p>Par définition, les variables <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> sont indépendantes si <span class="math notranslate nohighlight">\(\pi_{jk}=\pi_{j.}\pi_{.k}\)</span>. Dans le cas contraire, on peut écrire</p>
 <p><span class="math notranslate nohighlight">\(\pi_{jk} = \pi_{j.}\pi_{.k}\frac{\pi_{jk}}{\pi_{j.}\pi_{.k}}\)</span></p>
 <p>En passant au log, on linéarise en</p>
 <p><span class="math notranslate nohighlight">\(ln\left (\pi_{jk}\right ) =  ln (\pi_{j.}) + ln (\pi_{.k})  + ln \left( \frac{\pi_{jk}}{\pi_{j.}\pi_{.k}}\right )\)</span></p>
 <p>Ce modèle est saturé car il comporte autant de paramètres que de données.  L’indépendance est vérifiée si le dernier terme de couplage est nul pour tout <span class="math notranslate nohighlight">\((j,k)\)</span>. Les paramètres du modèle sont estimés en maximisant la log vraisemblance.</p>
+</div>
 <div class="section" id="modele-de-correlation">
 <h4>Modèle de corrélation<a class="headerlink" href="#modele-de-correlation" title="Permalink to this headline">#</a></h4>
 <p>Dans ce modèle, on écrit</p>
 <p><span class="math notranslate nohighlight">\(\pi_{jk} = \pi_{j.}\pi_{.k} + \displaystyle\sum_{i=1}^q \sqrt{\lambda_i} u^i_jv^i_k\)</span></p>
-<p>où <span class="math notranslate nohighlight">\({\bf u^i}\)</span> (resp. <span class="math notranslate nohighlight">\({\bf v^i}\)</span>) sont les vecteurs propres de <span class="math notranslate nohighlight">\({\bf BA}\)</span> (resp. <span class="math notranslate nohighlight">\({\bf AB}\)</span>),  <span class="math notranslate nohighlight">\(\lambda_i\)</span> les valeurs propres associées (qui sont identiques pour les deux matrices), et <span class="math notranslate nohighlight">\(q\leq min(J-1,K-1)\)</span>. \
-Les contraintes <span class="math notranslate nohighlight">\(\displaystyle\sum_{j=1}^J u^i_j =  \displaystyle\sum_{k=1}^K v^i_k = 0\)</span>  et <span class="math notranslate nohighlight">\({\bf (u^i)^TD_J^{-1} u^l }= {\bf (v^i)^TD_K^{-1} v^l} = \delta_{il}\)</span> (vecteurs propres orthonormés) permettent d’identifier les paramètres du modèle. \
+<p>où <span class="math notranslate nohighlight">\({\bf u^i}\)</span> (resp. <span class="math notranslate nohighlight">\({\bf v^i}\)</span>) sont les vecteurs propres de <span class="math notranslate nohighlight">\({\bf BA}\)</span> (resp. <span class="math notranslate nohighlight">\({\bf AB}\)</span>),  <span class="math notranslate nohighlight">\(\lambda_i\)</span> les valeurs propres associées (qui sont identiques pour les deux matrices), et <span class="math notranslate nohighlight">\(q\leq min(J-1,K-1)\)</span>.</p>
+<p>Les contraintes <span class="math notranslate nohighlight">\(\displaystyle\sum_{j=1}^J u^i_j =  \displaystyle\sum_{k=1}^K v^i_k = 0\)</span>  et <span class="math notranslate nohighlight">\({\bf (u^i)^TD_J^{-1} u^l }= {\bf (v^i)^TD_K^{-1} v^l} = \delta_{il}\)</span> (vecteurs propres orthonormés) permettent d’identifier les paramètres du modèle. \
 Les estimations des paramètres <span class="math notranslate nohighlight">\(\pi_{j.}\pi_{.k} ,\lambda_i,u^i,v^i\)</span> peuvent être réalisées par maximum de vraisemblance ou par moindres carrés.</p>
 </div>
 </div>
@@ -2675,9 +2687,9 @@ Les estimations des paramètres <span class="math notranslate nohighlight">\(\pi
 <p>A partir de ce tableau de données <span class="math notranslate nohighlight">\(\bf T\)</span>, on calcule les tableaux de fréquences en lignes et en colonnes, ainsi que les profils ligne et colonne moyens.
 Comme en ACP, on s’intéresse à l’inertie du nuage de points, mais pour ce faire on utilise la distance du <span class="math notranslate nohighlight">\(\chi^2\)</span>. Avec cette métrique, la distance entre deux lignes (ou deux colonnes) ne dépend pas des poids respectifs des colonnes (ou lignes). Par exemple, les différents candidats obtiennent des scores très différents et l’usage de la métrique euclidienne aurait donné trop de poids aux candidats qui ont obtenu des scores élevés. De plus, la métrique du <span class="math notranslate nohighlight">\(\chi^2\)</span> possède la propriété d’équivalence distributionnelle : si on regroupe deux modalités lignes (colonnes), les distances entre les profils-colonne (lignes), ou entre les autres profils-lignes (colonnes) restent inchangées.</p>
 <p><img alt="" src="images/presdist.png" /></p>
-<p>On peut également calculer les taux de liaisons, définis pour deux individus <span class="math notranslate nohighlight">\(j\)</span> et <span class="math notranslate nohighlight">\(k\)</span> par <span class="math notranslate nohighlight">\(\frac{f_{jk}-f_{j.}f_{.k}}{f_{j.}f_{.k}}\)</span>. Par exemple, le taux de liaison entre HAMON et Grand-Est est égal à  -0.2003, tandis que le taux de liaison entre CHEMINADE et Nouvelle-Aquitaine est égal à 0.2068. Le taux de liaison s’interpréte comme suit : le score du candidat dans la région est 20% moins élevé (ou 20.6% moins élevé) que le score théorique que l’on observerait si les votes étaient indépendants des régions.\
-Notons que <span class="math notranslate nohighlight">\(f_{j.}f_{.k}\)</span> représente le poids théorique de chaque case du tableau des fréquences. La somme de ces coefficients vaut 1. La moyenne de la série des taux de liaisons pondérée par les <span class="math notranslate nohighlight">\(f_{j.}f_{.k}\)</span> est nulle. De même, la variance de cette série avec la même pondération vaut <span class="math notranslate nohighlight">\(\chi^2\)</span>, et ici est égale à 0.0301.\
-On réalise ensuite une AFC, par analyse spectrale des matrices <span class="math notranslate nohighlight">\(\bf X^T\bf X\)</span> et <span class="math notranslate nohighlight">\(\bf X\bf X^T\)</span>, où <span class="math notranslate nohighlight">\(\bf X\)</span> est la matrice de terme général <span class="math notranslate nohighlight">\(f_{jk}/\sqrt{f_{j.}f_{.k}}\)</span>.</p>
+<p>On peut également calculer les taux de liaisons, définis pour deux individus <span class="math notranslate nohighlight">\(j\)</span> et <span class="math notranslate nohighlight">\(k\)</span> par <span class="math notranslate nohighlight">\(\frac{f_{jk}-f_{j.}f_{.k}}{f_{j.}f_{.k}}\)</span>. Par exemple, le taux de liaison entre HAMON et Grand-Est est égal à  -0.2003, tandis que le taux de liaison entre CHEMINADE et Nouvelle-Aquitaine est égal à 0.2068. Le taux de liaison s’interpréte comme suit : le score du candidat dans la région est 20% moins élevé (ou 20.6% moins élevé) que le score théorique que l’on observerait si les votes étaient indépendants des régions.</p>
+<p>Notons que <span class="math notranslate nohighlight">\(f_{j.}f_{.k}\)</span> représente le poids théorique de chaque case du tableau des fréquences. La somme de ces coefficients vaut 1. La moyenne de la série des taux de liaisons pondérée par les <span class="math notranslate nohighlight">\(f_{j.}f_{.k}\)</span> est nulle. De même, la variance de cette série avec la même pondération vaut <span class="math notranslate nohighlight">\(\chi^2\)</span>, et ici est égale à 0.0301.</p>
+<p>On réalise ensuite une AFC, par analyse spectrale des matrices <span class="math notranslate nohighlight">\(\bf X^T\bf X\)</span> et <span class="math notranslate nohighlight">\(\bf X\bf X^T\)</span>, où <span class="math notranslate nohighlight">\(\bf X\)</span> est la matrice de terme général <span class="math notranslate nohighlight">\(f_{jk}/\sqrt{f_{j.}f_{.k}}\)</span>.</p>
 <p>Le nombre de valeurs propres produites par la recherche des facteurs principaux est égal au minimum du nombre de lignes et du nombre de colonnes du tableau de contingence. La première valeur propre est systématiquement égale à 1, et n’est pas utilisée dans les résultats. Les autres valeurs propres sont des nombres positifs inférieurs à 1 et leur somme est égale à <span class="math notranslate nohighlight">\(\chi^2\)</span>.</p>
 <p><img alt="" src="_images/spectralelig.png" /> <img alt="" src="_images/spectralecol.png" /></p>
 <p>On utilise alors les vecteurs propres (axes factoriels) pour analyser les données lignes et colonnes. Pour chaque analyse, on reporte (illustré ici sur l’analyse en lignes) :</p>
