@@ -5,7 +5,7 @@
 
 
 # n'exécuter qu'une fois
-get_ipython().system('pip3 install seaborn numpy matplotlib pandas mca ca')
+get_ipython().system('pip3 install seaborn numpy matplotlib pandas mca')
 
 
 # In[2]:
@@ -52,13 +52,13 @@ afc.fit(media.values)
 # ### Valeurs propres
 # En utilisant l'attribut $eig\_$ et la fonction plot_eigenvalues (ligne 294 du fichier $base.py$),afficher et interpréter les valeurs propres issues de l'analyse factorielle (nombre, contribution des facteurs...)
 
-# In[82]:
+# In[5]:
 
 
 #TODO
 
 
-# In[83]:
+# In[6]:
 
 
 #TODO
@@ -69,7 +69,7 @@ afc.fit(media.values)
 # ### Analyse des profils lignes
 # On affiche ici, pour chaque modalité ligne, la distribution des individus colonnes
 
-# In[84]:
+# In[7]:
 
 
 data = np.apply_along_axis(arr=media.values,axis=1,func1d=lambda x:x/np.sum(x))
@@ -102,13 +102,13 @@ plt.show()
 
 # En utilisant l'attribut row\_coord\_, afficher les coordonnées des modalités lignes par facteur. Calculer la moyenne pondérée et la variance des coordonnées des modalités lignes sur le premier facteur. Qu'obtenez-vous ?
 
-# In[85]:
+# In[8]:
 
 
 #TODO
 
 
-# In[86]:
+# In[9]:
 
 
 #TODO
@@ -120,7 +120,7 @@ plt.show()
 
 # En utilisant la fonction mapping\_row (ligne 389, ficher base.py), représenter les individus lignes dans le premier plan factoriel (qui restitue 94.5\% de l'information disponible). Analyser le résultat
 
-# In[87]:
+# In[10]:
 
 
 #TODO
@@ -129,7 +129,7 @@ plt.show()
 # ### Calcul de la distance du $\chi^2$
 # La distance du $\chi^2$ entre les modalités lignes dans l’espace initial devient distance euclidienne dans l’espace factoriel. Comme en ACP, la restitution est parfaite lorsque tous les facteurs sont pris en compte, et approchée si une partie est utilisée. La précision dépend alors d’une part de la qualité de restitution du repère factoriel choisi, d’autre part de la qualité de représentation des modalités impliquées dans le calcul (les $cos^2$).
 
-# In[88]:
+# In[11]:
 
 
 f,ax = plt.subplots(1, 2,figsize=(10,4))
@@ -150,7 +150,7 @@ f.subplots_adjust(wspace=0.9)
 # ### Analyse des profils colonnes
 # Faire la même analsye sur les profils colonnes. Interpréter les résultats
 
-# In[89]:
+# In[12]:
 
 
 #TODO
@@ -163,7 +163,7 @@ f.subplots_adjust(wspace=0.9)
 # 
 # Faire un test du $\chi^2$ (voir le cours statistiques bivariées), en utilisant la fonction [$scipy.stats.chi2.cdf$](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.chi2.html) du module $scipy$. Conclure.
 
-# In[90]:
+# In[13]:
 
 
 #TODO
@@ -180,7 +180,7 @@ f.subplots_adjust(wspace=0.9)
 # 
 # Calculer cet indice, effectuer uin test du $\chi^2$ et conclure.
 
-# In[91]:
+# In[14]:
 
 
 #TODO
@@ -190,7 +190,7 @@ f.subplots_adjust(wspace=0.9)
 # 
 # En utilisant la fonction $mapping$ (ligne 329 du fichier base.py), projeter sur le premier plan factoriel les individus ligne et colonne. Interpreter.
 
-# In[92]:
+# In[15]:
 
 
 #TODO
@@ -208,7 +208,7 @@ f.subplots_adjust(wspace=0.9)
 # 
 # 
 
-# In[93]:
+# In[16]:
 
 
 #TODO
@@ -217,7 +217,7 @@ f.subplots_adjust(wspace=0.9)
 # # Exercice 2 : Analyse des Correspondances Multiples
 # Ici on s'intéresse à 6 traits de caractères de 27 races de chien, et on souhaite analyser le tableau par ACM
 
-# In[5]:
+# In[17]:
 
 
 chiens = pd.read_table("./data/chiens.txt", header=0, index_col=0, delimiter="\t", encoding="utf-8")
@@ -226,7 +226,7 @@ print(chiens)
 
 # On récupère les variables actives : on s'intéresse à un sous-ensemble de cardinal $k$ de variables du jeu de données (vous pouvez changer les variables utilisées).
 
-# In[8]:
+# In[18]:
 
 
 var_chiens = chiens[['Taille','Velocite','Affection']] 
@@ -238,7 +238,7 @@ print(var_chiens)
 # 
 # Dans la suite, on travaille sur le tableau disjonctif complet des données (variables transformées en indicatrices 0/1).
 
-# In[67]:
+# In[19]:
 
 
 #codage en 0/1 des propriétés des chiens : tableau disjonctif complet
@@ -261,7 +261,7 @@ print(X)
 # Calculer la distance entre individus : on utilise dans ce cas la distance du Chi2 sur modalités catégorielles (voir chapitre 1 du cours) qui met en valeur les différences entre les modalités rares 
 # 
 
-# In[68]:
+# In[20]:
 
 
 #profil individu moyen
@@ -279,7 +279,7 @@ sns.heatmap(distchi2,vmin=0,vmax=np.max(distchi2),linewidth=0.1,cmap= 'Greens',x
 
 # Calculer la distance à l'origine (profil moyen). Interpréter 
 
-# In[69]:
+# In[21]:
 
 
 #profil moyen des variables-modalités
@@ -297,7 +297,7 @@ sns.heatmap(distO,vmin=0,vmax=np.max(distO),linewidth=0.1,cmap= 'Greens',xtickla
 # ### Analyse des colonnes
 # L’analyse des associations entre les modalités revient à travailler sur les profils colonnes. Le tableau de données est normalisé par les sommes en colonne. Le profil moyen est égal au poids des observations 
 
-# In[70]:
+# In[22]:
 
 
 #somme en colonne
@@ -319,7 +319,7 @@ sns.heatmap(dist,vmin=0,vmax=np.max(dist),linewidth=0.1,cmap= 'Greens',xticklabe
 
 # Calculer la distance à l'origine, qui  donne une information sur la fréquence de la modalité dans la base. Elle est définie par la disance du $\chi^2$ au profil moyen. Interpréter 
 
-# In[71]:
+# In[23]:
 
 
 #profil moyen des variables-modalités
@@ -339,7 +339,7 @@ sns.heatmap(distO,vmin=0,vmax=np.max(distO),linewidth=0.1,cmap= 'Greens',xtickla
 # On créé une instance de l'objet MCA (défini dans mca.py) et on estime le modèle des correspondances multiples sur les données $X$
 # 
 
-# In[52]:
+# In[24]:
 
 
 from mca import MCA

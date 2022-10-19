@@ -17,18 +17,18 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from ca import CA
-afc = CA(row_labels=media.index,col_labels=media.columns)
-afc.fit(media.values)
+from mca import MCA
+acm = MCA(row_labels=var_chiens.index, var_labels=var_chiens.columns)
+acm.fit(var_chiens.values)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Input [0;32mIn [4][0m, in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mca[39;00m [38;5;28;01mimport[39;00m CA
-[1;32m      2[0m afc [38;5;241m=[39m CA(row_labels[38;5;241m=[39mmedia[38;5;241m.[39mindex,col_labels[38;5;241m=[39mmedia[38;5;241m.[39mcolumns)
-[1;32m      3[0m afc[38;5;241m.[39mfit(media[38;5;241m.[39mvalues)
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Input [0;32mIn [24][0m, in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmca[39;00m [38;5;28;01mimport[39;00m MCA
+[0;32m----> 2[0m acm [38;5;241m=[39m [43mMCA[49m[43m([49m[43mrow_labels[49m[38;5;241;43m=[39;49m[43mvar_chiens[49m[38;5;241;43m.[39;49m[43mindex[49m[43m,[49m[43m [49m[43mvar_labels[49m[38;5;241;43m=[39;49m[43mvar_chiens[49m[38;5;241;43m.[39;49m[43mcolumns[49m[43m)[49m
+[1;32m      3[0m acm[38;5;241m.[39mfit(var_chiens[38;5;241m.[39mvalues)
 
-[0;31mModuleNotFoundError[0m: No module named 'ca'
-ModuleNotFoundError: No module named 'ca'
+[0;31mTypeError[0m: __init__() got an unexpected keyword argument 'row_labels'
+TypeError: __init__() got an unexpected keyword argument 'row_labels'
 
