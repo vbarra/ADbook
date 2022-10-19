@@ -2351,9 +2351,8 @@ On montre que la qualité de la représentation dans la <span class="math notran
 </div>
 <div class="section" id="inertie-expliquee">
 <h4>Inertie expliquée<a class="headerlink" href="#inertie-expliquee" title="Permalink to this headline">#</a></h4>
-<p>L’inertie totale du nuage des profils lignes (resp. colonnes) est égale à la somme de toutes les valeurs propres <span class="math notranslate nohighlight">\(\lambda_i\)</span>. La part due au <span class="math notranslate nohighlight">\(j^e\)</span> profil ligne (resp. <span class="math notranslate nohighlight">\(k^e\)</span> profil colonne) est <span class="math notranslate nohighlight">\(f_{j.}\displaystyle\sum_i \left (\mathbf{C_J}(ji) \right )^2\)</span> (resp. <span class="math notranslate nohighlight">\(f_{.k}\displaystyle\sum_i \left (\mathbf{C_K}(ik) \right )^2\)</span>).
-\vskip 10pt
-Les contributions à l’inertie selon chaque axe se calculent de la même manière, sans sommation sur <span class="math notranslate nohighlight">\(i\)</span>. Elles sont utilisées pour sélectionner les modalités les plus importantes (i.e. celles qui importent le plus dans la définition de la liaison entre <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span>).</p>
+<p>L’inertie totale du nuage des profils lignes (resp. colonnes) est égale à la somme de toutes les valeurs propres <span class="math notranslate nohighlight">\(\lambda_i\)</span>. La part due au <span class="math notranslate nohighlight">\(j^e\)</span> profil ligne (resp. <span class="math notranslate nohighlight">\(k^e\)</span> profil colonne) est <span class="math notranslate nohighlight">\(f_{j.}\displaystyle\sum_i \left (\mathbf{C_J}(ji) \right )^2\)</span> (resp. <span class="math notranslate nohighlight">\(f_{.k}\displaystyle\sum_i \left (\mathbf{C_K}(ik) \right )^2\)</span>).</p>
+<p>Les contributions à l’inertie selon chaque axe se calculent de la même manière, sans sommation sur <span class="math notranslate nohighlight">\(i\)</span>. Elles sont utilisées pour sélectionner les modalités les plus importantes (i.e. celles qui importent le plus dans la définition de la liaison entre <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span>).</p>
 </div>
 <div class="section" id="choix-de-q">
 <h4>Choix de q<a class="headerlink" href="#choix-de-q" title="Permalink to this headline">#</a></h4>
@@ -2952,28 +2951,10 @@ ne peuvent donc pas être interprétés comme en AFC et en ACP.</p></li>
 </div>
 <div class="section" id="id8">
 <h3>Exemple<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
-<p>On souhaite évaluer l’effet de l’espèce de chêne sur des vins rouges vieillis en barrique. Un même vin a été vieilli dans six barriques différentes fabriquées avec deux types de chêne : les vins <span class="math notranslate nohighlight">\(V_1\)</span>, <span class="math notranslate nohighlight">\(V_5\)</span> et <span class="math notranslate nohighlight">\(V_6\)</span> ont été élevés avec le premier type de chêne, tandis que les vins <span class="math notranslate nohighlight">\(V_2\)</span>, <span class="math notranslate nohighlight">\(V_3\)</span> et <span class="math notranslate nohighlight">\(V_4\)</span> ont été élevés avec le second. Trois experts <span class="math notranslate nohighlight">\(E_1,E_2,E_3\)</span> ont ensuite choisi entre deux et cinq variables pour décrire les vins. Pour chaque vin et pour chaque variable, l’expert évalue l’intensité, codée soit comme une réponse binaire (i.e. fruité vs. non fruité), soit comme une réponse ternaire (i.e. pas fruité, un peu fruité, très fruité). On code le tout par un tableau disjonctif complet :
-\vskip 10pt</p>
-<p>\begin{tabular}{lccccccc|ccccccccc|cccccc}
-\toprule
-Expert &amp; \multicolumn{7}{c}{<span class="math notranslate nohighlight">\(E_1\)</span>} &amp; \multicolumn{9}{c}{<span class="math notranslate nohighlight">\(E_2\)</span>} &amp; \multicolumn{6}{c}{<span class="math notranslate nohighlight">\(E_3\)</span>} \
-\hline
-&amp; \multicolumn{2}{c}{fruité} &amp; \multicolumn{3}{c}{boisé} &amp; \multicolumn{2}{c}{caféiné} &amp; \multicolumn{2}{c}{fruité} &amp; \multicolumn{2}{c}{grillé} &amp; \multicolumn{3}{c}{vanillé} &amp; \multicolumn{2}{c}{boisé} &amp; \multicolumn{2}{c}{fruité} &amp; \multicolumn{2}{c}{beurré} &amp; \multicolumn{2}{c}{boisé} \
-&amp;        o &amp;  n &amp;     1 &amp;  2 &amp;  3 &amp;      o &amp;  n &amp;        o &amp;  n &amp;       o &amp;  n &amp;        1 &amp;  2 &amp;  3 &amp;     o &amp;  n &amp;        o &amp;  n &amp;      o &amp;  n &amp;     o &amp;  n \
-&amp;          &amp;    &amp;       &amp;    &amp;    &amp;        &amp;    &amp;          &amp;    &amp;         &amp;    &amp;          &amp;    &amp;    &amp;       &amp;    &amp;          &amp;    &amp;        &amp;    &amp;       &amp;    \
-\midrule
-<span class="math notranslate nohighlight">\(V_1\)</span>   &amp;        1 &amp;  0 &amp;     0 &amp;  0 &amp;  1 &amp;      0 &amp;  1 &amp;        1 &amp;  0 &amp;       0 &amp;  1 &amp;        0 &amp;  0 &amp;  1 &amp;     0 &amp;  1 &amp;        0 &amp;  1 &amp;      0 &amp;  1 &amp;     0 &amp;  1 \
-<span class="math notranslate nohighlight">\(V_2\)</span>   &amp;        0 &amp;  1 &amp;     0 &amp;  1 &amp;  0 &amp;      1 &amp;  0 &amp;        0 &amp;  1 &amp;       1 &amp;  0 &amp;        0 &amp;  1 &amp;  0 &amp;     1 &amp;  0 &amp;        0 &amp;  1 &amp;      1 &amp;  0 &amp;     1 &amp;  0 \
-<span class="math notranslate nohighlight">\(V_3\)</span>   &amp;        0 &amp;  1 &amp;     1 &amp;  0 &amp;  0 &amp;      1 &amp;  0 &amp;        0 &amp;  1 &amp;       1 &amp;  0 &amp;        1 &amp;  0 &amp;  0 &amp;     1 &amp;  0 &amp;        0 &amp;  1 &amp;      1 &amp;  0 &amp;     1 &amp;  0 \
-<span class="math notranslate nohighlight">\(V_4\)</span>   &amp;        0 &amp;  1 &amp;     1 &amp;  0 &amp;  0 &amp;      1 &amp;  0 &amp;        0 &amp;  1 &amp;       1 &amp;  0 &amp;        1 &amp;  0 &amp;  0 &amp;     1 &amp;  0 &amp;        1 &amp;  0 &amp;      1 &amp;  0 &amp;     1 &amp;  0 \
-<span class="math notranslate nohighlight">\(V_5\)</span>   &amp;        1 &amp;  0 &amp;     0 &amp;  0 &amp;  1 &amp;      0 &amp;  1 &amp;        1 &amp;  0 &amp;       0 &amp;  1 &amp;        0 &amp;  0 &amp;  1 &amp;     0 &amp;  1 &amp;        1 &amp;  0 &amp;      0 &amp;  1 &amp;     0 &amp;  1 \
-<span class="math notranslate nohighlight">\(V_6\)</span>   &amp;        1 &amp;  0 &amp;     0 &amp;  1 &amp;  0 &amp;      0 &amp;  1 &amp;        1 &amp;  0 &amp;       0 &amp;  1 &amp;        0 &amp;  1 &amp;  0 &amp;     0 &amp;  1 &amp;        1 &amp;  0 &amp;      0 &amp;  1 &amp;     0 &amp;  1 \
-\bottomrule
-\end{tabular}
-\vskip 10pt
-L’objectif de l’étude est d’une part de proposer une typologie des vins et d’autre part de savoir s’il y a un accord entre les échelles utilisées par les experts.</p>
+<p>On souhaite évaluer l’effet de l’espèce de chêne sur des vins rouges vieillis en barrique. Un même vin a été vieilli dans six barriques différentes fabriquées avec deux types de chêne : les vins <span class="math notranslate nohighlight">\(V_1\)</span>, <span class="math notranslate nohighlight">\(V_5\)</span> et <span class="math notranslate nohighlight">\(V_6\)</span> ont été élevés avec le premier type de chêne, tandis que les vins <span class="math notranslate nohighlight">\(V_2\)</span>, <span class="math notranslate nohighlight">\(V_3\)</span> et <span class="math notranslate nohighlight">\(V_4\)</span> ont été élevés avec le second. Trois experts <span class="math notranslate nohighlight">\(E_1,E_2,E_3\)</span> ont ensuite choisi entre deux et cinq variables pour décrire les vins. Pour chaque vin et pour chaque variable, l’expert évalue l’intensité, codée soit comme une réponse binaire (i.e. fruité vs. non fruité), soit comme une réponse ternaire (i.e. pas fruité, un peu fruité, très fruité). On code le tout par un tableau disjonctif complet :</p>
+<p><img alt="" src="_images/tab0.png" /></p>
+<p>L’objectif de l’étude est d’une part de proposer une typologie des vins et d’autre part de savoir s’il y a un accord entre les échelles utilisées par les experts.</p>
 <p>La figure suivante présente le résultat de l’analyse spectrale en lignes. Les tableaux qui suivent donnent les coordonnées des individus (<span class="math notranslate nohighlight">\(S\)</span>), la qualité de leur représentation et leur contribution  (C<span class="math notranslate nohighlight">\(\times 10^3\)</span> sur les trois premiers axes factoriels.</p>
-<p>\vskip 10pt</p>
 <p><img alt="" src="_images/spectralACM.png" /></p>
 <table class="colwidths-auto table">
 <thead>
@@ -3071,30 +3052,7 @@ L’objectif de l’étude est d’une part de proposer une typologie des vins e
 </tr>
 </tbody>
 </table>
-<p>\begin{landscape}
-\begin{table}
-\begin{tiny}</p>
-<p>\begin{tabular}{lcccccccc|ccccccccc|cccccc}
-\toprule
-&amp;  &amp; \multicolumn{7}{c}{<span class="math notranslate nohighlight">\(E_1\)</span>} &amp; \multicolumn{9}{c}{<span class="math notranslate nohighlight">\(E_2\)</span>} &amp; \multicolumn{6}{c}{<span class="math notranslate nohighlight">\(E_3\)</span>} \
-&amp;  &amp; \multicolumn{2}{c}{fruité} &amp; \multicolumn{3}{c}{boisé} &amp; \multicolumn{2}{c}{caféiné} &amp; \multicolumn{2}{c}{fruité} &amp; \multicolumn{2}{c}{grillé} &amp; \multicolumn{3}{c}{vanillé} &amp; \multicolumn{2}{c}{boisé} &amp; \multicolumn{2}{c}{fruité} &amp; \multicolumn{2}{c}{beurré} &amp; \multicolumn{2}{c}{boisé} \
-&amp;  &amp;        o &amp; n &amp;       1 &amp;        2 &amp;       3 &amp;       o &amp; n &amp;        o &amp; n &amp;       o &amp; n &amp;        1 &amp;        2 &amp;       3 &amp;       o &amp; n &amp;        y &amp;        n &amp;       o &amp; n &amp;       o &amp; n \
-\midrule
-<span class="math notranslate nohighlight">\(S\)</span> &amp; 1 &amp;    -0.99 &amp;   0.99 &amp;   1.07 &amp;    -0.0 &amp;  -1.07 &amp;   0.99 &amp;  -0.99 &amp;    -0.99 &amp;   0.99 &amp;    0.99 &amp;  -0.99 &amp;     1.07 &amp;    -0.0 &amp;  -1.07 &amp;   0.99 &amp;  -0.99 &amp;    -0.31 &amp;    0.31 &amp;   0.99 &amp;  -0.99 &amp;   0.99 &amp;  -0.99 \
-&amp; 2 &amp;     -0.0 &amp;   -0.0 &amp;  -0.71 &amp;    1.41 &amp;  -0.71 &amp;    0.0 &amp;   -0.0 &amp;     -0.0 &amp;    0.0 &amp;     0.0 &amp;   -0.0 &amp;    -0.71 &amp;    1.41 &amp;  -0.71 &amp;    0.0 &amp;   -0.0 &amp;      0.0 &amp;    -0.0 &amp;    0.0 &amp;   -0.0 &amp;    0.0 &amp;   -0.0 \
-&amp; 3 &amp;    -0.06 &amp;   0.06 &amp;  -0.48 &amp;     0.0 &amp;   0.48 &amp;   0.06 &amp;  -0.06 &amp;    -0.06 &amp;   0.06 &amp;    0.06 &amp;  -0.06 &amp;    -0.48 &amp;     0.0 &amp;   0.48 &amp;   0.06 &amp;  -0.06 &amp;     -0.9 &amp;     0.9 &amp;   0.06 &amp;  -0.06 &amp;   0.06 &amp;  -0.06 \
-<span class="math notranslate nohighlight">\(cos^2\)</span> &amp; 1 &amp;     0.99 &amp;   0.99 &amp;   0.57 &amp;     0.0 &amp;   0.57 &amp;   0.99 &amp;   0.99 &amp;     0.99 &amp;   0.99 &amp;    0.99 &amp;   0.99 &amp;     0.57 &amp;     0.0 &amp;   0.57 &amp;   0.99 &amp;   0.99 &amp;     0.09 &amp;    0.09 &amp;   0.99 &amp;   0.99 &amp;   0.99 &amp;   0.99 \
-&amp; 2 &amp;      0.0 &amp;    0.0 &amp;   0.25 &amp;     1.0 &amp;   0.25 &amp;    0.0 &amp;    0.0 &amp;      0.0 &amp;    0.0 &amp;     0.0 &amp;    0.0 &amp;     0.25 &amp;     1.0 &amp;   0.25 &amp;    0.0 &amp;    0.0 &amp;      0.0 &amp;     0.0 &amp;    0.0 &amp;    0.0 &amp;    0.0 &amp;    0.0 \
-&amp; 3 &amp;      0.0 &amp;    0.0 &amp;   0.12 &amp;     0.0 &amp;   0.12 &amp;    0.0 &amp;    0.0 &amp;      0.0 &amp;    0.0 &amp;     0.0 &amp;    0.0 &amp;     0.12 &amp;     0.0 &amp;   0.12 &amp;    0.0 &amp;    0.0 &amp;     0.82 &amp;    0.82 &amp;    0.0 &amp;    0.0 &amp;    0.0 &amp;    0.0 \
-<span class="math notranslate nohighlight">\(C\)</span> &amp; 1 &amp;    57.96 &amp;  57.96 &amp;  44.37 &amp;     0.0 &amp;  44.37 &amp;  57.96 &amp;  57.96 &amp;    57.96 &amp;  57.96 &amp;   57.96 &amp;  57.96 &amp;    44.37 &amp;     0.0 &amp;  44.37 &amp;  57.96 &amp;  57.96 &amp;     5.56 &amp;    5.56 &amp;  57.96 &amp;  57.96 &amp;  57.96 &amp;  57.96 \
-&amp; 2 &amp;      0.0 &amp;    0.0 &amp;  83.33 &amp;  333.33 &amp;  83.33 &amp;    0.0 &amp;    0.0 &amp;      0.0 &amp;    0.0 &amp;     0.0 &amp;    0.0 &amp;    83.33 &amp;  333.33 &amp;  83.33 &amp;    0.0 &amp;    0.0 &amp;      0.0 &amp;     0.0 &amp;    0.0 &amp;    0.0 &amp;    0.0 &amp;    0.0 \
-&amp; 3 &amp;     1.49 &amp;   1.49 &amp;  67.46 &amp;     0.0 &amp;  67.46 &amp;   1.49 &amp;   1.49 &amp;     1.49 &amp;   1.49 &amp;    1.49 &amp;   1.49 &amp;    67.46 &amp;     0.0 &amp;  67.46 &amp;   1.49 &amp;   1.49 &amp;   354.67 &amp;  354.67 &amp;   1.49 &amp;   1.49 &amp;   1.49 &amp;   1.49 \
-\bottomrule
-\end{tabular}
-\caption{\label{tab:anacol}Résultats de l’analyse en colonnes}
-\end{tiny}
-\end{table}
-\end{landscape}</p>
+<p><img alt="" src="_images/tab.png" /></p>
 <p>On peut alors projeter les individus lignes ou colonnes sur le premier plan factoriel.</p>
 <p><img alt="" src="_images/plan12lig.png" /><img alt="" src="_images/plan12col.png" /></p>
 <p>On peut alors par exemple utiliser le type de chêne (MONCHENE) comme une variable supplémentaire (ou illustrative) à projeter sur l’analyse après coup. On peut également projeter après analyse un nouveau vin (MONVIN, donc une observation supplémentaire), testé par les experts. Lorsque ces derniers n’étaient pas sûrs de la façon d’utiliser un descripteur, un modèle de réponse (1/2, 1/2) est utilisé pour représenter la réponse.</p>
