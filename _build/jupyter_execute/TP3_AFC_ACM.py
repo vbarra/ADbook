@@ -5,7 +5,7 @@
 
 
 # n'exécuter qu'une fois
-get_ipython().system('pip3 install seaborn numpy matplotlib pandas mca')
+get_ipython().system('pip3 install seaborn numpy matplotlib pandas mca ca')
 
 
 # In[2]:
