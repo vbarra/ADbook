@@ -2890,14 +2890,14 @@ et deux modalités sont proches si elles sont possédées par les mêmes individ
 <div class="proof remark dropdown admonition" id="remark-4">
 <p class="admonition-title"><span class="caption-number">Remark 9 </span></p>
 <div class="remark-content section" id="proof-content">
-<p>On a de plus  <span class="math notranslate nohighlight">\(\chi^2(j,\mathbf{a}) = \frac{n}{n_j}-1\)</span> et  <span class="math notranslate nohighlight">\(f_{\bullet j}\chi^2(j,\mathbf{a}) = \frac{1}{p}\left( 1-\frac{n_j}{n}\right )\)</span>. Donc la distance d’une modalité au centre du nuage est d’autant plus grande que la modalité est rare et la part de l’inertie totale, due à une modalité est d’autant plus grande que la modalité est rare.  On  évite donc en pratique de conserver dans l’analyse les modalités trop rares. \
-De même, puisque <span class="math notranslate nohighlight">\(\displaystyle\sum_{k\in \mathcal{M}_j}f_{\bullet k}\chi^2(k,\mathbf{a}) = \frac{1}{p}\left( m_j-1\right )\)</span>, la part de l’inertie totale, due à une variable  <span class="math notranslate nohighlight">\(j\)</span> est d’autant plus grande que le nombre de modalités  de cette variable est grand. Là aussi, on  évite en pratique de conserver dans l’analyse des variables ayant des nombres de modalités trop différents.</p>
+<p>On a de plus  <span class="math notranslate nohighlight">\(\chi^2(j,\mathbf{a}) = \frac{n}{n_j}-1\)</span> et  <span class="math notranslate nohighlight">\(f_{\bullet j}\chi^2(j,\mathbf{a}) = \frac{1}{p}\left( 1-\frac{n_j}{n}\right )\)</span>. Donc la distance d’une modalité au centre du nuage est d’autant plus grande que la modalité est rare et la part de l’inertie totale, due à une modalité est d’autant plus grande que la modalité est rare.  On  évite donc en pratique de conserver dans l’analyse les modalités trop rares.</p>
+<p>De même, puisque <span class="math notranslate nohighlight">\(\displaystyle\sum_{k\in \mathcal{M}_j}f_{\bullet k}\chi^2(k,\mathbf{a}) = \frac{1}{p}\left( m_j-1\right )\)</span>, la part de l’inertie totale, due à une variable  <span class="math notranslate nohighlight">\(j\)</span> est d’autant plus grande que le nombre de modalités  de cette variable est grand. Là aussi, on  évite en pratique de conserver dans l’analyse des variables ayant des nombres de modalités trop différents.</p>
 </div>
 </div></div>
 <div class="section" id="principe-de-l-acm">
 <h4>Principe de l’ACM<a class="headerlink" href="#principe-de-l-acm" title="Permalink to this headline">#</a></h4>
-<p>L’analyse en composantes multiples consiste alors à appliquer l’analyse factorielle des correspondances  du tableau des  contingences <span class="math notranslate nohighlight">\(\mathbf T\)</span>, c’est-à-dire effectuer une ACP pondérée des nuages des point-individus et des point-modalités .\
-Une différence notable vient cependant de l’interprétation de l’inertie de ces nuages de points  individus (<span class="math notranslate nohighlight">\(I(\mathbf{A})\)</span>) et modalités (<span class="math notranslate nohighlight">\(I(\mathbf{B})\)</span>). En AFC, on pouvait interpréter statistiquement cette inertie en terme de <span class="math notranslate nohighlight">\(\chi^2/n\)</span> mesurant l’indépendance entre les deux variables qualitatives. Ici, ce n’est plus le cas puisque l’on peut montrer que <span class="math notranslate nohighlight">\(I(\mathbf{A}) = I(\mathbf{B})= m/p-1\)</span>. L’inertie dépend donc du nombre moyen <span class="math notranslate nohighlight">\(m/p\)</span> de catégories par variable.</p>
+<p>L’analyse en composantes multiples consiste alors à appliquer l’analyse factorielle des correspondances  du tableau des  contingences <span class="math notranslate nohighlight">\(\mathbf T\)</span>, c’est-à-dire effectuer une ACP pondérée des nuages des point-individus et des point-modalités .</p>
+<p>Une différence notable vient cependant de l’interprétation de l’inertie de ces nuages de points  individus (<span class="math notranslate nohighlight">\(I(\mathbf{A})\)</span>) et modalités (<span class="math notranslate nohighlight">\(I(\mathbf{B})\)</span>). En AFC, on pouvait interpréter statistiquement cette inertie en terme de <span class="math notranslate nohighlight">\(\chi^2/n\)</span> mesurant l’indépendance entre les deux variables qualitatives. Ici, ce n’est plus le cas puisque l’on peut montrer que <span class="math notranslate nohighlight">\(I(\mathbf{A}) = I(\mathbf{B})= m/p-1\)</span>. L’inertie dépend donc du nombre moyen <span class="math notranslate nohighlight">\(m/p\)</span> de catégories par variable.</p>
 <div class="proof remark dropdown admonition" id="remark-5">
 <p class="admonition-title"><span class="caption-number">Remark 10 </span></p>
 <div class="remark-content section" id="proof-content">
@@ -2937,12 +2937,12 @@ Dans le cas <span class="math notranslate nohighlight">\(p=2\)</span>, on observ
 <p><span class="math notranslate nohighlight">\(\mu_r = (2\lambda_r - 1)^2\)</span>
 On en déduit qu’à chaque valeur  propre de l’AFC correspondent deux valeurs propres de l’ACM</p>
 <p><span class="math notranslate nohighlight">\(\lambda_r = \frac{1\pm \sqrt{\mu_r}}{2}\)</span>
-et une relation entre les coordonnées factorielles des deux analyses
-\begin{eqnarray*}
+et une relation entre les coordonnées factorielles des deux analyses</p>
+<p>\begin{eqnarray*}
 \mathbf{c}_1 = \begin{pmatrix} \mathbf{x_K}\mathbf{y_K}\end{pmatrix}\ &amp;\textrm{pour}&amp; \lambda_r = \frac{1+ \sqrt{\mu_r}}{2}\
 \mathbf{c}_2 = \begin{pmatrix} \mathbf{x_K}-\mathbf{y_K}\end{pmatrix}\ &amp;\textrm{pour}&amp; \lambda_r = \frac{1- \sqrt{\mu_r}}{2}
-\end{eqnarray*}
-où <span class="math notranslate nohighlight">\(\mathbf{x_K},\mathbf{y_K}\)</span> sont les composantes principales des profils ligne et colonne de <span class="math notranslate nohighlight">\(K\)</span>.
+\end{eqnarray*}</p>
+<p>où <span class="math notranslate nohighlight">\(\mathbf{x_K},\mathbf{y_K}\)</span> sont les composantes principales des profils ligne et colonne de <span class="math notranslate nohighlight">\(K\)</span>.
 De là viennent deux constats :</p>
 <ul class="simple">
 <li><p>dans l’analyse en composantes multiples de 2 variables, on ne retient que les valeurs propres supérieures strictement à 1/2, les composantes correspondant  aux valeurs propres inférieures se déduisant facilement</p></li>

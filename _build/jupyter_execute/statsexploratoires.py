@@ -937,13 +937,15 @@ print (print_tab (n, p, ind, cosinus_carres))
 # 
 # ```{prf:remark}
 # :class: dropdown
-# On a de plus  $\chi^2(j,\mathbf{a}) = \frac{n}{n_j}-1$ et  $f_{\bullet j}\chi^2(j,\mathbf{a}) = \frac{1}{p}\left( 1-\frac{n_j}{n}\right )$. Donc la distance d'une modalité au centre du nuage est d'autant plus grande que la modalité est rare et la part de l'inertie totale, due à une modalité est d'autant plus grande que la modalité est rare.  On  évite donc en pratique de conserver dans l'analyse les modalités trop rares. \\
+# On a de plus  $\chi^2(j,\mathbf{a}) = \frac{n}{n_j}-1$ et  $f_{\bullet j}\chi^2(j,\mathbf{a}) = \frac{1}{p}\left( 1-\frac{n_j}{n}\right )$. Donc la distance d'une modalité au centre du nuage est d'autant plus grande que la modalité est rare et la part de l'inertie totale, due à une modalité est d'autant plus grande que la modalité est rare.  On  évite donc en pratique de conserver dans l'analyse les modalités trop rares. 
+# 
 # De même, puisque $\displaystyle\sum_{k\in \mathcal{M}_j}f_{\bullet k}\chi^2(k,\mathbf{a}) = \frac{1}{p}\left( m_j-1\right )$, la part de l'inertie totale, due à une variable  $j$ est d'autant plus grande que le nombre de modalités  de cette variable est grand. Là aussi, on  évite en pratique de conserver dans l'analyse des variables ayant des nombres de modalités trop différents.
 # ```
 # 
 # 
 # #### Principe de l'ACM
-# L'analyse en composantes multiples consiste alors à appliquer l'analyse factorielle des correspondances  du tableau des  contingences $\mathbf T$, c'est-à-dire effectuer une ACP pondérée des nuages des point-individus et des point-modalités .\\
+# L'analyse en composantes multiples consiste alors à appliquer l'analyse factorielle des correspondances  du tableau des  contingences $\mathbf T$, c'est-à-dire effectuer une ACP pondérée des nuages des point-individus et des point-modalités .
+# 
 # Une différence notable vient cependant de l'interprétation de l'inertie de ces nuages de points  individus ($I(\mathbf{A})$) et modalités ($I(\mathbf{B})$). En AFC, on pouvait interpréter statistiquement cette inertie en terme de $\chi^2/n$ mesurant l'indépendance entre les deux variables qualitatives. Ici, ce n'est plus le cas puisque l'on peut montrer que $I(\mathbf{A}) = I(\mathbf{B})= m/p-1$. L'inertie dépend donc du nombre moyen $m/p$ de catégories par variable.
 # 
 # 
@@ -987,10 +989,12 @@ print (print_tab (n, p, ind, cosinus_carres))
 # 
 # $\lambda_r = \frac{1\pm \sqrt{\mu_r}}{2}$
 # et une relation entre les coordonnées factorielles des deux analyses 
+# 
 # \begin{eqnarray*}
 # \mathbf{c}_1 = \begin{pmatrix} \mathbf{x_K}\\\mathbf{y_K}\end{pmatrix}\ &\textrm{pour}& \lambda_r = \frac{1+ \sqrt{\mu_r}}{2}\\
 # \mathbf{c}_2 = \begin{pmatrix} \mathbf{x_K}\\-\mathbf{y_K}\end{pmatrix}\ &\textrm{pour}& \lambda_r = \frac{1- \sqrt{\mu_r}}{2}
 # \end{eqnarray*}
+# 
 # où $\mathbf{x_K},\mathbf{y_K}$ sont les composantes principales des profils ligne et colonne de $K$.
 # De là viennent deux constats :
 # - dans l'analyse en composantes multiples de 2 variables, on ne retient que les valeurs propres supérieures strictement à 1/2, les composantes correspondant  aux valeurs propres inférieures se déduisant facilement

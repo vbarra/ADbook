@@ -724,7 +724,7 @@ Comme dans l'ACP également, la qualité d'une modalité de $X$ (resp. $Y$) se q
 
 #### Inertie expliquée
 L'inertie totale du nuage des profils lignes (resp. colonnes) est égale à la somme de toutes les valeurs propres $\lambda_i$. La part due au $j^e$ profil ligne (resp. $k^e$ profil colonne) est $f_{j.}\displaystyle\sum_i \left (\mathbf{C_J}(ji) \right )^2$ (resp. $f_{.k}\displaystyle\sum_i \left (\mathbf{C_K}(ik) \right )^2$).
-\vskip 10pt
+
 Les contributions à l'inertie selon chaque axe se calculent de la même manière, sans sommation sur $i$. Elles sont utilisées pour sélectionner les modalités les plus importantes (i.e. celles qui importent le plus dans la définition de la liaison entre $X$ et $Y$).
 
 #### Choix de q
@@ -983,31 +983,15 @@ ne peuvent donc pas être interprétés comme en AFC et en ACP.
 
 ### Exemple
 On souhaite évaluer l'effet de l'espèce de chêne sur des vins rouges vieillis en barrique. Un même vin a été vieilli dans six barriques différentes fabriquées avec deux types de chêne : les vins $V_1$, $V_5$ et $V_6$ ont été élevés avec le premier type de chêne, tandis que les vins $V_2$, $V_3$ et $V_4$ ont été élevés avec le second. Trois experts $E_1,E_2,E_3$ ont ensuite choisi entre deux et cinq variables pour décrire les vins. Pour chaque vin et pour chaque variable, l'expert évalue l'intensité, codée soit comme une réponse binaire (i.e. fruité vs. non fruité), soit comme une réponse ternaire (i.e. pas fruité, un peu fruité, très fruité). On code le tout par un tableau disjonctif complet :
-\vskip 10pt
 
-\begin{tabular}{lccccccc|ccccccccc|cccccc}
-\toprule
-Expert & \multicolumn{7}{c}{$E_1$} & \multicolumn{9}{c}{$E_2$} & \multicolumn{6}{c}{$E_3$} \\
-\hline 
- & \multicolumn{2}{c}{fruité} & \multicolumn{3}{c}{boisé} & \multicolumn{2}{c}{caféiné} & \multicolumn{2}{c}{fruité} & \multicolumn{2}{c}{grillé} & \multicolumn{3}{c}{vanillé} & \multicolumn{2}{c}{boisé} & \multicolumn{2}{c}{fruité} & \multicolumn{2}{c}{beurré} & \multicolumn{2}{c}{boisé} \\
- &        o &  n &     1 &  2 &  3 &      o &  n &        o &  n &       o &  n &        1 &  2 &  3 &     o &  n &        o &  n &      o &  n &     o &  n \\
- &          &    &       &    &    &        &    &          &    &         &    &          &    &    &       &    &          &    &        &    &       &    \\
-\midrule
-$V_1$   &        1 &  0 &     0 &  0 &  1 &      0 &  1 &        1 &  0 &       0 &  1 &        0 &  0 &  1 &     0 &  1 &        0 &  1 &      0 &  1 &     0 &  1 \\
-$V_2$   &        0 &  1 &     0 &  1 &  0 &      1 &  0 &        0 &  1 &       1 &  0 &        0 &  1 &  0 &     1 &  0 &        0 &  1 &      1 &  0 &     1 &  0 \\
-$V_3$   &        0 &  1 &     1 &  0 &  0 &      1 &  0 &        0 &  1 &       1 &  0 &        1 &  0 &  0 &     1 &  0 &        0 &  1 &      1 &  0 &     1 &  0 \\
-$V_4$   &        0 &  1 &     1 &  0 &  0 &      1 &  0 &        0 &  1 &       1 &  0 &        1 &  0 &  0 &     1 &  0 &        1 &  0 &      1 &  0 &     1 &  0 \\
-$V_5$   &        1 &  0 &     0 &  0 &  1 &      0 &  1 &        1 &  0 &       0 &  1 &        0 &  0 &  1 &     0 &  1 &        1 &  0 &      0 &  1 &     0 &  1 \\
-$V_6$   &        1 &  0 &     0 &  1 &  0 &      0 &  1 &        1 &  0 &       0 &  1 &        0 &  1 &  0 &     0 &  1 &        1 &  0 &      0 &  1 &     0 &  1 \\
-\bottomrule
-\end{tabular}
-\vskip 10pt
+
+![](./images/tab0.png)
+
 L'objectif de l'étude est d'une part de proposer une typologie des vins et d'autre part de savoir s'il y a un accord entre les échelles utilisées par les experts. 
 
 
 La figure suivante présente le résultat de l'analyse spectrale en lignes. Les tableaux qui suivent donnent les coordonnées des individus ($S$), la qualité de leur représentation et leur contribution  (C$\times 10^3$ sur les trois premiers axes factoriels.
 
-\vskip 10pt
 
 ![](./images/spectralACM.png)
 
@@ -1028,31 +1012,7 @@ La figure suivante présente le résultat de l'analyse spectrale en lignes. Les 
 
 
 
-\begin{landscape}
-\begin{table}
-\begin{tiny}
-
-\begin{tabular}{lcccccccc|ccccccccc|cccccc}
-\toprule
-                           &  & \multicolumn{7}{c}{$E_1$} & \multicolumn{9}{c}{$E_2$} & \multicolumn{6}{c}{$E_3$} \\
-                           &  & \multicolumn{2}{c}{fruité} & \multicolumn{3}{c}{boisé} & \multicolumn{2}{c}{caféiné} & \multicolumn{2}{c}{fruité} & \multicolumn{2}{c}{grillé} & \multicolumn{3}{c}{vanillé} & \multicolumn{2}{c}{boisé} & \multicolumn{2}{c}{fruité} & \multicolumn{2}{c}{beurré} & \multicolumn{2}{c}{boisé} \\
-                           &  &        o & n &       1 &        2 &       3 &       o & n &        o & n &       o & n &        1 &        2 &       3 &       o & n &        y &        n &       o & n &       o & n \\
-\midrule
-$S$ & 1 &    -0.99 &   0.99 &   1.07 &    -0.0 &  -1.07 &   0.99 &  -0.99 &    -0.99 &   0.99 &    0.99 &  -0.99 &     1.07 &    -0.0 &  -1.07 &   0.99 &  -0.99 &    -0.31 &    0.31 &   0.99 &  -0.99 &   0.99 &  -0.99 \\
-                           & 2 &     -0.0 &   -0.0 &  -0.71 &    1.41 &  -0.71 &    0.0 &   -0.0 &     -0.0 &    0.0 &     0.0 &   -0.0 &    -0.71 &    1.41 &  -0.71 &    0.0 &   -0.0 &      0.0 &    -0.0 &    0.0 &   -0.0 &    0.0 &   -0.0 \\
-                           & 3 &    -0.06 &   0.06 &  -0.48 &     0.0 &   0.48 &   0.06 &  -0.06 &    -0.06 &   0.06 &    0.06 &  -0.06 &    -0.48 &     0.0 &   0.48 &   0.06 &  -0.06 &     -0.9 &     0.9 &   0.06 &  -0.06 &   0.06 &  -0.06 \\
-$cos^2$ & 1 &     0.99 &   0.99 &   0.57 &     0.0 &   0.57 &   0.99 &   0.99 &     0.99 &   0.99 &    0.99 &   0.99 &     0.57 &     0.0 &   0.57 &   0.99 &   0.99 &     0.09 &    0.09 &   0.99 &   0.99 &   0.99 &   0.99 \\
-                           & 2 &      0.0 &    0.0 &   0.25 &     1.0 &   0.25 &    0.0 &    0.0 &      0.0 &    0.0 &     0.0 &    0.0 &     0.25 &     1.0 &   0.25 &    0.0 &    0.0 &      0.0 &     0.0 &    0.0 &    0.0 &    0.0 &    0.0 \\
-                           & 3 &      0.0 &    0.0 &   0.12 &     0.0 &   0.12 &    0.0 &    0.0 &      0.0 &    0.0 &     0.0 &    0.0 &     0.12 &     0.0 &   0.12 &    0.0 &    0.0 &     0.82 &    0.82 &    0.0 &    0.0 &    0.0 &    0.0 \\
-$C$ & 1 &    57.96 &  57.96 &  44.37 &     0.0 &  44.37 &  57.96 &  57.96 &    57.96 &  57.96 &   57.96 &  57.96 &    44.37 &     0.0 &  44.37 &  57.96 &  57.96 &     5.56 &    5.56 &  57.96 &  57.96 &  57.96 &  57.96 \\
-                           & 2 &      0.0 &    0.0 &  83.33 &  333.33 &  83.33 &    0.0 &    0.0 &      0.0 &    0.0 &     0.0 &    0.0 &    83.33 &  333.33 &  83.33 &    0.0 &    0.0 &      0.0 &     0.0 &    0.0 &    0.0 &    0.0 &    0.0 \\
-                           & 3 &     1.49 &   1.49 &  67.46 &     0.0 &  67.46 &   1.49 &   1.49 &     1.49 &   1.49 &    1.49 &   1.49 &    67.46 &     0.0 &  67.46 &   1.49 &   1.49 &   354.67 &  354.67 &   1.49 &   1.49 &   1.49 &   1.49 \\
-\bottomrule
-\end{tabular}
-\caption{\label{tab:anacol}Résultats de l'analyse en colonnes}
-\end{tiny}
-\end{table}
-\end{landscape}
+![](./images/tab.png)
 
 
 On peut alors projeter les individus lignes ou colonnes sur le premier plan factoriel.
