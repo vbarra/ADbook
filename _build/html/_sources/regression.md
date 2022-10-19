@@ -14,35 +14,33 @@ kernelspec:
 
 On s'intéresse ici à l'explication d'une variable (aléatoire) $Y$ (la variable expliquée) par une (ou plusieurs) variable(s) aléatoire(s) $X_j$ (prédicteurs, ou variables explicatives). 
 
-\section{Régression simple}
+## Régression simple
 On dispose de $n$ couples de variables quantitatives $(\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]$ constituant un échantillon d'observations indépendantes de $(X,Y)$ et on cherche une relation statistique pouvant exister entre $Y$ et $X$. On rappelle ici quelques résultats élémentaires sur la régression linéaire simple.
 
-\subsection{Modèle théorique}
+### Modèle théorique
 Théoriquement, on cherche une fonction $f$ telle que $f(X)$ soit aussi proche que possible de $Y$. Par proximité, on entend ici au sens des moindres carrés, et donc on cherche $f$ telle que $\mathbb{E}\left ( (Y-f(X))^2\right )$ soit minimale. On sait alors que la fonction $f$ qui satisfait cette propriété est :
 
-$$f(X) = \mathbb{E}(Y\mid X)$$
+$f(X) = \mathbb{E}(Y\mid X)$
 
-\begin{defin}{Fonction de régression}{}
+````{prf:definition} Fonction de régression
 La fonction $x\mapsto \mathbb{E}(Y\mid X=x)$ est la fonction de régression de $Y$ en $X$.
-
-\end{defin}
+````
 
 La qualité de l'approximation est mesurée par le rapport de corrélation.
 
-\begin{defin}{Rapport de corrélation}{}
+````{prf:definition} Rapport de corrélation
 Le rapport de corrélation entre deux variables aléatoires $X$ et $Y$ est défini par le rapport entre la variation expliquée et la variation totale :
 
-$$\eta_{Y\mid X}^2 = \frac{\sigma_{\mathbb{E}(Y\mid X)}^2}{\sigma_Y^2}$$
-\end{defin}
+$\eta_{Y\mid X}^2 = \frac{\sigma_{\mathbb{E}(Y\mid X)}^2}{\sigma_Y^2}$
+````
 
 En pratique, $Y$ est approchée par $Y=\mathbb{E}(Y\mid X)+\epsilon$, où $\epsilon$ est un résidu aléatoire de moyenne nulle, non corrélé à $X$ et à $\mathbb{E}(Y\mid X)$ et tel que $\sigma_\epsilon^2= (1-\eta_{Y\mid X}^2)\sigma_Y^2$.
 
-Le cadre le plus utilisé est celui de la régression linéaire, c'est-à-dire lorsque 
-$$Y=a+bX+\epsilon$$
-et donc $\mathbb{E}(Y\mid X)=a+bX$, ce qui est le cas lorsque $(X,Y)$ est un couple de variables aléatoires gaussiennes.\\
+Le cadre le plus utilisé est celui de la régression linéaire, c'est-à-dire lorsque $Y=a+bX+\epsilon$ et donc $\mathbb{E}(Y\mid X)=a+bX$, ce qui est le cas lorsque $(X,Y)$ est un couple de variables aléatoires gaussiennes.
+
 Puisque $\mathbb{E}(\epsilon)=0$, la droite de régression passe par le point $(\mathbb{E}(X),\mathbb{E}(Y))$. Ainsi
 
-$$Y-\mathbb{E}(Y)=b(X-\mathbb{E}(X))+\epsilon$$
+$Y-\mathbb{E}(Y)=b(X-\mathbb{E}(X))+\epsilon$
 
 En multipliant par $X-\mathbb{E}(X)$ et en prenant l'espérance, on trouve à gauche la covariance de $(X,Y)$ et à droite la variance de $X$, soit
 
@@ -54,59 +52,77 @@ $\begin{array}{ccll}
 $
 
 d'où
-$$b = \frac{\sigma_{XY}}{\sigma_X^2} = r_{XY}\frac{\sigma_Y}{\sigma_X}$$
+$b = \frac{\sigma_{XY}}{\sigma_X^2} = r_{XY}\frac{\sigma_Y}{\sigma_X}$
 
 L'équation de la droite de régression est donc finalement
 
-$$Y-\mathbb{E}(Y)=r_{XY}\frac{\sigma_Y}{\sigma_X}(X-\mathbb{E}(X))+\epsilon$$
-En calculant la variance des deux termes, et puisque $\epsilon$ et $X$ ne sont pas corrélés, on trouve 
-$$r_{XY}^2 = \eta_{Y\mid X}^2$$
+$Y-\mathbb{E}(Y)=r_{XY}\frac{\sigma_Y}{\sigma_X}(X-\mathbb{E}(X))+\epsilon$
 
-\subsection{Ajustement aux données}
-On cherche ici à ajuster le modèle linéaire théorique aux $n$ couples d'observations indépendantes $(\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]$. Il s'agit donc de trouver $a,b$ ainsi que la variance du résidu $\epsilon$.\\
+En calculant la variance des deux termes, et puisque $\epsilon$ et $X$ ne sont pas corrélés, on trouve 
+
+$r_{XY}^2 = \eta_{Y\mid X}^2$
+
+### Ajustement aux données
+On cherche ici à ajuster le modèle linéaire théorique aux $n$ couples d'observations indépendantes $(\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]$. Il s'agit donc de trouver $a,b$ ainsi que la variance du résidu $\epsilon$.
+
 La méthode la plus classique est la méthode des moindres carrés\footnote{On trouvera dans le cours d'analyse numérique 1 une résolution de ce problème par le système aux équations normales.} : on cherche à ajuster au nuage de points  $(\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]$ une droite d'équation $y^*=\alpha +\beta x$ de sorte à minimiser 
-$$\displaystyle\sum_{i=1}^n (y_i^*-y_i)^2 = \displaystyle\sum_{i=1}^n (\alpha + \beta x_i-y_i)^2$$
+
+$\displaystyle\sum_{i=1}^n (y_i^*-y_i)^2 = \displaystyle\sum_{i=1}^n (\alpha + \beta x_i-y_i)^2$
 
 En annulant le gradient de cette fonction à deux variables $(\alpha,\beta)$, on trouve facilement 
-$$\beta = \frac{\sigma_{xy}}{\sigma_x^2} = r_{xy}\frac{\sigma_y}{\sigma_x}$$
-de sorte que 
-$$y^* = \bar y + r_{xy}\frac{\sigma_y}{\sigma_x}(x-\bar x)$$
-La droite de régression linéaire passe donc par le centre de masse du nuage de points (figure~\ref{F:reglin}).
-\begin{rem}
+
+$\beta = \frac{\sigma_{xy}}{\sigma_x^2} = r_{xy}\frac{\sigma_y}{\sigma_x}$
+
+de sorte que $y^* = \bar y + r_{xy}\frac{\sigma_y}{\sigma_x}(x-\bar x)$.
+
+La droite de régression linéaire passe donc par le centre de masse du nuage de points.
+```{prf:remark}
+:class: dropdown
 les $x_i$ et $y_i$ étant des réalisations de variables aléatoires, tous les termes de l'équation de la droite de régression linéaire le sont également.
-\end{rem}
+```
 
-\begin{rem}
+```{prf:remark}
+:class: dropdown
 On peut montrer que $\alpha$, $\beta$ et $y^*$ sont des estimateurs sans biais de $a$, $b$ et $\mathbb{E}(Y\mid X)$.
-\end{rem}
+``` 
+La figure suivante illustre la régression linéaire d'un ensemble de points, décomposé en un ensemble d'apprentissage (bleu) sur lequel la droite de régression a été apprise et un ensemble de test (vert) sur lequel les valeurs ont été prédites (magenta).
 
-\begin{figure}[ht!]
-\includegraphics[width=.9\textwidth]{figures/regressionlin.png}
-\caption{\label{F:reglin}Régression linéaire d'un ensemble de points, décomposé en un ensemble d'apprentissage (bleu) sur lequel la droite de régression a été apprise et un ensemble de test (vert) sur lequel les valeurs ont été prédites (magenta).}
-\end{figure}
+![](./images/regressionlin.png)
 
-\section{Régression multiple}
-\subsection{Ajustement linéaire d'un ensemble d'observations}
+
+## Régression multiple
+### Ajustement linéaire d'un ensemble d'observations
+
 La régression multiple généralise la régression simple au cas de $p\geq 2$ prédicteurs quantitatifs (ou variables explicatives). Ici on considère un échantillon de $n$ individus, sur lesquels $p+1$ variables sont mesurées : une variable à expliquer $\mathbf Y = (y_1\cdots y_n)^T\in\mathbb{R}^n$ et $p$ variables explicatives $\mathbf X_i$ linéairement indépendantes, mais possiblement en relation.\\ 
 On cherche 
-$$\mathbf Y^* = \beta_0 \mathbf{1} + \displaystyle\sum_{i=1}^p \beta_i\mathbf X_i$$
-proche de $\mathbf Y$ au sens des moindres carrés. $\mathbf{1}$ est le vecteur de $\mathbb{R}^n$ dont toutes les composantes valent 1.\\ 
+
+$\mathbf Y^* = \beta_0 \mathbf{1} + \displaystyle\sum_{i=1}^p \beta_i\mathbf X_i$
+
+proche de $\mathbf Y$ au sens des moindres carrés. $\mathbf{1}$ est le vecteur de $\mathbb{R}^n$ dont toutes les composantes valent 1.
+
 En notant 
-$$X = \begin{pmatrix}\mathbf{1} & \mathbf{X_1}\cdots \mathbf{X_p}\end{pmatrix}\in\mathcal{M}_{n,p+1}(\mathbb{R})\quad\text{et}\quad \boldsymbol{\beta}=(\beta_0\cdots \beta_p)^T
-\in\mathbb{R}^{p+1}$$
-on a 
-$$\mathbf Y^*=\mathbf X\boldsymbol \beta$$
-$\mathbf Y^*$ est par définition des moindres carrés la projection de $\mathbf Y$ sur $Im(\mathbf X)$, soit\footnote{Voir cours analyse numérique 1, chapitre 4.} :
-$$\mathbf Y^* = \mathbf X(\mathbf X^T\mathbf X)^{-1}\mathbf X^T \mathbf Y$$
+$X = \begin{pmatrix}\mathbf{1} & \mathbf{X_1}\cdots \mathbf{X_p}\end{pmatrix}\in\mathcal{M}_{n,p+1}(\mathbb{R})\quad\text{et}\quad \boldsymbol{\beta}=(\beta_0\cdots \beta_p)^T
+\in\mathbb{R}^{p+1}$
+
+on a $\mathbf Y^*=\mathbf X\boldsymbol \beta$.
+
+
+$\mathbf Y^*$ est par définition des moindres carrés la projection de $\mathbf Y$ sur $Im(\mathbf X)$, soit (Voir cours analyse numérique) :
+
+$\mathbf Y^* = \mathbf X(\mathbf X^T\mathbf X)^{-1}\mathbf X^T \mathbf Y$
+
 et donc 
-$$\boldsymbol\beta = (\mathbf X^T\mathbf X)^{-1}\mathbf X^T \mathbf Y$$
+
+$\boldsymbol\beta = (\mathbf X^T\mathbf X)^{-1}\mathbf X^T \mathbf Y$
+
 et on a donc les paramètres de la régression multiple.
-\begin{rem}
+
+
+```{prf:remark}
 Dans le cas où la métrique utilisée est définie par une matrice symétrique définie positive $D$ de taille $p$, alors 
 $$\boldsymbol\beta = (\mathbf X^T\mathbf D \mathbf X)^{-1}\mathbf X^T \mathbf D \mathbf Y$$
-\end{rem}
-
-\subsection{Modèle}
+```
+### Modèle
 On suppose que les $\mathbf X_i$ et $\mathbf Y$ sont $n$ réalisations indépendantes de $p+1$ variables aléatoires $\chi_i$ et $\omega$. De même qu'en régression simple, la recherche de la meilleure approximation de $\omega$ par une fonction des $\chi_i$ amène à $\mathbb{E}(\omega\mid \chi_1\cdots \chi_p)$ et l'hypothèse de régression multiple est
 $$\mathbb{E}(\omega\mid \chi_0\cdots \chi_p) = b_0+\displaystyle\sum_{i=1}^p b_i\chi_i+\epsilon$$
 avec $\mathbb{E}(\epsilon)=0, \sigma_\epsilon=\sigma^2$ et $\epsilon$ non corrélée aux $\chi_i$.
