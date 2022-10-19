@@ -234,7 +234,7 @@ var_chiens = chiens[['Taille','Velocite','Affection']]
 print(var_chiens)
 
 
-# ### Analyse des individus
+# ## Analyse des individus
 # 
 # Dans la suite, on travaille sur le tableau disjonctif complet des données (variables transformées en indicatrices 0/1).
 
