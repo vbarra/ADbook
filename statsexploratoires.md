@@ -628,19 +628,16 @@ Plus précisément, l'analyse factorielle des correspondances (AFC) vise à déf
 
 ### Notations
 Le tableau de contingence ${\bf T}$ entre les $X$ et $Y$, vu comme une matrice,  est défini par 
-\begin{center}
-\begin{tabular}{c|ccccc|c}
-&$y_1$&$\cdots$&$y_k$&$\cdots$&$y_K$&total\\
-\hline
-$x_1$&$n_{11}$&$\cdots$&$n_{1k}$&$\cdots$&$n_{1K}$&$n_{1.}$\\
-$\vdots$&$\vdots$&$\vdots$&$\vdots$&$\vdots$&$\vdots$&$\vdots$\\
-$x_j$&$n_{j1}$&$\cdots$&$n_{jk}$&$\cdots$&$n_{jK}$&$n_{j.}$\\
-$\vdots$&$\vdots$&$\vdots$&$\vdots$&$\vdots$&$\vdots$&$\vdots$\\
-$x_J$&$n_{J1}$&$\cdots$&$n_{Jk}$&$\cdots$&$n_{JK}$&$n_{J.}$\\
-\hline
-total&$n_{.1}$&$\cdots$&$n_{.k}$&$\cdots$&$n_{.K}$&$n$\\
-\end{tabular}
-\end{center}
+
+|          | $y_1$    | $\cdots$ | $y_k$    | $\cdots$ | $y_K$    | total    |
+|----------|----------|----------|----------|----------|----------|----------|
+| $x_1$    | $n_{11}$ | $\cdots$ | $n_{1k}$ | $\cdots$ | $n_{1K}$ | $n_{1.}$ |
+| $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ |
+| $x_j$    | $n_{j1}$ | $\cdots$ | $n_{jk}$ | $\cdots$ | $n_{jK}$ | $n_{j.}$ |
+| $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ |
+| $x_J$    | $n_{J1}$ | $\cdots$ | $n_{Jk}$ | $\cdots$ | $n_{JK}$ | $n_{J.}$ |
+| total    | $n_{.1}$ | $\cdots$ | $n_{.k}$ | $\cdots$ | $n_{.K}$ | $n$      |
+
 
 où $n_{j.}$ (resp $n_{.k}$ )sont les effectifs marginaux représentant le nombre de fois où $x_j$ (resp. $y_k$) apparaît, et $n_{jk}$ le nombre d'apparition du couple $(x_j,y_k)$.\\
 
@@ -767,51 +764,44 @@ Les estimations des paramètres $\pi_{j.}\pi_{.k} ,\lambda_i,u^i,v^i$ peuvent ê
 ### Exemple
 On utilise ici des données open source du [gouvernement](https://www.data.gouv.fr/fr/posts/les-donnees-des-elections/), présentant le résultat du premier tour des élections présidentielles de 2017.
 
-\begin{center}
-\begin{tiny}
-\begin{tabular}{llrrrrr}
-\toprule
-{} &                      Region &   HAMON &   MACRON &  ASSELINEAU &   FILLON &  CHEMINADE \\
-\midrule
-0  &                   Grand-Est &  151296 &   615775 &       30223 &   586390 &       6078 \\
-1  &          Nelle-Aquitaine &  240175 &   851372 &       26667 &   602884 &       6264 \\
-2  &     AURA &  256620 &  1026255 &       41352 &   846252 &       7602 \\
-3  &     Bourgogne-FC &   87382 &   338187 &       14330 &   304387 &       2842 \\
-4  &                    Bretagne &  180827 &   581076 &       13419 &   380815 &       3400 \\
-5  &         Centre-Val-de-Loire &   83552 &   323724 &       12075 &   300324 &       2882 \\
-6  &                       Corse &    5780 &    28528 &         965 &    39453 &        253 \\
-7  &               Ile-de-France &  430404 &  1612816 &       64406 &  1249770 &       9796 \\
-8  &                   Occitanie &  216362 &   740037 &       28603 &   566045 &       5524 \\
-9  &             Hauts-de-France &  166640 &   630300 &       26043 &   521389 &       5688 \\
-10 &                   Normandie &  113744 &   423075 &       14303 &   370188 &       3544 \\
-11 &            Pays-de-la-Loire &  143491 &   575832 &       15529 &   516428 &       3731 \\
-12 &  PACA &  113344 &   520909 &       25948 &   615455 &       4569 \\
-13 &                    Outremer &  101948 &   389440 &       18725 &   314017 &       3425 \\
-\bottomrule
-\end{tabular}
 
-\begin{tabular}{llrrrrrrr}
-\toprule
-{} &                      Region &  MELENCHON &  LASSALLE &   FILLON &  DUPONT-AIGNAN &  POUTOU &    LEPEN &  ARTHAUD \\
-\midrule
-0  &                   Grand-Est &     484810 &     30508 &   586390 &         182200 &   34468 &   825600 &    24272 \\
-1  &          Nelle-Aquitaine &     703505 &     91915 &   602884 &         155600 &   49649 &   640228 &    21442 \\
-2  &     AURA &     805846 &     53282 &   846252 &         215951 &   43530 &   867874 &    24670 \\
-3  &     Bourgogne-FC &     276954 &     15843 &   304387 &          87263 &   18529 &   387658 &    11492 \\
-4  &                    Bretagne &     385736 &     19097 &   380815 &          87928 &   27092 &   306644 &    14296 \\
-5  &         Centre-Val-de-Loire &     252307 &     13570 &   300324 &          82060 &   16282 &   329470 &    11365 \\
-6  &                       Corse &      21314 &      8711 &    39453 &           4462 &    1374 &    43041 &      495 \\
-7  &               Ile-de-France &    1225311 &     36358 &  1249770 &         226266 &   45715 &   708340 &    23592 \\
-8  &                   Occitanie &     734223 &     75483 &   566045 &         135405 &   35219 &   762104 &    16777 \\
-9  &             Hauts-de-France &     633322 &     22411 &   521389 &         160722 &   33653 &  1003221 &    29194 \\
-10 &                   Normandie &     362535 &     13900 &   370188 &          98957 &   23816 &   452702 &    15196 \\
-11 &            Pays-de-la-Loire &     403454 &     16988 &   516428 &         109842 &   26340 &   364267 &    16018 \\
-12 &  PACA &     515419 &     29551 &   615455 &         119025 &   21316 &   774791 &    10439 \\
-13 &                    Outremer &     256149 &      7748 &   314017 &          29505 &   17599 &   213553 &    13180 \\
-\bottomrule
-\end{tabular}
-\end{tiny}
-\end{center}
+
+|    | Region              | HAMON  | MACRON  | ASSELINEAU | FILLON  | CHEMINADE |
+|----|---------------------|--------|---------|------------|---------|-----------|
+| 0  | Grand-Est           | 151296 | 615775  | 30223      | 586390  | 6078      |
+| 1  | Nelle-Aquitaine     | 240175 | 851372  | 26667      | 602884  | 6264      |
+| 2  | AURA                | 256620 | 1026255 | 41352      | 846252  | 7602      |
+| 3  | Bourgogne-FC        | 87382  | 338187  | 14330      | 304387  | 2842      |
+| 4  | Bretagne            | 180827 | 581076  | 13419      | 380815  | 3400      |
+| 5  | Centre-Val-de-Loire | 83552  | 323724  | 12075      | 300324  | 2882      |
+| 6  | Corse               | 5780   | 28528   | 965        | 39453   | 253       |
+| 7  | Ile-de-France       | 430404 | 1612816 | 64406      | 1249770 | 9796      |
+| 8  | Occitanie           | 216362 | 740037  | 28603      | 566045  | 5524      |
+| 9  | Hauts-de-France     | 166640 | 630300  | 26043      | 521389  | 5688      |
+| 10 | Normandie           | 113744 | 423075  | 14303      | 370188  | 3544      |
+| 11 | Pays-de-la-Loire    | 143491 | 575832  | 15529      | 516428  | 3731      |
+| 12 | PACA                | 113344 | 520909  | 25948      | 615455  | 4569      |
+| 13 | Outremer            | 101948 | 389440  | 18725      | 314017  | 3425      |
+
+
+|    | Region              | MELENCHON | LASSALLE | FILLON  | DUPONT-AIGNAN | POUTOU | LEPEN   | ARTHAUD |
+|----|---------------------|-----------|----------|---------|---------------|--------|---------|---------|
+| 0  | Grand-Est           | 484810    | 30508    | 586390  | 182200        | 34468  | 825600  | 24272   |
+| 1  | Nelle-Aquitaine     | 703505    | 91915    | 602884  | 155600        | 49649  | 640228  | 21442   |
+| 2  | AURA                | 805846    | 53282    | 846252  | 215951        | 43530  | 867874  | 24670   |
+| 3  | Bourgogne-FC        | 276954    | 15843    | 304387  | 87263         | 18529  | 387658  | 11492   |
+| 4  | Bretagne            | 385736    | 19097    | 380815  | 87928         | 27092  | 306644  | 14296   |
+| 5  | Centre-Val-de-Loire | 252307    | 13570    | 300324  | 82060         | 16282  | 329470  | 11365   |
+| 6  | Corse               | 21314     | 8711     | 39453   | 4462          | 1374   | 43041   | 495     |
+| 7  | Ile-de-France       | 1225311   | 36358    | 1249770 | 226266        | 45715  | 708340  | 23592   |
+| 8  | Occitanie           | 734223    | 75483    | 566045  | 135405        | 35219  | 762104  | 16777   |
+| 9  | Hauts-de-France     | 633322    | 22411    | 521389  | 160722        | 33653  | 1003221 | 29194   |
+| 10 | Normandie           | 362535    | 13900    | 370188  | 98957         | 23816  | 452702  | 15196   |
+| 11 | Pays-de-la-Loire    | 403454    | 16988    | 516428  | 109842        | 26340  | 364267  | 16018   |
+| 12 | PACA                | 515419    | 29551    | 615455  | 119025        | 21316  | 774791  | 10439   |
+| 13 | Outremer            | 256149    | 7748     | 314017  | 29505         | 17599  | 213553  | 13180   |
+
+
 
 On décide dans l'analyse d'enlever le candidat LASSALLE, dont les votes sont concentrés dans les Pyrenées et en Corse (et qui introduit un biais dans l'étude).\\
 
@@ -838,7 +828,7 @@ On utilise alors les vecteurs propres (axes factoriels) pour analyser les donné
 - La contribution de chaque individu à la formation de chaque axe factoriel
 
 
-| {} | Region              | Masse    | Coord1    | Coord2    | Qualité  | contrib1 | contrib2 |
+|    | Region              | Masse    | Coord1    | Coord2    | Qualité  | contrib1 | contrib2 |
 |----|---------------------|----------|-----------|-----------|----------|----------|----------|
 | 0  | Grand-Est           | 0.082561 | -0.081478 | 0.030469  | 0.033810 | 0.1031   | 0.05     |
 | 1  | Nelle-Aquitaine     | 0.092573 | 0.022322  | -0.009848 | 0.002607 | 0.0129   | 0.1404   |

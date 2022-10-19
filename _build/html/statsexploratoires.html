@@ -2276,28 +2276,147 @@ Le nombre de valeurs propres produites par la recherche des facteurs principaux 
 <li><p>La qualité qui indique les qualités de représentation des individus ligne sur les deux premiers axes factoriels : c’est la somme des carrés des composantes de chaque individu sur les 2 axes, normalisée par la somme des carrés des composantes sur tous les axes.</p></li>
 <li><p>La contribution de chaque individu à la formation de chaque axe factoriel</p></li>
 </ul>
-<p>\begin{center}
-\begin{tabular}{llrrrrrr}
-\toprule
-{} &amp;                      Region &amp;     Masse &amp;    Coord1 &amp;    Coord2 &amp;   Qualité &amp;  contrib1 &amp;      contrib2 \
-\midrule
-0  &amp;                   Grand-Est &amp;  0.082561 &amp; -0.081478 &amp;  0.030469 &amp;  0.033810 &amp;  0.1031 &amp;  0.05 \
-1  &amp;          Nelle-Aquitaine   &amp;  0.092573 &amp;  0.022322 &amp; -0.009848 &amp;  0.002607 &amp;  0.0129 &amp;  0.1404 \
-2  &amp;     AURA           &amp;  0.116102 &amp;  0.002463 &amp;  0.020096 &amp;  0.000032 &amp;  0.0005 &amp;  0.0074 \
-3  &amp;     Bourgogne-FC       &amp;  0.042922 &amp; -0.049796 &amp;  0.021913 &amp;  0.012884 &amp;  0.0203 &amp;  0.0048 \
-4  &amp;                    Bretagne &amp;  0.055616 &amp;  0.074398 &amp; -0.000143 &amp;  0.028325 &amp;  0.0727 &amp;  0.00599 \
-5  &amp;         Centre-Val-de-Loire &amp;  0.039694 &amp; -0.027564 &amp;  0.034140 &amp;  0.003982 &amp;  0.0057 &amp;  0.026 \
-6  &amp;                       Corse &amp;  0.004089 &amp; -0.089963 &amp;  0.097463 &amp;  0.036278 &amp;  0.0061 &amp;  0.0528 \
-7  &amp;               Ile-de-France &amp;  0.157099 &amp;  0.099907 &amp;  0.022705 &amp;  0.048773 &amp;  0.3461 &amp;  0.0099 \
-8  &amp;                   Occitanie &amp;  0.090960 &amp; -0.024738 &amp; -0.020736 &amp;  0.003126 &amp;  0.0066 &amp;  0.2115 \
-9  &amp;             Hauts-de-France &amp;  0.090114 &amp; -0.113101 &amp; -0.015944 &amp;  0.061802 &amp;  0.2215 &amp;  0.1268 \
-10 &amp;                   Normandie &amp;  0.052720 &amp; -0.035129 &amp;  0.014011 &amp;  0.006437 &amp;  0.0116 &amp;  0.0004 \
-11 &amp;            Pays-de-la-Loire &amp;  0.061053 &amp;  0.049348 &amp;  0.050417 &amp;  0.012418 &amp;  0.0311 &amp;  0.1115 \
-12 &amp;  PACA             &amp;  0.076388 &amp; -0.085523 &amp;  0.044826 &amp;  0.035070 &amp;  0.1061 &amp;  0.1766 \
-13 &amp;                    Outremer &amp;  0.038108 &amp;  0.073346 &amp;  0.038647 &amp;  0.026537 &amp;  0.051 &amp;  0.0222 \
-\bottomrule
-\end{tabular}
-\end{center}</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>{}</p></th>
+<th class="head"><p>Region</p></th>
+<th class="head"><p>Masse</p></th>
+<th class="head"><p>Coord1</p></th>
+<th class="head"><p>Coord2</p></th>
+<th class="head"><p>Qualité</p></th>
+<th class="head"><p>contrib1</p></th>
+<th class="head"><p>contrib2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Grand-Est</p></td>
+<td><p>0.082561</p></td>
+<td><p>-0.081478</p></td>
+<td><p>0.030469</p></td>
+<td><p>0.033810</p></td>
+<td><p>0.1031</p></td>
+<td><p>0.05</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Nelle-Aquitaine</p></td>
+<td><p>0.092573</p></td>
+<td><p>0.022322</p></td>
+<td><p>-0.009848</p></td>
+<td><p>0.002607</p></td>
+<td><p>0.0129</p></td>
+<td><p>0.1404</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>AURA</p></td>
+<td><p>0.116102</p></td>
+<td><p>0.002463</p></td>
+<td><p>0.020096</p></td>
+<td><p>0.000032</p></td>
+<td><p>0.0005</p></td>
+<td><p>0.0074</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Bourgogne-FC</p></td>
+<td><p>0.042922</p></td>
+<td><p>-0.049796</p></td>
+<td><p>0.021913</p></td>
+<td><p>0.012884</p></td>
+<td><p>0.0203</p></td>
+<td><p>0.0048</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Bretagne</p></td>
+<td><p>0.055616</p></td>
+<td><p>0.074398</p></td>
+<td><p>-0.000143</p></td>
+<td><p>0.028325</p></td>
+<td><p>0.0727</p></td>
+<td><p>0.00599</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Centre-Val-de-Loire</p></td>
+<td><p>0.039694</p></td>
+<td><p>-0.027564</p></td>
+<td><p>0.034140</p></td>
+<td><p>0.003982</p></td>
+<td><p>0.0057</p></td>
+<td><p>0.026</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>Corse</p></td>
+<td><p>0.004089</p></td>
+<td><p>-0.089963</p></td>
+<td><p>0.097463</p></td>
+<td><p>0.036278</p></td>
+<td><p>0.0061</p></td>
+<td><p>0.0528</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>Ile-de-France</p></td>
+<td><p>0.157099</p></td>
+<td><p>0.099907</p></td>
+<td><p>0.022705</p></td>
+<td><p>0.048773</p></td>
+<td><p>0.3461</p></td>
+<td><p>0.0099</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>Occitanie</p></td>
+<td><p>0.090960</p></td>
+<td><p>-0.024738</p></td>
+<td><p>-0.020736</p></td>
+<td><p>0.003126</p></td>
+<td><p>0.0066</p></td>
+<td><p>0.2115</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>Hauts-de-France</p></td>
+<td><p>0.090114</p></td>
+<td><p>-0.113101</p></td>
+<td><p>-0.015944</p></td>
+<td><p>0.061802</p></td>
+<td><p>0.2215</p></td>
+<td><p>0.1268</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>Normandie</p></td>
+<td><p>0.052720</p></td>
+<td><p>-0.035129</p></td>
+<td><p>0.014011</p></td>
+<td><p>0.006437</p></td>
+<td><p>0.0116</p></td>
+<td><p>0.0004</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>Pays-de-la-Loire</p></td>
+<td><p>0.061053</p></td>
+<td><p>0.049348</p></td>
+<td><p>0.050417</p></td>
+<td><p>0.012418</p></td>
+<td><p>0.0311</p></td>
+<td><p>0.1115</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>PACA</p></td>
+<td><p>0.076388</p></td>
+<td><p>-0.085523</p></td>
+<td><p>0.044826</p></td>
+<td><p>0.035070</p></td>
+<td><p>0.1061</p></td>
+<td><p>0.1766</p></td>
+</tr>
+<tr class="row-odd"><td><p>13</p></td>
+<td><p>Outremer</p></td>
+<td><p>0.038108</p></td>
+<td><p>0.073346</p></td>
+<td><p>0.038647</p></td>
+<td><p>0.026537</p></td>
+<td><p>0.051</p></td>
+<td><p>0.0222</p></td>
+</tr>
+</tbody>
+</table>
 <p>On représente alors graphiquement les individus ligne et colonne sur le premier plan factoriel.</p>
 <p><img alt="" src="_images/planlig.png" /><img alt="" src="_images/plancol.png" /></p>
 <p>On en déduit alors l’analyse suivante (ici proposée sur les candidats) :</p>
