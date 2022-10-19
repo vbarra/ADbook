@@ -111,93 +111,113 @@
 # 
 # ```{prf:remark}
 # Dans le cas où la métrique utilisée est définie par une matrice symétrique définie positive $D$ de taille $p$, alors 
-# $$\boldsymbol\beta = (\mathbf X^T\mathbf D \mathbf X)^{-1}\mathbf X^T \mathbf D \mathbf Y$$
+# 
+# $\boldsymbol\beta = (\mathbf X^T\mathbf D \mathbf X)^{-1}\mathbf X^T \mathbf D \mathbf Y$
 # ```
 # ### Modèle
 # On suppose que les $\mathbf X_i$ et $\mathbf Y$ sont $n$ réalisations indépendantes de $p+1$ variables aléatoires $\chi_i$ et $\omega$. De même qu'en régression simple, la recherche de la meilleure approximation de $\omega$ par une fonction des $\chi_i$ amène à $\mathbb{E}(\omega\mid \chi_1\cdots \chi_p)$ et l'hypothèse de régression multiple est
-# $$\mathbb{E}(\omega\mid \chi_0\cdots \chi_p) = b_0+\displaystyle\sum_{i=1}^p b_i\chi_i+\epsilon$$
+# 
+# $\mathbb{E}(\omega\mid \chi_0\cdots \chi_p) = b_0+\displaystyle\sum_{i=1}^p b_i\chi_i+\epsilon$
+# 
 # avec $\mathbb{E}(\epsilon)=0, \sigma_\epsilon=\sigma^2$ et $\epsilon$ non corrélée aux $\chi_i$.
 # 
 # On peut montrer que $\boldsymbol\beta$ est un estimateur sans biais du vecteur aléatoire  $(b_0\cdots b_p)$, et en est la meilleure approximation. De plus, la meilleure estimation sans biais de la variance $\sigma^2$ est 
 # 
-# $$\hat{\sigma}^2 = \frac{\|\mathbf Y -\mathbf Y^*\|^2}{n-p-1}$$
+# $\hat{\sigma}^2 = \frac{\|\mathbf Y -\mathbf Y^*\|^2}{n-p-1}$
 # 
-# \section{Modèle linéaire généralisé}
-# \subsection{Position du problème}
+# ## Modèle linéaire généralisé
+# ### Position du problème
 # Dans le cas le plus général, on ne cherche pas à expliquer une seule variable mais $k\in\mathbb{N}$, obtenues par répétition de l'expérience, les $\mathbf X_j$ restant identiques : pour $i\in[\![1,k]\!]$ $\mathbf{Y}_i\in\mathbb{R}^n$ est la $i^e$ observation. 
 # 
-# \subsection{Solution à partir des données}
-# Le modèle fait l'hypothèse que le centre de gravité $\mathbf g$ des $k$ observations se situe dans $Im(\mathbf X)$, soit $\mathbf g = \mathbf X \boldsymbol \beta$. La plupart du temps, on ne connaît cependant qu'une seule des $k$ observations $\mathbf Y$, et le problème revient à approximer le mieux possible $\mathbf g$ en ne connaissant que $\mathbf Y$.\\
-# Cette approximation $\mathbf g^*$ s'exprime comme la projection orthogonale de $\mathbf Y$ sur $Im(\mathbf X)$, selon une métrique $\mathbf M$, à choisir de sorte que $\mathbf g^*$ soit la plus proche possible de $\mathbf g$. Dit autrement, en répétant la projection avec $\mathbf Y_1\cdots \mathbf Y_k$, les $k$ approximations $g^*_i=\mathbf X (\mathbf X^T\mathbf M\mathbf X)^{-1} \mathbf X^T \mathbf M \mathbf Y_i, i\in[\![1,k]\!]$ doivent être le plus concentrées possible autour de $\mathbf g$.\\
+# ### Solution à partir des données
+# Le modèle fait l'hypothèse que le centre de gravité $\mathbf g$ des $k$ observations se situe dans $Im(\mathbf X)$, soit $\mathbf g = \mathbf X \boldsymbol \beta$. La plupart du temps, on ne connaît cependant qu'une seule des $k$ observations $\mathbf Y$, et le problème revient à approximer le mieux possible $\mathbf g$ en ne connaissant que $\mathbf Y$.
+# 
+# Cette approximation $\mathbf g^*$ s'exprime comme la projection orthogonale de $\mathbf Y$ sur $Im(\mathbf X)$, selon une métrique $\mathbf M$, à choisir de sorte que $\mathbf g^*$ soit la plus proche possible de $\mathbf g$. Dit autrement, en répétant la projection avec $\mathbf Y_1\cdots \mathbf Y_k$, les $k$ approximations $g^*_i=\mathbf X (\mathbf X^T\mathbf M\mathbf X)^{-1} \mathbf X^T \mathbf M \mathbf Y_i, i\in[\![1,k]\!]$ doivent être le plus concentrées possible autour de $\mathbf g$.
+# 
 # Ceci revient donc à trouver $\mathbf M$ de sorte à ce que l'inertie du nuage des $\mathbf g_i^*$ soit minimale. On montre (théorème de Gauss-Markov généralisé) que $\mathbf M=\mathbf V^{-1}$, où $\mathbf V$ est la matrice de variance-covariance du nuage des $\mathbf Y_i$. Ainsi, pour une seule observation, on en déduit 
-# \begin{eqnarray*}
+# 
+# $\begin{eqnarray*}
 # \mathbf g^*&=&\mathbf X(\mathbf X^T\mathbf V^{-1}\mathbf X)^{-1}\mathbf X^T\mathbf V^{-1}\mathbf Y\\
 # \boldsymbol \beta&=&(\mathbf X^T\mathbf V^{-1}\mathbf X)^{-1}\mathbf X^T\mathbf V^{-1}\mathbf Y
-# \end{eqnarray*}
+# \end{eqnarray*}$
 # 
 # 
-# \subsection{Modèle}
+# ### Modèle
 # En ayant une infinité d'observations, on approche le modèle probabiliste. On suppose que $\mathbf Y$ est une réalisation d'un vecteur aléatoire d'espérance $\mathbf X\mathbf b$ et de matrice de variance-covariance $\boldsymbol\Sigma$. Le modèle s'écrit alors  $\mathbf Y=\mathbf X\mathbf b+\epsilon$, avec $\epsilon$ centré de variance $\boldsymbol\Sigma$, et le problème est donc d'estimer $\mathbf b$. On montre que  $\mathbf b = (\mathbf X^T \boldsymbol\Sigma^{-1}\mathbf X)^{-1}\mathbf X^T\boldsymbol\Sigma^{-1}\mathbf Y$, appelé estimation des moindres carrés généralisés est, sous des hypothèses larges, l'estimation de variance minimale de $\mathbf b$.
 # 
-# \section{Modèles régularisés}
+# ## Modèles régularisés
 # On peut montrer que l'estimateur des moindres carrés est de variance minimale parmi les estimateurs linéaires sans biais. Cependant, la variance aboutit dans certains cas à des erreurs de prédiction importantes. Dans ce cas, on cherche des estimateurs de variance plus petite quitte à avoir un (léger) biais. Pour ce faire, on peut supprimer l'effet de certaines variables explicatives ce qui revient à leur attribuer un poids nul.
 # Par ailleurs, dans le cas où $p$ est grand, l'interprétation des réultats obtenus est parfois complexe. Ainsi, on pourra préférer un modèle estimé avec moins de variables explicatives afin de privilégier l'interprétation plutôt que la précision.\\
 # Dans cette section, on s'intéresse à des méthodes permettant de produire des estimateurs dont les valeurs sont d'amplitudes réduites. On parle de modèles parcimonieux lorsque des variables ont des coefficients nuls. 
 # 
-# \subsection{Régression Ridge}
+# ### Régression Ridge
 # Dans l'approche moindres carrés linéaires classique, on cherche $\mathbf Y^* = \beta_0 \mathbf{1} + \displaystyle\sum_{i=1}^p \beta_i\mathbf X_i$ proche de $\mathbf Y$ au sens de la minimisation de $\|\mathbf Y^*-\mathbf Y\|^2 $. On cherche donc $\boldsymbol\beta_{mc}\in\mathbb{R}^{p+1}$ tel que :
-# $$\boldsymbol\beta_{mc} = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p+1}}\left [\displaystyle\sum_{i=1}^n \left (y_i-(\beta_0+\displaystyle\sum_{j=1}^p \beta_j x_{ij})\right )^2\right ]$$
+# 
+# $\boldsymbol\beta_{mc} = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p+1}}\left [\displaystyle\sum_{i=1}^n \left (y_i-(\beta_0+\displaystyle\sum_{j=1}^p \beta_j x_{ij})\right )^2\right ]$
+# 
 # Dans l'approche Ridge regression (ou régression de Tikhonov), on pénalise l'amplitude des coefficients $\beta_j$. Pour ce faire, on pose $\boldsymbol\beta_{\setminus 0}$ le vecteur des $p$ dernières composantes de $\boldsymbol\beta$ et on cherche le vecteur $\boldsymbol\beta_r$ tel que
 # 
-# $$\boldsymbol\beta_r = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p+1}}\left [\displaystyle\sum_{i=1}^n \left (y_i-(\beta_0+\displaystyle\sum_{j=1}^p \beta_j x_{ij})\right )^2+\lambda \| \boldsymbol\beta_{\setminus 0}\|^2_2\right ]$$
-# Le réel positif $\lambda$, pondérant  $\| \boldsymbol\beta_{\setminus 0}\|^2_2$ appelée fonction de pénalité, permet de réguler l'importance du second terme sur la minimisation. Un $\lambda$ grand impose à la minimisation d'avoir une amplitude faible des coefficients $\beta_j,j\in[\![1,p]\!]$, et une variance faible de l'estimateur de $\boldsymbol\beta$.\\
+# $\boldsymbol\beta_r = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p+1}}\left [\displaystyle\sum_{i=1}^n \left (y_i-(\beta_0+\displaystyle\sum_{j=1}^p \beta_j x_{ij})\right )^2+\lambda \| \boldsymbol\beta_{\setminus 0}\|^2_2\right ]$
+# 
+# Le réel positif $\lambda$, pondérant  $\| \boldsymbol\beta_{\setminus 0}\|^2_2$ appelée fonction de pénalité, permet de réguler l'importance du second terme sur la minimisation. Un $\lambda$ grand impose à la minimisation d'avoir une amplitude faible des coefficients $\beta_j,j\in[\![1,p]\!]$, et une variance faible de l'estimateur de $\boldsymbol\beta$.
+# 
 # Contrairement à la régression linéaire multiple classique où les variables ne sont pas nécessairement normalisées, ici il est nécessaire de réduire les variables explicatives. En pratique on les centre également, et dans ce cas :
-# \begin{enumerate}
-# \item la première composante de $\boldsymbol\beta_r$ est prise égale à la moyenne empirique des $y_i$ avant centrage
-# \item les $p$ autres composantes de $\boldsymbol\beta_r$  sont obtenues par minimisation :  
-# $$\hat{\boldsymbol \beta}_r = arg\displaystyle\min_{\mathbf v\in\mathbb{R}^{p}} \left ((\mathbf Y-\mathbf X\mathbf v)^T(\mathbf Y-\mathbf X\mathbf v) + \lambda \mathbf v^T\mathbf v\right )$$
+# 
+# 1. la première composante de $\boldsymbol\beta_r$ est prise égale à la moyenne empirique des $y_i$ avant centrage
+# 2. les $p$ autres composantes de $\boldsymbol\beta_r$  sont obtenues par minimisation :  
+# 
+# $\hat{\boldsymbol \beta}_r = arg\displaystyle\min_{\mathbf v\in\mathbb{R}^{p}} \left ((\mathbf Y-\mathbf X\mathbf v)^T(\mathbf Y-\mathbf X\mathbf v) + \lambda \mathbf v^T\mathbf v\right )$
+# 
 # dont la solution analytique est $(\mathbf X^T\mathbf X + \lambda \mathbb{I})^{-1}\mathbf X^T\mathbf Y$.
-# \end{enumerate}
+# 
 # 
 # Le choix de $\lambda$ n'est pas évident. La solution la plus simple consiste à prendre plusieurs valeurs, à tester les solutions proposées par ces valeurs et à retenir le $\lambda$ ayant obtenu le meilleur score (par exemple la précision sur un ensemble de test). De manière moins expérimentale, il existe des algorithmes (basés sur la décomposition en valeurs singulières) permettant de choisir une ''bonne'' valeur de paramètre.
 # 
-# \subsection{Régression Lasso}
+# ### Régression Lasso
 # La régression Lasso (Least Absolute Shrinkage and Selection Operator) est, dans son principe, très proche de la régression Ridge, la seule différence résidant dans la norme utilisée dans la fonction de pénalité : on cherche $\boldsymbol\beta$ minimisant
 # 
-# $$\boldsymbol\beta_l = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p+1}}\left [\displaystyle\sum_{i=1}^n \left (y_i-(\beta_0+\displaystyle\sum_{j=1}^p \beta_j x_{ij})\right )^2+\lambda \| \boldsymbol\beta_{\setminus 0}\|^2_1\right ]$$
-# Contrairement à la régression Ridge, il n'y a pas de solution analytique (la norme $\ell_1$ rend la fonction non différentiable) et on doit donc recourir à des méthodes de résolution numérique. Lorsque $\lambda$ est grand, la minimisation force la fonction de pénalité à être petite : étant donné que cette dernière est une somme de valeurs absolues, la minimisation impose à certains coefficients $\beta_j,j\in[\![1,p]\!]$ d'être nuls. On parle alors de régression parcimonieuse (et la régression peut donc être vue comme une méthode de sélection de variables).\\
+# $\boldsymbol\beta_l = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p+1}}\left [\displaystyle\sum_{i=1}^n \left (y_i-(\beta_0+\displaystyle\sum_{j=1}^p \beta_j x_{ij})\right )^2+\lambda \| \boldsymbol\beta_{\setminus 0}\|^2_1\right ]$
+# 
+# Contrairement à la régression Ridge, il n'y a pas de solution analytique (la norme $\ell_1$ rend la fonction non différentiable) et on doit donc recourir à des méthodes de résolution numérique. Lorsque $\lambda$ est grand, la minimisation force la fonction de pénalité à être petite : étant donné que cette dernière est une somme de valeurs absolues, la minimisation impose à certains coefficients $\beta_j,j\in[\![1,p]\!]$ d'être nuls. On parle alors de régression parcimonieuse (et la régression peut donc être vue comme une méthode de sélection de variables).
+# 
 # Quand $p>n$, la méthode ne sélectionne que $n$ variables. De plus, si plusieurs variables sont corrélées entre elles, Lasso ignore toutes sauf une. Et, pire, même si $n>p$, et s'il y a de fortes corrélations entre les variables explicatives, on trouve empiriquement que Ridge donne de meilleurs résultats que Lasso.
 # 
-# \subsection{Régression Elasticnet}
+# ### Régression Elasticnet
 # On suppose ici que $\mathbf X$ est centré réduit, et $\mathbf Y$ est centré (donc $\beta_0=0$). La régression Elasticnet est un mélange de Ridge et Lasso : on cherche $\boldsymbol\beta_e$ tel que
 # 
-# $$\boldsymbol\beta_e = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p}}\left [\displaystyle\sum_{i=1}^n \left (y_i-\displaystyle\sum_{j=1}^p \beta_j x_{ij}\right )^2+\lambda_1 \| \boldsymbol\beta\|^2_1 + \lambda_2 \| \boldsymbol\beta\|^2_2\right ]$$
+# $\boldsymbol\beta_e = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p}}\left [\displaystyle\sum_{i=1}^n \left (y_i-\displaystyle\sum_{j=1}^p \beta_j x_{ij}\right )^2+\lambda_1 \| \boldsymbol\beta\|^2_1 + \lambda_2 \| \boldsymbol\beta\|^2_2\right ]$
 # 
-# En notant $\lambda =\lambda_1+\lambda_2$ et $ \alpha = \lambda_1/\lambda$ on minimise alors $$\displaystyle\sum_{i=1}^n \left (y_i-\displaystyle\sum_{j=1}^p \beta_j x_{ij}\right )^2+\lambda(\alpha \| \boldsymbol\beta\|^2_1 + (1-\alpha) \| \boldsymbol\beta\|^2_2)$$
+# En notant $\lambda =\lambda_1+\lambda_2$ et $ \alpha = \lambda_1/\lambda$ on minimise alors 
+# 
+# $\displaystyle\sum_{i=1}^n \left (y_i-\displaystyle\sum_{j=1}^p \beta_j x_{ij}\right )^2+\lambda(\alpha \| \boldsymbol\beta\|^2_1 + (1-\alpha) \| \boldsymbol\beta\|^2_2)$
 # 
 # On montre alors que la solution de la régression Elasticnet peut être obtenue à l'aide de la solution de la régression Lasso.
-# \begin{prop}{}{}
+# 
+# ````{prf:property} 
+# 
 # Soit $\mathbf X\in\mathcal{M}_{np}(\mathbb R)$ la matrice des variables explicatives, et $\mathbf Y\in\mathbb{R}^n$ le vecteur des valeurs de la variable expliquée. Soient $\lambda_1,\lambda_2\in\mathbb{R}^+$. On pose 
-# $$\mathbf X^*\in\mathcal{M}_{(n+p)p}(\mathbb R) = \frac{1}{\sqrt{1+\lambda_2}}\begin{pmatrix}\mathbf X\\\sqrt{\lambda_2 }\mathbb{I}\end{pmatrix}\quad\text{et}\quad \mathbf Y^*=\begin{pmatrix}\mathbf Y\\0\end{pmatrix}$$
-# et on note $\gamma=\lambda_1/(\lambda_1+\lambda_2)$. \\ 
+# 
+# $\mathbf X^*\in\mathcal{M}_{(n+p)p}(\mathbb R) = \frac{1}{\sqrt{1+\lambda_2}}\begin{pmatrix}\mathbf X\\\sqrt{\lambda_2 }\mathbb{I}\end{pmatrix}\quad\text{et}\quad \mathbf Y^*=\begin{pmatrix}\mathbf Y\\0\end{pmatrix}$
+# 
+# et on note $\gamma=\lambda_1/(\lambda_1+\lambda_2)$. 
+# 
 # Alors la fonction objectif de la régression Elasticnet s'écrit $\|\mathbf Y^*-\mathbf X^*\boldsymbol\beta^*\|_2^2+\gamma\|\boldsymbol\beta^*\|_1$. Si $\hat{\boldsymbol\beta}$ minimise cette fonction, alors l'estimateur naïf de la régression Elasticnet est 
-# $$\boldsymbol\beta_e = \frac{1}{\sqrt{1+\lambda_2}}\hat{\boldsymbol\beta}$$
-# \end{prop}
+# 
+# $\boldsymbol\beta_e = \frac{1}{\sqrt{1+\lambda_2}}\hat{\boldsymbol\beta}$
+# ````
 # 
 # Puisque $\mathbf X^*$ est de rang $p$, la solution peut sélectionner $p$ variables contrairement à la régression Lasso.\\
 # En pratique, cet estimateur naïf ne donne satisfaction que lorsqu'il est proche de $\boldsymbol\beta_r$ ou de $\boldsymbol\beta_l$. On retient généralement l'estimateur rééchelonné $(1+\lambda_2)\boldsymbol\beta_e = \sqrt{1+\lambda_2}\hat{\boldsymbol\beta}$ (Elasticnet peut être vu comme un Lasso où la matrice de variance-covariance est proche de la matrice Identité, et on montre que le facteur $1+\lambda_2$ intervient alors).
 # 
 # 
-# La figure~\ref{F:compar} compare les différentes méthodes de régression sur la fonction 
+# La figure suivante compare les différentes méthodes de régression sur la fonction 
 # $$f(x) = x-\frac35 x^2+\frac15x^3 + 18sin(x)$$
-# avec $p=8$ et $n=20$.
+# avec $p=8$ et $n=20$. Les $n=20$ points  échantillonnés sur la courbe $y=f(x)$ sont utilisés pour faire la régression sur l'intervalle [-10,10].
 # 
-# \begin{center}
-# \begin{figure}[ht!]
-# \includegraphics[width=\textwidth]{figures/comparregression.png}
-# \caption{\label{F:compar}Comparaison des 4 types de régression. Les $n=20$ points  échantillonnés sur la courbe $y=f(x)$ sont utilisés pour faire la régression sur l'intervalle [-10,10].}
-# \end{figure}
-# \end{center}
+# 
+# ![](./images/comparregression.png)
+# 
+# 
 # 
 # 
 # \section{Régression logistique}
