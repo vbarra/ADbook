@@ -110,6 +110,7 @@
 # 
 # 
 # ```{prf:remark}
+# :class: dropdown
 # Dans le cas où la métrique utilisée est définie par une matrice symétrique définie positive $D$ de taille $p$, alors 
 # 
 # $\boldsymbol\beta = (\mathbf X^T\mathbf D \mathbf X)^{-1}\mathbf X^T \mathbf D \mathbf Y$
@@ -211,7 +212,9 @@
 # 
 # 
 # La figure suivante compare les différentes méthodes de régression sur la fonction 
-# $$f(x) = x-\frac35 x^2+\frac15x^3 + 18sin(x)$$
+# 
+# $f(x) = x-\frac35 x^2+\frac15x^3 + 18sin(x)$
+# 
 # avec $p=8$ et $n=20$. Les $n=20$ points  échantillonnés sur la courbe $y=f(x)$ sont utilisés pour faire la régression sur l'intervalle [-10,10].
 # 
 # 
@@ -220,100 +223,118 @@
 # 
 # 
 # 
-# \section{Régression logistique}
-# Dans les sections précédentes, nous n'avons pas abordé les cas où les prédicteurs exhibent des dépendances non linéaires ou lorsque la variable à prédire n'est pas quantitative.\\
+# ## Régression logistique
+# Dans les sections précédentes, nous n'avons pas abordé les cas où les prédicteurs exhibent des dépendances non linéaires ou lorsque la variable à prédire n'est pas quantitative.
+# 
 # La régression logistique est un modèle linéaire généralisé utilisé pour prédire une variable binaire, ou catégorielle, à partir de prédicteurs quantitatifs ou catégoriels. 
 # 
-# \subsection{Régression logistique binaire}
+# ### Régression logistique binaire
 # Dans un premier temps, la variable à prédire est binaire : elle ne prend donc que deux valeurs 0/1 (ou -1/1). Dans le chapitre~\ref{ch:classif}, nous étudierons des algorithmes permettant d'aborder ce problème sous un angle classification. Ici, nous nous intéressons à une modélisation probabiliste, permettant notamment de prendre en compte le bruit dans les données. 
-# \subsubsection{Modèle}
+# 
+# #### Modèle
 # On recherche une distribution conditionnelle $P(Y|X)$ de la variable à prédire sachant les prédicteurs. Si le problème est en 0/1, alors $Y$ est une variable indicatrice et on a $P(Y=1)=\mathbb{E}(Y)$ et $P(Y=1|X=x)=\mathbb{E}(Y|X=x)$. La probabilité conditionnelle est donc l'espérance conditionnelle de l'indicatrice.\\
-# Supposons que $P(Y=1|X=x)=p(x,\boldsymbol\theta)$ avec $p$ fonction paramétrée par $\boldsymbol\theta$. On suppose également que les observations sont indépendantes. La vraisemblance est alors donnée par\footnote{pour $n$ tirages d'une variable de Bernoulli dont la probabilité de succès est constante et vaut $p$, la vraisemblance est $\prod_{i=1}^n p^{y_i}(1-p)^{1-y_i}$. Cette vraisemblance est maximisée lorsque 
-# $p=n^{-1}\displaystyle\sum_{i=1}^n y_i$} 
-# $$\prod_{i=1}^n P(Y=y_i|X=x_i) = \prod_{i=1}^n p(x_i,\boldsymbol\theta)^{y_i}(1-p(x_i,\boldsymbol\theta))^{1-y_i}$$
+# Supposons que $P(Y=1|X=x)=p(x,\boldsymbol\theta)$ avec $p$ fonction paramétrée par $\boldsymbol\theta$. On suppose également que les observations sont indépendantes. La vraisemblance est alors donnée par
+# 
+# $\prod_{i=1}^n P(Y=y_i|X=x_i) = \prod_{i=1}^n p(x_i,\boldsymbol\theta)^{y_i}(1-p(x_i,\boldsymbol\theta))^{1-y_i}$
+# 
+# 
+# ```{prf:remark}
+# :class: dropdown
+# Pour $n$ tirages d'une variable de Bernoulli dont la probabilité de succès est constante et vaut $p$, la vraisemblance est $\prod_{i=1}^n p^{y_i}(1-p)^{1-y_i}$. Cette vraisemblance est maximisée lorsque 
+# $p=n^{-1}\displaystyle\sum_{i=1}^n y_i$.
+# ```
 # 
 # En notant $p_i=p(x_i,\boldsymbol\theta)$, maximiser la vraisemblance sans contrainte amène à la solution non informative $p_i=1$ si $y_i=1$ et 0 sinon. Si l'on essaye d'ajouter des contraintes (relations entre les $p_i$), alors l'estimation du maximum de vraisemblance devient difficile.\\
 # Ici le modèle  $p_i=p(x_i,\boldsymbol\theta)$ suppose que si $p$ est continue, alors des valeurs proches de $x_i$ amènent à des valeurs proches de $p_i$. En supposant $p$ connue comme fonction de $\boldsymbol\theta$, la vraisemblance est une fonction de $\boldsymbol\theta$ et on peut estimer ce paramètre en maximisant la vraisemblance.
 # 
 # 
-# \subsubsection{Régression logistique}
-# On recherche un ``bon'' modèle pour $p$ :
-# \begin{enumerate}
-#     \item On peut dans un premier temps supposer que $p(\mathbf x)$ est une fonction linéaire de $\mathbf x$. Les fonctions linéaires étant non bornées, elles ne peuvent modéliser des probabilités.  
-#     \item On peut alors supposer que $log\ p(\mathbf x)$ est une fonction linéaire de $\mathbf x$. Là aussi, la fonction logarithme est non bornée supérieurement, et ne peut modéliser une probabilité.
-#     \item Partant de cette idée, on borne le logarithme en utilisant la transformation logistique (ou logit) $log\frac{p(\mathbf x)}{1-p(\mathbf x)}$. Etant donné un événement ayant une probabilité $p$ de réussir, le rapport $p/(1-p)$ est appelé la côte de l'événement\footnote{La côte d'un événement est le rapport de la probabilité qu'il se produise sur celle qu'il ne se produise pas. Si vous avez $p$=3/4 de chances de réussir à votre examen de permis, cotre côte est $p/(1-p)=\frac{3/4}{1/4}$=3 contre un.}. On peut alors supposer que cette fonction de $p$ est linéaire en $\mathbf x$.
-# \end{enumerate}
+# #### Régression logistique
+# On recherche un ''bon'' modèle pour $p$ :
+# 
+# 1. On peut dans un premier temps supposer que $p(\mathbf x)$ est une fonction linéaire de $\mathbf x$. Les fonctions linéaires étant non bornées, elles ne peuvent modéliser des probabilités.  
+# 2. On peut alors supposer que $log\ p(\mathbf x)$ est une fonction linéaire de $\mathbf x$. Là aussi, la fonction logarithme est non bornée supérieurement, et ne peut modéliser une probabilité.
+# 3. Partant de cette idée, on borne le logarithme en utilisant la transformation logistique (ou logit) $log\frac{p(\mathbf x)}{1-p(\mathbf x)}$. Etant donné un événement ayant une probabilité $p$ de réussir, le rapport $p/(1-p)$ est appelé la côte de l'événement\footnote{La côte d'un événement est le rapport de la probabilité qu'il se produise sur celle qu'il ne se produise pas. Si vous avez $p$=3/4 de chances de réussir à votre examen de permis, cotre côte est $p/(1-p)=\frac{3/4}{1/4}$=3 contre un.}. On peut alors supposer que cette fonction de $p$ est linéaire en $\mathbf x$.
+# 
 # 
 # Le modèle de régression logistique s'écrit alors formellement 
 # 
-# $$logit(p(\mathbf x)) = log \frac{p(\mathbf x)}{1-p(\mathbf x)} = \beta_0\mathbf 1 + \boldsymbol\beta\mathbf x$$
+# $logit(p(\mathbf x)) = log \frac{p(\mathbf x)}{1-p(\mathbf x)} = \beta_0\mathbf 1 + \boldsymbol\beta\mathbf x$
+# 
 # En résolvant par rapport à $p$ on trouve alors 
 # 
-# $$p(\mathbf x,\boldsymbol\theta) = \frac{e^{\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x}}{1+e^{\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x}}=\frac{1}{1+e^{-(\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x)}}\quad\text{avec }\boldsymbol\theta=(\beta_0,\boldsymbol\beta)^T$$
+# $p(\mathbf x,\boldsymbol\theta) = \frac{e^{\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x}}{1+e^{\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x}}=\frac{1}{1+e^{-(\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x)}}\quad\text{avec }\boldsymbol\theta=(\beta_0,\boldsymbol\beta)^T$
 # 
 # 
-# Pour minimiser les erreurs de prédiction, on doit prédire $Y=1$ si $p\geq 0.5$, soit $\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x\geq 0$ et $Y=0$ sinon. La régression logistique est donc un classifieur linéaire, dont la frontière de décision est justement l'hyperplan $\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x= 0$. On peut montrer que la distance de $\mathbf x$ à cet hyperplan est $\beta_0/\|\boldsymbol\beta\| + \mathbf x^T\boldsymbol\beta/\|\boldsymbol\beta\|$. Les probabilités d'appartenance de $\mathbf x$ aux classes décroissent donc d'autant plus vite que $\|\boldsymbol\beta\|$ est grand (figure~\ref{F:reg}).
+# Pour minimiser les erreurs de prédiction, on doit prédire $Y=1$ si $p\geq 0.5$, soit $\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x\geq 0$ et $Y=0$ sinon. La régression logistique est donc un classifieur linéaire, dont la frontière de décision est justement l'hyperplan $\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x= 0$. On peut montrer que la distance de $\mathbf x$ à cet hyperplan est $\beta_0/\|\boldsymbol\beta\| + \mathbf x^T\boldsymbol\beta/\|\boldsymbol\beta\|$. Les probabilités d'appartenance de $\mathbf x$ aux classes décroissent donc d'autant plus vite que $\|\boldsymbol\beta\|$ est grand.
 # 
-# \begin{figure}[ht!]
-# \centering
-# \includegraphics[width=.7\textwidth]{figures/regression}
-# \caption{\label{F:reg} Régression logistique. La probabilité d'appartenance à la classe 1 (points rouges) est donnée en fausses couleurs.}
-# \end{figure}
 # 
-# \subsection{Régression logistique à plusieurs classes}
+# ![](./images/regression.png)
+#  Dans cette figuren la probabilité d'appartenance à la classe 1 (points rouges) est donnée en fausses couleurs.
+# 
+# 
+# ### Régression logistique à plusieurs classes
 # Dans ce cas, $Y$ peut prendre $k$ valeurs. Le modèle reste le même, chaque classe $c\in[\![0,k-1]\!]$ ayant son jeu de paramètres $\boldsymbol\theta_c=(\beta^c_0,\boldsymbol\beta^c)^T$. Les probabilités conditionnelles prédites sont alors 
 # 
-# $$(\forall c\in[\![0,k-1]\!])\;\;P(Y=c|X=\mathbf x) = \frac{e^{\beta^c_0\mathbf 1 + \boldsymbol\beta^c\mathbf x}}{1+e^{\beta^c_0\mathbf 1 + \boldsymbol\beta^c\mathbf x}}$$
+# $(\forall c\in[\![0,k-1]\!])\;\;P(Y=c|X=\mathbf x) = \frac{e^{\beta^c_0\mathbf 1 + \boldsymbol\beta^c\mathbf x}}{1+e^{\beta^c_0\mathbf 1 + \boldsymbol\beta^c\mathbf x}}$
 # 
 # 
-# \subsection{Interprétation}
+# ### Interprétation
 # Si $\mathbf x=\mathbf 0$, alors $p(\mathbf x)=\frac{1}{1+e^{-\beta_0}}$. L'ordonnée à l'origine fixe donc le taux d'événements "de base". \\
 # Supposons $\boldsymbol\beta\in\mathbb{R}$ (l'interprétation sera la même dans le cas général). Considérons l'effet sur la probabilité d'un évènement du changement de $x\in\mathbb{R}$ d'une unité, passant de $x_0$ à $x_0+1$. Alors :
-# $$logit(p(x_0+1))-logit(p(x_0)) = \beta_0+\beta(x_0+1)-(\beta_0+\beta(x_0)) = \beta$$
+# 
+# $logit(p(x_0+1))-logit(p(x_0)) = \beta_0+\beta(x_0+1)-(\beta_0+\beta(x_0)) = \beta$
 # et en utilisant la définition de la fonction logit :
-# \begin{eqnarray*}
+# 
+# $\begin{eqnarray*}
 # log \frac{p( x_0+1)}{1-p(x_0+1)}-log \frac{p( x_0)}{1-p(x_0)} &=& \beta\\
 # log \left  [\frac{\frac{p( x_0+1)}{1-p(x_0+1)}}{\frac{p( x_0)}{1-p(x_0)}} \right ]&=& \beta\\
-# \end{eqnarray*}
-# En notant OR (Odds Ratio, ou rapport de côte) le terme en argument du log, et en prenant l'exponentielle, on trouve
-# $$OR=e^\beta$$
-# Le coefficient $\beta$ est donc tel que $e^\beta$ est le rapport de côte pour un changement unitaire de l'entrée $x$. Si $x$ est incrémenté de deux unités, alors le rapport de côte est de $e^{2\beta}=(e^\beta)^2$, que l'on généralise facilement au cas d'un changement de $n$ unités à OR=$(e^\beta)^n$. \\ 
+# \end{eqnarray*}$
+# 
+# En notant OR (Odds Ratio, ou rapport de côte) le terme en argument du log, et en prenant l'exponentielle, on trouve $OR=e^\beta$. Le coefficient $\beta$ est donc tel que $e^\beta$ est le rapport de côte pour un changement unitaire de l'entrée $x$. Si $x$ est incrémenté de deux unités, alors le rapport de côte est de $e^{2\beta}=(e^\beta)^2$, que l'on généralise facilement au cas d'un changement de $n$ unités à OR=$(e^\beta)^n$. 
+# 
 # Dans le cas où $\boldsymbol\beta$ est un vecteur, sa ième composante est une estimation du changement de la probabilité d'un évènement correspondant à une augmentation d'une unité de la ième composante de $\mathbf x$, les autres composantes étant constantes.
 # 
-# \subsection{Estimation des coefficients de la régression logistique}
+# ### Estimation des coefficients de la régression logistique
 # D'après le modèle probabiliste, la distribution associée à la régression logistique est la loi binomiale. Pour $n$ échantillons $(x_i,y_i),i\in[\![1,n]\!]$, la vraisemblance s'écrit 
-# $$\prod_{i=1}^n p(x_i,\boldsymbol\theta)^{y_i}(1-p(x_i,\boldsymbol\theta))^{1-y_i}$$
+# 
+# $\prod_{i=1}^n p(x_i,\boldsymbol\theta)^{y_i}(1-p(x_i,\boldsymbol\theta))^{1-y_i}$
+# 
 # Pour estimer les paramètres $\beta_0$ et $\boldsymbol\beta$ à partir des données, on maximise cette vraisemblance. On prend son logarithme, on calcule son gradient et on en déduit un système d'équations à résoudre. Cette approche amène à des calculs complexes, la formulation analytique n'étant pas simple, et une approximation numérique est en pratique mise en oeuvre pour trouver l'optimal.
 # 
-# \section{Analyse des résultats d'une régression}
-# \subsection{Etude des résidus}
-# L'étude des résidus $ y_i- y^*_i$ permet de repérer les observations aberrantes ou au contraire qui jouent un rôle fondamental dans la détermination de la régression. Elle permet également de vérifier que  le modèle linéaire est justifié.\\ 
+# ## Analyse des résultats d'une régression
+# ### Etude des résidus
+# L'étude des résidus $ y_i- y^*_i$ permet de repérer les observations aberrantes ou au contraire qui jouent un rôle fondamental dans la détermination de la régression. Elle permet également de vérifier que  le modèle linéaire est justifié.
+# 
 # Comme $\mathbf Y = \mathbf Y -\mathbf X\boldsymbol \beta +\mathbf X\boldsymbol \beta$ , où $\mathbf Y-\mathbf X\boldsymbol \beta $ est orthogonal à $\mathbf X\boldsymbol \beta$, la matrice de variance des résidus s'écrit 
-# \begin{eqnarray*}
+# 
+# $\begin{eqnarray*}
 # \mathbb{V}(\mathbf Y) &=& \mathbb{V}(\mathbf Y-\mathbf X\boldsymbol \beta)+\mathbb{V}(\mathbf X\boldsymbol \beta)\\
 # \sigma^2 \mathbf{I} &=&\mathbb{V}(\mathbf Y-\mathbf X\boldsymbol \beta)+ \sigma^2 \mathbf X(\mathbf X^T\mathbf X)^{-1}\mathbf X^T\\ 
 # \text {soit }\mathbb{V}(\mathbf Y-\mathbf X\boldsymbol \beta)&=&\sigma^2(\mathbf{I}-\mathbf X(\mathbf X^T\mathbf X)^{-1}\mathbf X^T)
 # \end{eqnarray*}
+# $
+# 
 # et les résidus sont donc en général corrélés entre eux.
-# \begin{rem}
+# 
+# ```{prf:remark}
+# :class: dropdown
 # $\mathbf{I}-\mathbf X(\mathbf X^T\mathbf X)^{-1}\mathbf X^T$ est la projection orthogonale sur $Im(\mathbf X)^\perp$
-# \end{rem}
+# ```
+# 
 # Si $p_i$ est le $i^e$ terme diagonal du projecteur $\mathbf X(\mathbf X^T\mathbf X)^{-1}\mathbf X^T$, alors 
-# $$\mathbb{V}( y_i- y^*_i) = (1-p_i)\sigma^2$$
-# d'où l'estimation de la variance du résidu
-# $$\hat{\mathbb{V}}(y_i-y^*_i) = (1-p_i)\hat{\sigma}^2$$
 # 
-# Si le modèle linéaire est justifié, alors la distribution des résidus suit approximativement une loi normale (figure~\ref{F:residu}). Un test statistique (par exemple le test de Jarque-Berra) viendra confirmer ou infirmer l'hypothèse selon laquelle la distribution peut être considérée comme telle.
+# $\mathbb{V}( y_i- y^*_i) = (1-p_i)\sigma^2$
 # 
-# \begin{figure}
-# \begin{tabular}{cc}
-# \includegraphics[width=.45\textwidth]{figures/nuagelin.png}&\includegraphics[width=.45\textwidth]{figures/nuagepaslin.png}\\
-# Nuage de points linéaire & Nuage de points non linéaire \\ 
-# \includegraphics[width=.45\textwidth]{figures/reslin.png}&\includegraphics[width=.45\textwidth]{figures/respaslin.png}\\ 
-# Distribution des résidus &Distribution des résidus 
-# \end{tabular}
-# \caption{\label{F:residu}Distribution des résidus dans les cas où le modèle linéaire est justifié ou pas.}
-# \end{figure}
+# d'où l'estimation de la variance du résidu $\hat{\mathbb{V}}(y_i-y^*_i) = (1-p_i)\hat{\sigma}^2$.
+# 
+# Si le modèle linéaire est justifié, alors la distribution des résidus suit approximativement une loi normale. Un test statistique (par exemple le test de Jarque-Berra) viendra confirmer ou infirmer l'hypothèse selon laquelle la distribution peut être considérée comme telle.
+# 
+# 
+# | ![](./images/nuagelin.png) | ![](./images/nuagepaslin.png) |
+# |------------------------------------------------------------|----------------------------------------------------------------|
+# | ![](./images/reslin.png)  | ![](./images/respaslin.png)   |
+# 
+# 
 # 
 # \begin{defin}{Résidu studentisé}{}
 # On appelle résidu studentisé la quantité $\frac{y_i-y^*_i}{\hat{\sigma}\sqrt{1-hp}}$
