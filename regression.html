@@ -364,12 +364,65 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regression-simple">
+   Régression simple
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modele-theorique">
+     Modèle théorique
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ajustement-aux-donnees">
+     Ajustement aux données
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regression-multiple">
+   Régression multiple
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ajustement-lineaire-d-un-ensemble-d-observations">
+     Ajustement linéaire d’un ensemble d’observations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modele">
+     Modèle
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -381,6 +434,48 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regression-simple">
+   Régression simple
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modele-theorique">
+     Modèle théorique
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ajustement-aux-donnees">
+     Ajustement aux données
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regression-multiple">
+   Régression multiple
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ajustement-lineaire-d-un-ensemble-d-observations">
+     Ajustement linéaire d’un ensemble d’observations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modele">
+     Modèle
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -391,28 +486,29 @@ title="Print to PDF"
   <div class="tex2jax_ignore mathjax_ignore section" id="regression">
 <h1>Régression<a class="headerlink" href="#regression" title="Permalink to this headline">#</a></h1>
 <p>On s’intéresse ici à l’explication d’une variable (aléatoire) <span class="math notranslate nohighlight">\(Y\)</span> (la variable expliquée) par une (ou plusieurs) variable(s) aléatoire(s) <span class="math notranslate nohighlight">\(X_j\)</span> (prédicteurs, ou variables explicatives).</p>
-<p>\section{Régression simple}
-On dispose de <span class="math notranslate nohighlight">\(n\)</span> couples de variables quantitatives <span class="math notranslate nohighlight">\((\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]\)</span> constituant un échantillon d’observations indépendantes de <span class="math notranslate nohighlight">\((X,Y)\)</span> et on cherche une relation statistique pouvant exister entre <span class="math notranslate nohighlight">\(Y\)</span> et <span class="math notranslate nohighlight">\(X\)</span>. On rappelle ici quelques résultats élémentaires sur la régression linéaire simple.</p>
-<p>\subsection{Modèle théorique}
-Théoriquement, on cherche une fonction <span class="math notranslate nohighlight">\(f\)</span> telle que <span class="math notranslate nohighlight">\(f(X)\)</span> soit aussi proche que possible de <span class="math notranslate nohighlight">\(Y\)</span>. Par proximité, on entend ici au sens des moindres carrés, et donc on cherche <span class="math notranslate nohighlight">\(f\)</span> telle que <span class="math notranslate nohighlight">\(\mathbb{E}\left ( (Y-f(X))^2\right )\)</span> soit minimale. On sait alors que la fonction <span class="math notranslate nohighlight">\(f\)</span> qui satisfait cette propriété est :</p>
-<div class="math notranslate nohighlight">
-\[f(X) = \mathbb{E}(Y\mid X)\]</div>
-<p>\begin{defin}{Fonction de régression}{}
-La fonction <span class="math notranslate nohighlight">\(x\mapsto \mathbb{E}(Y\mid X=x)\)</span> est la fonction de régression de <span class="math notranslate nohighlight">\(Y\)</span> en <span class="math notranslate nohighlight">\(X\)</span>.</p>
-<p>\end{defin}</p>
-<p>La qualité de l’approximation est mesurée par le rapport de corrélation.</p>
-<p>\begin{defin}{Rapport de corrélation}{}
-Le rapport de corrélation entre deux variables aléatoires <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> est défini par le rapport entre la variation expliquée et la variation totale :</p>
-<div class="math notranslate nohighlight">
-\[\eta_{Y\mid X}^2 = \frac{\sigma_{\mathbb{E}(Y\mid X)}^2}{\sigma_Y^2}\]</div>
-<p>\end{defin}</p>
-<p>En pratique, <span class="math notranslate nohighlight">\(Y\)</span> est approchée par <span class="math notranslate nohighlight">\(Y=\mathbb{E}(Y\mid X)+\epsilon\)</span>, où <span class="math notranslate nohighlight">\(\epsilon\)</span> est un résidu aléatoire de moyenne nulle, non corrélé à <span class="math notranslate nohighlight">\(X\)</span> et à <span class="math notranslate nohighlight">\(\mathbb{E}(Y\mid X)\)</span> et tel que <span class="math notranslate nohighlight">\(\sigma_\epsilon^2= (1-\eta_{Y\mid X}^2)\sigma_Y^2\)</span>.</p>
-<p>Le cadre le plus utilisé est celui de la régression linéaire, c’est-à-dire lorsque
-$<span class="math notranslate nohighlight">\(Y=a+bX+\epsilon\)</span><span class="math notranslate nohighlight">\(
-et donc \)</span>\mathbb{E}(Y\mid X)=a+bX<span class="math notranslate nohighlight">\(, ce qui est le cas lorsque \)</span>(X,Y)<span class="math notranslate nohighlight">\( est un couple de variables aléatoires gaussiennes.\\
-Puisque \)</span>\mathbb{E}(\epsilon)=0<span class="math notranslate nohighlight">\(, la droite de régression passe par le point \)</span>(\mathbb{E}(X),\mathbb{E}(Y))$. Ainsi</p>
-<div class="math notranslate nohighlight">
-\[Y-\mathbb{E}(Y)=b(X-\mathbb{E}(X))+\epsilon\]</div>
+<div class="section" id="regression-simple">
+<h2>Régression simple<a class="headerlink" href="#regression-simple" title="Permalink to this headline">#</a></h2>
+<p>On dispose de <span class="math notranslate nohighlight">\(n\)</span> couples de variables quantitatives <span class="math notranslate nohighlight">\((\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]\)</span> constituant un échantillon d’observations indépendantes de <span class="math notranslate nohighlight">\((X,Y)\)</span> et on cherche une relation statistique pouvant exister entre <span class="math notranslate nohighlight">\(Y\)</span> et <span class="math notranslate nohighlight">\(X\)</span>. On rappelle ici quelques résultats élémentaires sur la régression linéaire simple.</p>
+<div class="section" id="modele-theorique">
+<h3>Modèle théorique<a class="headerlink" href="#modele-theorique" title="Permalink to this headline">#</a></h3>
+<p>Théoriquement, on cherche une fonction <span class="math notranslate nohighlight">\(f\)</span> telle que <span class="math notranslate nohighlight">\(f(X)\)</span> soit aussi proche que possible de <span class="math notranslate nohighlight">\(Y\)</span>. Par proximité, on entend ici au sens des moindres carrés, et donc on cherche <span class="math notranslate nohighlight">\(f\)</span> telle que <span class="math notranslate nohighlight">\(\mathbb{E}\left ( (Y-f(X))^2\right )\)</span> soit minimale. On sait alors que la fonction <span class="math notranslate nohighlight">\(f\)</span> qui satisfait cette propriété est :</p>
+<p><span class="math notranslate nohighlight">\(f(X) = \mathbb{E}(Y\mid X)\)</span></p>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 37 </span> (Fonction de régression)</p>
+<div class="definition-content section" id="proof-content">
+<p>La fonction <span class="math notranslate nohighlight">\(x\mapsto \mathbb{E}(Y\mid X=x)\)</span> est la fonction de régression de <span class="math notranslate nohighlight">\(Y\)</span> en <span class="math notranslate nohighlight">\(X\)</span>.</p>
+</div>
+</div><p>La qualité de l’approximation est mesurée par le rapport de corrélation.</p>
+<div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span class="caption-number">Definition 38 </span> (Rapport de corrélation)</p>
+<div class="definition-content section" id="proof-content">
+<p>Le rapport de corrélation entre deux variables aléatoires <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> est défini par le rapport entre la variation expliquée et la variation totale :</p>
+<p><span class="math notranslate nohighlight">\(\eta_{Y\mid X}^2 = \frac{\sigma_{\mathbb{E}(Y\mid X)}^2}{\sigma_Y^2}\)</span></p>
+</div>
+</div><p>En pratique, <span class="math notranslate nohighlight">\(Y\)</span> est approchée par <span class="math notranslate nohighlight">\(Y=\mathbb{E}(Y\mid X)+\epsilon\)</span>, où <span class="math notranslate nohighlight">\(\epsilon\)</span> est un résidu aléatoire de moyenne nulle, non corrélé à <span class="math notranslate nohighlight">\(X\)</span> et à <span class="math notranslate nohighlight">\(\mathbb{E}(Y\mid X)\)</span> et tel que <span class="math notranslate nohighlight">\(\sigma_\epsilon^2= (1-\eta_{Y\mid X}^2)\sigma_Y^2\)</span>.</p>
+<p>Le cadre le plus utilisé est celui de la régression linéaire, c’est-à-dire lorsque <span class="math notranslate nohighlight">\(Y=a+bX+\epsilon\)</span> et donc <span class="math notranslate nohighlight">\(\mathbb{E}(Y\mid X)=a+bX\)</span>, ce qui est le cas lorsque <span class="math notranslate nohighlight">\((X,Y)\)</span> est un couple de variables aléatoires gaussiennes.</p>
+<p>Puisque <span class="math notranslate nohighlight">\(\mathbb{E}(\epsilon)=0\)</span>, la droite de régression passe par le point <span class="math notranslate nohighlight">\((\mathbb{E}(X),\mathbb{E}(Y))\)</span>. Ainsi</p>
+<p><span class="math notranslate nohighlight">\(Y-\mathbb{E}(Y)=b(X-\mathbb{E}(X))+\epsilon\)</span></p>
 <p>En multipliant par <span class="math notranslate nohighlight">\(X-\mathbb{E}(X)\)</span> et en prenant l’espérance, on trouve à gauche la covariance de <span class="math notranslate nohighlight">\((X,Y)\)</span> et à droite la variance de <span class="math notranslate nohighlight">\(X\)</span>, soit</p>
 <p><span class="math notranslate nohighlight">\(\begin{array}{ccll}
 \sigma_{XY}&amp;=&amp; b\sigma_X^2+\mathbb{E}(\epsilon(X-\mathbb{E}(X)))&amp;\\
@@ -421,53 +517,62 @@ Puisque \)</span>\mathbb{E}(\epsilon)=0<span class="math notranslate nohighlight
 \end{array}
 \)</span></p>
 <p>d’où
-$<span class="math notranslate nohighlight">\(b = \frac{\sigma_{XY}}{\sigma_X^2} = r_{XY}\frac{\sigma_Y}{\sigma_X}\)</span>$</p>
+<span class="math notranslate nohighlight">\(b = \frac{\sigma_{XY}}{\sigma_X^2} = r_{XY}\frac{\sigma_Y}{\sigma_X}\)</span></p>
 <p>L’équation de la droite de régression est donc finalement</p>
-<div class="math notranslate nohighlight">
-\[Y-\mathbb{E}(Y)=r_{XY}\frac{\sigma_Y}{\sigma_X}(X-\mathbb{E}(X))+\epsilon\]</div>
-<p>En calculant la variance des deux termes, et puisque <span class="math notranslate nohighlight">\(\epsilon\)</span> et <span class="math notranslate nohighlight">\(X\)</span> ne sont pas corrélés, on trouve
-$<span class="math notranslate nohighlight">\(r_{XY}^2 = \eta_{Y\mid X}^2\)</span>$</p>
-<p>\subsection{Ajustement aux données}
-On cherche ici à ajuster le modèle linéaire théorique aux <span class="math notranslate nohighlight">\(n\)</span> couples d’observations indépendantes <span class="math notranslate nohighlight">\((\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]\)</span>. Il s’agit donc de trouver <span class="math notranslate nohighlight">\(a,b\)</span> ainsi que la variance du résidu <span class="math notranslate nohighlight">\(\epsilon\)</span>.\
-La méthode la plus classique est la méthode des moindres carrés\footnote{On trouvera dans le cours d’analyse numérique 1 une résolution de ce problème par le système aux équations normales.} : on cherche à ajuster au nuage de points  <span class="math notranslate nohighlight">\((\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]\)</span> une droite d’équation <span class="math notranslate nohighlight">\(y^*=\alpha +\beta x\)</span> de sorte à minimiser
-$<span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^n (y_i^*-y_i)^2 = \displaystyle\sum_{i=1}^n (\alpha + \beta x_i-y_i)^2\)</span>$</p>
-<p>En annulant le gradient de cette fonction à deux variables <span class="math notranslate nohighlight">\((\alpha,\beta)\)</span>, on trouve facilement
-$<span class="math notranslate nohighlight">\(\beta = \frac{\sigma_{xy}}{\sigma_x^2} = r_{xy}\frac{\sigma_y}{\sigma_x}\)</span><span class="math notranslate nohighlight">\(
-de sorte que 
-\)</span><span class="math notranslate nohighlight">\(y^* = \bar y + r_{xy}\frac{\sigma_y}{\sigma_x}(x-\bar x)\)</span><span class="math notranslate nohighlight">\(
-La droite de régression linéaire passe donc par le centre de masse du nuage de points (figure~\ref{F:reglin}).
-\begin{rem}
-les \)</span>x_i<span class="math notranslate nohighlight">\( et \)</span>y_i$ étant des réalisations de variables aléatoires, tous les termes de l’équation de la droite de régression linéaire le sont également.
-\end{rem}</p>
-<p>\begin{rem}
-On peut montrer que <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span> et <span class="math notranslate nohighlight">\(y^*\)</span> sont des estimateurs sans biais de <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span> et <span class="math notranslate nohighlight">\(\mathbb{E}(Y\mid X)\)</span>.
-\end{rem}</p>
-<p>\begin{figure}[ht!]
-\includegraphics[width=.9\textwidth]{figures/regressionlin.png}
-\caption{\label{F:reglin}Régression linéaire d’un ensemble de points, décomposé en un ensemble d’apprentissage (bleu) sur lequel la droite de régression a été apprise et un ensemble de test (vert) sur lequel les valeurs ont été prédites (magenta).}
-\end{figure}</p>
-<p>\section{Régression multiple}
-\subsection{Ajustement linéaire d’un ensemble d’observations}
-La régression multiple généralise la régression simple au cas de <span class="math notranslate nohighlight">\(p\geq 2\)</span> prédicteurs quantitatifs (ou variables explicatives). Ici on considère un échantillon de <span class="math notranslate nohighlight">\(n\)</span> individus, sur lesquels <span class="math notranslate nohighlight">\(p+1\)</span> variables sont mesurées : une variable à expliquer <span class="math notranslate nohighlight">\(\mathbf Y = (y_1\cdots y_n)^T\in\mathbb{R}^n\)</span> et <span class="math notranslate nohighlight">\(p\)</span> variables explicatives <span class="math notranslate nohighlight">\(\mathbf X_i\)</span> linéairement indépendantes, mais possiblement en relation.\
-On cherche
-$<span class="math notranslate nohighlight">\(\mathbf Y^* = \beta_0 \mathbf{1} + \displaystyle\sum_{i=1}^p \beta_i\mathbf X_i\)</span><span class="math notranslate nohighlight">\(
-proche de \)</span>\mathbf Y<span class="math notranslate nohighlight">\( au sens des moindres carrés. \)</span>\mathbf{1}<span class="math notranslate nohighlight">\( est le vecteur de \)</span>\mathbb{R}^n<span class="math notranslate nohighlight">\( dont toutes les composantes valent 1.\\ 
-En notant 
-\)</span><span class="math notranslate nohighlight">\(X = \begin{pmatrix}\mathbf{1} &amp; \mathbf{X_1}\cdots \mathbf{X_p}\end{pmatrix}\in\mathcal{M}_{n,p+1}(\mathbb{R})\quad\text{et}\quad \boldsymbol{\beta}=(\beta_0\cdots \beta_p)^T
-\in\mathbb{R}^{p+1}\)</span><span class="math notranslate nohighlight">\(
-on a 
-\)</span><span class="math notranslate nohighlight">\(\mathbf Y^*=\mathbf X\boldsymbol \beta\)</span><span class="math notranslate nohighlight">\(
-\)</span>\mathbf Y^*<span class="math notranslate nohighlight">\( est par définition des moindres carrés la projection de \)</span>\mathbf Y<span class="math notranslate nohighlight">\( sur \)</span>Im(\mathbf X)<span class="math notranslate nohighlight">\(, soit\footnote{Voir cours analyse numérique 1, chapitre 4.} :
-\)</span><span class="math notranslate nohighlight">\(\mathbf Y^* = \mathbf X(\mathbf X^T\mathbf X)^{-1}\mathbf X^T \mathbf Y\)</span><span class="math notranslate nohighlight">\(
-et donc 
-\)</span><span class="math notranslate nohighlight">\(\boldsymbol\beta = (\mathbf X^T\mathbf X)^{-1}\mathbf X^T \mathbf Y\)</span><span class="math notranslate nohighlight">\(
-et on a donc les paramètres de la régression multiple.
-\begin{rem}
-Dans le cas où la métrique utilisée est définie par une matrice symétrique définie positive \)</span>D<span class="math notranslate nohighlight">\( de taille \)</span>p<span class="math notranslate nohighlight">\(, alors 
-\)</span><span class="math notranslate nohighlight">\(\boldsymbol\beta = (\mathbf X^T\mathbf D \mathbf X)^{-1}\mathbf X^T \mathbf D \mathbf Y\)</span>$
-\end{rem}</p>
-<p>\subsection{Modèle}
-On suppose que les <span class="math notranslate nohighlight">\(\mathbf X_i\)</span> et <span class="math notranslate nohighlight">\(\mathbf Y\)</span> sont <span class="math notranslate nohighlight">\(n\)</span> réalisations indépendantes de <span class="math notranslate nohighlight">\(p+1\)</span> variables aléatoires <span class="math notranslate nohighlight">\(\chi_i\)</span> et <span class="math notranslate nohighlight">\(\omega\)</span>. De même qu’en régression simple, la recherche de la meilleure approximation de <span class="math notranslate nohighlight">\(\omega\)</span> par une fonction des <span class="math notranslate nohighlight">\(\chi_i\)</span> amène à <span class="math notranslate nohighlight">\(\mathbb{E}(\omega\mid \chi_1\cdots \chi_p)\)</span> et l’hypothèse de régression multiple est
+<p><span class="math notranslate nohighlight">\(Y-\mathbb{E}(Y)=r_{XY}\frac{\sigma_Y}{\sigma_X}(X-\mathbb{E}(X))+\epsilon\)</span></p>
+<p>En calculant la variance des deux termes, et puisque <span class="math notranslate nohighlight">\(\epsilon\)</span> et <span class="math notranslate nohighlight">\(X\)</span> ne sont pas corrélés, on trouve</p>
+<p><span class="math notranslate nohighlight">\(r_{XY}^2 = \eta_{Y\mid X}^2\)</span></p>
+</div>
+<div class="section" id="ajustement-aux-donnees">
+<h3>Ajustement aux données<a class="headerlink" href="#ajustement-aux-donnees" title="Permalink to this headline">#</a></h3>
+<p>On cherche ici à ajuster le modèle linéaire théorique aux <span class="math notranslate nohighlight">\(n\)</span> couples d’observations indépendantes <span class="math notranslate nohighlight">\((\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]\)</span>. Il s’agit donc de trouver <span class="math notranslate nohighlight">\(a,b\)</span> ainsi que la variance du résidu <span class="math notranslate nohighlight">\(\epsilon\)</span>.</p>
+<p>La méthode la plus classique est la méthode des moindres carrés\footnote{On trouvera dans le cours d’analyse numérique 1 une résolution de ce problème par le système aux équations normales.} : on cherche à ajuster au nuage de points  <span class="math notranslate nohighlight">\((\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]\)</span> une droite d’équation <span class="math notranslate nohighlight">\(y^*=\alpha +\beta x\)</span> de sorte à minimiser</p>
+<p><span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^n (y_i^*-y_i)^2 = \displaystyle\sum_{i=1}^n (\alpha + \beta x_i-y_i)^2\)</span></p>
+<p>En annulant le gradient de cette fonction à deux variables <span class="math notranslate nohighlight">\((\alpha,\beta)\)</span>, on trouve facilement</p>
+<p><span class="math notranslate nohighlight">\(\beta = \frac{\sigma_{xy}}{\sigma_x^2} = r_{xy}\frac{\sigma_y}{\sigma_x}\)</span></p>
+<p>de sorte que <span class="math notranslate nohighlight">\(y^* = \bar y + r_{xy}\frac{\sigma_y}{\sigma_x}(x-\bar x)\)</span>.</p>
+<p>La droite de régression linéaire passe donc par le centre de masse du nuage de points.</p>
+<div class="proof remark dropdown admonition" id="remark-2">
+<p class="admonition-title"><span class="caption-number">Remark 12 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>les <span class="math notranslate nohighlight">\(x_i\)</span> et <span class="math notranslate nohighlight">\(y_i\)</span> étant des réalisations de variables aléatoires, tous les termes de l’équation de la droite de régression linéaire le sont également.</p>
+</div>
+</div><div class="proof remark dropdown admonition" id="remark-3">
+<p class="admonition-title"><span class="caption-number">Remark 13 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>On peut montrer que <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span> et <span class="math notranslate nohighlight">\(y^*\)</span> sont des estimateurs sans biais de <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span> et <span class="math notranslate nohighlight">\(\mathbb{E}(Y\mid X)\)</span>.</p>
+</div>
+</div><p>La figure suivante illustre la régression linéaire d’un ensemble de points, décomposé en un ensemble d’apprentissage (bleu) sur lequel la droite de régression a été apprise et un ensemble de test (vert) sur lequel les valeurs ont été prédites (magenta).</p>
+<p><img alt="" src="_images/regressionlin.png" /></p>
+</div>
+</div>
+<div class="section" id="regression-multiple">
+<h2>Régression multiple<a class="headerlink" href="#regression-multiple" title="Permalink to this headline">#</a></h2>
+<div class="section" id="ajustement-lineaire-d-un-ensemble-d-observations">
+<h3>Ajustement linéaire d’un ensemble d’observations<a class="headerlink" href="#ajustement-lineaire-d-un-ensemble-d-observations" title="Permalink to this headline">#</a></h3>
+<p>La régression multiple généralise la régression simple au cas de <span class="math notranslate nohighlight">\(p\geq 2\)</span> prédicteurs quantitatifs (ou variables explicatives). Ici on considère un échantillon de <span class="math notranslate nohighlight">\(n\)</span> individus, sur lesquels <span class="math notranslate nohighlight">\(p+1\)</span> variables sont mesurées : une variable à expliquer <span class="math notranslate nohighlight">\(\mathbf Y = (y_1\cdots y_n)^T\in\mathbb{R}^n\)</span> et <span class="math notranslate nohighlight">\(p\)</span> variables explicatives <span class="math notranslate nohighlight">\(\mathbf X_i\)</span> linéairement indépendantes, mais possiblement en relation.\
+On cherche</p>
+<p><span class="math notranslate nohighlight">\(\mathbf Y^* = \beta_0 \mathbf{1} + \displaystyle\sum_{i=1}^p \beta_i\mathbf X_i\)</span></p>
+<p>proche de <span class="math notranslate nohighlight">\(\mathbf Y\)</span> au sens des moindres carrés. <span class="math notranslate nohighlight">\(\mathbf{1}\)</span> est le vecteur de <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> dont toutes les composantes valent 1.</p>
+<p>En notant
+<span class="math notranslate nohighlight">\(X = \begin{pmatrix}\mathbf{1} &amp; \mathbf{X_1}\cdots \mathbf{X_p}\end{pmatrix}\in\mathcal{M}_{n,p+1}(\mathbb{R})\quad\text{et}\quad \boldsymbol{\beta}=(\beta_0\cdots \beta_p)^T
+\in\mathbb{R}^{p+1}\)</span></p>
+<p>on a <span class="math notranslate nohighlight">\(\mathbf Y^*=\mathbf X\boldsymbol \beta\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\mathbf Y^*\)</span> est par définition des moindres carrés la projection de <span class="math notranslate nohighlight">\(\mathbf Y\)</span> sur <span class="math notranslate nohighlight">\(Im(\mathbf X)\)</span>, soit (Voir cours analyse numérique) :</p>
+<p><span class="math notranslate nohighlight">\(\mathbf Y^* = \mathbf X(\mathbf X^T\mathbf X)^{-1}\mathbf X^T \mathbf Y\)</span></p>
+<p>et donc</p>
+<p><span class="math notranslate nohighlight">\(\boldsymbol\beta = (\mathbf X^T\mathbf X)^{-1}\mathbf X^T \mathbf Y\)</span></p>
+<p>et on a donc les paramètres de la régression multiple.</p>
+<div class="proof remark admonition" id="remark-4">
+<p class="admonition-title"><span class="caption-number">Remark 14 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Dans le cas où la métrique utilisée est définie par une matrice symétrique définie positive <span class="math notranslate nohighlight">\(D\)</span> de taille <span class="math notranslate nohighlight">\(p\)</span>, alors
+$<span class="math notranslate nohighlight">\(\boldsymbol\beta = (\mathbf X^T\mathbf D \mathbf X)^{-1}\mathbf X^T \mathbf D \mathbf Y\)</span>$</p>
+</div>
+</div></div>
+<div class="section" id="modele">
+<h3>Modèle<a class="headerlink" href="#modele" title="Permalink to this headline">#</a></h3>
+<p>On suppose que les <span class="math notranslate nohighlight">\(\mathbf X_i\)</span> et <span class="math notranslate nohighlight">\(\mathbf Y\)</span> sont <span class="math notranslate nohighlight">\(n\)</span> réalisations indépendantes de <span class="math notranslate nohighlight">\(p+1\)</span> variables aléatoires <span class="math notranslate nohighlight">\(\chi_i\)</span> et <span class="math notranslate nohighlight">\(\omega\)</span>. De même qu’en régression simple, la recherche de la meilleure approximation de <span class="math notranslate nohighlight">\(\omega\)</span> par une fonction des <span class="math notranslate nohighlight">\(\chi_i\)</span> amène à <span class="math notranslate nohighlight">\(\mathbb{E}(\omega\mid \chi_1\cdots \chi_p)\)</span> et l’hypothèse de régression multiple est
 $<span class="math notranslate nohighlight">\(\mathbb{E}(\omega\mid \chi_0\cdots \chi_p) = b_0+\displaystyle\sum_{i=1}^p b_i\chi_i+\epsilon\)</span><span class="math notranslate nohighlight">\(
 avec \)</span>\mathbb{E}(\epsilon)=0, \sigma_\epsilon=\sigma^2<span class="math notranslate nohighlight">\( et \)</span>\epsilon<span class="math notranslate nohighlight">\( non corrélée aux \)</span>\chi_i$.</p>
 <p>On peut montrer que <span class="math notranslate nohighlight">\(\boldsymbol\beta\)</span> est un estimateur sans biais du vecteur aléatoire  <span class="math notranslate nohighlight">\((b_0\cdots b_p)\)</span>, et en est la meilleure approximation. De plus, la meilleure estimation sans biais de la variance <span class="math notranslate nohighlight">\(\sigma^2\)</span> est</p>
@@ -693,6 +798,8 @@ de sorte que la covariance des paramètres de régression vaut
 \caption{Plan régresseur. Les points au-dessus du plan sont en bleu, les autres en vert.}
 \end{figure}
 \end{center}</p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
