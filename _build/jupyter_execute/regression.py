@@ -382,7 +382,7 @@
 # 
 #  Pour améliorer la stabilité des paramètres de régression, on peut alors :
 # 
-# - rejeter certains termes de la somme précédente, par exemple en remplaçant les $p$ prédicteurs par leurs $p$ composantes principales\footnote{Ceci revient à effectuer $p$ régressions simples} (voir chapitre~\ref{ch:ACP}).
+# - rejeter certains termes de la somme précédente, par exemple en remplaçant les $p$ prédicteurs par leurs $p$ composantes principales (Ceci revient à effectuer $p$ régressions simples).
 # - régulariser la régression en utilisant des approche de type Ridge regression.
 # 
 # 
@@ -439,4 +439,9 @@
 # 
 # Dans la figure suivante, les points au-dessus du plan regresseur sont en bleu, les autres en vert.
 # 
+#  |  
+# 
+# 
 # | ![](./images/plan.png) | ![](./images/plan2.png) |
+# |------------------------------------------------------------|----------------------------------------------------------------|
+# | Un point de vue...  | Un autre   |

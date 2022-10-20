@@ -1074,7 +1074,7 @@ est une mesure du pouvoir prédictif du modèle.</p>
 <p>et dépend donc des inverses des valeurs propres de <span class="math notranslate nohighlight">\(\mathbf R\)</span>. Dans le cas où les prédicteurs sont fortement corrélés, les dernières valeurs propres sont proches de 0 ce qui entraîne l’instabilité des paramètres de régression.</p>
 <p>Pour améliorer la stabilité des paramètres de régression, on peut alors :</p>
 <ul class="simple">
-<li><p>rejeter certains termes de la somme précédente, par exemple en remplaçant les <span class="math notranslate nohighlight">\(p\)</span> prédicteurs par leurs <span class="math notranslate nohighlight">\(p\)</span> composantes principales\footnote{Ceci revient à effectuer <span class="math notranslate nohighlight">\(p\)</span> régressions simples} (voir chapitre~\ref{ch:ACP}).</p></li>
+<li><p>rejeter certains termes de la somme précédente, par exemple en remplaçant les <span class="math notranslate nohighlight">\(p\)</span> prédicteurs par leurs <span class="math notranslate nohighlight">\(p\)</span> composantes principales (Ceci revient à effectuer <span class="math notranslate nohighlight">\(p\)</span> régressions simples).</p></li>
 <li><p>régulariser la régression en utilisant des approche de type Ridge regression.</p></li>
 </ul>
 </div>
@@ -1170,7 +1170,19 @@ est une mesure du pouvoir prédictif du modèle.</p>
 <p>de sorte que la covariance des paramètres de régression vaut</p>
 <p><span class="math notranslate nohighlight">\(\hat{\sigma}^2 (\mathbf X^T\mathbf X)^{-1} = \begin{pmatrix} 3355.56 &amp; -4.152 &amp; 6.184\\-4.152 &amp; 0.008 &amp; -0.016 \\ 6.184 &amp; -0.016 &amp; 0.038\end{pmatrix}\)</span></p>
 <p>Dans la figure suivante, les points au-dessus du plan regresseur sont en bleu, les autres en vert.</p>
-<p>| <img alt="" src="_images/plan.png" /> | <img alt="" src="_images/plan2.png" /> |</p>
+<p>|</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p><img alt="" src="_images/plan.png" /></p></th>
+<th class="head"><p><img alt="" src="_images/plan2.png" /></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Un point de vue…</p></td>
+<td><p>Un autre</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
