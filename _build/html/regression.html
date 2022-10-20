@@ -1039,9 +1039,16 @@ log \left  [\frac{\frac{p( x_0+1)}{1-p(x_0+1)}}{\frac{p( x_0)}{1-p(x_0)}} \right
 <h3>Influence des observations<a class="headerlink" href="#influence-des-observations" title="Permalink to this headline">#</a></h3>
 <p>Pour étudier l’influence des observations sur la prédiction, deux approches sont possibles (et complémentaires) :</p>
 <ol class="simple">
-<li><p>étudier l’influence d’une observation sur sa propre prédiction. On calcule le résidu prédit <span class="math notranslate nohighlight">\(y_i-y_{\bar{i}}^*\)</span>, où <span class="math notranslate nohighlight">\(y_{\bar{i}}^*\)</span> est la prévision obtenue avec les <span class="math notranslate nohighlight">\(n-1\)</span> autres observations que <span class="math notranslate nohighlight">\(y_i\)</span>. Il est facile de montrer que ce résidu vaut <span class="math notranslate nohighlight">\(\frac{y_i-y_i^*}{1-p_i}\)</span>\footnote{il convient de rester prudent lorsque <span class="math notranslate nohighlight">\(p_i\)</span> est grand}, et la quantité
+<li><p>étudier l’influence d’une observation sur sa propre prédiction. On calcule le résidu prédit <span class="math notranslate nohighlight">\(y_i-y_{\bar{i}}^*\)</span>, où <span class="math notranslate nohighlight">\(y_{\bar{i}}^*\)</span> est la prévision obtenue avec les <span class="math notranslate nohighlight">\(n-1\)</span> autres observations que <span class="math notranslate nohighlight">\(y_i\)</span>. Il est facile de montrer que ce résidu vaut <span class="math notranslate nohighlight">\(\frac{y_i-y_i^*}{1-p_i}\)</span></p></li>
+</ol>
+<div class="proof remark dropdown admonition" id="remark-9">
+<p class="admonition-title"><span class="caption-number">Remark 17 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Il convient de rester prudent lorsque <span class="math notranslate nohighlight">\(p_i\)</span> est grand}, et la quantité
 <span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^n  \frac{(y_i-y_i^*)^2}{(1-p_i)^2}\)</span>
-est une mesure du pouvoir prédictif du modèle.</p></li>
+est une mesure du pouvoir prédictif du modèle.</p>
+</div>
+</div><ol class="simple">
 <li><p>étudier l’influence d’une observation sur les estimations des paramètres de la régression <span class="math notranslate nohighlight">\(\beta_i\)</span>. On peut par exemple calculer une distance, dite de Cook, entre <span class="math notranslate nohighlight">\(\boldsymbol \beta\)</span> et <span class="math notranslate nohighlight">\(\boldsymbol \beta_{\bar{i}}\)</span> :</p></li>
 <li></li>
 </ol>
@@ -1055,8 +1062,8 @@ est une mesure du pouvoir prédictif du modèle.</p></li>
 <ol class="simple">
 <li><p>Facteur d’inflation de la variance : on a <span class="math notranslate nohighlight">\(\mathbb{V}(\boldsymbol \beta) = \sigma^2\frac{\mathbf{R}^{-1}}{n}\)</span> et <span class="math notranslate nohighlight">\(\sigma^2_{\beta_j} = \frac{\sigma^2}{n}(\mathbf{R}^{-1})_{jj}\)</span>. Or le <span class="math notranslate nohighlight">\(j^e\)</span> terme de <span class="math notranslate nohighlight">\(\mathbf{R}^{-1}\)</span> est <span class="math notranslate nohighlight">\(\frac{1}{1-R^2_j}\)</span> où <span class="math notranslate nohighlight">\(R^2_j\)</span> est le carré du coefficient de corrélation multiple de <span class="math notranslate nohighlight">\(\mathbf X_j\)</span> et des <span class="math notranslate nohighlight">\(p-1\)</span> autres variables explicatives. Ce terme est le facteur d’inflation de la variance. La moyenne de ces <span class="math notranslate nohighlight">\(p\)</span> termes est parfois utilisée comme indice global de colinéarité multiple.</p></li>
 </ol>
-<div class="proof remark dropdown admonition" id="remark-9">
-<p class="admonition-title"><span class="caption-number">Remark 17 </span></p>
+<div class="proof remark dropdown admonition" id="remark-10">
+<p class="admonition-title"><span class="caption-number">Remark 18 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Si les variables explicatives sont orthogonales, la régression multiple revient à <span class="math notranslate nohighlight">\(p\)</span> régressions simples.</p>
 </div>
