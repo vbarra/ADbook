@@ -13,4 +13,5 @@ chapters:
 - file: TP2_ACP
 - file: TP3_AFC_ACM
 - file: regression
+- file: TP_Regression_Lineaire
 - file: genindex

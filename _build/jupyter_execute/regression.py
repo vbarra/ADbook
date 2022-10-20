@@ -439,8 +439,6 @@
 # 
 # Dans la figure suivante, les points au-dessus du plan regresseur sont en bleu, les autres en vert.
 # 
-#  |  
-# 
 # 
 # | ![](./images/plan.png) | ![](./images/plan2.png) |
 # |------------------------------------------------------------|----------------------------------------------------------------|

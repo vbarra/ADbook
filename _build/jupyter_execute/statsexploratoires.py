@@ -879,7 +879,6 @@ print (print_tab (n, p, ind, cosinus_carres))
 # 
 # 
 # On représente alors graphiquement les individus ligne et colonne sur le premier plan factoriel.
-# |  |  |
 # 
 # | ![](./images/planlig.png) | ![](./images/plancol.png) |
 # |------------------------------------------------------------|----------------------------------------------------------------|
