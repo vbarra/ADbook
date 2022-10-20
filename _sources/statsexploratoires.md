@@ -858,7 +858,6 @@ On utilise alors les vecteurs propres (axes factoriels) pour analyser les donné
 
 
 On représente alors graphiquement les individus ligne et colonne sur le premier plan factoriel.
-|  |  |
 
 | ![](./images/planlig.png) | ![](./images/plancol.png) |
 |------------------------------------------------------------|----------------------------------------------------------------|

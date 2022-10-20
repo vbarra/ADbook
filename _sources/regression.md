@@ -448,8 +448,6 @@ $\hat{\sigma}^2 (\mathbf X^T\mathbf X)^{-1} = \begin{pmatrix} 3355.56 & -4.152 &
 
 Dans la figure suivante, les points au-dessus du plan regresseur sont en bleu, les autres en vert.
 
- |  
-
 
 | ![](./images/plan.png) | ![](./images/plan2.png) |
 |------------------------------------------------------------|----------------------------------------------------------------|
