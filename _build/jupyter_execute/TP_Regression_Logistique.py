@@ -7,7 +7,7 @@
 
 
 # n'exécuter qu'une fois
-get_ipython().system('pip3 install sklearn numpy pandas matplotlib ipywidgets IPython')
+get_ipython().system('pip3 install sklearn numpy pandas matplotlib ipywidgets IPython --q')
 
 
 # In[2]:
