@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Régression linéaire
+# # TP Régression linéaire
 
 # In[1]:
 
 
 # n'exécuter qu'une fois
-get_ipython().system('pip3 install sklearn numpy matplotlib ipywidgets IPython.display')
+get_ipython().system('pip3 install sklearn numpy matplotlib ipywidgets IPython')
 
 
 # In[2]:

@@ -14,4 +14,5 @@ chapters:
 - file: TP3_AFC_ACM
 - file: regression
 - file: TP_Regression_Lineaire
+- file: TP_Regression_Logistique
 - file: genindex
