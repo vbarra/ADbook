@@ -18,6 +18,10 @@ Les principales méthodes de ce type incluent l'analyse factorielle des correspo
 
 ## Analyse en composantes principales
 
+```{index} ACP
+```
+
+
 Pour les données quantitatives, l'Analyse en Composantes Principales (ACP) est l'une des méthodes les plus utilisées. Elle considère que les nouvelles variables sont des combinaisons linéaires des variables initiales, non corrélées. 
 
 ![](./images/acpintro.png)
@@ -74,6 +78,13 @@ L'analyse en composantes principales consiste alors, de manière itérative, à 
 Soit $F_k$ un sous-espace portant l'inertie maximale. Alors le sous-espace de dimension $k+1$ portant l'inertie maximale est la somme directe de $F_k$ et de la droite orthogonale à $F_k$ portant l'inertie maximale.
 ```
 #### Elements principaux
+
+```{index} ACP ; axes principaux
+```
+
+```{index} Composantes principales
+```
+
 ##### Axes principaux
 Rechercher un sous-espace de dimension 1 d'inertie maximale revient à rechercher une droite de $\mathbb{R}^n$ passant par le centre de gravité des données $\mathbf{g}$ maximisant l'inertie du nuage projeté sur cet axe. Soit $\mathbf{a}$ un vecteur directeur de cette droite. La projection orthogonale sur la droite est définie par la matrice de projection 
 
@@ -104,6 +115,11 @@ Le sous-espace $F_k$ de dimension $k$ portant l'inertie maximale est engendré p
 Les droites portées par ces vecteurs propres sont les axes principaux. Dans la suite on supposera $\mathbf{a}$ $\mathbf M$-normé.
 
 ##### Facteurs principaux
+
+```{index} ACP ; Facteurs principaux
+```
+```{index} Facteurs principaux
+```
 On associe à  $Lin(\mathbf{a})$ la forme linéaire $\mathbf{u}$, coordonnée orthogonale sur l'axe $Lin(\mathbf{a})$. Le vecteur $\mathbf{u}$ définit une combinaison linéaire des variables descriptives $x^1\cdots x^p$. A l'axe principal $\mathbf{a}$ est associé le facteur principal $\mathbf{u}=\mathbf{Ma}$. Puisque $\mathbf{a}$ est vecteur propre de ${\bf VM}$, on peut alors écrire 
 
 ${\bf MVM}\mathbf{a}=\lambda {\bf M}\mathbf{a}$
