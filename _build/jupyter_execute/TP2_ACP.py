@@ -7,7 +7,7 @@
 
 
 # n'exécuter qu'une fois
-get_ipython().system('pip3 install sklearn numpy matplotlib')
+get_ipython().system('pip3 install sklearn numpy matplotlib --q')
 
 
 # In[2]:
