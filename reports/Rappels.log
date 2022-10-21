@@ -1,54 +1,37 @@
 Traceback (most recent call last):
-  File "/Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+  File "/usr/local/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
     executenb(
-  File "/Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+  File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 1093, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+  File "/usr/local/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "/Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+  File "/usr/local/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
     return loop.run_until_complete(coro)
-  File "/opt/homebrew/Cellar/python@3.9/3.9.10/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+  File "/usr/local/Cellar/python@3.9/3.9.13/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
     return future.result()
-  File "/Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+  File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 559, in async_execute
     await self.async_execute_cell(
-  File "/Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
-    await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+  File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 854, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 756, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from math import floor
-from random import random
-import numpy as np
-import matplotlib.pyplot as plt
-
-def tirage():
-    d1=floor(6*random()+1)   
-    d2=floor(6*random()+1)  
-    return d1+d2 -1          
-
-x = np.arange(0,12)+1
-f = np.zeros(12)
-n=10000                       
-for i in range(n):        
-    f[tirage() ] += 1
-f=f/n                      
-
-plt.plot( x, f, 'o' )   
-plt.vlines( x, 0, f )   
-plt.ylim( bottom=0 ) 
-plt.show()
+from scipy.stats import rv_continuous
+a = 49.5 
+b = 50.5 
+class distribution_gen(rv_continuous):
+    def _pdf(self, x):
+        return 1.5 - 6*(x - 50)**2
+distribution = distribution_gen(a=a, b=b)
+print("Variance: ", distribution.var())
+print("Ecart-type : ", distribution.std())```
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn [1], line 3[0m
-[1;32m      1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmath[39;00m [38;5;28;01mimport[39;00m floor
-[1;32m      2[0m [38;5;28;01mfrom[39;00m [38;5;21;01mrandom[39;00m [38;5;28;01mimport[39;00m random
-[0;32m----> 3[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
-[1;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
-[1;32m      6[0m [38;5;28;01mdef[39;00m [38;5;21mtirage[39m():
+[0;36m  Input [0;32mIn [6][0;36m[0m
+[0;31m    print("Ecart-type : ", distribution.std())```[0m
+[0m                                              ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
 
-[0;31mModuleNotFoundError[0m: No module named 'numpy'
-ModuleNotFoundError: No module named 'numpy'
+SyntaxError: invalid syntax (<ipython-input-6-0f2df9977f77>, line 9)
 
