@@ -20,7 +20,8 @@ Les principales méthodes de ce type incluent l'analyse factorielle des correspo
 
 ```{index} ACP
 ```
-
+```{index} Analyse ; composantes principales
+```
 
 Pour les données quantitatives, l'Analyse en Composantes Principales (ACP) est l'une des méthodes les plus utilisées. Elle considère que les nouvelles variables sont des combinaisons linéaires des variables initiales, non corrélées. 
 
@@ -177,6 +178,8 @@ Dans la figure suivante, ${\bf e_i} $ et ${\bf e_j}$ se projettent sur $F_2$ en 
 
 ##### Critères empiriques
 
+```{index} Kaiser ; critère
+```
 Lorsqu'on travaille sur données centrées réduites, on retient les composantes principales correspondant à des valeurs propres supérieures à 1 (critère de Kaiser) : en effet les composantes principales $c_j$ étant des combinaisons linéaires des $z-j$ de variance maximale $V(c_j)=\lambda$, seules les composantes de variance supérieure à celle des variables initiales présentent un intérêt.
 
 

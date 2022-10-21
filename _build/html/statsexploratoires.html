@@ -1203,7 +1203,7 @@ title="Print to PDF"
 <p>Les principales méthodes de ce type incluent l’analyse factorielle des correspondances, l’analyse des correspondances multiples, l’analyse factorielle d’un tableau de distance (pour les tableaux de proximité) ou encore l’analyse factorielle discriminante.</p>
 <div class="section" id="analyse-en-composantes-principales">
 <h2>Analyse en composantes principales<a class="headerlink" href="#analyse-en-composantes-principales" title="Permalink to this headline">#</a></h2>
-<p id="index-0">Pour les données quantitatives, l’Analyse en Composantes Principales (ACP) est l’une des méthodes les plus utilisées. Elle considère que les nouvelles variables sont des combinaisons linéaires des variables initiales, non corrélées.</p>
+<span class="target" id="index-0"></span><p id="index-1">Pour les données quantitatives, l’Analyse en Composantes Principales (ACP) est l’une des méthodes les plus utilisées. Elle considère que les nouvelles variables sont des combinaisons linéaires des variables initiales, non corrélées.</p>
 <p><img alt="" src="_images/acpintro.png" /></p>
 <p>Dans la suite, les données seront des tableaux <span class="math notranslate nohighlight">\(n\times p\)</span> de variables quantitatives, une ligne étant un individu, et les colonnes décrivant les paramètres mesurés. Les observations de <span class="math notranslate nohighlight">\(p\)</span> variables sur <span class="math notranslate nohighlight">\(n\)</span> individus sont donc rassemblées dans une matrice <span class="math notranslate nohighlight">\({\bf X}\in\mathcal{M}_{np}(\mathbb{R})\)</span> .  On notera <span class="math notranslate nohighlight">\(x^j\)</span> la j-ème variable, identifiée par la j-ème colonne <span class="math notranslate nohighlight">\({\bf X_{\bullet,j}}\)</span> de <span class="math notranslate nohighlight">\({\bf X}\)</span>, et <span class="math notranslate nohighlight">\(\mathbf{e_i}\)</span> le i-ème individu (i.e. <span class="math notranslate nohighlight">\({\bf X_{i,\bullet}^T}\)</span>).</p>
 <div class="section" id="principe-de-la-methode">
@@ -1251,8 +1251,8 @@ Tr({\bf PVP^TM})&amp;=&amp;Tr({\bf PVMP})\quad \textrm{car }{\bf P^TM}={\bf MP}\
 </div></div>
 <div class="section" id="elements-principaux">
 <h4>Elements principaux<a class="headerlink" href="#elements-principaux" title="Permalink to this headline">#</a></h4>
-<span class="target" id="index-1"></span><div class="section" id="axes-principaux">
-<span id="index-2"></span><h5>Axes principaux<a class="headerlink" href="#axes-principaux" title="Permalink to this headline">#</a></h5>
+<span class="target" id="index-2"></span><div class="section" id="axes-principaux">
+<span id="index-3"></span><h5>Axes principaux<a class="headerlink" href="#axes-principaux" title="Permalink to this headline">#</a></h5>
 <p>Rechercher un sous-espace de dimension 1 d’inertie maximale revient à rechercher une droite de <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> passant par le centre de gravité des données <span class="math notranslate nohighlight">\(\mathbf{g}\)</span> maximisant l’inertie du nuage projeté sur cet axe. Soit <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> un vecteur directeur de cette droite. La projection orthogonale sur la droite est définie par la matrice de projection</p>
 <p><span class="math notranslate nohighlight">\(\mathbf P=\frac{\mathbf{a}\mathbf{a}^T{\bf M}}{\mathbf{a}^T{\bf M}\mathbf{a}}\)</span></p>
 <p>L’inertie du nuage projeté sur <span class="math notranslate nohighlight">\(Lin(\mathbf{a})\)</span> vaut alors
@@ -1278,7 +1278,7 @@ et donc</p>
 </div>
 <div class="section" id="facteurs-principaux">
 <h5>Facteurs principaux<a class="headerlink" href="#facteurs-principaux" title="Permalink to this headline">#</a></h5>
-<p>On associe à  <span class="math notranslate nohighlight">\(Lin(\mathbf{a})\)</span> la forme linéaire <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, coordonnée orthogonale sur l’axe <span class="math notranslate nohighlight">\(Lin(\mathbf{a})\)</span>. Le vecteur <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> définit une combinaison linéaire des variables descriptives <span class="math notranslate nohighlight">\(x^1\cdots x^p\)</span>. A l’axe principal <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> est associé le facteur principal <span class="math notranslate nohighlight">\(\mathbf{u}=\mathbf{Ma}\)</span>. Puisque <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> est vecteur propre de <span class="math notranslate nohighlight">\({\bf VM}\)</span>, on peut alors écrire</p>
+<span class="target" id="index-4"></span><p id="index-5">On associe à  <span class="math notranslate nohighlight">\(Lin(\mathbf{a})\)</span> la forme linéaire <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, coordonnée orthogonale sur l’axe <span class="math notranslate nohighlight">\(Lin(\mathbf{a})\)</span>. Le vecteur <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> définit une combinaison linéaire des variables descriptives <span class="math notranslate nohighlight">\(x^1\cdots x^p\)</span>. A l’axe principal <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> est associé le facteur principal <span class="math notranslate nohighlight">\(\mathbf{u}=\mathbf{Ma}\)</span>. Puisque <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> est vecteur propre de <span class="math notranslate nohighlight">\({\bf VM}\)</span>, on peut alors écrire</p>
 <p><span class="math notranslate nohighlight">\({\bf MVM}\mathbf{a}=\lambda {\bf M}\mathbf{a}\)</span></p>
 <p>et donc <span class="math notranslate nohighlight">\({\bf MV}\mathbf{u}=\lambda \mathbf{u}\)</span>.  Les facteurs principaux sont donc les vecteurs propres de <span class="math notranslate nohighlight">\({\bf MV}\)</span></p>
 </div>
@@ -1327,7 +1327,7 @@ Un seuil par exemple de 90% d’inertie totale expliquée donne une valeur de <s
 </div>
 <div class="section" id="criteres-empiriques">
 <h5>Critères empiriques<a class="headerlink" href="#criteres-empiriques" title="Permalink to this headline">#</a></h5>
-<p>Lorsqu’on travaille sur données centrées réduites, on retient les composantes principales correspondant à des valeurs propres supérieures à 1 (critère de Kaiser) : en effet les composantes principales <span class="math notranslate nohighlight">\(c_j\)</span> étant des combinaisons linéaires des <span class="math notranslate nohighlight">\(z-j\)</span> de variance maximale <span class="math notranslate nohighlight">\(V(c_j)=\lambda\)</span>, seules les composantes de variance supérieure à celle des variables initiales présentent un intérêt.</p>
+<p id="index-6">Lorsqu’on travaille sur données centrées réduites, on retient les composantes principales correspondant à des valeurs propres supérieures à 1 (critère de Kaiser) : en effet les composantes principales <span class="math notranslate nohighlight">\(c_j\)</span> étant des combinaisons linéaires des <span class="math notranslate nohighlight">\(z-j\)</span> de variance maximale <span class="math notranslate nohighlight">\(V(c_j)=\lambda\)</span>, seules les composantes de variance supérieure à celle des variables initiales présentent un intérêt.</p>
 </div>
 </div>
 <div class="section" id="interpretation-des-resultats-exemple">

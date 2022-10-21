@@ -29,7 +29,7 @@ from sklearn.linear_model import LogisticRegressionCV
 from sklearn.model_selection import train_test_split
 
 
-# ### Génération de données
+# ## Génération de données
 
 # In[4]:
 
@@ -53,7 +53,7 @@ def func_log(nb_points,x_min,x_max,noise_magnitude,noise_sd,noise_mean):
     return (np.array(x),np.array(y),np.array(yn),np.array(x1),np.array(x2))
 
 
-# ### Affichage interactif
+# ## Affichage interactif
 
 # In[5]:
 
@@ -63,7 +63,7 @@ pl=interactive(func_log,nb_points={'Low (50 samples)':50,'High (200 samples)':20
 display(pl)
 
 
-# ### Stockage des données
+# ## Stockage des données
 
 # In[6]:
 
@@ -78,7 +78,7 @@ df['y']=df['out'].apply(boolean)
 df.head()
 
 
-# ### Régression logistique
+# ## Régression logistique
 
 # In[7]:
 

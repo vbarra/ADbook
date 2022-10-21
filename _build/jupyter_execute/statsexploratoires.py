@@ -11,7 +11,8 @@
 # 
 # ```{index} ACP
 # ```
-# 
+# ```{index} Analyse ; composantes principales
+# ```
 # 
 # Pour les données quantitatives, l'Analyse en Composantes Principales (ACP) est l'une des méthodes les plus utilisées. Elle considère que les nouvelles variables sont des combinaisons linéaires des variables initiales, non corrélées. 
 # 
@@ -106,6 +107,11 @@
 # Les droites portées par ces vecteurs propres sont les axes principaux. Dans la suite on supposera $\mathbf{a}$ $\mathbf M$-normé.
 # 
 # ##### Facteurs principaux
+# 
+# ```{index} ACP ; Facteurs principaux
+# ```
+# ```{index} Facteurs principaux
+# ```
 # On associe à  $Lin(\mathbf{a})$ la forme linéaire $\mathbf{u}$, coordonnée orthogonale sur l'axe $Lin(\mathbf{a})$. Le vecteur $\mathbf{u}$ définit une combinaison linéaire des variables descriptives $x^1\cdots x^p$. A l'axe principal $\mathbf{a}$ est associé le facteur principal $\mathbf{u}=\mathbf{Ma}$. Puisque $\mathbf{a}$ est vecteur propre de ${\bf VM}$, on peut alors écrire 
 # 
 # ${\bf MVM}\mathbf{a}=\lambda {\bf M}\mathbf{a}$
@@ -163,6 +169,8 @@
 # 
 # ##### Critères empiriques
 # 
+# ```{index} Kaiser ; critère
+# ```
 # Lorsqu'on travaille sur données centrées réduites, on retient les composantes principales correspondant à des valeurs propres supérieures à 1 (critère de Kaiser) : en effet les composantes principales $c_j$ étant des combinaisons linéaires des $z-j$ de variance maximale $V(c_j)=\lambda$, seules les composantes de variance supérieure à celle des variables initiales présentent un intérêt.
 # 
 # 
