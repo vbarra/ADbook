@@ -660,6 +660,8 @@ print (print_tab (n, p, ind, cosinus_carres))
 
 # ## Analyse Factorielle des correspondances
 # 
+# ```{index} Analyse ; factorielle des correspondances
+# ```
 # On cherche à expliquer la liaison entre deux variables qualitatives $X$ et $Y$, caractérisées par un ensemble de couples de modalités $(x_i,y_i)$. On note $x_1\cdots x_J$ et $y_1\cdots y_K$ les modalités distinctes de $X$ et $Y$ respectivement. 
 # 
 # Plus précisément, l'analyse factorielle des correspondances (AFC) vise à définir un modèle statistique permettant de fournir des paramètres dont la représentation graphique illustre les correspondances entre les modalités de ces variables. Dans sa version "analyse de données", l'AFC cherche à réduire la dimension des données en effectuant la décomposition factorielle des nuages de points associés aux profils lignes et aux profils colonnes du tableau de contingence croisant les modalités des deux variables (L'AFC est une double ACP sur les deux tableaux de profils). On aborde à la fin du chapitre une modélisation statistique de l'AFC, en supposant que les fréquences d'observation correspondent à l'observation d'une probabilité théorique, dont la distribution modélise le tableau de contingence des deux variables.
@@ -668,6 +670,11 @@ print (print_tab (n, p, ind, cosinus_carres))
 # 
 # ### Notations
 # Le tableau de contingence ${\bf T}$ entre les $X$ et $Y$, vu comme une matrice,  est défini par 
+# 
+# ```{index} Tableau ; contingence
+# ```
+# ```{index} Contingence ; tableau
+# ```
 # 
 # |          | $y_1$    | $\cdots$ | $y_k$    | $\cdots$ | $y_K$    | total    |
 # |----------|----------|----------|----------|----------|----------|----------|
@@ -759,7 +766,6 @@ print (print_tab (n, p, ind, cosinus_carres))
 # - Si toutes les valeurs propres sont proches de 1, on aboutit à l'effet Guttman : il existe une correspondance entre chaque modalité ligne et une modalité colonne "associée". Avec une réorganisation des modalités, les effectifs importants se trouvent alors le long de la diagonale.
 # 
 # 
-# 
 # #### Qualité globale
 # A $q$ fixé, la qualité globale de la représentation se mesure comme dans le cadre de l'ACP, comme le rapport entre les $q$ premières valeurs propres $\lambda_i$ et la somme sur tout le spectre. 
 # 
@@ -785,6 +791,7 @@ print (print_tab (n, p, ind, cosinus_carres))
 # 
 # ### Modèle statistique
 # On suppose que chaque fréquence $f_{jk}$ correspond à l'observation d'une probabilité   théorique $\pi_{jk}$ et on modélise donc $\bf T$ par la distribution correspondante. Le modèle décrivant cette distribution permet d'expliciter la probabilité.
+# 
 # #### Modèle log linéaire
 # Souvent, le nombre $n$ est fixé a priori. La distribution conjointe des effectifs $n_{jk}$ est alors conditionnée par $n$ et est une loi multinomiale de paramètre $\pi_{jk}$ et d'espérance $n\pi_{jk}$.
 # 
@@ -915,16 +922,29 @@ print (print_tab (n, p, ind, cosinus_carres))
 # 
 # ## Analyse des correspondances multiples
 # 
+# ```{index} Analyse ; correspondances multiples
+# ```
+# 
+# 
 # Tandis que l'analyse factorielle des correspondances permet d'expliquer la liaison entre deux variables qualitatives, l'analyse des correspondances multiples (ACM) s'intéresse au cas où l'on dispose de $p\geq 2$ variables. C'est l'équivalent de l'ACP pour les variables qualitatives.
 # 
 # ### Notations
 # On dispose d'un tableau de données $\mathbf{H}=(h_{i,j})$ à $n$ lignes et $p$ colonnes, où $n$ est le nombre d'individus, $p$ le nombre de variables qualitatives mesurées et pour $i\in[\![1,n]\!],j\in[\![1,p]\!],h_{ij}\in\mathcal{M}_j$, $\mathcal{M}_j$ étant l'ensemble des modalités de la j$^e$ variable. Si $m_j$ est le cardinal de $\mathcal{M}_j$, alors $m=\sum_{k=1}^p m_k$ est le nombre total de modalités. 
+# 
+# ```{index} Tableau ; disjonctif
+# ```
+# 
 # 
 # ````{prf:definition} Tableau disjonctif complet
 # Le tableau disjonctif complet $\mathbf T$ des données est un tableau $n\times m$ tel que 
 # 
 # $(\forall i\in[\![1,n]\!],j\in[\![1, m]\!])\; \mathbf T_{ij} = \left \{ \begin{array}{cl} 1&\textrm{si l'individu i possède la modalité j}\\0 & \textrm{sinon}\end{array}\right .$
 # ````
+# 
+# ```{index} Tableau ; Burt
+# ```
+# ```{index} Burt ; tableau
+# ```
 # 
 # On déduit de ce tableau disjonctif le tableau de Burt correspondant, $\mathbf B=\mathbf T^T \mathbf T$, qui rassemble les croisements deux à  deux de toutes les variables, i.e tous les tableaux de contingence des variables deux à deux. Sur la diagonale de $\mathbf B$ se trouvent les coefficients $B_{ii}=n_i$, donnant le nombre d'individus possédant la modalité $i$.  Les autres coefficients $B_{ij} = \mathbf{T_{\bullet i}}^T \mathbf {T_{\bullet j}}$ quantifient le nombre d'individus ayant les modalités $i$ et $j$.
 # 

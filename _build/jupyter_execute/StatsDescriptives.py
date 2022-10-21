@@ -439,7 +439,10 @@ plt.show()
 # Le couple est un couple de valeurs $(x_i,y_i)$ où $x_i$ et $y_i$ prennent comme valeurs des modalités qualitatives. Notons $x_1\cdots x_J$ et $y_1\cdots y_K$ les valeurs distinctes prises. 
 # 
 # Les données peuvent être regroupées sous la forme d'un tableau de contingence prenant la forme suivante :
-# 
+# ```{index} Tableau ; contingence
+# ```
+# ```{index} Contingence ; tableau
+# ```
 # 
 # $\begin{array}{c|ccccc|c}
 # &y_1&\cdots&y_k&\cdots&y_K&total\\
@@ -585,5 +588,9 @@ plt.show()
 # ### Tableaux de Burt
 # Le tableau de Burt est une généralisation particulière de la table de contingence dans le cas où l'on étudie simultanément $p$ variables qualitatives $X_1\ldots X_p$. Notons $c_j$ le nombre de modalités de $X_j$ et posons $c=\displaystyle\sum_{j=1}^p c_j$. 
 # 
+# ```{index} Tableau ; Burt
+# ```
+# ```{index} Burt ; tableau
+# ```
 # 
 # Le tableau de Burt est une matrice carrée symétrique de taille $c$, constituée de $p^2$ sous-matrices. Chacune des $p$ sous-matrices diagonales est relative à l'une des $p$ variables, la $j^e$ étant carrée de taille $c_j$, diagonale, et de coefficients diagonaux les effectifs marginaux de $X_j$. La sous-matrice dans le bloc $(k,l)$ du tableau, $k\neq l$, est la table de contingence des variables $X_k$ et $X_l$.

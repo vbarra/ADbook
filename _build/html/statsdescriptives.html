@@ -840,7 +840,7 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
 GeometricMean  :  1258.4787575642572
 HarmonicMean  :  1198.219210728503
-WeightedMean  :  1344.713471507534
+WeightedMean  :  1286.984134999495
 </pre></div>
 </div>
 <img alt="_images/statsdescriptives_3_1.png" src="_images/statsdescriptives_3_1.png" />
@@ -975,12 +975,15 @@ quartile  75  :  1626.326538085935
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>max_dev  :  1316.3086347078017 +/- 738.0729570890783
-mad  :  1316.3086347078017 +/- 327.4656915004233
+mad
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  :  1316.3086347078017 +/- 327.4656915004233
 sigma  :  1316.3086347078017 +/- 374.5723639541368
 IQR  :  1316.3086347078017 +/- 720.4074859619113
 </pre></div>
 </div>
-<img alt="_images/statsdescriptives_7_1.png" src="_images/statsdescriptives_7_1.png" />
+<img alt="_images/statsdescriptives_7_2.png" src="_images/statsdescriptives_7_2.png" />
 </div>
 </div>
 </div>
@@ -1101,7 +1104,7 @@ Le coefficient de détermination est le carré du coefficient de corrélation.</
 <h3>Cas de deux variables qualitatives<a class="headerlink" href="#cas-de-deux-variables-qualitatives" title="Permalink to this headline">#</a></h3>
 <p>Le couple est un couple de valeurs <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> où <span class="math notranslate nohighlight">\(x_i\)</span> et <span class="math notranslate nohighlight">\(y_i\)</span> prennent comme valeurs des modalités qualitatives. Notons <span class="math notranslate nohighlight">\(x_1\cdots x_J\)</span> et <span class="math notranslate nohighlight">\(y_1\cdots y_K\)</span> les valeurs distinctes prises.</p>
 <p>Les données peuvent être regroupées sous la forme d’un tableau de contingence prenant la forme suivante :</p>
-<p><span class="math notranslate nohighlight">\(\begin{array}{c|ccccc|c}
+<span class="target" id="index-8"></span><p id="index-9"><span class="math notranslate nohighlight">\(\begin{array}{c|ccccc|c}
 &amp;y_1&amp;\cdots&amp;y_k&amp;\cdots&amp;y_K&amp;total\\
 \hline
 x_1&amp;n_{11}&amp;\cdots&amp;n_{1k}&amp;\cdots&amp;n_{1K}&amp;n_{1.}\\
@@ -1213,7 +1216,7 @@ suit une loi de Fisher Snedecor, en supposant que les distributions conditionnel
 <div class="section" id="tableaux-de-burt">
 <h3>Tableaux de Burt<a class="headerlink" href="#tableaux-de-burt" title="Permalink to this headline">#</a></h3>
 <p>Le tableau de Burt est une généralisation particulière de la table de contingence dans le cas où l’on étudie simultanément <span class="math notranslate nohighlight">\(p\)</span> variables qualitatives <span class="math notranslate nohighlight">\(X_1\ldots X_p\)</span>. Notons <span class="math notranslate nohighlight">\(c_j\)</span> le nombre de modalités de <span class="math notranslate nohighlight">\(X_j\)</span> et posons <span class="math notranslate nohighlight">\(c=\displaystyle\sum_{j=1}^p c_j\)</span>.</p>
-<p>Le tableau de Burt est une matrice carrée symétrique de taille <span class="math notranslate nohighlight">\(c\)</span>, constituée de <span class="math notranslate nohighlight">\(p^2\)</span> sous-matrices. Chacune des <span class="math notranslate nohighlight">\(p\)</span> sous-matrices diagonales est relative à l’une des <span class="math notranslate nohighlight">\(p\)</span> variables, la <span class="math notranslate nohighlight">\(j^e\)</span> étant carrée de taille <span class="math notranslate nohighlight">\(c_j\)</span>, diagonale, et de coefficients diagonaux les effectifs marginaux de <span class="math notranslate nohighlight">\(X_j\)</span>. La sous-matrice dans le bloc <span class="math notranslate nohighlight">\((k,l)\)</span> du tableau, <span class="math notranslate nohighlight">\(k\neq l\)</span>, est la table de contingence des variables <span class="math notranslate nohighlight">\(X_k\)</span> et <span class="math notranslate nohighlight">\(X_l\)</span>.</p>
+<span class="target" id="index-10"></span><p id="index-11">Le tableau de Burt est une matrice carrée symétrique de taille <span class="math notranslate nohighlight">\(c\)</span>, constituée de <span class="math notranslate nohighlight">\(p^2\)</span> sous-matrices. Chacune des <span class="math notranslate nohighlight">\(p\)</span> sous-matrices diagonales est relative à l’une des <span class="math notranslate nohighlight">\(p\)</span> variables, la <span class="math notranslate nohighlight">\(j^e\)</span> étant carrée de taille <span class="math notranslate nohighlight">\(c_j\)</span>, diagonale, et de coefficients diagonaux les effectifs marginaux de <span class="math notranslate nohighlight">\(X_j\)</span>. La sous-matrice dans le bloc <span class="math notranslate nohighlight">\((k,l)\)</span> du tableau, <span class="math notranslate nohighlight">\(k\neq l\)</span>, est la table de contingence des variables <span class="math notranslate nohighlight">\(X_k\)</span> et <span class="math notranslate nohighlight">\(X_l\)</span>.</p>
 </div>
 </div>
 </div>
