@@ -1022,6 +1022,22 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </ul>
 </div>
 </div><p><span class="math notranslate nohighlight">\(\mathbb E(X)\)</span> est la moyenne arithmétique (également notée <span class="math notranslate nohighlight">\(\mu_X\)</span>) des différentes valeurs prises par <span class="math notranslate nohighlight">\(X\)</span> pondérées par leur probabilité.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">rv_discrete</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+<span class="n">distribution</span> <span class="o">=</span> <span class="n">rv_discrete</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Espérance : &quot;</span><span class="p">,</span> <span class="n">distribution</span><span class="o">.</span><span class="n">expect</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Espérance :  23.0
+</pre></div>
+</div>
+</div>
+</div>
 <p>On dira que <span class="math notranslate nohighlight">\(X\)</span> est <strong>centrée</strong> si <span class="math notranslate nohighlight">\(\mathbb{E}(X)=0\)</span>.</p>
 <div class="proof example admonition" id="example-26">
 <p class="admonition-title"><span class="caption-number">Example 9 </span></p>
