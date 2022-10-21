@@ -9,6 +9,10 @@
 # 
 # ## Analyse en composantes principales
 # 
+# ```{index} ACP
+# ```
+# 
+# 
 # Pour les données quantitatives, l'Analyse en Composantes Principales (ACP) est l'une des méthodes les plus utilisées. Elle considère que les nouvelles variables sont des combinaisons linéaires des variables initiales, non corrélées. 
 # 
 # ![](./images/acpintro.png)
@@ -65,6 +69,13 @@
 # Soit $F_k$ un sous-espace portant l'inertie maximale. Alors le sous-espace de dimension $k+1$ portant l'inertie maximale est la somme directe de $F_k$ et de la droite orthogonale à $F_k$ portant l'inertie maximale.
 # ```
 # #### Elements principaux
+# 
+# ```{index} ACP ; axes principaux
+# ```
+# 
+# ```{index} Composantes principales
+# ```
+# 
 # ##### Axes principaux
 # Rechercher un sous-espace de dimension 1 d'inertie maximale revient à rechercher une droite de $\mathbb{R}^n$ passant par le centre de gravité des données $\mathbf{g}$ maximisant l'inertie du nuage projeté sur cet axe. Soit $\mathbf{a}$ un vecteur directeur de cette droite. La projection orthogonale sur la droite est définie par la matrice de projection 
 # 

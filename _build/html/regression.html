@@ -775,7 +775,7 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="regression">
 <h1>Régression<a class="headerlink" href="#regression" title="Permalink to this headline">#</a></h1>
-<p>On s’intéresse ici à l’explication d’une variable (aléatoire) <span class="math notranslate nohighlight">\(Y\)</span> (la variable expliquée) par une (ou plusieurs) variable(s) aléatoire(s) <span class="math notranslate nohighlight">\(X_j\)</span> (prédicteurs, ou variables explicatives).</p>
+<p id="index-0">On s’intéresse ici à l’explication d’une variable (aléatoire) <span class="math notranslate nohighlight">\(Y\)</span> (la variable expliquée) par une (ou plusieurs) variable(s) aléatoire(s) <span class="math notranslate nohighlight">\(X_j\)</span> (prédicteurs, ou variables explicatives).</p>
 <div class="section" id="regression-simple">
 <h2>Régression simple<a class="headerlink" href="#regression-simple" title="Permalink to this headline">#</a></h2>
 <p>On dispose de <span class="math notranslate nohighlight">\(n\)</span> couples de variables quantitatives <span class="math notranslate nohighlight">\((\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]\)</span> constituant un échantillon d’observations indépendantes de <span class="math notranslate nohighlight">\((X,Y)\)</span> et on cherche une relation statistique pouvant exister entre <span class="math notranslate nohighlight">\(Y\)</span> et <span class="math notranslate nohighlight">\(X\)</span>. On rappelle ici quelques résultats élémentaires sur la régression linéaire simple.</p>
@@ -790,7 +790,7 @@ title="Print to PDF"
 </div>
 </div><p>La qualité de l’approximation est mesurée par le rapport de corrélation.</p>
 <div class="proof definition admonition" id="definition-1">
-<p class="admonition-title"><span class="caption-number">Definition 38 </span> (Rapport de corrélation)</p>
+<span id="index-1"></span><p class="admonition-title"><span class="caption-number">Definition 38 </span> (Rapport de corrélation)</p>
 <div class="definition-content section" id="proof-content">
 <p>Le rapport de corrélation entre deux variables aléatoires <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> est défini par le rapport entre la variation expliquée et la variation totale :</p>
 <p><span class="math notranslate nohighlight">\(\eta_{Y\mid X}^2 = \frac{\sigma_{\mathbb{E}(Y\mid X)}^2}{\sigma_Y^2}\)</span></p>
@@ -839,7 +839,7 @@ title="Print to PDF"
 <div class="section" id="regression-multiple">
 <h2>Régression multiple<a class="headerlink" href="#regression-multiple" title="Permalink to this headline">#</a></h2>
 <div class="section" id="ajustement-lineaire-d-un-ensemble-d-observations">
-<h3>Ajustement linéaire d’un ensemble d’observations<a class="headerlink" href="#ajustement-lineaire-d-un-ensemble-d-observations" title="Permalink to this headline">#</a></h3>
+<span id="index-2"></span><h3>Ajustement linéaire d’un ensemble d’observations<a class="headerlink" href="#ajustement-lineaire-d-un-ensemble-d-observations" title="Permalink to this headline">#</a></h3>
 <p>La régression multiple généralise la régression simple au cas de <span class="math notranslate nohighlight">\(p\geq 2\)</span> prédicteurs quantitatifs (ou variables explicatives). Ici on considère un échantillon de <span class="math notranslate nohighlight">\(n\)</span> individus, sur lesquels <span class="math notranslate nohighlight">\(p+1\)</span> variables sont mesurées : une variable à expliquer <span class="math notranslate nohighlight">\(\mathbf Y = (y_1\cdots y_n)^T\in\mathbb{R}^n\)</span> et <span class="math notranslate nohighlight">\(p\)</span> variables explicatives <span class="math notranslate nohighlight">\(\mathbf X_i\)</span> linéairement indépendantes, mais possiblement en relation.\
 On cherche</p>
 <p><span class="math notranslate nohighlight">\(\mathbf Y^* = \beta_0 \mathbf{1} + \displaystyle\sum_{i=1}^p \beta_i\mathbf X_i\)</span></p>
@@ -897,7 +897,7 @@ Par ailleurs, dans le cas où <span class="math notranslate nohighlight">\(p\)</
 Dans cette section, on s’intéresse à des méthodes permettant de produire des estimateurs dont les valeurs sont d’amplitudes réduites. On parle de modèles parcimonieux lorsque des variables ont des coefficients nuls.</p>
 <div class="section" id="regression-ridge">
 <h3>Régression Ridge<a class="headerlink" href="#regression-ridge" title="Permalink to this headline">#</a></h3>
-<p>Dans l’approche moindres carrés linéaires classique, on cherche <span class="math notranslate nohighlight">\(\mathbf Y^* = \beta_0 \mathbf{1} + \displaystyle\sum_{i=1}^p \beta_i\mathbf X_i\)</span> proche de <span class="math notranslate nohighlight">\(\mathbf Y\)</span> au sens de la minimisation de <span class="math notranslate nohighlight">\(\|\mathbf Y^*-\mathbf Y\|^2 \)</span>. On cherche donc <span class="math notranslate nohighlight">\(\boldsymbol\beta_{mc}\in\mathbb{R}^{p+1}\)</span> tel que :</p>
+<span class="target" id="index-3"></span><p id="index-4">Dans l’approche moindres carrés linéaires classique, on cherche <span class="math notranslate nohighlight">\(\mathbf Y^* = \beta_0 \mathbf{1} + \displaystyle\sum_{i=1}^p \beta_i\mathbf X_i\)</span> proche de <span class="math notranslate nohighlight">\(\mathbf Y\)</span> au sens de la minimisation de <span class="math notranslate nohighlight">\(\|\mathbf Y^*-\mathbf Y\|^2 \)</span>. On cherche donc <span class="math notranslate nohighlight">\(\boldsymbol\beta_{mc}\in\mathbb{R}^{p+1}\)</span> tel que :</p>
 <p><span class="math notranslate nohighlight">\(\boldsymbol\beta_{mc} = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p+1}}\left [\displaystyle\sum_{i=1}^n \left (y_i-(\beta_0+\displaystyle\sum_{j=1}^p \beta_j x_{ij})\right )^2\right ]\)</span></p>
 <p>Dans l’approche Ridge regression (ou régression de Tikhonov), on pénalise l’amplitude des coefficients <span class="math notranslate nohighlight">\(\beta_j\)</span>. Pour ce faire, on pose <span class="math notranslate nohighlight">\(\boldsymbol\beta_{\setminus 0}\)</span> le vecteur des <span class="math notranslate nohighlight">\(p\)</span> dernières composantes de <span class="math notranslate nohighlight">\(\boldsymbol\beta\)</span> et on cherche le vecteur <span class="math notranslate nohighlight">\(\boldsymbol\beta_r\)</span> tel que</p>
 <p><span class="math notranslate nohighlight">\(\boldsymbol\beta_r = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p+1}}\left [\displaystyle\sum_{i=1}^n \left (y_i-(\beta_0+\displaystyle\sum_{j=1}^p \beta_j x_{ij})\right )^2+\lambda \| \boldsymbol\beta_{\setminus 0}\|^2_2\right ]\)</span></p>
@@ -913,14 +913,14 @@ Dans cette section, on s’intéresse à des méthodes permettant de produire de
 </div>
 <div class="section" id="regression-lasso">
 <h3>Régression Lasso<a class="headerlink" href="#regression-lasso" title="Permalink to this headline">#</a></h3>
-<p>La régression Lasso (Least Absolute Shrinkage and Selection Operator) est, dans son principe, très proche de la régression Ridge, la seule différence résidant dans la norme utilisée dans la fonction de pénalité : on cherche <span class="math notranslate nohighlight">\(\boldsymbol\beta\)</span> minimisant</p>
+<span class="target" id="index-5"></span><p id="index-6">La régression Lasso (Least Absolute Shrinkage and Selection Operator) est, dans son principe, très proche de la régression Ridge, la seule différence résidant dans la norme utilisée dans la fonction de pénalité : on cherche <span class="math notranslate nohighlight">\(\boldsymbol\beta\)</span> minimisant</p>
 <p><span class="math notranslate nohighlight">\(\boldsymbol\beta_l = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p+1}}\left [\displaystyle\sum_{i=1}^n \left (y_i-(\beta_0+\displaystyle\sum_{j=1}^p \beta_j x_{ij})\right )^2+\lambda \| \boldsymbol\beta_{\setminus 0}\|^2_1\right ]\)</span></p>
 <p>Contrairement à la régression Ridge, il n’y a pas de solution analytique (la norme <span class="math notranslate nohighlight">\(\ell_1\)</span> rend la fonction non différentiable) et on doit donc recourir à des méthodes de résolution numérique. Lorsque <span class="math notranslate nohighlight">\(\lambda\)</span> est grand, la minimisation force la fonction de pénalité à être petite : étant donné que cette dernière est une somme de valeurs absolues, la minimisation impose à certains coefficients <span class="math notranslate nohighlight">\(\beta_j,j\in[\![1,p]\!]\)</span> d’être nuls. On parle alors de régression parcimonieuse (et la régression peut donc être vue comme une méthode de sélection de variables).</p>
 <p>Quand <span class="math notranslate nohighlight">\(p&gt;n\)</span>, la méthode ne sélectionne que <span class="math notranslate nohighlight">\(n\)</span> variables. De plus, si plusieurs variables sont corrélées entre elles, Lasso ignore toutes sauf une. Et, pire, même si <span class="math notranslate nohighlight">\(n&gt;p\)</span>, et s’il y a de fortes corrélations entre les variables explicatives, on trouve empiriquement que Ridge donne de meilleurs résultats que Lasso.</p>
 </div>
 <div class="section" id="regression-elasticnet">
 <h3>Régression Elasticnet<a class="headerlink" href="#regression-elasticnet" title="Permalink to this headline">#</a></h3>
-<p>On suppose ici que <span class="math notranslate nohighlight">\(\mathbf X\)</span> est centré réduit, et <span class="math notranslate nohighlight">\(\mathbf Y\)</span> est centré (donc <span class="math notranslate nohighlight">\(\beta_0=0\)</span>). La régression Elasticnet est un mélange de Ridge et Lasso : on cherche <span class="math notranslate nohighlight">\(\boldsymbol\beta_e\)</span> tel que</p>
+<span class="target" id="index-7"></span><p id="index-8">On suppose ici que <span class="math notranslate nohighlight">\(\mathbf X\)</span> est centré réduit, et <span class="math notranslate nohighlight">\(\mathbf Y\)</span> est centré (donc <span class="math notranslate nohighlight">\(\beta_0=0\)</span>). La régression Elasticnet est un mélange de Ridge et Lasso : on cherche <span class="math notranslate nohighlight">\(\boldsymbol\beta_e\)</span> tel que</p>
 <p><span class="math notranslate nohighlight">\(\boldsymbol\beta_e = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p}}\left [\displaystyle\sum_{i=1}^n \left (y_i-\displaystyle\sum_{j=1}^p \beta_j x_{ij}\right )^2+\lambda_1 \| \boldsymbol\beta\|^2_1 + \lambda_2 \| \boldsymbol\beta\|^2_2\right ]\)</span></p>
 <p>En notant <span class="math notranslate nohighlight">\(\lambda =\lambda_1+\lambda_2\)</span> et <span class="math notranslate nohighlight">\( \alpha = \lambda_1/\lambda\)</span> on minimise alors</p>
 <p><span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^n \left (y_i-\displaystyle\sum_{j=1}^p \beta_j x_{ij}\right )^2+\lambda(\alpha \| \boldsymbol\beta\|^2_1 + (1-\alpha) \| \boldsymbol\beta\|^2_2)\)</span></p>
@@ -944,7 +944,7 @@ En pratique, cet estimateur naïf ne donne satisfaction que lorsqu’il est proc
 </div>
 <div class="section" id="regression-logistique">
 <h2>Régression logistique<a class="headerlink" href="#regression-logistique" title="Permalink to this headline">#</a></h2>
-<p>Dans les sections précédentes, nous n’avons pas abordé les cas où les prédicteurs exhibent des dépendances non linéaires ou lorsque la variable à prédire n’est pas quantitative.</p>
+<p id="index-9">Dans les sections précédentes, nous n’avons pas abordé les cas où les prédicteurs exhibent des dépendances non linéaires ou lorsque la variable à prédire n’est pas quantitative.</p>
 <p>La régression logistique est un modèle linéaire généralisé utilisé pour prédire une variable binaire, ou catégorielle, à partir de prédicteurs quantitatifs ou catégoriels.</p>
 <div class="section" id="regression-logistique-binaire">
 <h3>Régression logistique binaire<a class="headerlink" href="#regression-logistique-binaire" title="Permalink to this headline">#</a></h3>
@@ -1040,7 +1040,7 @@ log \left  [\frac{\frac{p( x_0+1)}{1-p(x_0+1)}}{\frac{p( x_0)}{1-p(x_0)}} \right
 </tbody>
 </table>
 <div class="proof definition admonition" id="definition-8">
-<p class="admonition-title"><span class="caption-number">Definition 39 </span> (Résidu studentisé)</p>
+<span id="index-10"></span><p class="admonition-title"><span class="caption-number">Definition 39 </span> (Résidu studentisé)</p>
 <div class="definition-content section" id="proof-content">
 <p>On appelle résidu studentisé la quantité <span class="math notranslate nohighlight">\(\frac{y_i-y^*_i}{\hat{\sigma}\sqrt{1-hp}}\)</span></p>
 </div>

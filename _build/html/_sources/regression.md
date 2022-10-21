@@ -12,6 +12,8 @@ kernelspec:
 
 # Régression
 
+```{index} Régression
+```
 On s'intéresse ici à l'explication d'une variable (aléatoire) $Y$ (la variable expliquée) par une (ou plusieurs) variable(s) aléatoire(s) $X_j$ (prédicteurs, ou variables explicatives). 
 
 ## Régression simple
@@ -27,6 +29,9 @@ La fonction $x\mapsto \mathbb{E}(Y\mid X=x)$ est la fonction de régression de $
 ````
 
 La qualité de l'approximation est mesurée par le rapport de corrélation.
+
+```{index} Corrélation ; rapport
+```
 
 ````{prf:definition} Rapport de corrélation
 Le rapport de corrélation entre deux variables aléatoires $X$ et $Y$ est défini par le rapport entre la variation expliquée et la variation totale :
@@ -91,6 +96,8 @@ La figure suivante illustre la régression linéaire d'un ensemble de points, d�
 
 
 ## Régression multiple
+```{index} Régression ; multiple
+```
 ### Ajustement linéaire d'un ensemble d'observations
 
 La régression multiple généralise la régression simple au cas de $p\geq 2$ prédicteurs quantitatifs (ou variables explicatives). Ici on considère un échantillon de $n$ individus, sur lesquels $p+1$ variables sont mesurées : une variable à expliquer $\mathbf Y = (y_1\cdots y_n)^T\in\mathbb{R}^n$ et $p$ variables explicatives $\mathbf X_i$ linéairement indépendantes, mais possiblement en relation.\\ 
@@ -161,6 +168,11 @@ Par ailleurs, dans le cas où $p$ est grand, l'interprétation des réultats obt
 Dans cette section, on s'intéresse à des méthodes permettant de produire des estimateurs dont les valeurs sont d'amplitudes réduites. On parle de modèles parcimonieux lorsque des variables ont des coefficients nuls. 
 
 ### Régression Ridge
+```{index} Régression ; Ridge
+```
+
+```{index} Ridge regression
+```
 Dans l'approche moindres carrés linéaires classique, on cherche $\mathbf Y^* = \beta_0 \mathbf{1} + \displaystyle\sum_{i=1}^p \beta_i\mathbf X_i$ proche de $\mathbf Y$ au sens de la minimisation de $\|\mathbf Y^*-\mathbf Y\|^2 $. On cherche donc $\boldsymbol\beta_{mc}\in\mathbb{R}^{p+1}$ tel que :
 
 $\boldsymbol\beta_{mc} = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p+1}}\left [\displaystyle\sum_{i=1}^n \left (y_i-(\beta_0+\displaystyle\sum_{j=1}^p \beta_j x_{ij})\right )^2\right ]$
@@ -184,6 +196,12 @@ dont la solution analytique est $(\mathbf X^T\mathbf X + \lambda \mathbb{I})^{-1
 Le choix de $\lambda$ n'est pas évident. La solution la plus simple consiste à prendre plusieurs valeurs, à tester les solutions proposées par ces valeurs et à retenir le $\lambda$ ayant obtenu le meilleur score (par exemple la précision sur un ensemble de test). De manière moins expérimentale, il existe des algorithmes (basés sur la décomposition en valeurs singulières) permettant de choisir une ''bonne'' valeur de paramètre.
 
 ### Régression Lasso
+
+```{index} Régression ; Lasso
+```
+
+```{index} Lasso
+```
 La régression Lasso (Least Absolute Shrinkage and Selection Operator) est, dans son principe, très proche de la régression Ridge, la seule différence résidant dans la norme utilisée dans la fonction de pénalité : on cherche $\boldsymbol\beta$ minimisant
 
 $\boldsymbol\beta_l = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p+1}}\left [\displaystyle\sum_{i=1}^n \left (y_i-(\beta_0+\displaystyle\sum_{j=1}^p \beta_j x_{ij})\right )^2+\lambda \| \boldsymbol\beta_{\setminus 0}\|^2_1\right ]$
@@ -193,6 +211,11 @@ Contrairement à la régression Ridge, il n'y a pas de solution analytique (la n
 Quand $p>n$, la méthode ne sélectionne que $n$ variables. De plus, si plusieurs variables sont corrélées entre elles, Lasso ignore toutes sauf une. Et, pire, même si $n>p$, et s'il y a de fortes corrélations entre les variables explicatives, on trouve empiriquement que Ridge donne de meilleurs résultats que Lasso.
 
 ### Régression Elasticnet
+
+```{index} Régression ; Elasticnet
+```
+```{index} Elasticnet
+```
 On suppose ici que $\mathbf X$ est centré réduit, et $\mathbf Y$ est centré (donc $\beta_0=0$). La régression Elasticnet est un mélange de Ridge et Lasso : on cherche $\boldsymbol\beta_e$ tel que
 
 $\boldsymbol\beta_e = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p}}\left [\displaystyle\sum_{i=1}^n \left (y_i-\displaystyle\sum_{j=1}^p \beta_j x_{ij}\right )^2+\lambda_1 \| \boldsymbol\beta\|^2_1 + \lambda_2 \| \boldsymbol\beta\|^2_2\right ]$
@@ -233,6 +256,9 @@ avec $p=8$ et $n=20$. Les $n=20$ points  échantillonnés sur la courbe $y=f(x)$
 
 
 ## Régression logistique
+
+```{index} Régression ; logistique
+```
 Dans les sections précédentes, nous n'avons pas abordé les cas où les prédicteurs exhibent des dépendances non linéaires ou lorsque la variable à prédire n'est pas quantitative.
 
 La régression logistique est un modèle linéaire généralisé utilisé pour prédire une variable binaire, ou catégorielle, à partir de prédicteurs quantitatifs ou catégoriels. 
@@ -344,6 +370,9 @@ Si le modèle linéaire est justifié, alors la distribution des résidus suit a
 | ![](./images/reslin.png)  | ![](./images/respaslin.png)   |
 
 
+
+```{index} Résidu ; studentisé
+```
 
 ````{prf:definition} Résidu studentisé
 On appelle résidu studentisé la quantité $\frac{y_i-y^*_i}{\hat{\sigma}\sqrt{1-hp}}$
