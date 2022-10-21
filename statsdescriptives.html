@@ -840,7 +840,7 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
 GeometricMean  :  1258.4787575642572
 HarmonicMean  :  1198.219210728503
-WeightedMean  :  1286.984134999495
+WeightedMean  :  1345.0561322257681
 </pre></div>
 </div>
 <img alt="_images/statsdescriptives_3_1.png" src="_images/statsdescriptives_3_1.png" />
@@ -975,11 +975,11 @@ quartile  75  :  1626.326538085935
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>max_dev  :  1316.3086347078017 +/- 738.0729570890783
-mad
+mad  :  1316.3086347078017 +/- 327.4656915004233
+sigma
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  :  1316.3086347078017 +/- 327.4656915004233
-sigma  :  1316.3086347078017 +/- 374.5723639541368
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  :  1316.3086347078017 +/- 374.5723639541368
 IQR  :  1316.3086347078017 +/- 720.4074859619113
 </pre></div>
 </div>
@@ -1087,8 +1087,8 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 <p>La covariance de <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> est définie par :
 <span class="math notranslate nohighlight">\(\sigma_{xy}=\frac{1}{n}\displaystyle\sum_{i=1}^n\left (x_i-\bar{x}\right )\left (y_i-\bar{y}\right )\)</span></p>
 </div>
-</div><div class="proof definition admonition" id="definition-20">
-<p class="admonition-title"><span class="caption-number">Definition 35 </span> (Coefficient de corrélation)</p>
+</div><span class="target" id="index-8"></span><div class="proof definition admonition" id="definition-20">
+<span id="index-9"></span><p class="admonition-title"><span class="caption-number">Definition 35 </span> (Coefficient de corrélation)</p>
 <div class="definition-content section" id="proof-content">
 <p>Le coefficient de corrélation  de deux variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> est défini par
 <span class="math notranslate nohighlight">\(r_{xy}=\frac{\sigma_{xy}}{\sigma_{x}\sigma_{y}}\)</span>
@@ -1104,7 +1104,7 @@ Le coefficient de détermination est le carré du coefficient de corrélation.</
 <h3>Cas de deux variables qualitatives<a class="headerlink" href="#cas-de-deux-variables-qualitatives" title="Permalink to this headline">#</a></h3>
 <p>Le couple est un couple de valeurs <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> où <span class="math notranslate nohighlight">\(x_i\)</span> et <span class="math notranslate nohighlight">\(y_i\)</span> prennent comme valeurs des modalités qualitatives. Notons <span class="math notranslate nohighlight">\(x_1\cdots x_J\)</span> et <span class="math notranslate nohighlight">\(y_1\cdots y_K\)</span> les valeurs distinctes prises.</p>
 <p>Les données peuvent être regroupées sous la forme d’un tableau de contingence prenant la forme suivante :</p>
-<span class="target" id="index-8"></span><p id="index-9"><span class="math notranslate nohighlight">\(\begin{array}{c|ccccc|c}
+<span class="target" id="index-10"></span><p id="index-11"><span class="math notranslate nohighlight">\(\begin{array}{c|ccccc|c}
 &amp;y_1&amp;\cdots&amp;y_k&amp;\cdots&amp;y_K&amp;total\\
 \hline
 x_1&amp;n_{11}&amp;\cdots&amp;n_{1k}&amp;\cdots&amp;n_{1K}&amp;n_{1.}\\
@@ -1123,7 +1123,7 @@ total&amp;n_{.1}&amp;\cdots&amp;n_{.k}&amp;\cdots&amp;n_{.K}&amp;n\\
 <p>Si l’on cherche un lien entre les variables, on construit un tableau d’effectifs théoriques qui représente la situation où les variables ne sont pas liées (indépendance). Ce tableau est constitué des effectifs
 <span class="math notranslate nohighlight">\(n_{jk}^*=\frac{n_{j.}n_{.k}}{n}\)</span>
 Les effectifs observés <span class="math notranslate nohighlight">\(n_{jk}\)</span> ont les mêmes marges que les <span class="math notranslate nohighlight">\(n_{jk}^*\)</span>, et les écarts à l’indépendance sont calculés par la différence <span class="math notranslate nohighlight">\(e_{jk}=n_{jk}-n_{jk}^*\)</span></p>
-<p>La dépendance du tableau se mesure au moyen du khi-deux défini par
+<p id="index-12">La dépendance du tableau se mesure au moyen du khi-deux défini par
 <span class="math notranslate nohighlight">\(\chi^2_{obs}= \displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J\frac{e_{jk}^2}{n_{jk}^*}\)</span>
 qui peut être normalisé pour ne plus dépendre du nombre d’observations :
 <span class="math notranslate nohighlight">\(\phi^2=\frac{\chi^2_{obs}}{n}\)</span></p>
@@ -1216,7 +1216,7 @@ suit une loi de Fisher Snedecor, en supposant que les distributions conditionnel
 <div class="section" id="tableaux-de-burt">
 <h3>Tableaux de Burt<a class="headerlink" href="#tableaux-de-burt" title="Permalink to this headline">#</a></h3>
 <p>Le tableau de Burt est une généralisation particulière de la table de contingence dans le cas où l’on étudie simultanément <span class="math notranslate nohighlight">\(p\)</span> variables qualitatives <span class="math notranslate nohighlight">\(X_1\ldots X_p\)</span>. Notons <span class="math notranslate nohighlight">\(c_j\)</span> le nombre de modalités de <span class="math notranslate nohighlight">\(X_j\)</span> et posons <span class="math notranslate nohighlight">\(c=\displaystyle\sum_{j=1}^p c_j\)</span>.</p>
-<span class="target" id="index-10"></span><p id="index-11">Le tableau de Burt est une matrice carrée symétrique de taille <span class="math notranslate nohighlight">\(c\)</span>, constituée de <span class="math notranslate nohighlight">\(p^2\)</span> sous-matrices. Chacune des <span class="math notranslate nohighlight">\(p\)</span> sous-matrices diagonales est relative à l’une des <span class="math notranslate nohighlight">\(p\)</span> variables, la <span class="math notranslate nohighlight">\(j^e\)</span> étant carrée de taille <span class="math notranslate nohighlight">\(c_j\)</span>, diagonale, et de coefficients diagonaux les effectifs marginaux de <span class="math notranslate nohighlight">\(X_j\)</span>. La sous-matrice dans le bloc <span class="math notranslate nohighlight">\((k,l)\)</span> du tableau, <span class="math notranslate nohighlight">\(k\neq l\)</span>, est la table de contingence des variables <span class="math notranslate nohighlight">\(X_k\)</span> et <span class="math notranslate nohighlight">\(X_l\)</span>.</p>
+<span class="target" id="index-13"></span><p id="index-14">Le tableau de Burt est une matrice carrée symétrique de taille <span class="math notranslate nohighlight">\(c\)</span>, constituée de <span class="math notranslate nohighlight">\(p^2\)</span> sous-matrices. Chacune des <span class="math notranslate nohighlight">\(p\)</span> sous-matrices diagonales est relative à l’une des <span class="math notranslate nohighlight">\(p\)</span> variables, la <span class="math notranslate nohighlight">\(j^e\)</span> étant carrée de taille <span class="math notranslate nohighlight">\(c_j\)</span>, diagonale, et de coefficients diagonaux les effectifs marginaux de <span class="math notranslate nohighlight">\(X_j\)</span>. La sous-matrice dans le bloc <span class="math notranslate nohighlight">\((k,l)\)</span> du tableau, <span class="math notranslate nohighlight">\(k\neq l\)</span>, est la table de contingence des variables <span class="math notranslate nohighlight">\(X_k\)</span> et <span class="math notranslate nohighlight">\(X_l\)</span>.</p>
 </div>
 </div>
 </div>

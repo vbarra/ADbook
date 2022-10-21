@@ -438,10 +438,12 @@ La covariance de $x$ et $y$ est définie par :
 $\sigma_{xy}=\frac{1}{n}\displaystyle\sum_{i=1}^n\left (x_i-\bar{x}\right )\left (y_i-\bar{y}\right )$
 ````
 
-```{index} Tableau ; Burt
-```
 ```{index} Corrélation ; coefficient
 ```
+
+```{index} Détermination ; coefficient
+```
+
 ````{prf:definition} Coefficient de corrélation
 Le coefficient de corrélation  de deux variables $x$ et $y$ est défini par 
 $r_{xy}=\frac{\sigma_{xy}}{\sigma_{x}\sigma_{y}}$
@@ -490,7 +492,8 @@ Si l'on cherche un lien entre les variables, on construit un tableau d'effectifs
 $n_{jk}^*=\frac{n_{j.}n_{.k}}{n}$
 Les effectifs observés $n_{jk}$ ont les mêmes marges que les $n_{jk}^*$, et les écarts à l'indépendance sont calculés par la différence $e_{jk}=n_{jk}-n_{jk}^*$
 
-
+```{index} Khi-deux
+```
 
 La dépendance du tableau se mesure au moyen du khi-deux défini par 
 $\chi^2_{obs}= \displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J\frac{e_{jk}^2}{n_{jk}^*}$
