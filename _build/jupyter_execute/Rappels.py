@@ -361,7 +361,17 @@ plt.show()
 # ````
 # 
 # $\mathbb E(X)$ est la moyenne arithmétique (également notée $\mu_X$) des différentes valeurs prises par $X$ pondérées par leur probabilité.
-# 
+
+# In[3]:
+
+
+from scipy.stats import rv_discrete
+x = [10, 20, 30]
+p = [0.2, 0.3, 0.5]
+distribution = rv_discrete(values=(x, p))
+print("Espérance : ", distribution.expect())
+
+
 # On dira que $X$ est **centrée** si $\mathbb{E}(X)=0$.
 # 
 # ````{prf:example}
