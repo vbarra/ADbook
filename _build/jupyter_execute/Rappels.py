@@ -372,6 +372,19 @@ distribution = rv_discrete(values=(x, p))
 print("Espérance : ", distribution.expect())
 
 
+# In[4]:
+
+
+from scipy.stats import rv_continuous
+a = 49.5 
+b = 50.5 
+class distribution_gen(rv_continuous):
+    def _pdf(self, x):
+        return 1.5 - 6*(x - 50)**2
+distribution = distribution_gen()
+print("Espérance : ", distribution.expect(lambda x: 1, lb=a, ub=b))
+
+
 # On dira que $X$ est **centrée** si $\mathbb{E}(X)=0$.
 # 
 # ````{prf:example}
@@ -429,12 +442,41 @@ print("Espérance : ", distribution.expect())
 # $\mathbb{V}(X) = \mathbb{E}(X^2)-\mu_X^2$ 
 # ````
 # En effet, $\mathbb{E}\left [(X-\mu_X)^2 \right] = \mathbb{E}\left [(X^2-2\mu_XX+\mu_X^2 \right] = \mathbb{E}(X^2)-2\mu_X\mathbb{E}(X)+\mu_X^2$.
-# 
+
+# In[5]:
+
+
+from scipy.stats import rv_discrete
+
+x = [10, 20, 30]
+p = [0.2, 0.3, 0.5]
+distribution = rv_discrete(values=(x, p))
+print("Variance : ", distribution.var())
+print("Ecart-type : ", distribution.std())
+
+
+# In[6]:
+
+
+from scipy.stats import rv_continuous
+a = 49.5 
+b = 50.5 
+class distribution_gen(rv_continuous):
+    def _pdf(self, x):
+        return 1.5 - 6*(x - 50)**2
+distribution = distribution_gen(a=a, b=b)
+print("Variance: ", distribution.var())
+print("Ecart-type : ", distribution.std())```
+
+
 # ````{prf:property}
 # - $(\forall a,b\in\mathbb{R})\; \mathbb{V}(aX+b)= a^2\mathbb{V}(X)$
 # - $(\forall a\in\mathbb{R})\; \mathbb{E}\left [(X-a)^2\right ] = \mathbb V(X) +(\mathbb{E}(X)-a)^2$ (théorème de Huygens)
 # - $\forall k>0\; P(|X-\mathbb{E}(X)|\geq k\sigma_X)\leq \frac{1}{k^2}$ (inégalité de Bienaymé-Tchebychev)
 # ````
+# 
+# 
+# 
 # 
 # On dira que la variable aléatoire $X$ est **réduite** (ou **normée**) si $\mathbb{V}(X)=1$.
 # 
