@@ -469,7 +469,7 @@ class distribution_gen(rv_continuous):
         return 1.5 - 6*(x - 50)**2
 distribution = distribution_gen(a=a, b=b)
 print("Variance: ", distribution.var())
-print("Ecart-type : ", distribution.std())```
+print("Ecart-type : ", distribution.std())
 ``` 
 
 ````{prf:property}

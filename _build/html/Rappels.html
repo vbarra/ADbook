@@ -1139,23 +1139,21 @@ Ecart-type :  7.810249675906654
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from scipy.stats import rv_continuous
-a = 49.5 
-b = 50.5 
-class distribution_gen(rv_continuous):
-    def _pdf(self, x):
-        return 1.5 - 6*(x - 50)**2
-distribution = distribution_gen(a=a, b=b)
-print(&quot;Variance: &quot;, distribution.var())
-print(&quot;Ecart-type : &quot;, distribution.std())```
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">rv_continuous</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">49.5</span> 
+<span class="n">b</span> <span class="o">=</span> <span class="mf">50.5</span> 
+<span class="k">class</span> <span class="nc">distribution_gen</span><span class="p">(</span><span class="n">rv_continuous</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mf">1.5</span> <span class="o">-</span> <span class="mi">6</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">50</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">distribution</span> <span class="o">=</span> <span class="n">distribution_gen</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance: &quot;</span><span class="p">,</span> <span class="n">distribution</span><span class="o">.</span><span class="n">var</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ecart-type : &quot;</span><span class="p">,</span> <span class="n">distribution</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  Input In [6]
-    print(&quot;Ecart-type : &quot;, distribution.std())```
-                                              ^
-SyntaxError: invalid syntax
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variance:  0.049999999999272404
+Ecart-type :  0.22360679774835202
 </pre></div>
 </div>
 </div>
