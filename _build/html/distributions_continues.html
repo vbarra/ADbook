@@ -1,0 +1,951 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 4 - Comtimuous Probability Distributions &#8212; Analyse de données</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Statistique descriptive" href="statsdescriptives.html" />
+    <link rel="prev" title="Chapter 3 - Discrete Probability Distributions" href="distributions_discretes.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/isimainp.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Analyse de données</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Rappels.html">
+   Rappels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exoprobas.html">
+   Exercices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Stats.html">
+   Introduction aux statistiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="distributions_discretes.html">
+   Chapter 3 - Discrete Probability Distributions
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Chapter 4 - Comtimuous Probability Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="statsdescriptives.html">
+   Statistique descriptive
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP1_statsDescriptives.html">
+   TP Statistiques descriptives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="statsexploratoires.html">
+   Statistique exploratoire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP2_ACP.html">
+   TP ACP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP3_AFC_ACM.html">
+   TP AFC / ACM
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="regression.html">
+   Régression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP_Regression_Lineaire.html">
+   TP Régression linéaire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP_Regression_Logistique.html">
+   Régression logistique
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/distributions_continues.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdistributions_continues.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/distributions_continues.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-uniform-distribution">
+   The Uniform Distribution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition-of-the-uniform-distribution">
+     Definition of the Uniform Distribution
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-exponential-distribution">
+   The Exponential Distribution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition-of-the-exponential-distribution">
+     Definition of the Exponential Distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-memoryless-property-of-the-exponential-distribution">
+     The memoryless property of the Exponential Distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-poisson-process">
+     The Poisson process
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-gamma-distribution">
+   The Gamma Distribution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition-of-the-gamma-distribution">
+     Definition of the Gamma distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#properties-of-the-gamma-function">
+     Properties of the Gamma function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#properties-of-the-gamma-distribution">
+     Properties of the Gamma distribution
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#weibull-distribution">
+   Weibull Distribution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition-of-the-weibull-distribution">
+     Definition of the Weibull Distribution
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-beta-distribution">
+   The Beta Distribution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition-of-the-beta-distribution">
+     Definition of the Beta Distribution
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Chapter 4 - Comtimuous Probability Distributions</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-uniform-distribution">
+   The Uniform Distribution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition-of-the-uniform-distribution">
+     Definition of the Uniform Distribution
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-exponential-distribution">
+   The Exponential Distribution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition-of-the-exponential-distribution">
+     Definition of the Exponential Distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-memoryless-property-of-the-exponential-distribution">
+     The memoryless property of the Exponential Distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-poisson-process">
+     The Poisson process
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-gamma-distribution">
+   The Gamma Distribution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition-of-the-gamma-distribution">
+     Definition of the Gamma distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#properties-of-the-gamma-function">
+     Properties of the Gamma function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#properties-of-the-gamma-distribution">
+     Properties of the Gamma distribution
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#weibull-distribution">
+   Weibull Distribution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition-of-the-weibull-distribution">
+     Definition of the Weibull Distribution
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-beta-distribution">
+   The Beta Distribution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition-of-the-beta-distribution">
+     Definition of the Beta Distribution
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Import here useful libraries</span>
+<span class="sd">Run this cell first for convenience</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="chapter-4-comtimuous-probability-distributions">
+<h1>Chapter 4 - Comtimuous Probability Distributions<a class="headerlink" href="#chapter-4-comtimuous-probability-distributions" title="Permalink to this headline">#</a></h1>
+<div class="section" id="the-uniform-distribution">
+<h2>The Uniform Distribution<a class="headerlink" href="#the-uniform-distribution" title="Permalink to this headline">#</a></h2>
+<div class="section" id="definition-of-the-uniform-distribution">
+<h3>Definition of the Uniform Distribution<a class="headerlink" href="#definition-of-the-uniform-distribution" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Uniform distribution, <span class="math notranslate nohighlight">\(U(a,b)\)</span>:
+\begin{equation}
+f(x; a,b) = \frac{1}{b-a} \text{ , } a \leq x \leq b
+\end{equation}</p></li>
+<li><p><span class="math notranslate nohighlight">\(E(x) = \frac{a+b}{2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Var(x) = \frac{(b-a)^2}{12}\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">uniform</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># lower bound</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># upper bound</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean: &quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance: &quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">12</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Probability distribution function: &quot;</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean:  3.0
+Variance:  1.3333333333333333
+Probability distribution function:  0.25
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-exponential-distribution">
+<h2>The Exponential Distribution<a class="headerlink" href="#the-exponential-distribution" title="Permalink to this headline">#</a></h2>
+<div class="section" id="definition-of-the-exponential-distribution">
+<h3>Definition of the Exponential Distribution<a class="headerlink" href="#definition-of-the-exponential-distribution" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Exponential distribution (<span class="math notranslate nohighlight">\(Exp( \lambda )\)</span>) with <span class="math notranslate nohighlight">\(\lambda\)</span> which can be interpreted as the occurrence rate</p></li>
+<li><p>Meaning of the exponential distribution: often describes the amount of time before a certain event occurs</p></li>
+<li><p>Probability distribution function:
+\begin{equation}
+f(x; \lambda) = \lambda e ^ {- \lambda x} \text{ , } x &gt; 0
+\end{equation}</p></li>
+<li><p>Cumulative distribution function:
+\begin{equation}
+F(x) = 1 - e^{\lambda x}
+\end{equation}</p></li>
+<li><p><span class="math notranslate nohighlight">\(E(X) = \frac{1}{\lambda}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Var(X) = \frac{1}{\lambda^2}\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">expon</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">Lambda</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># lambda, occurrence rate</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># occurrence number</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean: &quot;</span><span class="p">,</span> <span class="n">expon</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance: &quot;</span><span class="p">,</span> <span class="n">expon</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Probability mass function: &quot;</span><span class="p">,</span> <span class="n">expon</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cumulative distribution function: &quot;</span><span class="p">,</span> <span class="n">expon</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Survival function (1-cdf): &quot;</span><span class="p">,</span> <span class="n">expon</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean:  0.5
+Variance:  0.25
+Probability mass function:  0.2706705664732254
+Cumulative distribution function:  0.8646647167633873
+Survival function (1-cdf):  0.1353352832366127
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-memoryless-property-of-the-exponential-distribution">
+<h3>The memoryless property of the Exponential Distribution<a class="headerlink" href="#the-memoryless-property-of-the-exponential-distribution" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>For any non-negative <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>
+\begin{equation}
+P(X \geq x + y \mid X \geq x) = P( X \geq y)
+\end{equation}</p></li>
+<li><p>This is equivalent to:
+\begin{equation}
+P(X \geq x + y, X \geq x) = P( X \geq x) P( X \geq y)
+\end{equation}</p></li>
+<li><p>Meaning: the future does not depend on the past</p></li>
+</ul>
+<ul class="simple">
+<li><p>Proposition: if <span class="math notranslate nohighlight">\( X_1, \cdots, X_n \)</span> are independent exponential random variables having respective parameters <span class="math notranslate nohighlight">\(\lambda_1 , \cdots, \lambda_n\)</span>, then <span class="math notranslate nohighlight">\(min \{ X_1, \cdots , X_n \} \)</span> is the exponential random variable with paramenter <span class="math notranslate nohighlight">\(\sum_{i = 1}^n \lambda_i\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="the-poisson-process">
+<h3>The Poisson process<a class="headerlink" href="#the-poisson-process" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>A stochastic process is a sequence of random events</p></li>
+<li><p>Poisson process with parameter <span class="math notranslate nohighlight">\(\lambda\)</span>: a stochastic process where the time (or space) intervals between events-occurrences follow the Exponential Distribution with parameter <span class="math notranslate nohighlight">\(\lambda\)</span></p></li>
+<li><p>If <span class="math notranslate nohighlight">\(X\)</span> is the number of events occurring within a fixed time (or space) interval of length <span class="math notranslate nohighlight">\(t\)</span>, then
+\begin{equation}
+X \sim Poi(\lambda t)
+\end{equation}</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="the-gamma-distribution">
+<h2>The Gamma Distribution<a class="headerlink" href="#the-gamma-distribution" title="Permalink to this headline">#</a></h2>
+<div class="section" id="definition-of-the-gamma-distribution">
+<h3>Definition of the Gamma distribution<a class="headerlink" href="#definition-of-the-gamma-distribution" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Useful for describing reliability</p></li>
+<li><p>Gamma function:
+\begin{equation}
+\Gamma(k) = \int_0^{\infty} x^{k-1}e^{-x}dx \text{ for } k&gt;0
+\end{equation}</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">gamma</span> <span class="k">as</span> <span class="n">gamma_function</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># parameter of the gamma function</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gamma function result: &quot;</span><span class="p">,</span> <span class="n">gamma_function</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gamma function result:  6.0
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Gamma distribution <span class="math notranslate nohighlight">\(Gam(k, \lambda)\)</span> with <span class="math notranslate nohighlight">\(k&gt;0\)</span> and <span class="math notranslate nohighlight">\(\lambda &gt;0\)</span>
+\begin{equation}
+f(x; k, \lambda) = \frac{\lambda ^k}{\Gamma (k)} x ^ {k-1} e ^ {- \lambda x} \text{ , } x &gt; 0
+\end{equation}</p></li>
+<li><p><span class="math notranslate nohighlight">\( E(X) = \frac{k}{ \lambda }\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( Var(X) = \frac{k}{ \lambda ^2}\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">gamma</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># number of events</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># parameter of the gamma function</span>
+<span class="n">Lambda</span> <span class="o">=</span> <span class="mf">1.8</span> <span class="c1"># lambda parameter</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean: &quot;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">k</span><span class="p">,</span>  <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">Lambda</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance: &quot;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">Lambda</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Probability mass function: &quot;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span>  <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">Lambda</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cumulative distribution function: &quot;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">Lambda</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Survival function (1-cdf): &quot;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">Lambda</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean:  1.6666666666666667
+Variance:  0.925925925925926
+Probability mass function:  0.11853315025792688
+Cumulative distribution function:  0.9052421318239862
+Survival function (1-cdf):  0.0947578681760138
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="properties-of-the-gamma-function">
+<h3>Properties of the Gamma function<a class="headerlink" href="#properties-of-the-gamma-function" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Gamma (\alpha + 1) = \alpha \Gamma(\alpha)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Gamma (1) = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Gamma (1/2) = \sqrt{\pi}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Gamma (n) = (n-1) !\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="properties-of-the-gamma-distribution">
+<h3>Properties of the Gamma distribution<a class="headerlink" href="#properties-of-the-gamma-distribution" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(X_1, \cdots, X_n\)</span> are independent Gamma random variables with respective parameters <span class="math notranslate nohighlight">\((k_i, \lambda)\)</span>, then
+\begin{equation}
+\sum_{i=1}^n X_i \sim Gam(\sum_{i=1}^n k_i , \lambda)
+\end{equation}</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="weibull-distribution">
+<h2>Weibull Distribution<a class="headerlink" href="#weibull-distribution" title="Permalink to this headline">#</a></h2>
+<div class="section" id="definition-of-the-weibull-distribution">
+<h3>Definition of the Weibull Distribution<a class="headerlink" href="#definition-of-the-weibull-distribution" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Useful for modeling failure and waiting times</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(X \sim Exp(1)\)</span> and <span class="math notranslate nohighlight">\(Y = \frac{1}{\lambda} x ^ { \frac{1}{a}}\)</span> for <span class="math notranslate nohighlight">\( a&gt;0\)</span>, <span class="math notranslate nohighlight">\(\lambda &gt; 0\)</span> ,then
+\begin{equation}
+Y \sim Weibull(\lambda, a)
+\end{equation}</p></li>
+</ul>
+<ul class="simple">
+<li><p>Probability distribution function of <span class="math notranslate nohighlight">\(Weibull(\lambda, a)\)</span>
+\begin{equation}
+f(y) = a \lambda (\lambda y )^{a-1} e^{- (\lambda y) ^a} \text{ for } a&gt;0 \text{ , } \lambda &gt; 0
+\end{equation}</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(a = 1\)</span>, the Weibull distribution is the same as the Exponential distribution with parameter <span class="math notranslate nohighlight">\(\lambda\)</span></p></li>
+<li><p>Cumulative distribution function:
+\begin{equation}
+F(y) = 1 - e^{- (\lambda y) ^a}
+\end{equation}</p></li>
+<li><p><span class="math notranslate nohighlight">\(E(Y) = \frac{1}{\lambda} \Gamma(1 + \frac{1}{a})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Var(Y) = \frac{1}{\lambda ^2} \Big\{  \Gamma(1 + \frac{2}{a}) - \big[ \Gamma(1 + \frac{1}{a}) \big]^2 \Big\} \)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">weibull_min</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">8</span> <span class="c1"># number of events</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">2.3</span> <span class="c1"># a parameter</span>
+<span class="n">Lambda</span> <span class="o">=</span> <span class="mf">0.09</span> <span class="c1"># lambda parameter</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean: &quot;</span><span class="p">,</span> <span class="n">weibull_min</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="c1"># not sure about this</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance: &quot;</span><span class="p">,</span> <span class="n">weibull_min</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="c1"># not sure about this</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Probability mass function: &quot;</span><span class="p">,</span> <span class="n">weibull_min</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">Lambda</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cumulative distribution function: &quot;</span><span class="p">,</span> <span class="n">weibull_min</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">Lambda</span><span class="p">,</span> <span class="n">a</span> <span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Survival function (1-cdf): &quot;</span><span class="p">,</span> <span class="n">weibull_min</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">Lambda</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean:  0.8859147043345206
+Variance:  0.16685661876285807
+Probability mass function:  0.938104480199261
+Cumulative distribution function:  0.3748400774587345
+Survival function (1-cdf):  0.6251599225412656
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-beta-distribution">
+<h2>The Beta Distribution<a class="headerlink" href="#the-beta-distribution" title="Permalink to this headline">#</a></h2>
+<div class="section" id="definition-of-the-beta-distribution">
+<h3>Definition of the Beta Distribution<a class="headerlink" href="#definition-of-the-beta-distribution" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Useful for modeling proportions and personal probability</p></li>
+<li><p>Probability distribution function:
+\begin{equation}
+f(x; \alpha, \beta) = \frac{\Gamma( \alpha + \beta)}{ \Gamma(\alpha) \Gamma(\beta)} x^{\alpha - 1} (1 - x) ^{\beta - 1} \text{ , } 0 &lt; x &lt; 1
+\end{equation}</p></li>
+<li><p><span class="math notranslate nohighlight">\(E(X) = \frac{ \alpha}{ \alpha + \beta}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Var(X) = \frac{ \alpha \beta}{ (\alpha + \beta) ^2 ( \alpha + \beta + 1)}\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">beta</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">0.7</span> <span class="c1"># (number of events?)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># alpha parameter</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># beta parameter</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean: &quot;</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span> <span class="c1"># not sure about this</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance: &quot;</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span> <span class="c1"># not sure about this</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Probability mass function: &quot;</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cumulative distribution function: &quot;</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Survival function (1-cdf): &quot;</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean:  0.7142857142857143
+Variance:  0.013605442176870748
+Probability mass function:  3.1161055325400007
+Cumulative distribution function:  0.4206056457609999
+Survival function (1-cdf):  0.5793943542390001
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="distributions_discretes.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Chapter 3 - Discrete Probability Distributions</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="statsdescriptives.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Statistique descriptive</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Vincent BARRA<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
