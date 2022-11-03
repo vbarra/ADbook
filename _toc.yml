@@ -5,10 +5,10 @@ format: jb-book
 root: intro
 chapters:
 - file: Rappels
-- file: exoprobas
-- file: Stats
 - file: distributions_discretes
 - file: distributions_continues
+- file: exoprobas
+- file: Stats
 - file: statsdescriptives
 - file: TP1_statsDescriptives
 - file: statsexploratoires
