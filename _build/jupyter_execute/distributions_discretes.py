@@ -4,10 +4,6 @@
 # In[1]:
 
 
-'''
-Import here useful libraries
-Run this cell first for convenience
-'''
 import numpy as np
 from scipy import stats
 import scipy
@@ -15,224 +11,209 @@ import warnings
 warnings.simplefilter('ignore', DeprecationWarning)
 
 
-# # Chapter 3 - Discrete Probability Distributions
+# # Distributions de probabilité discrètes
 
-# ## The Binomial Distribution
+# ## Distribution Binomiale
 
-# ### Bernoulli Random Variables
+# ### Variables aléatoires de Bernoulli
 
-# - Modeling of a process with two possible outcomes, labeled 0 and 1
-# - Random variable defined by the parameter $p$, $0 \leq p \leq 1$, which is the probability that the outcome is 1
+# - Expériences à deux issues,  0 ou 1
+# - Variable aléatoire de Bernoulli de paramètre  $p$, $0 \leq p \leq 1$, $p$ probabilité que l'issue soit 1
 # - The Bernoulli distribution $Ber(p)$ is:
 # \begin{equation}
 #     f(x;p) = p^x(1-p)^{1-x}, \text{   } x= 0,1
 # \end{equation}
-# - $E(X) = p$
-# - $Var(X) = p(1-p)$
+# - $\mathbb E(X) = p$
+# - $\mathbb V(X) = p(1-p)$
 
 # In[2]:
 
 
 from scipy.stats import bernoulli
-n = number of trials
-p = 0.3 # probability of success
-print("Mean: ", bernoulli.mean(p))
+n = 10 #nombre de répétitions de l'expérience
+p = 0.3 # probabilité de succès
+print("Moyenne : ", bernoulli.mean(p))
 print("Variance: ", bernoulli.var(p))
 
 
-# ### Definition of the Binomial Distribution
+# ## Distribution binomiale
 
-# - Let's consider and experiment consisting of $n$ Bernoulli trials $X_1, \cdots, X_n$ independent and with a constant probability $p$ of success
-# - Then the total number of successes $X = \sum_{i=1}^m X_i$ is a random variable whose Binomial distribution with parameters $n$ (number of trials) and $p$ is:
+# - Expérience : $n$ expériences indépendantes de Bernoulli $X_1, \cdots, X_n$ de même paramètre $p$
+# - Le nombre total de succès $X = \displaystyle\sum_{i=1}^m X_i$ est une variable aléatoire de distriution (binomiale)
 # \begin{equation}
 #     X \sim B(n,p)
 # \end{equation}
+# de paramètres $n$ et $p$
 
-# - Probability mass function of a $B(n, p)$ random variable is:
+# - La densité de probabilité $B(n, p)$ est :
 # \begin{equation}
 #     f(x;n,p) = \binom{n}{x}p^x(1-p)^{n-x}, \text{   } x= 0,1, \cdots, n
 # \end{equation}
-# - $E(X) = np$
-# - $Var(X) = np(1-p)$
+# - $\mathbb E(X) = np$
+# - $\mathbb V(X) = np(1-p)$
 
-# In[15]:
+# In[3]:
 
 
 from scipy.stats import binom
 
-# Parameters
-n = 10 # number of trials
-x = 7 # number of successes
-p = 0.2 # probability of success
+n = 10 
+x = 7 
+p = 0.2 
 
-print("Mean: ", binom.mean(n, p))
+print("Moyenne : ", binom.mean(n, p))
 print("Variance: ", binom.var(n, p))
-print("Probability mass function: ", binom.pmf(x, n, p))
-print("Cumulative distribution function: ", binom.cdf(x,n,p))
+print("Densité de probabilité : ", binom.pmf(x, n, p))
+print("Fonction de répartition : ", binom.cdf(x,n,p))
 
 
-# ### Proportion of successes in Bernoulli Trials
+# ### Proportion de succès
 
-# - Let $X \sim B(n,p)$. Then, if $Y = \frac{X}{n}$
-# - $E(Y) = p$
-# - $Var(Y) = \frac{p(1-p)}{n}$
+# - Si $X \sim B(n,p)$. alors, si $Y = \frac{X}{n}$
+# - $\mathbb E(Y) = p$
+# - $\mathbb V(Y) = \frac{p(1-p)}{n}$
 
-# ## The Geometric and Negative Binomial Distributions
+# ## Distributions Géométrique et binomiale négative
 
-# ### Definition of the Geometric Distribution
-
-# - Number of $X$ of trials up to and including the first success in a sequence of independent Bernoulli trials with a constant success probability $p$ has a geometric distribution with parameter $p$
-# - Probability mass function:
+# ### Distribution géométrique
+# 
+# - Le nombre d'essais  $X$ jusqu'au premier succès (inclus) dans une suite d'expériences indépendantes de Bernoulli de même paramètre $p$ suit une distribution géométrique de paramètre $p$
+# - Densité de probabilité :
 # \begin{equation}
 #     P(X = x) = (1 - p)^{x-1}p, \text{   } x=1,2, \cdots.
 # \end{equation}
-# - Cumulative distribution function:
+# - Fonction de répartition :
 # \begin{equation}
 #     P(X \leq x) = 1 - (1-p)^x
 # \end{equation}
-# - $E(X) = \frac{1}{p}$
-# - $Var(X) = \frac{1-p}{p^2}$
+# - $\mathbb E(X) = \frac{1}{p}$
+# - $\mathbb V(X) = \frac{1-p}{p^2}$
 
-# In[26]:
+# In[4]:
 
 
 from scipy.stats import geom
-x = 5 # number of trials up to and including the first success
-p = 0.23 # probability of success
-print("Mean: ", geom.mean(p))
+x = 5 
+p = 0.23 
+print("Moyenne : ", geom.mean(p))
 print("Variance: ", geom.var(p))
-print("Probability mass function: ", geom.pmf(x, p))
-print("Cumulative distribution function: ", geom.cdf(x, p))
+print("Densité de probabilité : ", geom.pmf(x, p))
+print("Fonction de répartition : ", geom.cdf(x, p))
 
 
-# ### Definition of the Negative Binomial Distribution
+# ### Distribution binomiale négative
 
-# - Number $X$ of trials up and including the $r$th success in a sequence of independent Bernoulli trials with a consant success probability $p$ has a negative binomial distribution with parameter $p$
-# - Probability mass function:
+# - Le nombre d'essais  $X$ jusqu'au $r^e$ succès (inclus) dans une suite d'expériences indépendantes de Bernoulli de même paramètre $p$ suit une distribution binomiale négative de paramètre $p$
+# - Densité de probabilité :
 # \begin{equation}
 #     P(X = x) =  \binom{x-1}{r-1} (1-p)^{x-r}p^r \text{,  } x=r,r+1, \cdots.
 # \end{equation}
-# - $E(X) = \frac{r}{p}$
-# - $Var(X) = \frac{r(1-p)}{p^2}$
+# - $\mathbb E(X) = \frac{r}{p}$
+# - $\mathbb V(X) = \frac{r(1-p)}{p^2}$
 
-# In[29]:
+# In[5]:
 
 
 from scipy.stats import nbinom
-x = 7 # number of trials up and including the r-th success
-r = 4 # number of successes
-p = 0.55 # probability of success
-#########################################NOT WORKING!!!!!!!!!!!####################
-print("Mean: ", nbinom.mean(r, p))
+x = 7 
+r = 4 
+p = 0.55 
+
+print("Moyenne: ", nbinom.mean(r, p))
 print("Variance: ", nbinom.var(r, p))
-print("Probability mass function: ", nbinom.pmf(x-r, r, p)) # the distribution takes x-r, which is the number of failures
-print("Cumulative distribution function: ", nbinom.cdf(x-r, r, p))
+print("Densité de probabilité : ", nbinom.pmf(x-r, r, p)) # the distribution takes x-r, which is the number of failures
+print("Fonction de répartition : ", nbinom.cdf(x-r, r, p))
 
 
-# ## Hypergeometric Distribution
+# ##  Distribution hypergéométrique
 
-# ### Definition of the Hypergeometric Distribution
+# - Collection de $N$ objets dont $r$ sont d'un certain type
+# - Probabilité qu'un objet soit d'un type donné: $p = \frac{r}{N}$
+# - Si $n$ objets sont choisis au hasard sans remise, la distribution de $X \sim B(n,p)$
 
-# - Consider a collection of $N$ items of which $r$ are of a certain kind
-# - Probability the item is of the special kind: $p = \frac{r}{N}$
-# - If $n$ items are chosen at random without replacement, then the distribution of $X \sim B(n,p)$
-
-# - Hypergeometric distribution: $n$ items chosen at random without replacement
-# - Probability mass function:
+# - Densité de probabilité : 
 # \begin{equation}
 #     f(x; N, n, r) = \frac{ \binom{r}{x} \binom{N-r}{n-x} }{ \binom{N}{n} },
 # \end{equation}
 # \begin{equation}
 #     max \{ 0, n-(N-r) \} \leq x \leq min \{ n, r \}
 # \end{equation}
-# - $E(X) = n\frac{r}{N}$
-# - $Var(X) = \frac{N-n}{N-1} n \frac{r}{N}(1- \frac{r}{N})$
+# - $\mathbb E(X) = n\frac{r}{N}$
+# - $\mathbb V(X) = \frac{N-n}{N-1} n \frac{r}{N}(1- \frac{r}{N})$
 
-# - Comparison with $B(n,p)$ when $ p = \frac{r}{N}$
-#     - $E_B(X) = E_H(X) = np$
+# - Comparaison avec $B(n,p)$ lorsque $ p = \frac{r}{N}$
+#     - $\mathbb E_B(X) = \mathbb E_H(X) = np$
 #     - $\sigma_B ^2 (X) = npq \geq \sigma_H ^2(X) = \frac{N-n}{N-1} npq$
 
-# In[46]:
+# In[6]:
 
 
 from scipy.stats import hypergeom
 
-x = 2 # number of rare elements picked
-N = 15 # total number of elements
-r = 9 # number of rare elements
-n = 5 # picked up elements
+x = 2 
+N = 15 
+r = 9 
+n = 5 
 
-print("Mean: ", hypergeom.mean(N, r, n))
+print("Moyenne : ", hypergeom.mean(N, r, n))
 print("Variance: ", hypergeom.var(N, r, n))
-print("Probability mass function: ", hypergeom.pmf(x, N, r, n))
-print("Cumulative distribution function: ", hypergeom.cdf(x, N, r, n))
+print("Densité de probabilité : ", hypergeom.pmf(x, N, r, n))
+print("Fonction de répartition : ", hypergeom.cdf(x, N, r, n))
 
 
-# ## The Poisson Distribution
+# ##  Distribution de Poisson
 
-# ### Definition of the Poisson Distribution
-
-# - Describes the number of "events" occurring within certain specified boundaries of space and time
-# - A random variable $X$ distributed as a Poisson random variable with parameter $\lambda$ is written as:
+# - Nombre d'évènements se produisant dans un certain intervalle (temps, espace)
+# - Une variable aléatoire $X$ suit une distribution de Poisson de paramère $\lambda$ s'écrit :
 # \begin{equation}
 #     X \sim P(\lambda)
 # \end{equation}
-# - Probability mass function:
+# - Densité de probabilité : 
 # \begin{equation}
 #     P(X = x) = \frac{ e^{- \lambda} \lambda ^ {x}} {x!} \text{   } x=0,1,2, \cdots.
 # \end{equation}
-# - $Eprint("Mean: ", multinomial.mean(x, p))(X) = Var(X) = \lambda$
+# - $\mathbb E (X) = \mathbb V (X) = \lambda$
 
-# In[51]:
+# In[7]:
 
 
 from scipy.stats import poisson
 
-# Parameters
-x = 1 # number of events
-Lambda = 2/3 # lambda parameter
+x = 1 
+Lambda = 2/3 
 
-print("Mean: ", poisson.mean(Lambda))
+print("Moyenne : ", poisson.mean(Lambda))
 print("Variance: ", poisson.var(Lambda))
-print("Probability mass function: ", poisson.pmf(x, Lambda))
-print("Cumulative distribution function: ", poisson.cdf(x, Lambda))
+print("Densité de probabilité : ", poisson.pmf(x, Lambda))
+print("Fonction de répartition : ", poisson.cdf(x, Lambda))
 
 
-# ## The Multinomial Distribution
+# ## Distribution multinomiale
 
-# ### Definition of the Multinomial Distribution
+# - Suite de $n$ essais indépendants où chaque essai a  $k$ issues possibles de probabilités constantes $p_1, p_2, \cdots , p_k$ avec $p_1 + p_2 + \cdots + p_k = 1$
+# - Les variables aléatoires $X_1, X_2, \cdots , X_k$ avec $\displaystyle\sum_{i=1}^k X_i = n$ qui comptent le nombre d'occurrences des $k$ issues respectives ont une distribution multinomiale.
 
-# - Consider a sequence of $n$ independent trials in which each individual trial can have $k$ outcomes occurring with a constant probability value $p_1, p_2, \cdots , p_k$ with $p_1 + p_2 + \cdots + p_k = 1$
-# - The random variables $X_1, X_2, \cdots , X_k$ with $\sum_{i=1}^k X_i = n$ that count the number of occurrences of the $k$ respective outcomes are said to have a multinomial distribution
-
-# - Joint probability mass function of $X_1, X_2, \cdots , X_k$ :
+# - Densité de probabilité jointe de  $X_1, X_2, \cdots , X_k$ :
 # \begin{equation}
 #     f(x_1, x_2, \cdots, x_k; p_1, \cdots , p_k , n) = \binom{n}{x_1,x_2,\cdots, x_k} p_1^{x_1} p_2^{x_2} \cdots p_k^{x_k}
 # \end{equation}
-# with $\sum_{i=1} ^ k x_i = n$ and $\sum_{i=1}^k p_i = 1$
-# - Also written as:
+# avec $\displaystyle\sum_{i=1} ^ k x_i = n$ et $\displaystyle\sum_{i=1}^k p_i = 1$
+# - ce qui s'écrit encore :
 # \begin{equation}
 #     (X_1, \cdots , X_k) \sim M_k(p_1, \cdots, p_k, n)
 # \end{equation}
 
-# - $E(X_i) = np_i$
-# - $Var(X_i) = np_i(1-p_i)$
+# - $\mathbb E(X_i) = np_i$
+# - $\mathbb V(X_i) = np_i(1-p_i)$
 
-# In[90]:
+# In[8]:
 
 
 from scipy.stats import multinomial
 
-# Parameters
-x = [3, 3, 4, 5] # number of successes (! Need to insert the remaining variable)
-n = 15 # number of trials
-p = [1/6, 1/6, 1/6 , 3/6] # probabilities corresponding to the successes (! Need to insert the remaining probability)
+x = [3, 3, 4, 5] 
+n = 15 
+p = [1/6, 1/6, 1/6 , 3/6] 
 
-print("Probability mass function: ", multinomial.pmf(x, n=n, p=p))
-
-
-# In[ ]:
-
-
-
+print("Densité de probabilité : ", multinomial.pmf(x, n=n, p=p))
 
