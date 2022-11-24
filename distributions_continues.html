@@ -47,8 +47,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -536,9 +534,9 @@ title="Print to PDF"
 <ul class="simple">
 <li><p>Distribution uniforme dans <span class="math notranslate nohighlight">\([\![a,b]\!]\)</span>,  <span class="math notranslate nohighlight">\(U(a,b)\)</span>:</p></li>
 </ul>
-<p>\begin{equation}
-f_X(x) = \frac{1}{b-a} \text{ , } a \leq x \leq b
-\end{equation}</p>
+<p><span class="math notranslate nohighlight">\(
+    f_X(x) = \frac{1}{b-a} \text{ , } a \leq x \leq b
+\)</span></p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbb E(x) = \frac{a+b}{2}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb V(x) = \frac{(b-a)^2}{12}\)</span></p></li>
@@ -571,13 +569,13 @@ Variance:  1.3333333333333333
 <li><p><span class="math notranslate nohighlight">\(Exp( \lambda )\)</span>, <span class="math notranslate nohighlight">\(\lambda\)</span> pouvant être interprété comme un taux d’occurence</p></li>
 <li><p>Décrit souvent le temps avant qu’un évènement se produise</p></li>
 <li><p>Densité de probabilité :
-\begin{equation}
-f_X(x) = \lambda e ^ {- \lambda x} \text{ , } x &gt; 0
-\end{equation}</p></li>
+<span class="math notranslate nohighlight">\(
+  f_X(x) = \lambda e ^ {- \lambda x} \text{ , } x &gt; 0
+\)</span></p></li>
 <li><p>Fonction de répartition:
-\begin{equation}
-F_X(x) = 1 - e^{\lambda x}
-\end{equation}</p></li>
+<span class="math notranslate nohighlight">\(
+  F_X(x) = 1 - e^{\lambda x}
+\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb E(X) = \frac{1}{\lambda}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb V(X) = \frac{1}{\lambda^2}\)</span></p></li>
 </ul>
@@ -608,16 +606,14 @@ Fonction de répartition :  0.8646647167633873
 <div class="section" id="la-distribution-exponentielle-n-a-pas-de-memoire">
 <h3>La distribution exponentielle n’a pas de mémoire …<a class="headerlink" href="#la-distribution-exponentielle-n-a-pas-de-memoire" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>Pour tout <span class="math notranslate nohighlight">\(x,y&gt;0\)</span>
-\begin{equation}
-P(X \geq x + y \mid X \geq x) = P( X \geq y)
-\end{equation}</p></li>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(x,y&gt;0, 
+  P(X \geq x + y \mid X \geq x) = P( X \geq y)\)</span></p></li>
 <li><p>ce qui est équivalent à
-\begin{equation}
-P(X \geq x + y, X \geq x) = P( X \geq x) P( X \geq y)
-\end{equation}
-<span class="math notranslate nohighlight">\(\Rightarrow\)</span> le futur ne dépend pas du passé</p></li>
+<span class="math notranslate nohighlight">\(
+  P(X \geq x + y, X \geq x) = P( X \geq x) P( X \geq y)
+\)</span></p></li>
 </ul>
+<p><span class="math notranslate nohighlight">\(\Rightarrow\)</span> le futur ne dépend pas du passé</p>
 <p><strong>Proposition</strong> : si <span class="math notranslate nohighlight">\( X_1, \cdots, X_n \)</span> sont des variables aléatoires indépendantes de paramètres respectifs <span class="math notranslate nohighlight">\(\lambda_1 , \cdots, \lambda_n\)</span>, alors <span class="math notranslate nohighlight">\(min \{ X_1, \cdots , X_n \} \)</span> suit une loi exponentielle de paramètre  <span class="math notranslate nohighlight">\(\sum_{i = 1}^n \lambda_i\)</span></p>
 </div>
 <div class="section" id="processus-de-poisson">
@@ -626,9 +622,9 @@ P(X \geq x + y, X \geq x) = P( X \geq x) P( X \geq y)
 <li><p>Un processus stochastique est une suite d’évènements aléatoires</p></li>
 <li><p>Processus de Poisson de paramètre <span class="math notranslate nohighlight">\(\lambda\)</span> = processus stochastique où le temps (ou l’espace) entre deux occurrences d’évènements  suit une loi exponentielle de paramètre <span class="math notranslate nohighlight">\(\lambda\)</span></p></li>
 <li><p>Si <span class="math notranslate nohighlight">\(X\)</span> est le nombre d’évènements se produisant dans un intervalle de temps (ou d’espace) de longueur <span class="math notranslate nohighlight">\(t\)</span> alors
-\begin{equation}
-X \sim Poisson(\lambda t)
-\end{equation}</p></li>
+<span class="math notranslate nohighlight">\(
+  X \sim Poisson(\lambda t)
+\)</span></p></li>
 </ul>
 </div>
 </div>
@@ -636,11 +632,11 @@ X \sim Poisson(\lambda t)
 <h2>Distribution Gamma<a class="headerlink" href="#distribution-gamma" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Utile en fiabilité</p></li>
-<li><p>Fonction Gamma :
-\begin{equation}
-\Gamma(k) = \int_0^{\infty} x^{k-1}e^{-x}dx \text{ for } k&gt;0
-\end{equation}</p></li>
+<li><p>Fonction Gamma :</p></li>
 </ul>
+<p><span class="math notranslate nohighlight">\(
+    \Gamma(k) = \int_0^{\infty} x^{k-1}e^{-x}dx \text{ for } k&gt;0
+\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">gamma</span> <span class="k">as</span> <span class="n">gamma_function</span>
@@ -656,10 +652,12 @@ X \sim Poisson(\lambda t)
 </div>
 </div>
 <ul class="simple">
-<li><p>Distribution Gamma <span class="math notranslate nohighlight">\(Gam(k, \lambda)\)</span> où <span class="math notranslate nohighlight">\(k&gt;0\)</span> et <span class="math notranslate nohighlight">\(\lambda &gt;0\)</span>
-\begin{equation}
-f(x; k, \lambda) = \frac{\lambda ^k}{\Gamma (k)} x ^ {k-1} e ^ {- \lambda x} \text{ , } x &gt; 0
-\end{equation}</p></li>
+<li><p>Distribution Gamma <span class="math notranslate nohighlight">\(Gam(k, \lambda)\)</span> où <span class="math notranslate nohighlight">\(k&gt;0\)</span> et <span class="math notranslate nohighlight">\(\lambda &gt;0\)</span></p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(
+    f(x; k, \lambda) = \frac{\lambda ^k}{\Gamma (k)} x ^ {k-1} e ^ {- \lambda x} \text{ , } x &gt; 0
+\)</span></p>
+<ul class="simple">
 <li><p><span class="math notranslate nohighlight">\( \mathbb E(X) = \frac{k}{ \lambda }\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\( \mathbb V(X) = \frac{k}{ \lambda ^2}\)</span></p></li>
 </ul>
@@ -699,20 +697,22 @@ Fonction de répartition :  0.9052421318239862
 <div class="section" id="proprietes-de-la-distribution-gamma">
 <h3>Propriétés de la distribution Gamma<a class="headerlink" href="#proprietes-de-la-distribution-gamma" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>Si <span class="math notranslate nohighlight">\(X_1, \cdots, X_n\)</span> sont des variables aléatoires indépendantes Gamma de paramètres respectifs <span class="math notranslate nohighlight">\((k_i, \lambda)\)</span>, alors
-\begin{equation}
-\sum_{i=1}^n X_i \sim Gam(\sum_{i=1}^n k_i , \lambda)
-\end{equation}</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(X_1, \cdots, X_n\)</span> sont des variables aléatoires indépendantes Gamma de paramètres respectifs <span class="math notranslate nohighlight">\((k_i, \lambda)\)</span>, alors</p></li>
 </ul>
+<p><span class="math notranslate nohighlight">\(
+    \sum_{i=1}^n X_i \sim Gam(\sum_{i=1}^n k_i , \lambda)
+\)</span></p>
 </div>
 </div>
 <div class="section" id="distribution-beta">
 <h2>Distribution Beta<a class="headerlink" href="#distribution-beta" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>Modélisation des proportions
-\begin{equation}
-f(x; \alpha, \beta) = \frac{\Gamma( \alpha + \beta)}{ \Gamma(\alpha) \Gamma(\beta)} x^{\alpha - 1} (1 - x) ^{\beta - 1} \text{ , } 0 &lt; x &lt; 1
-\end{equation}</p></li>
+<li><p>Modélisation des proportions</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(
+    f(x; \alpha, \beta) = \frac{\Gamma( \alpha + \beta)}{ \Gamma(\alpha) \Gamma(\beta)} x^{\alpha - 1} (1 - x) ^{\beta - 1} \text{ , } 0 &lt; x &lt; 1
+\)</span></p>
+<ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbb E(X) = \frac{ \alpha}{ \alpha + \beta}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb V(X) = \frac{ \alpha \beta}{ (\alpha + \beta) ^2 ( \alpha + \beta + 1)}\)</span></p></li>
 </ul>
