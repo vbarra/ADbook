@@ -19,10 +19,10 @@ warnings.simplefilter('ignore', DeprecationWarning)
 
 # - Expériences à deux issues,  0 ou 1
 # - Variable aléatoire de Bernoulli de paramètre  $p$, $0 \leq p \leq 1$, $p$ probabilité que l'issue soit 1
-# - The Bernoulli distribution $Ber(p)$ is:
-# \begin{equation}
-#     f(x;p) = p^x(1-p)^{1-x}, \text{   } x= 0,1
-# \end{equation}
+# - La distribution de Bernoulli est :
+# 
+# $f(x;p) = p^x(1-p)^{1-x}, \text{   } x= 0,1$
+# 
 # - $\mathbb E(X) = p$
 # - $\mathbb V(X) = p(1-p)$
 
