@@ -39,16 +39,12 @@ print("Variance: ", bernoulli.var(p))
 # ## Distribution binomiale
 
 # - Expérience : $n$ expériences indépendantes de Bernoulli $X_1, \cdots, X_n$ de même paramètre $p$
-# - Le nombre total de succès $X = \displaystyle\sum_{i=1}^m X_i$ est une variable aléatoire de distribution (binomiale)
-# \begin{equation}
-#     X \sim B(n,p)
-# \end{equation}
-# de paramètres $n$ et $p$
+# - Le nombre total de succès $X = \displaystyle\sum_{i=1}^m X_i$ est une variable aléatoire de distribution (binomiale) $X \sim B(n,p) $ de paramètres $n$ et $p$
 
 # - La densité de probabilité $B(n, p)$ est :
-# $$
+# $
 #     f(x;n,p) = \binom{n}{x}p^x(1-p)^{n-x}, \text{   } x= 0,1, \cdots, n
-# $$
+# $
 # 
 # - $\mathbb E(X) = np$
 # - $\mathbb V(X) = np(1-p)$
@@ -80,13 +76,11 @@ print("Fonction de répartition : ", binom.cdf(x,n,p))
 # 
 # - Le nombre d'essais  $X$ jusqu'au premier succès (inclus) dans une suite d'expériences indépendantes de Bernoulli de même paramètre $p$ suit une distribution géométrique de paramètre $p$
 # - Densité de probabilité :
-# \begin{equation}
-#     P(X = x) = (1 - p)^{x-1}p, \text{   } x=1,2, \cdots.
-# \end{equation}
-# - Fonction de répartition :
-# \begin{equation}
-#     P(X \leq x) = 1 - (1-p)^x
-# \end{equation}
+# 
+# $P(X = x) = (1 - p)^{x-1}p, \text{   } x=1,2, \cdots.
+# $
+# 
+# - Fonction de répartition :  $P(X \leq x) = 1 - (1-p)^x$
 # - $\mathbb E(X) = \frac{1}{p}$
 # - $\mathbb V(X) = \frac{1-p}{p^2}$
 
@@ -106,9 +100,10 @@ print("Fonction de répartition : ", geom.cdf(x, p))
 
 # - Le nombre d'essais  $X$ jusqu'au $r^e$ succès (inclus) dans une suite d'expériences indépendantes de Bernoulli de même paramètre $p$ suit une distribution binomiale négative de paramètre $p$
 # - Densité de probabilité :
-# \begin{equation}
-#     P(X = x) =  \binom{x-1}{r-1} (1-p)^{x-r}p^r \text{,  } x=r,r+1, \cdots.
-# \end{equation}
+# 
+# $P(X = x) =  \binom{x-1}{r-1} (1-p)^{x-r}p^r \text{,  } x=r,r+1, \cdots.
+# $
+# 
 # - $\mathbb E(X) = \frac{r}{p}$
 # - $\mathbb V(X) = \frac{r(1-p)}{p^2}$
 
@@ -133,12 +128,11 @@ print("Fonction de répartition : ", nbinom.cdf(x-r, r, p))
 # - Si $n$ objets sont choisis au hasard sans remise, la distribution de $X \sim B(n,p)$
 
 # - Densité de probabilité : 
-# \begin{equation}
-#     f(x; N, n, r) = \frac{ \binom{r}{x} \binom{N-r}{n-x} }{ \binom{N}{n} },
-# \end{equation}
-# \begin{equation}
-#     max \{ 0, n-(N-r) \} \leq x \leq min \{ n, r \}
-# \end{equation}
+# 
+# $f(x; N, n, r) = \frac{ \binom{r}{x} \binom{N-r}{n-x} }{ \binom{N}{n} }
+# , 
+#     max \{ 0, n-(N-r) \} \leq x \leq min \{ n, r \}$
+# 
 # - $\mathbb E(X) = n\frac{r}{N}$
 # - $\mathbb V(X) = \frac{N-n}{N-1} n \frac{r}{N}(1- \frac{r}{N})$
 
@@ -166,13 +160,11 @@ print("Fonction de répartition : ", hypergeom.cdf(x, N, r, n))
 
 # - Nombre d'évènements se produisant dans un certain intervalle (temps, espace)
 # - Une variable aléatoire $X$ suit une distribution de Poisson de paramère $\lambda$ s'écrit :
-# \begin{equation}
-#     X \sim P(\lambda)
-# \end{equation}
+# $    X \sim P(\lambda)$
 # - Densité de probabilité : 
-# \begin{equation}
-#     P(X = x) = \frac{ e^{- \lambda} \lambda ^ {x}} {x!} \text{   } x=0,1,2, \cdots.
-# \end{equation}
+# 
+# $P(X = x) = \frac{ e^{- \lambda} \lambda ^ {x}} {x!} \text{   } x=0,1,2, \cdots.
+# $
 # - $\mathbb E (X) = \mathbb V (X) = \lambda$
 
 # In[7]:
@@ -195,14 +187,17 @@ print("Fonction de répartition : ", poisson.cdf(x, Lambda))
 # - Les variables aléatoires $X_1, X_2, \cdots , X_k$ avec $\displaystyle\sum_{i=1}^k X_i = n$ qui comptent le nombre d'occurrences des $k$ issues respectives ont une distribution multinomiale.
 
 # - Densité de probabilité jointe de  $X_1, X_2, \cdots , X_k$ :
-# \begin{equation}
+# 
+# $
 #     f(x_1, x_2, \cdots, x_k; p_1, \cdots , p_k , n) = \binom{n}{x_1,x_2,\cdots, x_k} p_1^{x_1} p_2^{x_2} \cdots p_k^{x_k}
-# \end{equation}
+# $
+# 
 # avec $\displaystyle\sum_{i=1} ^ k x_i = n$ et $\displaystyle\sum_{i=1}^k p_i = 1$
 # - ce qui s'écrit encore :
-# \begin{equation}
+# 
+# $
 #     (X_1, \cdots , X_k) \sim M_k(p_1, \cdots, p_k, n)
-# \end{equation}
+# $
 
 # - $\mathbb E(X_i) = np_i$
 # - $\mathbb V(X_i) = np_i(1-p_i)$
