@@ -580,17 +580,13 @@ Variance:  0.21
 <h2>Distribution binomiale<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Expérience : <span class="math notranslate nohighlight">\(n\)</span> expériences indépendantes de Bernoulli <span class="math notranslate nohighlight">\(X_1, \cdots, X_n\)</span> de même paramètre <span class="math notranslate nohighlight">\(p\)</span></p></li>
-<li><p>Le nombre total de succès <span class="math notranslate nohighlight">\(X = \displaystyle\sum_{i=1}^m X_i\)</span> est une variable aléatoire de distribution (binomiale)
-\begin{equation}
-X \sim B(n,p)
-\end{equation}
-de paramètres <span class="math notranslate nohighlight">\(n\)</span> et <span class="math notranslate nohighlight">\(p\)</span></p></li>
+<li><p>Le nombre total de succès <span class="math notranslate nohighlight">\(X = \displaystyle\sum_{i=1}^m X_i\)</span> est une variable aléatoire de distribution (binomiale) <span class="math notranslate nohighlight">\(X \sim B(n,p) \)</span> de paramètres <span class="math notranslate nohighlight">\(n\)</span> et <span class="math notranslate nohighlight">\(p\)</span></p></li>
 </ul>
 <ul class="simple">
 <li><p>La densité de probabilité <span class="math notranslate nohighlight">\(B(n, p)\)</span> est :
-$<span class="math notranslate nohighlight">\(
+<span class="math notranslate nohighlight">\(
   f(x;n,p) = \binom{n}{x}p^x(1-p)^{n-x}, \text{   } x= 0,1, \cdots, n
-\)</span>$</p></li>
+\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb E(X) = np\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb V(X) = np(1-p)\)</span></p></li>
 </ul>
@@ -633,14 +629,12 @@ Fonction de répartition :  0.9999220736
 <h3>Distribution géométrique<a class="headerlink" href="#distribution-geometrique" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Le nombre d’essais  <span class="math notranslate nohighlight">\(X\)</span> jusqu’au premier succès (inclus) dans une suite d’expériences indépendantes de Bernoulli de même paramètre <span class="math notranslate nohighlight">\(p\)</span> suit une distribution géométrique de paramètre <span class="math notranslate nohighlight">\(p\)</span></p></li>
-<li><p>Densité de probabilité :
-\begin{equation}
-P(X = x) = (1 - p)^{x-1}p, \text{   } x=1,2, \cdots.
-\end{equation}</p></li>
-<li><p>Fonction de répartition :
-\begin{equation}
-P(X \leq x) = 1 - (1-p)^x
-\end{equation}</p></li>
+<li><p>Densité de probabilité :</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(P(X = x) = (1 - p)^{x-1}p, \text{   } x=1,2, \cdots.
+\)</span></p>
+<ul class="simple">
+<li><p>Fonction de répartition :  <span class="math notranslate nohighlight">\(P(X \leq x) = 1 - (1-p)^x\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb E(X) = \frac{1}{p}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb V(X) = \frac{1-p}{p^2}\)</span></p></li>
 </ul>
@@ -670,10 +664,11 @@ Fonction de répartition :  0.7293215842999999
 <h3>Distribution binomiale négative<a class="headerlink" href="#distribution-binomiale-negative" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Le nombre d’essais  <span class="math notranslate nohighlight">\(X\)</span> jusqu’au <span class="math notranslate nohighlight">\(r^e\)</span> succès (inclus) dans une suite d’expériences indépendantes de Bernoulli de même paramètre <span class="math notranslate nohighlight">\(p\)</span> suit une distribution binomiale négative de paramètre <span class="math notranslate nohighlight">\(p\)</span></p></li>
-<li><p>Densité de probabilité :
-\begin{equation}
-P(X = x) =  \binom{x-1}{r-1} (1-p)^{x-r}p^r \text{,  } x=r,r+1, \cdots.
-\end{equation}</p></li>
+<li><p>Densité de probabilité :</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(P(X = x) =  \binom{x-1}{r-1} (1-p)^{x-r}p^r \text{,  } x=r,r+1, \cdots.
+\)</span></p>
+<ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbb E(X) = \frac{r}{p}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb V(X) = \frac{r(1-p)}{p^2}\)</span></p></li>
 </ul>
@@ -710,13 +705,12 @@ Fonction de répartition :  0.6082877968750001
 <li><p>Si <span class="math notranslate nohighlight">\(n\)</span> objets sont choisis au hasard sans remise, la distribution de <span class="math notranslate nohighlight">\(X \sim B(n,p)\)</span></p></li>
 </ul>
 <ul class="simple">
-<li><p>Densité de probabilité :
-\begin{equation}
-f(x; N, n, r) = \frac{ \binom{r}{x} \binom{N-r}{n-x} }{ \binom{N}{n} },
-\end{equation}
-\begin{equation}
-max { 0, n-(N-r) } \leq x \leq min { n, r }
-\end{equation}</p></li>
+<li><p>Densité de probabilité :</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(f(x; N, n, r) = \frac{ \binom{r}{x} \binom{N-r}{n-x} }{ \binom{N}{n} }
+, 
+    max \{ 0, n-(N-r) \} \leq x \leq min \{ n, r \}\)</span></p>
+<ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbb E(X) = n\frac{r}{N}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb V(X) = \frac{N-n}{N-1} n \frac{r}{N}(1- \frac{r}{N})\)</span></p></li>
 </ul>
@@ -759,13 +753,12 @@ Fonction de répartition :  0.28671328671328666
 <ul class="simple">
 <li><p>Nombre d’évènements se produisant dans un certain intervalle (temps, espace)</p></li>
 <li><p>Une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> suit une distribution de Poisson de paramère <span class="math notranslate nohighlight">\(\lambda\)</span> s’écrit :
-\begin{equation}
-X \sim P(\lambda)
-\end{equation}</p></li>
-<li><p>Densité de probabilité :
-\begin{equation}
-P(X = x) = \frac{ e^{- \lambda} \lambda ^ {x}} {x!} \text{   } x=0,1,2, \cdots.
-\end{equation}</p></li>
+<span class="math notranslate nohighlight">\(    X \sim P(\lambda)\)</span></p></li>
+<li><p>Densité de probabilité :</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(P(X = x) = \frac{ e^{- \lambda} \lambda ^ {x}} {x!} \text{   } x=0,1,2, \cdots.
+\)</span></p>
+<ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbb E (X) = \mathbb V (X) = \lambda\)</span></p></li>
 </ul>
 <div class="cell docutils container">
@@ -799,16 +792,18 @@ Fonction de répartition :  0.8556951983876534
 <li><p>Les variables aléatoires <span class="math notranslate nohighlight">\(X_1, X_2, \cdots , X_k\)</span> avec <span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^k X_i = n\)</span> qui comptent le nombre d’occurrences des <span class="math notranslate nohighlight">\(k\)</span> issues respectives ont une distribution multinomiale.</p></li>
 </ul>
 <ul class="simple">
-<li><p>Densité de probabilité jointe de  <span class="math notranslate nohighlight">\(X_1, X_2, \cdots , X_k\)</span> :
-\begin{equation}
-f(x_1, x_2, \cdots, x_k; p_1, \cdots , p_k , n) = \binom{n}{x_1,x_2,\cdots, x_k} p_1^{x_1} p_2^{x_2} \cdots p_k^{x_k}
-\end{equation}
-avec <span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1} ^ k x_i = n\)</span> et <span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^k p_i = 1\)</span></p></li>
-<li><p>ce qui s’écrit encore :
-\begin{equation}
-(X_1, \cdots , X_k) \sim M_k(p_1, \cdots, p_k, n)
-\end{equation}</p></li>
+<li><p>Densité de probabilité jointe de  <span class="math notranslate nohighlight">\(X_1, X_2, \cdots , X_k\)</span> :</p></li>
 </ul>
+<p><span class="math notranslate nohighlight">\(
+    f(x_1, x_2, \cdots, x_k; p_1, \cdots , p_k , n) = \binom{n}{x_1,x_2,\cdots, x_k} p_1^{x_1} p_2^{x_2} \cdots p_k^{x_k}
+\)</span></p>
+<p>avec <span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1} ^ k x_i = n\)</span> et <span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^k p_i = 1\)</span></p>
+<ul class="simple">
+<li><p>ce qui s’écrit encore :</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(
+    (X_1, \cdots , X_k) \sim M_k(p_1, \cdots, p_k, n)
+\)</span></p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbb E(X_i) = np_i\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb V(X_i) = np_i(1-p_i)\)</span></p></li>
