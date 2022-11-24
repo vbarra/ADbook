@@ -39,16 +39,18 @@ print("Variance: ", bernoulli.var(p))
 # ## Distribution binomiale
 
 # - Expérience : $n$ expériences indépendantes de Bernoulli $X_1, \cdots, X_n$ de même paramètre $p$
-# - Le nombre total de succès $X = \displaystyle\sum_{i=1}^m X_i$ est une variable aléatoire de distriution (binomiale)
+# - Le nombre total de succès $X = \displaystyle\sum_{i=1}^m X_i$ est une variable aléatoire de distribution (binomiale)
 # \begin{equation}
 #     X \sim B(n,p)
 # \end{equation}
 # de paramètres $n$ et $p$
 
 # - La densité de probabilité $B(n, p)$ est :
+# 
 # \begin{equation}
 #     f(x;n,p) = \binom{n}{x}p^x(1-p)^{n-x}, \text{   } x= 0,1, \cdots, n
 # \end{equation}
+# 
 # - $\mathbb E(X) = np$
 # - $\mathbb V(X) = np(1-p)$
 
