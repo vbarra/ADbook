@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 4 - Comtimuous Probability Distributions &#8212; Analyse de données</title>
+    <title>Distributions de probabilité continues &#8212; Analyse de données</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -51,7 +51,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Statistique descriptive" href="statsdescriptives.html" />
+    <link rel="next" title="Exercices" href="exoprobas.html" />
     <link rel="prev" title="Chapter 3 - Discrete Probability Distributions" href="distributions_discretes.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -119,6 +119,16 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="distributions_discretes.html">
+   Chapter 3 - Discrete Probability Distributions
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Distributions de probabilité continues
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="exoprobas.html">
    Exercices
   </a>
@@ -126,16 +136,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="Stats.html">
    Introduction aux statistiques
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="distributions_discretes.html">
-   Chapter 3 - Discrete Probability Distributions
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Chapter 4 - Comtimuous Probability Distributions
   </a>
  </li>
  <li class="toctree-l1">
@@ -390,25 +390,18 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-uniform-distribution">
-   The Uniform Distribution
+  <a class="reference internal nav-link" href="#distribution-uniforme">
+   Distribution uniforme
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#definition-of-the-uniform-distribution">
-     Definition of the Uniform Distribution
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-exponential-distribution">
-   The Exponential Distribution
+  <a class="reference internal nav-link" href="#distribution-exponentielle">
+   Distribution exponentielle
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#definition-of-the-exponential-distribution">
-     Definition of the Exponential Distribution
+    <a class="reference internal nav-link" href="#definition">
+     Définition
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -478,7 +471,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Chapter 4 - Comtimuous Probability Distributions</h1>
+                <h1>Distributions de probabilité continues</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -489,25 +482,18 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-uniform-distribution">
-   The Uniform Distribution
+  <a class="reference internal nav-link" href="#distribution-uniforme">
+   Distribution uniforme
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#definition-of-the-uniform-distribution">
-     Definition of the Uniform Distribution
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-exponential-distribution">
-   The Exponential Distribution
+  <a class="reference internal nav-link" href="#distribution-exponentielle">
+   Distribution exponentielle
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#definition-of-the-exponential-distribution">
-     Definition of the Exponential Distribution
+    <a class="reference internal nav-link" href="#definition">
+     Définition
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -580,11 +566,7 @@ title="Print to PDF"
                 
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">Import here useful libraries</span>
-<span class="sd">Run this cell first for convenience</span>
-<span class="sd">&#39;&#39;&#39;</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 <span class="kn">import</span> <span class="nn">scipy</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
@@ -593,84 +575,77 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="chapter-4-comtimuous-probability-distributions">
-<h1>Chapter 4 - Comtimuous Probability Distributions<a class="headerlink" href="#chapter-4-comtimuous-probability-distributions" title="Permalink to this headline">#</a></h1>
-<div class="section" id="the-uniform-distribution">
-<h2>The Uniform Distribution<a class="headerlink" href="#the-uniform-distribution" title="Permalink to this headline">#</a></h2>
-<div class="section" id="definition-of-the-uniform-distribution">
-<h3>Definition of the Uniform Distribution<a class="headerlink" href="#definition-of-the-uniform-distribution" title="Permalink to this headline">#</a></h3>
+<div class="tex2jax_ignore mathjax_ignore section" id="distributions-de-probabilite-continues">
+<h1>Distributions de probabilité continues<a class="headerlink" href="#distributions-de-probabilite-continues" title="Permalink to this headline">#</a></h1>
+<div class="section" id="distribution-uniforme">
+<h2>Distribution uniforme<a class="headerlink" href="#distribution-uniforme" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>Uniform distribution, <span class="math notranslate nohighlight">\(U(a,b)\)</span>:
-\begin{equation}
-f(x; a,b) = \frac{1}{b-a} \text{ , } a \leq x \leq b
-\end{equation}</p></li>
-<li><p><span class="math notranslate nohighlight">\(E(x) = \frac{a+b}{2}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(Var(x) = \frac{(b-a)^2}{12}\)</span></p></li>
+<li><p>Distribution uniforme dans <span class="math notranslate nohighlight">\([\![a,b]\!]\)</span>,  <span class="math notranslate nohighlight">\(U(a,b)\)</span>:</p></li>
+</ul>
+<p>\begin{equation}
+f_X(x) = \frac{1}{b-a} \text{ , } a \leq x \leq b
+\end{equation}</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbb E(x) = \frac{a+b}{2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb V(x) = \frac{(b-a)^2}{12}\)</span></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">uniform</span>
 
-<span class="c1"># Parameters</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># lower bound</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># upper bound</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> 
+<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span> 
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean: &quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Espérance: &quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance: &quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">12</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Probability distribution function: &quot;</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean:  3.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Espérance:  3.0
 Variance:  1.3333333333333333
-Probability distribution function:  0.25
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="the-exponential-distribution">
-<h2>The Exponential Distribution<a class="headerlink" href="#the-exponential-distribution" title="Permalink to this headline">#</a></h2>
-<div class="section" id="definition-of-the-exponential-distribution">
-<h3>Definition of the Exponential Distribution<a class="headerlink" href="#definition-of-the-exponential-distribution" title="Permalink to this headline">#</a></h3>
+<div class="section" id="distribution-exponentielle">
+<h2>Distribution exponentielle<a class="headerlink" href="#distribution-exponentielle" title="Permalink to this headline">#</a></h2>
+<div class="section" id="definition">
+<h3>Définition<a class="headerlink" href="#definition" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>Exponential distribution (<span class="math notranslate nohighlight">\(Exp( \lambda )\)</span>) with <span class="math notranslate nohighlight">\(\lambda\)</span> which can be interpreted as the occurrence rate</p></li>
-<li><p>Meaning of the exponential distribution: often describes the amount of time before a certain event occurs</p></li>
-<li><p>Probability distribution function:
+<li><p><span class="math notranslate nohighlight">\(Exp( \lambda )\)</span>, <span class="math notranslate nohighlight">\(\lambda\)</span> pouvant être interprété comme un taux d’occurence</p></li>
+<li><p>Décrit souvent le temps avant qu’un évènement se produise</p></li>
+<li><p>Densité de probabilité :
 \begin{equation}
-f(x; \lambda) = \lambda e ^ {- \lambda x} \text{ , } x &gt; 0
+f_X(x) = \lambda e ^ {- \lambda x} \text{ , } x &gt; 0
 \end{equation}</p></li>
-<li><p>Cumulative distribution function:
+<li><p>Fonction de répartition:
 \begin{equation}
-F(x) = 1 - e^{\lambda x}
+F_X(x) = 1 - e^{\lambda x}
 \end{equation}</p></li>
-<li><p><span class="math notranslate nohighlight">\(E(X) = \frac{1}{\lambda}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(Var(X) = \frac{1}{\lambda^2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb E(X) = \frac{1}{\lambda}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb V(X) = \frac{1}{\lambda^2}\)</span></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">expon</span>
 
-<span class="c1"># Parameters</span>
-<span class="n">Lambda</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># lambda, occurrence rate</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># occurrence number</span>
+<span class="n">Lambda</span> <span class="o">=</span> <span class="mf">0.5</span> 
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> 
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean: &quot;</span><span class="p">,</span> <span class="n">expon</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Espérance: &quot;</span><span class="p">,</span> <span class="n">expon</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance: &quot;</span><span class="p">,</span> <span class="n">expon</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Probability mass function: &quot;</span><span class="p">,</span> <span class="n">expon</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cumulative distribution function: &quot;</span><span class="p">,</span> <span class="n">expon</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Survival function (1-cdf): &quot;</span><span class="p">,</span> <span class="n">expon</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Densité de probabilité: &quot;</span><span class="p">,</span> <span class="n">expon</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fonction de répartition: &quot;</span><span class="p">,</span> <span class="n">expon</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean:  0.5
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Espérance:  0.5
 Variance:  0.25
-Probability mass function:  0.2706705664732254
-Cumulative distribution function:  0.8646647167633873
-Survival function (1-cdf):  0.1353352832366127
+Densité de probabilité:  0.2706705664732254
+Fonction de répartition:  0.8646647167633873
 </pre></div>
 </div>
 </div>
@@ -916,10 +891,10 @@ Survival function (1-cdf):  0.5793943542390001
             <p class="prev-next-title">Chapter 3 - Discrete Probability Distributions</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="statsdescriptives.html" title="next page">
+    <a class='right-next' id="next-link" href="exoprobas.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Statistique descriptive</p>
+        <p class="prev-next-title">Exercices</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

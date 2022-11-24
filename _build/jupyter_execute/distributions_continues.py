@@ -4,10 +4,6 @@
 # In[1]:
 
 
-'''
-Import here useful libraries
-Run this cell first for convenience
-'''
 import numpy as np
 from scipy import stats
 import scipy
@@ -15,64 +11,59 @@ import warnings
 warnings.simplefilter('ignore', DeprecationWarning)
 
 
-# # Chapter 4 - Comtimuous Probability Distributions
+# # Distributions de probabilité continues
 
-# ## The Uniform Distribution
+# ## Distribution uniforme
 
-# ### Definition of the Uniform Distribution
-
-# - Uniform distribution, $U(a,b)$:
+# - Distribution uniforme dans $[\![a,b]\!]$,  $U(a,b)$:
+# 
 # \begin{equation}
-#     f(x; a,b) = \frac{1}{b-a} \text{ , } a \leq x \leq b
+#     f_X(x) = \frac{1}{b-a} \text{ , } a \leq x \leq b
 # \end{equation}
-# - $E(x) = \frac{a+b}{2}$
-# - $Var(x) = \frac{(b-a)^2}{12}$
+# - $\mathbb E(x) = \frac{a+b}{2}$
+# - $\mathbb V(x) = \frac{(b-a)^2}{12}$
 
 # In[2]:
 
 
 from scipy.stats import uniform
 
-# Parameters
-a = 1 # lower bound
-b = 5 # upper bound
+a = 1 
+b = 5 
 
-print("Mean: ", (a+b)/2 )
+print("Espérance: ", (a+b)/2 )
 print("Variance: ", (b-a)**2/12 )
-print("Probability distribution function: ", 1/(b-a))
 
 
-# ## The Exponential Distribution
+# ## Distribution exponentielle
 
-# ### Definition of the Exponential Distribution
+# ### Définition
 
-# - Exponential distribution ($Exp( \lambda )$) with $\lambda$ which can be interpreted as the occurrence rate
-# - Meaning of the exponential distribution: often describes the amount of time before a certain event occurs 
-# - Probability distribution function:
+# - $Exp( \lambda )$, $\lambda$ pouvant être interprété comme un taux d'occurence
+# - Décrit souvent le temps avant qu'un évènement se produise
+# - Densité de probabilité :
 # \begin{equation}
-#     f(x; \lambda) = \lambda e ^ {- \lambda x} \text{ , } x > 0
+#     f_X(x) = \lambda e ^ {- \lambda x} \text{ , } x > 0
 # \end{equation}
-# - Cumulative distribution function:
+# - Fonction de répartition:
 # \begin{equation}
-#     F(x) = 1 - e^{\lambda x}
+#     F_X(x) = 1 - e^{\lambda x}
 # \end{equation}
-# - $E(X) = \frac{1}{\lambda}$
-# - $Var(X) = \frac{1}{\lambda^2}$
+# - $\mathbb E(X) = \frac{1}{\lambda}$
+# - $\mathbb V(X) = \frac{1}{\lambda^2}$
 
 # In[3]:
 
 
 from scipy.stats import expon
 
-# Parameters
-Lambda = 0.5 # lambda, occurrence rate
-x = 1 # occurrence number
+Lambda = 0.5 
+x = 1 
 
-print("Mean: ", expon.mean(scale = Lambda))
+print("Espérance: ", expon.mean(scale = Lambda))
 print("Variance: ", expon.var(scale = Lambda))
-print("Probability mass function: ", expon.pdf(x, scale = Lambda))
-print("Cumulative distribution function: ", expon.cdf(x, scale = Lambda))
-print("Survival function (1-cdf): ", expon.sf(x, scale = Lambda))
+print("Densité de probabilité: ", expon.pdf(x, scale = Lambda))
+print("Fonction de répartition: ", expon.cdf(x, scale = Lambda))
 
 
 # ### The memoryless property of the Exponential Distribution

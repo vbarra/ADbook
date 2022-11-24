@@ -235,7 +235,7 @@
 # 
 # ```{index} Variable aléatoire ; mesurable
 # ``` 
-# ````{prf:definition} Variable aléatoire mesurabe
+# ````{prf:definition} Variable aléatoire mesurable
 # Une variable aléatoire $X$ est dite mesurable  si et seulement si : $(\forall B\in T')\; X^{-1}(B)\in T$
 # ```` 
 # 
