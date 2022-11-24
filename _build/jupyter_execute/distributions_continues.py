@@ -60,42 +60,40 @@ from scipy.stats import expon
 Lambda = 0.5 
 x = 1 
 
-print("Espérance: ", expon.mean(scale = Lambda))
-print("Variance: ", expon.var(scale = Lambda))
-print("Densité de probabilité: ", expon.pdf(x, scale = Lambda))
-print("Fonction de répartition: ", expon.cdf(x, scale = Lambda))
+print("Espérance : ", expon.mean(scale = Lambda))
+print("Variance : ", expon.var(scale = Lambda))
+print("Densité de probabilité : ", expon.pdf(x, scale = Lambda))
+print("Fonction de répartition : ", expon.cdf(x, scale = Lambda))
 
 
-# ### The memoryless property of the Exponential Distribution
+# ### La distribution exponentielle n'a pas de mémoire ...
 
-# - For any non-negative $x$ and $y$
+# - Pour tout $x,y>0$
 # \begin{equation}
 #     P(X \geq x + y \mid X \geq x) = P( X \geq y)
 # \end{equation}
-# - This is equivalent to:
+# - ce qui est équivalent à
 # \begin{equation}
 #     P(X \geq x + y, X \geq x) = P( X \geq x) P( X \geq y)
 # \end{equation}
-# - Meaning: the future does not depend on the past
+# $\Rightarrow$ le futur ne dépend pas du passé
 
-# - Proposition: if $ X_1, \cdots, X_n $ are independent exponential random variables having respective parameters $\lambda_1 , \cdots, \lambda_n$, then $min \{ X_1, \cdots , X_n \} $ is the exponential random variable with paramenter $\sum_{i = 1}^n \lambda_i$
+# **Proposition** : si $ X_1, \cdots, X_n $ sont des variables aléatoires indépendantes de paramètres respectifs $\lambda_1 , \cdots, \lambda_n$, alors $min \{ X_1, \cdots , X_n \} $ suit une loi exponentielle de paramètre  $\sum_{i = 1}^n \lambda_i$
 
-# ### The Poisson process
+# ### Processus de Poisson
 
-# - A stochastic process is a sequence of random events
-# - Poisson process with parameter $\lambda$: a stochastic process where the time (or space) intervals between events-occurrences follow the Exponential Distribution with parameter $\lambda$
-# - If $X$ is the number of events occurring within a fixed time (or space) interval of length $t$, then
+# - Un processus stochastique est une suite d'évènements aléatoires
+# - Processus de Poisson de paramètre $\lambda$ = processus stochastique où le temps (ou l'espace) entre deux occurrences d'évènements  suit une loi exponentielle de paramètre $\lambda$
+# - Si $X$ est le nombre d'évènements se produisant dans un intervalle de temps (ou d'espace) de longueur $t$ alors 
 # \begin{equation}
-#     X \sim Poi(\lambda t)
+#     X \sim Poisson(\lambda t)
 # \end{equation}
 # 
 
-# ## The Gamma Distribution
+# ## Distribution Gamma
 
-# ### Definition of the Gamma distribution
-
-# - Useful for describing reliability
-# - Gamma function:
+# - Utile en fiabilité
+# - Fonction Gamma :
 # \begin{equation}
 #     \Gamma(k) = \int_0^{\infty} x^{k-1}e^{-x}dx \text{ for } k>0
 # \end{equation}
@@ -104,115 +102,67 @@ print("Fonction de répartition: ", expon.cdf(x, scale = Lambda))
 
 
 from scipy.special import gamma as gamma_function
-k = 4 # parameter of the gamma function
-print("Gamma function result: ", gamma_function(k))
+k = 4
+print("Fonction Gamma: ", gamma_function(k))
 
 
-# - Gamma distribution $Gam(k, \lambda)$ with $k>0$ and $\lambda >0$
+# - Distribution Gamma $Gam(k, \lambda)$ où $k>0$ et $\lambda >0$
 # \begin{equation}
 #     f(x; k, \lambda) = \frac{\lambda ^k}{\Gamma (k)} x ^ {k-1} e ^ {- \lambda x} \text{ , } x > 0
 # \end{equation}
-# - $ E(X) = \frac{k}{ \lambda }$
-# - $ Var(X) = \frac{k}{ \lambda ^2}$
+# - $ \mathbb E(X) = \frac{k}{ \lambda }$
+# - $ \mathbb V(X) = \frac{k}{ \lambda ^2}$
 
 # In[5]:
 
 
 from scipy.stats import gamma
 
-# Parameters
-x = 3 # number of events
-k = 3 # parameter of the gamma function
-Lambda = 1.8 # lambda parameter
+x = 3 # nombre d'évènements
+k = 3 # paramètre de la fonction gamma
+Lambda = 1.8 
 
-print("Mean: ", gamma.mean(k,  scale = 1/Lambda))
-print("Variance: ", gamma.var(k, scale = 1/Lambda))
-print("Probability mass function: ", gamma.pdf(x, k,  scale = 1/Lambda))
-print("Cumulative distribution function: ", gamma.cdf(x, k, scale = 1/Lambda))
-print("Survival function (1-cdf): ", gamma.sf(x, k, scale = 1/Lambda))
+print("Moyenne : ", gamma.mean(k,  scale = 1/Lambda))
+print("Variance : ", gamma.var(k, scale = 1/Lambda))
+print("Densité de probabilité : ", gamma.pdf(x, k,  scale = 1/Lambda))
+print("Fonction de répartition : ", gamma.cdf(x, k, scale = 1/Lambda))
 
 
-# ### Properties of the Gamma function
+# ### Propriétés de la fonction Gamma
 
 # - $\Gamma (\alpha + 1) = \alpha \Gamma(\alpha)$
 # - $\Gamma (1) = 1$
 # - $\Gamma (1/2) = \sqrt{\pi}$
 # - $\Gamma (n) = (n-1) !$
 
-# ### Properties of the Gamma distribution 
+# ### Propriétés de la distribution Gamma
 
-# - If $X_1, \cdots, X_n$ are independent Gamma random variables with respective parameters $(k_i, \lambda)$, then
+# - Si $X_1, \cdots, X_n$ sont des variables aléatoires indépendantes Gamma de paramètres respectifs $(k_i, \lambda)$, alors
 # \begin{equation}
 #     \sum_{i=1}^n X_i \sim Gam(\sum_{i=1}^n k_i , \lambda)
 # \end{equation}
 
-# ## Weibull Distribution
+# ## Distribution Beta
+
+# - Modélisation des proportions
+# \begin{equation}
+#     f(x; \alpha, \beta) = \frac{\Gamma( \alpha + \beta)}{ \Gamma(\alpha) \Gamma(\beta)} x^{\alpha - 1} (1 - x) ^{\beta - 1} \text{ , } 0 < x < 1
+# \end{equation}
+# - $\mathbb E(X) = \frac{ \alpha}{ \alpha + \beta}$
+# - $\mathbb V(X) = \frac{ \alpha \beta}{ (\alpha + \beta) ^2 ( \alpha + \beta + 1)}$
 # 
-
-# ### Definition of the Weibull Distribution
-
-# - Useful for modeling failure and waiting times
-# - If $X \sim Exp(1)$ and $Y = \frac{1}{\lambda} x ^ { \frac{1}{a}}$ for $ a>0$, $\lambda > 0$ ,then 
-# \begin{equation}
-#     Y \sim Weibull(\lambda, a)
-# \end{equation}
-# 
-
-# - Probability distribution function of $Weibull(\lambda, a)$
-# \begin{equation}
-#     f(y) = a \lambda (\lambda y )^{a-1} e^{- (\lambda y) ^a} \text{ for } a>0 \text{ , } \lambda > 0
-# \end{equation}
-# - If $a = 1$, the Weibull distribution is the same as the Exponential distribution with parameter $\lambda$
-# - Cumulative distribution function:
-# \begin{equation}
-#     F(y) = 1 - e^{- (\lambda y) ^a}
-# \end{equation}
-# - $E(Y) = \frac{1}{\lambda} \Gamma(1 + \frac{1}{a})$
-# - $Var(Y) = \frac{1}{\lambda ^2} \Big\{  \Gamma(1 + \frac{2}{a}) - \big[ \Gamma(1 + \frac{1}{a}) \big]^2 \Big\} $
 
 # In[6]:
 
 
-from scipy.stats import weibull_min
-
-# Parameters
-x = 8 # number of events
-a = 2.3 # a parameter
-Lambda = 0.09 # lambda parameter
-
-print("Mean: ", weibull_min.mean(a)) # not sure about this
-print("Variance: ", weibull_min.var(a)) # not sure about this
-print("Probability mass function: ", weibull_min.pdf(x*Lambda, a))
-print("Cumulative distribution function: ", weibull_min.cdf(x*Lambda, a ))
-print("Survival function (1-cdf): ", weibull_min.sf(x*Lambda, a))
-
-
-# ## The Beta Distribution
-
-# ### Definition of the Beta Distribution
-
-# - Useful for modeling proportions and personal probability
-# - Probability distribution function:
-# \begin{equation}
-#     f(x; \alpha, \beta) = \frac{\Gamma( \alpha + \beta)}{ \Gamma(\alpha) \Gamma(\beta)} x^{\alpha - 1} (1 - x) ^{\beta - 1} \text{ , } 0 < x < 1
-# \end{equation}
-# - $E(X) = \frac{ \alpha}{ \alpha + \beta}$
-# - $Var(X) = \frac{ \alpha \beta}{ (\alpha + \beta) ^2 ( \alpha + \beta + 1)}$
-# 
-
-# In[7]:
-
-
 from scipy.stats import beta
 
-# Parameters
-x = 0.7 # (number of events?)
-a = 10 # alpha parameter
-b = 4 # beta parameter
+x = 0.7 
+a = 10 
+b = 4 
 
-print("Mean: ", beta.mean(a, b)) # not sure about this
+print("Moyenne : ", beta.mean(a, b)) # not sure about this
 print("Variance: ", beta.var(a, b)) # not sure about this
-print("Probability mass function: ", beta.pdf(x, a, b))
-print("Cumulative distribution function: ", beta.cdf(x, a, b ))
-print("Survival function (1-cdf): ", beta.sf(x, a, b))
+print("Densité de probabilité : ", beta.pdf(x, a, b))
+print("Fonction de répartition : ", beta.cdf(x, a, b ))
 
