@@ -17,9 +17,10 @@ warnings.simplefilter('ignore', DeprecationWarning)
 
 # - Distribution uniforme dans $[\![a,b]\!]$,  $U(a,b)$:
 # 
-# \begin{equation}
+# $
 #     f_X(x) = \frac{1}{b-a} \text{ , } a \leq x \leq b
-# \end{equation}
+# $
+# 
 # - $\mathbb E(x) = \frac{a+b}{2}$
 # - $\mathbb V(x) = \frac{(b-a)^2}{12}$
 
@@ -42,13 +43,13 @@ print("Variance: ", (b-a)**2/12 )
 # - $Exp( \lambda )$, $\lambda$ pouvant être interprété comme un taux d'occurence
 # - Décrit souvent le temps avant qu'un évènement se produise
 # - Densité de probabilité :
-# \begin{equation}
+# $
 #     f_X(x) = \lambda e ^ {- \lambda x} \text{ , } x > 0
-# \end{equation}
+# $
 # - Fonction de répartition:
-# \begin{equation}
+# $
 #     F_X(x) = 1 - e^{\lambda x}
-# \end{equation}
+# $
 # - $\mathbb E(X) = \frac{1}{\lambda}$
 # - $\mathbb V(X) = \frac{1}{\lambda^2}$
 
@@ -68,14 +69,13 @@ print("Fonction de répartition : ", expon.cdf(x, scale = Lambda))
 
 # ### La distribution exponentielle n'a pas de mémoire ...
 
-# - Pour tout $x,y>0$
-# \begin{equation}
-#     P(X \geq x + y \mid X \geq x) = P( X \geq y)
-# \end{equation}
+# - Pour tout $x,y>0, 
+#     P(X \geq x + y \mid X \geq x) = P( X \geq y)$
 # - ce qui est équivalent à
-# \begin{equation}
+# $
 #     P(X \geq x + y, X \geq x) = P( X \geq x) P( X \geq y)
-# \end{equation}
+# $
+# 
 # $\Rightarrow$ le futur ne dépend pas du passé
 
 # **Proposition** : si $ X_1, \cdots, X_n $ sont des variables aléatoires indépendantes de paramètres respectifs $\lambda_1 , \cdots, \lambda_n$, alors $min \{ X_1, \cdots , X_n \} $ suit une loi exponentielle de paramètre  $\sum_{i = 1}^n \lambda_i$
@@ -85,18 +85,19 @@ print("Fonction de répartition : ", expon.cdf(x, scale = Lambda))
 # - Un processus stochastique est une suite d'évènements aléatoires
 # - Processus de Poisson de paramètre $\lambda$ = processus stochastique où le temps (ou l'espace) entre deux occurrences d'évènements  suit une loi exponentielle de paramètre $\lambda$
 # - Si $X$ est le nombre d'évènements se produisant dans un intervalle de temps (ou d'espace) de longueur $t$ alors 
-# \begin{equation}
+# $
 #     X \sim Poisson(\lambda t)
-# \end{equation}
+# $
 # 
 
 # ## Distribution Gamma
 
 # - Utile en fiabilité
 # - Fonction Gamma :
-# \begin{equation}
+# 
+# $
 #     \Gamma(k) = \int_0^{\infty} x^{k-1}e^{-x}dx \text{ for } k>0
-# \end{equation}
+# $
 
 # In[4]:
 
@@ -107,9 +108,11 @@ print("Fonction Gamma: ", gamma_function(k))
 
 
 # - Distribution Gamma $Gam(k, \lambda)$ où $k>0$ et $\lambda >0$
-# \begin{equation}
+# 
+# $
 #     f(x; k, \lambda) = \frac{\lambda ^k}{\Gamma (k)} x ^ {k-1} e ^ {- \lambda x} \text{ , } x > 0
-# \end{equation}
+# $
+# 
 # - $ \mathbb E(X) = \frac{k}{ \lambda }$
 # - $ \mathbb V(X) = \frac{k}{ \lambda ^2}$
 
@@ -138,16 +141,19 @@ print("Fonction de répartition : ", gamma.cdf(x, k, scale = 1/Lambda))
 # ### Propriétés de la distribution Gamma
 
 # - Si $X_1, \cdots, X_n$ sont des variables aléatoires indépendantes Gamma de paramètres respectifs $(k_i, \lambda)$, alors
-# \begin{equation}
+# 
+# $
 #     \sum_{i=1}^n X_i \sim Gam(\sum_{i=1}^n k_i , \lambda)
-# \end{equation}
+# $
 
 # ## Distribution Beta
 
 # - Modélisation des proportions
-# \begin{equation}
+# 
+# $
 #     f(x; \alpha, \beta) = \frac{\Gamma( \alpha + \beta)}{ \Gamma(\alpha) \Gamma(\beta)} x^{\alpha - 1} (1 - x) ^{\beta - 1} \text{ , } 0 < x < 1
-# \end{equation}
+# $
+# 
 # - $\mathbb E(X) = \frac{ \alpha}{ \alpha + \beta}$
 # - $\mathbb V(X) = \frac{ \alpha \beta}{ (\alpha + \beta) ^2 ( \alpha + \beta + 1)}$
 # 
