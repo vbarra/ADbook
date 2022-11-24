@@ -46,10 +46,9 @@ print("Variance: ", bernoulli.var(p))
 # de paramètres $n$ et $p$
 
 # - La densité de probabilité $B(n, p)$ est :
-# 
-# \begin{equation}
+# $$
 #     f(x;n,p) = \binom{n}{x}p^x(1-p)^{n-x}, \text{   } x= 0,1, \cdots, n
-# \end{equation}
+# $$
 # 
 # - $\mathbb E(X) = np$
 # - $\mathbb V(X) = np(1-p)$
