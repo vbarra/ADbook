@@ -175,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="TP_Regression_Logistique.html">
-   Régression logistique
+   TP Régression logistique
   </a>
  </li>
  <li class="toctree-l1">
@@ -395,6 +395,33 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distribution-normale">
+   Distribution normale
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition-generale">
+     Définition générale
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loi-normale-centree-reduite">
+     Loi normale centrée réduite
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calcul-de-probabilites">
+     Calcul de probabilités
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distributions-reliees-a-la-loi-normale">
+     Distributions reliées à la loi normale
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#distribution-exponentielle">
    Distribution exponentielle
   </a>
@@ -461,6 +488,33 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#distribution-uniforme">
    Distribution uniforme
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distribution-normale">
+   Distribution normale
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition-generale">
+     Définition générale
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loi-normale-centree-reduite">
+     Loi normale centrée réduite
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calcul-de-probabilites">
+     Calcul de probabilités
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distributions-reliees-a-la-loi-normale">
+     Distributions reliées à la loi normale
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#distribution-exponentielle">
@@ -559,6 +613,157 @@ Variance:  1.3333333333333333
 </pre></div>
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="distribution-normale">
+<h2>Distribution normale<a class="headerlink" href="#distribution-normale" title="Permalink to this headline">#</a></h2>
+<div class="section" id="definition-generale">
+<h3>Définition générale<a class="headerlink" href="#definition-generale" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N( \mu, \sigma)\)</span>:<span class="math notranslate nohighlight">\(
+ f(x; \mu, \sigma) = \frac{1}{\sqrt{2 \pi} \sigma } e ^{- \frac{(x - \mu) ^2}{2 \sigma ^2}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mu\)</span> et la moyenne <span class="math notranslate nohighlight">\(\sigma\)</span> l’écart type, <span class="math notranslate nohighlight">\(\sigma^2\)</span> la variance</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mf">1.3</span> 
+<span class="n">mu</span> <span class="o">=</span> <span class="mi">0</span> 
+<span class="n">sigma</span> <span class="o">=</span> <span class="mi">1</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Moyenne : &quot;</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance : &quot;</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">))</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Densité de probabilité : &quot;</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fonction de répartition : &quot;</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Moyenne :  0.0
+Variance :  1.0
+Densité de probabilité :  0.17136859204780736
+Fonction de répartition :  0.9031995154143897
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="loi-normale-centree-reduite">
+<h3>Loi normale centrée réduite<a class="headerlink" href="#loi-normale-centree-reduite" title="Permalink to this headline">#</a></h3>
+<p><span class="math notranslate nohighlight">\(\mu = 0\)</span> et  <span class="math notranslate nohighlight">\(\sigma = 1\)</span></p>
+<ul class="simple">
+<li><p>Densité de probabilité :
+<span class="math notranslate nohighlight">\(
+  f(x) = \frac{1}{\sqrt{2 \pi}} e ^{- \frac{x ^2}{2}}
+\)</span></p></li>
+<li><p>Fonction de répartition: <span class="math notranslate nohighlight">\(\Phi(x)\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="calcul-de-probabilites">
+<h3>Calcul de probabilités<a class="headerlink" href="#calcul-de-probabilites" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X \sim N(\mu, \sigma^2) \Longrightarrow Z = \frac{X - \mu}{\sigma} \sim N(0,1)\)</span></p></li>
+<li><p>Donc, <span class="math notranslate nohighlight">\(P(a \leq X \leq b) = P \left( \frac{ a - \mu}{ \sigma} \leq \frac{ X - \mu}{ \sigma} \leq \frac{ b - \mu}{ \sigma} \right) = P \left( \frac{ a - \mu}{ \sigma} \leq Z \leq \frac{ b - \mu}{ \sigma} \right) = \Phi \left(\frac{ b - \mu}{ \sigma} \right) - \Phi \left( \frac{a - \mu}{ \sigma} \right)\)</span></p></li>
+<li><p>Propriétés :</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(P( \mu -c \sigma \leq X \leq \mu + c \sigma) = P(-c \leq Z \leq c)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(X \leq \mu + \sigma z_{\alpha}) = P(Z \leq z_ {\alpha}) = 1 - \alpha\)</span></p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1300</span> 
+<span class="n">mu</span> <span class="o">=</span> <span class="mi">1320</span> 
+<span class="n">sigma</span> <span class="o">=</span> <span class="mi">15</span> 
+
+<span class="n">Z</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">/</span><span class="n">sigma</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Moyenne : &quot;</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance: &quot;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Densité de probabilité : &quot;</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">Z</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fonction de répartition : &quot;</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">Z</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Moyenne :  1320
+Variance:  225
+Densité de probabilité :  0.16401007467599366
+Fonction de répartition :  0.09121121972586788
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="distributions-reliees-a-la-loi-normale">
+<h3>Distributions reliées à la loi normale<a class="headerlink" href="#distributions-reliees-a-la-loi-normale" title="Permalink to this headline">#</a></h3>
+<p><strong>Loi log normale</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Y = lnX) \sim N(\mu, \sigma^2)\)</span></p></li>
+<li><p>Densité de probabilité :
+<span class="math notranslate nohighlight">\(
+  f(x) = \frac{1}{\sqrt{2\pi} \sigma x} e^{ - \frac{ (ln(x) - \mu)^2}{2 \sigma ^2}} \text{ pour } x &gt; 0
+\)</span></p></li>
+<li><p>Fonction de répartition :
+<span class="math notranslate nohighlight">\(    F(x) = \Phi( \frac{ln (x) - \mu}{\sigma})
+\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(E(X) = e^{ \mu + \frac{ \sigma ^2}{2}} \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( Var(X) = e^{ 2\mu + \sigma^2} ( e^{\sigma^2} -1)\)</span></p></li>
+</ul>
+<p><strong>Distribution du <span class="math notranslate nohighlight">\(\chi^2\)</span></strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X_i \sim N(0,1)\)</span> et <span class="math notranslate nohighlight">\(X = \sum_{i =1}^ v X_i ^2\)</span>, et <span class="math notranslate nohighlight">\(X_i\)</span> sont indépendants. Alors <span class="math notranslate nohighlight">\(X \sim \chi_\nu^2\)</span> où <span class="math notranslate nohighlight">\(\nu\)</span> est le nombre de degrés de libertés de la distribution</p></li>
+<li><p>Densité de probabilité :
+<span class="math notranslate nohighlight">\(
+  f(x) = \frac{ \frac{1}{2} e ^ {-x/2} (\frac{x}{2} ) ^ { \frac{\nu}{2} -1} } { \Gamma( \frac {\nu}{2} )}
+\)</span></p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(
+    \chi_{\nu}^2 = \Gamma( \frac{ \nu}{2} , \frac{1}{2} )
+\)</span> (Voir plus bas)</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(E(X) = \nu\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Var(X) = 2 \nu\)</span></p></li>
+</ul>
+<p><strong>Distribution t</strong></p>
+<ul class="simple">
+<li><p>Etant donné <span class="math notranslate nohighlight">\( Z \sim N(0,1)\)</span> et <span class="math notranslate nohighlight">\(W \sim \chi_{\nu} ^2\)</span> où <span class="math notranslate nohighlight">\(Z\)</span> et <span class="math notranslate nohighlight">\(W\)</span> are indépendants, alors
+<span class="math notranslate nohighlight">\(
+  T_{\nu} = \frac{Z} {\sqrt{ W/ \nu }} \sim t_{\nu}
+\)</span>
+est une distribution t à <span class="math notranslate nohighlight">\(\nu\)</span> degrés de liberté</p></li>
+</ul>
+<p><strong>Distribution F</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(W_i \sim \chi_{\nu_i}^2\)</span> pour <span class="math notranslate nohighlight">\( i = 1,2\)</span> indépendants. Alors
+<span class="math notranslate nohighlight">\(
+  \frac{W_1/  \nu_1}{W_2 / \nu_2} \sim F_{\nu_1 , \nu_2}
+\)</span>
+est une distribution F de degrés de liberté <span class="math notranslate nohighlight">\(\nu_1, \nu_2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(F_{1 - \alpha, \nu_1, \nu_2} = \frac{1}{ F_{\alpha, \nu_1, \nu_2}}\)</span></p></li>
+</ul>
+<p><strong>Loi normale multivariée</strong></p>
+<ul class="simple">
+<li><p>Loi bivariée <span class="math notranslate nohighlight">\((X,Y)\)</span> de paramètres <span class="math notranslate nohighlight">\(\mu_1 , \mu_2 , \sigma_1^2 , \sigma_2^2 , \rho\)</span>, où <span class="math notranslate nohighlight">\(\mu_1 = E(X)\)</span></p></li>
+<li><p>Variables : <span class="math notranslate nohighlight">\(\mu_1 = E(X), \mu_2 = E(Y) , \sigma_1^2 = Var(X)  , \sigma_2^2 = Var(Y) , \rho = Corr(X,Y)\)</span></p></li>
+<li><p>Densité de probabilité jointe de <span class="math notranslate nohighlight">\((X,Y)\)</span>:
+<span class="math notranslate nohighlight">\(
+  f(x,y) = \frac{1}{2 \pi \sigma_1 \sigma_2 \sqrt{ 1- \rho ^2} } e^ { \left( - \frac{1}{2 (1 - \rho^2)} \left[ x^2 + y^2 -2 \rho xy \right] \right) } \text{ pour } x&lt; \infty, y &lt; \infty
+\)</span></p></li>
+<li><p>En particulier, lorsque <span class="math notranslate nohighlight">\(\mu_1 = \mu_2 = 0 \)</span> et <span class="math notranslate nohighlight">\(\sigma_1 = \sigma_2 = 1\)</span>
+<span class="math notranslate nohighlight">\(
+  f(x,y) = \frac{1}{2 \pi \sqrt{1 - \rho^2}} e^ { \left( - \frac{1}{2 (1 - \rho^2)} \left[ x^2 + y^2 -2 \rho x y \right] \right) }
+\)</span></p></li>
+<li><p>Lorsque <span class="math notranslate nohighlight">\(\mu_1 = \mu_2 = 0 \)</span> et <span class="math notranslate nohighlight">\(\sigma_1 = \sigma_2 = 1\)</span> et indépendance entre  <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span>, alors <span class="math notranslate nohighlight">\(\rho = 0\)</span>
+<span class="math notranslate nohighlight">\(
+  f(x,y) = \frac{1}{2 \pi} e^ { \left( - \frac{1}{2} \left[ x^2 + y^2 \right] \right) }
+\)</span></p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="distribution-exponentielle">
