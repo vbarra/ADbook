@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Régression logistique
+# # TP Régression logistique
 
 # In[1]:
 
