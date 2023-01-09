@@ -47,6 +47,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -704,7 +706,7 @@ Fonction de répartition :  0.09121121972586788
 <h3>Distributions reliées à la loi normale<a class="headerlink" href="#distributions-reliees-a-la-loi-normale" title="Permalink to this headline">#</a></h3>
 <p><strong>Loi log normale</strong></p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(Y = lnX) \sim N(\mu, \sigma^2)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Y = ln(X) \sim N(\mu, \sigma^2)\)</span></p></li>
 <li><p>Densité de probabilité :
 <span class="math notranslate nohighlight">\(
   f(x) = \frac{1}{\sqrt{2\pi} \sigma x} e^{ - \frac{ (ln(x) - \mu)^2}{2 \sigma ^2}} \text{ pour } x &gt; 0
