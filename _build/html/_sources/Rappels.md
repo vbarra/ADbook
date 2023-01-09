@@ -151,7 +151,7 @@ Remarquons que l'on peut écrire $P(A\bigcap B) = P(A\mid B)P(B) = P(B\mid A)P(A
 L'évènement $A$ est "avoir un cancer du poumon", et $B$ est "être fumeur". D'après les données on a $P(A)$=0.07, $P(B)$ = 0.5 et $P(B\mid A)$ = 0.7. 
 On a alors $P(A\mid B) = \frac{P(A\bigcap B)}{P(B)}$ avec $P(A\bigcap B)=P(B\mid A)P(A)$ d'où
 
-$P(B\mid A)=\frac{P(B\mid A)P(A)}{P(B}$ = 0.098
+$P(A\mid B)=\frac{P(B\mid A)P(A)}{P(B}$ = 0.098
 ````
 
 ### Indépendance

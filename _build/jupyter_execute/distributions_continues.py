@@ -36,6 +36,126 @@ print("Espérance: ", (a+b)/2 )
 print("Variance: ", (b-a)**2/12 )
 
 
+# ## Distribution normale
+
+# ### Définition générale
+
+# -  $N( \mu, \sigma)$:$
+#     f(x; \mu, \sigma) = \frac{1}{\sqrt{2 \pi} \sigma } e ^{- \frac{(x - \mu) ^2}{2 \sigma ^2}}$
+# - $\mu$ et la moyenne $\sigma$ l'écart type, $\sigma^2$ la variance
+
+# In[3]:
+
+
+from scipy.stats import norm
+
+x = 1.3 
+mu = 0 
+sigma = 1 
+
+print("Moyenne : ", norm.mean(loc = mu, scale = sigma))
+print("Variance : ", norm.var(loc = mu, scale = sigma)) 
+print("Densité de probabilité : ", norm.pdf(x, loc = mu, scale = sigma))
+print("Fonction de répartition : ", norm.cdf(x, loc = mu, scale = sigma))
+
+
+# ### Loi normale centrée réduite
+
+# $\mu = 0$ et  $\sigma = 1$
+# - Densité de probabilité :
+# $
+#     f(x) = \frac{1}{\sqrt{2 \pi}} e ^{- \frac{x ^2}{2}}
+# $
+# - Fonction de répartition: $\Phi(x)$ 
+
+# ### Calcul de probabilités
+
+# - $X \sim N(\mu, \sigma^2) \Longrightarrow Z = \frac{X - \mu}{\sigma} \sim N(0,1)$
+# - Donc, $P(a \leq X \leq b) = P \left( \frac{ a - \mu}{ \sigma} \leq \frac{ X - \mu}{ \sigma} \leq \frac{ b - \mu}{ \sigma} \right) = P \left( \frac{ a - \mu}{ \sigma} \leq Z \leq \frac{ b - \mu}{ \sigma} \right) = \Phi \left(\frac{ b - \mu}{ \sigma} \right) - \Phi \left( \frac{a - \mu}{ \sigma} \right)$
+# - Propriétés :
+#     - $P( \mu -c \sigma \leq X \leq \mu + c \sigma) = P(-c \leq Z \leq c)$
+#     - $P(X \leq \mu + \sigma z_{\alpha}) = P(Z \leq z_ {\alpha}) = 1 - \alpha$
+
+# In[4]:
+
+
+from scipy.stats import norm
+
+x = 1300 
+mu = 1320 
+sigma = 15 
+
+Z = (x - mu)/sigma
+
+
+print("Moyenne : ", mu) 
+print("Variance: ", sigma**2) 
+print("Densité de probabilité : ", norm.pdf(Z))
+print("Fonction de répartition : ", norm.cdf(Z))
+
+
+# ### Distributions reliées à la loi normale
+
+# **Loi log normale** 
+# - $Y = ln(X) \sim N(\mu, \sigma^2)$
+# - Densité de probabilité :
+# $
+#     f(x) = \frac{1}{\sqrt{2\pi} \sigma x} e^{ - \frac{ (ln(x) - \mu)^2}{2 \sigma ^2}} \text{ pour } x > 0
+# $
+# 
+# - Fonction de répartition : 
+# $    F(x) = \Phi( \frac{ln (x) - \mu}{\sigma})
+# $
+# - $E(X) = e^{ \mu + \frac{ \sigma ^2}{2}} $
+# - $ Var(X) = e^{ 2\mu + \sigma^2} ( e^{\sigma^2} -1)$
+# 
+# **Distribution du $\chi^2$**
+# - $X_i \sim N(0,1)$ et $X = \sum_{i =1}^ v X_i ^2$, et $X_i$ sont indépendants. Alors $X \sim \chi_\nu^2$ où $\nu$ est le nombre de degrés de libertés de la distribution
+# - Densité de probabilité :
+# $
+#     f(x) = \frac{ \frac{1}{2} e ^ {-x/2} (\frac{x}{2} ) ^ { \frac{\nu}{2} -1} } { \Gamma( \frac {\nu}{2} )}
+# $
+# 
+# $
+#     \chi_{\nu}^2 = \Gamma( \frac{ \nu}{2} , \frac{1}{2} )
+# $ (Voir plus bas)
+# 
+# - $E(X) = \nu$
+# - $Var(X) = 2 \nu$
+# 
+# **Distribution t**
+# - Etant donné $ Z \sim N(0,1)$ et $W \sim \chi_{\nu} ^2$ où $Z$ et $W$ are indépendants, alors
+# $
+#     T_{\nu} = \frac{Z} {\sqrt{ W/ \nu }} \sim t_{\nu}
+# $ 
+# est une distribution t à $\nu$ degrés de liberté
+# 
+# 
+# **Distribution F**
+# - $W_i \sim \chi_{\nu_i}^2$ pour $ i = 1,2$ indépendants. Alors
+# $
+#     \frac{W_1/  \nu_1}{W_2 / \nu_2} \sim F_{\nu_1 , \nu_2}
+# $
+# est une distribution F de degrés de liberté $\nu_1, \nu_2$
+# - $F_{1 - \alpha, \nu_1, \nu_2} = \frac{1}{ F_{\alpha, \nu_1, \nu_2}}$
+# 
+# **Loi normale multivariée**
+# - Loi bivariée $(X,Y)$ de paramètres $\mu_1 , \mu_2 , \sigma_1^2 , \sigma_2^2 , \rho$, où $\mu_1 = E(X)$
+# - Variables : $\mu_1 = E(X), \mu_2 = E(Y) , \sigma_1^2 = Var(X)  , \sigma_2^2 = Var(Y) , \rho = Corr(X,Y)$
+# - Densité de probabilité jointe de $(X,Y)$:
+# $
+#     f(x,y) = \frac{1}{2 \pi \sigma_1 \sigma_2 \sqrt{ 1- \rho ^2} } e^ { \left( - \frac{1}{2 (1 - \rho^2)} \left[ x^2 + y^2 -2 \rho xy \right] \right) } \text{ pour } x< \infty, y < \infty
+# $
+# 
+# - En particulier, lorsque $\mu_1 = \mu_2 = 0 $ et $\sigma_1 = \sigma_2 = 1$
+# $
+#     f(x,y) = \frac{1}{2 \pi \sqrt{1 - \rho^2}} e^ { \left( - \frac{1}{2 (1 - \rho^2)} \left[ x^2 + y^2 -2 \rho x y \right] \right) }
+# $
+# - Lorsque $\mu_1 = \mu_2 = 0 $ et $\sigma_1 = \sigma_2 = 1$ et indépendance entre  $X$ et $Y$, alors $\rho = 0$
+# $
+#     f(x,y) = \frac{1}{2 \pi} e^ { \left( - \frac{1}{2} \left[ x^2 + y^2 \right] \right) }
+# $
+
 # ## Distribution exponentielle
 
 # ### Définition
@@ -53,7 +173,7 @@ print("Variance: ", (b-a)**2/12 )
 # - $\mathbb E(X) = \frac{1}{\lambda}$
 # - $\mathbb V(X) = \frac{1}{\lambda^2}$
 
-# In[3]:
+# In[5]:
 
 
 from scipy.stats import expon
@@ -99,7 +219,7 @@ print("Fonction de répartition : ", expon.cdf(x, scale = Lambda))
 #     \Gamma(k) = \int_0^{\infty} x^{k-1}e^{-x}dx \text{ for } k>0
 # $
 
-# In[4]:
+# In[6]:
 
 
 from scipy.special import gamma as gamma_function
@@ -116,7 +236,7 @@ print("Fonction Gamma: ", gamma_function(k))
 # - $ \mathbb E(X) = \frac{k}{ \lambda }$
 # - $ \mathbb V(X) = \frac{k}{ \lambda ^2}$
 
-# In[5]:
+# In[7]:
 
 
 from scipy.stats import gamma
@@ -158,7 +278,7 @@ print("Fonction de répartition : ", gamma.cdf(x, k, scale = 1/Lambda))
 # - $\mathbb V(X) = \frac{ \alpha \beta}{ (\alpha + \beta) ^2 ( \alpha + \beta + 1)}$
 # 
 
-# In[6]:
+# In[8]:
 
 
 from scipy.stats import beta
