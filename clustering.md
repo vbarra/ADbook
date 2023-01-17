@@ -246,6 +246,67 @@ Le critère d'arrêt permet de déterminer la partition  de $X$ la plus appropri
 ### Utilisation des méthodes
 La première difficulté est le choix de la mesure de dissimilarité sur  $\Omega$ et du critère d'agrégation. Généralement, lorsque l'on dispose de variables quantitatives, le critère conseillé est le critère d'inertie. Ensuite, il est souvent nécessaire de disposer d'outils d'aide à l'interprétation et d'outils permettant de diminuer le nombre de niveaux de hiérarchie. Il est d'autre part conseillé d'utiliser conjointement d'autres méthodes d'analyse des données comme l'Analyse en Composantes Principales vue au chapitre précédent.
 
+### Exemple
+On étudie ici un jeu de données correspondant aux achats dans un supermarché. On cherche à caractériser les comportements des acheteurs en fonction de leurs revenus
+```{code-cell} ipython3
+import pandas as pd
+df = pd.read_csv('./data/Mall_Customers.csv')
+df.head(5)
+```
+
+On affiche les données
+
+```{code-cell} ipython3
+import matplotlib.pyplot as plt
+plt.figure(figsize=(16,5))
+plt.subplot(121)
+plt.title("Score/Revenu")
+plt.xlabel ("Revenu annuel (k$)")
+plt.ylabel ("Score d'achat")
+plt.grid(True)
+plt.scatter(df['Annual Income (k$)'],df['Spending Score (1-100)'],color='blue',edgecolor='k',alpha=0.6, s=50)
+plt.subplot(122)
+plt.title("Distribution des âges et des scores d'achat")
+plt.xlabel ("Age")
+plt.ylabel ("Score d'achat")
+plt.grid(True)
+plt.scatter(df['Age'],df['Spending Score (1-100)'],color='red',edgecolor='k',alpha=0.6, s=50)
+plt.tight_layout()
+```
+
+L'objectif est de trouver des catégories de population ayant les mêmes comportements d'achat. Le nombre de classes étant inconnu, la classification héararchique va permettre de donner des indications sur le nombre de groupes.
+
+```{code-cell} ipython3
+import scipy.cluster.hierarchy as sch
+
+X = df.iloc[:,[3,4]].values
+plt.figure(figsize=(15,6))
+plt.title('Dendrogramme')
+plt.xlabel('Clients')
+plt.ylabel('Indice')
+plt.hlines(y=190,xmin=0,xmax=2000,lw=2,linestyles='--')
+plt.text(x=900,y=220,s='Cut',fontsize=20)
+dendrogram = sch.dendrogram(sch.linkage(X, method = 'ward'))
+plt.show()
+```
+
+On projette ensuite le résultat de la classificatiob
+```{code-cell} ipython3
+from sklearn.cluster import AgglomerativeClustering
+model = AgglomerativeClustering(n_clusters = 5, metric = 'euclidean', linkage = 'ward')
+y_model = model.fit_predict(X)
+plt.figure(figsize=(12,7))
+plt.scatter(X[y_model == 0, 0], X[y_model == 0, 1], s = 50, c = 'red', label = 'Radins')
+plt.scatter(X[y_model == 1, 0], X[y_model == 1, 1], s = 50, c = 'blue', label = 'Prudents')
+plt.scatter(X[y_model == 2, 0], X[y_model == 2, 1], s = 50, c = 'green', label = 'Riches')
+plt.scatter(X[y_model == 3, 0], X[y_model == 3, 1], s = 50, c = 'orange', label = 'Dépensiers modestes')
+plt.scatter(X[y_model == 4, 0], X[y_model == 4, 1], s = 50, c = 'magenta', label = 'Conscients')
+plt.title('Classification',fontsize=14)
+plt.xlabel ("revenu annuel (k$)",fontsize=14)
+plt.ylabel ("Score (1-100)",fontsize=14)
+plt.legend(loc='best')
+plt.tight_layout()
+```
 ## Recherche de partitions
 
 ### Méthode des centres mobiles
@@ -318,8 +379,46 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 
 
   
+  ### Exemple
+On génère des données
+```{code-cell} ipython3
+from sklearn.datasets import make_blobs
+import numpy as np
+import matplotlib.pyplot as plt
 
+nb_classes = 3
+center = np.array(
+        [[ 3,  0],[1 ,  1],[3,  4]])
+cluster_std = np.array([0.8, 0.3, 1])    
 
+X, y = make_blobs(n_samples=500,centers=center,cluster_std = cluster_std, random_state=42)
+plt.figure(figsize=(5,5))
+plt.scatter(X[:, 0], X[:, 1], c=y)
+plt.tight_layout()
+plt.tick_params(labelbottom=False)
+plt.tick_params(labelleft=False)
+```
+Puis on applique l'algorithme des $k$-means.
+
+```{code-cell} ipython3
+from sklearn.cluster import KMeans
+
+model = KMeans(n_clusters=nb_classes,n_init=10)
+    
+plt.figure(figsize=(12,6))
+plt.subplot(121)
+plt.scatter(X[:, 0], X[:, 1],c=y, s=30,linewidths=0,cmap=plt.cm.rainbow)
+plt.title("Vraies classes")
+plt.tick_params(labelbottom=False)
+plt.tick_params(labelleft=False)
+plt.subplot(122)
+model.fit(X)
+plt.scatter(X[:, 0], X[:, 1], c=model.labels_, s=30,linewidths=0, cmap=plt.cm.rainbow)
+plt.title("K means à {0:d} classes".format(nb_classes))
+plt.tick_params(labelbottom=False)
+plt.tick_params(labelleft=False)
+plt.tight_layout() 
+```
 
 
 

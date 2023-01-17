@@ -26,6 +26,9 @@ Pour effectuer cette classification, deux démarches sont généralement utilis�
 
 ## Structures de classification
 ### Partition
+```{index} Partition
+```
+
 ````{prf:definition} Partition
 $\Omega$ étant un ensemble fini, un ensemble $P =(P_1 ,P_2 ,\cdots  P_g )$ de parties non vides de   $\Omega$ est une partition si :
 - $(\forall k\neq l) P_k \cap P_l=\emptyset$
@@ -33,6 +36,9 @@ $\Omega$ étant un ensemble fini, un ensemble $P =(P_1 ,P_2 ,\cdots  P_g )$ de p
 ````
 Dans un ensemble  $\Omega$ partitionné en $g$ classes, chaque élément de l'ensemble appartient à une classe et une seule. Une manière pratique de décrire cette partition $P$ consiste à lui associer la matrice de classification ${\bf C}=(c_{ij}), i\in [\![1,n]\!], j\in [\![1,g]\!]$, avec $c_{ij}=1$ si l'individu $i$ appartient à $P_j$, et $c_{ij}=0$ sinon. Dans le cas où l'on accepte qu'un individu appartienne à plusieurs classes (avec des degrés d'appartenance), on autorise $c_{ij}$ à couvrir l'intervalle [0,1] et on parle alors de classification floue.
 ### Hiérarchie indicée
+```{index} Hiérarchie
+```
+
 ````{prf:definition} Hiérarchie
 $\Omega$ étant un ensemble fini, un ensemble $H$ de parties non vides de $\Omega$ est une hiérarchie sur $\Omega$ si :
 - $\Omega \in H$
@@ -148,6 +154,9 @@ deux approches :
 
 
 ### Algorithme
+```{index} Clustering hiérarchique
+```
+
 #### Construction de la hiérarchie
 $\Omega$  étant l'ensemble à classifier et $d$ une mesure de dissimilarité sur cet ensemble, on définit, à partir de $d$, une  distance $D$ entre les parties de  $\Omega$. Cette distance est en réalité une mesure de dissimilarité qui ne vérifie pas nécessairement toutes les propriétés d'une distance sur l'ensemble des parties de $\Omega$. En général, $D$ est appelé critère d'agrégation.
 L'algorithme est alors le suivant :
@@ -199,6 +208,8 @@ Pour les trois critères d'agrégation précédents, il existe des relations de 
 
 
 ### Critère de Ward
+```{index} Ward ; critère
+```
 Lorsque l'ensemble   $\Omega$ à classifier est mesuré par $p$ variables quantitatives, il est possible de lui associer un nuage de points pondérés dans $\mathbb{R}^p$ muni de la distance euclidienne $d$. Généralement, les pondérations seront toutes égales à 1. Le critère d'agrégation le plus utilisé dans cette situation est alors le critère d'inertie de Ward :
 
 $D(A,B)=\frac{p_Ap_B}{p_A+p_B}d^2({\bf g}(A),{\bf g}(B))$
@@ -215,6 +226,8 @@ Le problème de la classification hiérarchique peut donc également se poser en
 
 
 ### Critère d'arrêt et partition
+```{index} Dendrogramme
+```
 L'ensemble des itérations peut être visualisé sous la forme d'un arbre, appelé dendrogramme. La figure suivante présente un exemple de dendrogramme en clustering hiérarchique descendant sur $X = \{a, b, c, d, e\}$. La distance $D$ n’est pas reportée
 
 ![](./images/dendro1.png)
@@ -233,9 +246,75 @@ Le critère d'arrêt permet de déterminer la partition  de $X$ la plus appropri
 ### Utilisation des méthodes
 La première difficulté est le choix de la mesure de dissimilarité sur  $\Omega$ et du critère d'agrégation. Généralement, lorsque l'on dispose de variables quantitatives, le critère conseillé est le critère d'inertie. Ensuite, il est souvent nécessaire de disposer d'outils d'aide à l'interprétation et d'outils permettant de diminuer le nombre de niveaux de hiérarchie. Il est d'autre part conseillé d'utiliser conjointement d'autres méthodes d'analyse des données comme l'Analyse en Composantes Principales vue au chapitre précédent.
 
+### Exemple
+On étudie ici un jeu de données correspondant aux achats dans un supermarché. On cherche à caractériser les comportements des acheteurs en fonction de leurs revenus
+```{code-cell} ipython3
+import pandas as pd
+df = pd.read_csv('./data/Mall_Customers.csv')
+df.head(5)
+```
+
+On affiche les données
+
+```{code-cell} ipython3
+import matplotlib.pyplot as plt
+plt.figure(figsize=(16,5))
+plt.subplot(121)
+plt.title("Score/Revenu")
+plt.xlabel ("Revenu annuel (k$)")
+plt.ylabel ("Score d'achat")
+plt.grid(True)
+plt.scatter(df['Annual Income (k$)'],df['Spending Score (1-100)'],color='blue',edgecolor='k',alpha=0.6, s=50)
+plt.subplot(122)
+plt.title("Distribution des âges et des scores d'achat")
+plt.xlabel ("Age")
+plt.ylabel ("Score d'achat")
+plt.grid(True)
+plt.scatter(df['Age'],df['Spending Score (1-100)'],color='red',edgecolor='k',alpha=0.6, s=50)
+plt.tight_layout()
+```
+
+L'objectif est de trouver des catégories de population ayant les mêmes comportements d'achat. Le nombre de classes étant inconnu, la classification héararchique va permettre de donner des indications sur le nombre de groupes.
+
+```{code-cell} ipython3
+import scipy.cluster.hierarchy as sch
+
+X = df.iloc[:,[3,4]].values
+plt.figure(figsize=(15,6))
+plt.title('Dendrogramme')
+plt.xlabel('Clients')
+plt.ylabel('Indice')
+plt.hlines(y=190,xmin=0,xmax=2000,lw=2,linestyles='--')
+plt.text(x=900,y=220,s='Cut',fontsize=20)
+dendrogram = sch.dendrogram(sch.linkage(X, method = 'ward'))
+plt.show()
+```
+
+On projette ensuite le résultat de la classificatiob
+```{code-cell} ipython3
+from sklearn.cluster import AgglomerativeClustering
+model = AgglomerativeClustering(n_clusters = 5, metric = 'euclidean', linkage = 'ward')
+y_model = model.fit_predict(X)
+plt.figure(figsize=(12,7))
+plt.scatter(X[y_model == 0, 0], X[y_model == 0, 1], s = 50, c = 'red', label = 'Radins')
+plt.scatter(X[y_model == 1, 0], X[y_model == 1, 1], s = 50, c = 'blue', label = 'Prudents')
+plt.scatter(X[y_model == 2, 0], X[y_model == 2, 1], s = 50, c = 'green', label = 'Riches')
+plt.scatter(X[y_model == 3, 0], X[y_model == 3, 1], s = 50, c = 'orange', label = 'Dépensiers modestes')
+plt.scatter(X[y_model == 4, 0], X[y_model == 4, 1], s = 50, c = 'magenta', label = 'Conscients')
+plt.title('Classification',fontsize=14)
+plt.xlabel ("revenu annuel (k$)",fontsize=14)
+plt.ylabel ("Score (1-100)",fontsize=14)
+plt.legend(loc='best')
+plt.tight_layout()
+```
 ## Recherche de partitions
 
 ### Méthode des centres mobiles
+```{index} Centres mobiles
+```
+
+```{index} K-means
+```
 La méthode des centres mobiles est encore connue sous le nom de méthode de réallocation-centrage ou des k-means lorsque l'ensemble à classifier est mesuré par $p$ variables. Ici, $\Omega \in \mathbb{R}^p$ est muni de sa distance euclidienne $d$. Pour simplifier la présentation, les pondérations des individus seront toutes égales à 1, mais la généralisation à des pondérations quelconques ne pose aucun problème.
 
 #### Algorithme
@@ -276,6 +355,10 @@ La méthode des centres mobiles et la méthode de Ward optimisent toutes deux, �
 - éventuellement, appliquer de nouveau la méthode des centres-mobiles sur les partitions obtenues pour améliorer encore leur critère. 
 
 ### Généralisation : les nuées dynamiques
+
+```{index} Nuées dynamiques
+```
+
 L'idée de base consiste à remplacer les centres   qui étaient des éléments de $\mathbb{R}^p$ jouant le rôle de représentant ou encore de noyau de la classe par des éléments de nature très diverse adaptés au problème que l'on cherche à résoudre.
 
 #### Formalisation
@@ -296,8 +379,46 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 
 
   
+  ### Exemple
+On génère des données
+```{code-cell} ipython3
+from sklearn.datasets import make_blobs
+import numpy as np
+import matplotlib.pyplot as plt
 
+nb_classes = 3
+center = np.array(
+        [[ 3,  0],[1 ,  1],[3,  4]])
+cluster_std = np.array([0.8, 0.3, 1])    
 
+X, y = make_blobs(n_samples=500,centers=center,cluster_std = cluster_std, random_state=42)
+plt.figure(figsize=(5,5))
+plt.scatter(X[:, 0], X[:, 1], c=y)
+plt.tight_layout()
+plt.tick_params(labelbottom=False)
+plt.tick_params(labelleft=False)
+```
+Puis on applique l'algorithme des $k$-means.
+
+```{code-cell} ipython3
+from sklearn.cluster import KMeans
+
+model = KMeans(n_clusters=nb_classes,n_init=10)
+    
+plt.figure(figsize=(12,6))
+plt.subplot(121)
+plt.scatter(X[:, 0], X[:, 1],c=y, s=30,linewidths=0,cmap=plt.cm.rainbow)
+plt.title("Vraies classes")
+plt.tick_params(labelbottom=False)
+plt.tick_params(labelleft=False)
+plt.subplot(122)
+model.fit(X)
+plt.scatter(X[:, 0], X[:, 1], c=model.labels_, s=30,linewidths=0, cmap=plt.cm.rainbow)
+plt.title("K means à {0:d} classes".format(nb_classes))
+plt.tick_params(labelbottom=False)
+plt.tick_params(labelleft=False)
+plt.tight_layout() 
+```
 
 
 
