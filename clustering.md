@@ -362,7 +362,7 @@ La méthode des centres mobiles et la méthode de Ward optimisent toutes deux, �
 L'idée de base consiste à remplacer les centres   qui étaient des éléments de $\mathbb{R}^p$ jouant le rôle de représentant ou encore de noyau de la classe par des éléments de nature très diverse adaptés au problème que l'on cherche à résoudre.
 
 #### Formalisation
-On note $L=\{\lambda_i\}$ l'ensemble des noyaux, $D:\Omega\times L\rightarrow \mathbb{R}^+$ une mesure de ressemblance entre éléments de $\Omega$ et de $L$. L'objectif est alors de trouver la partition en $g$ classes ($g$ fixé {\it a priori}) de $\Omega$ minimisant le critère $\displaystyle\sum_{k}\displaystyle\sum_{x\in P_k}D(x,\lambda_k)$
+On note $L=\{\lambda_i\}$ l'ensemble des noyaux, $D:\Omega\times L\rightarrow \mathbb{R}^+$ une mesure de ressemblance entre éléments de $\Omega$ et de $L$. L'objectif est alors de trouver la partition en $g$ classes ($g$ fixé a priori) de $\Omega$ minimisant le critère $\displaystyle\sum_{k}\displaystyle\sum_{x\in P_k}D(x,\lambda_k)$
 
 Cette minimisation est réalisée de façon alternée, comme pour les centres mobiles.
 
@@ -418,7 +418,7 @@ plt.title("K means à {0:d} classes".format(nb_classes))
 plt.tick_params(labelbottom=False)
 plt.tick_params(labelleft=False)
 plt.tight_layout() 
-```
+``
 
 
 
