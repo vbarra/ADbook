@@ -197,7 +197,8 @@ f.subplots_adjust(wspace=0.9)
 
 
 # Comme en ACP où il est possible de reconstituer approximativement les données originelles à partir des coordonnées factorielles des individus, on peut approcher le tableau des indices d’attraction-répulsion $i_{kl}$ à partir des coordonnées factorielles des modalités lignes et colonnes : en reconstruisant à partir des $P$ premiers facteurs, si $F_{kp}$ ett $G_{lp}$ sont les coordonnées factorielles des modalités lignes et colonnes
-# $$i_{kl} = 1+\displaystyle\sum_{p=1}^P \frac{F_{kp}G_{lp}}{\sqrt{\lambda_p}}$$
+# 
+# $i_{kl} = 1+\displaystyle\sum_{p=1}^P \frac{F_{kp}G_{lp}}{\sqrt{\lambda_p}}$
 # 
 # Ainsi : 
 # - Deux modalités s’attirent (resp. se repoussent) si leurs coordonnées sont de même signe (resp. de signe contraire) sur les axes factoriels.

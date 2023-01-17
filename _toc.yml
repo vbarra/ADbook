@@ -17,4 +17,5 @@ chapters:
 - file: regression
 - file: TP_Regression_Lineaire
 - file: TP_Regression_Logistique
+- file: clustering
 - file: genindex
