@@ -852,7 +852,7 @@ title="Print to PDF"
 <div class="section" id="partition">
 <h3>Partition<a class="headerlink" href="#partition" title="Permalink to this headline">#</a></h3>
 <div class="proof definition admonition" id="definition-0">
-<p class="admonition-title"><span class="caption-number">Definition 40 </span> (Partition)</p>
+<span id="index-0"></span><p class="admonition-title"><span class="caption-number">Definition 40 </span> (Partition)</p>
 <div class="definition-content section" id="proof-content">
 <p><span class="math notranslate nohighlight">\(\Omega\)</span> étant un ensemble fini, un ensemble <span class="math notranslate nohighlight">\(P =(P_1 ,P_2 ,\cdots  P_g )\)</span> de parties non vides de   <span class="math notranslate nohighlight">\(\Omega\)</span> est une partition si :</p>
 <ul class="simple">
@@ -865,7 +865,7 @@ title="Print to PDF"
 <div class="section" id="hierarchie-indicee">
 <h3>Hiérarchie indicée<a class="headerlink" href="#hierarchie-indicee" title="Permalink to this headline">#</a></h3>
 <div class="proof definition admonition" id="definition-1">
-<p class="admonition-title"><span class="caption-number">Definition 41 </span> (Hiérarchie)</p>
+<span id="index-1"></span><p class="admonition-title"><span class="caption-number">Definition 41 </span> (Hiérarchie)</p>
 <div class="definition-content section" id="proof-content">
 <p><span class="math notranslate nohighlight">\(\Omega\)</span> étant un ensemble fini, un ensemble <span class="math notranslate nohighlight">\(H\)</span> de parties non vides de <span class="math notranslate nohighlight">\(\Omega\)</span> est une hiérarchie sur <span class="math notranslate nohighlight">\(\Omega\)</span> si :</p>
 <ul class="simple">
@@ -992,7 +992,7 @@ deux approches :</p>
 <div class="section" id="algorithme">
 <h3>Algorithme<a class="headerlink" href="#algorithme" title="Permalink to this headline">#</a></h3>
 <div class="section" id="construction-de-la-hierarchie">
-<h4>Construction de la hiérarchie<a class="headerlink" href="#construction-de-la-hierarchie" title="Permalink to this headline">#</a></h4>
+<span id="index-2"></span><h4>Construction de la hiérarchie<a class="headerlink" href="#construction-de-la-hierarchie" title="Permalink to this headline">#</a></h4>
 <p><span class="math notranslate nohighlight">\(\Omega\)</span>  étant l’ensemble à classifier et <span class="math notranslate nohighlight">\(d\)</span> une mesure de dissimilarité sur cet ensemble, on définit, à partir de <span class="math notranslate nohighlight">\(d\)</span>, une  distance <span class="math notranslate nohighlight">\(D\)</span> entre les parties de  <span class="math notranslate nohighlight">\(\Omega\)</span>. Cette distance est en réalité une mesure de dissimilarité qui ne vérifie pas nécessairement toutes les propriétés d’une distance sur l’ensemble des parties de <span class="math notranslate nohighlight">\(\Omega\)</span>. En général, <span class="math notranslate nohighlight">\(D\)</span> est appelé critère d’agrégation.
 L’algorithme est alors le suivant :</p>
 <div class="proof algorithm admonition" id="algorithm-3">
@@ -1045,7 +1045,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </div>
 <div class="section" id="critere-de-ward">
 <h3>Critère de Ward<a class="headerlink" href="#critere-de-ward" title="Permalink to this headline">#</a></h3>
-<p>Lorsque l’ensemble   <span class="math notranslate nohighlight">\(\Omega\)</span> à classifier est mesuré par <span class="math notranslate nohighlight">\(p\)</span> variables quantitatives, il est possible de lui associer un nuage de points pondérés dans <span class="math notranslate nohighlight">\(\mathbb{R}^p\)</span> muni de la distance euclidienne <span class="math notranslate nohighlight">\(d\)</span>. Généralement, les pondérations seront toutes égales à 1. Le critère d’agrégation le plus utilisé dans cette situation est alors le critère d’inertie de Ward :</p>
+<p id="index-3">Lorsque l’ensemble   <span class="math notranslate nohighlight">\(\Omega\)</span> à classifier est mesuré par <span class="math notranslate nohighlight">\(p\)</span> variables quantitatives, il est possible de lui associer un nuage de points pondérés dans <span class="math notranslate nohighlight">\(\mathbb{R}^p\)</span> muni de la distance euclidienne <span class="math notranslate nohighlight">\(d\)</span>. Généralement, les pondérations seront toutes égales à 1. Le critère d’agrégation le plus utilisé dans cette situation est alors le critère d’inertie de Ward :</p>
 <p><span class="math notranslate nohighlight">\(D(A,B)=\frac{p_Ap_B}{p_A+p_B}d^2({\bf g}(A),{\bf g}(B))\)</span></p>
 <p>où <span class="math notranslate nohighlight">\(p_E\)</span> représente la somme des pondérations des éléments d’une classe <span class="math notranslate nohighlight">\(E\)</span> et <span class="math notranslate nohighlight">\({\bf g}(E)\)</span> est le centre de gravité d’une classe <span class="math notranslate nohighlight">\(E\)</span>.</p>
 </div>
@@ -1060,7 +1060,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </div>
 <div class="section" id="critere-d-arret-et-partition">
 <h3>Critère d’arrêt et partition<a class="headerlink" href="#critere-d-arret-et-partition" title="Permalink to this headline">#</a></h3>
-<p>L’ensemble des itérations peut être visualisé sous la forme d’un arbre, appelé dendrogramme. La figure suivante présente un exemple de dendrogramme en clustering hiérarchique descendant sur <span class="math notranslate nohighlight">\(X = \{a, b, c, d, e\}\)</span>. La distance <span class="math notranslate nohighlight">\(D\)</span> n’est pas reportée</p>
+<p id="index-4">L’ensemble des itérations peut être visualisé sous la forme d’un arbre, appelé dendrogramme. La figure suivante présente un exemple de dendrogramme en clustering hiérarchique descendant sur <span class="math notranslate nohighlight">\(X = \{a, b, c, d, e\}\)</span>. La distance <span class="math notranslate nohighlight">\(D\)</span> n’est pas reportée</p>
 <p><img alt="" src="_images/dendro1.png" /></p>
 <p>Le critère d’arrêt permet de déterminer la partition  de <span class="math notranslate nohighlight">\(X\)</span> la plus appropriée. Ici encore, plusieurs choix sont possibles :</p>
 <ul class="simple">
@@ -1079,7 +1079,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 <h2>Recherche de partitions<a class="headerlink" href="#recherche-de-partitions" title="Permalink to this headline">#</a></h2>
 <div class="section" id="methode-des-centres-mobiles">
 <h3>Méthode des centres mobiles<a class="headerlink" href="#methode-des-centres-mobiles" title="Permalink to this headline">#</a></h3>
-<p>La méthode des centres mobiles est encore connue sous le nom de méthode de réallocation-centrage ou des k-means lorsque l’ensemble à classifier est mesuré par <span class="math notranslate nohighlight">\(p\)</span> variables. Ici, <span class="math notranslate nohighlight">\(\Omega \in \mathbb{R}^p\)</span> est muni de sa distance euclidienne <span class="math notranslate nohighlight">\(d\)</span>. Pour simplifier la présentation, les pondérations des individus seront toutes égales à 1, mais la généralisation à des pondérations quelconques ne pose aucun problème.</p>
+<span class="target" id="index-5"></span><p id="index-6">La méthode des centres mobiles est encore connue sous le nom de méthode de réallocation-centrage ou des k-means lorsque l’ensemble à classifier est mesuré par <span class="math notranslate nohighlight">\(p\)</span> variables. Ici, <span class="math notranslate nohighlight">\(\Omega \in \mathbb{R}^p\)</span> est muni de sa distance euclidienne <span class="math notranslate nohighlight">\(d\)</span>. Pour simplifier la présentation, les pondérations des individus seront toutes égales à 1, mais la généralisation à des pondérations quelconques ne pose aucun problème.</p>
 <div class="section" id="id2">
 <h4>Algorithme<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
 <p>L’algorithme des centres-mobiles peut se définir ainsi :</p>
@@ -1119,7 +1119,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </div>
 <div class="section" id="generalisation-les-nuees-dynamiques">
 <h3>Généralisation : les nuées dynamiques<a class="headerlink" href="#generalisation-les-nuees-dynamiques" title="Permalink to this headline">#</a></h3>
-<p>L’idée de base consiste à remplacer les centres   qui étaient des éléments de <span class="math notranslate nohighlight">\(\mathbb{R}^p\)</span> jouant le rôle de représentant ou encore de noyau de la classe par des éléments de nature très diverse adaptés au problème que l’on cherche à résoudre.</p>
+<p id="index-7">L’idée de base consiste à remplacer les centres   qui étaient des éléments de <span class="math notranslate nohighlight">\(\mathbb{R}^p\)</span> jouant le rôle de représentant ou encore de noyau de la classe par des éléments de nature très diverse adaptés au problème que l’on cherche à résoudre.</p>
 <div class="section" id="formalisation">
 <h4>Formalisation<a class="headerlink" href="#formalisation" title="Permalink to this headline">#</a></h4>
 <p>On note <span class="math notranslate nohighlight">\(L=\{\lambda_i\}\)</span> l’ensemble des noyaux, <span class="math notranslate nohighlight">\(D:\Omega\times L\rightarrow \mathbb{R}^+\)</span> une mesure de ressemblance entre éléments de <span class="math notranslate nohighlight">\(\Omega\)</span> et de <span class="math notranslate nohighlight">\(L\)</span>. L’objectif est alors de trouver la partition en <span class="math notranslate nohighlight">\(g\)</span> classes (<span class="math notranslate nohighlight">\(g\)</span> fixé {\it a priori}) de <span class="math notranslate nohighlight">\(\Omega\)</span> minimisant le critère <span class="math notranslate nohighlight">\(\displaystyle\sum_{k}\displaystyle\sum_{x\in P_k}D(x,\lambda_k)\)</span></p>
