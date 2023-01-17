@@ -1069,9 +1069,9 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/scipy/stats/_distn_infrastructure.py:2052: IntegrationWarning: The integral is probably divergent, or slowly convergent.
   return integrate.quad(self._pdf, _a, x, args=args)[0]
-/usr/local/lib/python3.9/site-packages/numpy/lib/function_base.py:2411: RuntimeWarning: overflow encountered in _cdf_single (vectorized)
+/usr/local/lib/python3.9/site-packages/numpy/lib/function_base.py:2246: RuntimeWarning: overflow encountered in _cdf_single (vectorized)
   outputs = ufunc(*inputs)
-/usr/local/lib/python3.9/site-packages/numpy/lib/function_base.py:2411: RuntimeWarning: invalid value encountered in _cdf_single (vectorized)
+/usr/local/lib/python3.9/site-packages/numpy/lib/function_base.py:2246: RuntimeWarning: invalid value encountered in _cdf_single (vectorized)
   outputs = ufunc(*inputs)
 /usr/local/lib/python3.9/site-packages/scipy/stats/_distn_infrastructure.py:2925: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
   If increasing the limit yields no improvement it is advised to analyze 
@@ -1194,7 +1194,9 @@ Ecart-type :  7.810249675906654
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variance:  0.049999999999272404
-Ecart-type :  0.22360679774835202
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ecart-type :  0.22360679774835202
 </pre></div>
 </div>
 </div>

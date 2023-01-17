@@ -17,33 +17,73 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
+from sklearn.cluster import KMeans
+
+model = KMeans(n_clusters=nb_classes,n_init=10)
+    
 plt.figure(figsize=(12,6))
 plt.subplot(121)
-kmeans1 = KMeans(n_clusters=nb_cl, init="random", n_init=1, random_state=41)
-kmeans1.fit(X)
-plot_decision_boundaries(kmeans1, X)
-plt.title("Init1")
-
+plt.scatter(X[:, 0], X[:, 1],c=y, s=30,linewidths=0,cmap=plt.cm.rainbow)
+plt.title("Vraies classes")
+plt.tick_params(labelbottom=False)
+plt.tick_params(labelleft=False)
 plt.subplot(122)
-kmeans2 = KMeans(n_clusters=nb_cl, init="random", n_init=1, random_state=43)
-kmeans2.fit(X)
-plot_decision_boundaries(kmeans2, X)
-plt.title("Init2")
+model.fit(X)
+plt.scatter(X[:, 0], X[:, 1], c=model.labels_, s=30,linewidths=0, cmap=plt.cm.rainbow)
+plt.title("K means à {0:d} classes".format(nb_classes))
+plt.tick_params(labelbottom=False)
+plt.tick_params(labelleft=False)
+plt.tight_layout() 
+``
 
-plt.tight_layout()
-plt.savefig("images/init.png",dpi=100)
-plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+  
+
+
+
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-Input [0;32mIn [5][0m, in [0;36m<module>[0;34m[0m
-[1;32m      1[0m plt[38;5;241m.[39mfigure(figsize[38;5;241m=[39m([38;5;241m12[39m,[38;5;241m6[39m))
-[1;32m      2[0m plt[38;5;241m.[39msubplot([38;5;241m121[39m)
-[0;32m----> 3[0m kmeans1 [38;5;241m=[39m KMeans(n_clusters[38;5;241m=[39m[43mnb_cl[49m, init[38;5;241m=[39m[38;5;124m"[39m[38;5;124mrandom[39m[38;5;124m"[39m, n_init[38;5;241m=[39m[38;5;241m1[39m, random_state[38;5;241m=[39m[38;5;241m41[39m)
-[1;32m      4[0m kmeans1[38;5;241m.[39mfit(X)
-[1;32m      5[0m plot_decision_boundaries(kmeans1, X)
+[0;36m  Input [0;32mIn [6][0;36m[0m
+[0;31m    ``[0m
+[0m    ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
 
-[0;31mNameError[0m: name 'nb_cl' is not defined
-NameError: name 'nb_cl' is not defined
+SyntaxError: invalid syntax (<ipython-input-6-45c731a3c4ac>, line 18)
 
