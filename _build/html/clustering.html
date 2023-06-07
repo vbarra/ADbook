@@ -1337,76 +1337,115 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 <p>Puis on applique l’algorithme des <span class="math notranslate nohighlight">\(k\)</span>-means.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.cluster import KMeans
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
 
-model = KMeans(n_clusters=nb_classes,n_init=10)
+<span class="n">model</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">nb_classes</span><span class="p">,</span><span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
     
-plt.figure(figsize=(12,6))
-plt.subplot(121)
-plt.scatter(X[:, 0], X[:, 1],c=y, s=30,linewidths=0,cmap=plt.cm.rainbow)
-plt.title(&quot;Vraies classes&quot;)
-plt.tick_params(labelbottom=False)
-plt.tick_params(labelleft=False)
-plt.subplot(122)
-model.fit(X)
-plt.scatter(X[:, 0], X[:, 1], c=model.labels_, s=30,linewidths=0, cmap=plt.cm.rainbow)
-plt.title(&quot;K means à {0:d} classes&quot;.format(nb_classes))
-plt.tick_params(labelbottom=False)
-plt.tick_params(labelleft=False)
-plt.tight_layout() 
-``
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-  
-
-
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">linewidths</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">rainbow</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Vraies classes&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelbottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelleft</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">linewidths</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">rainbow</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;K means à </span><span class="si">{0:d}</span><span class="s2"> classes&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nb_classes</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelbottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelleft</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  Input In [6]
-    ``
-    ^
-SyntaxError: invalid syntax
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelleft</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">linewidths</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">rainbow</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;K means à </span><span class="si">{0:d}</span><span class="s2"> classes&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nb_classes</span><span class="p">))</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/sklearn/cluster/_kmeans.py:1455,</span> in <span class="ni">KMeans.fit</span><span class="nt">(self, X, y, sample_weight)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1453</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1454</span>     <span class="n">kmeans_single</span> <span class="o">=</span> <span class="n">_kmeans_single_lloyd</span>
+<span class="ne">-&gt; </span><span class="mi">1455</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_mkl_vcomp</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="g g-Whitespace">   </span><span class="mi">1457</span> <span class="n">best_inertia</span><span class="p">,</span> <span class="n">best_labels</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1459</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_init</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1460</span>     <span class="c1"># Initialize centers</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/sklearn/cluster/_kmeans.py:911,</span> in <span class="ni">_BaseKMeans._check_mkl_vcomp</span><span class="nt">(self, X, n_samples)</span>
+<span class="g g-Whitespace">    </span><span class="mi">909</span> <span class="n">n_active_threads</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">/</span> <span class="n">CHUNK_SIZE</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">910</span> <span class="k">if</span> <span class="n">n_active_threads</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_threads</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">911</span>     <span class="n">modules</span> <span class="o">=</span> <span class="n">threadpool_info</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">912</span>     <span class="n">has_vcomp</span> <span class="o">=</span> <span class="s2">&quot;vcomp&quot;</span> <span class="ow">in</span> <span class="p">[</span><span class="n">module</span><span class="p">[</span><span class="s2">&quot;prefix&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="n">modules</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">913</span>     <span class="n">has_mkl</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;mkl&quot;</span><span class="p">,</span> <span class="s2">&quot;intel&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span>
+<span class="g g-Whitespace">    </span><span class="mi">914</span>         <span class="p">(</span><span class="n">module</span><span class="p">[</span><span class="s2">&quot;internal_api&quot;</span><span class="p">],</span> <span class="n">module</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;threading_layer&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">915</span>         <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="n">modules</span>
+<span class="g g-Whitespace">    </span><span class="mi">916</span>     <span class="p">]</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/sklearn/utils/fixes.py:162,</span> in <span class="ni">threadpool_info</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span>     <span class="k">return</span> <span class="n">controller</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">161</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">162</span>     <span class="k">return</span> <span class="n">threadpoolctl</span><span class="o">.</span><span class="n">threadpool_info</span><span class="p">()</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/threadpoolctl.py:124,</span> in <span class="ni">threadpool_info</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span> <span class="nd">@_format_docstring</span><span class="p">(</span><span class="n">USER_APIS</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">_ALL_USER_APIS</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span>                    <span class="n">INTERNAL_APIS</span><span class="o">=</span><span class="n">_ALL_INTERNAL_APIS</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span> <span class="k">def</span> <span class="nf">threadpool_info</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span>     <span class="sd">&quot;&quot;&quot;Return the maximal number of threads for each detected library.</span>
+<span class="g g-Whitespace">    </span><span class="mi">111</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span><span class="sd">     Return a list with all the supported modules that have been found. Each</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">122</span><span class="sd">     In addition, each module may contain internal_api specific entries.</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">124</span>     <span class="k">return</span> <span class="n">_ThreadpoolInfo</span><span class="p">(</span><span class="n">user_api</span><span class="o">=</span><span class="n">_ALL_USER_APIS</span><span class="p">)</span><span class="o">.</span><span class="n">todicts</span><span class="p">()</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/threadpoolctl.py:340,</span> in <span class="ni">_ThreadpoolInfo.__init__</span><span class="nt">(self, user_api, prefixes, modules)</span>
+<span class="g g-Whitespace">    </span><span class="mi">337</span>     <span class="bp">self</span><span class="o">.</span><span class="n">user_api</span> <span class="o">=</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">user_api</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">user_api</span>
+<span class="g g-Whitespace">    </span><span class="mi">339</span>     <span class="bp">self</span><span class="o">.</span><span class="n">modules</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="ne">--&gt; </span><span class="mi">340</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_load_modules</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_warn_if_incompatible_openmp</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">342</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/threadpoolctl.py:371,</span> in <span class="ni">_ThreadpoolInfo._load_modules</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">369</span> <span class="sd">&quot;&quot;&quot;Loop through loaded libraries and store supported ones&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">370</span> <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;darwin&quot;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">371</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_find_modules_with_dyld</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">372</span> <span class="k">elif</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;win32&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">373</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_find_modules_with_enum_process_module_ex</span><span class="p">()</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/threadpoolctl.py:428,</span> in <span class="ni">_ThreadpoolInfo._find_modules_with_dyld</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">425</span> <span class="n">filepath</span> <span class="o">=</span> <span class="n">filepath</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">427</span> <span class="c1"># Store the module if it is supported and selected</span>
+<span class="ne">--&gt; </span><span class="mi">428</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_module_from_path</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/threadpoolctl.py:515,</span> in <span class="ni">_ThreadpoolInfo._make_module_from_path</span><span class="nt">(self, filepath)</span>
+<span class="g g-Whitespace">    </span><span class="mi">513</span> <span class="k">if</span> <span class="n">prefix</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">prefixes</span> <span class="ow">or</span> <span class="n">user_api</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_api</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">514</span>     <span class="n">module_class</span> <span class="o">=</span> <span class="nb">globals</span><span class="p">()[</span><span class="n">module_class</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">515</span>     <span class="n">module</span> <span class="o">=</span> <span class="n">module_class</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">user_api</span><span class="p">,</span> <span class="n">internal_api</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">516</span>     <span class="bp">self</span><span class="o">.</span><span class="n">modules</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">module</span><span class="p">)</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/threadpoolctl.py:606,</span> in <span class="ni">_Module.__init__</span><span class="nt">(self, filepath, prefix, user_api, internal_api)</span>
+<span class="g g-Whitespace">    </span><span class="mi">604</span> <span class="bp">self</span><span class="o">.</span><span class="n">internal_api</span> <span class="o">=</span> <span class="n">internal_api</span>
+<span class="g g-Whitespace">    </span><span class="mi">605</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dynlib</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">CDLL</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">_RTLD_NOLOAD</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">606</span> <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_version</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">607</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_threads</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_num_threads</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">608</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_extra_info</span><span class="p">()</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/threadpoolctl.py:646,</span> in <span class="ni">_OpenBLASModule.get_version</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">643</span> <span class="n">get_config</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dynlib</span><span class="p">,</span> <span class="s2">&quot;openblas_get_config&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">644</span>                      <span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">645</span> <span class="n">get_config</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_char_p</span>
+<span class="ne">--&gt; </span><span class="mi">646</span> <span class="n">config</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">647</span> <span class="k">if</span> <span class="n">config</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sa">b</span><span class="s2">&quot;OpenBLAS&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">648</span>     <span class="k">return</span> <span class="n">config</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;NoneType&#39; object has no attribute &#39;split&#39;
 </pre></div>
 </div>
+<img alt="_images/clustering_11_1.png" src="_images/clustering_11_1.png" />
 </div>
 </div>
 </div>
@@ -1429,7 +1468,7 @@ SyntaxError: invalid syntax
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
