@@ -401,6 +401,9 @@ plt.tick_params(labelleft=False)
 Puis on applique l'algorithme des $k$-means.
 
 ```{code-cell} ipython3
+pip3 install numpy==1.21.4
+```
+```{code-cell} ipython3
 from sklearn.cluster import KMeans
 
 model = KMeans(n_clusters=nb_classes,n_init=10)
