@@ -410,10 +410,10 @@ plt.tick_params(labelleft=False)
 # In[6]:
 
 
-pip3 install numpy==1.21.4
+pip install numpy==1.21.4
 
 
-# In[ ]:
+# In[7]:
 
 
 from sklearn.cluster import KMeans
