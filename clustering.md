@@ -418,7 +418,9 @@ plt.title("K means à {0:d} classes".format(nb_classes))
 plt.tick_params(labelbottom=False)
 plt.tick_params(labelleft=False)
 plt.tight_layout() 
-``
+```
+
+
 
 
 
