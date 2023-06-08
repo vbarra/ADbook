@@ -90,7 +90,8 @@
 # 
 # $(n-1)\mathbb{E}({S'}_n^2)=\displaystyle\sum_{k=1}^n\mathbb{E}(X_k^2)-n\mathbb{E}(\bar{X_n^2})=n(\sigma^2+m^2)-n\left (\frac{\sigma^2}{n}+m^2 \right )$
 # et le résultat.
-# 3. Admis
+# 
+# Le dernier point est admis.
 # 
 # 
 # ### Echantillons de variables aléatoires normales
@@ -112,6 +113,7 @@
 # 
 # 
 # ```{prf:remark}
+# :class: dropdown
 # Sous l'hypothèse $\sigma_1=\sigma_2=\sigma$ :
 # 
 # -  $\bar{X}_n-\bar{Y}_m$ suit une loi $\mathcal{N}(m_1-m_2,\sigma\sqrt{\frac1n+\frac1m})$
@@ -123,7 +125,8 @@
 # ### Inégalité de Tchebychev
 # ```{prf:theorem}
 # Soit une variable aléatoire $X$ de moyenne $m$ et d'écart-type $\sigma$. Alors :
-# $$(\forall t>0)\; P(|X-m|\geq t)\leq \frac{\sigma^2}{t^2}\quad\textrm{et}\quad (\forall u>0)\; P(\frac{|X-m|}{\sigma}\geq u)\leq \frac{1}{u^2}$$
+# 
+# $(\forall t>0)\; P(|X-m|\geq t)\leq \frac{\sigma^2}{t^2}\quad\textrm{et}\quad (\forall u>0)\; P(\frac{|X-m|}{\sigma}\geq u)\leq \frac{1}{u^2}$
 # ```
 # En effet :
 # Soit $A=\left \{|X-m|\geq t\right \}$ et $\mathbb{1}_A(\omega)$ = 1 si $\omega\in A$, 0 sinon. Alors :
@@ -134,11 +137,12 @@
 # $\sigma^2=\mathbb{E}(|X-m|^2)\geq t^2P(A) = t^2P(|X-m|\geq t)$ et le résultat.
 # 
 # ```{prf:remark}
+# :class: dropdown
 # Ces inégalités, souvent très grossières et d'intéret essentiellement théorique, n'ont d'utilité que pour $t>\sigma$ ou $u>1$ (une probabilité est toujours inférieure à 1). La seconde donne un majorant de la probabilité d'observer des valeurs prises par $X$ à l'extérieur de l'intervalle $[m-u\sigma,m+u\sigma]$
 # ```
 # 
 # ### Phénomène de régularité statistique
-# Considérons plusieurs séquences de 100 lancers d'une pièce de monnaie et notons, pour chaque séquence, la suite $(f_n)_{n\geq 1}$ des fréquences des ``piles`` obtenues. Un exemple de simulation avec $p=0.4$ est proposé dans la figure suivante.
+# Considérons plusieurs séquences de 100 lancers d'une pièce de monnaie et notons, pour chaque séquence, la suite $(f_n)_{n\geq 1}$ des fréquences des piles obtenus. Un exemple de simulation avec $p=0.4$ est proposé dans la figure suivante.
 # 
 # ![](./images/freqpile.png)
 # 
@@ -154,7 +158,9 @@
 # ### Loi faible des grands nombres
 # ```{prf:theorem}
 # Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires indépendantes, identiquement distribuées (i.i.d) de même loi qu'une variable $X$, admettant une moyenne $m$ et un écart-type $\sigma$. Si $(\bar{X_n})_{n\geq 1}$ est la suite des moyennes empiriques associée à $(X_n)_{n\geq 1}$ alors
+# 
 # $(\forall t>0)\; \displaystyle\lim_{n\rightarrow\infty} P(|\bar{X_n}-m|\geq t) = 0$
+# 
 # On dit que la suite converge en probatilité vers $m$ et on note $\bar{X_n}\xrightarrow[n\rightarrow\infty]{P} m$
 # ```
 # 
@@ -179,13 +185,15 @@
 # ### Théorème d'analyse
 # ```{prf:theorem}
 # Si $p$ est une fonction de $n$ telle que $\displaystyle\lim_{n\rightarrow\infty}np(n)=\lambda>0$, alors pour tout $k\geq 0$
-# $$\displaystyle\lim_{n\rightarrow\infty}\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k} = e^{-\lambda}\frac{\lambda^k}{k!}$$
+# 
+# $\displaystyle\lim_{n\rightarrow\infty}\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k} = e^{-\lambda}\frac{\lambda^k}{k!}$
 # ```
 # En effet 
-# \begin{eqnarray*}
-# \begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k}&=&\frac{n(n-1)\cdots (n-k+1)}{k!}p^k(1-p)^{n-k}\\ 
-# &=&\frac{(np)^k}{k!}\displaystyle\prod_{j=0}^k\left (1-\frac{j}{n}\right )(1-p)^{n-k}
-# \end{eqnarray*}
+# $\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k}=\frac{n(n-1)\cdots (n-k+1)}{k!}p^k(1-p)^{n-k}$
+# 
+# $\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k}=\frac{(np)^k}{k!}\displaystyle\prod_{j=0}^k\left (1-\frac{j}{n}\right )(1-p)^{n-k}$
+# 
+# 
 # et le résultat est démontré en remarquant que $\displaystyle\lim_{n\rightarrow\infty} p(n)=0$.
 # 
 # 
