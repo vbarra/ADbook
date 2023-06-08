@@ -268,7 +268,7 @@ On considère une variable aléatoire $X:(\Omega,\mathcal A,P)\mapsto \mathcal D
 | Binomiale $\mathcal{B}(n,p) $               | $[\![0,n]\!]$          | $\begin{pmatrix}n\\k\end{pmatrix}p^k q^{n-k}$      | $np$ | $npq$ | Tirage avec remise 
 | Hypergéométrique, $\mathcal{H}(m,N,n), m<N$  | $[\![0,n]\!]$ | $\frac{\begin{pmatrix}m\\k\end{pmatrix}\begin{pmatrix}N-m\\n-k\end{pmatrix}}{\begin{pmatrix}N\\n\end{pmatrix}}$ | $n\frac{m}{M}$ | $\frac{N-n}{N-1}n\frac{m}{N}\frac{N-m}{N}$ | Tirage sans remise |             |
 | Uniforme                                    | $[\![1,n]\!]$          | $\frac1n$               | $\frac{n+1}{2}$              | $\frac{n2-1}{12}$            | Equiprobabilité des résultats             |
-| Poisson $\mathcal{P}(\lambda), \lambda>0$ | $\mathbb{N}$ |  $e^{-\lambda}\frac{\lambda^k}{k!}$ | $\lambda$ | $\lambda$ | Files d'attente\\Evènements rares
+| Poisson $\mathcal{P}(\lambda), \lambda>0$ | $\mathbb{N}$ |  $e^{-\lambda}\frac{\lambda^k}{k!}$ | $\lambda$ | $\lambda$ | Files d'attente, Evènements rares
 
 
 
@@ -276,8 +276,8 @@ On considère une variable aléatoire $X:(\Omega,\mathcal A,P)\mapsto \mathcal D
 |  Modèle                           | $\boldsymbol{\mathcal D}$ | Densité                                                          | $\boldsymbol{\mathbb{E}(X)}$ | $\boldsymbol{\mathbb{V}(X)}$ | Utilisation                  |
 |----------------------------------------|---------------------------|------------------------------------------------------------------|------------------------------|------------------------------|------------------------------------|
 | Uniforme                               | $[a,b]$                   | $f(x)=\frac{1}{b-a}\mathbb{1}_{]a,b[}(x)$                        | $\frac{b+a}{2}$              | $\frac{(b-a)^2}{12}$         | Pas d'a priori sur la distribution |
-| \makecell[c]{Exponentiel               |
-| \makecell[c]{Pareto                    |
+|Exponentiel $Exp(\lambda)$\\$\lambda>0$               |  $\mathbb{R}^+$ | $f(x) =\lambda e^{-\lambda x} \mathbb{1}_{x>0}$ | $\frac{1}{\lambda}$ & $\frac{1}{\lambda^2}$ \ Files d'attente\\Durée de vie sans usure}
+Pareto  $\alpha>1,x_0>0$}| $[x_0,+\infty[$ | $f(x)=\frac{\alpha-1}{x_0}\left (\frac{x_0}{x} \right )^\alpha \mathbb{1}_{x\geq x_0}$ | $\frac{\alpha-1}{\alpha-2}x_0$ $\alpha>2$ |$\frac{(\alpha-1)x_0^2}{(\alpha-3)(\alpha-2)^2}$ $\alpha>3$} | Revenu des ménages                 
 | Normale $\mathcal{N}(m,\sigma)$        | $\mathbb{R}$              | $f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-m)^2}{2\sigma^2}}$ | $m$                          | $\sigma^2$                   | voir T.C.L.                        |
 | \makecell[c]{Gamma $\gamma(a,\lambda)$ |
 | \makecell[c]{Khi-deux $\chi_n^2$       |
