@@ -90,7 +90,6 @@
 # 
 # $(n-1)\mathbb{E}({S'}_n^2)=\displaystyle\sum_{k=1}^n\mathbb{E}(X_k^2)-n\mathbb{E}(\bar{X_n^2})=n(\sigma^2+m^2)-n\left (\frac{\sigma^2}{n}+m^2 \right )$
 # et le résultat.
-# 
 # 3. Admis
 # 
 # 
