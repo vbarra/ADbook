@@ -271,7 +271,7 @@
 # |Exponentiel $Exp(\lambda)$\\$\lambda>0$               |  $\mathbb{R}^+$ | $f(x) =\lambda e^{-\lambda x} \mathbb{1}_{x>0}$ | $\frac{1}{\lambda}$ & $\frac{1}{\lambda^2}$ \ Files d'attente\\Durée de vie sans usure}
 # Pareto  $\alpha>1,x_0>0$}| $[x_0,+\infty[$ | $f(x)=\frac{\alpha-1}{x_0}\left (\frac{x_0}{x} \right )^\alpha \mathbb{1}_{x\geq x_0}$ | $\frac{\alpha-1}{\alpha-2}x_0$ $\alpha>2$ |$\frac{(\alpha-1)x_0^2}{(\alpha-3)(\alpha-2)^2}$ $\alpha>3$ | Revenu des ménages                 
 # | Normale $\mathcal{N}(m,\sigma)$        | $\mathbb{R}$              | $f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-m)^2}{2\sigma^2}}$ | $m$                          | $\sigma^2$                   | voir T.C.L.                        |
-# |Gamma $\gamma(a,\lambda)$$a>0,\lambda>0$ | $(\mathbb{R}^+)^*$ | $f(x) = \frac{\lambda^a}{\Gamma(a)}e^{-\lambda x}x^{a-1}\mathbb{1}_{x>0}$ | $\frac{a}{\lambda}$ Ó $\frac{a}{\lambda^2}$ || 
+# |Gamma $\gamma(a,\lambda)$$a>0,\lambda>0$ | $(\mathbb{R}^+)^*$ | $f(x) = \frac{\lambda^a}{\Gamma(a)}e^{-\lambda x}x^{a-1}\mathbb{1}_{x>0}$ | $\frac{a}{\lambda}$ | $\frac{a}{\lambda^2}$ || 
 # |Khi-deux $\chi_n^2$ $n$ degrés liberté | $\mathbb{R}$ | $f(x, k)=\frac{1}{2^\frac{k}{2}\Gamma(\frac{k}{2})} x^{\frac{k}{2} - 1} e^{-\frac{x}{2}}$ | $n$ | $2n$ | Test du khi-deux        |
 # | Student $n$ degrés liberté | $\mathbb{R}$ | $f(x)=\frac{1}{\sqrt{\pi n}}\frac{\Gamma((n+1)/2)}{\Gamma(n/2)} \left (1+\frac{t^2}{n} \right )^{-\frac{n+1}{2}}$ t>0 |||Test égalité moyenne                  |
 # | Fisher-Snédécor $n$ et $m$ degrés liberté |  $(\mathbb{R}^+)^*$  | $\frac{\Gamma(\frac{n+m}{2})}{\Gamma(\frac{n}{2})\Gamma(\frac{m}{2})}n^{\frac{n}{2}}m^{\frac{m}{2}}\frac{x^{\frac{n-2}{2}}}{(nx+m)^{\frac{n+m}{2}}}$||||
