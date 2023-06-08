@@ -924,7 +924,66 @@ Soit <span class="math notranslate nohighlight">\(A=\left \{|X-m|\geq t\right \}
 </div></div>
 <div class="section" id="phenomene-de-regularite-statistique">
 <h3>Phénomène de régularité statistique<a class="headerlink" href="#phenomene-de-regularite-statistique" title="Permalink to this headline">#</a></h3>
-<p>Considérons plusieurs séquences de 100 lancers d’une pièce de monnaie et notons, pour chaque séquence, la suite <span class="math notranslate nohighlight">\((f_n)_{n\geq 1}\)</span> des fréquences des piles obtenus. Un exemple de simulation avec <span class="math notranslate nohighlight">\(p=0.4\)</span> est proposé dans la figure suivante.</p>
+<p>Considérons plusieurs séquences de 100 lancers d’une pièce de monnaie et notons, pour chaque séquence, la suite <span class="math notranslate nohighlight">\((f_n)_{n\geq 1}\)</span> des fréquences des piles obtenus. Un exemple de simulation avec <span class="math notranslate nohighlight">\(p=0.4\)</span> est proposé dans la figure suivante avec le code ayant servi à la produire.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span>  <span class="nn">random</span>  <span class="kn">import</span>  <span class="n">random</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">experience</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span><span class="mf">0.4</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">+=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">+=</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        
+    <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">experience</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$n$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$f_n$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">23</span>     <span class="n">f</span> <span class="o">=</span> <span class="n">experience</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$n$&#39;</span><span class="p">)</span>
+
+<span class="nn">Input In [1],</span> in <span class="ni">experience</span><span class="nt">(n)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">9</span>     <span class="k">if</span> <span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span><span class="mf">0.4</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>         <span class="n">f</span> <span class="o">+=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: &#39;module&#39; object is not callable
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 864x432 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
 <p><img alt="" src="_images/freqpile.png" /></p>
 <p>La fluctuation de la fréquence est importante pour des petites valeurs de <span class="math notranslate nohighlight">\(n\)</span>, puis elle s’atténue, pour se stabiliser autour d’une valeur voisine de <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <p>Cette constatation expérimentale conduit aux remarques suivantes, qui sont précisées dans la suite dans le cadre théorique :</p>
