@@ -257,9 +257,9 @@
 # | Modèle                                | $\boldsymbol{\mathcal D}$ | $\boldsymbol{P(X=k)}$   | $\boldsymbol{\mathbb{E}(X)}$ | $\boldsymbol{\mathbb{V}(X)}$ | Utilisation                         |
 # |---------------------------------------------|---------------------------|-------------------------|------------------------------|------------------------------|-------------------------------------------|
 # | Bernoulli                                   | $\{0,1\}$                 | $P(X=1)=p,P(X=0)=1-p=q$ | $p$                          | $pq$                         | Expérience ayant 2 éventualités possibles |
-# | Binomiale $\mathcal{B}(n,p) $               | $\{0,\cdots n\}$          | $\begin{pmatrix}n\\k\end{pmatrix}p^k q^{n-k}$      | $np$ | $npq$ | Tirage avec remise 
-# | Hypergéométrique, $\mathcal{H}(m,N,n), m<N$  | $\{0,\cdots n\}$ | $\frac{\begin{pmatrix}m\\k\end{pmatrix}\begin{pmatrix}N-m\\n-k\end{pmatrix}}{\begin{pmatrix}N\\n\end{pmatrix}}$ | $n\frac{m}{M}$ | $\frac{N-n}{N-1}n\frac{m}{N}\frac{N-m}{N}$ | Tirage sans remise |             |
-# | Uniforme                                    | $\{1,\cdots n\}$          | $\frac1n$               | $\frac{n+1}{2}$              | $\frac{n2-1}{12}$            | Equiprobabilité des résultats             |
+# | Binomiale $\mathcal{B}(n,p) $               | $[\![0,n]\!]$          | $\begin{pmatrix}n\\k\end{pmatrix}p^k q^{n-k}$      | $np$ | $npq$ | Tirage avec remise 
+# | Hypergéométrique, $\mathcal{H}(m,N,n), m<N$  | $[\![0,n]\!]$ | $\frac{\begin{pmatrix}m\\k\end{pmatrix}\begin{pmatrix}N-m\\n-k\end{pmatrix}}{\begin{pmatrix}N\\n\end{pmatrix}}$ | $n\frac{m}{M}$ | $\frac{N-n}{N-1}n\frac{m}{N}\frac{N-m}{N}$ | Tirage sans remise |             |
+# | Uniforme                                    | $[\![1,n]\!]$          | $\frac1n$               | $\frac{n+1}{2}$              | $\frac{n2-1}{12}$            | Equiprobabilité des résultats             |
 # | Poisson $\mathcal{P}(\lambda), \lambda>0$ | $\mathbb{N}$ |  $e^{-\lambda}\frac{\lambda^k}{k!}$ | $\lambda$ | $\lambda$ | Files d'attente\\Evènements rares
 # 
 # 
