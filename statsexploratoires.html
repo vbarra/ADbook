@@ -47,8 +47,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -117,6 +115,11 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Rappels.html">
+   Rappels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Rappels1.html">
    Rappels
   </a>
  </li>
@@ -1259,7 +1262,7 @@ Tr({\bf PVP^TM})&amp;=&amp;Tr({\bf PVMP})\quad \textrm{car }{\bf P^TM}={\bf MP}\
 <p>Le problème posé est donc de trouver la projection <span class="math notranslate nohighlight">\({\bf P}\)</span>, de rang <span class="math notranslate nohighlight">\(k\)</span> maximisant <span class="math notranslate nohighlight">\(Tr({\bf VMP})\)</span>. La projection <span class="math notranslate nohighlight">\({\bf P}\)</span> réalisant cette optimisation donnera alors <span class="math notranslate nohighlight">\(F_k\)</span>.</p>
 <p>L’analyse en composantes principales consiste alors, de manière itérative, à chercher un sous-espace de dimension 1 d’inertie maximale, puis le sous-espace de dimension 1 orthogonal au précédent d’inertie maximale et ainsi de suite. Elle s’appuie sur le résultat suivant :</p>
 <div class="proof theorem admonition" id="theorem-0">
-<p class="admonition-title"><span class="caption-number">Theorem 2 </span></p>
+<p class="admonition-title"><span class="caption-number">Theorem 12 </span></p>
 <div class="theorem-content section" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\(F_k\)</span> un sous-espace portant l’inertie maximale. Alors le sous-espace de dimension <span class="math notranslate nohighlight">\(k+1\)</span> portant l’inertie maximale est la somme directe de <span class="math notranslate nohighlight">\(F_k\)</span> et de la droite orthogonale à <span class="math notranslate nohighlight">\(F_k\)</span> portant l’inertie maximale.</p>
 </div>
@@ -1285,7 +1288,7 @@ et donc</p>
 <p><span class="math notranslate nohighlight">\({\bf MVM}\mathbf{a}=\left (\frac{\mathbf{a^T}{\bf MVM}\mathbf{a}}{\mathbf{a^T}{\bf M}\mathbf{a}} \right ){\bf M}\mathbf{a}\)</span></p>
 <p>soit <span class="math notranslate nohighlight">\({\bf VM}\mathbf{a}=\lambda \mathbf{a}\)</span> car <span class="math notranslate nohighlight">\({\bf M}\)</span> est de rang plein. Donc <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> est vecteur propre de <span class="math notranslate nohighlight">\({\bf VM}\)</span>, et <span class="math notranslate nohighlight">\(\lambda\)</span> est la plus grande des valeurs propres de <span class="math notranslate nohighlight">\({\bf VM}\)</span>. Or <span class="math notranslate nohighlight">\({\bf M}\)</span> est symétrique, elle est diagonalisable sur une base de vecteurs propres orthonormés et on a le résultat suivant :</p>
 <div class="proof theorem admonition" id="theorem-1">
-<p class="admonition-title"><span class="caption-number">Theorem 3 </span></p>
+<p class="admonition-title"><span class="caption-number">Theorem 13 </span></p>
 <div class="theorem-content section" id="proof-content">
 <p>Le sous-espace <span class="math notranslate nohighlight">\(F_k\)</span> de dimension <span class="math notranslate nohighlight">\(k\)</span> portant l’inertie maximale est engendré par les <span class="math notranslate nohighlight">\(k\)</span> premiers vecteurs propres de <span class="math notranslate nohighlight">\({\bf VM}\)</span></p>
 </div>
@@ -1360,7 +1363,7 @@ Un seuil par exemple de 90% d’inertie totale expliquée donne une valeur de <s
 <p>Ces calculs s’effectuent pour chaque composante principale. Pour un couple de composantes principales <span class="math notranslate nohighlight">\(\mathbf{c_1}\)</span> et <span class="math notranslate nohighlight">\(\mathbf{c_2}\)</span> par exemple on représente fréquemment les corrélations sur une figure appelée « cercle des corrélations» où chaque variable <span class="math notranslate nohighlight">\(x^j\)</span> est repérée par un point d’abscisse <span class="math notranslate nohighlight">\(r(\mathbf{c_1},x^j)\)</span> et d’ordonnée <span class="math notranslate nohighlight">\(r(\mathbf{c_2},x^j)\)</span>.</p>
 <p><img alt="" src="_images/cercle.png" /></p>
 <div class="proof remark dropdown admonition" id="remark-2">
-<p class="admonition-title"><span class="caption-number">Remark 8 </span></p>
+<p class="admonition-title"><span class="caption-number">Remark 12 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Attention de ne pas interpréter des proximités entre points variables, si ceux-ci ne sont pas proches de la circonférence.</p>
 </div>
@@ -2351,7 +2354,7 @@ et</p>
 d’où</p>
 <p><span class="math notranslate nohighlight">\({\bf C_K}={\bf B^TC_J\Lambda^{-\frac{1}{2}}} \textrm{    et    } {\bf C_J}={\bf A^TC_K\Lambda^{-\frac{1}{2}}}\)</span></p>
 <div class="proof remark dropdown admonition" id="remark-3">
-<p class="admonition-title"><span class="caption-number">Remark 9 </span></p>
+<p class="admonition-title"><span class="caption-number">Remark 13 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Soit deux matrices <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{KJ}(\mathbb{R)}\)</span>  et <span class="math notranslate nohighlight">\({\bf B}\in\mathcal{M}_{JK}(\mathbb{R})\)</span>. Les valeurs propres non nulles de <span class="math notranslate nohighlight">\({\bf AB}\)</span> et <span class="math notranslate nohighlight">\({\bf BA}\)</span> sont identiques avec le même degré de multiplicité. De plus, si <span class="math notranslate nohighlight">\(\bf u\)</span> est vecteur propre de <span class="math notranslate nohighlight">\({\bf BA}\)</span> associé à la valeur propre <span class="math notranslate nohighlight">\(\lambda\neq 0\)</span>, alors <span class="math notranslate nohighlight">\({\bf v} = {\bf Au} \)</span> est vecteur propre de <span class="math notranslate nohighlight">\({\bf AB}\)</span> associé à la même valeur
 propre.</p>
@@ -2900,7 +2903,7 @@ Comme en ACP, on s’intéresse à l’inertie du nuage de points, mais pour ce 
 <h3>Notations<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
 <p>On dispose d’un tableau de données <span class="math notranslate nohighlight">\(\mathbf{H}=(h_{i,j})\)</span> à <span class="math notranslate nohighlight">\(n\)</span> lignes et <span class="math notranslate nohighlight">\(p\)</span> colonnes, où <span class="math notranslate nohighlight">\(n\)</span> est le nombre d’individus, <span class="math notranslate nohighlight">\(p\)</span> le nombre de variables qualitatives mesurées et pour <span class="math notranslate nohighlight">\(i\in[\![1,n]\!],j\in[\![1,p]\!],h_{ij}\in\mathcal{M}_j\)</span>, <span class="math notranslate nohighlight">\(\mathcal{M}_j\)</span> étant l’ensemble des modalités de la j<span class="math notranslate nohighlight">\(^e\)</span> variable. Si <span class="math notranslate nohighlight">\(m_j\)</span> est le cardinal de <span class="math notranslate nohighlight">\(\mathcal{M}_j\)</span>, alors <span class="math notranslate nohighlight">\(m=\sum_{k=1}^p m_k\)</span> est le nombre total de modalités.</p>
 <div class="proof definition admonition" id="definition-4">
-<span id="index-11"></span><p class="admonition-title"><span class="caption-number">Definition 36 </span> (Tableau disjonctif complet)</p>
+<span id="index-11"></span><p class="admonition-title"><span class="caption-number">Definition 37 </span> (Tableau disjonctif complet)</p>
 <div class="definition-content section" id="proof-content">
 <p>Le tableau disjonctif complet <span class="math notranslate nohighlight">\(\mathbf T\)</span> des données est un tableau <span class="math notranslate nohighlight">\(n\times m\)</span> tel que</p>
 <p><span class="math notranslate nohighlight">\((\forall i\in[\![1,n]\!],j\in[\![1, m]\!])\; \mathbf T_{ij} = \left \{ \begin{array}{cl} 1&amp;\textrm{si l'individu i possède la modalité j}\\0 &amp; \textrm{sinon}\end{array}\right .\)</span></p>
@@ -2945,7 +2948,7 @@ Deux individus sont proches s’ils possèdent les mêmes modalités, sachant qu
 <p><span class="math notranslate nohighlight">\(\chi^2(j,j') = (\mathbf{B}_{\bullet j}-\mathbf{B}_{\bullet j'})^T\mathbf {D_n}^{-1} (\mathbf{B}_{\bullet j}-\mathbf{B}_{\bullet j'}) = n\displaystyle\sum_{i=1}^n\left (\frac{T_{ij}}{n_j} -\frac{T_{ij'}}{n_{j'}}\right )^2\)</span>
 et deux modalités sont proches si elles sont possédées par les mêmes individus.</p>
 <div class="proof remark dropdown admonition" id="remark-5">
-<p class="admonition-title"><span class="caption-number">Remark 10 </span></p>
+<p class="admonition-title"><span class="caption-number">Remark 14 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>On a de plus  <span class="math notranslate nohighlight">\(\chi^2(j,\mathbf{a}) = \frac{n}{n_j}-1\)</span> et  <span class="math notranslate nohighlight">\(f_{\bullet j}\chi^2(j,\mathbf{a}) = \frac{1}{p}\left( 1-\frac{n_j}{n}\right )\)</span>. Donc la distance d’une modalité au centre du nuage est d’autant plus grande que la modalité est rare et la part de l’inertie totale, due à une modalité est d’autant plus grande que la modalité est rare.  On  évite donc en pratique de conserver dans l’analyse les modalités trop rares.</p>
 <p>De même, puisque <span class="math notranslate nohighlight">\(\displaystyle\sum_{k\in \mathcal{M}_j}f_{\bullet k}\chi^2(k,\mathbf{a}) = \frac{1}{p}\left( m_j-1\right )\)</span>, la part de l’inertie totale, due à une variable  <span class="math notranslate nohighlight">\(j\)</span> est d’autant plus grande que le nombre de modalités  de cette variable est grand. Là aussi, on  évite en pratique de conserver dans l’analyse des variables ayant des nombres de modalités trop différents.</p>
@@ -2956,7 +2959,7 @@ et deux modalités sont proches si elles sont possédées par les mêmes individ
 <p>L’analyse en composantes multiples consiste alors à appliquer l’analyse factorielle des correspondances  du tableau des  contingences <span class="math notranslate nohighlight">\(\mathbf T\)</span>, c’est-à-dire effectuer une ACP pondérée des nuages des point-individus et des point-modalités .</p>
 <p>Une différence notable vient cependant de l’interprétation de l’inertie de ces nuages de points  individus (<span class="math notranslate nohighlight">\(I(\mathbf{A})\)</span>) et modalités (<span class="math notranslate nohighlight">\(I(\mathbf{B})\)</span>). En AFC, on pouvait interpréter statistiquement cette inertie en terme de <span class="math notranslate nohighlight">\(\chi^2/n\)</span> mesurant l’indépendance entre les deux variables qualitatives. Ici, ce n’est plus le cas puisque l’on peut montrer que <span class="math notranslate nohighlight">\(I(\mathbf{A}) = I(\mathbf{B})= m/p-1\)</span>. L’inertie dépend donc du nombre moyen <span class="math notranslate nohighlight">\(m/p\)</span> de catégories par variable.</p>
 <div class="proof remark dropdown admonition" id="remark-6">
-<p class="admonition-title"><span class="caption-number">Remark 11 </span></p>
+<p class="admonition-title"><span class="caption-number">Remark 15 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Les anglo-saxons considère que l’ACM consiste à effectuer l’analyse factorielle des correspondances  du tableau de Burt <span class="math notranslate nohighlight">\(\mathbf T^T \mathbf T\)</span>, matrice symétrique de taille <span class="math notranslate nohighlight">\(m\)</span>. Les profils ligne et colonne sont alors identiques et correspondent aux modalités que l’on veut analyser. On ne peut donc pas effectuer d’analyse des individus.</p>
 </div>
