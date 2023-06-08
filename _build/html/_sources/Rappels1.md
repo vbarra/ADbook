@@ -150,7 +150,40 @@ Ces inégalités, souvent très grossières et d'intéret essentiellement théor
 ```
 
 ### Phénomène de régularité statistique
-Considérons plusieurs séquences de 100 lancers d'une pièce de monnaie et notons, pour chaque séquence, la suite $(f_n)_{n\geq 1}$ des fréquences des piles obtenus. Un exemple de simulation avec $p=0.4$ est proposé dans la figure suivante.
+Considérons plusieurs séquences de 100 lancers d'une pièce de monnaie et notons, pour chaque séquence, la suite $(f_n)_{n\geq 1}$ des fréquences des piles obtenus. Un exemple de simulation avec $p=0.4$ est proposé dans la figure suivante avec le code ayant servi à la produire.
+
+```{code-cell} ipython3
+import numpy as np
+from  random  import  random
+import random
+import matplotlib.pyplot as plt
+
+def experience(n):
+    f = []
+    for j in range(n):
+        if random() <0.4:
+            f += [1.]
+        else:
+            f+=[0]
+        
+    f = np.cumsum(f)
+    for i in range(n):
+        f[i] = float(f[i])/(i+1)
+    return(f)
+
+n = 100
+plt.figure(figsize=(12,6))
+x = np.arange(n)
+for i in range(8):
+    f = experience(n)
+    plt.plot(x,f)
+    plt.xlabel('$n$')
+    plt.ylabel('$f_n$')
+plt.axhline(y = 0.4, color = 'k', linestyle = '--')
+
+plt.tight_layout()
+```
+
 
 ![](./images/freqpile.png)
 

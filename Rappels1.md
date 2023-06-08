@@ -155,7 +155,6 @@ Considérons plusieurs séquences de 100 lancers d'une pièce de monnaie et noto
 ```{code-cell} ipython3
 import numpy as np
 from  random  import  random
-import random
 import matplotlib.pyplot as plt
 
 def experience(n):
