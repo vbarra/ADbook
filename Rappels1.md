@@ -95,7 +95,8 @@ Les valeurs prises par $\bar{X_n}$ coïncident avec la moyenne expérimentale $\
 En effet :
 1.  Immédiat d'après la linéarité de l'espérance, l'égalité de Bienaymé et la propriété $\mathbb{V}(\alpha X)=\alpha^2\mathbb{V}(X)$
 2. $(n-1){S'}_n^2=\displaystyle\sum_{k=1}^n X_k^2-n\bar{X_n^2}$ d'où 
-$$(n-1)\mathbb{E}({S'}_n^2)=\displaystyle\sum_{k=1}^n\mathbb{E}(X_k^2)-n\mathbb{E}(\bar{X_n^2})=n(\sigma^2+m^2)-n\left (\frac{\sigma^2}{n}+m^2 \right )$$
+
+$(n-1)\mathbb{E}({S'}_n^2)=\displaystyle\sum_{k=1}^n\mathbb{E}(X_k^2)-n\mathbb{E}(\bar{X_n^2})=n(\sigma^2+m^2)-n\left (\frac{\sigma^2}{n}+m^2 \right )$
 et le résultat.
 3. Admis
 
