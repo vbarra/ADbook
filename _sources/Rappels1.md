@@ -13,14 +13,14 @@ kernelspec:
 
 Dans l'expression "étude statistique", il faut distinguer :
 
-1. les données statistiques : suivant l'étude, plusieurs problèmes peuvent être posés :
+1. **les données statistiques** : suivant l'étude, plusieurs problèmes peuvent être posés :
 
     -  Recueil des données (brutes) avec notamment le problème des sondages
     -  -Nature des données avec éventuellement la transformation des données brutes, notamment pour les séries chronologiques (série corrigée des variations saisonnières)
     -  Organisation des données : il s'agit le plus souvent de résumer l'information par les techniques de la statistique descriptive 
 
-2. le modèle mathématique : une analyse du phénomène étudié doit permettre de traduire les problèmes posés par l'étude dans un langage formel, celui des probabilités. Après avoir fait des choix, des hypothèses sur la loi de probabilité et sur les paramètres de cette loi, on s'efforce de se placer dans un modèle statistique dans lequel des outils théoriques permettent de résoudre un certain nombre de problèmes théoriques. Dans ce modèle théorique, il s'agit de donner une interprétation aux données expérimentales et, souvent, des hypothèses implificatrices de "même loi" et d'indépendance sont faites.
-3. l'analyse statistique : l'utilisation d'outils statistiques adaptés au modèle retenu permet de faire l'interface entre les données statistiques et le modèle théorique choisi pour décrire le phénomène étudié.
+2. **le modèle mathématique** : une analyse du phénomène étudié doit permettre de traduire les problèmes posés par l'étude dans un langage formel, celui des probabilités. Après avoir fait des choix, des hypothèses sur la loi de probabilité et sur les paramètres de cette loi, on s'efforce de se placer dans un modèle statistique dans lequel des outils théoriques permettent de résoudre un certain nombre de problèmes théoriques. Dans ce modèle théorique, il s'agit de donner une interprétation aux données expérimentales et, souvent, des hypothèses implificatrices de "même loi" et d'indépendance sont faites.
+3. **l'analyse statistique** : l'utilisation d'outils statistiques adaptés au modèle retenu permet de faire l'interface entre les données statistiques et le modèle théorique choisi pour décrire le phénomène étudié.
 
 
 L'étude statistique peut alors se traduire sous diverses formes :
