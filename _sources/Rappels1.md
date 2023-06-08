@@ -259,22 +259,21 @@ On donne ici un catalogue non exhaustif des principaux modèles probabilistes, e
 
 
 
-\subsection {Lois discrètes}
+### Lois discrètes
 On considère une variable aléatoire $X:(\Omega,\mathcal A,P)\mapsto \mathcal D$
 
-\renewcommand{\arraystretch}{2.2}
-| {\bf Modèle}                                | $\boldsymbol{\mathcal D}$ | $\boldsymbol{P(X=k)}$   | $\boldsymbol{\mathbb{E}(X)}$ | $\boldsymbol{\mathbb{V}(X)}$ | {\bf Utilisation}                         |
+| Modèle                                | $\boldsymbol{\mathcal D}$ | $\boldsymbol{P(X=k)}$   | $\boldsymbol{\mathbb{E}(X)}$ | $\boldsymbol{\mathbb{V}(X)}$ | Utilisation                         |
 |---------------------------------------------|---------------------------|-------------------------|------------------------------|------------------------------|-------------------------------------------|
 | Bernoulli                                   | $\{0,1\}$                 | $P(X=1)=p,P(X=0)=1-p=q$ | $p$                          | $pq$                         | Expérience ayant 2 éventualités possibles |
-| Binomiale $\mathcal{B}(n,p) $               | $\{0,\cdots n\}$          | $\begin{pmatrix}n       |
-| \makecell[c]{Hypergéométrique               |
+| Binomiale $\mathcal{B}(n,p) $               | $\{0,\cdots n\}$          | $\begin{pmatrix}n\\k\end{pmatrix}p^k q^{n-k}$      | $np$ | $npq$ | Tirage avec remise \
+| Hypergéométrique, $\mathcal{H}(m,N,n)$\\$m<N$  | $\{0,\cdots n\}$ | $\frac{\begin{pmatrix}m\\k\end{pmatrix}\begin{pmatrix}N-m\\n-k\end{pmatrix}}{\begin{pmatrix}N\\n\end{pmatrix}}$ | $n\frac{m}{M}$ | $\frac{N-n}{N-1}n\frac{m}{N}\frac{N-m}{N}$ | Tirage sans remise |             |
 | Uniforme                                    | $\{1,\cdots n\}$          | $\frac1n$               | $\frac{n+1}{2}$              | $\frac{n2-1}{12}$            | Equiprobabilité des résultats             |
 | \makecell[c]{Poisson $\mathcal{P}(\lambda)$ |
 
 
 
-\subsection {Lois absolument continues}
-| {\bf Modèle}                           | $\boldsymbol{\mathcal D}$ | Densité                                                          | $\boldsymbol{\mathbb{E}(X)}$ | $\boldsymbol{\mathbb{V}(X)}$ | {\bf Utilisation}                  |
+### Lois absolument continues
+|  Modèle                           | $\boldsymbol{\mathcal D}$ | Densité                                                          | $\boldsymbol{\mathbb{E}(X)}$ | $\boldsymbol{\mathbb{V}(X)}$ | Utilisation                  |
 |----------------------------------------|---------------------------|------------------------------------------------------------------|------------------------------|------------------------------|------------------------------------|
 | Uniforme                               | $[a,b]$                   | $f(x)=\frac{1}{b-a}\mathbb{1}_{]a,b[}(x)$                        | $\frac{b+a}{2}$              | $\frac{(b-a)^2}{12}$         | Pas d'a priori sur la distribution |
 | \makecell[c]{Exponentiel               |
