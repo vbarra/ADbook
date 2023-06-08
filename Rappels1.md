@@ -19,7 +19,7 @@ Dans l'expression "étude statistique", il faut distinguer :
     -  -Nature des données avec éventuellement la transformation des données brutes, notamment pour les séries chronologiques (série corrigée des variations saisonnières)
     -  Organisation des données : il s'agit le plus souvent de résumer l'information par les techniques de la statistique descriptive 
 
-2. le modèle mathématique : une analyse du phénomène étudié doit permettre de traduire les problèmes posés par l'étude dans un langage formel, celui des probabilités. Après avoir fait des choix, des hypothèses sur la loi de probabilité et sur les paramètres de cette loi, on s'efforce de se placer dans un modèle statistique dans lequel des outils théoriques permettent de résoudre un certain nombre de problèmes théoriques. Dans ce modèle théorique, il s'agit de donner une interprétation aux données expérimentales et, souvent, des hypothèses implificatrices de ``même loi'' et d'indépendance sont faites.
+2. le modèle mathématique : une analyse du phénomène étudié doit permettre de traduire les problèmes posés par l'étude dans un langage formel, celui des probabilités. Après avoir fait des choix, des hypothèses sur la loi de probabilité et sur les paramètres de cette loi, on s'efforce de se placer dans un modèle statistique dans lequel des outils théoriques permettent de résoudre un certain nombre de problèmes théoriques. Dans ce modèle théorique, il s'agit de donner une interprétation aux données expérimentales et, souvent, des hypothèses implificatrices de "même loi" et d'indépendance sont faites.
 3. l'analyse statistique : l'utilisation d'outils statistiques adaptés au modèle retenu permet de faire l'interface entre les données statistiques et le modèle théorique choisi pour décrire le phénomène étudié.
 
 
@@ -27,11 +27,8 @@ L'étude statistique peut alors se traduire sous diverses formes :
 -  préciser le modèle choisi, en estimant les paramètres intervenant dans celui-ci
 -  juger la validité d'hypothèses faites sur ces paramètres qui se traduira non pas en ''confirmation d'hypothèses'', mais en ''détecteur d'hypothèses fausses''
 -  juger l'adéquation du modèle retenu en termes de lois de probabilité avec la même réserve que ci-dessus
-\end{itemize}
 
 Les résultats théoriques devront être interprétés dans le contexte de l'étude en considérant que ces résultats ont été obtenus dans le cadre d'un modèle théorique précis, d'où la nécessité d'une analyse correcte et d'une bonne formalisation. De plus, il faudra prendre en compte les techniques utilisées, qui ne permettent de répondre qu'à des questions précises. Enfin, dans le cas d'une application pratique, il faudra garder à l'esprit que les conclusions auront des conséquences économiques (ou autres).
-
-La section **preciser** rappelle les principaux modèles probabilistes, dont certains sont utilisés dans la suite de ce chapitre. Il pourra donc être utile de s'y référer au besoin.
 
 ## Echantillon d'une variable aléatoire
 ### Définition
@@ -93,7 +90,6 @@ Les valeurs prises par $\bar{X_n}$ coïncident avec la moyenne expérimentale $\
 1.  $\mathbb{E}(\bar{X_n})= \mathbb{E}(X)=m\; ;\; \mathbb{V}(\bar{X_n}) = \frac{\mathbb{V}(X)}{n}=\frac{\sigma^2}{n}$
 2.  $\mathbb{E}(S_n^2) = \frac{n-1}{n}\sigma^2\; ;\;  \mathbb{E}({S'}_n^2)=\sigma^2$
 3. Sous l'hypothèse de normalité, $\mathbb{V}({S'}_n^2)=\frac{2\sigma^4}{n-1}$
-\end{enumerate}
 ````
 
 En effet :
@@ -127,7 +123,6 @@ Sous l'hypothèse $\sigma_1=\sigma_2=\sigma$ :
 
 -  $\bar{X}_n-\bar{Y}_m$ suit une loi $\mathcal{N}(m_1-m_2,\sigma\sqrt{\frac1n+\frac1m})$
 -  $\frac{nS_n^2(X)}{\sigma^2}+\frac{mS_m^2(Y)}{\sigma^2}$ a une loi $\chi^2_{n-1+m-1}$.
-\end{itemize}
 ```
 
 
