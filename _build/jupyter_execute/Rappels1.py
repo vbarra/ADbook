@@ -189,6 +189,7 @@
 # $\displaystyle\lim_{n\rightarrow\infty}\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k} = e^{-\lambda}\frac{\lambda^k}{k!}$
 # ```
 # En effet 
+# 
 # $\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k}=\frac{n(n-1)\cdots (n-k+1)}{k!}p^k(1-p)^{n-k}$
 # 
 # $\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k}=\frac{(np)^k}{k!}\displaystyle\prod_{j=0}^k\left (1-\frac{j}{n}\right )(1-p)^{n-k}$
@@ -198,7 +199,8 @@
 # 
 # 
 # ### Application
-# Soit $S_n$ une variable aléatoire de loi $\mathcal{B}(n,p)$. Lorsque $n$ est grand (>50) et $p$ petite ($np$<10), on peut approcher la loi de $S_n$ par une loi de Poisson $\mathcal P(np)$. On lit alors la valeur correspondante dans la table de la loi de Poisson, pour tout $k\in[\![0,n]\!]$ $$P(S_n=k)\approx e^{-\lambda}\frac{\lambda^k}{k!}$$. 
+# Soit $S_n$ une variable aléatoire de loi $\mathcal{B}(n,p)$. Lorsque $n$ est grand (>50) et $p$ petite ($np$<10), on peut approcher la loi de $S_n$ par une loi de Poisson $\mathcal P(np)$. On lit alors la valeur correspondante dans la table de la loi de Poisson, pour tout $k\in[\![0,n]\!]$ 
+# $P(S_n=k)\approx e^{-\lambda}\frac{\lambda^k}{k!}$
 # 
 # De plus, en remarquant que $\Sigma_n=n-S_n$ suit $\mathcal{B}(n,1-p)$, on a 
 # 
@@ -249,9 +251,6 @@
 # 
 # On donne ici un catalogue non exhaustif des principaux modèles probabilistes, et leurs principales propriétés. Une illustration graphique des lois correspondantes est proposée dans les figures suivantes.
 # 
-# ![](./images/discretes.png)
-# 
-# ![](./images/continues.png)
 # 
 # 
 # 
@@ -266,6 +265,7 @@
 # | Uniforme                                    | $[\![1,n]\!]$          | $\frac1n$               | $\frac{n+1}{2}$              | $\frac{n2-1}{12}$            | Equiprobabilité des résultats             |
 # | Poisson $\mathcal{P}(\lambda), \lambda>0$ | $\mathbb{N}$ |  $e^{-\lambda}\frac{\lambda^k}{k!}$ | $\lambda$ | $\lambda$ | Files d'attente, Evènements rares
 # 
+# ![](./images/discretes.png)
 # 
 # 
 # ### Lois absolument continues
@@ -281,7 +281,7 @@
 # | Fisher-Snédécor $n$ et $m$ degrés liberté |  $(\mathbb{R}^+)^*$  | $\frac{\Gamma(\frac{n+m}{2})}{\Gamma(\frac{n}{2})\Gamma(\frac{m}{2})}n^{\frac{n}{2}}m^{\frac{m}{2}}\frac{x^{\frac{n-2}{2}}}{(nx+m)^{\frac{n+m}{2}}}$||||
 # 
 # 
-# 
+# ![](./images/continues.png)
 # 
 # 
 # 

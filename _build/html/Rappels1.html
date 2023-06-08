@@ -967,14 +967,15 @@ Soit <span class="math notranslate nohighlight">\(A=\left \{|X-m|\geq t\right \}
 <p>Si <span class="math notranslate nohighlight">\(p\)</span> est une fonction de <span class="math notranslate nohighlight">\(n\)</span> telle que <span class="math notranslate nohighlight">\(\displaystyle\lim_{n\rightarrow\infty}np(n)=\lambda&gt;0\)</span>, alors pour tout <span class="math notranslate nohighlight">\(k\geq 0\)</span></p>
 <p><span class="math notranslate nohighlight">\(\displaystyle\lim_{n\rightarrow\infty}\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k} = e^{-\lambda}\frac{\lambda^k}{k!}\)</span></p>
 </div>
-</div><p>En effet
-<span class="math notranslate nohighlight">\(\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k}=\frac{n(n-1)\cdots (n-k+1)}{k!}p^k(1-p)^{n-k}\)</span></p>
+</div><p>En effet</p>
+<p><span class="math notranslate nohighlight">\(\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k}=\frac{n(n-1)\cdots (n-k+1)}{k!}p^k(1-p)^{n-k}\)</span></p>
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k}=\frac{(np)^k}{k!}\displaystyle\prod_{j=0}^k\left (1-\frac{j}{n}\right )(1-p)^{n-k}\)</span></p>
 <p>et le résultat est démontré en remarquant que <span class="math notranslate nohighlight">\(\displaystyle\lim_{n\rightarrow\infty} p(n)=0\)</span>.</p>
 </div>
 <div class="section" id="application">
 <h3>Application<a class="headerlink" href="#application" title="Permalink to this headline">#</a></h3>
-<p>Soit <span class="math notranslate nohighlight">\(S_n\)</span> une variable aléatoire de loi <span class="math notranslate nohighlight">\(\mathcal{B}(n,p)\)</span>. Lorsque <span class="math notranslate nohighlight">\(n\)</span> est grand (&gt;50) et <span class="math notranslate nohighlight">\(p\)</span> petite (<span class="math notranslate nohighlight">\(np\)</span>&lt;10), on peut approcher la loi de <span class="math notranslate nohighlight">\(S_n\)</span> par une loi de Poisson <span class="math notranslate nohighlight">\(\mathcal P(np)\)</span>. On lit alors la valeur correspondante dans la table de la loi de Poisson, pour tout <span class="math notranslate nohighlight">\(k\in[\![0,n]\!]\)</span> $<span class="math notranslate nohighlight">\(P(S_n=k)\approx e^{-\lambda}\frac{\lambda^k}{k!}\)</span>$.</p>
+<p>Soit <span class="math notranslate nohighlight">\(S_n\)</span> une variable aléatoire de loi <span class="math notranslate nohighlight">\(\mathcal{B}(n,p)\)</span>. Lorsque <span class="math notranslate nohighlight">\(n\)</span> est grand (&gt;50) et <span class="math notranslate nohighlight">\(p\)</span> petite (<span class="math notranslate nohighlight">\(np\)</span>&lt;10), on peut approcher la loi de <span class="math notranslate nohighlight">\(S_n\)</span> par une loi de Poisson <span class="math notranslate nohighlight">\(\mathcal P(np)\)</span>. On lit alors la valeur correspondante dans la table de la loi de Poisson, pour tout <span class="math notranslate nohighlight">\(k\in[\![0,n]\!]\)</span>
+<span class="math notranslate nohighlight">\(P(S_n=k)\approx e^{-\lambda}\frac{\lambda^k}{k!}\)</span></p>
 <p>De plus, en remarquant que <span class="math notranslate nohighlight">\(\Sigma_n=n-S_n\)</span> suit <span class="math notranslate nohighlight">\(\mathcal{B}(n,1-p)\)</span>, on a</p>
 <p><span class="math notranslate nohighlight">\(P(\Sigma_n=k)=P(S_n=n-k)=\begin{pmatrix}n\\p\end{pmatrix} p^{n-k}(1-p)^{k} \)</span>
 et quand <span class="math notranslate nohighlight">\(n\)</span> est grand (&gt;50) et <span class="math notranslate nohighlight">\(p\)</span> voisin de 1 (<span class="math notranslate nohighlight">\(n(1-p)&lt;10\)</span>) on peut approcher la loi de <span class="math notranslate nohighlight">\(\Sigma_n\)</span> par une loi de Poisson <span class="math notranslate nohighlight">\(\mathcal P(n(1-p))\)</span>.</p>
@@ -1022,8 +1023,6 @@ où <span class="math notranslate nohighlight">\( \phi(x)\)</span> est la foncti
 <div class="section" id="modeles-probabilistes-usuels">
 <h2>Modèles probabilistes usuels<a class="headerlink" href="#modeles-probabilistes-usuels" title="Permalink to this headline">#</a></h2>
 <p>On donne ici un catalogue non exhaustif des principaux modèles probabilistes, et leurs principales propriétés. Une illustration graphique des lois correspondantes est proposée dans les figures suivantes.</p>
-<p><img alt="" src="_images/discretes.png" /></p>
-<p><img alt="" src="_images/continues.png" /></p>
 <div class="section" id="lois-discretes">
 <h3>Lois discrètes<a class="headerlink" href="#lois-discretes" title="Permalink to this headline">#</a></h3>
 <p>On considère une variable aléatoire <span class="math notranslate nohighlight">\(X:(\Omega,\mathcal A,P)\mapsto \mathcal D\)</span></p>
@@ -1075,6 +1074,7 @@ où <span class="math notranslate nohighlight">\( \phi(x)\)</span> est la foncti
 </tr>
 </tbody>
 </table>
+<p><img alt="" src="_images/discretes.png" /></p>
 </div>
 <div class="section" id="lois-absolument-continues">
 <h3>Lois absolument continues<a class="headerlink" href="#lois-absolument-continues" title="Permalink to this headline">#</a></h3>
@@ -1147,6 +1147,7 @@ où <span class="math notranslate nohighlight">\( \phi(x)\)</span> est la foncti
 </tr>
 </tbody>
 </table>
+<p><img alt="" src="_images/continues.png" /></p>
 </div>
 <div class="section" id="quelques-proprietes-de-lois-classiques">
 <h3>Quelques propriétés de lois classiques<a class="headerlink" href="#quelques-proprietes-de-lois-classiques" title="Permalink to this headline">#</a></h3>
