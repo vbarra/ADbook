@@ -867,8 +867,8 @@ title="Print to PDF"
 <li><p><span class="math notranslate nohighlight">\((n-1){S'}_n^2=\displaystyle\sum_{k=1}^n X_k^2-n\bar{X_n^2}\)</span> d’où</p></li>
 </ol>
 <p><span class="math notranslate nohighlight">\((n-1)\mathbb{E}({S'}_n^2)=\displaystyle\sum_{k=1}^n\mathbb{E}(X_k^2)-n\mathbb{E}(\bar{X_n^2})=n(\sigma^2+m^2)-n\left (\frac{\sigma^2}{n}+m^2 \right )\)</span>
-et le résultat.
-3. Admis</p>
+et le résultat.</p>
+<p>Le dernier point est admis.</p>
 </div>
 <div class="section" id="echantillons-de-variables-aleatoires-normales">
 <h3>Echantillons de variables aléatoires normales<a class="headerlink" href="#echantillons-de-variables-aleatoires-normales" title="Permalink to this headline">#</a></h3>
@@ -889,7 +889,7 @@ et le résultat.
 <li><p><span class="math notranslate nohighlight">\(F = \frac{\sigma_2^2 S'^2_n(X)}{\sigma_1^2 S'^2_m(Y)} = \frac{(m-1)n}{(n-1)m}\frac{\sigma_2^2S_n^2(X)}{\sigma_1^2S_m^2(Y)}\)</span> admet une loi de Fisher-Snédécor FS(<span class="math notranslate nohighlight">\(n-1\)</span>,<span class="math notranslate nohighlight">\(m-1\)</span>)</p></li>
 <li><p><span class="math notranslate nohighlight">\(T = \sqrt{\frac{(n+m-2)mn}{m+n}}\frac{(\bar{X}_n-\bar{Y}_m)-(m_1-m_2)}{\sqrt{nS_n^2(X)+mS_m^2(Y)}}\)</span> admet, sous l’hypothèse <span class="math notranslate nohighlight">\(\sigma_1=\sigma_2\)</span>, une loi de Student à <span class="math notranslate nohighlight">\((n+m-2)\)</span> degrés de liberté.</p></li>
 </ul>
-<div class="proof remark admonition" id="remark-3">
+<div class="proof remark dropdown admonition" id="remark-3">
 <p class="admonition-title"><span class="caption-number">Remark 5 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Sous l’hypothèse <span class="math notranslate nohighlight">\(\sigma_1=\sigma_2=\sigma\)</span> :</p>
@@ -908,15 +908,15 @@ et le résultat.
 <div class="proof theorem admonition" id="theorem-4">
 <p class="admonition-title"><span class="caption-number">Theorem 2 </span></p>
 <div class="theorem-content section" id="proof-content">
-<p>Soit une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> de moyenne <span class="math notranslate nohighlight">\(m\)</span> et d’écart-type <span class="math notranslate nohighlight">\(\sigma\)</span>. Alors :
-$<span class="math notranslate nohighlight">\((\forall t&gt;0)\; P(|X-m|\geq t)\leq \frac{\sigma^2}{t^2}\quad\textrm{et}\quad (\forall u&gt;0)\; P(\frac{|X-m|}{\sigma}\geq u)\leq \frac{1}{u^2}\)</span>$</p>
+<p>Soit une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> de moyenne <span class="math notranslate nohighlight">\(m\)</span> et d’écart-type <span class="math notranslate nohighlight">\(\sigma\)</span>. Alors :</p>
+<p><span class="math notranslate nohighlight">\((\forall t&gt;0)\; P(|X-m|\geq t)\leq \frac{\sigma^2}{t^2}\quad\textrm{et}\quad (\forall u&gt;0)\; P(\frac{|X-m|}{\sigma}\geq u)\leq \frac{1}{u^2}\)</span></p>
 </div>
 </div><p>En effet :
 Soit <span class="math notranslate nohighlight">\(A=\left \{|X-m|\geq t\right \}\)</span> et <span class="math notranslate nohighlight">\(\mathbb{1}_A(\omega)\)</span> = 1 si <span class="math notranslate nohighlight">\(\omega\in A\)</span>, 0 sinon. Alors :</p>
 <p><span class="math notranslate nohighlight">\((\forall \omega\in\Omega)\; |X(\omega)-m|^2\geq |X(\omega)-m|^2\mathbb{1}_A(\omega) \geq t^2\mathbb{1}_A(\omega)\)</span></p>
 <p>L’espérance étant croissante et vérifiant <span class="math notranslate nohighlight">\(\mathbb{E}(\mathbb{1}_A)=P(A)\)</span>, on a
 <span class="math notranslate nohighlight">\(\sigma^2=\mathbb{E}(|X-m|^2)\geq t^2P(A) = t^2P(|X-m|\geq t)\)</span> et le résultat.</p>
-<div class="proof remark admonition" id="remark-5">
+<div class="proof remark dropdown admonition" id="remark-5">
 <p class="admonition-title"><span class="caption-number">Remark 6 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Ces inégalités, souvent très grossières et d’intéret essentiellement théorique, n’ont d’utilité que pour <span class="math notranslate nohighlight">\(t&gt;\sigma\)</span> ou <span class="math notranslate nohighlight">\(u&gt;1\)</span> (une probabilité est toujours inférieure à 1). La seconde donne un majorant de la probabilité d’observer des valeurs prises par <span class="math notranslate nohighlight">\(X\)</span> à l’extérieur de l’intervalle <span class="math notranslate nohighlight">\([m-u\sigma,m+u\sigma]\)</span></p>
@@ -924,7 +924,7 @@ Soit <span class="math notranslate nohighlight">\(A=\left \{|X-m|\geq t\right \}
 </div></div>
 <div class="section" id="phenomene-de-regularite-statistique">
 <h3>Phénomène de régularité statistique<a class="headerlink" href="#phenomene-de-regularite-statistique" title="Permalink to this headline">#</a></h3>
-<p>Considérons plusieurs séquences de 100 lancers d’une pièce de monnaie et notons, pour chaque séquence, la suite <span class="math notranslate nohighlight">\((f_n)_{n\geq 1}\)</span> des fréquences des <code class="docutils literal notranslate"><span class="pre">piles</span></code> obtenues. Un exemple de simulation avec <span class="math notranslate nohighlight">\(p=0.4\)</span> est proposé dans la figure suivante.</p>
+<p>Considérons plusieurs séquences de 100 lancers d’une pièce de monnaie et notons, pour chaque séquence, la suite <span class="math notranslate nohighlight">\((f_n)_{n\geq 1}\)</span> des fréquences des piles obtenus. Un exemple de simulation avec <span class="math notranslate nohighlight">\(p=0.4\)</span> est proposé dans la figure suivante.</p>
 <p><img alt="" src="_images/freqpile.png" /></p>
 <p>La fluctuation de la fréquence est importante pour des petites valeurs de <span class="math notranslate nohighlight">\(n\)</span>, puis elle s’atténue, pour se stabiliser autour d’une valeur voisine de <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <p>Cette constatation expérimentale conduit aux remarques suivantes, qui sont précisées dans la suite dans le cadre théorique :</p>
@@ -938,9 +938,9 @@ Soit <span class="math notranslate nohighlight">\(A=\left \{|X-m|\geq t\right \}
 <div class="proof theorem admonition" id="theorem-6">
 <p class="admonition-title"><span class="caption-number">Theorem 3 </span></p>
 <div class="theorem-content section" id="proof-content">
-<p>Soit <span class="math notranslate nohighlight">\((X_n)_{n\geq 1}\)</span> une suite de variables aléatoires indépendantes, identiquement distribuées (i.i.d) de même loi qu’une variable <span class="math notranslate nohighlight">\(X\)</span>, admettant une moyenne <span class="math notranslate nohighlight">\(m\)</span> et un écart-type <span class="math notranslate nohighlight">\(\sigma\)</span>. Si <span class="math notranslate nohighlight">\((\bar{X_n})_{n\geq 1}\)</span> est la suite des moyennes empiriques associée à <span class="math notranslate nohighlight">\((X_n)_{n\geq 1}\)</span> alors
-<span class="math notranslate nohighlight">\((\forall t&gt;0)\; \displaystyle\lim_{n\rightarrow\infty} P(|\bar{X_n}-m|\geq t) = 0\)</span>
-On dit que la suite converge en probatilité vers <span class="math notranslate nohighlight">\(m\)</span> et on note <span class="math notranslate nohighlight">\(\bar{X_n}\xrightarrow[n\rightarrow\infty]{P} m\)</span></p>
+<p>Soit <span class="math notranslate nohighlight">\((X_n)_{n\geq 1}\)</span> une suite de variables aléatoires indépendantes, identiquement distribuées (i.i.d) de même loi qu’une variable <span class="math notranslate nohighlight">\(X\)</span>, admettant une moyenne <span class="math notranslate nohighlight">\(m\)</span> et un écart-type <span class="math notranslate nohighlight">\(\sigma\)</span>. Si <span class="math notranslate nohighlight">\((\bar{X_n})_{n\geq 1}\)</span> est la suite des moyennes empiriques associée à <span class="math notranslate nohighlight">\((X_n)_{n\geq 1}\)</span> alors</p>
+<p><span class="math notranslate nohighlight">\((\forall t&gt;0)\; \displaystyle\lim_{n\rightarrow\infty} P(|\bar{X_n}-m|\geq t) = 0\)</span></p>
+<p>On dit que la suite converge en probatilité vers <span class="math notranslate nohighlight">\(m\)</span> et on note <span class="math notranslate nohighlight">\(\bar{X_n}\xrightarrow[n\rightarrow\infty]{P} m\)</span></p>
 </div>
 </div><p>C’est une conséquence immédiate de l’inégalité de Tchebychev : <span class="math notranslate nohighlight">\(P(|\bar{X_n}-m|\geq t)\leq\frac{\sigma^2}{nt^2}\)</span> puisque <span class="math notranslate nohighlight">\(\mathbb{V}(\bar{X_n})=\frac{\sigma^2}{n}\)</span></p>
 <p>L’observation des valeurs prises par la moyenne empirique donne une bonne information sur la moyenne théorique <span class="math notranslate nohighlight">\(m\)</span> de <span class="math notranslate nohighlight">\(X\)</span>. La précision, au sens ci-dessus, est d’autant meilleure que <span class="math notranslate nohighlight">\(n\)</span> est grand.</p>
@@ -964,15 +964,13 @@ On dit que la suite converge en probatilité vers <span class="math notranslate 
 <div class="proof theorem admonition" id="theorem-8">
 <p class="admonition-title"><span class="caption-number">Theorem 4 </span></p>
 <div class="theorem-content section" id="proof-content">
-<p>Si <span class="math notranslate nohighlight">\(p\)</span> est une fonction de <span class="math notranslate nohighlight">\(n\)</span> telle que <span class="math notranslate nohighlight">\(\displaystyle\lim_{n\rightarrow\infty}np(n)=\lambda&gt;0\)</span>, alors pour tout <span class="math notranslate nohighlight">\(k\geq 0\)</span>
-$<span class="math notranslate nohighlight">\(\displaystyle\lim_{n\rightarrow\infty}\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k} = e^{-\lambda}\frac{\lambda^k}{k!}\)</span>$</p>
+<p>Si <span class="math notranslate nohighlight">\(p\)</span> est une fonction de <span class="math notranslate nohighlight">\(n\)</span> telle que <span class="math notranslate nohighlight">\(\displaystyle\lim_{n\rightarrow\infty}np(n)=\lambda&gt;0\)</span>, alors pour tout <span class="math notranslate nohighlight">\(k\geq 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\displaystyle\lim_{n\rightarrow\infty}\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k} = e^{-\lambda}\frac{\lambda^k}{k!}\)</span></p>
 </div>
 </div><p>En effet
-\begin{eqnarray*}
-\begin{pmatrix}n\p\end{pmatrix} p^k(1-p)^{n-k}&amp;=&amp;\frac{n(n-1)\cdots (n-k+1)}{k!}p^k(1-p)^{n-k}\
-&amp;=&amp;\frac{(np)^k}{k!}\displaystyle\prod_{j=0}^k\left (1-\frac{j}{n}\right )(1-p)^{n-k}
-\end{eqnarray*}
-et le résultat est démontré en remarquant que <span class="math notranslate nohighlight">\(\displaystyle\lim_{n\rightarrow\infty} p(n)=0\)</span>.</p>
+<span class="math notranslate nohighlight">\(\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k}=\frac{n(n-1)\cdots (n-k+1)}{k!}p^k(1-p)^{n-k}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k}=\frac{(np)^k}{k!}\displaystyle\prod_{j=0}^k\left (1-\frac{j}{n}\right )(1-p)^{n-k}\)</span></p>
+<p>et le résultat est démontré en remarquant que <span class="math notranslate nohighlight">\(\displaystyle\lim_{n\rightarrow\infty} p(n)=0\)</span>.</p>
 </div>
 <div class="section" id="application">
 <h3>Application<a class="headerlink" href="#application" title="Permalink to this headline">#</a></h3>
