@@ -300,8 +300,10 @@
 # La fonction de répartition de $Z$ est $\phi(Z) = P(Z<z) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^z e^{-\frac{t^2}{2}}dt$, dont les valeurs peuvent être lues dans une table. 
 # 
 # ```{prf:theorem}
-# Soient $X_1$ et $X_2$ deus variables aléatoires indépendantes, de loi respective $\mathcal{N}(m_1,\sigma_1)$ et $\mathcal{N}(m_2,\sigma_2)$. Alors la variable aléatoire $X=\alpha_1X_1+\alpha_2X_2$ admet une loi $\mathcal{N}(m,\sigma)$ avec 
-# $$m = \alpha_1 m_1+\alpha_2 m_2\quad \textrm{et}\quad \sigma_2^2 = \alpha_1^2 \sigma_1+\alpha_2^2 \sigma_2^2$$ 
+# Soient $X_1$ et $X_2$ deux variables aléatoires indépendantes, de loi respective $\mathcal{N}(m_1,\sigma_1)$ et $\mathcal{N}(m_2,\sigma_2)$. Alors la variable aléatoire $X=\alpha_1X_1+\alpha_2X_2$ admet une loi $\mathcal{N}(m,\sigma)$ avec 
+# 
+# $m = \alpha_1 m_1+\alpha_2 m_2\quad \textrm{et}\quad \sigma_2^2 = \alpha_1^2 \sigma_1+\alpha_2^2 \sigma_2^2$
+# 
 # En particulier, étant données $n$ variables aléatoires $X_1\cdots X_n$ i.i.d. de loi $\mathcal{N}(m,\sigma)$, alors la variable aléatoire $\bar X_n = \frac1n \displaystyle\sum_{k=1}^nX_k$ suit une loi normale $\mathcal{N}(m,\sigma/\sqrt{n})$.
 # ``` 
 # ```{prf:remark}
