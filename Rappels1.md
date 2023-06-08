@@ -183,10 +183,6 @@ plt.axhline(y = 0.4, color = 'k', linestyle = '--')
 plt.tight_layout()
 ```
 
-
-![](./images/freqpile.png)
-
-
 La fluctuation de la fréquence est importante pour des petites valeurs de $n$, puis elle s'atténue, pour se stabiliser autour d'une valeur voisine de $p$.
 
 Cette constatation expérimentale conduit aux remarques suivantes, qui sont précisées dans la suite dans le cadre théorique :

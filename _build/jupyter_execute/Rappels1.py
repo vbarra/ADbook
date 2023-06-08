@@ -149,7 +149,6 @@
 
 import numpy as np
 from  random  import  random
-import random
 import matplotlib.pyplot as plt
 
 def experience(n):
