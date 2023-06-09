@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Rappels
+# # Rappels de probabilité
 # 
 # 
 # ## Expérience aléatoire

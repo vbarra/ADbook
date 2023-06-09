@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rappels &#8212; Analyse de données</title>
+    <title>Rappels de probabilité &#8212; Analyse de données</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -47,13 +47,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Distributions de probabilité discrètes" href="distributions_discretes.html" />
+    <link rel="next" title="Rappels" href="Rappels1.html" />
     <link rel="prev" title="Introduction" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -117,6 +115,11 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
+   Rappels de probabilité
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Rappels1.html">
    Rappels
   </a>
  </li>
@@ -520,7 +523,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Rappels</h1>
+                <h1>Rappels de probabilité</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -638,8 +641,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="rappels">
-<h1>Rappels<a class="headerlink" href="#rappels" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="rappels-de-probabilite">
+<h1>Rappels de probabilité<a class="headerlink" href="#rappels-de-probabilite" title="Permalink to this headline">#</a></h1>
 <div class="section" id="experience-aleatoire">
 <h2>Expérience aléatoire<a class="headerlink" href="#experience-aleatoire" title="Permalink to this headline">#</a></h2>
 <div class="section" id="definitions">
@@ -1069,9 +1072,9 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/scipy/stats/_distn_infrastructure.py:2052: IntegrationWarning: The integral is probably divergent, or slowly convergent.
   return integrate.quad(self._pdf, _a, x, args=args)[0]
-/usr/local/lib/python3.9/site-packages/numpy/lib/function_base.py:2411: RuntimeWarning: overflow encountered in _cdf_single (vectorized)
+/usr/local/lib/python3.9/site-packages/numpy/lib/function_base.py:2246: RuntimeWarning: overflow encountered in _cdf_single (vectorized)
   outputs = ufunc(*inputs)
-/usr/local/lib/python3.9/site-packages/numpy/lib/function_base.py:2411: RuntimeWarning: invalid value encountered in _cdf_single (vectorized)
+/usr/local/lib/python3.9/site-packages/numpy/lib/function_base.py:2246: RuntimeWarning: invalid value encountered in _cdf_single (vectorized)
   outputs = ufunc(*inputs)
 /usr/local/lib/python3.9/site-packages/scipy/stats/_distn_infrastructure.py:2925: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
   If increasing the limit yields no improvement it is advised to analyze 
@@ -1194,7 +1197,9 @@ Ecart-type :  7.810249675906654
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variance:  0.049999999999272404
-Ecart-type :  0.22360679774835202
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ecart-type :  0.22360679774835202
 </pre></div>
 </div>
 </div>
@@ -1252,10 +1257,10 @@ Ecart-type :  0.22360679774835202
             <p class="prev-next-title">Introduction</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="distributions_discretes.html" title="next page">
+    <a class='right-next' id="next-link" href="Rappels1.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Distributions de probabilité discrètes</p>
+        <p class="prev-next-title">Rappels</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
