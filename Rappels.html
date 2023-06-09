@@ -131,11 +131,6 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Stats.html">
-   Introduction aux statistiques
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="statsdescriptives.html">
    Statistique descriptive
   </a>
@@ -645,7 +640,7 @@ title="Print to PDF"
 <p>Une <strong>expérience aléatoire</strong> est une expérience dont on ne peut prévoir le résultat a priori. Répétée dans des conditions identiques, elle peut donner lieu à des résultats différents.</p>
 </div>
 </div><div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 1 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 2 </span></p>
 <div class="example-content section" id="proof-content">
 <ul class="simple">
 <li><p>Le lancé de dé</p></li>
@@ -663,7 +658,7 @@ title="Print to PDF"
 <p>On appelle <strong>univers des possibles</strong> d’une expérience aléatoire l’ensemble  <span class="math notranslate nohighlight">\(\Omega\)</span> des issues de cette expérience.</p>
 </div>
 </div><div class="proof example admonition" id="example-4">
-<p class="admonition-title"><span class="caption-number">Example 2 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 3 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Lorsque l’on joue à pile ou face avec une pièce de monnaie, l’expérience a deux issues possibles et <span class="math notranslate nohighlight">\(\Omega = \{P,F\}\)</span>.</p>
 </div>
@@ -678,7 +673,7 @@ title="Print to PDF"
 <p>Etant donnée une expérience aléatoire, un <strong>évènement</strong> est une assertion vraie ou fausse suivant l’issue de l’expérience. C’est donc un sous-ensemble <span class="math notranslate nohighlight">\(E\)</span> de <span class="math notranslate nohighlight">\(\Omega\)</span>.</p>
 </div>
 </div><div class="proof example admonition" id="example-6">
-<p class="admonition-title"><span class="caption-number">Example 3 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 4 </span></p>
 <div class="example-content section" id="proof-content">
 <ul class="simple">
 <li><p>Dans l’expérience du lancer de deux dés, on peut s’intéresser à l’évènement “la somme des deux faces est paire” ou encore  “la somme est supérieure à 7”.</p></li>
@@ -762,7 +757,7 @@ title="Print to PDF"
 </div>
 </div><p>En pratique, on choisit souvent la tribu engendrée par une famille de <span class="math notranslate nohighlight">\(n\)</span> évènements <span class="math notranslate nohighlight">\(A_i\)</span>, qui est l’ensemble des parties de <span class="math notranslate nohighlight">\(\Omega\)</span> obtenues en effectuant l’union de <span class="math notranslate nohighlight">\(k\)</span> évènements <span class="math notranslate nohighlight">\(A_i,i\in [\![1,n]\!]\)</span>.</p>
 <div class="proof example admonition" id="example-8">
-<p class="admonition-title"><span class="caption-number">Example 4 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 5 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Dans le cas du lancer d’un dé, <span class="math notranslate nohighlight">\(\Omega = \{1,2,3,4,5,6\}\)</span>, et :</p>
 <ul class="simple">
@@ -814,7 +809,7 @@ title="Print to PDF"
 </div><p><span class="math notranslate nohighlight">\(P(A\mid B)\)</span> représente la probabilité que <span class="math notranslate nohighlight">\(A\)</span> se réalise sachant que <span class="math notranslate nohighlight">\(B\)</span> est réalisé.</p>
 <p>Remarquons que l’on peut écrire <span class="math notranslate nohighlight">\(P(A\bigcap B) = P(A\mid B)P(B) = P(B\mid A)P(A)\)</span>.</p>
 <div class="proof example admonition" id="example-12">
-<p class="admonition-title"><span class="caption-number">Example 5 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 6 </span></p>
 <div class="example-content section" id="proof-content">
 <p>7% des français sont atteints d’un cancer du poumon. 70% des malades sont des fumeurs et 50% des français fument. On recherche la probabilité d’être atteint d’un cancer du poumon lorsque l’on est fumeur.
 L’évènement <span class="math notranslate nohighlight">\(A\)</span> est “avoir un cancer du poumon”, et <span class="math notranslate nohighlight">\(B\)</span> est “être fumeur”. D’après les données on a <span class="math notranslate nohighlight">\(P(A)\)</span>=0.07, <span class="math notranslate nohighlight">\(P(B)\)</span> = 0.5 et <span class="math notranslate nohighlight">\(P(B\mid A)\)</span> = 0.7.
@@ -860,7 +855,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <p>Si <span class="math notranslate nohighlight">\(B_i\)</span> est un système complet d’évènements, on a de plus</p>
 <p><span class="math notranslate nohighlight">\(P(B_i|A)= \frac{P(A|B_i)P(B_i)}{P(A)} = \frac{P(A|B_i)P(B_i)}{\displaystyle\sum_k P(A|B_k)P(B_k)}\)</span></p>
 <div class="proof example admonition" id="example-17">
-<p class="admonition-title"><span class="caption-number">Example 6 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 7 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Un fabricant de boulons a trois usines de fabrication situées à Amiens, Besançon et Clermont-Ferrand. Amiens fournit 25% de la production, Besançon 20% et Clermont-Ferrand 55%. Les boulons de 5mm représentent 20% des boulons produits à Amiens, 30% à Besançon et 15% à Clermont-Ferrand. On répond à la question suivante : sachant que le boulon acheté a une taille de 5mm, quelle est la probabilité qu’il soit produit à Clermont-Ferrand ?</p>
 <p>On note <span class="math notranslate nohighlight">\(B_1\)</span> (respectivement <span class="math notranslate nohighlight">\(B_2,B_3\)</span>) l’évènement “Le boulon est produit à Amiens (resp. Besançon, Clermont-Ferrand)”. On note également <span class="math notranslate nohighlight">\(A\)</span> l’évènement “Le boulon fait 5mm”. On cherche donc</p>
@@ -881,7 +876,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div><p>Pour obtenir la probabilité d’une valeur quelconque image par <span class="math notranslate nohighlight">\(X\)</span>, il suffit de dénombrer les <span class="math notranslate nohighlight">\(\omega\)</span> qui réalisent cette valeur.</p>
 <div class="proof example admonition" id="example-19">
-<p class="admonition-title"><span class="caption-number">Example 7 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 8 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Si <span class="math notranslate nohighlight">\(\Omega\)</span> = (Pile,Face), on considère la loi de probabilité <span class="math notranslate nohighlight">\(P\)</span> telle que : <span class="math notranslate nohighlight">\((\forall \omega\in\Omega)\; P(\omega)=\frac12\)</span>.
 <span class="math notranslate nohighlight">\(P(X=1)= P(\{Pile\}) = \frac12\)</span>.</p>
@@ -889,7 +884,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div><p>On dit que l’on transporte la loi de probabilité de <span class="math notranslate nohighlight">\(\Omega\)</span> sur <span class="math notranslate nohighlight">\(E\)</span> par l’application <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <p>Les éléments de <span class="math notranslate nohighlight">\(E\)</span> sont les <strong>réalisations</strong> de la variable aléatoire.</p>
 <div class="proof example admonition" id="example-20">
-<p class="admonition-title"><span class="caption-number">Example 8 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 9 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Si l’expérience consiste à observer le résultat du tirage de deux dés à 6 faces, <span class="math notranslate nohighlight">\(\Omega = \{(1,1), (1,2), \cdots (6,5), (6,6)\}\)</span>, on considère la loi de probabilité telle que <span class="math notranslate nohighlight">\((\forall \omega\in\Omega)\; P(\omega)=\frac{1}{36}\)</span>.</p>
 <p>Si l’application <span class="math notranslate nohighlight">\(X\)</span> réalise la somme des deux éléments de <span class="math notranslate nohighlight">\(\omega\in\Omega\)</span>, alors on a par exemple <span class="math notranslate nohighlight">\(P(X=3)= P(\{(1,2),(2,1)\}) = \frac{2}{36}\)</span>, ou encore <span class="math notranslate nohighlight">\(P(X=5)= P(\{(1,4),(2,3),(3,2),(4,1)\}) = \frac{4}{36}\)</span>.</p>
@@ -1093,7 +1088,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 <p>On dira que <span class="math notranslate nohighlight">\(X\)</span> est <strong>centrée</strong> si <span class="math notranslate nohighlight">\(\mathbb{E}(X)=0\)</span>.</p>
 <div class="proof example admonition" id="example-26">
-<p class="admonition-title"><span class="caption-number">Example 9 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 10 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Pour l’expérience d’un lancer de dé à 6 faces  : <span class="math notranslate nohighlight">\(\mathbb E(X) = \mu_X = \displaystyle\sum_{i=1}^6 i\frac16 = \frac72\)</span></p>
 </div>
