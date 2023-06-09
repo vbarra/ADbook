@@ -460,7 +460,7 @@ Si $X$ est de loi $\mathcal{N}(0,1)$ alors la variable aléatoire $Y=X^2$ admet 
 Etant données plus généralement $n$ variables aléatoires i.i.d. de loi $\mathcal{N}(m,\sigma)$, alors  la variable aléatoire $V=\displaystyle\sum_{k=1}^n \left (\frac{X_k-m}{\sigma}\right )^2$ admet une loi $\gamma(\frac{n}{2},\frac12)$. C'est la loi du khi-deux à $n$ degrés de liberté.
 ```
 
-### Loi du Khi-deux
+#### Loi du Khi-deux
 
 ```{code-cell} ipython3
 from scipy.stats import chi2

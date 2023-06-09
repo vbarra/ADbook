@@ -389,45 +389,14 @@ x = 1.3
 m = 0 
 sigma = 1 
 
-print("Moyenne : ", norm.mean(loc = m, scale = sigma))
-print("Variance : ", norm.var(loc = m, scale = sigma)) 
+mean,var = norm.stats(loc = m, scale = sigma, moments='mv')
+
+print("Moyenne : ", mean)
+print("Variance : ", var) 
 print("Densité de probabilité : ", norm.pdf(x, loc = m, scale = sigma))
 print("Fonction de répartition : ", norm.cdf(x, loc = m, scale = sigma))
 ```
-#### Loi exponentielle
-```{code-cell} ipython3
-from scipy.stats import expon
 
-Lambda = 0.5 
-x = 1 
-
-print("Espérance : ", expon.mean(scale = Lambda))
-print("Variance : ", expon.var(scale = Lambda))
-print("Densité de probabilité : ", expon.pdf(x, scale = Lambda))
-print("Fonction de répartition : ", expon.cdf(x, scale = Lambda))
-```
-#### Distribution Gamma
-```{code-cell} ipython3
-from scipy.stats import gamma
-
-x = 3 
-a = 3 
-Lambda = 1.8 
-
-print("Moyenne : ", gamma.mean(a,  scale = 1/Lambda))
-print("Variance : ", gamma.var(a, scale = 1/Lambda))
-print("Densité de probabilité : ", gamma.pdf(x, a,  scale = 1/Lambda))
-print("Fonction de répartition : ", gamma.cdf(x, a, scale = 1/Lambda))
-```
-
-
-### Quelques propriétés de lois classiques
-#### Modèle exponentiel
-On parle de loi de probabilité sans mémoire car elle vérifie : 
-$ (\forall s,t\in(\mathbb{R}^+)^*\; P(X>s+t |X>t) = P(X>s)$
-
-
-#### Loi normale
 Sous l'hypothèse de normalité, de nombreux outils statistiques sont disponibles. Souvent, l'hypothèse de normalité est justifiée par l'intermédiaire du théorème centrale limite. Des considérations, parfois abusives, permettent de se placer dans le cadre d'utilisation de ce théorème et de choisir un modèle normal alors qu'une étude des données statistiques met en défaut le choix de ce modèle (problème dit d'adéquation).
 
 ````{prf:property}
@@ -447,8 +416,40 @@ Dans ce cas, $\sqrt{n}\frac{\bar X_n-m}{\sigma}$ suit une loi $\mathcal{N}(0,1)$
 ```
 
 
-#### Modèle Gamma
-Les propriéts de cette loi reposent sur celles de la fonction $\Gamma(a) = \int_0^{+\infty} x-{a-1}e^{-x}dx$, intégrale convergente pour tout $a>0$.
+#### Loi exponentielle
+```{code-cell} ipython3
+from scipy.stats import expon
+
+Lambda = 0.5 
+x = 1 
+mean,var = expon.stats(scale=Lambda, moments='mv')
+
+print("Espérance : ", mean)
+print("Variance : ", var)
+print("Densité de probabilité : ", expon.pdf(x, scale = Lambda))
+print("Fonction de répartition : ", expon.cdf(x, scale = Lambda))
+```
+
+On parle de loi de probabilité sans mémoire car elle vérifie : 
+$ (\forall s,t\in(\mathbb{R}^+)^*\; P(X>s+t |X>t) = P(X>s)$
+
+
+#### Distribution Gamma
+```{code-cell} ipython3
+from scipy.stats import gamma
+
+x = 3 
+a = 3 
+Lambda = 1.8 
+
+mean, var = gamma.stats(a,  scale = 1/Lambda, moments='mv')
+print("Moyenne : ", mean)
+print("Variance : ", var)
+print("Densité de probabilité : ", gamma.pdf(x, a,  scale = 1/Lambda))
+print("Fonction de répartition : ", gamma.cdf(x, a, scale = 1/Lambda))
+```
+
+Les propriétés de cette loi reposent sur celles de la fonction $\Gamma(a) = \int_0^{+\infty} x-{a-1}e^{-x}dx$, intégrale convergente pour tout $a>0$.
 
 ```{prf:theorem}
 Si $X$ et $Y$ sont des variables aléatoires indépendantes de loi respective $\gamma(a,\lambda)$ et $\gamma(b,\lambda)$, alors $X=X_1+X_2$ est de loi $\gamma(a+b,\lambda)$
@@ -459,14 +460,52 @@ Si $X$ est de loi $\mathcal{N}(0,1)$ alors la variable aléatoire $Y=X^2$ admet 
 Etant données plus généralement $n$ variables aléatoires i.i.d. de loi $\mathcal{N}(m,\sigma)$, alors  la variable aléatoire $V=\displaystyle\sum_{k=1}^n \left (\frac{X_k-m}{\sigma}\right )^2$ admet une loi $\gamma(\frac{n}{2},\frac12)$. C'est la loi du khi-deux à $n$ degrés de liberté.
 ```
 
+### Loi du Khi-deux
+
+```{code-cell} ipython3
+from scipy.stats import chi2
+x=3
+n=2
+mean, var = chi2.stats(n, moments='mv')
+print("Moyenne : ",  mean)
+print("Variance : ", var)
+print("Densité de probabilité : ", chi2(n).pdf(x))
+print("Fonction de répartition : ", chi2(n).cdf(x))
+```
+
 #### Loi de Student
+```{code-cell} ipython3
+from scipy.stats import t
+n = 2
+x=3
+mean, var = t.stats(n, moments='mv')
+print("Moyenne : ",  mean)
+print("Variance : ", var)
+print("Densité de probabilité : ", t(n).pdf(x))
+print("Fonction de répartition : ", t(n).cdf(x))
+```
 L'utilisation pratique de cette loi est énoncée par le théorème suivant :
 
 ```{prf:theorem}
 Soient deux variables aléatoires $X$ et $Y$ indépendantes, de loi respective $\mathcal{N}(0,1)$ et $\chi_n^2$. Alors la variable aléatoire $T=\frac{X}{\sqrt{Y/n}}$ admet une loi de Student à $n$ degrés de liberté. 
 ```
 
+
 #### Loi de Fisher-Snédécor
+```{code-cell} ipython3
+from scipy.stats import f
+n = 2
+m=4
+x=3
+mean, var = f.stats(n, m,moments='mv')
+print("Moyenne : ",  mean)
+print("Variance : ", var)
+print("Densité de probabilité : ", f(n,m).pdf(x))
+print("Fonction de répartition : ", f(n,m).cdf(x))
+```
+
+L'utilisation pratique de cette loi est énoncée par le théorème suivant :
+
 ```{prf:theorem}
 Soient deux variables aléatoires $X$ et $Y$ indépendantes, de loi respective $\chi_n^2$ et $\chi_m^2$. Alors la variable aléatoire $T=\frac{X/n}{Y/m}$ admet une loi de Fisher-Snédécor à $n$ et $m$ degrés de liberté. 
 
