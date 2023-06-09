@@ -481,7 +481,7 @@ print("Fonction de répartition : ", gamma.cdf(x, a, scale = 1/Lambda))
 # Etant données plus généralement $n$ variables aléatoires i.i.d. de loi $\mathcal{N}(m,\sigma)$, alors  la variable aléatoire $V=\displaystyle\sum_{k=1}^n \left (\frac{X_k-m}{\sigma}\right )^2$ admet une loi $\gamma(\frac{n}{2},\frac12)$. C'est la loi du khi-deux à $n$ degrés de liberté.
 # ```
 # 
-# ### Loi du Khi-deux
+# #### Loi du Khi-deux
 
 # In[10]:
 
