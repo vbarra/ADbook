@@ -53,8 +53,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="TP AFC / ACM" href="TP3_AFC_ACM.html" />
-    <link rel="prev" title="Statistique exploratoire" href="statsexploratoires.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -114,7 +112,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Rappels.html">
    Rappels de probabilité
@@ -136,38 +134,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="TP1_statsDescriptives.html">
-   TP Statistiques descriptives
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="statsexploratoires.html">
-   Statistique exploratoire
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   TP ACP
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP3_AFC_ACM.html">
-   TP AFC / ACM
+  <a class="reference internal" href="acp.html">
+   Analyse en composantes principales
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="regression.html">
    Régression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP_Regression_Lineaire.html">
-   TP Régression linéaire
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP_Regression_Logistique.html">
-   TP Régression logistique
   </a>
  </li>
  <li class="toctree-l1">
@@ -517,41 +490,6 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  <span class=" -Color -Color-Bold -Color-Bold-Red">error</span>: <span class=" -Color -Color-Bold">subprocess-exited-with-error</span>
-  
-  <span class=" -Color -Color-Red">×</span> <span class=" -Color -Color-Green">python setup.py egg_info</span> did not run successfully.
-  <span class=" -Color -Color-Red">│</span> exit code: <span class=" -Color -Color-Bold -Color-Bold-Cyan">1</span>
-  <span class=" -Color -Color-Red">╰─&gt;</span> <span class=" -Color -Color-Red">[18 lines of output]</span>
-  <span class=" -Color -Color-Red">   </span> The &#39;sklearn&#39; PyPI package is deprecated, use &#39;scikit-learn&#39;
-  <span class=" -Color -Color-Red">   </span> rather than &#39;sklearn&#39; for pip commands.
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> Here is how to fix this error in the main use cases:
-  <span class=" -Color -Color-Red">   </span> - use &#39;pip install scikit-learn&#39; rather than &#39;pip install sklearn&#39;
-  <span class=" -Color -Color-Red">   </span> - replace &#39;sklearn&#39; by &#39;scikit-learn&#39; in your pip requirements files
-  <span class=" -Color -Color-Red">   </span>   (requirements.txt, setup.py, setup.cfg, Pipfile, etc ...)
-  <span class=" -Color -Color-Red">   </span> - if the &#39;sklearn&#39; package is used by one of your dependencies,
-  <span class=" -Color -Color-Red">   </span>   it would be great if you take some time to track which package uses
-  <span class=" -Color -Color-Red">   </span>   &#39;sklearn&#39; instead of &#39;scikit-learn&#39; and report it to their issue tracker
-  <span class=" -Color -Color-Red">   </span> - as a last resort, set the environment variable
-  <span class=" -Color -Color-Red">   </span>   SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True to avoid this error
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> More information is available at
-  <span class=" -Color -Color-Red">   </span> https://github.com/scikit-learn/sklearn-pypi-package
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> If the previous advice does not cover your use case, feel free to report it at
-  <span class=" -Color -Color-Red">   </span> https://github.com/scikit-learn/sklearn-pypi-package/issues/new
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Red">[end of output]</span>
-  
-  <span class=" -Color -Color-Bold -Color-Bold-Magenta">note</span>: This error originates from a subprocess, and is likely not a problem with pip.
-<span class=" -Color -Color-Bold -Color-Bold-Red">error</span>: <span class=" -Color -Color-Bold">metadata-generation-failed</span>
-
-<span class=" -Color -Color-Red">×</span> Encountered error while generating package metadata.
-<span class=" -Color -Color-Red">╰─&gt;</span> See above for output.
-
-<span class=" -Color -Color-Bold -Color-Bold-Magenta">note</span>: This is an issue with the package mentioned above, not pip.
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">hint</span>: See above for details.
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip available: <span class=" -Color -Color-Red">22.3.1</span> -&gt; <span class=" -Color -Color-Green">23.1.2</span>
 <span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python3.11 -m pip install --upgrade pip</span>
 </pre></div>
@@ -804,20 +742,6 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="statsexploratoires.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Statistique exploratoire</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="TP3_AFC_ACM.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">TP AFC / ACM</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>
