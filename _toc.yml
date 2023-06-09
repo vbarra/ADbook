@@ -9,8 +9,10 @@ chapters:
 - file: exoprobas
 - file: statsdescriptives
 - file: TP1_statsDescriptives
-- file: statsexploratoires
+- file: acp
 - file: TP2_ACP
+- file: afc
+- file: acm
 - file: TP3_AFC_ACM
 - file: regression
 - file: TP_Regression_Lineaire
