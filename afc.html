@@ -1,0 +1,1283 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analyse Factorielle des correspondances &#8212; Analyse de données</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Analyse des correspondances multiples" href="acm.html" />
+    <link rel="prev" title="TP ACP" href="TP2_ACP.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/isimainp.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Analyse de données</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Rappels.html">
+   Rappels de probabilité
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="elemstats.html">
+   Elements de statistiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exoprobas.html">
+   Exercices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="statsdescriptives.html">
+   Statistique descriptive
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP1_statsDescriptives.html">
+   TP Statistiques descriptives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="acp.html">
+   Analyse en composantes principales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP2_ACP.html">
+   TP ACP
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Analyse Factorielle des correspondances
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="acm.html">
+   Analyse des correspondances multiples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP3_AFC_ACM.html">
+   TP AFC / ACM
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="regression.html">
+   Régression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP_Regression_Lineaire.html">
+   TP Régression linéaire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP_Regression_Logistique.html">
+   TP Régression logistique
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="clustering.html">
+   Quelques méthodes de classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fafc.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/afc.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notations">
+   Notations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#double-acp">
+   Double ACP
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acp-dans-mathbb-r-j">
+   ACP dans
+   <span class="math notranslate nohighlight">
+    \(\mathbb{R}^J\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acp-dans-mathbb-r-k">
+   ACP dans
+   <span class="math notranslate nohighlight">
+    \(\mathbb{R}^K\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#representation-graphique">
+   Représentation graphique
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interpretation">
+   Interprétation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inertie-et-test-d-independance">
+   Inertie et test d’indépendance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interpretation-des-valeurs-propres">
+   Interprétation des valeurs propres
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qualite-globale">
+   Qualité globale
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qualite-de-chaque-modalite">
+   Qualité de chaque modalité
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inertie-expliquee">
+   Inertie expliquée
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choix-de-q">
+   Choix de q
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modele-statistique">
+   Modèle statistique
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modele-log-lineaire">
+   Modèle log linéaire
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modele-de-correlation">
+   Modèle de corrélation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exemple">
+   Exemple
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Analyse Factorielle des correspondances</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notations">
+   Notations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#double-acp">
+   Double ACP
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acp-dans-mathbb-r-j">
+   ACP dans
+   <span class="math notranslate nohighlight">
+    \(\mathbb{R}^J\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acp-dans-mathbb-r-k">
+   ACP dans
+   <span class="math notranslate nohighlight">
+    \(\mathbb{R}^K\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#representation-graphique">
+   Représentation graphique
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interpretation">
+   Interprétation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inertie-et-test-d-independance">
+   Inertie et test d’indépendance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interpretation-des-valeurs-propres">
+   Interprétation des valeurs propres
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qualite-globale">
+   Qualité globale
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qualite-de-chaque-modalite">
+   Qualité de chaque modalité
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inertie-expliquee">
+   Inertie expliquée
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choix-de-q">
+   Choix de q
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modele-statistique">
+   Modèle statistique
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modele-log-lineaire">
+   Modèle log linéaire
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modele-de-correlation">
+   Modèle de corrélation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exemple">
+   Exemple
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="analyse-factorielle-des-correspondances">
+<h1>Analyse Factorielle des correspondances<a class="headerlink" href="#analyse-factorielle-des-correspondances" title="Permalink to this headline">#</a></h1>
+<p id="index-0">On cherche à expliquer la liaison entre deux variables qualitatives <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span>, caractérisées par un ensemble de couples de modalités <span class="math notranslate nohighlight">\((x_i,y_i)\)</span>. On note <span class="math notranslate nohighlight">\(x_1\cdots x_J\)</span> et <span class="math notranslate nohighlight">\(y_1\cdots y_K\)</span> les modalités distinctes de <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> respectivement.</p>
+<p>Plus précisément, l’analyse factorielle des correspondances (AFC) vise à définir un modèle statistique permettant de fournir des paramètres dont la représentation graphique illustre les correspondances entre les modalités de ces variables. Dans sa version “analyse de données”, l’AFC cherche à réduire la dimension des données en effectuant la décomposition factorielle des nuages de points associés aux profils lignes et aux profils colonnes du tableau de contingence croisant les modalités des deux variables (L’AFC est une double ACP sur les deux tableaux de profils). On aborde à la fin du chapitre une modélisation statistique de l’AFC, en supposant que les fréquences d’observation correspondent à l’observation d’une probabilité théorique, dont la distribution modélise le tableau de contingence des deux variables.</p>
+<div class="section" id="notations">
+<h2>Notations<a class="headerlink" href="#notations" title="Permalink to this headline">#</a></h2>
+<p>Le tableau de contingence <span class="math notranslate nohighlight">\({\bf T}\)</span> entre les <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span>, vu comme une matrice,  est défini par</p>
+<span class="target" id="index-1"></span><table class="colwidths-auto table" id="index-2">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(y_1\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(y_k\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(y_K\)</span></p></th>
+<th class="head"><p>total</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(x_1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n_{11}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n_{1k}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n_{1K}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n_{1.}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(x_j\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n_{j1}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n_{jk}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n_{jK}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n_{j.}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(x_J\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n_{J1}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n_{Jk}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n_{JK}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n_{J.}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>total</p></td>
+<td><p><span class="math notranslate nohighlight">\(n_{.1}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n_{.k}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\cdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n_{.K}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>où <span class="math notranslate nohighlight">\(n_{j.}\)</span> (resp <span class="math notranslate nohighlight">\(n_{.k}\)</span> )sont les effectifs marginaux représentant le nombre de fois où <span class="math notranslate nohighlight">\(x_j\)</span> (resp. <span class="math notranslate nohighlight">\(y_k\)</span>) apparaît, et <span class="math notranslate nohighlight">\(n_{jk}\)</span> le nombre d’apparitions du couple <span class="math notranslate nohighlight">\((x_j,y_k)\)</span>.</p>
+<p>Les fréquences conjointes <span class="math notranslate nohighlight">\(f_{jk}=\frac{n_{jk}}{n}\)</span> et les fréquences marginales sont stockées dans des vecteurs <span class="math notranslate nohighlight">\({\bf g_J}=\begin{pmatrix}f_{1.}\ldots f_{J.} \end{pmatrix}^T\)</span> et <span class="math notranslate nohighlight">\({\bf g_K}=\begin{pmatrix}f_{.1}\ldots f_{.K} \end{pmatrix}^T\)</span>.</p>
+<p>On note aussi <span class="math notranslate nohighlight">\({\bf D_J}=diag\left (f_{1.}\ldots f_{J.}\right )\)</span> et <span class="math notranslate nohighlight">\({\bf D_K}=diag\left (f_{.1}\ldots f_{.K} \right )\)</span>.</p>
+<p>Dans le tableau de contingence <span class="math notranslate nohighlight">\(\mathbf T\)</span>, on lit le <span class="math notranslate nohighlight">\(j^e\)</span> profil ligne <span class="math notranslate nohighlight">\([\frac{n_{j1}}{n_{j.}}\ldots \frac{n_{jK}}{n_{j.}}]\)</span>, considéré comme un vecteur de <span class="math notranslate nohighlight">\(\mathbb{R}^K\)</span> et le <span class="math notranslate nohighlight">\(k^e\)</span> profil colonne <span class="math notranslate nohighlight">\([\frac{n_{1k}}{n_{.k}}\ldots \frac{n_{Jk}}{n_{.k}}]\)</span> considéré comme un vecteur de <span class="math notranslate nohighlight">\(\mathbb{R}^J\)</span>. Ces profils sont rangés dans des matrices de profils lignes <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{KJ}(\mathbb{R})\)</span> et de colonnes <span class="math notranslate nohighlight">\({\bf B}\in\mathcal{M}_{JK}(\mathbb{R})\)</span> définies par <span class="math notranslate nohighlight">\({\bf A}=\frac{1}{n}{\bf T^TD_J^{-1}}\textrm{  et  } {\bf B}=\frac{1}{n}{\bf T D_K^{-1}}\)</span></p>
+</div>
+<div class="section" id="double-acp">
+<h2>Double ACP<a class="headerlink" href="#double-acp" title="Permalink to this headline">#</a></h2>
+<p>L’analyse factorielle des correspondances peut être considérée comme le résultat d’une double ACP :</p>
+<ul class="simple">
+<li><p>une effectuée sur les profils colonnes dans <span class="math notranslate nohighlight">\(\mathbb{R}^J\)</span></p></li>
+<li><p>une effectuée sur les profils lignes dans <span class="math notranslate nohighlight">\(\mathbb{R}^K\)</span></p></li>
+</ul>
+<p>relativement à la métrique du <span class="math notranslate nohighlight">\(\chi^2\)</span> de matrice <span class="math notranslate nohighlight">\({\bf D_K^{-1}}\)</span> pour l’analyse en lignes et <span class="math notranslate nohighlight">\({\bf D_J^{-1}}\)</span> pour l’analyse en colonnes.</p>
+<p>Ainsi, par exemple, la distance entre deux modalités <span class="math notranslate nohighlight">\(x_l\)</span> et <span class="math notranslate nohighlight">\(x_p\)</span> de <span class="math notranslate nohighlight">\(X\)</span> est donnée par :</p>
+<p><span class="math notranslate nohighlight">\(\Vert {\bf A_{.l}}-{\bf A_{.p}}\Vert^2_{{\bf D_K^{-1}}} = \displaystyle\sum_{i=1}^K\frac{1}{f_{.i}}\left (A_{i,l}-A_{i,p} \right )^2\)</span></p>
+<p>où <span class="math notranslate nohighlight">\({\bf A_{.l}}\)</span> est la <span class="math notranslate nohighlight">\(l^e\)</span> colonne de <span class="math notranslate nohighlight">\({\bf A}\)</span>. La métrique du <span class="math notranslate nohighlight">\(\chi^2\)</span> introduit les inverses
+des fréquences marginales des modalités de <span class="math notranslate nohighlight">\(Y\)</span> comme pondérations des écarts
+entre éléments de deux profils relatifs à <span class="math notranslate nohighlight">\(X\)</span> (et réciproquement). Elle attribue
+donc plus de poids aux écarts correspondants à des modalités de faible effectif
+(rares) pour <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+</div>
+<div class="section" id="acp-dans-mathbb-r-j">
+<h2>ACP dans <span class="math notranslate nohighlight">\(\mathbb{R}^J\)</span><a class="headerlink" href="#acp-dans-mathbb-r-j" title="Permalink to this headline">#</a></h2>
+<p>L’ACP sur les profils colonnes est réalisée en recherchant les éléments propres de <span class="math notranslate nohighlight">\({\bf BA}\)</span>, symétrique par rapport à la métrique <span class="math notranslate nohighlight">\({\bf D_J^{-1}}\)</span> et semi définie positive. On note <span class="math notranslate nohighlight">\(\bf U\)</span> la matrice des vecteurs propres. Cette ACP fournit une représentation des modalités de <span class="math notranslate nohighlight">\(Y\)</span>, réalisée au moyen des lignes de la matrice des composantes principales <span class="math notranslate nohighlight">\({\bf C_K}={\bf B^TD_J^{-1}U}\)</span>.</p>
+</div>
+<div class="section" id="acp-dans-mathbb-r-k">
+<h2>ACP dans <span class="math notranslate nohighlight">\(\mathbb{R}^K\)</span><a class="headerlink" href="#acp-dans-mathbb-r-k" title="Permalink to this headline">#</a></h2>
+<p>L’ACP sur les profils lignes est réalisée en recherchant les éléments propres de <span class="math notranslate nohighlight">\({\bf AB}\)</span>, symétrique par rapport à la métrique <span class="math notranslate nohighlight">\({\bf D_K^{-1}}\)</span> et semi définie positive. On note <span class="math notranslate nohighlight">\(\bf V\)</span> la matrice des vecteurs propres. Cette ACP fournit une représentation des modalités de <span class="math notranslate nohighlight">\(X\)</span>, réalisée au moyen des lignes de la matrice des composantes principales <span class="math notranslate nohighlight">\({\bf C_J}={\bf A^TD_K^{-1}V}\)</span>.</p>
+<p>Puisque <span class="math notranslate nohighlight">\(\bf U\)</span> contient les vecteurs propres de <span class="math notranslate nohighlight">\({\bf BA}\)</span> et <span class="math notranslate nohighlight">\(\bf V\)</span> ceux de <span class="math notranslate nohighlight">\({\bf AB}\)</span>, il suffit de réaliser en fait une seule ACP, les résultats de l’autre s’en déduisant simplement : si <span class="math notranslate nohighlight">\(\bf \Lambda\)</span> est la matrice des valeurs propres (hors <span class="math notranslate nohighlight">\(\lambda_0=0\)</span>) communes aux deux ACP :</p>
+<p><span class="math notranslate nohighlight">\({\bf V} ={\bf AU\Lambda^{-\frac{1}{2}}}\textrm {  et  } {\bf U} ={\bf BV\Lambda^{-\frac{1}{2}}}\)</span>
+Alors</p>
+<p><span class="math notranslate nohighlight">\({\bf C_K}={\bf B^TD_J^{-1}U }= {\bf B^TD_J^{-1}BV\Lambda^{-\frac{1}{2}}} = {\bf D_K^{-1}ABV \Lambda^{-\frac{1}{2}}} =  {\bf D_K^{-1}V \Lambda^{\frac{1}{2}}}\)</span>
+et</p>
+<p><span class="math notranslate nohighlight">\({\bf C_J}={\bf A^TD_K^{-1}V}= {\bf D_J^{-1}U \Lambda^{\frac{1}{2}}}\)</span>
+d’où</p>
+<p><span class="math notranslate nohighlight">\({\bf C_K}={\bf B^TC_J\Lambda^{-\frac{1}{2}}} \textrm{    et    } {\bf C_J}={\bf A^TC_K\Lambda^{-\frac{1}{2}}}\)</span></p>
+<div class="proof remark dropdown admonition" id="remark-0">
+<p class="admonition-title"><span class="caption-number">Remark 13 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Soit deux matrices <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{KJ}(\mathbb{R)}\)</span>  et <span class="math notranslate nohighlight">\({\bf B}\in\mathcal{M}_{JK}(\mathbb{R})\)</span>. Les valeurs propres non nulles de <span class="math notranslate nohighlight">\({\bf AB}\)</span> et <span class="math notranslate nohighlight">\({\bf BA}\)</span> sont identiques avec le même degré de multiplicité. De plus, si <span class="math notranslate nohighlight">\(\bf u\)</span> est vecteur propre de <span class="math notranslate nohighlight">\({\bf BA}\)</span> associé à la valeur propre <span class="math notranslate nohighlight">\(\lambda\neq 0\)</span>, alors <span class="math notranslate nohighlight">\({\bf v} = {\bf Au} \)</span> est vecteur propre de <span class="math notranslate nohighlight">\({\bf AB}\)</span> associé à la même valeur
+propre.</p>
+</div>
+</div></div>
+<div class="section" id="representation-graphique">
+<h2>Représentation graphique<a class="headerlink" href="#representation-graphique" title="Permalink to this headline">#</a></h2>
+<p>La décomposition de <span class="math notranslate nohighlight">\(\mathbf T/n\)</span> donne :</p>
+<p><span class="math notranslate nohighlight">\(\frac{f_{jk}-f_{j.}f_{.k}}{f_{j.}f_{.k}} = \displaystyle\sum_{i=0}^{min(J-1,K-1)}\sqrt{\lambda_i}\frac{u^i_jv^i_k}{f_{j.}f_{.k}}\)</span>
+Cette quantité est appelée taux de liaison entre les modalités <span class="math notranslate nohighlight">\(j\)</span> et <span class="math notranslate nohighlight">\(k\)</span>. En se limitant au rang <span class="math notranslate nohighlight">\(q\)</span> on obtient pour chaque couple de modalité <span class="math notranslate nohighlight">\((j,k)\)</span> de <span class="math notranslate nohighlight">\(\mathbf T\)</span> une approximation de son écart relatif à l’indépendance, comme produit scalaire des deux vecteurs <span class="math notranslate nohighlight">\(\frac{(\lambda_i)^{\frac{1}{4}}}{f_{j.}}u_j\)</span> et <span class="math notranslate nohighlight">\(\frac{(\lambda_i)^{\frac{1}{4}}}{f_{.k}}v_k\)</span>, termes génériques des matrices <span class="math notranslate nohighlight">\({\bf D_J^{-1}U\Lambda^{\frac{1}{4}}}\)</span> et <span class="math notranslate nohighlight">\({\bf D_K^{-1}V\Lambda^{\frac{1}{4}}}\)</span></p>
+<p>La représentation graphique de ces vecteurs (par exemple avec <span class="math notranslate nohighlight">\(q=2\)</span>), appelée biplot, donne la correspondance entre les deux modalités <span class="math notranslate nohighlight">\(x_j\)</span> et <span class="math notranslate nohighlight">\(y_k\)</span>. Lorsque ces deux modalités, éloignées de l’origine, sont
+voisines (resp. opposées), leur produit scalaire est de valeur absolue importante ; leur cellule conjointe contribue alors fortement et de manière positive
+(resp. négative) à la dépendance entre les deux variables. L’analyse factorielle des correspondances apparaît ainsi comme la meilleure reconstitution des fréquences <span class="math notranslate nohighlight">\(f_{jk}\)</span>, ou encore la meilleure représentation des écarts relatifs à l’indépendance.</p>
+</div>
+<div class="section" id="interpretation">
+<h2>Interprétation<a class="headerlink" href="#interpretation" title="Permalink to this headline">#</a></h2>
+<p>Les qualités de représentation dans la dimension choisie et les contributions
+des modalités de <span class="math notranslate nohighlight">\(X\)</span> ou de <span class="math notranslate nohighlight">\(Y\)</span> se déduisent facilement de celles de l’ACP. Ces
+quantités sont utilisées à la fois pour choisir la dimension de l’analyse factorielle des correspondances  et pour interpréter ses résultats dans la dimension choisie.</p>
+</div>
+<div class="section" id="inertie-et-test-d-independance">
+<h2>Inertie et test d’indépendance<a class="headerlink" href="#inertie-et-test-d-independance" title="Permalink to this headline">#</a></h2>
+<p>En analyse en composantes principales centrée réduite, l’inertie totale du nuage de points est  égale au nombre de variables. En AFC,  l’inertie totale du nuage des profils lignes est  égale à l’inertie totale du nuage des profils colonnes, égale au <span class="math notranslate nohighlight">\(\chi^2\)</span> d’indépendance entre les deux variables qualitatives.<br />
+La valeur de l’inertie est donc un indicateur de la dispersion des nuages de points et une mesure de liaison entre les deux variables qualitatives,  appelée mesure d’écart à l’indépendance.</p>
+</div>
+<div class="section" id="interpretation-des-valeurs-propres">
+<h2>Interprétation des valeurs propres<a class="headerlink" href="#interpretation-des-valeurs-propres" title="Permalink to this headline">#</a></h2>
+<p>Les valeurs propres des ACP renseignent sur la dispersion des nuages de profils lignes et colonnes :</p>
+<ul class="simple">
+<li><p>Une valeur propre proche de 1 indique une dichotomie parfaite du tableau <span class="math notranslate nohighlight">\(\mathbf T\)</span>, qui peut être décomposé après reclassement des modalités en deux blocs distincts</p></li>
+<li><p>Plus généralement <span class="math notranslate nohighlight">\(p\)</span> valeurs propres proches amènent à <span class="math notranslate nohighlight">\(k+1\)</span> blocs distincts</p></li>
+<li><p>Si toutes les valeurs propres sont proches de 1, on aboutit à l’effet Guttman : il existe une correspondance entre chaque modalité ligne et une modalité colonne “associée”. Avec une réorganisation des modalités, les effectifs importants se trouvent alors le long de la diagonale.</p></li>
+</ul>
+</div>
+<div class="section" id="qualite-globale">
+<h2>Qualité globale<a class="headerlink" href="#qualite-globale" title="Permalink to this headline">#</a></h2>
+<p>A <span class="math notranslate nohighlight">\(q\)</span> fixé, la qualité globale de la représentation se mesure comme dans le cadre de l’ACP, comme le rapport entre les <span class="math notranslate nohighlight">\(q\)</span> premières valeurs propres <span class="math notranslate nohighlight">\(\lambda_i\)</span> et la somme sur tout le spectre.</p>
+<p>On montre que la qualité de la représentation dans la <span class="math notranslate nohighlight">\(i^e\)</span> dimension s’écrit <span class="math notranslate nohighlight">\(\frac{n\lambda_i}{\chi^2}\)</span></p>
+</div>
+<div class="section" id="qualite-de-chaque-modalite">
+<h2>Qualité de chaque modalité<a class="headerlink" href="#qualite-de-chaque-modalite" title="Permalink to this headline">#</a></h2>
+<p>Comme dans l’ACP également, la qualité d’une modalité de <span class="math notranslate nohighlight">\(X\)</span> (resp. <span class="math notranslate nohighlight">\(Y\)</span>) se quantifie par le carré du cosinus de l’angle entre le vecteur représentant cette modalité dans <span class="math notranslate nohighlight">\(\mathbb{R}^K\)</span> (resp. <span class="math notranslate nohighlight">\(\mathbb{R}^J\)</span>)  et sa projection orthogonale au sens de <span class="math notranslate nohighlight">\({\bf D_K^{-1}}\)</span> (resp. <span class="math notranslate nohighlight">\({\bf D_J^{-1}}\)</span>) dans le sous-espace principal de dimension <span class="math notranslate nohighlight">\(q\)</span>. Ces cosinus se calculent très simplement en faisant le rapport des sommes appropriées des carrés des coordonnées extraites des lignes de <span class="math notranslate nohighlight">\({\bf C_J}\)</span> (resp. <span class="math notranslate nohighlight">\({\bf C_K}\)</span>).</p>
+</div>
+<div class="section" id="inertie-expliquee">
+<h2>Inertie expliquée<a class="headerlink" href="#inertie-expliquee" title="Permalink to this headline">#</a></h2>
+<p>L’inertie totale du nuage des profils lignes (resp. colonnes) est égale à la somme de toutes les valeurs propres <span class="math notranslate nohighlight">\(\lambda_i\)</span>. La part due au <span class="math notranslate nohighlight">\(j^e\)</span> profil ligne (resp. <span class="math notranslate nohighlight">\(k^e\)</span> profil colonne) est <span class="math notranslate nohighlight">\(f_{j.}\displaystyle\sum_i \left (\mathbf{C_J}(ji) \right )^2\)</span> (resp. <span class="math notranslate nohighlight">\(f_{.k}\displaystyle\sum_i \left (\mathbf{C_K}(ik) \right )^2\)</span>).</p>
+<p>Les contributions à l’inertie selon chaque axe se calculent de la même manière, sans sommation sur <span class="math notranslate nohighlight">\(i\)</span>. Elles sont utilisées pour sélectionner les modalités les plus importantes (i.e. celles qui importent le plus dans la définition de la liaison entre <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span>).</p>
+</div>
+<div class="section" id="choix-de-q">
+<h2>Choix de q<a class="headerlink" href="#choix-de-q" title="Permalink to this headline">#</a></h2>
+<p>Comme dans le cas de l’ACP, le choix de l’espace de représentation est important. On peut estimer <span class="math notranslate nohighlight">\(q\)</span> comme en ACP (pourcentage de l’inertie expliquée, décroissance des valeurs propres), ou utiliser une approche probabiliste : si</p>
+<p><span class="math notranslate nohighlight">\(\nu_{jk}^q = n f_{j.}f_{.k} + n\displaystyle\sum_{i=1}^q \sqrt{\lambda_i} u^i_jv^i_k\)</span>
+est l’estimation d’ordre <span class="math notranslate nohighlight">\(q\)</span> de <span class="math notranslate nohighlight">\(n_{jk}\)</span> alors sous certaines conditions (<span class="math notranslate nohighlight">\(n\)</span> grand, modèle multinomial…), on montre que</p>
+<p><span class="math notranslate nohighlight">\(\displaystyle\sum_{j=1}^J\displaystyle\sum_{k=1}^K\frac{\left (n_{jk}-\nu_{jk}^q \right )^2}{\nu_{jk}^q}\approx \displaystyle\sum_{i\geq q+1} \lambda_i\)</span></p>
+<p>suit approximativement une loi <span class="math notranslate nohighlight">\(\chi^2\)</span> à <span class="math notranslate nohighlight">\((J-q-1)(K-q-1)\)</span> degrés de liberté. On peut donc retenir <span class="math notranslate nohighlight">\(q\)</span> comme étant la plus petite dimension telle que cette quantité est inférieure à la valeur limite de cette loi.</p>
+</div>
+<div class="section" id="modele-statistique">
+<h2>Modèle statistique<a class="headerlink" href="#modele-statistique" title="Permalink to this headline">#</a></h2>
+<p>On suppose que chaque fréquence <span class="math notranslate nohighlight">\(f_{jk}\)</span> correspond à l’observation d’une probabilité   théorique <span class="math notranslate nohighlight">\(\pi_{jk}\)</span> et on modélise donc <span class="math notranslate nohighlight">\(\bf T\)</span> par la distribution correspondante. Le modèle décrivant cette distribution permet d’expliciter la probabilité.</p>
+</div>
+<div class="section" id="modele-log-lineaire">
+<h2>Modèle log linéaire<a class="headerlink" href="#modele-log-lineaire" title="Permalink to this headline">#</a></h2>
+<p>Souvent, le nombre <span class="math notranslate nohighlight">\(n\)</span> est fixé a priori. La distribution conjointe des effectifs <span class="math notranslate nohighlight">\(n_{jk}\)</span> est alors conditionnée par <span class="math notranslate nohighlight">\(n\)</span> et est une loi multinomiale de paramètre <span class="math notranslate nohighlight">\(\pi_{jk}\)</span> et d’espérance <span class="math notranslate nohighlight">\(n\pi_{jk}\)</span>.</p>
+<p>Par définition, les variables <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> sont indépendantes si <span class="math notranslate nohighlight">\(\pi_{jk}=\pi_{j.}\pi_{.k}\)</span>. Dans le cas contraire, on peut écrire</p>
+<p><span class="math notranslate nohighlight">\(\pi_{jk} = \pi_{j.}\pi_{.k}\frac{\pi_{jk}}{\pi_{j.}\pi_{.k}}\)</span></p>
+<p>En passant au log, on linéarise en</p>
+<p><span class="math notranslate nohighlight">\(ln\left (\pi_{jk}\right ) =  ln (\pi_{j.}) + ln (\pi_{.k})  + ln \left( \frac{\pi_{jk}}{\pi_{j.}\pi_{.k}}\right )\)</span></p>
+<p>Ce modèle est saturé car il comporte autant de paramètres que de données.  L’indépendance est vérifiée si le dernier terme de couplage est nul pour tout <span class="math notranslate nohighlight">\((j,k)\)</span>. Les paramètres du modèle sont estimés en maximisant la log vraisemblance.</p>
+</div>
+<div class="section" id="modele-de-correlation">
+<h2>Modèle de corrélation<a class="headerlink" href="#modele-de-correlation" title="Permalink to this headline">#</a></h2>
+<p>Dans ce modèle, on écrit</p>
+<p><span class="math notranslate nohighlight">\(\pi_{jk} = \pi_{j.}\pi_{.k} + \displaystyle\sum_{i=1}^q \sqrt{\lambda_i} u^i_jv^i_k\)</span></p>
+<p>où <span class="math notranslate nohighlight">\({\bf u^i}\)</span> (resp. <span class="math notranslate nohighlight">\({\bf v^i}\)</span>) sont les vecteurs propres de <span class="math notranslate nohighlight">\({\bf BA}\)</span> (resp. <span class="math notranslate nohighlight">\({\bf AB}\)</span>),  <span class="math notranslate nohighlight">\(\lambda_i\)</span> les valeurs propres associées (qui sont identiques pour les deux matrices), et <span class="math notranslate nohighlight">\(q\leq min(J-1,K-1)\)</span>.</p>
+<p>Les contraintes <span class="math notranslate nohighlight">\(\displaystyle\sum_{j=1}^J u^i_j =  \displaystyle\sum_{k=1}^K v^i_k = 0\)</span>  et <span class="math notranslate nohighlight">\({\bf (u^i)^TD_J^{-1} u^l }= {\bf (v^i)^TD_K^{-1} v^l} = \delta_{il}\)</span> (vecteurs propres orthonormés) permettent d’identifier les paramètres du modèle. \
+Les estimations des paramètres <span class="math notranslate nohighlight">\(\pi_{j.}\pi_{.k} ,\lambda_i,u^i,v^i\)</span> peuvent être réalisées par maximum de vraisemblance ou par moindres carrés.</p>
+</div>
+<div class="section" id="exemple">
+<h2>Exemple<a class="headerlink" href="#exemple" title="Permalink to this headline">#</a></h2>
+<p>On utilise ici des données open source du <a class="reference external" href="https://www.data.gouv.fr/fr/posts/les-donnees-des-elections/">gouvernement</a>, présentant le résultat du premier tour des élections présidentielles de 2017.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Region</p></th>
+<th class="head"><p>HAMON</p></th>
+<th class="head"><p>MACRON</p></th>
+<th class="head"><p>ASSELINEAU</p></th>
+<th class="head"><p>FILLON</p></th>
+<th class="head"><p>CHEMINADE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Grand-Est</p></td>
+<td><p>151296</p></td>
+<td><p>615775</p></td>
+<td><p>30223</p></td>
+<td><p>586390</p></td>
+<td><p>6078</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Nelle-Aquitaine</p></td>
+<td><p>240175</p></td>
+<td><p>851372</p></td>
+<td><p>26667</p></td>
+<td><p>602884</p></td>
+<td><p>6264</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>AURA</p></td>
+<td><p>256620</p></td>
+<td><p>1026255</p></td>
+<td><p>41352</p></td>
+<td><p>846252</p></td>
+<td><p>7602</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Bourgogne-FC</p></td>
+<td><p>87382</p></td>
+<td><p>338187</p></td>
+<td><p>14330</p></td>
+<td><p>304387</p></td>
+<td><p>2842</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Bretagne</p></td>
+<td><p>180827</p></td>
+<td><p>581076</p></td>
+<td><p>13419</p></td>
+<td><p>380815</p></td>
+<td><p>3400</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Centre-Val-de-Loire</p></td>
+<td><p>83552</p></td>
+<td><p>323724</p></td>
+<td><p>12075</p></td>
+<td><p>300324</p></td>
+<td><p>2882</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>Corse</p></td>
+<td><p>5780</p></td>
+<td><p>28528</p></td>
+<td><p>965</p></td>
+<td><p>39453</p></td>
+<td><p>253</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>Ile-de-France</p></td>
+<td><p>430404</p></td>
+<td><p>1612816</p></td>
+<td><p>64406</p></td>
+<td><p>1249770</p></td>
+<td><p>9796</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>Occitanie</p></td>
+<td><p>216362</p></td>
+<td><p>740037</p></td>
+<td><p>28603</p></td>
+<td><p>566045</p></td>
+<td><p>5524</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>Hauts-de-France</p></td>
+<td><p>166640</p></td>
+<td><p>630300</p></td>
+<td><p>26043</p></td>
+<td><p>521389</p></td>
+<td><p>5688</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>Normandie</p></td>
+<td><p>113744</p></td>
+<td><p>423075</p></td>
+<td><p>14303</p></td>
+<td><p>370188</p></td>
+<td><p>3544</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>Pays-de-la-Loire</p></td>
+<td><p>143491</p></td>
+<td><p>575832</p></td>
+<td><p>15529</p></td>
+<td><p>516428</p></td>
+<td><p>3731</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>PACA</p></td>
+<td><p>113344</p></td>
+<td><p>520909</p></td>
+<td><p>25948</p></td>
+<td><p>615455</p></td>
+<td><p>4569</p></td>
+</tr>
+<tr class="row-odd"><td><p>13</p></td>
+<td><p>Outremer</p></td>
+<td><p>101948</p></td>
+<td><p>389440</p></td>
+<td><p>18725</p></td>
+<td><p>314017</p></td>
+<td><p>3425</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Region</p></th>
+<th class="head"><p>MELENCHON</p></th>
+<th class="head"><p>LASSALLE</p></th>
+<th class="head"><p>FILLON</p></th>
+<th class="head"><p>DUPONT-AIGNAN</p></th>
+<th class="head"><p>POUTOU</p></th>
+<th class="head"><p>LEPEN</p></th>
+<th class="head"><p>ARTHAUD</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Grand-Est</p></td>
+<td><p>484810</p></td>
+<td><p>30508</p></td>
+<td><p>586390</p></td>
+<td><p>182200</p></td>
+<td><p>34468</p></td>
+<td><p>825600</p></td>
+<td><p>24272</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Nelle-Aquitaine</p></td>
+<td><p>703505</p></td>
+<td><p>91915</p></td>
+<td><p>602884</p></td>
+<td><p>155600</p></td>
+<td><p>49649</p></td>
+<td><p>640228</p></td>
+<td><p>21442</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>AURA</p></td>
+<td><p>805846</p></td>
+<td><p>53282</p></td>
+<td><p>846252</p></td>
+<td><p>215951</p></td>
+<td><p>43530</p></td>
+<td><p>867874</p></td>
+<td><p>24670</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Bourgogne-FC</p></td>
+<td><p>276954</p></td>
+<td><p>15843</p></td>
+<td><p>304387</p></td>
+<td><p>87263</p></td>
+<td><p>18529</p></td>
+<td><p>387658</p></td>
+<td><p>11492</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Bretagne</p></td>
+<td><p>385736</p></td>
+<td><p>19097</p></td>
+<td><p>380815</p></td>
+<td><p>87928</p></td>
+<td><p>27092</p></td>
+<td><p>306644</p></td>
+<td><p>14296</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Centre-Val-de-Loire</p></td>
+<td><p>252307</p></td>
+<td><p>13570</p></td>
+<td><p>300324</p></td>
+<td><p>82060</p></td>
+<td><p>16282</p></td>
+<td><p>329470</p></td>
+<td><p>11365</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>Corse</p></td>
+<td><p>21314</p></td>
+<td><p>8711</p></td>
+<td><p>39453</p></td>
+<td><p>4462</p></td>
+<td><p>1374</p></td>
+<td><p>43041</p></td>
+<td><p>495</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>Ile-de-France</p></td>
+<td><p>1225311</p></td>
+<td><p>36358</p></td>
+<td><p>1249770</p></td>
+<td><p>226266</p></td>
+<td><p>45715</p></td>
+<td><p>708340</p></td>
+<td><p>23592</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>Occitanie</p></td>
+<td><p>734223</p></td>
+<td><p>75483</p></td>
+<td><p>566045</p></td>
+<td><p>135405</p></td>
+<td><p>35219</p></td>
+<td><p>762104</p></td>
+<td><p>16777</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>Hauts-de-France</p></td>
+<td><p>633322</p></td>
+<td><p>22411</p></td>
+<td><p>521389</p></td>
+<td><p>160722</p></td>
+<td><p>33653</p></td>
+<td><p>1003221</p></td>
+<td><p>29194</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>Normandie</p></td>
+<td><p>362535</p></td>
+<td><p>13900</p></td>
+<td><p>370188</p></td>
+<td><p>98957</p></td>
+<td><p>23816</p></td>
+<td><p>452702</p></td>
+<td><p>15196</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>Pays-de-la-Loire</p></td>
+<td><p>403454</p></td>
+<td><p>16988</p></td>
+<td><p>516428</p></td>
+<td><p>109842</p></td>
+<td><p>26340</p></td>
+<td><p>364267</p></td>
+<td><p>16018</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>PACA</p></td>
+<td><p>515419</p></td>
+<td><p>29551</p></td>
+<td><p>615455</p></td>
+<td><p>119025</p></td>
+<td><p>21316</p></td>
+<td><p>774791</p></td>
+<td><p>10439</p></td>
+</tr>
+<tr class="row-odd"><td><p>13</p></td>
+<td><p>Outremer</p></td>
+<td><p>256149</p></td>
+<td><p>7748</p></td>
+<td><p>314017</p></td>
+<td><p>29505</p></td>
+<td><p>17599</p></td>
+<td><p>213553</p></td>
+<td><p>13180</p></td>
+</tr>
+</tbody>
+</table>
+<p>On décide dans l’analyse d’enlever le candidat LASSALLE, dont les votes sont concentrés dans les Pyrenées et en Corse (et qui introduit un biais dans l’étude).</p>
+<p>A partir de ce tableau de données <span class="math notranslate nohighlight">\(\bf T\)</span>, on calcule les tableaux de fréquences en lignes et en colonnes, ainsi que les profils ligne et colonne moyens.
+Comme en ACP, on s’intéresse à l’inertie du nuage de points, mais pour ce faire on utilise la distance du <span class="math notranslate nohighlight">\(\chi^2\)</span>. Avec cette métrique, la distance entre deux lignes (ou deux colonnes) ne dépend pas des poids respectifs des colonnes (ou lignes). Par exemple, les différents candidats obtiennent des scores très différents et l’usage de la métrique euclidienne aurait donné trop de poids aux candidats qui ont obtenu des scores élevés. De plus, la métrique du <span class="math notranslate nohighlight">\(\chi^2\)</span> possède la propriété d’équivalence distributionnelle : si on regroupe deux modalités lignes (colonnes), les distances entre les profils-colonne (lignes), ou entre les autres profils-lignes (colonnes) restent inchangées.</p>
+<p><img alt="" src="_images/presdist.png" /></p>
+<p>On peut également calculer les taux de liaisons, définis pour deux individus <span class="math notranslate nohighlight">\(j\)</span> et <span class="math notranslate nohighlight">\(k\)</span> par <span class="math notranslate nohighlight">\(\frac{f_{jk}-f_{j.}f_{.k}}{f_{j.}f_{.k}}\)</span>. Par exemple, le taux de liaison entre HAMON et Grand-Est est égal à  -0.2003, tandis que le taux de liaison entre CHEMINADE et Nouvelle-Aquitaine est égal à 0.2068. Le taux de liaison s’interpréte comme suit : le score du candidat dans la région est 20% moins élevé (ou 20.6% moins élevé) que le score théorique que l’on observerait si les votes étaient indépendants des régions.</p>
+<p>Notons que <span class="math notranslate nohighlight">\(f_{j.}f_{.k}\)</span> représente le poids théorique de chaque case du tableau des fréquences. La somme de ces coefficients vaut 1. La moyenne de la série des taux de liaisons pondérée par les <span class="math notranslate nohighlight">\(f_{j.}f_{.k}\)</span> est nulle. De même, la variance de cette série avec la même pondération vaut <span class="math notranslate nohighlight">\(\chi^2\)</span>, et ici est égale à 0.0301.</p>
+<p>On réalise ensuite une AFC, par analyse spectrale des matrices <span class="math notranslate nohighlight">\(\bf X^T\bf X\)</span> et <span class="math notranslate nohighlight">\(\bf X\bf X^T\)</span>, où <span class="math notranslate nohighlight">\(\bf X\)</span> est la matrice de terme général <span class="math notranslate nohighlight">\(f_{jk}/\sqrt{f_{j.}f_{.k}}\)</span>.</p>
+<p>Le nombre de valeurs propres produites par la recherche des facteurs principaux est égal au minimum du nombre de lignes et du nombre de colonnes du tableau de contingence. La première valeur propre est systématiquement égale à 1, et n’est pas utilisée dans les résultats. Les autres valeurs propres sont des nombres positifs inférieurs à 1 et leur somme est égale à <span class="math notranslate nohighlight">\(\chi^2\)</span>.</p>
+<p><img alt="" src="_images/spectralelig.png" /> <img alt="" src="_images/spectralecol.png" /></p>
+<p>On utilise alors les vecteurs propres (axes factoriels) pour analyser les données lignes et colonnes. Pour chaque analyse, on reporte (illustré ici sur l’analyse en lignes) :</p>
+<ul class="simple">
+<li><p>La masse, qui rappelle les fréquences marginales des lignes c’est-à-dire le profil colonne moyen. Contrairement à l’ACP normée, dans laquelle chaque individu était affecté du même poids, les régions ont ici un poids dépendant de l’effectif total d’électeurs inscrits dans la région.</p></li>
+<li><p>La qualité qui indique les qualités de représentation des individus ligne sur les deux premiers axes factoriels : c’est la somme des carrés des composantes de chaque individu sur les 2 axes, normalisée par la somme des carrés des composantes sur tous les axes.</p></li>
+<li><p>La contribution de chaque individu à la formation de chaque axe factoriel</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Region</p></th>
+<th class="head"><p>Masse</p></th>
+<th class="head"><p>Coord1</p></th>
+<th class="head"><p>Coord2</p></th>
+<th class="head"><p>Qualité</p></th>
+<th class="head"><p>contrib1</p></th>
+<th class="head"><p>contrib2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Grand-Est</p></td>
+<td><p>0.082561</p></td>
+<td><p>-0.081478</p></td>
+<td><p>0.030469</p></td>
+<td><p>0.033810</p></td>
+<td><p>0.1031</p></td>
+<td><p>0.05</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Nelle-Aquitaine</p></td>
+<td><p>0.092573</p></td>
+<td><p>0.022322</p></td>
+<td><p>-0.009848</p></td>
+<td><p>0.002607</p></td>
+<td><p>0.0129</p></td>
+<td><p>0.1404</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>AURA</p></td>
+<td><p>0.116102</p></td>
+<td><p>0.002463</p></td>
+<td><p>0.020096</p></td>
+<td><p>0.000032</p></td>
+<td><p>0.0005</p></td>
+<td><p>0.0074</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Bourgogne-FC</p></td>
+<td><p>0.042922</p></td>
+<td><p>-0.049796</p></td>
+<td><p>0.021913</p></td>
+<td><p>0.012884</p></td>
+<td><p>0.0203</p></td>
+<td><p>0.0048</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Bretagne</p></td>
+<td><p>0.055616</p></td>
+<td><p>0.074398</p></td>
+<td><p>-0.000143</p></td>
+<td><p>0.028325</p></td>
+<td><p>0.0727</p></td>
+<td><p>0.00599</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Centre-Val-de-Loire</p></td>
+<td><p>0.039694</p></td>
+<td><p>-0.027564</p></td>
+<td><p>0.034140</p></td>
+<td><p>0.003982</p></td>
+<td><p>0.0057</p></td>
+<td><p>0.026</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>Corse</p></td>
+<td><p>0.004089</p></td>
+<td><p>-0.089963</p></td>
+<td><p>0.097463</p></td>
+<td><p>0.036278</p></td>
+<td><p>0.0061</p></td>
+<td><p>0.0528</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>Ile-de-France</p></td>
+<td><p>0.157099</p></td>
+<td><p>0.099907</p></td>
+<td><p>0.022705</p></td>
+<td><p>0.048773</p></td>
+<td><p>0.3461</p></td>
+<td><p>0.0099</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>Occitanie</p></td>
+<td><p>0.090960</p></td>
+<td><p>-0.024738</p></td>
+<td><p>-0.020736</p></td>
+<td><p>0.003126</p></td>
+<td><p>0.0066</p></td>
+<td><p>0.2115</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>Hauts-de-France</p></td>
+<td><p>0.090114</p></td>
+<td><p>-0.113101</p></td>
+<td><p>-0.015944</p></td>
+<td><p>0.061802</p></td>
+<td><p>0.2215</p></td>
+<td><p>0.1268</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>Normandie</p></td>
+<td><p>0.052720</p></td>
+<td><p>-0.035129</p></td>
+<td><p>0.014011</p></td>
+<td><p>0.006437</p></td>
+<td><p>0.0116</p></td>
+<td><p>0.0004</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>Pays-de-la-Loire</p></td>
+<td><p>0.061053</p></td>
+<td><p>0.049348</p></td>
+<td><p>0.050417</p></td>
+<td><p>0.012418</p></td>
+<td><p>0.0311</p></td>
+<td><p>0.1115</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>PACA</p></td>
+<td><p>0.076388</p></td>
+<td><p>-0.085523</p></td>
+<td><p>0.044826</p></td>
+<td><p>0.035070</p></td>
+<td><p>0.1061</p></td>
+<td><p>0.1766</p></td>
+</tr>
+<tr class="row-odd"><td><p>13</p></td>
+<td><p>Outremer</p></td>
+<td><p>0.038108</p></td>
+<td><p>0.073346</p></td>
+<td><p>0.038647</p></td>
+<td><p>0.026537</p></td>
+<td><p>0.051</p></td>
+<td><p>0.0222</p></td>
+</tr>
+</tbody>
+</table>
+<p>On représente alors graphiquement les individus ligne et colonne sur le premier plan factoriel.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p><img alt="" src="_images/planlig.png" /></p></th>
+<th class="head"><p><img alt="" src="_images/plancol.png" /></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Individus ligne</p></td>
+<td><p>Individus colonne</p></td>
+</tr>
+</tbody>
+</table>
+<p>On en déduit alors l’analyse suivante (ici proposée sur les candidats) :</p>
+<ul class="simple">
+<li><p>Premier axe : Le Pen représente 67% de l’inertie de cet axe. Macron, à l’opposé en représente 19%. Clairement, cet axe oppose Le Pen à Macron, mais les autres candidats “les plus importants” ont un score du même signe que celui de Macron.</p></li>
+<li><p>Fillon représente 63% de son inertie et s’oppose à Hamon, Poutou et Mélenchon. Macron et Le Pen sont insignifiants sur cet axe. Cet axe représente l’opposition classique droite / gauche.</p></li>
+<li><p>Le Pen est placée assez loin de l’origine sur la représentation graphique:  l’inertie de la modalité Le Pen (54%) est bien plus importante que sa masse (21%). Dit autrement, les scores de Le Pen présentent une grande variabilité selon les régions, plus élevée que celle des scores de Macron (inertie 16% pour une masse de 24,3%) ou encore Mélenchon (inertie 5%, inertie 19,8%). Les électeurs de Le Pen, même s’ils sont plus nombreux que lors des scrutins précédents, restent inégalement répartis sur le territoire.</p></li>
+<li><p>Enfin, la première source de variation dans les votes est une opposition Le Pen / Macron, indépendante des oppositions  droite / gauche traditionnels.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="TP2_ACP.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">TP ACP</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="acm.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Analyse des correspondances multiples</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Vincent BARRA<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
