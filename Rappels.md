@@ -9,7 +9,7 @@ kernelspec:
   language: python
   name: python3
 ---
-# Rappels
+# Rappels de probabilité
 
 
 ## Expérience aléatoire
