@@ -47,14 +47,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="TP Régression linéaire" href="TP_Regression_Lineaire.html" />
-    <link rel="prev" title="TP AFC / ACM" href="TP3_AFC_ACM.html" />
+    <link rel="prev" title="TP ACP" href="TP2_ACP.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -141,18 +139,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="statsexploratoires.html">
-   Statistique exploratoire
+  <a class="reference internal" href="acp.html">
+   Analyse en composantes principales
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="TP2_ACP.html">
    TP ACP
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP3_AFC_ACM.html">
-   TP AFC / ACM
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -789,13 +782,13 @@ title="Print to PDF"
 <p>Théoriquement, on cherche une fonction <span class="math notranslate nohighlight">\(f\)</span> telle que <span class="math notranslate nohighlight">\(f(X)\)</span> soit aussi proche que possible de <span class="math notranslate nohighlight">\(Y\)</span>. Par proximité, on entend ici au sens des moindres carrés, et donc on cherche <span class="math notranslate nohighlight">\(f\)</span> telle que <span class="math notranslate nohighlight">\(\mathbb{E}\left ( (Y-f(X))^2\right )\)</span> soit minimale. On sait alors que la fonction <span class="math notranslate nohighlight">\(f\)</span> qui satisfait cette propriété est :</p>
 <p><span class="math notranslate nohighlight">\(f(X) = \mathbb{E}(Y\mid X)\)</span></p>
 <div class="proof definition admonition" id="definition-0">
-<p class="admonition-title"><span class="caption-number">Definition 38 </span> (Fonction de régression)</p>
+<p class="admonition-title"><span class="caption-number">Definition 37 </span> (Fonction de régression)</p>
 <div class="definition-content section" id="proof-content">
 <p>La fonction <span class="math notranslate nohighlight">\(x\mapsto \mathbb{E}(Y\mid X=x)\)</span> est la fonction de régression de <span class="math notranslate nohighlight">\(Y\)</span> en <span class="math notranslate nohighlight">\(X\)</span>.</p>
 </div>
 </div><p>La qualité de l’approximation est mesurée par le rapport de corrélation.</p>
 <div class="proof definition admonition" id="definition-1">
-<span id="index-1"></span><p class="admonition-title"><span class="caption-number">Definition 39 </span> (Rapport de corrélation)</p>
+<span id="index-1"></span><p class="admonition-title"><span class="caption-number">Definition 38 </span> (Rapport de corrélation)</p>
 <div class="definition-content section" id="proof-content">
 <p>Le rapport de corrélation entre deux variables aléatoires <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> est défini par le rapport entre la variation expliquée et la variation totale :</p>
 <p><span class="math notranslate nohighlight">\(\eta_{Y\mid X}^2 = \frac{\sigma_{\mathbb{E}(Y\mid X)}^2}{\sigma_Y^2}\)</span></p>
@@ -828,12 +821,12 @@ title="Print to PDF"
 <p>de sorte que <span class="math notranslate nohighlight">\(y^* = \bar y + r_{xy}\frac{\sigma_y}{\sigma_x}(x-\bar x)\)</span>.</p>
 <p>La droite de régression linéaire passe donc par le centre de masse du nuage de points.</p>
 <div class="proof remark dropdown admonition" id="remark-2">
-<p class="admonition-title"><span class="caption-number">Remark 16 </span></p>
+<p class="admonition-title"><span class="caption-number">Remark 13 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>les <span class="math notranslate nohighlight">\(x_i\)</span> et <span class="math notranslate nohighlight">\(y_i\)</span> étant des réalisations de variables aléatoires, tous les termes de l’équation de la droite de régression linéaire le sont également.</p>
 </div>
 </div><div class="proof remark dropdown admonition" id="remark-3">
-<p class="admonition-title"><span class="caption-number">Remark 17 </span></p>
+<p class="admonition-title"><span class="caption-number">Remark 14 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>On peut montrer que <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span> et <span class="math notranslate nohighlight">\(y^*\)</span> sont des estimateurs sans biais de <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span> et <span class="math notranslate nohighlight">\(\mathbb{E}(Y\mid X)\)</span>.</p>
 </div>
@@ -859,7 +852,7 @@ On cherche</p>
 <p><span class="math notranslate nohighlight">\(\boldsymbol\beta = (\mathbf X^T\mathbf X)^{-1}\mathbf X^T \mathbf Y\)</span></p>
 <p>et on a donc les paramètres de la régression multiple.</p>
 <div class="proof remark dropdown admonition" id="remark-4">
-<p class="admonition-title"><span class="caption-number">Remark 18 </span></p>
+<p class="admonition-title"><span class="caption-number">Remark 15 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Dans le cas où la métrique utilisée est définie par une matrice symétrique définie positive <span class="math notranslate nohighlight">\(D\)</span> de taille <span class="math notranslate nohighlight">\(p\)</span>, alors</p>
 <p><span class="math notranslate nohighlight">\(\boldsymbol\beta = (\mathbf X^T\mathbf D \mathbf X)^{-1}\mathbf X^T \mathbf D \mathbf Y\)</span></p>
@@ -960,7 +953,7 @@ En pratique, cet estimateur naïf ne donne satisfaction que lorsqu’il est proc
 Supposons que <span class="math notranslate nohighlight">\(P(Y=1|X=x)=p(x,\boldsymbol\theta)\)</span> avec <span class="math notranslate nohighlight">\(p\)</span> fonction paramétrée par <span class="math notranslate nohighlight">\(\boldsymbol\theta\)</span>. On suppose également que les observations sont indépendantes. La vraisemblance est alors donnée par</p>
 <p><span class="math notranslate nohighlight">\(\prod_{i=1}^n P(Y=y_i|X=x_i) = \prod_{i=1}^n p(x_i,\boldsymbol\theta)^{y_i}(1-p(x_i,\boldsymbol\theta))^{1-y_i}\)</span></p>
 <div class="proof remark dropdown admonition" id="remark-6">
-<p class="admonition-title"><span class="caption-number">Remark 19 </span></p>
+<p class="admonition-title"><span class="caption-number">Remark 16 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Pour <span class="math notranslate nohighlight">\(n\)</span> tirages d’une variable de Bernoulli dont la probabilité de succès est constante et vaut <span class="math notranslate nohighlight">\(p\)</span>, la vraisemblance est <span class="math notranslate nohighlight">\(\prod_{i=1}^n p^{y_i}(1-p)^{1-y_i}\)</span>. Cette vraisemblance est maximisée lorsque
 <span class="math notranslate nohighlight">\(p=n^{-1}\displaystyle\sum_{i=1}^n y_i\)</span>.</p>
@@ -1024,7 +1017,7 @@ log \left  [\frac{\frac{p( x_0+1)}{1-p(x_0+1)}}{\frac{p( x_0)}{1-p(x_0)}} \right
 \)</span></p>
 <p>et les résidus sont donc en général corrélés entre eux.</p>
 <div class="proof remark dropdown admonition" id="remark-7">
-<p class="admonition-title"><span class="caption-number">Remark 20 </span></p>
+<p class="admonition-title"><span class="caption-number">Remark 17 </span></p>
 <div class="remark-content section" id="proof-content">
 <p><span class="math notranslate nohighlight">\(\mathbf{I}-\mathbf X(\mathbf X^T\mathbf X)^{-1}\mathbf X^T\)</span> est la projection orthogonale sur <span class="math notranslate nohighlight">\(Im(\mathbf X)^\perp\)</span></p>
 </div>
@@ -1045,7 +1038,7 @@ log \left  [\frac{\frac{p( x_0+1)}{1-p(x_0+1)}}{\frac{p( x_0)}{1-p(x_0)}} \right
 </tbody>
 </table>
 <div class="proof definition admonition" id="definition-8">
-<span id="index-10"></span><p class="admonition-title"><span class="caption-number">Definition 40 </span> (Résidu studentisé)</p>
+<span id="index-10"></span><p class="admonition-title"><span class="caption-number">Definition 39 </span> (Résidu studentisé)</p>
 <div class="definition-content section" id="proof-content">
 <p>On appelle résidu studentisé la quantité <span class="math notranslate nohighlight">\(\frac{y_i-y^*_i}{\hat{\sigma}\sqrt{1-hp}}\)</span></p>
 </div>
@@ -1059,7 +1052,7 @@ log \left  [\frac{\frac{p( x_0+1)}{1-p(x_0+1)}}{\frac{p( x_0)}{1-p(x_0)}} \right
 <li><p>étudier l’influence d’une observation sur sa propre prédiction. On calcule le résidu prédit <span class="math notranslate nohighlight">\(y_i-y_{\bar{i}}^*\)</span>, où <span class="math notranslate nohighlight">\(y_{\bar{i}}^*\)</span> est la prévision obtenue avec les <span class="math notranslate nohighlight">\(n-1\)</span> autres observations que <span class="math notranslate nohighlight">\(y_i\)</span>. Il est facile de montrer que ce résidu vaut <span class="math notranslate nohighlight">\(\frac{y_i-y_i^*}{1-p_i}\)</span></p></li>
 </ol>
 <div class="proof remark dropdown admonition" id="remark-9">
-<p class="admonition-title"><span class="caption-number">Remark 21 </span></p>
+<p class="admonition-title"><span class="caption-number">Remark 18 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Il convient de rester prudent lorsque <span class="math notranslate nohighlight">\(p_i\)</span> est grand}, et la quantité
 <span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^n  \frac{(y_i-y_i^*)^2}{(1-p_i)^2}\)</span>
@@ -1080,7 +1073,7 @@ est une mesure du pouvoir prédictif du modèle.</p>
 <li><p>Facteur d’inflation de la variance : on a <span class="math notranslate nohighlight">\(\mathbb{V}(\boldsymbol \beta) = \sigma^2\frac{\mathbf{R}^{-1}}{n}\)</span> et <span class="math notranslate nohighlight">\(\sigma^2_{\beta_j} = \frac{\sigma^2}{n}(\mathbf{R}^{-1})_{jj}\)</span>. Or le <span class="math notranslate nohighlight">\(j^e\)</span> terme de <span class="math notranslate nohighlight">\(\mathbf{R}^{-1}\)</span> est <span class="math notranslate nohighlight">\(\frac{1}{1-R^2_j}\)</span> où <span class="math notranslate nohighlight">\(R^2_j\)</span> est le carré du coefficient de corrélation multiple de <span class="math notranslate nohighlight">\(\mathbf X_j\)</span> et des <span class="math notranslate nohighlight">\(p-1\)</span> autres variables explicatives. Ce terme est le facteur d’inflation de la variance. La moyenne de ces <span class="math notranslate nohighlight">\(p\)</span> termes est parfois utilisée comme indice global de colinéarité multiple.</p></li>
 </ol>
 <div class="proof remark dropdown admonition" id="remark-10">
-<p class="admonition-title"><span class="caption-number">Remark 22 </span></p>
+<p class="admonition-title"><span class="caption-number">Remark 19 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Si les variables explicatives sont orthogonales, la régression multiple revient à <span class="math notranslate nohighlight">\(p\)</span> régressions simples.</p>
 </div>
@@ -1230,11 +1223,11 @@ est une mesure du pouvoir prédictif du modèle.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="TP3_AFC_ACM.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="TP2_ACP.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">TP AFC / ACM</p>
+            <p class="prev-next-title">TP ACP</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="TP_Regression_Lineaire.html" title="next page">
