@@ -7,7 +7,6 @@ chapters:
 - file: Rappels
 - file: elemstats
 - file: exoprobas
-- file: Stats
 - file: statsdescriptives
 - file: TP1_statsDescriptives
 - file: statsexploratoires
