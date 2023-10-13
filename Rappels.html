@@ -1,57 +1,48 @@
 
-
 <!DOCTYPE html>
 
-
-<html lang="en" >
-
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rappels de probabilité &#8212; Analyse de données</title>
-  
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
-  </script>
-  
+    
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
-  
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -59,104 +50,65 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Rappels';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Elements de statistiques" href="elemstats.html" />
     <link rel="prev" title="Introduction" href="intro.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <div id="pst-scroll-pixel-helper"></div>
+    
+    <div class="container-fluid" id="banner"></div>
 
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    
 
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-<form class="bd-search d-flex align-items-center"
-      action="search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
-  
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
-  
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-    
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-  
-
-<a class="navbar-brand logo" href="intro.html">
-  
-  
-  
-  
-    
-    
       
-    
-    
-    <img src="_static/isimainp.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/isimainp.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
-  
-  
-</a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item navbar-nav active">
+      
+      <img src="_static/isimainp.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Analyse de données</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -165,263 +117,528 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Rappels de probabilité</a></li>
-<li class="toctree-l1"><a class="reference internal" href="elemstats.html">Elements de statistiques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="exoprobas.html">Exercices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="statsdescriptives.html">Statistique descriptive</a></li>
-<li class="toctree-l1"><a class="reference internal" href="TP1_statsDescriptives.html">TP Statistiques descriptives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="acp.html">Analyse en composantes principales</a></li>
-<li class="toctree-l1"><a class="reference internal" href="TP2_ACP.html">TP ACP</a></li>
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="afc.html">Analyse Factorielle des correspondances</a></li>
-<li class="toctree-l1"><a class="reference internal" href="acm.html">Analyse des correspondances multiples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="TP3_AFC_ACM.html">TP AFC / ACM</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="regression.html">Régression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="TP_Regression_Lineaire.html">TP Régression linéaire</a></li>
-<li class="toctree-l1"><a class="reference internal" href="TP_Regression_Logistique.html">TP Régression logistique</a></li>
-<li class="toctree-l1"><a class="reference internal" href="clustering.html">Quelques méthodes de classification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Cours
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Rappels de probabilité
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="elemstats.html">
+   Elements de statistiques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exoprobas.html">
+   Exercices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="statsdescriptives.html">
+   Statistique descriptive
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="acp.html">
+   Analyse en composantes principales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="regression.html">
+   Régression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="clustering.html">
+   Quelques méthodes de classification
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  TP
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP1_statsDescriptives.html">
+   TP Statistiques descriptives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP2_ACP.html">
+   TP ACP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP_Regression_Lineaire.html">
+   TP Régression linéaire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP_Regression_Logistique.html">
+   TP Régression logistique
+  </a>
+ </li>
 </ul>
 
     </div>
 </nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
     </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-  </div>
-  
-  <div id="rtd-footer-container"></div>
+    <div id="rtd-footer-container"></div>
+</div>
 
 
-      </div>
-      
-      <main id="main-content" class="bd-main">
-        
-        
+          
 
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
 
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article">
-<div class="header-article-items header-article__inner">
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
   
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <span class="fa-solid fa-bars"></span>
-</label></div>
-      
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
     </div>
-  
-  
-    <div class="header-article-items__end">
-      
-        <div class="header-article-item">
-
-<div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
   </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FRappels.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
-<div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
-    <i class="fas fa-download"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="_sources/Rappels.md" target="_blank"
-   class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="btn__text-container">.md</span>
-</a>
-</li>
-      
-      
-      
-      
+  <div class="menu-dropdown__content">
+    <ul>
       <li>
-<button onclick="window.print()"
-  class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
-  data-bs-placement="left" data-bs-toggle="tooltip"
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/Rappels.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
 >
   
 
-<span class="btn__icon-container">
-  <i class="fas fa-file-pdf"></i>
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
   </span>
-<span class="btn__text-container">.pdf</span>
-</button>
-</li>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
       
-  </ul>
+    </ul>
+  </div>
 </div>
-
-
-
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
-  data-bs-placement="bottom" data-bs-toggle="tooltip"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
 >
   
 
-<span class="btn__icon-container">
+<span class="headerbtn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
   </button>
-`);
-</script>
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
-</div></div>
-      
-    </div>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
   
-</div>
-</div>
-              
-              
 
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>Rappels de probabilité</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
-            
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-aleatoire">Expérience aléatoire</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Définitions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notation-et-operations-sur-les-evenements">Notation et opérations sur les évènements</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilites">Probabilités</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objectif">Objectif</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilite">Probabilité</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditionnement">Conditionnement</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#independance">Indépendance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theoreme-des-probabilites-totales">Théorème des probabilités totales</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regle-de-bayes">Règle de Bayes</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-aleatoire">Variable aléatoire</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-de-variable-aleatoire">Concept de variable aléatoire</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-aleatoire-mesurable">Variable aléatoire mesurable</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristiques-des-variables-aleatoires">Caractéristiques des variables aléatoires</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#esperance-mathematique-d-une-variable-aleatoire">Espérance mathématique d’une variable aléatoire</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#moment-d-une-fonction-d-une-variable-aleatoire">Moment d’une fonction d’une variable aléatoire</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-d-une-variable-aleatoire">Variance d’une variable aléatoire</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#moments-d-ordre-superieur">Moments d’ordre supérieur</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-            </nav>
-        </div>
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FRappels.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Rappels.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/Rappels.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-              
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experience-aleatoire">
+   Expérience aléatoire
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definitions">
+     Définitions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notation-et-operations-sur-les-evenements">
+     Notation et opérations sur les évènements
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probabilites">
+   Probabilités
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objectif">
+     Objectif
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#probabilite">
+     Probabilité
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conditionnement">
+     Conditionnement
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#independance">
+     Indépendance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theoreme-des-probabilites-totales">
+     Théorème des probabilités totales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regle-de-bayes">
+     Règle de Bayes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variable-aleatoire">
+   Variable aléatoire
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#concept-de-variable-aleatoire">
+     Concept de variable aléatoire
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variable-aleatoire-mesurable">
+     Variable aléatoire mesurable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#caracteristiques-des-variables-aleatoires">
+     Caractéristiques des variables aléatoires
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#esperance-mathematique-d-une-variable-aleatoire">
+       Espérance mathématique d’une variable aléatoire
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#moment-d-une-fonction-d-une-variable-aleatoire">
+       Moment d’une fonction d’une variable aléatoire
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#variance-d-une-variable-aleatoire">
+       Variance d’une variable aléatoire
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#moments-d-ordre-superieur">
+       Moments d’ordre supérieur
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Rappels de probabilité</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experience-aleatoire">
+   Expérience aléatoire
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definitions">
+     Définitions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notation-et-operations-sur-les-evenements">
+     Notation et opérations sur les évènements
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probabilites">
+   Probabilités
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objectif">
+     Objectif
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#probabilite">
+     Probabilité
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conditionnement">
+     Conditionnement
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#independance">
+     Indépendance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theoreme-des-probabilites-totales">
+     Théorème des probabilités totales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regle-de-bayes">
+     Règle de Bayes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variable-aleatoire">
+   Variable aléatoire
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#concept-de-variable-aleatoire">
+     Concept de variable aléatoire
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variable-aleatoire-mesurable">
+     Variable aléatoire mesurable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#caracteristiques-des-variables-aleatoires">
+     Caractéristiques des variables aléatoires
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#esperance-mathematique-d-une-variable-aleatoire">
+       Espérance mathématique d’une variable aléatoire
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#moment-d-une-fonction-d-une-variable-aleatoire">
+       Moment d’une fonction d’une variable aléatoire
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#variance-d-une-variable-aleatoire">
+       Variance d’une variable aléatoire
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#moments-d-ordre-superieur">
+       Moments d’ordre supérieur
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
                 
-<div id="searchbox"></div>
-                <article class="bd-article" role="main">
-                  
+              <div>
+                
   <div class="tex2jax_ignore mathjax_ignore section" id="rappels-de-probabilite">
-<h1>Rappels de probabilité<a class="headerlink" href="#rappels-de-probabilite" title="Permalink to this heading">#</a></h1>
+<h1>Rappels de probabilité<a class="headerlink" href="#rappels-de-probabilite" title="Permalink to this headline">#</a></h1>
 <div class="section" id="experience-aleatoire">
-<h2>Expérience aléatoire<a class="headerlink" href="#experience-aleatoire" title="Permalink to this heading">#</a></h2>
+<h2>Expérience aléatoire<a class="headerlink" href="#experience-aleatoire" title="Permalink to this headline">#</a></h2>
 <div class="section" id="definitions">
-<h3>Définitions<a class="headerlink" href="#definitions" title="Permalink to this heading">#</a></h3>
+<h3>Définitions<a class="headerlink" href="#definitions" title="Permalink to this headline">#</a></h3>
 <div class="proof definition admonition" id="expalea">
 <p class="admonition-title"><span class="caption-number">Definition 1 </span> (Expérience aléatoire)</p>
 <div class="definition-content section" id="proof-content">
@@ -467,7 +684,7 @@ document.write(`
 <li><p>Dans l’expérience du lancer de deux dés, on peut s’intéresser à l’évènement “la somme des deux faces est paire” ou encore  “la somme est supérieure à 7”.</p></li>
 <li><p>Si l’expérience considérée concerne les jobs effectués sur une machine on peut considérer :</p></li>
 </ul>
-<ol class="arabic simple">
+<ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(\Omega=\mathbb{N}\)</span> et l’évènement “le nombre de jobs ne dépasse pas 10” : <span class="math notranslate nohighlight">\(E=[\![0,10]\!]\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\Omega=\mathbb{R}^*\)</span> et  l’évènement “le job dure plus de 15 s” et <span class="math notranslate nohighlight">\(E=]15,+\infty[\)</span></p></li>
 </ol>
@@ -481,7 +698,7 @@ document.write(`
 </ul>
 </div>
 <div class="section" id="notation-et-operations-sur-les-evenements">
-<h3>Notation et opérations sur les évènements<a class="headerlink" href="#notation-et-operations-sur-les-evenements" title="Permalink to this heading">#</a></h3>
+<h3>Notation et opérations sur les évènements<a class="headerlink" href="#notation-et-operations-sur-les-evenements" title="Permalink to this headline">#</a></h3>
 <p>Les évènements peuvent être interprétés soit d’un point de vue ensembliste (Diagrammes de Venn), soit de manière équivalente d’un point de vue probabiliste.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -528,9 +745,9 @@ document.write(`
 </div>
 </div>
 <div class="section" id="probabilites">
-<h2>Probabilités<a class="headerlink" href="#probabilites" title="Permalink to this heading">#</a></h2>
+<h2>Probabilités<a class="headerlink" href="#probabilites" title="Permalink to this headline">#</a></h2>
 <div class="section" id="objectif">
-<h3>Objectif<a class="headerlink" href="#objectif" title="Permalink to this heading">#</a></h3>
+<h3>Objectif<a class="headerlink" href="#objectif" title="Permalink to this headline">#</a></h3>
 <p>L’objectif des probabilités est de donner une <strong>mesure</strong> à la chance qu’a un évènement de se réaliser lors d’une expérience aléatoire. Pour ce faire, on définit une fonction <span class="math notranslate nohighlight">\(P:\Omega\rightarrow [0,1]\)</span> vérifiant certains axiomes et propriétés.</p>
 <div class="proof definition admonition" id="tribu">
 <span id="index-1"></span><p class="admonition-title"><span class="caption-number">Definition 5 </span> (Tribu)</p>
@@ -556,7 +773,7 @@ document.write(`
 </div><p>On peut également s’intéresser, si <span class="math notranslate nohighlight">\(\Omega=\mathbb R\)</span>, à la tribu engendrée par les ouverts de <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, on parle alors de <strong>tribu borélienne</strong>.</p>
 </div>
 <div class="section" id="probabilite">
-<h3>Probabilité<a class="headerlink" href="#probabilite" title="Permalink to this heading">#</a></h3>
+<h3>Probabilité<a class="headerlink" href="#probabilite" title="Permalink to this headline">#</a></h3>
 <div class="margin sidebar">
 <p class="sidebar-title">A. Kolmogorov</p>
 <p><img alt="" src="_images/kolmogorov.jpeg" /></p>
@@ -586,7 +803,7 @@ document.write(`
 </div>
 </div></div>
 <div class="section" id="conditionnement">
-<h3>Conditionnement<a class="headerlink" href="#conditionnement" title="Permalink to this heading">#</a></h3>
+<h3>Conditionnement<a class="headerlink" href="#conditionnement" title="Permalink to this headline">#</a></h3>
 <p>Les probabilités <strong>conditionnelles</strong> intègrent une information supplémentaire sous la forme de l’observation de la réalisation d’un évènement donné.</p>
 <div class="proof definition admonition" id="definition-11">
 <span id="index-3"></span><p class="admonition-title"><span class="caption-number">Definition 6 </span> (Probabilité conditionnelle)</p>
@@ -606,7 +823,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div></div>
 <div class="section" id="independance">
-<h3>Indépendance<a class="headerlink" href="#independance" title="Permalink to this heading">#</a></h3>
+<h3>Indépendance<a class="headerlink" href="#independance" title="Permalink to this headline">#</a></h3>
 <div class="proof definition admonition" id="definition-13">
 <span id="index-4"></span><p class="admonition-title"><span class="caption-number">Definition 7 </span> (Indépendance)</p>
 <div class="definition-content section" id="proof-content">
@@ -628,7 +845,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div></div>
 <div class="section" id="theoreme-des-probabilites-totales">
-<h3>Théorème des probabilités totales<a class="headerlink" href="#theoreme-des-probabilites-totales" title="Permalink to this heading">#</a></h3>
+<h3>Théorème des probabilités totales<a class="headerlink" href="#theoreme-des-probabilites-totales" title="Permalink to this headline">#</a></h3>
 <div class="proof theorem admonition" id="theorem-16">
 <p class="admonition-title"><span class="caption-number">Theorem 1 </span></p>
 <div class="theorem-content section" id="proof-content">
@@ -637,7 +854,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div></div>
 <div class="section" id="regle-de-bayes">
-<h3>Règle de Bayes<a class="headerlink" href="#regle-de-bayes" title="Permalink to this heading">#</a></h3>
+<h3>Règle de Bayes<a class="headerlink" href="#regle-de-bayes" title="Permalink to this headline">#</a></h3>
 <p id="index-5">A partir de l’égalité <span class="math notranslate nohighlight">\(P(A\bigcap B) = P(A|B)P(B)=P(B|A)P(A)\)</span>, on définit la règle de Bayes</p>
 <p><span class="math notranslate nohighlight">\((\forall A,B)\quad P(B|A)=\frac{P(A|B)P(B)}{P(A)}\)</span></p>
 <p>Si <span class="math notranslate nohighlight">\(B_i\)</span> est un système complet d’évènements, on a de plus</p>
@@ -653,9 +870,9 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div>
 <div class="section" id="variable-aleatoire">
-<h2>Variable aléatoire<a class="headerlink" href="#variable-aleatoire" title="Permalink to this heading">#</a></h2>
+<h2>Variable aléatoire<a class="headerlink" href="#variable-aleatoire" title="Permalink to this headline">#</a></h2>
 <div class="section" id="concept-de-variable-aleatoire">
-<h3>Concept de variable aléatoire<a class="headerlink" href="#concept-de-variable-aleatoire" title="Permalink to this heading">#</a></h3>
+<h3>Concept de variable aléatoire<a class="headerlink" href="#concept-de-variable-aleatoire" title="Permalink to this headline">#</a></h3>
 <p>Soit un espace probabilisé <span class="math notranslate nohighlight">\((\Omega, T,P)\)</span>.</p>
 <div class="proof definition admonition" id="definition-18">
 <span id="index-6"></span><p class="admonition-title"><span class="caption-number">Definition 8 </span> (Variable aléatoire)</p>
@@ -679,7 +896,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div></div>
 <div class="section" id="variable-aleatoire-mesurable">
-<h3>Variable aléatoire mesurable<a class="headerlink" href="#variable-aleatoire-mesurable" title="Permalink to this heading">#</a></h3>
+<h3>Variable aléatoire mesurable<a class="headerlink" href="#variable-aleatoire-mesurable" title="Permalink to this headline">#</a></h3>
 <p>On définit sur <span class="math notranslate nohighlight">\(E\)</span> une tribu <span class="math notranslate nohighlight">\(T'\)</span>.  <span class="math notranslate nohighlight">\((E,T')\)</span> est alors un espace probabilisable, et tout élément <span class="math notranslate nohighlight">\(B\)</span> de <span class="math notranslate nohighlight">\(T'\)</span> est un évènement. On note alors <span class="math notranslate nohighlight">\(X^{-1}(B) = \{\omega\in\Omega,\; X(\omega)\in B\}\)</span></p>
 <div class="proof definition admonition" id="definition-21">
 <span id="index-7"></span><p class="admonition-title"><span class="caption-number">Definition 9 </span> (Variable aléatoire mesurable)</p>
@@ -722,7 +939,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/90b80bf474a66421867cd8f8a104e679fb59a22a50af804dee5175a920811715.png" src="_images/90b80bf474a66421867cd8f8a104e679fb59a22a50af804dee5175a920811715.png" />
+<img alt="_images/Rappels_1_0.png" src="_images/Rappels_1_0.png" />
 </div>
 </div>
 <div class="proof definition admonition" id="definition-22">
@@ -776,7 +993,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a50408a19fd8507b0d520afda410acd662d8627876cf06467ae0634a57968982.png" src="_images/a50408a19fd8507b0d520afda410acd662d8627876cf06467ae0634a57968982.png" />
+<img alt="_images/Rappels_3_0.png" src="_images/Rappels_3_0.png" />
 </div>
 </div>
 <p>La notion de variable aléatoire est ainsi une formalisation de la notion de grandeur variant selon le résultat d’une expérience aléatoire. On peut alors préciser et formaliser la définition précédente.</p>
@@ -796,7 +1013,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div></div>
 <div class="section" id="caracteristiques-des-variables-aleatoires">
-<h3>Caractéristiques des variables aléatoires<a class="headerlink" href="#caracteristiques-des-variables-aleatoires" title="Permalink to this heading">#</a></h3>
+<h3>Caractéristiques des variables aléatoires<a class="headerlink" href="#caracteristiques-des-variables-aleatoires" title="Permalink to this headline">#</a></h3>
 <p>Une loi de probabilité est caractérisée par un certain nombre de grandeurs :</p>
 <ul class="simple">
 <li><p>sa valeur centrale</p></li>
@@ -804,7 +1021,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <li><p>sa forme</p></li>
 </ul>
 <div class="section" id="esperance-mathematique-d-une-variable-aleatoire">
-<h4>Espérance mathématique d’une variable aléatoire<a class="headerlink" href="#esperance-mathematique-d-une-variable-aleatoire" title="Permalink to this heading">#</a></h4>
+<h4>Espérance mathématique d’une variable aléatoire<a class="headerlink" href="#esperance-mathematique-d-une-variable-aleatoire" title="Permalink to this headline">#</a></h4>
 <div class="proof definition admonition" id="definition-25">
 <span id="index-13"></span><p class="admonition-title"><span class="caption-number">Definition 12 </span> (Espérance)</p>
 <div class="definition-content section" id="proof-content">
@@ -891,7 +1108,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div></div>
 <div class="section" id="moment-d-une-fonction-d-une-variable-aleatoire">
-<h4>Moment d’une fonction d’une variable aléatoire<a class="headerlink" href="#moment-d-une-fonction-d-une-variable-aleatoire" title="Permalink to this heading">#</a></h4>
+<h4>Moment d’une fonction d’une variable aléatoire<a class="headerlink" href="#moment-d-une-fonction-d-une-variable-aleatoire" title="Permalink to this headline">#</a></h4>
 <p id="index-14">Soit <span class="math notranslate nohighlight">\(\phi\)</span> l’application qui associe à toute variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> la variable aléatoire <span class="math notranslate nohighlight">\(Y=\phi(X)\)</span>.</p>
 <div class="proof definition admonition" id="definition-28">
 <p class="admonition-title"><span class="caption-number">Definition 13 </span> (Moment)</p>
@@ -929,7 +1146,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </ul>
 </div>
 <div class="section" id="variance-d-une-variable-aleatoire">
-<h4>Variance d’une variable aléatoire<a class="headerlink" href="#variance-d-une-variable-aleatoire" title="Permalink to this heading">#</a></h4>
+<h4>Variance d’une variable aléatoire<a class="headerlink" href="#variance-d-une-variable-aleatoire" title="Permalink to this headline">#</a></h4>
 <span class="target" id="index-17"></span><p id="index-18">Pour <span class="math notranslate nohighlight">\(k\)</span>=2, le moment centré d’ordre 2 est appelé la <strong>variance</strong> et est noté <span class="math notranslate nohighlight">\(\mathbb{V}(X)\)</span>. La racine carrée de la variance est <strong>l’écart type</strong> et est noté <span class="math notranslate nohighlight">\(\sigma_X\)</span>. On a donc <span class="math notranslate nohighlight">\(\sigma_X^2=\mathbb{V}(X)\)</span>.</p>
 <div class="proof proposition admonition" id="proposition-32">
 <p class="admonition-title"><span class="caption-number">Proposition 1 </span> (Formule de Koenig)</p>
@@ -991,7 +1208,7 @@ Ecart-type :  7.810249675906654
 </div><p>On dira que la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est <strong>réduite</strong> (ou <strong>normée</strong>) si <span class="math notranslate nohighlight">\(\mathbb{V}(X)=1\)</span>.</p>
 </div>
 <div class="section" id="moments-d-ordre-superieur">
-<h4>Moments d’ordre supérieur<a class="headerlink" href="#moments-d-ordre-superieur" title="Permalink to this heading">#</a></h4>
+<h4>Moments d’ordre supérieur<a class="headerlink" href="#moments-d-ordre-superieur" title="Permalink to this headline">#</a></h4>
 <span class="target" id="index-19"></span><p id="index-20">On considère également souvent les moments d’ordre 3 (coefficient d’asymétrie ou skewness) et 4 (coefficient d’applatissement ou kurtosis).</p>
 </div>
 </div>
@@ -1018,126 +1235,50 @@ Ecart-type :  7.810249675906654
     </script>
     <script>kernelName = 'python3'</script>
 
-                </article>
+              </div>
               
-
-              
-              
-              
-              
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="intro.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Introduction</p>
-      </div>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introduction</p>
+        </div>
     </a>
-    <a class="right-next"
-       href="elemstats.html"
-       title="next page">
-      <div class="prev-next-info">
+    <a class='right-next' id="next-link" href="elemstats.html" title="next page">
+    <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Elements de statistiques</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
-                </footer>
-              
-            </div>
-            
-            
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience-aleatoire">Expérience aléatoire</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Définitions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notation-et-operations-sur-les-evenements">Notation et opérations sur les évènements</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilites">Probabilités</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objectif">Objectif</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilite">Probabilité</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditionnement">Conditionnement</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#independance">Indépendance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theoreme-des-probabilites-totales">Théorème des probabilités totales</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regle-de-bayes">Règle de Bayes</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-aleatoire">Variable aléatoire</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-de-variable-aleatoire">Concept de variable aléatoire</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-aleatoire-mesurable">Variable aléatoire mesurable</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristiques-des-variables-aleatoires">Caractéristiques des variables aléatoires</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#esperance-mathematique-d-une-variable-aleatoire">Espérance mathématique d’une variable aléatoire</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#moment-d-une-fonction-d-une-variable-aleatoire">Moment d’une fonction d’une variable aléatoire</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-d-une-variable-aleatoire">Variance d’une variable aléatoire</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#moments-d-ordre-superieur">Moments d’ordre supérieur</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
-              
-            
-          </div>
-          <footer class="bd-footer-content">
-            
-<div class="bd-footer-content__inner container">
-  
-  <div class="footer-item">
-    
-<p class="component-author">
-By Vincent BARRA
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  <p class="copyright">
-    
-      © Copyright 2022.
-      <br/>
-    
-  </p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-</div>
-          </footer>
-        
-
-      </main>
+            </footer>
+        </div>
     </div>
-  </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Vincent BARRA<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  <footer class="bd-footer">
-  </footer>
+
   </body>
 </html>
