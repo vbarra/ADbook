@@ -515,7 +515,7 @@ plt.show()
 
 
 ### La description ne fait pas tout...
-La description d'un ensemble de valeurx $x_j$ par la moyenne, la variance, voire le comportement linéaire (coefficient de corrélation, voir section~\ref{S:corr}) peut ne pas suffire à comprendre la distribution des données. Un exemple classique est le quartet d'Anscombe (figure~\ref{F:anscombe}), constitué de quatre ensembles de points  $(x,y)\in\mathbb{R}^2$ de même propriétés statistiques (moyenne, variance, coefficient de régression linéaire) mais qui sont distribués de manière totalement différente dans le plan.
+La description d'un ensemble de valeurx $x_j$ par la moyenne, la variance, voire le comportement linéaire (coefficient de corrélation, voir plus loin) peut ne pas suffire à comprendre la distribution des données. Un exemple classique est le quartet d'Anscombe (figure~\ref{F:anscombe}), constitué de quatre ensembles de points  $(x,y)\in\mathbb{R}^2$ de même propriétés statistiques (moyenne, variance, coefficient de régression linéaire) mais qui sont distribués de manière totalement différente dans le plan.
 
 ```{code-cell} ipython3
 import matplotlib.pyplot as plt
