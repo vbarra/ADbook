@@ -437,11 +437,13 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#choix-du-nombre-de-classes">Choix du nombre de classes</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exemple</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeles-de-melange">Modèles de mélange</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Définition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exemple</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moyenne-et-variance-du-modele-de-melange">Moyenne et variance du modèle de mélange</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-totale">Variation totale</a></li>
 </ul>
 </li>
 </ul>
@@ -918,16 +920,6 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </ul>
 </div>
 </div>
-</div>
-<div class="section" id="modeles-de-melange">
-<h2>Modèles de mélange<a class="headerlink" href="#modeles-de-melange" title="Permalink to this heading">#</a></h2>
-<div class="section" id="definition">
-<h3>Définition<a class="headerlink" href="#definition" title="Permalink to this heading">#</a></h3>
-<p>On suppose que la distribution des données est un mélange de la distribution des classes sous-jacentes. On se fixe un entier <span class="math notranslate nohighlight">\(K\)</span> et on modélise chaque classe <span class="math notranslate nohighlight">\(k\in[\![1,K]\!]\)</span> par une distribution <span class="math notranslate nohighlight">\(F_k\)</span>, de paramètre <span class="math notranslate nohighlight">\(\theta_k\)</span>. La densité de probabilité de cette classe est notée <span class="math notranslate nohighlight">\(f_k(x) = f(x|k)\)</span>. La moyenne (respectivement variance) conditionnelle de la classe est <span class="math notranslate nohighlight">\(\mathbb{E}(x|k) = \mu_k\)</span> (resp. <span class="math notranslate nohighlight">\(\mathbb{V}(x|k)=\Sigma_k\)</span>).  Enfin, la probabilité de la classe <span class="math notranslate nohighlight">\(k\)</span> est notée <span class="math notranslate nohighlight">\(\pi_k\)</span>.</p>
-<p>Avec ces notations, le modèle de mélange pour la donnée observée <span class="math notranslate nohighlight">\(x\)</span> est</p>
-<div class="math notranslate nohighlight">
-\[f_m(x) = \displaystyle\sum_{k=1}$K \pi_k f_(x)\]</div>
-</div>
 <div class="section" id="id3">
 <h3>Exemple<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <p>On génère des données</p>
@@ -979,9 +971,42 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" src="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" />
+<img alt="_images/022d604ac4bf1dacf0952668454a0b3e4799cbff0a78ac6e149ee27030500cb3.png" src="_images/022d604ac4bf1dacf0952668454a0b3e4799cbff0a78ac6e149ee27030500cb3.png" />
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="modeles-de-melange">
+<h2>Modèles de mélange<a class="headerlink" href="#modeles-de-melange" title="Permalink to this heading">#</a></h2>
+<div class="section" id="definition">
+<h3>Définition<a class="headerlink" href="#definition" title="Permalink to this heading">#</a></h3>
+<p>On suppose que la distribution des données est un mélange de la distribution des <span class="math notranslate nohighlight">\(K\)</span> classes <span class="math notranslate nohighlight">\(P_k\)</span> sous-jacentes. On se fixe un entier <span class="math notranslate nohighlight">\(K\)</span> et on modélise chaque classe <span class="math notranslate nohighlight">\(k\in[\![1,K]\!]\)</span> par une distribution <span class="math notranslate nohighlight">\(F_k\)</span>, de paramètre <span class="math notranslate nohighlight">\(\theta_k\)</span>. La densité de probabilité de cette classe est notée <span class="math notranslate nohighlight">\(f_k(x) = f(x|k)\)</span>. La moyenne (respectivement variance) conditionnelle de la classe est <span class="math notranslate nohighlight">\(\mathbb{E}(x|k) = \mu_k\)</span> (resp. <span class="math notranslate nohighlight">\(\mathbb{V}(x|k)=\Sigma_k\)</span>).  Enfin, la probabilité de la classe <span class="math notranslate nohighlight">\(k\)</span> est notée <span class="math notranslate nohighlight">\(\pi_k\)</span>.</p>
+<p>Avec ces notations, le modèle de mélange pour la donnée observée <span class="math notranslate nohighlight">\(x\)</span> est</p>
+<div class="math notranslate nohighlight">
+\[f_m(x) = \displaystyle\sum_{k=1}^K \pi_k f_(x)\]</div>
+<p>Très souvent, on choisit <span class="math notranslate nohighlight">\(f_k(x) = \mathcal N(x|\mu_k,\Sigma_k)\)</span> et les modèles correspondants sont appelés modèles de mélange gaussiens (GMM, Gaussian Mixture models).</p>
+</div>
+<div class="section" id="moyenne-et-variance-du-modele-de-melange">
+<h3>Moyenne et variance du modèle de mélange<a class="headerlink" href="#moyenne-et-variance-du-modele-de-melange" title="Permalink to this heading">#</a></h3>
+<p>La moyenne du modèle de mélange se calcule facilement puisque</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{E}(x) = \mathbb{E}(\mathbb{E}(x|k)) = \displaystyle\sum_{k=1}^K \pi_k\mu_k = \mu_0\]</div>
+<p>et de même</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{V}(x) = \mathbb{V}(\mathbb{E}(x|k)) + \mathbb{E}(\mathbb{V}(x|k)) = \displaystyle\sum_{k=1}^K \pi_k(\mu_k-\mu_0)(\mu_k-\mu_0)^T +  \displaystyle\sum_{k=1}^K \pi_k\Sigma_k= \Sigma_0\]</div>
+<p>La variance se décompose en deux termes : la variance expliquée (entre les classes) et non expliquée (intra classe).</p>
+</div>
+<div class="section" id="variation-totale">
+<h3>Variation totale<a class="headerlink" href="#variation-totale" title="Permalink to this heading">#</a></h3>
+<p>La variation totale est la trace de la matrice de covariance. On a donc</p>
+<div class="math notranslate nohighlight">
+\[Tr(\Sigma_0) = \displaystyle\sum_{k=1}^K \pi_k Tr(((\mu_k-\mu_0)(\mu_k-\mu_0)^T)) + \displaystyle\sum_{k=1}^K\pi_k Tr(\Sigma_k)\]</div>
+<p>d’où</p>
+<div class="math notranslate nohighlight">
+\[Tr(\Sigma_0) = \displaystyle\sum_{k=1}^K \pi_k (\mu_k-\mu_0)^T(\mu_k-\mu_0) + \displaystyle\sum_{k=1}^K\pi_k Tr(\Sigma_k)\]</div>
+<p>Si les matrices de covariance sont approchées par leur estimation empirique, on retrouve la décomposition classique</p>
+<div class="math notranslate nohighlight">
+\[Tr(\hat \Sigma_0) = \frac1n \displaystyle\sum_{i=1}^n (x_i-\hat\mu_0)^T(x_i-\hat\mu_0) + \frac1n \displaystyle\sum_{k=1}^K \displaystyle\sum_{i\in P_k} (x_i-\hat\mu_k)^T(x_i-\hat\mu_k)\]</div>
 </div>
 </div>
 </div>
@@ -1101,11 +1126,13 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#choix-du-nombre-de-classes">Choix du nombre de classes</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exemple</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeles-de-melange">Modèles de mélange</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Définition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exemple</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moyenne-et-variance-du-modele-de-melange">Moyenne et variance du modèle de mélange</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-totale">Variation totale</a></li>
 </ul>
 </li>
 </ul>
