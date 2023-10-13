@@ -47,6 +47,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -146,6 +148,21 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="TP2_ACP.html">
    TP ACP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="afc.html">
+   Analyse Factorielle des correspondances
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="acm.html">
+   Analyse des correspondances multiples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP3_AFC_ACM.html">
+   TP AFC / ACM
   </a>
  </li>
  <li class="toctree-l1">
@@ -855,7 +872,7 @@ title="Print to PDF"
 <div class="section" id="partition">
 <h3>Partition<a class="headerlink" href="#partition" title="Permalink to this headline">#</a></h3>
 <div class="proof definition admonition" id="definition-0">
-<span id="index-0"></span><p class="admonition-title"><span class="caption-number">Definition 40 </span> (Partition)</p>
+<span id="index-0"></span><p class="admonition-title"><span class="caption-number">Definition 41 </span> (Partition)</p>
 <div class="definition-content section" id="proof-content">
 <p><span class="math notranslate nohighlight">\(\Omega\)</span> étant un ensemble fini, un ensemble <span class="math notranslate nohighlight">\(P =(P_1 ,P_2 ,\cdots  P_g )\)</span> de parties non vides de   <span class="math notranslate nohighlight">\(\Omega\)</span> est une partition si :</p>
 <ul class="simple">
@@ -868,7 +885,7 @@ title="Print to PDF"
 <div class="section" id="hierarchie-indicee">
 <h3>Hiérarchie indicée<a class="headerlink" href="#hierarchie-indicee" title="Permalink to this headline">#</a></h3>
 <div class="proof definition admonition" id="definition-1">
-<span id="index-1"></span><p class="admonition-title"><span class="caption-number">Definition 41 </span> (Hiérarchie)</p>
+<span id="index-1"></span><p class="admonition-title"><span class="caption-number">Definition 42 </span> (Hiérarchie)</p>
 <div class="definition-content section" id="proof-content">
 <p><span class="math notranslate nohighlight">\(\Omega\)</span> étant un ensemble fini, un ensemble <span class="math notranslate nohighlight">\(H\)</span> de parties non vides de <span class="math notranslate nohighlight">\(\Omega\)</span> est une hiérarchie sur <span class="math notranslate nohighlight">\(\Omega\)</span> si :</p>
 <ul class="simple">
@@ -913,7 +930,7 @@ notion d’ultramétrique (ultramétrique optimale).</p>
 <h4>Indice de dissimilarité<a class="headerlink" href="#indice-de-dissimilarite" title="Permalink to this headline">#</a></h4>
 <p>On se place dans <span class="math notranslate nohighlight">\(\mathbb R^p\)</span>, et on considère <span class="math notranslate nohighlight">\(n\)</span> individus à classer <span class="math notranslate nohighlight">\({\bf x_1}\ldots {\bf x_n}\)</span>.</p>
 <div class="proof definition admonition" id="definition-2">
-<p class="admonition-title"><span class="caption-number">Definition 42 </span> (Dissimilarité - ultramétrique)</p>
+<p class="admonition-title"><span class="caption-number">Definition 43 </span> (Dissimilarité - ultramétrique)</p>
 <div class="definition-content section" id="proof-content">
 <p>Une mesure de dissimilarité <span class="math notranslate nohighlight">\(d\)</span> est une fonction de</p>
 <p><span class="math notranslate nohighlight">\(

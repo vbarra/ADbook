@@ -47,6 +47,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
 
@@ -137,13 +139,48 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="TP1_statsDescriptives.html">
+   TP Statistiques descriptives
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="acp.html">
    Analyse en composantes principales
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="TP2_ACP.html">
+   TP ACP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="afc.html">
+   Analyse Factorielle des correspondances
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="acm.html">
+   Analyse des correspondances multiples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP3_AFC_ACM.html">
+   TP AFC / ACM
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="regression.html">
    Régression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP_Regression_Lineaire.html">
+   TP Régression linéaire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TP_Regression_Logistique.html">
+   TP Régression logistique
   </a>
  </li>
  <li class="toctree-l1">
@@ -317,6 +354,7 @@ title="Open an issue"
    <a href="#cap-definition-28"><strong>definition-28</strong></a> | 
    <a href="#cap-definition-29"><strong>definition-29</strong></a> | 
    <a href="#cap-definition-31"><strong>definition-31</strong></a> | 
+   <a href="#cap-definition-4"><strong>definition-4</strong></a> | 
    <a href="#cap-definition-5"><strong>definition-5</strong></a> | 
    <a href="#cap-definition-6"><strong>definition-6</strong></a> | 
    <a href="#cap-definition-7"><strong>definition-7</strong></a> | 
@@ -353,8 +391,11 @@ title="Open an issue"
    <a href="#cap-remark-21"><strong>remark-21</strong></a> | 
    <a href="#cap-remark-22"><strong>remark-22</strong></a> | 
    <a href="#cap-remark-24"><strong>remark-24</strong></a> | 
+   <a href="#cap-remark-3"><strong>remark-3</strong></a> | 
    <a href="#cap-remark-30"><strong>remark-30</strong></a> | 
    <a href="#cap-remark-4"><strong>remark-4</strong></a> | 
+   <a href="#cap-remark-5"><strong>remark-5</strong></a> | 
+   <a href="#cap-remark-6"><strong>remark-6</strong></a> | 
    <a href="#cap-remark-7"><strong>remark-7</strong></a> | 
    <a href="#cap-remark-9"><strong>remark-9</strong></a> | 
    <a href="#cap-theorem-0"><strong>theorem-0</strong></a> | 
@@ -404,7 +445,7 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="acm.html#definition-0"><code class="xref">definition-0</code></a> <em>(acm)</em></td><td>
+       <a href="statsdescriptives.html#definition-0"><code class="xref">definition-0</code></a> <em>(statsdescriptives)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-1"><td></td><td>
@@ -565,6 +606,14 @@ title="Open an issue"
        <td></td>
        <td>
        <a href="Rappels.html#definition-31"><code class="xref">definition-31</code></a> <em>(Rappels)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-definition-4"><td></td><td>
+       <strong>definition-4</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="statsdescriptives.html#definition-4"><code class="xref">definition-4</code></a> <em>(statsdescriptives)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-5"><td></td><td>
@@ -828,7 +877,7 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="acp.html#remark-2"><code class="xref">remark-2</code></a> <em>(acp)</em></td><td>
+       <a href="regression.html#remark-2"><code class="xref">remark-2</code></a> <em>(regression)</em></td><td>
        <em>remark</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-remark-21"><td></td><td>
@@ -855,6 +904,14 @@ title="Open an issue"
        <a href="Rappels.html#remark-24"><code class="xref">remark-24</code></a> <em>(Rappels)</em></td><td>
        <em>remark</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-remark-3"><td></td><td>
+       <strong>remark-3</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="statsdescriptives.html#remark-3"><code class="xref">remark-3</code></a> <em>(statsdescriptives)</em></td><td>
+       <em>remark</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-remark-30"><td></td><td>
        <strong>remark-30</strong></td><td></td></tr>
      <tr>
@@ -869,6 +926,22 @@ title="Open an issue"
        <td></td>
        <td>
        <a href="regression.html#remark-4"><code class="xref">remark-4</code></a> <em>(regression)</em></td><td>
+       <em>remark</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-remark-5"><td></td><td>
+       <strong>remark-5</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="elemstats.html#remark-5"><code class="xref">remark-5</code></a> <em>(elemstats)</em></td><td>
+       <em>remark</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-remark-6"><td></td><td>
+       <strong>remark-6</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="regression.html#remark-6"><code class="xref">remark-6</code></a> <em>(regression)</em></td><td>
        <em>remark</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-remark-7"><td></td><td>
