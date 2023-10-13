@@ -172,12 +172,12 @@ S'il est parfois possible d'identifier graphiquement ces points aberrants à l'a
 
 $$|x_i-x_{\frac12}|>3.MADM$$ 
 
-    où $MADM = 1.4826.|x_i-x_{\frac12}|_\frac12$, et où $y_{\frac12}$ est la médiane des données $y$ 
+où $MADM = 1.4826.|x_i-x_{\frac12}|_\frac12$, et où $y_{\frac12}$ est la médiane des données $y$ 
 - la règle empirique de l'écart-type : on considère que $x_i$ est un point aberrant si 
 
 $$|x_i-\bar x|>3.\sigma$$
 
-    où  $\bar x$ (respectivement $\sigma$) est la moyenne (resp. l'écart-type ) des données.
+où  $\bar x$ (respectivement $\sigma$) est la moyenne (resp. l'écart-type ) des données.
 - la méthode LOF (Local Outlier Factor) qui repose sur le concept de densité locale, où la localité est donnée par les $k$ voisins les plus proches, dont la distance est utilisée pour estimer la densité. En comparant la densité locale d'un objet aux densités locales de ses voisins, il est possible d'identifier des régions de densité similaire et des points dont la densité est nettement inférieure à celle de leurs voisins. Ces derniers sont considérés comme des valeurs aberrantes. La densité locale est estimée par la distance typique à laquelle un point peut être atteint à partir de ses voisins. 
 - la méthode COF (Connectivity based Outlier Factor) basée sur le même principe que LOF, à ceci près que l'estimation de densité est effectuée en utilisant le minimum de la somme des distances reliant tous les voisins d'un point donné.
 
