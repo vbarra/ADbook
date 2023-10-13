@@ -168,9 +168,15 @@ Une anomalie (ou point aberrant, ou outlier) est une observation (ou un sous-ens
 
 S'il est parfois possible d'identifier graphiquement ces points aberrants à l'aide de boîtes à moustaches (voir section~\ref{S:boxplot}), il existe une vaste littérature sur la détection d'anomalies qu'il n'est pas possible d'aborder ici. De plus, suivant le type de données manipulées (données séquentielles ou non), le type de méthode peut être différent. On mentionne donc ici quelques techniques simples :
 
-- le détecteur de Hampel : on considère que $x_i$ est un point aberrant si $$|x_i-x_{\frac12}|>3.MADM$$ 
+- le détecteur de Hampel : on considère que $x_i$ est un point aberrant si 
+
+$$|x_i-x_{\frac12}|>3.MADM$$ 
+
     où $MADM = 1.4826.|x_i-x_{\frac12}|_\frac12$, et où $y_{\frac12}$ est la médiane des données $y$ 
-- la règle empirique de l'écart-type : on considère que $x_i$ est un point aberrant si $$|x_i-\bar x|>3.\sigma$$
+- la règle empirique de l'écart-type : on considère que $x_i$ est un point aberrant si 
+
+$$|x_i-\bar x|>3.\sigma$$
+
     où  $\bar x$ (respectivement $\sigma$) est la moyenne (resp. l'écart-type ) des données.
 - la méthode LOF (Local Outlier Factor) qui repose sur le concept de densité locale, où la localité est donnée par les $k$ voisins les plus proches, dont la distance est utilisée pour estimer la densité. En comparant la densité locale d'un objet aux densités locales de ses voisins, il est possible d'identifier des régions de densité similaire et des points dont la densité est nettement inférieure à celle de leurs voisins. Ces derniers sont considérés comme des valeurs aberrantes. La densité locale est estimée par la distance typique à laquelle un point peut être atteint à partir de ses voisins. 
 - la méthode COF (Connectivity based Outlier Factor) basée sur le même principe que LOF, à ceci près que l'estimation de densité est effectuée en utilisant le minimum de la somme des distances reliant tous les voisins d'un point donné.
