@@ -23,4 +23,4 @@ parts:
     chapters:
     - file: afc
     - file: acm
-  - file: genindex
+    - file: genindex
