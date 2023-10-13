@@ -1,48 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Analyse en composantes principales &#8212; Analyse de données</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -50,65 +62,104 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'acp';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Régression" href="regression.html" />
     <link rel="prev" title="Statistique descriptive" href="statsdescriptives.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/isimainp.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Analyse de données</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="_static/isimainp.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/isimainp.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -117,780 +168,307 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Cours
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cours</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Rappels.html">
-   Rappels de probabilité
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="elemstats.html">
-   Elements de statistiques
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exoprobas.html">
-   Exercices
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="statsdescriptives.html">
-   Statistique descriptive
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Analyse en composantes principales
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="regression.html">
-   Régression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="clustering.html">
-   Quelques méthodes de classification
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="Rappels.html">Rappels de probabilité</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elemstats.html">Elements de statistiques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exoprobas.html">Exercices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statsdescriptives.html">Statistique descriptive</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Analyse en composantes principales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression.html">Régression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">Quelques méthodes de classification</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  TP
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TP</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_statsDescriptives.html">
-   TP Statistiques descriptives
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_ACP.html">
-   TP ACP
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP_Regression_Lineaire.html">
-   TP Régression linéaire
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP_Regression_Logistique.html">
-   TP Régression logistique
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="TP1_statsDescriptives.html">TP Statistiques descriptives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TP2_ACP.html">TP ACP</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TP_Regression_Lineaire.html">TP Régression linéaire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TP_Regression_Logistique.html">TP Régression logistique</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Annexes
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Annexes</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="afc.html">
-   Analyse Factorielle des correspondances
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="acm.html">
-   Analyse des correspondances multiples
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="afc.html">Analyse Factorielle des correspondances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acm.html">Analyse des correspondances multiples</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/acp.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Facp.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/acp.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Facp.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/acp.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download notebook file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="_sources/acp.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#principe-de-la-methode">
-   Principe de la méthode
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pre-traitement-du-tableau">
-   Pré-traitement du tableau
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#donnees-centrees">
-     Données centrées
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#donnees-reduites">
-     Données réduites
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#projection-des-individus-sur-un-sous-espace">
-   Projection des individus sur un sous-espace
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#elements-principaux">
-   Elements principaux
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#axes-principaux">
-     Axes principaux
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#facteurs-principaux">
-     Facteurs principaux
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#composantes-principales">
-     Composantes principales
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reconstitution">
-     Reconstitution
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#interpretation-des-resultats">
-   Interprétation des résultats
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quelle-dimension-pour-f-k">
-   Quelle dimension pour
-   <span class="math notranslate nohighlight">
-    \(F_k\)
-   </span>
-   ?
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#critere-theorique">
-     Critère théorique
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pourcentage-d-inertie">
-     Pourcentage d’inertie
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mesures-locales">
-     Mesures locales
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#criteres-empiriques">
-     Critères empiriques
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#interpretation-des-resultats-exemple">
-   Interprétation des résultats : exemple
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#correlation-variables-facteurs">
-     Corrélation variables-facteurs
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#positionnement-des-individus">
-   Positionnement des individus
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#facteur-de-taille-facteur-de-forme">
-   Facteur de taille, facteur de forme
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ajout-de-variable-et-ou-d-individu">
-   Ajout de variable et ou d’individu
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exemple">
-   Exemple
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#implementation">
-   Implémentation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#preparation-des-donnees">
-   Préparation des données
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Données centrées
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Données réduites
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inertie-du-nuage-de-points">
-     Inertie du nuage de points
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#analyse-spectrale">
-   Analyse spectrale
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#calcul-des-composantes-principales">
-     Calcul des composantes principales
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pourcentage-d-inertie-expliquee-par-un-axe">
-     Pourcentage d’inertie expliquée par un axe
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#critere-de-kaiser">
-     Critère de Kaiser
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#analyse-des-resultats">
-   Analyse des résultats
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Corrélation variables/facteurs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cercle-des-correlations-pour-un-couple-de-composantes-principales">
-     Cercle des corrélations pour un couple de composantes principales
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#contribution-des-variables">
-     Contribution des variables
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#representation-des-individus">
-     Représentation des individus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#contribution-des-individus">
-     Contribution des individus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tableau-des-cosinus-carres">
-     Tableau des cosinus carrés
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Analyse en composantes principales</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#principe-de-la-methode">
-   Principe de la méthode
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pre-traitement-du-tableau">
-   Pré-traitement du tableau
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#donnees-centrees">
-     Données centrées
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#donnees-reduites">
-     Données réduites
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#projection-des-individus-sur-un-sous-espace">
-   Projection des individus sur un sous-espace
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#elements-principaux">
-   Elements principaux
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#axes-principaux">
-     Axes principaux
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#facteurs-principaux">
-     Facteurs principaux
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#composantes-principales">
-     Composantes principales
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reconstitution">
-     Reconstitution
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#interpretation-des-resultats">
-   Interprétation des résultats
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quelle-dimension-pour-f-k">
-   Quelle dimension pour
-   <span class="math notranslate nohighlight">
-    \(F_k\)
-   </span>
-   ?
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#critere-theorique">
-     Critère théorique
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pourcentage-d-inertie">
-     Pourcentage d’inertie
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mesures-locales">
-     Mesures locales
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#criteres-empiriques">
-     Critères empiriques
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#interpretation-des-resultats-exemple">
-   Interprétation des résultats : exemple
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#correlation-variables-facteurs">
-     Corrélation variables-facteurs
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#positionnement-des-individus">
-   Positionnement des individus
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#facteur-de-taille-facteur-de-forme">
-   Facteur de taille, facteur de forme
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ajout-de-variable-et-ou-d-individu">
-   Ajout de variable et ou d’individu
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exemple">
-   Exemple
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#implementation">
-   Implémentation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#preparation-des-donnees">
-   Préparation des données
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Données centrées
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Données réduites
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inertie-du-nuage-de-points">
-     Inertie du nuage de points
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#analyse-spectrale">
-   Analyse spectrale
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#calcul-des-composantes-principales">
-     Calcul des composantes principales
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pourcentage-d-inertie-expliquee-par-un-axe">
-     Pourcentage d’inertie expliquée par un axe
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#critere-de-kaiser">
-     Critère de Kaiser
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#analyse-des-resultats">
-   Analyse des résultats
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Corrélation variables/facteurs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cercle-des-correlations-pour-un-couple-de-composantes-principales">
-     Cercle des corrélations pour un couple de composantes principales
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#contribution-des-variables">
-     Contribution des variables
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#representation-des-individus">
-     Représentation des individus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#contribution-des-individus">
-     Contribution des individus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tableau-des-cosinus-carres">
-     Tableau des cosinus carrés
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Analyse en composantes principales</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principe-de-la-methode">Principe de la méthode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-traitement-du-tableau">Pré-traitement du tableau</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-centrees">Données centrées</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-reduites">Données réduites</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projection-des-individus-sur-un-sous-espace">Projection des individus sur un sous-espace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elements-principaux">Elements principaux</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#axes-principaux">Axes principaux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#facteurs-principaux">Facteurs principaux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composantes-principales">Composantes principales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstitution">Reconstitution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-des-resultats">Interprétation des résultats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelle-dimension-pour-f-k">Quelle dimension pour <span class="math notranslate nohighlight">\(F_k\)</span> ?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critere-theorique">Critère théorique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pourcentage-d-inertie">Pourcentage d’inertie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mesures-locales">Mesures locales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criteres-empiriques">Critères empiriques</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-des-resultats-exemple">Interprétation des résultats : exemple</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-variables-facteurs">Corrélation variables-facteurs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positionnement-des-individus">Positionnement des individus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#facteur-de-taille-facteur-de-forme">Facteur de taille, facteur de forme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajout-de-variable-et-ou-d-individu">Ajout de variable et ou d’individu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple">Exemple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implémentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation-des-donnees">Préparation des données</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Données centrées</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Données réduites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inertie-du-nuage-de-points">Inertie du nuage de points</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-spectrale">Analyse spectrale</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calcul-des-composantes-principales">Calcul des composantes principales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pourcentage-d-inertie-expliquee-par-un-axe">Pourcentage d’inertie expliquée par un axe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critere-de-kaiser">Critère de Kaiser</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-resultats">Analyse des résultats</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Corrélation variables/facteurs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cercle-des-correlations-pour-un-couple-de-composantes-principales">Cercle des corrélations pour un couple de composantes principales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contribution-des-variables">Contribution des variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representation-des-individus">Représentation des individus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contribution-des-individus">Contribution des individus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tableau-des-cosinus-carres">Tableau des cosinus carrés</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <p>Les méthodes factorielles ont pour but de traiter et visualiser des données multidimensionnelles. La prise en compte simultanée de l’ensemble des variables est un problème difficile, rendu parfois plus simple car l’information apportée par les variables est redondante. Les méthodes factorielles visent alors à exploiter cette redondance pour tenter de remplacer les variables initiales par un nombre réduit de nouvelles variables, conservant au mieux l’information initiale.</p>
 <p>Les principales méthodes de ce type incluent l’analyse factorielle des correspondances, l’analyse des correspondances multiples, l’analyse factorielle d’un tableau de distance (pour les tableaux de proximité) ou encore l’analyse factorielle discriminante.</p>
 <div class="tex2jax_ignore mathjax_ignore section" id="analyse-en-composantes-principales">
-<h1>Analyse en composantes principales<a class="headerlink" href="#analyse-en-composantes-principales" title="Permalink to this headline">#</a></h1>
+<h1>Analyse en composantes principales<a class="headerlink" href="#analyse-en-composantes-principales" title="Permalink to this heading">#</a></h1>
 <span class="target" id="index-0"></span><p id="index-1">Pour les données quantitatives, l’Analyse en Composantes Principales (ACP) est l’une des méthodes les plus utilisées. Elle considère que les nouvelles variables sont des combinaisons linéaires des variables initiales, non corrélées.</p>
 <p><img alt="" src="_images/acpintro.png" /></p>
 <p>Dans la suite, les données seront des tableaux <span class="math notranslate nohighlight">\(n\times p\)</span> de variables quantitatives, une ligne étant un individu, et les colonnes décrivant les paramètres mesurés. Les observations de <span class="math notranslate nohighlight">\(p\)</span> variables sur <span class="math notranslate nohighlight">\(n\)</span> individus sont donc rassemblées dans une matrice <span class="math notranslate nohighlight">\({\bf X}\in\mathcal{M}_{np}(\mathbb{R})\)</span> .  On notera <span class="math notranslate nohighlight">\(x^j\)</span> la j-ème variable, identifiée par la j-ème colonne <span class="math notranslate nohighlight">\({\bf X_{\bullet,j}}\)</span> de <span class="math notranslate nohighlight">\({\bf X}\)</span>, et <span class="math notranslate nohighlight">\(\mathbf{e_i}\)</span> le i-ème individu (i.e. <span class="math notranslate nohighlight">\({\bf X_{i,\bullet}^T}\)</span>).</p>
 <div class="section" id="principe-de-la-methode">
-<h2>Principe de la méthode<a class="headerlink" href="#principe-de-la-methode" title="Permalink to this headline">#</a></h2>
+<h2>Principe de la méthode<a class="headerlink" href="#principe-de-la-methode" title="Permalink to this heading">#</a></h2>
 </div>
 <div class="section" id="pre-traitement-du-tableau">
-<h2>Pré-traitement du tableau<a class="headerlink" href="#pre-traitement-du-tableau" title="Permalink to this headline">#</a></h2>
+<h2>Pré-traitement du tableau<a class="headerlink" href="#pre-traitement-du-tableau" title="Permalink to this heading">#</a></h2>
 <p>En analyse en composantes principales, on raisonne souvent sur des variables centrées et/ou réduites.</p>
 <div class="section" id="donnees-centrees">
-<h3>Données centrées<a class="headerlink" href="#donnees-centrees" title="Permalink to this headline">#</a></h3>
+<h3>Données centrées<a class="headerlink" href="#donnees-centrees" title="Permalink to this heading">#</a></h3>
 <p>Notons <span class="math notranslate nohighlight">\(\mathbf{g} = \left ( \bar{x}^1\cdots \bar{x}^p\right )\)</span> le vecteur des moyennes arithmétiques de chaque variable (centre de gravité) :</p>
 <p><span class="math notranslate nohighlight">\(\mathbf{g}={\bf X^TD\mathbf{1}}\)</span></p>
 <p>où <span class="math notranslate nohighlight">\({\bf D}\)</span> est une matrice diagonale de poids,  chaque <span class="math notranslate nohighlight">\(d_{ii}\)</span> donnant l’importance de l’individu <span class="math notranslate nohighlight">\(i\)</span> dans les données (le plus souvent <span class="math notranslate nohighlight">\({\bf D}=\frac{1}{n}{ \mathbb{I}}\)</span>),  et <span class="math notranslate nohighlight">\(\mathbf{1}\)</span> est le vecteur de <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> dont toutes les composantes sont égales à 1. Le tableau <span class="math notranslate nohighlight">\({\bf Y}={\bf X}-\mathbf{1}\mathbf{g}^T=({ \mathbb{I}}-\mathbf{1}\mathbf{1}^T{\bf D}){\bf X}\)</span> est le tableau centré associé à <span class="math notranslate nohighlight">\({\bf X}\)</span>.</p>
 </div>
 <div class="section" id="donnees-reduites">
-<h3>Données réduites<a class="headerlink" href="#donnees-reduites" title="Permalink to this headline">#</a></h3>
+<h3>Données réduites<a class="headerlink" href="#donnees-reduites" title="Permalink to this heading">#</a></h3>
 <p>La matrice de variance/covariance des données centrées est égale à
 <span class="math notranslate nohighlight">\({\bf V} = {\bf X^TDX} - \mathbf{g}\mathbf{g^T} = {\bf Y^TDY}\)</span>.</p>
 <p>Si on note <span class="math notranslate nohighlight">\({\bf D_{1/\sigma}}\)</span> la matrice diagonale des inverses des écarts-types des variables, alors  <span class="math notranslate nohighlight">\({\bf Z}={\bf YD_{1/\sigma}}\)</span>
@@ -899,7 +477,7 @@ est la matrice de corrélation des données et résume la structure des dépenda
 </div>
 </div>
 <div class="section" id="projection-des-individus-sur-un-sous-espace">
-<h2>Projection des individus sur un sous-espace<a class="headerlink" href="#projection-des-individus-sur-un-sous-espace" title="Permalink to this headline">#</a></h2>
+<h2>Projection des individus sur un sous-espace<a class="headerlink" href="#projection-des-individus-sur-un-sous-espace" title="Permalink to this heading">#</a></h2>
 <p>Le principe de la méthode est d’obtenir une représentation approchée du nuage des <span class="math notranslate nohighlight">\(n\)</span> individus dans un sous-espace <span class="math notranslate nohighlight">\(F_k\)</span> de dimension faible. Ceci s’effectue par un mécanisme de projection.</p>
 <p>Le choix de l’espace de projection est dicté par le critère suivant, qui revient à déformer le moins possible les distances en projection: le sous-espace de dimension <span class="math notranslate nohighlight">\(k\)</span> recherché est tel que la moyenne des carrés des distances entre projections soit la plus grande possible. En définissant l’inertie d’un nuage de points comme la moyenne pondérée des carrés des distances au centre de gravité, le critère revient alors à maximiser l’inertie du nuage projeté sur <span class="math notranslate nohighlight">\(F_k\)</span>.</p>
 <p>Soit <span class="math notranslate nohighlight">\({\bf P}\)</span> la projection orthogonale sur <span class="math notranslate nohighlight">\(F_k\)</span>. Le nuage de points projeté est associé au tableau <span class="math notranslate nohighlight">\({\bf XP^T}\)</span> puisque chaque individu <span class="math notranslate nohighlight">\(\mathbf{e_i}\)</span> se projette sur <span class="math notranslate nohighlight">\(F_k\)</span> selon un vecteur colonne <span class="math notranslate nohighlight">\(\mathbf{Pe_i}\)</span> ou ligne <span class="math notranslate nohighlight">\(\mathbf{e_i P^T}\)</span>.</p>
@@ -922,9 +500,9 @@ Tr({\bf PVP^TM})&amp;=&amp;Tr({\bf PVMP})\quad \textrm{car }{\bf P^TM}={\bf MP}\
 </div>
 </div></div>
 <div class="section" id="elements-principaux">
-<h2>Elements principaux<a class="headerlink" href="#elements-principaux" title="Permalink to this headline">#</a></h2>
+<h2>Elements principaux<a class="headerlink" href="#elements-principaux" title="Permalink to this heading">#</a></h2>
 <span class="target" id="index-2"></span><div class="section" id="axes-principaux">
-<span id="index-3"></span><h3>Axes principaux<a class="headerlink" href="#axes-principaux" title="Permalink to this headline">#</a></h3>
+<span id="index-3"></span><h3>Axes principaux<a class="headerlink" href="#axes-principaux" title="Permalink to this heading">#</a></h3>
 <p>Rechercher un sous-espace de dimension 1 d’inertie maximale revient à rechercher une droite de <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> passant par le centre de gravité des données <span class="math notranslate nohighlight">\(\mathbf{g}\)</span> maximisant l’inertie du nuage projeté sur cet axe. Soit <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> un vecteur directeur de cette droite. La projection orthogonale sur la droite est définie par la matrice de projection</p>
 <p><span class="math notranslate nohighlight">\(\mathbf P=\frac{\mathbf{a}\mathbf{a}^T{\bf M}}{\mathbf{a}^T{\bf M}\mathbf{a}}\)</span></p>
 <p>L’inertie du nuage projeté sur <span class="math notranslate nohighlight">\(Lin(\mathbf{a})\)</span> vaut alors
@@ -949,18 +527,18 @@ et donc</p>
 </div><p>Les droites portées par ces vecteurs propres sont les axes principaux. Dans la suite on supposera <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> <span class="math notranslate nohighlight">\(\mathbf M\)</span>-normé.</p>
 </div>
 <div class="section" id="facteurs-principaux">
-<h3>Facteurs principaux<a class="headerlink" href="#facteurs-principaux" title="Permalink to this headline">#</a></h3>
+<h3>Facteurs principaux<a class="headerlink" href="#facteurs-principaux" title="Permalink to this heading">#</a></h3>
 <span class="target" id="index-4"></span><p id="index-5">On associe à  <span class="math notranslate nohighlight">\(Lin(\mathbf{a})\)</span> la forme linéaire <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, coordonnée orthogonale sur l’axe <span class="math notranslate nohighlight">\(Lin(\mathbf{a})\)</span>. Le vecteur <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> définit une combinaison linéaire des variables descriptives <span class="math notranslate nohighlight">\(x^1\cdots x^p\)</span>. A l’axe principal <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> est associé le facteur principal <span class="math notranslate nohighlight">\(\mathbf{u}=\mathbf{Ma}\)</span>. Puisque <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> est vecteur propre de <span class="math notranslate nohighlight">\({\bf VM}\)</span>, on peut alors écrire</p>
 <p><span class="math notranslate nohighlight">\({\bf MVM}\mathbf{a}=\lambda {\bf M}\mathbf{a}\)</span></p>
 <p>et donc <span class="math notranslate nohighlight">\({\bf MV}\mathbf{u}=\lambda \mathbf{u}\)</span>.  Les facteurs principaux sont donc les vecteurs propres de <span class="math notranslate nohighlight">\({\bf MV}\)</span></p>
 </div>
 <div class="section" id="composantes-principales">
-<h3>Composantes principales<a class="headerlink" href="#composantes-principales" title="Permalink to this headline">#</a></h3>
+<h3>Composantes principales<a class="headerlink" href="#composantes-principales" title="Permalink to this heading">#</a></h3>
 <p>Les composantes principales sont les éléments de <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> définis par <span class="math notranslate nohighlight">\(\mathbf{c_i}=\mathbf{Xu_i}\)</span>. Ce sont donc les vecteurs coordonnées des projections orthogonales des individus sur les axes propres <span class="math notranslate nohighlight">\(\mathbf{a_i}\)</span>.  Ce sont donc les combinaisons linéaires des <span class="math notranslate nohighlight">\(x^1\cdots x^p\)</span> de variance maximale sous la contrainte <span class="math notranslate nohighlight">\(\mathbf{u_i}^T{\bf M}\mathbf{u_i}=1\)</span>, et cette variance est égale à la valeur propre <span class="math notranslate nohighlight">\(\lambda_i\)</span> associée à <span class="math notranslate nohighlight">\(\mathbf{a_i}\)</span>.</p>
 <p>En pratique, l’analyse en composantes principales consiste à calculer les <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> par diagonalisation de <span class="math notranslate nohighlight">\({\bf MV}\)</span>, puis à calculer les <span class="math notranslate nohighlight">\(\mathbf{c}=\mathbf{Xu}\)</span>. Le calcul explicite des vecteurs propres <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> n’a que peu d’intérêt.</p>
 </div>
 <div class="section" id="reconstitution">
-<h3>Reconstitution<a class="headerlink" href="#reconstitution" title="Permalink to this headline">#</a></h3>
+<h3>Reconstitution<a class="headerlink" href="#reconstitution" title="Permalink to this heading">#</a></h3>
 <p>Il est possible de reconstituer le tableau <span class="math notranslate nohighlight">\({\bf X}\)</span> centré des données (ou une approximation par une matrice de rang <span class="math notranslate nohighlight">\(k\)</span>) en utilisant les composantes. En effet, puisque <span class="math notranslate nohighlight">\(\mathbf{Xu_j}=\mathbf{c_j}\)</span> on a</p>
 <p><span class="math notranslate nohighlight">\({\bf X}\displaystyle\sum_j \mathbf{u_j}\mathbf{u_j}^T{\bf M^{-1}} = \displaystyle\sum_j\mathbf{c_j}\mathbf{u_j}^T{\bf M^{-1}}\)</span></p>
 <p>Mais <span class="math notranslate nohighlight">\(\displaystyle\sum_j \mathbf{u_j}\mathbf{u_j}^T{\bf M^{-1}}=\mathbb{I}\)</span>  car les <span class="math notranslate nohighlight">\(\mathbf{u_j}\)</span> sont orthonormés pour la métrique <span class="math notranslate nohighlight">\({\bf M^{-1}}\)</span> donc</p>
@@ -970,14 +548,14 @@ et si l’on s’intéresse à l’approximation de <span class="math notranslat
 </div>
 </div>
 <div class="section" id="interpretation-des-resultats">
-<h2>Interprétation des résultats<a class="headerlink" href="#interpretation-des-resultats" title="Permalink to this headline">#</a></h2>
+<h2>Interprétation des résultats<a class="headerlink" href="#interpretation-des-resultats" title="Permalink to this heading">#</a></h2>
 </div>
 <div class="section" id="quelle-dimension-pour-f-k">
-<h2>Quelle dimension pour <span class="math notranslate nohighlight">\(F_k\)</span> ?<a class="headerlink" href="#quelle-dimension-pour-f-k" title="Permalink to this headline">#</a></h2>
+<h2>Quelle dimension pour <span class="math notranslate nohighlight">\(F_k\)</span> ?<a class="headerlink" href="#quelle-dimension-pour-f-k" title="Permalink to this heading">#</a></h2>
 <p>Le but premier de l’ACP est de réduire la dimension pour permettre une visualisation efficace des données, tout en préservant l’information (ici représentée par la variance du nuage de points).  Il faut donc se doter d’outils permettant de répondre à la question : quelle dimension pour <span class="math notranslate nohighlight">\(F_k\)</span> ? Il n’y a pas de réponse théorique satisfaisante, l’essentiel étant d’avoir une représentation suffisamment expressive pour permettre une interprétation correcte du nuage de points.
 En préambule, il convient de remarquer que la réduction de dimension ne sera possible que si les variables <span class="math notranslate nohighlight">\(x^1\cdots x^p\)</span> ne sont pas indépendantes.</p>
 <div class="section" id="critere-theorique">
-<h3>Critère théorique<a class="headerlink" href="#critere-theorique" title="Permalink to this headline">#</a></h3>
+<h3>Critère théorique<a class="headerlink" href="#critere-theorique" title="Permalink to this heading">#</a></h3>
 <p>On détermine ici si les valeurs propres sont significativement différentes entre elles à partir d’un certain rang: si la réponse est négative on conserve les
 premières valeurs propres.</p>
 <p>On fait l’hypothèse que les <span class="math notranslate nohighlight">\(n\)</span> individus proviennent d’un tirage aléatoire dans une population gaussienne  où <span class="math notranslate nohighlight">\(\lambda_{k+1}=\cdots =\lambda_{p}\)</span>. Si l’hypothèse est vérifiée, la moyenne arithmétique <span class="math notranslate nohighlight">\(\alpha\)</span> des <span class="math notranslate nohighlight">\(p-k\)</span> dernières valeurs propres et leur moyenne géométrique <span class="math notranslate nohighlight">\(\gamma\)</span> sont peu différentes. On admet que :</p>
@@ -985,28 +563,28 @@ premières valeurs propres.</p>
 suit une loi du <span class="math notranslate nohighlight">\(\chi^2\)</span> de degré de liberté <span class="math notranslate nohighlight">\(\frac{(p-k+2)(p-k-1)}{2}\)</span> et on rejette l’hypothèse d’égalité des <span class="math notranslate nohighlight">\(p-k\)</span> valeurs propres si <span class="math notranslate nohighlight">\(c\)</span> est trop grand.</p>
 </div>
 <div class="section" id="pourcentage-d-inertie">
-<h3>Pourcentage d’inertie<a class="headerlink" href="#pourcentage-d-inertie" title="Permalink to this headline">#</a></h3>
+<h3>Pourcentage d’inertie<a class="headerlink" href="#pourcentage-d-inertie" title="Permalink to this heading">#</a></h3>
 <p>Le critère couramment utilisé est le pourcentage d’inertie totale expliquée, qui s’exprime sur les <span class="math notranslate nohighlight">\(k\)</span> premiers axes par :</p>
 <p><span class="math notranslate nohighlight">\(\frac{\displaystyle\sum_{j=1}^k \lambda_j}{\displaystyle\sum_{j=1}^p \lambda_j}\)</span>
 Un seuil par exemple de 90% d’inertie totale expliquée donne une valeur de <span class="math notranslate nohighlight">\(k\)</span> correspondante. Attention cependant, le pourcentage d’inertie doit faire intervenir le nombre de variables initiales.</p>
 <p><img alt="" src="_images/scree.png" /></p>
 </div>
 <div class="section" id="mesures-locales">
-<h3>Mesures locales<a class="headerlink" href="#mesures-locales" title="Permalink to this headline">#</a></h3>
+<h3>Mesures locales<a class="headerlink" href="#mesures-locales" title="Permalink to this heading">#</a></h3>
 <p>Le pourcentage d’inertie expliquée est un critère global qui doit être complété par d’autres considérations. Supposons que le plan <span class="math notranslate nohighlight">\(F_2\)</span> explique une part importante d’inertie, et que, en projection sur ce plan, deux individus soient très proches. Cette proximité peut être illusoire si les deux individus se trouvent éloignés dans l’orthogonal de <span class="math notranslate nohighlight">\(F_2\)</span>. Pour prendre en compte ce phénomène, il faut envisager pour chaque individu <span class="math notranslate nohighlight">\(\mathbf{e_i}\)</span> la qualité de sa représentation, souvent exprimée par le cosinus de l’angle entre le plan principal et le vecteur <span class="math notranslate nohighlight">\(\mathbf{e_i}\)</span>. Si ce cosinus est grand, <span class="math notranslate nohighlight">\(\mathbf{e_i}\)</span> est voisin du plan, on peut  alors examiner la position de sa projection sur le plan par rapport à d’autres points.</p>
 <p>Dans la figure suivante, <span class="math notranslate nohighlight">\({\bf e_i} \)</span> et <span class="math notranslate nohighlight">\({\bf e_j}\)</span> se projettent sur <span class="math notranslate nohighlight">\(F_2\)</span> en <span class="math notranslate nohighlight">\({\bf p}\)</span> mais sont éloignés dans <span class="math notranslate nohighlight">\(F_2^\perp\)</span>.</p>
 <p><img alt="" src="_images/proj.png" /></p>
 </div>
 <div class="section" id="criteres-empiriques">
-<h3>Critères empiriques<a class="headerlink" href="#criteres-empiriques" title="Permalink to this headline">#</a></h3>
+<h3>Critères empiriques<a class="headerlink" href="#criteres-empiriques" title="Permalink to this heading">#</a></h3>
 <p id="index-6">Lorsqu’on travaille sur données centrées réduites, on retient les composantes principales correspondant à des valeurs propres supérieures à 1 (critère de Kaiser) : en effet les composantes principales <span class="math notranslate nohighlight">\(c_j\)</span> étant des combinaisons linéaires des <span class="math notranslate nohighlight">\(z-j\)</span> de variance maximale <span class="math notranslate nohighlight">\(V(c_j)=\lambda\)</span>, seules les composantes de variance supérieure à celle des variables initiales présentent un intérêt.</p>
 </div>
 </div>
 <div class="section" id="interpretation-des-resultats-exemple">
-<h2>Interprétation des résultats : exemple<a class="headerlink" href="#interpretation-des-resultats-exemple" title="Permalink to this headline">#</a></h2>
+<h2>Interprétation des résultats : exemple<a class="headerlink" href="#interpretation-des-resultats-exemple" title="Permalink to this heading">#</a></h2>
 <p>Une analyse en composantes principales est réalisée sur un jeu de données composé de 9 indicateurs de qualité pour 329 villes américaines. Les paragraphes suivants sont illustrés par ces données.</p>
 <div class="section" id="correlation-variables-facteurs">
-<h3>Corrélation variables-facteurs<a class="headerlink" href="#correlation-variables-facteurs" title="Permalink to this headline">#</a></h3>
+<h3>Corrélation variables-facteurs<a class="headerlink" href="#correlation-variables-facteurs" title="Permalink to this heading">#</a></h3>
 <p>Pour donner du sens aux composantes principales <span class="math notranslate nohighlight">\(\mathbf{c}\)</span>, il faut les relier aux variables initiales <span class="math notranslate nohighlight">\(x^j\)</span> en calculant les coefficients de corrélation linéaire  <span class="math notranslate nohighlight">\(r(\mathbf{c},x^j)\)</span> et en seuillant ces coefficients en valeur absolue.</p>
 <p>Lorsque l’on travaille sur des données centrées réduites (métrique <span class="math notranslate nohighlight">\(\mathbf D_{1/\sigma}\)</span>), le calcul de <span class="math notranslate nohighlight">\(r(\mathbf{c},x^j)\)</span> se réduit à</p>
 <p><span class="math notranslate nohighlight">\(r(\mathbf{c},x^j)=\frac{\mathbf{c}^T\mathbf D\mathbf{z^j}}{\sqrt{\lambda}}\)</span></p>
@@ -1025,7 +603,7 @@ Un seuil par exemple de 90% d’inertie totale expliquée donne une valeur de <s
 </div>
 </div>
 <div class="section" id="positionnement-des-individus">
-<h2>Positionnement des individus<a class="headerlink" href="#positionnement-des-individus" title="Permalink to this headline">#</a></h2>
+<h2>Positionnement des individus<a class="headerlink" href="#positionnement-des-individus" title="Permalink to this heading">#</a></h2>
 <p>Dire que <span class="math notranslate nohighlight">\(\mathbf{c_1}\)</span> est très corrélée à <span class="math notranslate nohighlight">\(x^j\)</span> signifie que les individus ayant une forte coordonnée positive sur l’axe 1 sont caractérisés par une valeur de <span class="math notranslate nohighlight">\(x^j\)</span> nettement supérieure à la moyenne.</p>
 <p>Il est très utile aussi de calculer pour chaque axe la contribution apportée par les divers individus à cet axe. Si <span class="math notranslate nohighlight">\(c_{ki}\)</span> est la valeur de la composante <span class="math notranslate nohighlight">\(k\)</span> pour le <span class="math notranslate nohighlight">\(i^e\)</span> individu, alors par construction</p>
 <p><span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^np_ic_{ki}^2=\lambda_k\)</span>
@@ -1037,17 +615,17 @@ où <span class="math notranslate nohighlight">\(p_i\)</span> est le poids de l�
 <p>Il n’est pas souhaitable, et ceci surtout pour les premières composantes,  qu’un individu ait une contribution excessive car cela serait un facteur d’instabilité, le fait de retirer cet individu modifiant profondément le résultat de l’analyse. Si ce cas se produisait il y aurait intérêt à effectuer l’analyse en éliminant cet individu puis en le mettant en élément supplémentaire, s’il ne s’agit pas d’une donnée erronée qui a été ainsi mise en évidence.</p>
 </div>
 <div class="section" id="facteur-de-taille-facteur-de-forme">
-<h2>Facteur de taille, facteur de forme<a class="headerlink" href="#facteur-de-taille-facteur-de-forme" title="Permalink to this headline">#</a></h2>
+<h2>Facteur de taille, facteur de forme<a class="headerlink" href="#facteur-de-taille-facteur-de-forme" title="Permalink to this heading">#</a></h2>
 <p>Le théorème de Frobenius stipule qu’une matrice symétrique n’ayant que des termes positifs admet un premier vecteur propre dont toutes les composantes sont de même signe. Si ce signe est positif, la première composante est alors corrélée positivement avec toutes les variables et les individus sont rangés sur l’axe 1 par valeurs croissantes de l’ensemble des variables. Si de plus les corrélations entre variables sont du même ordre de grandeur, la première composante principale est proportionnelle à la moyenne des variables initiales. Cette première composante définit alors un facteur de taille.</p>
 <p>La deuxième composante principale différencie alors des individus de “taille” semblable, on l’appelle souvent facteur de forme.</p>
 </div>
 <div class="section" id="ajout-de-variable-et-ou-d-individu">
-<h2>Ajout de variable et ou d’individu<a class="headerlink" href="#ajout-de-variable-et-ou-d-individu" title="Permalink to this headline">#</a></h2>
+<h2>Ajout de variable et ou d’individu<a class="headerlink" href="#ajout-de-variable-et-ou-d-individu" title="Permalink to this heading">#</a></h2>
 <p>Toutes les interprétations précédentes expliquent les résultats à l’aide des données initiales, qui ont permis de les calculer. On risque alors de prendre pour une propriété intrinsèque des données un simple artefact de la méthode (par exemple il existe de fortes corrélations entre la première composante principale et certaines variables, puisque <span class="math notranslate nohighlight">\(\mathbf{c_1}\)</span> maximise <span class="math notranslate nohighlight">\(\sum_j r^2(\mathbf{c},x^j)\)</span>).</p>
 <p>En revanche une forte corrélation entre une composante principale et une variable qui n’a pas servi à l’analyse sera significative. D’où la pratique courante de partager en deux groupes l’ensemble des variables: d’une part les variables actives qui servent à déterminer les axes principaux, d’autre part les variables passives ou supplémentaires que l’on relie a posteriori aux composantes principales. On distingue alors les variables supplémentaires suivant leur type, numérique (à placer dans les cercles de corrélation) ou qualitative (donnée d’une partition des <span class="math notranslate nohighlight">\(n\)</span> individus en <span class="math notranslate nohighlight">\(k\)</span> classes).</p>
 </div>
 <div class="section" id="exemple">
-<h2>Exemple<a class="headerlink" href="#exemple" title="Permalink to this headline">#</a></h2>
+<h2>Exemple<a class="headerlink" href="#exemple" title="Permalink to this heading">#</a></h2>
 <p>On étudie les consommations annuelles en 1972, exprimées en devises, de 8 denrées alimentaires (les variables), les individus étant 8 catégories socio-professionnelles (CSP) . Les données sont des moyennes par CSP :</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{array}{|c|cccccccc|}
@@ -1114,7 +692,7 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 <p>L’axe 1 reflète donc l’opposition qui existe entre les catégories socio-professionnelles dans leur alimentation, opposant les CSP modestes qui consomment des produits basiques aux catégories favorisées qui consomment des produits plus recherchés. L’axe 2 reflète quant à lui la particularité des inactifs quant à leur alimentation, fortement composée de pommes de terre (un retour aux données d’origine vient confirmer cette conclusion).</p>
 </div>
 <div class="section" id="implementation">
-<h2>Implémentation<a class="headerlink" href="#implementation" title="Permalink to this headline">#</a></h2>
+<h2>Implémentation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h2>
 <p>De nombreuses librairies Python permettent d’utiliser facilement l’ACP, notamment <a class="reference external" href="https://scikit-learn.org/stable/">scikit-learn</a> qui propose une méthode <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html?highlight=pca#sklearn.decomposition.PCA">PCA</a>.</p>
 <p>Nous proposons ici d’implémenter entièrement l’ACP, pour bien comprendre les mécanismes de cette approche.</p>
 <div class="cell docutils container">
@@ -1155,9 +733,9 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </div>
 </div>
 <div class="section" id="preparation-des-donnees">
-<h2>Préparation des données<a class="headerlink" href="#preparation-des-donnees" title="Permalink to this headline">#</a></h2>
+<h2>Préparation des données<a class="headerlink" href="#preparation-des-donnees" title="Permalink to this heading">#</a></h2>
 <div class="section" id="id1">
-<h3>Données centrées<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<h3>Données centrées<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\(g=X^TD{\bf 1}\)</span> = Vecteur des moyennes arithmétiques de chaque variable</p>
 <p><span class="math notranslate nohighlight">\(D=\frac{1}{n}I\)</span> = Matrice diagonale de poids, chaque <span class="math notranslate nohighlight">\(d_{ii}\)</span> donnant l’importance de l’individu <span class="math notranslate nohighlight">\(i\)</span> dans les données</p>
 <div class="cell docutils container">
@@ -1200,7 +778,7 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </div>
 </div>
 <div class="section" id="id2">
-<h3>Données réduites<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<h3>Données réduites<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\(V=X^TDX-gg^T=Y^TDY\)</span> = Matrice de variance/covariance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1227,12 +805,12 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/acp_9_0.png" src="_images/acp_9_0.png" />
+<img alt="_images/dadc8d6f0827a8670b00d3dd4b51016465ea4e90b225ace4cfd49e35483f74ba.png" src="_images/dadc8d6f0827a8670b00d3dd4b51016465ea4e90b225ace4cfd49e35483f74ba.png" />
 </div>
 </div>
 </div>
 <div class="section" id="inertie-du-nuage-de-points">
-<h3>Inertie du nuage de points<a class="headerlink" href="#inertie-du-nuage-de-points" title="Permalink to this headline">#</a></h3>
+<h3>Inertie du nuage de points<a class="headerlink" href="#inertie-du-nuage-de-points" title="Permalink to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\(M\)</span> est une matrice symétrique définie positive correspondant à la métrique</p>
 <ul class="simple">
 <li><p>Si <span class="math notranslate nohighlight">\(M=D^2_{1/\sigma}\)</span> on calcule <span class="math notranslate nohighlight">\( \frac{1}{n}\displaystyle\sum_{i=1}^n (e_i - g)^T M (e_i-g) = \frac{1}{n}\displaystyle\sum_{i=1}^n (y_i)^T M y_i = Tr(VM)\)</span></p></li>
@@ -1273,7 +851,7 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </div>
 </div>
 <div class="section" id="analyse-spectrale">
-<h2>Analyse spectrale<a class="headerlink" href="#analyse-spectrale" title="Permalink to this headline">#</a></h2>
+<h2>Analyse spectrale<a class="headerlink" href="#analyse-spectrale" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eigenvalues</span><span class="p">,</span><span class="n">eigenvectors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
@@ -1284,7 +862,7 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </div>
 </div>
 <div class="section" id="calcul-des-composantes-principales">
-<h3>Calcul des composantes principales<a class="headerlink" href="#calcul-des-composantes-principales" title="Permalink to this headline">#</a></h3>
+<h3>Calcul des composantes principales<a class="headerlink" href="#calcul-des-composantes-principales" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1296,7 +874,7 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </div>
 </div>
 <div class="section" id="pourcentage-d-inertie-expliquee-par-un-axe">
-<h3>Pourcentage d’inertie expliquée par un axe<a class="headerlink" href="#pourcentage-d-inertie-expliquee-par-un-axe" title="Permalink to this headline">#</a></h3>
+<h3>Pourcentage d’inertie expliquée par un axe<a class="headerlink" href="#pourcentage-d-inertie-expliquee-par-un-axe" title="Permalink to this heading">#</a></h3>
 <p>Pourcentage d’inertie cumulée expliquée par les <span class="math notranslate nohighlight">\(k\)</span> premiers axes : <span class="math notranslate nohighlight">\(\frac{\displaystyle\sum_{j=1}^k\lambda_j}{\displaystyle\sum_{j=1}^p\lambda_j}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1314,12 +892,12 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/acp_17_0.png" src="_images/acp_17_0.png" />
+<img alt="_images/2dad4ba32c4808dbcf57b41305c7abe36a143e9f223385008bc71d67354fc559.png" src="_images/2dad4ba32c4808dbcf57b41305c7abe36a143e9f223385008bc71d67354fc559.png" />
 </div>
 </div>
 </div>
 <div class="section" id="critere-de-kaiser">
-<h3>Critère de Kaiser<a class="headerlink" href="#critere-de-kaiser" title="Permalink to this headline">#</a></h3>
+<h3>Critère de Kaiser<a class="headerlink" href="#critere-de-kaiser" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nb_l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span>
@@ -1336,9 +914,9 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </div>
 </div>
 <div class="section" id="analyse-des-resultats">
-<h2>Analyse des résultats<a class="headerlink" href="#analyse-des-resultats" title="Permalink to this headline">#</a></h2>
+<h2>Analyse des résultats<a class="headerlink" href="#analyse-des-resultats" title="Permalink to this heading">#</a></h2>
 <div class="section" id="id3">
-<h3>Corrélation variables/facteurs<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<h3>Corrélation variables/facteurs<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1350,7 +928,7 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </div>
 </div>
 <div class="section" id="cercle-des-correlations-pour-un-couple-de-composantes-principales">
-<h3>Cercle des corrélations pour un couple de composantes principales<a class="headerlink" href="#cercle-des-correlations-pour-un-couple-de-composantes-principales" title="Permalink to this headline">#</a></h3>
+<h3>Cercle des corrélations pour un couple de composantes principales<a class="headerlink" href="#cercle-des-correlations-pour-un-couple-de-composantes-principales" title="Permalink to this heading">#</a></h3>
 <p>Pour <span class="math notranslate nohighlight">\(c_1\)</span> et <span class="math notranslate nohighlight">\(c_2\)</span>, chaque variable <span class="math notranslate nohighlight">\(x_j\)</span> est repérée par un point d’abscisse <span class="math notranslate nohighlight">\(r(c_1,x^j)\)</span> et d’ordonnée <span class="math notranslate nohighlight">\(r(c_2, x_j)\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1406,12 +984,12 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/acp_23_0.png" src="_images/acp_23_0.png" />
+<img alt="_images/890895d5f844f44dec5929957163b9bab5ada18fafe8471de9dd2494e8c4585a.png" src="_images/890895d5f844f44dec5929957163b9bab5ada18fafe8471de9dd2494e8c4585a.png" />
 </div>
 </div>
 </div>
 <div class="section" id="contribution-des-variables">
-<h3>Contribution des variables<a class="headerlink" href="#contribution-des-variables" title="Permalink to this headline">#</a></h3>
+<h3>Contribution des variables<a class="headerlink" href="#contribution-des-variables" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contributions_variables</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1445,7 +1023,7 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </div>
 </div>
 <div class="section" id="representation-des-individus">
-<h3>Représentation des individus<a class="headerlink" href="#representation-des-individus" title="Permalink to this headline">#</a></h3>
+<h3>Représentation des individus<a class="headerlink" href="#representation-des-individus" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -1489,12 +1067,12 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/acp_27_0.png" src="_images/acp_27_0.png" />
+<img alt="_images/9d89ee34ba73aa750b9b3fd9ca37bf3233ac94e9bf5e9a867c5763d97b7e1bcd.png" src="_images/9d89ee34ba73aa750b9b3fd9ca37bf3233ac94e9bf5e9a867c5763d97b7e1bcd.png" />
 </div>
 </div>
 </div>
 <div class="section" id="contribution-des-individus">
-<h3>Contribution des individus<a class="headerlink" href="#contribution-des-individus" title="Permalink to this headline">#</a></h3>
+<h3>Contribution des individus<a class="headerlink" href="#contribution-des-individus" title="Permalink to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\(\frac{p_ic_{ki}^2}{\lambda_k}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1696,7 +1274,7 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 </div>
 </div>
 <div class="section" id="tableau-des-cosinus-carres">
-<h3>Tableau des cosinus carrés<a class="headerlink" href="#tableau-des-cosinus-carres" title="Permalink to this headline">#</a></h3>
+<h3>Tableau des cosinus carrés<a class="headerlink" href="#tableau-des-cosinus-carres" title="Permalink to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\(\frac{c_{ki}^2}{\displaystyle\sum_{j=1}^p c_{ji}^2}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1923,50 +1501,152 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="statsdescriptives.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Statistique descriptive</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="statsdescriptives.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Statistique descriptive</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="regression.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="regression.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Régression</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principe-de-la-methode">Principe de la méthode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-traitement-du-tableau">Pré-traitement du tableau</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-centrees">Données centrées</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-reduites">Données réduites</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projection-des-individus-sur-un-sous-espace">Projection des individus sur un sous-espace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elements-principaux">Elements principaux</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#axes-principaux">Axes principaux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#facteurs-principaux">Facteurs principaux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composantes-principales">Composantes principales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstitution">Reconstitution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-des-resultats">Interprétation des résultats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelle-dimension-pour-f-k">Quelle dimension pour <span class="math notranslate nohighlight">\(F_k\)</span> ?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critere-theorique">Critère théorique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pourcentage-d-inertie">Pourcentage d’inertie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mesures-locales">Mesures locales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criteres-empiriques">Critères empiriques</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-des-resultats-exemple">Interprétation des résultats : exemple</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-variables-facteurs">Corrélation variables-facteurs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positionnement-des-individus">Positionnement des individus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#facteur-de-taille-facteur-de-forme">Facteur de taille, facteur de forme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajout-de-variable-et-ou-d-individu">Ajout de variable et ou d’individu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple">Exemple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implémentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation-des-donnees">Préparation des données</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Données centrées</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Données réduites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inertie-du-nuage-de-points">Inertie du nuage de points</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-spectrale">Analyse spectrale</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calcul-des-composantes-principales">Calcul des composantes principales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pourcentage-d-inertie-expliquee-par-un-axe">Pourcentage d’inertie expliquée par un axe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critere-de-kaiser">Critère de Kaiser</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-resultats">Analyse des résultats</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Corrélation variables/facteurs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cercle-des-correlations-pour-un-couple-de-composantes-principales">Cercle des corrélations pour un couple de composantes principales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contribution-des-variables">Contribution des variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representation-des-individus">Représentation des individus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contribution-des-individus">Contribution des individus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tableau-des-cosinus-carres">Tableau des cosinus carrés</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Vincent BARRA<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Vincent BARRA
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
