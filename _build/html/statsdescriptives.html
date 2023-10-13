@@ -585,17 +585,13 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 </ul>
 <div class="math notranslate nohighlight">
 \[|x_i-x_{\frac12}|&gt;3.MADM\]</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>où $MADM = 1.4826.|x_i-x_{\frac12}|_\frac12$, et où $y_{\frac12}$ est la médiane des données $y$ 
-</pre></div>
-</div>
+<p>où <span class="math notranslate nohighlight">\(MADM = 1.4826.|x_i-x_{\frac12}|_\frac12\)</span>, et où <span class="math notranslate nohighlight">\(y_{\frac12}\)</span> est la médiane des données <span class="math notranslate nohighlight">\(y\)</span></p>
 <ul class="simple">
 <li><p>la règle empirique de l’écart-type : on considère que <span class="math notranslate nohighlight">\(x_i\)</span> est un point aberrant si</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[|x_i-\bar x|&gt;3.\sigma\]</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>où  $\bar x$ (respectivement $\sigma$) est la moyenne (resp. l&#39;écart-type ) des données.
-</pre></div>
-</div>
+<p>où  <span class="math notranslate nohighlight">\(\bar x\)</span> (respectivement <span class="math notranslate nohighlight">\(\sigma\)</span>) est la moyenne (resp. l’écart-type ) des données.</p>
 <ul class="simple">
 <li><p>la méthode LOF (Local Outlier Factor) qui repose sur le concept de densité locale, où la localité est donnée par les <span class="math notranslate nohighlight">\(k\)</span> voisins les plus proches, dont la distance est utilisée pour estimer la densité. En comparant la densité locale d’un objet aux densités locales de ses voisins, il est possible d’identifier des régions de densité similaire et des points dont la densité est nettement inférieure à celle de leurs voisins. Ces derniers sont considérés comme des valeurs aberrantes. La densité locale est estimée par la distance typique à laquelle un point peut être atteint à partir de ses voisins.</p></li>
 <li><p>la méthode COF (Connectivity based Outlier Factor) basée sur le même principe que LOF, à ceci près que l’estimation de densité est effectuée en utilisant le minimum de la somme des distances reliant tous les voisins d’un point donné.</p></li>
@@ -727,10 +723,10 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
 GeometricMean  :  1258.4787575642572
 HarmonicMean  :  1198.219210728503
-WeightedMean  :  1280.7024653112421
+WeightedMean  :  1331.7730919607673
 </pre></div>
 </div>
-<img alt="_images/b9d61ac0b4cc4c8592c265caf7afe78c1bd3706fe04bdb39f6e9cc20a29d870b.png" src="_images/b9d61ac0b4cc4c8592c265caf7afe78c1bd3706fe04bdb39f6e9cc20a29d870b.png" />
+<img alt="_images/f550eff2f178646febd9bc07ed76b0db7103ce81fbf215c71095b8924953e9bb.png" src="_images/f550eff2f178646febd9bc07ed76b0db7103ce81fbf215c71095b8924953e9bb.png" />
 </div>
 </div>
 <div class="proof definition admonition" id="definition-6">
@@ -956,7 +952,7 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0163f27459a714e5afc51a971a4d00f2d897adcb2b542659c38227ab69b86750.png" src="_images/0163f27459a714e5afc51a971a4d00f2d897adcb2b542659c38227ab69b86750.png" />
+<img alt="_images/50530c626ad160466cdda2edcc74674ba80f42bce7b2e17e5f1fd3d2c6a46006.png" src="_images/50530c626ad160466cdda2edcc74674ba80f42bce7b2e17e5f1fd3d2c6a46006.png" />
 </div>
 </div>
 </div>
