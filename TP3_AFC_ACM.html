@@ -1,45 +1,57 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TP AFC / ACM &#8212; Analyse de données</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -47,65 +59,104 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TP3_AFC_ACM';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Régression" href="regression.html" />
     <link rel="prev" title="Analyse des correspondances multiples" href="acm.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/isimainp.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Analyse de données</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="_static/isimainp.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/isimainp.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,528 +166,258 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Rappels.html">
-   Rappels de probabilité
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="elemstats.html">
-   Elements de statistiques
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exoprobas.html">
-   Exercices
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="statsdescriptives.html">
-   Statistique descriptive
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_statsDescriptives.html">
-   TP Statistiques descriptives
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="acp.html">
-   Analyse en composantes principales
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_ACP.html">
-   TP ACP
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="afc.html">
-   Analyse Factorielle des correspondances
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="acm.html">
-   Analyse des correspondances multiples
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   TP AFC / ACM
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="regression.html">
-   Régression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP_Regression_Lineaire.html">
-   TP Régression linéaire
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP_Regression_Logistique.html">
-   TP Régression logistique
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="clustering.html">
-   Quelques méthodes de classification
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="genindex.html">
-   Index
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="Rappels.html">Rappels de probabilité</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elemstats.html">Elements de statistiques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exoprobas.html">Exercices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statsdescriptives.html">Statistique descriptive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TP1_statsDescriptives.html">TP Statistiques descriptives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acp.html">Analyse en composantes principales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TP2_ACP.html">TP ACP</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="afc.html">Analyse Factorielle des correspondances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acm.html">Analyse des correspondances multiples</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">TP AFC / ACM</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="regression.html">Régression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TP_Regression_Lineaire.html">TP Régression linéaire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TP_Regression_Logistique.html">TP Régression logistique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">Quelques méthodes de classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/TP3_AFC_ACM.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTP3_AFC_ACM.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/TP3_AFC_ACM.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTP3_AFC_ACM.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/TP3_AFC_ACM.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   TP AFC / ACM
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercice-1-analyse-factorielle-des-correspondances">
-   Exercice 1 : Analyse Factorielle des Correspondances
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#votre-travail">
-     ===== Votre travail : =====
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-factorielle-des-correspondances">
-       Analyse Factorielle des correspondances
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#valeurs-propres">
-       Valeurs propres
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-des-profils-lignes">
-       Analyse des profils lignes
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#calcul-de-la-distance-du-chi-2">
-       Calcul de la distance du
-       <span class="math notranslate nohighlight">
-        \(\chi^2\)
-       </span>
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-des-profils-colonnes">
-       Analyse des profils colonnes
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-de-l-association-lignes-colonnes">
-       Analyse de l’association lignes-colonnes
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#representation-simultanee-lignes-colonnes">
-       Représentation simultanée lignes/colonnes
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercice-2-analyse-des-correspondances-multiples">
-   Exercice 2 : Analyse des Correspondances Multiples
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analyse-des-individus">
-     Analyse des individus
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     ===== Votre travail : =====
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-des-colonnes">
-       Analyse des colonnes
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#acm">
-       ACM
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-des-valeurs-propres">
-       Analyse des valeurs propres
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#representation-graphique">
-       Représentation graphique
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-du-1er-axe">
-       Analyse du 1er axe
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-du-deuxieme-axe">
-       Analyse du deuxième axe
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>TP AFC / ACM</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   TP AFC / ACM
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercice-1-analyse-factorielle-des-correspondances">
-   Exercice 1 : Analyse Factorielle des Correspondances
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#votre-travail">
-     ===== Votre travail : =====
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-factorielle-des-correspondances">
-       Analyse Factorielle des correspondances
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#valeurs-propres">
-       Valeurs propres
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-des-profils-lignes">
-       Analyse des profils lignes
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#calcul-de-la-distance-du-chi-2">
-       Calcul de la distance du
-       <span class="math notranslate nohighlight">
-        \(\chi^2\)
-       </span>
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-des-profils-colonnes">
-       Analyse des profils colonnes
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-de-l-association-lignes-colonnes">
-       Analyse de l’association lignes-colonnes
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#representation-simultanee-lignes-colonnes">
-       Représentation simultanée lignes/colonnes
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercice-2-analyse-des-correspondances-multiples">
-   Exercice 2 : Analyse des Correspondances Multiples
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analyse-des-individus">
-     Analyse des individus
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     ===== Votre travail : =====
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-des-colonnes">
-       Analyse des colonnes
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#acm">
-       ACM
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-des-valeurs-propres">
-       Analyse des valeurs propres
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#representation-graphique">
-       Représentation graphique
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-du-1er-axe">
-       Analyse du 1er axe
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-du-deuxieme-axe">
-       Analyse du deuxième axe
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>TP AFC / ACM</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">TP AFC / ACM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1-analyse-factorielle-des-correspondances">Exercice 1 : Analyse Factorielle des Correspondances</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#votre-travail">===== Votre travail : =====</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-factorielle-des-correspondances">Analyse Factorielle des correspondances</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valeurs-propres">Valeurs propres</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-profils-lignes">Analyse des profils lignes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calcul-de-la-distance-du-chi-2">Calcul de la distance du <span class="math notranslate nohighlight">\(\chi^2\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-profils-colonnes">Analyse des profils colonnes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-de-l-association-lignes-colonnes">Analyse de l’association lignes-colonnes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representation-simultanee-lignes-colonnes">Représentation simultanée lignes/colonnes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2-analyse-des-correspondances-multiples">Exercice 2 : Analyse des Correspondances Multiples</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-individus">Analyse des individus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">===== Votre travail : =====</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-colonnes">Analyse des colonnes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acm">ACM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-valeurs-propres">Analyse des valeurs propres</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representation-graphique">Représentation graphique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-du-1er-axe">Analyse du 1er axe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-du-deuxieme-axe">Analyse du deuxième axe</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># n&#39;exécuter qu&#39;une fois</span>
@@ -657,10 +438,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="tp-afc-acm">
-<h1>TP AFC / ACM<a class="headerlink" href="#tp-afc-acm" title="Permalink to this headline">#</a></h1>
+<h1>TP AFC / ACM<a class="headerlink" href="#tp-afc-acm" title="Permalink to this heading">#</a></h1>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="exercice-1-analyse-factorielle-des-correspondances">
-<h1>Exercice 1 : Analyse Factorielle des Correspondances<a class="headerlink" href="#exercice-1-analyse-factorielle-des-correspondances" title="Permalink to this headline">#</a></h1>
+<h1>Exercice 1 : Analyse Factorielle des Correspondances<a class="headerlink" href="#exercice-1-analyse-factorielle-des-correspondances" title="Permalink to this heading">#</a></h1>
 <p>Le fichier de données est un tableau d’effectifs, croisant l’origine sociale des sondés (CSP, version simplifiée) avec les médias d’informations utilisés</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -685,7 +466,7 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 <div class="section" id="votre-travail">
-<h2>===== Votre travail : =====<a class="headerlink" href="#votre-travail" title="Permalink to this headline">#</a></h2>
+<h2>===== Votre travail : =====<a class="headerlink" href="#votre-travail" title="Permalink to this heading">#</a></h2>
 <p>Vous avez à disposition un fichier <a class="reference external" href="http://ca.py">ca.py</a>, permettant de réaliser les calculs relatifs à une analyse factorielle des correspondances. L’objectif est de répondre aux questions suivantes :</p>
 <ul class="simple">
 <li><p>Quelle est la structure des moyens d’information choisis selon la CSP ? (profils lignes).</p></li>
@@ -694,7 +475,7 @@ Inactif          1474  1931        181        852         642       782
 <li><p>Existe-t-il des relations entre CSP et médias  (des CSP ont-elles une préférences pour certains médias ? Certains médias attirent-ils des catégories particulières de CSP ?)</p></li>
 </ul>
 <div class="section" id="analyse-factorielle-des-correspondances">
-<h3>Analyse Factorielle des correspondances<a class="headerlink" href="#analyse-factorielle-des-correspondances" title="Permalink to this headline">#</a></h3>
+<h3>Analyse Factorielle des correspondances<a class="headerlink" href="#analyse-factorielle-des-correspondances" title="Permalink to this heading">#</a></h3>
 <p>On créé une instance de l’objet CA, que l’on applique sur le tableau des valeurs</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -715,7 +496,7 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 <div class="section" id="valeurs-propres">
-<h3>Valeurs propres<a class="headerlink" href="#valeurs-propres" title="Permalink to this headline">#</a></h3>
+<h3>Valeurs propres<a class="headerlink" href="#valeurs-propres" title="Permalink to this heading">#</a></h3>
 <p>En utilisant l’attribut <span class="math notranslate nohighlight">\(eig\_\)</span> et la fonction plot_eigenvalues (ligne 294 du fichier <span class="math notranslate nohighlight">\(base.py\)</span>),afficher et interpréter les valeurs propres issues de l’analyse factorielle (nombre, contribution des facteurs…)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -733,7 +514,7 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 <div class="section" id="analyse-des-profils-lignes">
-<h3>Analyse des profils lignes<a class="headerlink" href="#analyse-des-profils-lignes" title="Permalink to this headline">#</a></h3>
+<h3>Analyse des profils lignes<a class="headerlink" href="#analyse-des-profils-lignes" title="Permalink to this heading">#</a></h3>
 <p>On affiche ici, pour chaque modalité ligne, la distribution des individus colonnes</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -767,7 +548,7 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/TP3_AFC_ACM_13_0.png" src="_images/TP3_AFC_ACM_13_0.png" />
+<img alt="_images/f4c2576f97a8a529aa2d18d22b05333211df90cca96d319d32d39229af5c36a4.png" src="_images/f4c2576f97a8a529aa2d18d22b05333211df90cca96d319d32d39229af5c36a4.png" />
 </div>
 </div>
 <p>En utilisant l’attribut row_coord_, afficher les coordonnées des modalités lignes par facteur. Calculer la moyenne pondérée et la variance des coordonnées des modalités lignes sur le premier facteur. Qu’obtenez-vous ?</p>
@@ -797,7 +578,7 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 <div class="section" id="calcul-de-la-distance-du-chi-2">
-<h3>Calcul de la distance du <span class="math notranslate nohighlight">\(\chi^2\)</span><a class="headerlink" href="#calcul-de-la-distance-du-chi-2" title="Permalink to this headline">#</a></h3>
+<h3>Calcul de la distance du <span class="math notranslate nohighlight">\(\chi^2\)</span><a class="headerlink" href="#calcul-de-la-distance-du-chi-2" title="Permalink to this heading">#</a></h3>
 <p>La distance du <span class="math notranslate nohighlight">\(\chi^2\)</span> entre les modalités lignes dans l’espace initial devient distance euclidienne dans l’espace factoriel. Comme en ACP, la restitution est parfaite lorsque tous les facteurs sont pris en compte, et approchée si une partie est utilisée. La précision dépend alors d’une part de la qualité de restitution du repère factoriel choisi, d’autre part de la qualité de représentation des modalités impliquées dans le calcul (les <span class="math notranslate nohighlight">\(cos^2\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -818,12 +599,12 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/TP3_AFC_ACM_21_0.png" src="_images/TP3_AFC_ACM_21_0.png" />
+<img alt="_images/a54cc7d9455bd7c98cd2c27749b7e6c4c9436ce04b12fabace663b60269689b1.png" src="_images/a54cc7d9455bd7c98cd2c27749b7e6c4c9436ce04b12fabace663b60269689b1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="analyse-des-profils-colonnes">
-<h3>Analyse des profils colonnes<a class="headerlink" href="#analyse-des-profils-colonnes" title="Permalink to this headline">#</a></h3>
+<h3>Analyse des profils colonnes<a class="headerlink" href="#analyse-des-profils-colonnes" title="Permalink to this heading">#</a></h3>
 <p>Faire la même analsye sur les profils colonnes. Interpréter les résultats</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -834,7 +615,7 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 <div class="section" id="analyse-de-l-association-lignes-colonnes">
-<h3>Analyse de l’association lignes-colonnes<a class="headerlink" href="#analyse-de-l-association-lignes-colonnes" title="Permalink to this headline">#</a></h3>
+<h3>Analyse de l’association lignes-colonnes<a class="headerlink" href="#analyse-de-l-association-lignes-colonnes" title="Permalink to this heading">#</a></h3>
 <p>Au-delà de la comparaison des profils, l’intérêt majeur de l’AFC est d’identifier les associations entre les modalités lignes et colonnes : est ce que les agriculteurs s’informent plus par la radio que les autres ? Est ce que la presse magazine attire plus les cadres ?</p>
 <p>Avant de s’intéresser aux relations entre les modalités, il faut déjà vérifier qu’il existe bien une liaison exploitable entre les variables en ligne et colonne du tableau de contingence. La statistique du <span class="math notranslate nohighlight">\(\chi^2\)</span> de l’écart à l’indépendance permet de le faire</p>
 <p>Faire un test du <span class="math notranslate nohighlight">\(\chi^2\)</span> (voir le cours statistiques bivariées), en utilisant la fonction <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.chi2.html"><span class="math notranslate nohighlight">\(scipy.stats.chi2.cdf\)</span></a> du module <span class="math notranslate nohighlight">\(scipy\)</span>. Conclure.</p>
@@ -859,7 +640,7 @@ $<span class="math notranslate nohighlight">\(\frac{P(Y=y_k, X=x_l)}{P(Y=y_k)P(X
 </div>
 </div>
 <div class="section" id="representation-simultanee-lignes-colonnes">
-<h3>Représentation simultanée lignes/colonnes<a class="headerlink" href="#representation-simultanee-lignes-colonnes" title="Permalink to this headline">#</a></h3>
+<h3>Représentation simultanée lignes/colonnes<a class="headerlink" href="#representation-simultanee-lignes-colonnes" title="Permalink to this heading">#</a></h3>
 <p>En utilisant la fonction <span class="math notranslate nohighlight">\(mapping\)</span> (ligne 329 du fichier <a class="reference external" href="http://base.py">base.py</a>), projeter sur le premier plan factoriel les individus ligne et colonne. Interpreter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -888,7 +669,7 @@ $<span class="math notranslate nohighlight">\(\frac{P(Y=y_k, X=x_l)}{P(Y=y_k)P(X
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="exercice-2-analyse-des-correspondances-multiples">
-<h1>Exercice 2 : Analyse des Correspondances Multiples<a class="headerlink" href="#exercice-2-analyse-des-correspondances-multiples" title="Permalink to this headline">#</a></h1>
+<h1>Exercice 2 : Analyse des Correspondances Multiples<a class="headerlink" href="#exercice-2-analyse-des-correspondances-multiples" title="Permalink to this heading">#</a></h1>
 <p>Ici on s’intéresse à 6 traits de caractères de 27 races de chien, et on souhaite analyser le tableau par ACM</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -975,7 +756,7 @@ Terre-Neuve      Taille++   Veloc-    Affec-
 </div>
 </div>
 <div class="section" id="analyse-des-individus">
-<h2>Analyse des individus<a class="headerlink" href="#analyse-des-individus" title="Permalink to this headline">#</a></h2>
+<h2>Analyse des individus<a class="headerlink" href="#analyse-des-individus" title="Permalink to this heading">#</a></h2>
 <p>Dans la suite, on travaille sur le tableau disjonctif complet des données (variables transformées en indicatrices 0/1).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1052,7 +833,7 @@ Terre-Neuve           1
 </div>
 </div>
 <div class="section" id="id1">
-<h2>===== Votre travail : =====<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<h2>===== Votre travail : =====<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>Vous avez à disposition un fichier <a class="reference external" href="http://mca.py">mca.py</a>, permettant de réaliser les calculs relatifs à une analyse des correspondances multiples
 Faire une analyse en composantes multiples de ces données et plus précisément :</p>
 <ul class="simple">
@@ -1082,7 +863,7 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="_images/TP3_AFC_ACM_41_1.png" src="_images/TP3_AFC_ACM_41_1.png" />
+<img alt="_images/d4871cc91beed4ab21cc078f16b38277553e6a1affefcbe9f77a8150790f4408.png" src="_images/d4871cc91beed4ab21cc078f16b38277553e6a1affefcbe9f77a8150790f4408.png" />
 </div>
 </div>
 <p>Ainsi, par exemple, le Basset a plus de caractères en commun avec le Caniche qu’avec le Beauceron.</p>
@@ -1104,12 +885,12 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="_images/TP3_AFC_ACM_44_1.png" src="_images/TP3_AFC_ACM_44_1.png" />
+<img alt="_images/bf6a45ab8dc3b31e289a57792a3ee7f568c1ce37f48f8cf7daf2fb139e89b984.png" src="_images/bf6a45ab8dc3b31e289a57792a3ee7f568c1ce37f48f8cf7daf2fb139e89b984.png" />
 </div>
 </div>
 <p>Ainsi par exemple, le Pointer est plus proche du chien moyen que le Cocker.</p>
 <div class="section" id="analyse-des-colonnes">
-<h3>Analyse des colonnes<a class="headerlink" href="#analyse-des-colonnes" title="Permalink to this headline">#</a></h3>
+<h3>Analyse des colonnes<a class="headerlink" href="#analyse-des-colonnes" title="Permalink to this heading">#</a></h3>
 <p>L’analyse des associations entre les modalités revient à travailler sur les profils colonnes. Le tableau de données est normalisé par les sommes en colonne. Le profil moyen est égal au poids des observations</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1134,7 +915,7 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="_images/TP3_AFC_ACM_47_1.png" src="_images/TP3_AFC_ACM_47_1.png" />
+<img alt="_images/a77bd9e5cf4b7a139996f666c51708126bcc449abee57040928ffc2a001e96f3.png" src="_images/a77bd9e5cf4b7a139996f666c51708126bcc449abee57040928ffc2a001e96f3.png" />
 </div>
 </div>
 <p>Calculer la distance à l’origine, qui  donne une information sur la fréquence de la modalité dans la base. Elle est définie par la disance du <span class="math notranslate nohighlight">\(\chi^2\)</span> au profil moyen. Interpréter</p>
@@ -1155,13 +936,13 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="_images/TP3_AFC_ACM_49_1.png" src="_images/TP3_AFC_ACM_49_1.png" />
+<img alt="_images/207c881a3aeac38c8a823a166afcd6c73af6d3f05764a3b5ec8e496280e8af74.png" src="_images/207c881a3aeac38c8a823a166afcd6c73af6d3f05764a3b5ec8e496280e8af74.png" />
 </div>
 </div>
 <p>Ainsi, Veloc+ est moins présent que Veloc- dans les exemples.</p>
 </div>
 <div class="section" id="acm">
-<h3>ACM<a class="headerlink" href="#acm" title="Permalink to this headline">#</a></h3>
+<h3>ACM<a class="headerlink" href="#acm" title="Permalink to this heading">#</a></h3>
 <p>On créé une instance de l’objet MCA (défini dans <a class="reference external" href="http://mca.py">mca.py</a>) et on estime le modèle des correspondances multiples sur les données <span class="math notranslate nohighlight">\(X\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1186,7 +967,7 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 </div>
 <div class="section" id="analyse-des-valeurs-propres">
-<h3>Analyse des valeurs propres<a class="headerlink" href="#analyse-des-valeurs-propres" title="Permalink to this headline">#</a></h3>
+<h3>Analyse des valeurs propres<a class="headerlink" href="#analyse-des-valeurs-propres" title="Permalink to this heading">#</a></h3>
 <p>L’objectif de l’Analyse des Correspondances Multiples est de décomposer l’information sur une succession d’axes factoriels orthogonaux. Le nouveau système de représentation est calculé pour préserver au mieux les distances entre individus. L nombre maximum de facteurs est <span class="math notranslate nohighlight">\(p-k\)</span>, où <span class="math notranslate nohighlight">\(p\)</span> est la somme du nombre de modalités des variables (le nombre de colonnes de <span class="math notranslate nohighlight">\(X\)</span>), et <span class="math notranslate nohighlight">\(k\)</span> le nombre de variables initiales.</p>
 <p>De même que pour l’analyse facrtorielle, calculer les valeurs propres et interpréter les facteurs.</p>
 <div class="cell docutils container">
@@ -1196,12 +977,12 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/TP3_AFC_ACM_55_0.png" src="_images/TP3_AFC_ACM_55_0.png" />
+<img alt="_images/aa86ecd84c85f2f95ac47c618ac346c5c403bf164d1a16734dedce0334072666.png" src="_images/aa86ecd84c85f2f95ac47c618ac346c5c403bf164d1a16734dedce0334072666.png" />
 </div>
 </div>
 </div>
 <div class="section" id="representation-graphique">
-<h3>Représentation graphique<a class="headerlink" href="#representation-graphique" title="Permalink to this headline">#</a></h3>
+<h3>Représentation graphique<a class="headerlink" href="#representation-graphique" title="Permalink to this heading">#</a></h3>
 <p>2 types de graphiques peuvent être réalisés :</p>
 <ul class="simple">
 <li><p>Les mappings classiques qui représentent les points lignes et colonnes sur un plan factoriel</p></li>
@@ -1219,7 +1000,7 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/TP3_AFC_ACM_58_0.png" src="_images/TP3_AFC_ACM_58_0.png" />
+<img alt="_images/81b894bdcce507d43e11d755c068b3193015776f5ec0548060b8319de6142c19.png" src="_images/81b894bdcce507d43e11d755c068b3193015776f5ec0548060b8319de6142c19.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1234,12 +1015,12 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/TP3_AFC_ACM_59_0.png" src="_images/TP3_AFC_ACM_59_0.png" />
+<img alt="_images/8a7f9dac5c1992a48952e870e19448e7040c5cab9788638186d734daacba22f9.png" src="_images/8a7f9dac5c1992a48952e870e19448e7040c5cab9788638186d734daacba22f9.png" />
 </div>
 </div>
 </div>
 <div class="section" id="analyse-du-1er-axe">
-<h3>Analyse du 1er axe<a class="headerlink" href="#analyse-du-1er-axe" title="Permalink to this headline">#</a></h3>
+<h3>Analyse du 1er axe<a class="headerlink" href="#analyse-du-1er-axe" title="Permalink to this heading">#</a></h3>
 <p>On utilise les formules de <span class="math notranslate nohighlight">\(cos^2\)</span> pour mesurer la qualité de la projection des individus et des modalités sur les axes factoriels.
 En pratique, si deux individus sont bien projetés alors s’ils sont proches en projections, ils sont effectivement proches dans leur espace d’origine et on peut alors interprèter leur proximité :</p>
 <p>— La proximité entre deux individus s’interprète en terme de distance (du <span class="math notranslate nohighlight">\(\chi^2\)</span>) : deux individus se ressemblent s’ils ont choisis les mêmes modalités.</p>
@@ -1343,11 +1124,11 @@ Affec-   &amp; -0.841878 &amp;  0.021943 &amp;  0.521706 \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/TP3_AFC_ACM_68_0.svg" src="_images/TP3_AFC_ACM_68_0.svg" /><img alt="_images/TP3_AFC_ACM_68_1.svg" src="_images/TP3_AFC_ACM_68_1.svg" /></div>
+<img alt="_images/6bc80758c05ecd49dbace6251b6e4d15fc6e50a95ff8451f326fa2460a9198e0.svg" src="_images/6bc80758c05ecd49dbace6251b6e4d15fc6e50a95ff8451f326fa2460a9198e0.svg" /><img alt="_images/fd4fbb4ce088036fcf19372a6da0c4df953df457fe4167533028a83e6a2e7d93.svg" src="_images/fd4fbb4ce088036fcf19372a6da0c4df953df457fe4167533028a83e6a2e7d93.svg" /></div>
 </div>
 </div>
 <div class="section" id="analyse-du-deuxieme-axe">
-<h3>Analyse du deuxième axe<a class="headerlink" href="#analyse-du-deuxieme-axe" title="Permalink to this headline">#</a></h3>
+<h3>Analyse du deuxième axe<a class="headerlink" href="#analyse-du-deuxieme-axe" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
@@ -1355,7 +1136,7 @@ Affec-   &amp; -0.841878 &amp;  0.021943 &amp;  0.521706 \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/TP3_AFC_ACM_70_0.svg" src="_images/TP3_AFC_ACM_70_0.svg" /><img alt="_images/TP3_AFC_ACM_70_1.svg" src="_images/TP3_AFC_ACM_70_1.svg" /></div>
+<img alt="_images/4011d56f5d82fd3b925a7a47ab81f8439411506034976ff73d4a5e4bd800a941.svg" src="_images/4011d56f5d82fd3b925a7a47ab81f8439411506034976ff73d4a5e4bd800a941.svg" /><img alt="_images/9745a1e78e85874629aa9a4592052e99c324597e929762a180dbacae2996b12e.svg" src="_images/9745a1e78e85874629aa9a4592052e99c324597e929762a180dbacae2996b12e.svg" /></div>
 </div>
 </div>
 </div>
@@ -1381,50 +1162,128 @@ Affec-   &amp; -0.841878 &amp;  0.021943 &amp;  0.521706 \\
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="acm.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Analyse des correspondances multiples</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="acm.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Analyse des correspondances multiples</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="regression.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="regression.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Régression</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">TP AFC / ACM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1-analyse-factorielle-des-correspondances">Exercice 1 : Analyse Factorielle des Correspondances</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#votre-travail">===== Votre travail : =====</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-factorielle-des-correspondances">Analyse Factorielle des correspondances</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valeurs-propres">Valeurs propres</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-profils-lignes">Analyse des profils lignes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calcul-de-la-distance-du-chi-2">Calcul de la distance du <span class="math notranslate nohighlight">\(\chi^2\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-profils-colonnes">Analyse des profils colonnes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-de-l-association-lignes-colonnes">Analyse de l’association lignes-colonnes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representation-simultanee-lignes-colonnes">Représentation simultanée lignes/colonnes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2-analyse-des-correspondances-multiples">Exercice 2 : Analyse des Correspondances Multiples</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-individus">Analyse des individus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">===== Votre travail : =====</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-colonnes">Analyse des colonnes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acm">ACM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-valeurs-propres">Analyse des valeurs propres</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representation-graphique">Représentation graphique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-du-1er-axe">Analyse du 1er axe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-du-deuxieme-axe">Analyse du deuxième axe</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Vincent BARRA<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Vincent BARRA
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
