@@ -160,6 +160,84 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &\textrm{ si}& x\in[c^-_j,c^+_j[\\
 1& \textrm{ si}&c^+_J\leq x
 \end{eqnarray}\right .$
 
+
+## Pré-traitement des données
+
+### Points aberrants
+Une anomalie (ou point aberrant, ou outlier) est une observation (ou un sous-ensemble d'observations) qui semble incompatible avec le reste de l'ensemble de données.
+
+S'il est parfois possible d'identifier graphiquement ces points aberrants à l'aide de boîtes à moustaches (voir section~\ref{S:boxplot}), il existe une vaste littérature sur la détection d'anomalies qu'il n'est pas possible d'aborder ici. De plus, suivant le type de données manipulées (données séquentielles ou non), le type de méthode peut être différent. On mentionne donc ici quelques techniques simples :
+
+- le détecteur de Hampel : on considère que $x_i$ est un point aberrant si $$|x_i-x_{\frac12}|>3.MADM$$ 
+    où $MADM = 1.4826.|x_i-x_{\frac12}|_\frac12$, et où $y_{\frac12}$ est la médiane des données $y$ 
+- la règle empirique de l'écart-type : on considère que $x_i$ est un point aberrant si $$|x_i-\bar x|>3.\sigma$$
+    où  $\bar x$ (respectivement $\sigma$) est la moyenne (resp. l'écart-type ) des données.
+- la méthode LOF (Local Outlier Factor) qui repose sur le concept de densité locale, où la localité est donnée par les $k$ voisins les plus proches, dont la distance est utilisée pour estimer la densité. En comparant la densité locale d'un objet aux densités locales de ses voisins, il est possible d'identifier des régions de densité similaire et des points dont la densité est nettement inférieure à celle de leurs voisins. Ces derniers sont considérés comme des valeurs aberrantes. La densité locale est estimée par la distance typique à laquelle un point peut être atteint à partir de ses voisins. 
+- la méthode COF (Connectivity based Outlier Factor) basée sur le même principe que LOF, à ceci près que l'estimation de densité est effectuée en utilisant le minimum de la somme des distances reliant tous les voisins d'un point donné.
+
+
+### Données manquantes
+On suppose ici collecter $p$ données (par exemple la taille, le poids, l'âge) sur $n$ individus. Ces données peuvent donc être regroupées dans un tableau (une matrice) de taille $n\times p$. Lors de la collecte de ces données, il arrive que certaines d'entre elles ne soient pas disponibles ou enregistrées. On distingue trois types de données manquantes :
+
+1. les données manquant de manière complètement aléatoire :  la probabilité qu'une donnée soit manquante ne dépend pas des valeurs connues ni de la valeur manquante elle-même.
+2. les données manquant de manière aléatoire :  la probabilité qu'une donnée soit manquante peut dépendre de valeurs connues (d'autres variables parmi les $p$), mais pas de la variable dont les valeurs sont manquantes.
+3. les données manquant de manière non aléatoire : la probabilité qu'une donnée soit manquante dépend d'autres variables qui ont également des valeurs manquantes, ou elle dépend de la variable elle-même.
+
+
+Pour résoudre ce problème de données manquantes, dans la mesure où ces dernières ne sont pas trop nombreuses, on a recours à des techniques d'imputation.
+
+Dans le cas d'une imputation simple (une seule donnée manquante), on peut par exemple remplacer la valeur manquante dans une colonne $j\in[\![1,p]\!]$ par :
+
+-  une valeur fixe
+-  une statistique sur la colonne $j$ (la plus petite ou la plus grande valeur, la moyenne de la colonne, la valeur la plus fréquente...)
+-  une valeur issue des $k$ plus proches voisins de la ligne du tableau où la valeur en position $j$ est manquante
+-  une valeur calculée par régression (voir chapitre~\ref{ch:regression}) sur l'ensemble du tableau
+-  la valeur précédente (ou suivante) dans le cas où la colonne est une série ordonnée ou temporelle.
+
+
+Dans le cas d'une imputation multiple, où un sous-ensemble de valeurs doit être comblé, on peut adopter la stratégie suivante : 
+
+1. Effectuer une imputation simple pour toutes les valeurs manquantes de l'ensemble de données.
+2. Remettre les valeurs manquantes d'une variable $j\in[\![1,p]\!]$ à "manquantes".
+3. Former un modèle pour prédire les valeurs manquantes de $j$ en utilisant les valeurs disponibles de la variable $j$ en tant que variable dépendante et les autres variables de l'ensemble de données comme indépendantes.
+4. Prédire les valeurs manquantes dans la colonne $j$ en utilisant le modèle entraîné à l'étape 3.
+5. Répéter les étapes 2 à 4 pour toutes les autres colonnes présentant des valeurs manquantes.
+6. Répéter l'étape 2-5 jusqu'à convergence (ou un nombre maximal d'itérations)
+7. Répéter les étapes 1-6 plusieurs fois avec différentes initialisations de nombres aléatoires pour créer différentes versions de l'ensemble de données complet/imputé.
+
+
+
+### Transformation des données qualitatives
+Pour pouvoir être traitées numériquement, les données qualitatives doivent être transformées. Plusieurs techniques existent parmi lesquelles :
+
+- pour le cas des variables ordinales : on utilise ici le rang pour encoder les modalités de la variable. Par exemple, pour un niveau de diplomation Brevet$<$Bac$<$Licence$<$Master$<$Doctorat, on codera Licence par 3 et Doctorat par 5.
+-  le one-hot encoding : pour une variable qualitative présentant $J$ modalités, on construit un vecteur de taille $J$ dont les composantes sont toutes nulles sauf la $J$-ème qui vaut 1. Par exemple, si $J$=3, on construit 1 vecteur de taille 3, et pour un individu ayant la modalité 2, on le code en (0 1 0). Lorsque $J$ est élevé, on se retrouve avec un jeu de données volumineux.
+-  les méthodes de plongement (embedding) : utilisées principalement en apprentissage profond (Deep learning) pour le traitement du langage naturel, ces classes de méthodes construisent une représentation de chaque modalité d'une variable qualitative en un vecteur numérique de taille fixe et choisie. Pour le mot "rouge" de la variable "couleur", par exemple, l'encodage peut par exemple être représenté par le vecteur (0.31 0.57 0.12). En pratique, le calcul de ces représentations s'effectue classiquement par l'entraînement d'un réseau de neurones ayant pour entrée uniquement les variables qualitatives. Tout d'abord, un encodage one-hot est appliqué à la variable afin d'être mise en entrée du réseau, qui n'accepte que les entrées numériques. La sortie d'une des couches cachées du réseau constitue alors le vecteur recherché. On concatène ensuite ce vecteur aux données initiales, utilisées dans l'ajustement du modèle final. 
+
+
+
+
+### Normalisation
+Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l'analyse des données (figure~\ref{F:normalisation}) qu'il convient de corriger : c'est le processus de normalisation des données.
+
+Pour une colonne $j\in[\![1,p]\!]$, on dispose de $n$ valeurs $x_{ij},i\in[\![1,n]\!]$. On note : $x_{min} = \displaystyle\min_{i\in[\![1,n]\!]}x_{ij}$, $x_{max} = \displaystyle\max_{i\in[\![1,n]\!]}x_{ij}$,   $\bar x_j$ la moyenne des $x_{ij}$, $\sigma_j$ leur écart-type, $x_\frac14, x_\frac12$ et $x_\frac34$ les premier, deuxième et troisième quartiles. On distingue alors classiquement trois types de normalisation : 
+
+1. la normalisation min-max : $x_{ij} = \frac{x_{ij}-x_{min}}{x_{max}-x_{min}}$
+2. la normalisation standard : $x_{ij}=\frac{x_{ij}-\bar x_j}{\sigma_j}$
+3. la normalisation robuste : $x_{ij}=\frac{x_{ij}-x_\frac12}{x_\frac34-x_\frac14}$
+
+
+La normalisation standard dépend de la présence de points aberrants (qui affectent la moyenne).
+
+Dans la figure suivante, on montre l'effet de la normalisation sur un algorithme de classification (voir chapitre correspondant. En haut un jeu de données avec deux nuages de points allongés selon l'axe des $x$, certainement en raison d'une différence d'échelle entre les unités de mesure de $x$ et $y$. Au milieu une classification par $k$-moyennes, $k$=2 sans normalisation, en utilisant la distance euclidienne. Les deux classes sont séparées suivant l'axe des $x$, ne reflétant pas la répartition naturelle des points. En bas, après normalisation, les deux nuages de points sont correctement séparés.
+
+
+![](./images/normK.png)
+
+
+
+
+
 ## Statistique descriptive univariée
 ```{index} Statistique ; univariée
 ```
@@ -426,6 +504,71 @@ plt.tight_layout()
 plt.show()
 
 ```
+
+
+### Pour résumer...
+\label{S:boxplot}
+Pour résumer les paramètres précédemment évoqués, on peut tracer une boîte à moustaches (ou boxplot en anglais) qui permet de représenter de manière compacte la distribution des données (figure~\ref{F:boxplot}). Dans ce diagramme : 
+\begin{itemize}
+\item la ligne centrale représente la médiane des données
+\item la ligne basse représente le premier quartile $Q_1$
+\item la ligne haute représente le troisième quartile $Q_3$
+\item la moustache basse représente $Q_1-1.5(Q_3-Q_1)$
+\item la moustache haute représente $Q_3+1.5(Q_3-Q_1)$
+\item les points aberrants sont les points de données en dehors des moustaches
+\end{itemize}
+
+
+![](./images/boxplot.png)
+
+
+### La description ne fait pas tout...
+La description d'un ensemble de valeurx $x_j$ par la moyenne, la variance, voire le comportement linéaire (coefficient de corrélation, voir section~\ref{S:corr}) peut ne pas suffire à comprendre la distribution des données. Un exemple classique est le quartet d'Anscombe (figure~\ref{F:anscombe}), constitué de quatre ensembles de points  $(x,y)\in\mathbb{R}^2$ de même propriétés statistiques (moyenne, variance, coefficient de régression linéaire) mais qui sont distribués de manière totalement différente dans le plan.
+
+```{code-cell} ipython3
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = [10, 8, 13, 9, 11, 14, 6, 4, 12, 7, 5]
+y1 = [8.04, 6.95, 7.58, 8.81, 8.33, 9.96, 7.24, 4.26, 10.84, 4.82, 5.68]
+y2 = [9.14, 8.14, 8.74, 8.77, 9.26, 8.10, 6.13, 3.10, 9.13, 7.26, 4.74]
+y3 = [7.46, 6.77, 12.74, 7.11, 7.81, 8.84, 6.08, 5.39, 8.15, 6.42, 5.73]
+x4 = [8, 8, 8, 8, 8, 8, 8, 19, 8, 8, 8]
+y4 = [6.58, 5.76, 7.71, 8.84, 8.47, 7.04, 5.25, 12.50, 5.56, 7.91, 6.89]
+
+datasets = {
+    '1.': (x, y1),
+    '2.': (x, y2),
+    '3.': (x, y3),
+    '4.': (x4, y4)
+}
+
+fig, axs = plt.subplots(2, 2, sharex=True, sharey=True, figsize=(6, 6),
+                        gridspec_kw={'wspace': 0.08, 'hspace': 0.18})
+axs[0, 0].set(xlim=(2, 15), ylim=(2, 14))
+
+for ax, (label, (x, y)) in zip(axs.flat, datasets.items()):
+    ax.set_xlabel('x')
+    ax.set_ylabel('y')
+    ax.plot(x, y, '.',c='r')
+
+    p1, p0 = np.polyfit(x, y, deg=1)  # slope, intercept
+    ax.axline(xy1=(0, p0), slope=p1, color='b', lw=2)
+
+    stats = (f'$\\bar x$ = {np.mean(y):.3f}\n'
+             f'$\\sigma$ = {np.std(y):.3f}\n'
+             f'$r$ = {np.corrcoef(x, y)[0][1]:.3f}')
+    ax.text(0.95, 0.07, stats, fontsize=9, 
+            transform=ax.transAxes, horizontalalignment='right')
+
+plt.tight_layout()
+plt.show()
+
+```
+
+
+
+
 
 
 ## Statistique descriptive bivariée
