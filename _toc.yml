@@ -5,7 +5,7 @@ format: jb-book
 root: intro
 parts:
   - caption: Cours
-  chapters:
+    chapters:
     - file: Rappels
     - file: elemstats
     - file: exoprobas
@@ -14,13 +14,13 @@ parts:
     - file: regression
     - file: clustering
   - caption: TP 
-  chapters:
+    chapters:
     - file: TP1_statsDescriptives
     - file: TP2_ACP
     - file: TP_Regression_Lineaire
     - file: TP_Regression_Logistique
   - caption: Annexes
-  chapters:
+    chapters:
     - file: afc
     - file: acm
     - file: acm
