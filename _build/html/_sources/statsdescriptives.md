@@ -546,8 +546,6 @@ for ax, (label, (x, y)) in zip(axs.flat, datasets.items()):
              f'$r$ = {np.corrcoef(x, y)[0][1]:.3f}')
     ax.text(0.95, 0.07, stats, fontsize=9, 
             transform=ax.transAxes, horizontalalignment='right')
-
-plt.tight_layout()
 plt.show()
 
 ```

@@ -3,19 +3,25 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: Rappels
-- file: elemstats
-- file: exoprobas
-- file: statsdescriptives
-- file: TP1_statsDescriptives
-- file: acp
-- file: TP2_ACP
-- file: afc
-- file: acm
-- file: TP3_AFC_ACM
-- file: regression
-- file: TP_Regression_Lineaire
-- file: TP_Regression_Logistique
-- file: clustering
-- file: genindex
+parts:
+  - caption : Cours
+  chapters:
+    - file: Rappels
+    - file: elemstats
+    - file: exoprobas
+    - file: statsdescriptives
+    - file: acp
+    - file: regression
+    - file: clustering
+  - caption : TP 
+  chapters:
+    - file: TP1_statsDescriptives
+    - file: TP2_ACP
+    - file: TP_Regression_Lineaire
+    - file: TP_Regression_Logistique
+  - caption : Annexes
+  chapters:
+    - file: afc
+    - file: acm
+    - file: acm
+  - file: genindex

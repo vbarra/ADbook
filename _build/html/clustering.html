@@ -1,45 +1,57 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quelques méthodes de classification &#8212; Analyse de données</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -47,65 +59,104 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'clustering';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Index" href="genindex.html" />
     <link rel="prev" title="TP Régression logistique" href="TP_Regression_Logistique.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/isimainp.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Analyse de données</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="_static/isimainp.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/isimainp.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,743 +166,289 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Rappels.html">
-   Rappels de probabilité
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="elemstats.html">
-   Elements de statistiques
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exoprobas.html">
-   Exercices
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="statsdescriptives.html">
-   Statistique descriptive
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_statsDescriptives.html">
-   TP Statistiques descriptives
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="acp.html">
-   Analyse en composantes principales
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_ACP.html">
-   TP ACP
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="afc.html">
-   Analyse Factorielle des correspondances
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="acm.html">
-   Analyse des correspondances multiples
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP3_AFC_ACM.html">
-   TP AFC / ACM
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="regression.html">
-   Régression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP_Regression_Lineaire.html">
-   TP Régression linéaire
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP_Regression_Logistique.html">
-   TP Régression logistique
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Quelques méthodes de classification
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="genindex.html">
-   Index
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="Rappels.html">Rappels de probabilité</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elemstats.html">Elements de statistiques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exoprobas.html">Exercices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statsdescriptives.html">Statistique descriptive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TP1_statsDescriptives.html">TP Statistiques descriptives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acp.html">Analyse en composantes principales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TP2_ACP.html">TP ACP</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="afc.html">Analyse Factorielle des correspondances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acm.html">Analyse des correspondances multiples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TP3_AFC_ACM.html">TP AFC / ACM</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="regression.html">Régression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TP_Regression_Lineaire.html">TP Régression linéaire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TP_Regression_Logistique.html">TP Régression logistique</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Quelques méthodes de classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/clustering.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fclustering.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/clustering.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fclustering.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/clustering.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download notebook file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="_sources/clustering.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#structures-de-classification">
-   Structures de classification
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#partition">
-     Partition
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hierarchie-indicee">
-     Hiérarchie indicée
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#partition-et-hierarchie">
-     Partition et hiérarchie
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#objectifs-de-la-classification">
-   Objectifs de la classification
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#difficultes-de-caracteriser-les-objectifs">
-     Difficultés de caractériser les objectifs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#demarche-numerique">
-     Démarche numérique
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id1">
-       Partition
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#hierarchie">
-       Hiérarchie
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#demarche-algorithmique">
-     Démarche algorithmique
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mesure-de-dissimilarite-et-distance">
-     Mesure de dissimilarité et distance
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#indice-de-dissimilarite">
-       Indice de dissimilarité
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#cas-de-variables-qualitatives">
-       Cas de variables qualitatives
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#cas-de-variables-quantitatives">
-       Cas de variables quantitatives
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#variables-de-comptage">
-       Variables de comptage
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quelle-mesure-choisir">
-       Quelle mesure choisir ?
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#classification-ascendante-hierarchique">
-   Classification ascendante hiérarchique
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#algorithme">
-     Algorithme
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#construction-de-la-hierarchie">
-       Construction de la hiérarchie
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#construction-de-l-indice">
-       Construction de l’indice
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#criteres-d-agregation">
-     Critères d’agrégation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#formule-de-recurrence-de-lance-et-williams">
-     Formule de récurrence de Lance et Williams
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#critere-de-ward">
-     Critère de Ward
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#proprietes-d-optimalite">
-     Propriétés d’optimalité
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#critere-d-arret-et-partition">
-     Critère d’arrêt et partition
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#utilisation-des-methodes">
-     Utilisation des méthodes
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exemple">
-     Exemple
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recherche-de-partitions">
-   Recherche de partitions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#methode-des-centres-mobiles">
-     Méthode des centres mobiles
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
-       Algorithme
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#critere-et-convergence">
-       Critère et convergence
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#lien-avec-la-methode-de-ward">
-       Lien avec la méthode de Ward
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#generalisation-les-nuees-dynamiques">
-     Généralisation : les nuées dynamiques
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#formalisation">
-       Formalisation
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#choix-du-nombre-de-classes">
-       Choix du nombre de classes
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Exemple
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Quelques méthodes de classification</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#structures-de-classification">
-   Structures de classification
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#partition">
-     Partition
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hierarchie-indicee">
-     Hiérarchie indicée
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#partition-et-hierarchie">
-     Partition et hiérarchie
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#objectifs-de-la-classification">
-   Objectifs de la classification
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#difficultes-de-caracteriser-les-objectifs">
-     Difficultés de caractériser les objectifs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#demarche-numerique">
-     Démarche numérique
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id1">
-       Partition
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#hierarchie">
-       Hiérarchie
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#demarche-algorithmique">
-     Démarche algorithmique
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mesure-de-dissimilarite-et-distance">
-     Mesure de dissimilarité et distance
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#indice-de-dissimilarite">
-       Indice de dissimilarité
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#cas-de-variables-qualitatives">
-       Cas de variables qualitatives
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#cas-de-variables-quantitatives">
-       Cas de variables quantitatives
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#variables-de-comptage">
-       Variables de comptage
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quelle-mesure-choisir">
-       Quelle mesure choisir ?
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#classification-ascendante-hierarchique">
-   Classification ascendante hiérarchique
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#algorithme">
-     Algorithme
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#construction-de-la-hierarchie">
-       Construction de la hiérarchie
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#construction-de-l-indice">
-       Construction de l’indice
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#criteres-d-agregation">
-     Critères d’agrégation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#formule-de-recurrence-de-lance-et-williams">
-     Formule de récurrence de Lance et Williams
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#critere-de-ward">
-     Critère de Ward
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#proprietes-d-optimalite">
-     Propriétés d’optimalité
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#critere-d-arret-et-partition">
-     Critère d’arrêt et partition
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#utilisation-des-methodes">
-     Utilisation des méthodes
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exemple">
-     Exemple
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recherche-de-partitions">
-   Recherche de partitions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#methode-des-centres-mobiles">
-     Méthode des centres mobiles
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
-       Algorithme
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#critere-et-convergence">
-       Critère et convergence
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#lien-avec-la-methode-de-ward">
-       Lien avec la méthode de Ward
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#generalisation-les-nuees-dynamiques">
-     Généralisation : les nuées dynamiques
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#formalisation">
-       Formalisation
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#choix-du-nombre-de-classes">
-       Choix du nombre de classes
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Exemple
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Quelques méthodes de classification</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structures-de-classification">Structures de classification</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partition">Partition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchie-indicee">Hiérarchie indicée</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partition-et-hierarchie">Partition et hiérarchie</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-de-la-classification">Objectifs de la classification</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difficultes-de-caracteriser-les-objectifs">Difficultés de caractériser les objectifs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demarche-numerique">Démarche numérique</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Partition</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchie">Hiérarchie</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demarche-algorithmique">Démarche algorithmique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mesure-de-dissimilarite-et-distance">Mesure de dissimilarité et distance</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#indice-de-dissimilarite">Indice de dissimilarité</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cas-de-variables-qualitatives">Cas de variables qualitatives</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cas-de-variables-quantitatives">Cas de variables quantitatives</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-de-comptage">Variables de comptage</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#quelle-mesure-choisir">Quelle mesure choisir ?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-ascendante-hierarchique">Classification ascendante hiérarchique</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme">Algorithme</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-de-la-hierarchie">Construction de la hiérarchie</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-de-l-indice">Construction de l’indice</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criteres-d-agregation">Critères d’agrégation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formule-de-recurrence-de-lance-et-williams">Formule de récurrence de Lance et Williams</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critere-de-ward">Critère de Ward</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proprietes-d-optimalite">Propriétés d’optimalité</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critere-d-arret-et-partition">Critère d’arrêt et partition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilisation-des-methodes">Utilisation des méthodes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple">Exemple</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recherche-de-partitions">Recherche de partitions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-des-centres-mobiles">Méthode des centres mobiles</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Algorithme</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#critere-et-convergence">Critère et convergence</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lien-avec-la-methode-de-ward">Lien avec la méthode de Ward</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalisation-les-nuees-dynamiques">Généralisation : les nuées dynamiques</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#formalisation">Formalisation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#choix-du-nombre-de-classes">Choix du nombre de classes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exemple</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <div class="tex2jax_ignore mathjax_ignore section" id="quelques-methodes-de-classification">
-<h1>Quelques méthodes de classification<a class="headerlink" href="#quelques-methodes-de-classification" title="Permalink to this headline">#</a></h1>
+<h1>Quelques méthodes de classification<a class="headerlink" href="#quelques-methodes-de-classification" title="Permalink to this heading">#</a></h1>
 <div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>La classification automatique a pour but d’obtenir une représentation simplifiée des données initiales. Elle consiste à organiser un ensemble de données en classes homogènes ou classes naturelles.</p>
 <p>Une définition formelle de la classification, qui puisse servir de base à un processus automatisé, amène à se poser les questions suivantes :</p>
 <ul class="simple">
@@ -868,9 +465,9 @@ title="Print to PDF"
 </ul>
 </div>
 <div class="section" id="structures-de-classification">
-<h2>Structures de classification<a class="headerlink" href="#structures-de-classification" title="Permalink to this headline">#</a></h2>
+<h2>Structures de classification<a class="headerlink" href="#structures-de-classification" title="Permalink to this heading">#</a></h2>
 <div class="section" id="partition">
-<h3>Partition<a class="headerlink" href="#partition" title="Permalink to this headline">#</a></h3>
+<h3>Partition<a class="headerlink" href="#partition" title="Permalink to this heading">#</a></h3>
 <div class="proof definition admonition" id="definition-0">
 <span id="index-0"></span><p class="admonition-title"><span class="caption-number">Definition 41 </span> (Partition)</p>
 <div class="definition-content section" id="proof-content">
@@ -883,7 +480,7 @@ title="Print to PDF"
 </div><p>Dans un ensemble  <span class="math notranslate nohighlight">\(\Omega\)</span> partitionné en <span class="math notranslate nohighlight">\(g\)</span> classes, chaque élément de l’ensemble appartient à une classe et une seule. Une manière pratique de décrire cette partition <span class="math notranslate nohighlight">\(P\)</span> consiste à lui associer la matrice de classification <span class="math notranslate nohighlight">\({\bf C}=(c_{ij}), i\in [\![1,n]\!], j\in [\![1,g]\!]\)</span>, avec <span class="math notranslate nohighlight">\(c_{ij}=1\)</span> si l’individu <span class="math notranslate nohighlight">\(i\)</span> appartient à <span class="math notranslate nohighlight">\(P_j\)</span>, et <span class="math notranslate nohighlight">\(c_{ij}=0\)</span> sinon. Dans le cas où l’on accepte qu’un individu appartienne à plusieurs classes (avec des degrés d’appartenance), on autorise <span class="math notranslate nohighlight">\(c_{ij}\)</span> à couvrir l’intervalle [0,1] et on parle alors de classification floue.</p>
 </div>
 <div class="section" id="hierarchie-indicee">
-<h3>Hiérarchie indicée<a class="headerlink" href="#hierarchie-indicee" title="Permalink to this headline">#</a></h3>
+<h3>Hiérarchie indicée<a class="headerlink" href="#hierarchie-indicee" title="Permalink to this heading">#</a></h3>
 <div class="proof definition admonition" id="definition-1">
 <span id="index-1"></span><p class="admonition-title"><span class="caption-number">Definition 42 </span> (Hiérarchie)</p>
 <div class="definition-content section" id="proof-content">
@@ -897,37 +494,37 @@ title="Print to PDF"
 </div><p>Une hiérarchie est souvent représentée par l’intermédiaire d’un indice, fonction <span class="math notranslate nohighlight">\(i\)</span> de <span class="math notranslate nohighlight">\(H\)</span> dans <span class="math notranslate nohighlight">\(\mathbb{R}^+\)</span>, strictement croissante vis à vis de l’inclusion et de noyau l’ensemble des singletons de <span class="math notranslate nohighlight">\(\Omega\)</span>.</p>
 </div>
 <div class="section" id="partition-et-hierarchie">
-<h3>Partition et hiérarchie<a class="headerlink" href="#partition-et-hierarchie" title="Permalink to this headline">#</a></h3>
+<h3>Partition et hiérarchie<a class="headerlink" href="#partition-et-hierarchie" title="Permalink to this heading">#</a></h3>
 <p>Si <span class="math notranslate nohighlight">\(P =(P_1 \cdots,P_g)\)</span> est une partition de <span class="math notranslate nohighlight">\(\Omega\)</span>, l’ensemble <span class="math notranslate nohighlight">\(H\)</span> formé des classes <span class="math notranslate nohighlight">\(P_k\)</span> de <span class="math notranslate nohighlight">\(P\)</span>, des singletons de   <span class="math notranslate nohighlight">\(\Omega\)</span> et de l’ensemble  <span class="math notranslate nohighlight">\(\Omega\)</span> lui-même forme une hiérarchie. Remarquons qu’inversement, il est possible d’associer à chaque niveau d’une hiérarchie indicée une partition. Une hiérarchie indicée correspond donc à un ensemble de partitions emboîtées.</p>
 </div>
 </div>
 <div class="section" id="objectifs-de-la-classification">
-<h2>Objectifs de la classification<a class="headerlink" href="#objectifs-de-la-classification" title="Permalink to this headline">#</a></h2>
+<h2>Objectifs de la classification<a class="headerlink" href="#objectifs-de-la-classification" title="Permalink to this heading">#</a></h2>
 <div class="section" id="difficultes-de-caracteriser-les-objectifs">
-<h3>Difficultés de caractériser les objectifs<a class="headerlink" href="#difficultes-de-caracteriser-les-objectifs" title="Permalink to this headline">#</a></h3>
+<h3>Difficultés de caractériser les objectifs<a class="headerlink" href="#difficultes-de-caracteriser-les-objectifs" title="Permalink to this heading">#</a></h3>
 <p>L’objectif de la classification automatique est l’organisation en classes homogè-nes- des éléments d’un ensemble  <span class="math notranslate nohighlight">\(\Omega\)</span>. Pour définir cette notion de classes homogènes, on utilise le plus souvent une mesure de similarité (ou de dissimilarité) sur  <span class="math notranslate nohighlight">\(\Omega\)</span>. Par exemple, on peut imposer à un couple quelconque d’individus d’une même classe d’être plus “proches” que n’importe quel couple formé par un individu de la classe et un individu d’une autre classe. En pratique, cet objectif est inutilisable, et plusieurs démarches sont alors utilisées pour remplacer cet objectif trop difficile à atteindre.</p>
 </div>
 <div class="section" id="demarche-numerique">
-<h3>Démarche numérique<a class="headerlink" href="#demarche-numerique" title="Permalink to this headline">#</a></h3>
+<h3>Démarche numérique<a class="headerlink" href="#demarche-numerique" title="Permalink to this heading">#</a></h3>
 <div class="section" id="id1">
-<h4>Partition<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<h4>Partition<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
 <p>On remplace cette condition trop exigeante par une fonction numérique (critère) qui mesure la qualité d’homogénéité d’une partition. Le problème peut paraître alors très simple. En effet, par exemple, dans le cas de la recherche d’une partition, il suffit de chercher parmi l’ensemble fini de toutes les partitions celle qui optimise le critère numérique. Malheureusement, le nombre de ces partitions étant très grand, leur énumération est impossible dans un temps raisonnable. On utilise alors des heuristiques qui donnent, non pas la meilleure solution, mais une “bonne solution”, proche de la solution optimale. On parle alors d’optimisation locale. Lorsqu’il existe une structure d’ordre sur l’ensemble  <span class="math notranslate nohighlight">\(\Omega\)</span> et que celle-ci doit être respectée par la partition, il existe un algorithme de programmation dynamique (algorithme de Fisher), qui fournit la solution optimale.</p>
 </div>
 <div class="section" id="hierarchie">
-<h4>Hiérarchie<a class="headerlink" href="#hierarchie" title="Permalink to this headline">#</a></h4>
+<h4>Hiérarchie<a class="headerlink" href="#hierarchie" title="Permalink to this heading">#</a></h4>
 <p>Dans le cas d’une hiérarchie, on cherche à obtenir des classes d’autant plus homogènes qu’elles sont situées dans le bas de la hiérarchie. La définition d’un critère est moins facile. Nous verrons qu’il est possible de le faire en utilisant la
 notion d’ultramétrique (ultramétrique optimale).</p>
 </div>
 </div>
 <div class="section" id="demarche-algorithmique">
-<h3>Démarche algorithmique<a class="headerlink" href="#demarche-algorithmique" title="Permalink to this headline">#</a></h3>
+<h3>Démarche algorithmique<a class="headerlink" href="#demarche-algorithmique" title="Permalink to this heading">#</a></h3>
 <p>Il s’agit cette fois de définir directement un algorithme qui construit des classes homogènes en tenant compte de la mesure de similarité. Il est relativement facile de proposer de tels algorithmes, le problème est de pouvoir vérifier que les résultats fournis sont intéressants et répondent au problème posé. En réalité, cette démarche rejoint assez souvent la précédente.</p>
 </div>
 <div class="section" id="mesure-de-dissimilarite-et-distance">
-<h3>Mesure de dissimilarité et distance<a class="headerlink" href="#mesure-de-dissimilarite-et-distance" title="Permalink to this headline">#</a></h3>
+<h3>Mesure de dissimilarité et distance<a class="headerlink" href="#mesure-de-dissimilarite-et-distance" title="Permalink to this heading">#</a></h3>
 <p>Les algorithmes de classification dépendent d’une métrique qui définit implicitement la forme des classes qui seront calculées. Si la distance euclidienne suppose une isotropie dans les axes (et donc une représentation sphérique des classes), d’autres distances ou indices de dissimilarité peuvent être utilisés.</p>
 <div class="section" id="indice-de-dissimilarite">
-<h4>Indice de dissimilarité<a class="headerlink" href="#indice-de-dissimilarite" title="Permalink to this headline">#</a></h4>
+<h4>Indice de dissimilarité<a class="headerlink" href="#indice-de-dissimilarite" title="Permalink to this heading">#</a></h4>
 <p>On se place dans <span class="math notranslate nohighlight">\(\mathbb R^p\)</span>, et on considère <span class="math notranslate nohighlight">\(n\)</span> individus à classer <span class="math notranslate nohighlight">\({\bf x_1}\ldots {\bf x_n}\)</span>.</p>
 <div class="proof definition admonition" id="definition-2">
 <p class="admonition-title"><span class="caption-number">Definition 43 </span> (Dissimilarité - ultramétrique)</p>
@@ -950,7 +547,7 @@ d : \begin{array}{ccc}
 </div><p>A partir des mesures de dissimilarité, on déduit des mesures de similarité <span class="math notranslate nohighlight">\(s_{ij}\)</span> le passage de l’une à l’autre se faisant par exemple par <span class="math notranslate nohighlight">\(d_{ij} = s_{max}-s_{ij}\)</span>.</p>
 </div>
 <div class="section" id="cas-de-variables-qualitatives">
-<h4>Cas de variables qualitatives<a class="headerlink" href="#cas-de-variables-qualitatives" title="Permalink to this headline">#</a></h4>
+<h4>Cas de variables qualitatives<a class="headerlink" href="#cas-de-variables-qualitatives" title="Permalink to this heading">#</a></h4>
 <p>On suppose que les <span class="math notranslate nohighlight">\(p\)</span> composantes des <span class="math notranslate nohighlight">\({\bf x_i}\)</span> sont qualitatives, et on se limite ici au cas de variables bimodales.
 Étant donnés <span class="math notranslate nohighlight">\({\bf x_i}=\begin{pmatrix} x_i^1\ldots x_i^p\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\({\bf x_j}\)</span>, on note :</p>
 <ul class="simple">
@@ -970,7 +567,7 @@ d : \begin{array}{ccc}
 </ul>
 </div>
 <div class="section" id="cas-de-variables-quantitatives">
-<h4>Cas de variables quantitatives<a class="headerlink" href="#cas-de-variables-quantitatives" title="Permalink to this headline">#</a></h4>
+<h4>Cas de variables quantitatives<a class="headerlink" href="#cas-de-variables-quantitatives" title="Permalink to this heading">#</a></h4>
 <p>Dans le cas de variables quantitatives, les normes  <span class="math notranslate nohighlight">\(L_r\)</span> :</p>
 <p><span class="math notranslate nohighlight">\(\|{\bf x_i}\|_r=\left (\displaystyle\sum_{j=1}^p|x_i^j|^r\right ) ^\frac{1}{r}\)</span></p>
 <p>sont classiquement utilisées, et par exemple</p>
@@ -986,11 +583,11 @@ d : \begin{array}{ccc}
 <p><span class="math notranslate nohighlight">\(r^2_{ij} = \frac{\left (\displaystyle\sum_{k=1}^p (x_i^k-\bar{x_i})(x_j^k-\bar{x_j})\right )^2}{\displaystyle\sum_{k=1}^p(x_i^k-\bar{x_i})^2\displaystyle\sum_{k=1}^p(x_j^k-\bar{x_j})^2}\)</span></p>
 </div>
 <div class="section" id="variables-de-comptage">
-<h4>Variables de comptage<a class="headerlink" href="#variables-de-comptage" title="Permalink to this headline">#</a></h4>
+<h4>Variables de comptage<a class="headerlink" href="#variables-de-comptage" title="Permalink to this heading">#</a></h4>
 <p>Dans le cas particulier de variables de comptage (<span class="math notranslate nohighlight">\(x_i^k\)</span> effectif de la classe <span class="math notranslate nohighlight">\(k\)</span> pour l’individu <span class="math notranslate nohighlight">\(i\)</span>), une mesure naturelle de dissimilarité entre <span class="math notranslate nohighlight">\({\bf x_i}\)</span> et <span class="math notranslate nohighlight">\({\bf x_j}\)</span> est le <span class="math notranslate nohighlight">\(\chi^2\)</span> du tableau de contingence 2<span class="math notranslate nohighlight">\(\times p\)</span> associé.</p>
 </div>
 <div class="section" id="quelle-mesure-choisir">
-<h4>Quelle mesure choisir ?<a class="headerlink" href="#quelle-mesure-choisir" title="Permalink to this headline">#</a></h4>
+<h4>Quelle mesure choisir ?<a class="headerlink" href="#quelle-mesure-choisir" title="Permalink to this heading">#</a></h4>
 <p>Une réflexion  sur le type de dissimilarité à choisir est nécessaire. Il est en particulier intéressant de répondre aux questions suivantes:</p>
 <ul class="simple">
 <li><p>de quelles variables initiales (qualitatives et/ou quantitatives) doit dépendre la dissimilarité?</p></li>
@@ -1001,7 +598,7 @@ d : \begin{array}{ccc}
 </div>
 </div>
 <div class="section" id="classification-ascendante-hierarchique">
-<h2>Classification ascendante hiérarchique<a class="headerlink" href="#classification-ascendante-hierarchique" title="Permalink to this headline">#</a></h2>
+<h2>Classification ascendante hiérarchique<a class="headerlink" href="#classification-ascendante-hierarchique" title="Permalink to this heading">#</a></h2>
 <p>L’objectif est de construire une hiérarchie indicée d’un ensemble <span class="math notranslate nohighlight">\(\Omega\)</span> sur lequel on connaît une mesure de dissimilarité <span class="math notranslate nohighlight">\(d\)</span> telle que les points les plus proches soient regroupés dans les classes de plus petit indice. La hiérarchie est alors construite en appliquant itérativement ce principe, et l’arbre obtenu sur l’ensemble des itérations est appelé un dendrogramme.</p>
 <p>Il existe essentiellement
 deux approches :</p>
@@ -1010,9 +607,9 @@ deux approches :</p>
 <li><p>la classification ascendante : cette fois on part de la partition de <span class="math notranslate nohighlight">\(\Omega\)</span>  où chaque classe est un singleton. On procède alors par fusions successives des classes jusqu’à obtenir une seule classe, c’est-à -dire l’ensemble  <span class="math notranslate nohighlight">\(\Omega\)</span> lui-même. Nous insistons sur ce type de classification dans la suite.</p></li>
 </ul>
 <div class="section" id="algorithme">
-<h3>Algorithme<a class="headerlink" href="#algorithme" title="Permalink to this headline">#</a></h3>
+<h3>Algorithme<a class="headerlink" href="#algorithme" title="Permalink to this heading">#</a></h3>
 <div class="section" id="construction-de-la-hierarchie">
-<span id="index-2"></span><h4>Construction de la hiérarchie<a class="headerlink" href="#construction-de-la-hierarchie" title="Permalink to this headline">#</a></h4>
+<span id="index-2"></span><h4>Construction de la hiérarchie<a class="headerlink" href="#construction-de-la-hierarchie" title="Permalink to this heading">#</a></h4>
 <p><span class="math notranslate nohighlight">\(\Omega\)</span>  étant l’ensemble à classifier et <span class="math notranslate nohighlight">\(d\)</span> une mesure de dissimilarité sur cet ensemble, on définit, à partir de <span class="math notranslate nohighlight">\(d\)</span>, une  distance <span class="math notranslate nohighlight">\(D\)</span> entre les parties de  <span class="math notranslate nohighlight">\(\Omega\)</span>. Cette distance est en réalité une mesure de dissimilarité qui ne vérifie pas nécessairement toutes les propriétés d’une distance sur l’ensemble des parties de <span class="math notranslate nohighlight">\(\Omega\)</span>. En général, <span class="math notranslate nohighlight">\(D\)</span> est appelé critère d’agrégation.
 L’algorithme est alors le suivant :</p>
 <div class="proof algorithm admonition" id="algorithm-3">
@@ -1020,11 +617,11 @@ L’algorithme est alors le suivant :</p>
 <div class="algorithm-content section" id="proof-content">
 <p><strong>Entrée :</strong> Les éléments de <span class="math notranslate nohighlight">\(\Omega\)</span></p>
 <p><strong>Sortie :</strong> Une hiérarchie</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Initialisation : partition des singletons</p></li>
 <li><p>Calcul des distances entre classes.</p></li>
 <li><p>Tant que le nombre de classes est <span class="math notranslate nohighlight">\(&gt;\)</span>1</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Regroupement des 2 classes les plus proches au sens de <span class="math notranslate nohighlight">\(D\)</span></p></li>
 <li><p>Calcul des distances entre la nouvelle classe et les anciennes classes non regroupées.</p></li>
 </ol>
@@ -1034,7 +631,7 @@ L’algorithme est alors le suivant :</p>
 </div><p>Il est facile de montrer que l’ensemble des classes définies au cours de cet algorithme forme une hiérarchie.</p>
 </div>
 <div class="section" id="construction-de-l-indice">
-<h4>Construction de l’indice<a class="headerlink" href="#construction-de-l-indice" title="Permalink to this headline">#</a></h4>
+<h4>Construction de l’indice<a class="headerlink" href="#construction-de-l-indice" title="Permalink to this heading">#</a></h4>
 <p>Après avoir défini une hiérarchie, il est nécessaire de lui associer un indice. Pour les classes du bas de la hiérarchie, c’est-à-dire les singletons, cet indice est nécessairement la valeur 0. Pour les autres classes, cet indice est généralement
 défini en associant à chacune des classes construites au cours de l’algorithme la distance <span class="math notranslate nohighlight">\(D\)</span> qui séparait les deux classes fusionnées pour former cette nouvelle classe. Pour que cette définition conduise bien à un indice, il est nécessaire que
 les indices obtenus soient strictement croissants avec le niveau de la hiérarchie. Plusieurs difficultés peuvent alors apparaître :</p>
@@ -1045,7 +642,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </div>
 </div>
 <div class="section" id="criteres-d-agregation">
-<h3>Critères d’agrégation<a class="headerlink" href="#criteres-d-agregation" title="Permalink to this headline">#</a></h3>
+<h3>Critères d’agrégation<a class="headerlink" href="#criteres-d-agregation" title="Permalink to this heading">#</a></h3>
 <p>Il existe de nombreux critères d’agrégation, mais les plus utilisés sont les suivants :</p>
 <ul class="simple">
 <li><p>critère du lien commun : <span class="math notranslate nohighlight">\(D_{min}(A,B)=\displaystyle\min_{i\in A,j\in B}d_{ij}\)</span></p></li>
@@ -1055,7 +652,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 <p><img alt="" src="_images/agreg.png" /></p>
 </div>
 <div class="section" id="formule-de-recurrence-de-lance-et-williams">
-<h3>Formule de récurrence de Lance et Williams<a class="headerlink" href="#formule-de-recurrence-de-lance-et-williams" title="Permalink to this headline">#</a></h3>
+<h3>Formule de récurrence de Lance et Williams<a class="headerlink" href="#formule-de-recurrence-de-lance-et-williams" title="Permalink to this heading">#</a></h3>
 <p>Pour les trois critères d’agrégation précédents, il existe des relations de simplification du calcul des distances entre classes essentielles pour la mise en place pratique de l’algorithme de classification ascendante :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(D_{min}(A,B\cup C)=min(D_{min}(A,B),D_{min}(A,C))\)</span></p></li>
@@ -1064,13 +661,13 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </ul>
 </div>
 <div class="section" id="critere-de-ward">
-<h3>Critère de Ward<a class="headerlink" href="#critere-de-ward" title="Permalink to this headline">#</a></h3>
+<h3>Critère de Ward<a class="headerlink" href="#critere-de-ward" title="Permalink to this heading">#</a></h3>
 <p id="index-3">Lorsque l’ensemble   <span class="math notranslate nohighlight">\(\Omega\)</span> à classifier est mesuré par <span class="math notranslate nohighlight">\(p\)</span> variables quantitatives, il est possible de lui associer un nuage de points pondérés dans <span class="math notranslate nohighlight">\(\mathbb{R}^p\)</span> muni de la distance euclidienne <span class="math notranslate nohighlight">\(d\)</span>. Généralement, les pondérations seront toutes égales à 1. Le critère d’agrégation le plus utilisé dans cette situation est alors le critère d’inertie de Ward :</p>
 <p><span class="math notranslate nohighlight">\(D(A,B)=\frac{p_Ap_B}{p_A+p_B}d^2({\bf g}(A),{\bf g}(B))\)</span></p>
 <p>où <span class="math notranslate nohighlight">\(p_E\)</span> représente la somme des pondérations des éléments d’une classe <span class="math notranslate nohighlight">\(E\)</span> et <span class="math notranslate nohighlight">\({\bf g}(E)\)</span> est le centre de gravité d’une classe <span class="math notranslate nohighlight">\(E\)</span>.</p>
 </div>
 <div class="section" id="proprietes-d-optimalite">
-<h3>Propriétés d’optimalité<a class="headerlink" href="#proprietes-d-optimalite" title="Permalink to this headline">#</a></h3>
+<h3>Propriétés d’optimalité<a class="headerlink" href="#proprietes-d-optimalite" title="Permalink to this heading">#</a></h3>
 <p>La notion de hiérarchie indicée est équivalente à la notion d’ultramétrique. La classification hiérarchique ascendante transforme donc la mesure de dissimilarité <span class="math notranslate nohighlight">\(d\)</span> initiale en une mesure de dissimilarité <span class="math notranslate nohighlight">\(\delta\)</span> qui possède la propriété d’être une ultramétrique.</p>
 <p>Le problème de la classification hiérarchique peut donc également se poser en ces termes : trouver l’ultramétrique <span class="math notranslate nohighlight">\(\delta\)</span> la plus proche de <span class="math notranslate nohighlight">\(d\)</span>. Il reste à munir l’espace des mesures de dissimilarité sur  <span class="math notranslate nohighlight">\(\Omega\)</span> d’une distance. On pourra utiliser, par exemple :</p>
 <ul class="simple">
@@ -1079,7 +676,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </ul>
 </div>
 <div class="section" id="critere-d-arret-et-partition">
-<h3>Critère d’arrêt et partition<a class="headerlink" href="#critere-d-arret-et-partition" title="Permalink to this headline">#</a></h3>
+<h3>Critère d’arrêt et partition<a class="headerlink" href="#critere-d-arret-et-partition" title="Permalink to this heading">#</a></h3>
 <p id="index-4">L’ensemble des itérations peut être visualisé sous la forme d’un arbre, appelé dendrogramme. La figure suivante présente un exemple de dendrogramme en clustering hiérarchique descendant sur <span class="math notranslate nohighlight">\(X = \{a, b, c, d, e\}\)</span>. La distance <span class="math notranslate nohighlight">\(D\)</span> n’est pas reportée</p>
 <p><img alt="" src="_images/dendro1.png" /></p>
 <p>Le critère d’arrêt permet de déterminer la partition  de <span class="math notranslate nohighlight">\(X\)</span> la plus appropriée. Ici encore, plusieurs choix sont possibles :</p>
@@ -1091,11 +688,11 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 <p><img alt="" src="_images/dendro2.png" /></p>
 </div>
 <div class="section" id="utilisation-des-methodes">
-<h3>Utilisation des méthodes<a class="headerlink" href="#utilisation-des-methodes" title="Permalink to this headline">#</a></h3>
+<h3>Utilisation des méthodes<a class="headerlink" href="#utilisation-des-methodes" title="Permalink to this heading">#</a></h3>
 <p>La première difficulté est le choix de la mesure de dissimilarité sur  <span class="math notranslate nohighlight">\(\Omega\)</span> et du critère d’agrégation. Généralement, lorsque l’on dispose de variables quantitatives, le critère conseillé est le critère d’inertie. Ensuite, il est souvent nécessaire de disposer d’outils d’aide à l’interprétation et d’outils permettant de diminuer le nombre de niveaux de hiérarchie. Il est d’autre part conseillé d’utiliser conjointement d’autres méthodes d’analyse des données comme l’Analyse en Composantes Principales vue au chapitre précédent.</p>
 </div>
 <div class="section" id="exemple">
-<h3>Exemple<a class="headerlink" href="#exemple" title="Permalink to this headline">#</a></h3>
+<h3>Exemple<a class="headerlink" href="#exemple" title="Permalink to this heading">#</a></h3>
 <p>On étudie ici un jeu de données correspondant aux achats dans un supermarché. On cherche à caractériser les comportements des acheteurs en fonction de leurs revenus</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1198,7 +795,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/clustering_3_0.png" src="_images/clustering_3_0.png" />
+<img alt="_images/40af125764252cecf7df0609a0d09aea389d627bca442ec7639bad8eb392434d.png" src="_images/40af125764252cecf7df0609a0d09aea389d627bca442ec7639bad8eb392434d.png" />
 </div>
 </div>
 <p>L’objectif est de trouver des catégories de population ayant les mêmes comportements d’achat. Le nombre de classes étant inconnu, la classification héararchique va permettre de donner des indications sur le nombre de groupes.</p>
@@ -1219,7 +816,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/clustering_5_0.png" src="_images/clustering_5_0.png" />
+<img alt="_images/78d4a9a45386b64f29780bb351aae8389a5aa0d02e0f3b4e0007c6466783e532.png" src="_images/78d4a9a45386b64f29780bb351aae8389a5aa0d02e0f3b4e0007c6466783e532.png" />
 </div>
 </div>
 <p>On projette ensuite le résultat de la classificatiob</p>
@@ -1243,28 +840,28 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/clustering_7_0.png" src="_images/clustering_7_0.png" />
+<img alt="_images/85f8f2ed254f16dc77c66f71965aac224a56a48f2667c2a76e212b3e1629d6ea.png" src="_images/85f8f2ed254f16dc77c66f71965aac224a56a48f2667c2a76e212b3e1629d6ea.png" />
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="recherche-de-partitions">
-<h2>Recherche de partitions<a class="headerlink" href="#recherche-de-partitions" title="Permalink to this headline">#</a></h2>
+<h2>Recherche de partitions<a class="headerlink" href="#recherche-de-partitions" title="Permalink to this heading">#</a></h2>
 <div class="section" id="methode-des-centres-mobiles">
-<h3>Méthode des centres mobiles<a class="headerlink" href="#methode-des-centres-mobiles" title="Permalink to this headline">#</a></h3>
+<h3>Méthode des centres mobiles<a class="headerlink" href="#methode-des-centres-mobiles" title="Permalink to this heading">#</a></h3>
 <span class="target" id="index-5"></span><p id="index-6">La méthode des centres mobiles est encore connue sous le nom de méthode de réallocation-centrage ou des k-means lorsque l’ensemble à classifier est mesuré par <span class="math notranslate nohighlight">\(p\)</span> variables. Ici, <span class="math notranslate nohighlight">\(\Omega \in \mathbb{R}^p\)</span> est muni de sa distance euclidienne <span class="math notranslate nohighlight">\(d\)</span>. Pour simplifier la présentation, les pondérations des individus seront toutes égales à 1, mais la généralisation à des pondérations quelconques ne pose aucun problème.</p>
 <div class="section" id="id2">
-<h4>Algorithme<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<h4>Algorithme<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
 <p>L’algorithme des centres-mobiles peut se définir ainsi :</p>
 <div class="proof algorithm admonition" id="algorithm-4">
 <p class="admonition-title"><span class="caption-number">Algorithm 2 </span> (Algorithme des centres mobiles)</p>
 <div class="algorithm-content section" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(\Omega\)</span>,<span class="math notranslate nohighlight">\(g\)</span>, métrique</p>
 <p><strong>Sortie :</strong> Une partition de <span class="math notranslate nohighlight">\(\Omega\)</span></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Initialisation : tirage au hasard de <span class="math notranslate nohighlight">\(g\)</span> points de  <span class="math notranslate nohighlight">\(\Omega\)</span> (centres initiaux des <span class="math notranslate nohighlight">\(g\)</span> classes)</p></li>
 <li><p>Tant que (non convergence)</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Étape E : Construction de la partition en affectant chaque point de <span class="math notranslate nohighlight">\(\Omega\)</span> à la classe dont il est le plus près du centre (en cas d’égalité, l’affectation se fait à la classe de plus petit indice).</p></li>
 <li><p>Étape M : Les centres de gravité de la partition qui vient d’être calculée deviennent les nouveaux centres</p></li>
 </ol>
@@ -1276,11 +873,11 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 <p><img alt="" src="_images/kmeans2.png" /></p>
 </div>
 <div class="section" id="critere-et-convergence">
-<h4>Critère et convergence<a class="headerlink" href="#critere-et-convergence" title="Permalink to this headline">#</a></h4>
+<h4>Critère et convergence<a class="headerlink" href="#critere-et-convergence" title="Permalink to this heading">#</a></h4>
 <p>La qualité d’un couple partition-centres est mesurée par la somme des inerties des classes par rapport à leur centre. On peut montrer qu’à chacune des deux étapes de l’algorithme, on améliore ce critère.</p>
 </div>
 <div class="section" id="lien-avec-la-methode-de-ward">
-<h4>Lien avec la méthode de Ward<a class="headerlink" href="#lien-avec-la-methode-de-ward" title="Permalink to this headline">#</a></h4>
+<h4>Lien avec la méthode de Ward<a class="headerlink" href="#lien-avec-la-methode-de-ward" title="Permalink to this heading">#</a></h4>
 <p>La méthode des centres mobiles et la méthode de Ward optimisent toutes deux, à leur façon, le critère d’inertie intra-classe. Cette situation conduit à proposer des stratégies utilisant les deux approches comme, par exemple :</p>
 <ul class="simple">
 <li><p>appliquer les centres-mobiles pour regrouper l’ensemble initial en un nombre “important” de classes</p></li>
@@ -1291,15 +888,15 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </div>
 </div>
 <div class="section" id="generalisation-les-nuees-dynamiques">
-<h3>Généralisation : les nuées dynamiques<a class="headerlink" href="#generalisation-les-nuees-dynamiques" title="Permalink to this headline">#</a></h3>
+<h3>Généralisation : les nuées dynamiques<a class="headerlink" href="#generalisation-les-nuees-dynamiques" title="Permalink to this heading">#</a></h3>
 <p id="index-7">L’idée de base consiste à remplacer les centres   qui étaient des éléments de <span class="math notranslate nohighlight">\(\mathbb{R}^p\)</span> jouant le rôle de représentant ou encore de noyau de la classe par des éléments de nature très diverse adaptés au problème que l’on cherche à résoudre.</p>
 <div class="section" id="formalisation">
-<h4>Formalisation<a class="headerlink" href="#formalisation" title="Permalink to this headline">#</a></h4>
+<h4>Formalisation<a class="headerlink" href="#formalisation" title="Permalink to this heading">#</a></h4>
 <p>On note <span class="math notranslate nohighlight">\(L=\{\lambda_i\}\)</span> l’ensemble des noyaux, <span class="math notranslate nohighlight">\(D:\Omega\times L\rightarrow \mathbb{R}^+\)</span> une mesure de ressemblance entre éléments de <span class="math notranslate nohighlight">\(\Omega\)</span> et de <span class="math notranslate nohighlight">\(L\)</span>. L’objectif est alors de trouver la partition en <span class="math notranslate nohighlight">\(g\)</span> classes (<span class="math notranslate nohighlight">\(g\)</span> fixé a priori) de <span class="math notranslate nohighlight">\(\Omega\)</span> minimisant le critère <span class="math notranslate nohighlight">\(\displaystyle\sum_{k}\displaystyle\sum_{x\in P_k}D(x,\lambda_k)\)</span></p>
 <p>Cette minimisation est réalisée de façon alternée, comme pour les centres mobiles.</p>
 </div>
 <div class="section" id="choix-du-nombre-de-classes">
-<h4>Choix du nombre de classes<a class="headerlink" href="#choix-du-nombre-de-classes" title="Permalink to this headline">#</a></h4>
+<h4>Choix du nombre de classes<a class="headerlink" href="#choix-du-nombre-de-classes" title="Permalink to this heading">#</a></h4>
 <p>En général, le critère n’est pas indépendant du nombre de classes. Par exemple, le critère de l’inertie s’annule pour la partition triviale pour laquelle chaque point forme une classe. Il s’agit donc de la meilleure partition. Il est donc
 nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème très difficile, plusieurs solutions sont utilisées :</p>
 <ul class="simple">
@@ -1331,7 +928,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/clustering_9_0.png" src="_images/clustering_9_0.png" />
+<img alt="_images/d2f13817276b12842d3ef7f2a6c79d8ba48f2b22ac3edf3ae55bb2e97113f22f.png" src="_images/d2f13817276b12842d3ef7f2a6c79d8ba48f2b22ac3edf3ae55bb2e97113f22f.png" />
 </div>
 </div>
 <p>Puis on applique l’algorithme des <span class="math notranslate nohighlight">\(k\)</span>-means.</p>
@@ -1358,13 +955,13 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/clustering_11_0.png" src="_images/clustering_11_0.png" />
+<img alt="_images/282a71541470bf599f673324fd8333f803863bae5ab287f44588409753ee6b0a.png" src="_images/282a71541470bf599f673324fd8333f803863bae5ab287f44588409753ee6b0a.png" />
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="id3">
-<h3>Exemple<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<h3>Exemple<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 </div>
 </div>
 </div>
@@ -1389,50 +986,155 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="TP_Regression_Logistique.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">TP Régression logistique</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="TP_Regression_Logistique.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">TP Régression logistique</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="genindex.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="genindex.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Index</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structures-de-classification">Structures de classification</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partition">Partition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchie-indicee">Hiérarchie indicée</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partition-et-hierarchie">Partition et hiérarchie</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-de-la-classification">Objectifs de la classification</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difficultes-de-caracteriser-les-objectifs">Difficultés de caractériser les objectifs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demarche-numerique">Démarche numérique</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Partition</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchie">Hiérarchie</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demarche-algorithmique">Démarche algorithmique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mesure-de-dissimilarite-et-distance">Mesure de dissimilarité et distance</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#indice-de-dissimilarite">Indice de dissimilarité</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cas-de-variables-qualitatives">Cas de variables qualitatives</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cas-de-variables-quantitatives">Cas de variables quantitatives</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-de-comptage">Variables de comptage</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#quelle-mesure-choisir">Quelle mesure choisir ?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-ascendante-hierarchique">Classification ascendante hiérarchique</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme">Algorithme</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-de-la-hierarchie">Construction de la hiérarchie</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#construction-de-l-indice">Construction de l’indice</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criteres-d-agregation">Critères d’agrégation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formule-de-recurrence-de-lance-et-williams">Formule de récurrence de Lance et Williams</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critere-de-ward">Critère de Ward</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proprietes-d-optimalite">Propriétés d’optimalité</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critere-d-arret-et-partition">Critère d’arrêt et partition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilisation-des-methodes">Utilisation des méthodes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple">Exemple</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recherche-de-partitions">Recherche de partitions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-des-centres-mobiles">Méthode des centres mobiles</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Algorithme</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#critere-et-convergence">Critère et convergence</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lien-avec-la-methode-de-ward">Lien avec la méthode de Ward</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalisation-les-nuees-dynamiques">Généralisation : les nuées dynamiques</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#formalisation">Formalisation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#choix-du-nombre-de-classes">Choix du nombre de classes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exemple</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Vincent BARRA<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Vincent BARRA
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
