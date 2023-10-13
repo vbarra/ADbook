@@ -479,47 +479,32 @@ Les valeurs de l’ échantillon en dehors des moustaches sont parfois matérial
 
 
 ```{code-cell} ipython3
-import numpy as np
 import matplotlib.pyplot as plt
-X = np.loadtxt("./data/data.csv", delimiter=",")[:,1]
+import numpy as np
+import pandas as pd
 
-def annotate_boxplot(bpdict,
+def annotate_boxplot(bpdict, annotate_params=None,
                      x_offset=0.05, x_loc=0,
                      text_offset_x=35,
                      text_offset_y=20):
- 
-    annotate_params = dict(xytext=(text_offset_x, text_offset_y), textcoords='offset points', arrowprops={'arrowstyle':'->'})
+
+    if annotate_params is None:
+        annotate_params = dict(xytext=(text_offset_x, text_offset_y), textcoords='offset points', arrowprops={'arrowstyle':'->'})
 
     plt.annotate('Médiane', (x_loc + 1 + x_offset, bpdict['medians'][x_loc].get_ydata()[0]), **annotate_params)
-    plt.annotate('25%', (x_loc + 1 + x_offset, bpdict['boxes'][x_loc].get_ydata()[0]), **annotate_params)
-    plt.annotate('75%', (x_loc + 1 + x_offset, bpdict['boxes'][x_loc].get_ydata()[2]), **annotate_params)
-    plt.annotate('5%', (x_loc + 1 + x_offset, bpdict['caps'][x_loc*2].get_ydata()[0]), **annotate_params)
-    plt.annotate('95%', (x_loc + 1 + x_offset, bpdict['caps'][(x_loc*2)+1].get_ydata()[0]), **annotate_params)
+    plt.annotate('$Q_1$', (x_loc + 1 + x_offset, bpdict['boxes'][x_loc].get_ydata()[0]), **annotate_params)
+    plt.annotate('$Q_3$', (x_loc + 1 + x_offset, bpdict['boxes'][x_loc].get_ydata()[2]), **annotate_params)
+    plt.annotate('$Q_1-1.5(Q_3-Q_1)$', (x_loc + 1 + x_offset, bpdict['caps'][x_loc*2].get_ydata()[0]), **annotate_params)
+    plt.annotate('$Q_3+1.5(Q_3-Q_1)$', (x_loc + 1 + x_offset, bpdict['caps'][(x_loc*2)+1].get_ydata()[0]), **annotate_params)
 
-plt.figure(figsize=(10,5))
-a = plt.boxplot(x=X)
-annotate_boxplot(a,x_loc=0)
-plt.axis('off')
-plt.tight_layout()
+
+df = pd.DataFrame({'Données': np.random.normal(scale=4, size=150)})
+
+bpdict = df.boxplot(grid=False,whis=1.5, return_type='dict')
+annotate_boxplot(bpdict, x_loc=0)
 plt.show()
 
 ```
-
-
-### Pour résumer...
-\label{S:boxplot}
-Pour résumer les paramètres précédemment évoqués, on peut tracer une boîte à moustaches (ou boxplot en anglais) qui permet de représenter de manière compacte la distribution des données (figure~\ref{F:boxplot}). Dans ce diagramme : 
-\begin{itemize}
-\item la ligne centrale représente la médiane des données
-\item la ligne basse représente le premier quartile $Q_1$
-\item la ligne haute représente le troisième quartile $Q_3$
-\item la moustache basse représente $Q_1-1.5(Q_3-Q_1)$
-\item la moustache haute représente $Q_3+1.5(Q_3-Q_1)$
-\item les points aberrants sont les points de données en dehors des moustaches
-\end{itemize}
-
-
-![](./images/boxplot.png)
 
 
 ### La description ne fait pas tout...
