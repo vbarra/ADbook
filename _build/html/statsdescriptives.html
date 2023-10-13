@@ -192,6 +192,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="afc.html">Analyse Factorielle des correspondances</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acm.html">Analyse des correspondances multiples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
 </ul>
 
     </div>
@@ -580,10 +581,22 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <p>Une anomalie (ou point aberrant, ou outlier) est une observation (ou un sous-ensemble d’observations) qui semble incompatible avec le reste de l’ensemble de données.</p>
 <p>S’il est parfois possible d’identifier graphiquement ces points aberrants à l’aide de boîtes à moustaches (voir section~\ref{S:boxplot}), il existe une vaste littérature sur la détection d’anomalies qu’il n’est pas possible d’aborder ici. De plus, suivant le type de données manipulées (données séquentielles ou non), le type de méthode peut être différent. On mentionne donc ici quelques techniques simples :</p>
 <ul class="simple">
-<li><p>le détecteur de Hampel : on considère que <span class="math notranslate nohighlight">\(x_i\)</span> est un point aberrant si $<span class="math notranslate nohighlight">\(|x_i-x_{\frac12}|&gt;3.MADM\)</span><span class="math notranslate nohighlight">\( 
-  où \)</span>MADM = 1.4826.|x_i-x_{\frac12}|<em>\frac12<span class="math notranslate nohighlight">\(, et où \)</span>y</em>{\frac12}<span class="math notranslate nohighlight">\( est la médiane des données \)</span>y$</p></li>
-<li><p>la règle empirique de l’écart-type : on considère que <span class="math notranslate nohighlight">\(x_i\)</span> est un point aberrant si $<span class="math notranslate nohighlight">\(|x_i-\bar x|&gt;3.\sigma\)</span><span class="math notranslate nohighlight">\(
-  où  \)</span>\bar x<span class="math notranslate nohighlight">\( (respectivement \)</span>\sigma$) est la moyenne (resp. l’écart-type ) des données.</p></li>
+<li><p>le détecteur de Hampel : on considère que <span class="math notranslate nohighlight">\(x_i\)</span> est un point aberrant si</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[|x_i-x_{\frac12}|&gt;3.MADM\]</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>où $MADM = 1.4826.|x_i-x_{\frac12}|_\frac12$, et où $y_{\frac12}$ est la médiane des données $y$ 
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>la règle empirique de l’écart-type : on considère que <span class="math notranslate nohighlight">\(x_i\)</span> est un point aberrant si</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[|x_i-\bar x|&gt;3.\sigma\]</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>où  $\bar x$ (respectivement $\sigma$) est la moyenne (resp. l&#39;écart-type ) des données.
+</pre></div>
+</div>
+<ul class="simple">
 <li><p>la méthode LOF (Local Outlier Factor) qui repose sur le concept de densité locale, où la localité est donnée par les <span class="math notranslate nohighlight">\(k\)</span> voisins les plus proches, dont la distance est utilisée pour estimer la densité. En comparant la densité locale d’un objet aux densités locales de ses voisins, il est possible d’identifier des régions de densité similaire et des points dont la densité est nettement inférieure à celle de leurs voisins. Ces derniers sont considérés comme des valeurs aberrantes. La densité locale est estimée par la distance typique à laquelle un point peut être atteint à partir de ses voisins.</p></li>
 <li><p>la méthode COF (Connectivity based Outlier Factor) basée sur le même principe que LOF, à ceci près que l’estimation de densité est effectuée en utilisant le minimum de la somme des distances reliant tous les voisins d’un point donné.</p></li>
 </ul>
@@ -714,10 +727,10 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
 GeometricMean  :  1258.4787575642572
 HarmonicMean  :  1198.219210728503
-WeightedMean  :  1299.221832269995
+WeightedMean  :  1260.6399332294263
 </pre></div>
 </div>
-<img alt="_images/c715d87586ffaa80b76711d122cb2ea7b46c5f97149307bf37ae8f5dfae1087b.png" src="_images/c715d87586ffaa80b76711d122cb2ea7b46c5f97149307bf37ae8f5dfae1087b.png" />
+<img alt="_images/0ba4c74f79897b67125df5b5cf47c3ad4b3144c5f1a1e771a23129c10454aae5.png" src="_images/0ba4c74f79897b67125df5b5cf47c3ad4b3144c5f1a1e771a23129c10454aae5.png" />
 </div>
 </div>
 <div class="proof definition admonition" id="definition-6">
@@ -943,7 +956,7 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/eadf567dce39bc84cd25de79525966e947dfb87f7c7779b58493081dc36da58d.png" src="_images/eadf567dce39bc84cd25de79525966e947dfb87f7c7779b58493081dc36da58d.png" />
+<img alt="_images/1d9e19ae1f50a3ab5392583703e1c9fd54a7bd14b2662215e0eea5edd83e8363.png" src="_images/1d9e19ae1f50a3ab5392583703e1c9fd54a7bd14b2662215e0eea5edd83e8363.png" />
 </div>
 </div>
 </div>
