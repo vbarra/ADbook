@@ -503,7 +503,6 @@ df = pd.DataFrame({'Données': np.random.normal(scale=4, size=150)})
 bpdict = df.boxplot(grid=False,whis=1.5, return_type='dict')
 annotate_boxplot(bpdict, x_loc=0)
 plt.show()
-
 ```
 
 
