@@ -19,9 +19,3 @@ parts:
     - file: TP2_ACP
     - file: TP_Regression_Lineaire
     - file: TP_Regression_Logistique
-  - caption: Annexes
-    chapters:
-    - file: afc
-    - file: acm
-    - file: acm
-  - file: genindex
