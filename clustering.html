@@ -437,6 +437,10 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#choix-du-nombre-de-classes">Choix du nombre de classes</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeles-de-melange">Modèles de mélange</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Définition</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exemple</a></li>
 </ul>
 </li>
@@ -912,6 +916,20 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 <li><p>on ajoute des contraintes supplémentaires (nombre d’individus par classe, volume d’une classe…). C’est l’option retenue par la méthode Isodata</p></li>
 <li><p>on effectue des tests statistiques sur les classes</p></li>
 </ul>
+</div>
+</div>
+</div>
+<div class="section" id="modeles-de-melange">
+<h2>Modèles de mélange<a class="headerlink" href="#modeles-de-melange" title="Permalink to this heading">#</a></h2>
+<div class="section" id="definition">
+<h3>Définition<a class="headerlink" href="#definition" title="Permalink to this heading">#</a></h3>
+<p>On suppose que la distribution des données est un mélange de la distribution des classes sous-jacentes. On se fixe un entier <span class="math notranslate nohighlight">\(K\)</span> et on modélise chaque classe <span class="math notranslate nohighlight">\(k\in[\![1,K]\!]\)</span> par une distribution <span class="math notranslate nohighlight">\(F_k\)</span>, de paramètre <span class="math notranslate nohighlight">\(\theta_k\)</span>. La densité de probabilité de cette classe est notée <span class="math notranslate nohighlight">\(f_k(x) = f(x|k)\)</span>. La moyenne (respectivement variance) conditionnelle de la classe est <span class="math notranslate nohighlight">\(\mathbb{E}(x|k) = \mu_k\)</span> (resp. <span class="math notranslate nohighlight">\(\mathbb{V}(x|k)=\Sigma_k\)</span>).  Enfin, la probabilité de la classe <span class="math notranslate nohighlight">\(k\)</span> est notée <span class="math notranslate nohighlight">\(\pi_k\)</span>.</p>
+<p>Avec ces notations, le modèle de mélange pour la donnée observée <span class="math notranslate nohighlight">\(x\)</span> est</p>
+<div class="math notranslate nohighlight">
+\[f_m(x) = \displaystyle\sum_{k=1}$K \pi_k f_(x)\]</div>
+</div>
+<div class="section" id="id3">
+<h3>Exemple<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <p>On génère des données</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -961,13 +979,9 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/282a71541470bf599f673324fd8333f803863bae5ab287f44588409753ee6b0a.png" src="_images/282a71541470bf599f673324fd8333f803863bae5ab287f44588409753ee6b0a.png" />
+<img alt="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" src="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="id3">
-<h3>Exemple<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 </div>
 </div>
 </div>
@@ -1087,6 +1101,10 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#choix-du-nombre-de-classes">Choix du nombre de classes</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeles-de-melange">Modèles de mélange</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Définition</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exemple</a></li>
 </ul>
 </li>
