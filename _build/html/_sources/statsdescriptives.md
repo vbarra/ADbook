@@ -307,6 +307,7 @@ for method, style, title in ((ArithmeticMean,'r','Arithmétique'),(GeometricMean
     plt.plot([m,m],[0,0.2],style,label=title)
 plt.legend()
 plt.tight_layout()
+plt.show()
 ```
 
 
@@ -502,6 +503,7 @@ df = pd.DataFrame({'Données': np.random.normal(scale=4, size=150)})
 
 bpdict = df.boxplot(grid=False,whis=1.5, return_type='dict')
 annotate_boxplot(bpdict, x_loc=0)
+plt.tight_layout()
 plt.show()
 ```
 
