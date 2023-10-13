@@ -375,11 +375,19 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 - on ajoute des contraintes supplémentaires (nombre d'individus par classe, volume d'une classe...). C'est l'option retenue par la méthode Isodata 
 - on effectue des tests statistiques sur les classes
  
+## Modèles de mélange
 
+### Définition
+
+On suppose que la distribution des données est un mélange de la distribution des classes sous-jacentes. On se fixe un entier $K$ et on modélise chaque classe $k\in[\![1,K]\!]$ par une distribution $F_k$, de paramètre $\theta_k$. La densité de probabilité de cette classe est notée $f_k(x) = f(x|k)$. La moyenne (respectivement variance) conditionnelle de la classe est $\mathbb{E}(x|k) = \mu_k$ (resp. $\mathbb{V}(x|k)=\Sigma_k$).  Enfin, la probabilité de la classe $k$ est notée $\pi_k$.
+
+Avec ces notations, le modèle de mélange pour la donnée observée $x$ est 
+
+$$f_m(x) = \displaystyle\sum_{k=1}$K \pi_k f_(x)$$
 
 
   
-  ### Exemple
+### Exemple
   
 On génère des données
 ```{code-cell} ipython3
@@ -399,6 +407,7 @@ plt.tight_layout()
 plt.tick_params(labelbottom=False)
 plt.tick_params(labelleft=False)
 ```
+
 Puis on applique l'algorithme des $k$-means.
 
 ```{code-cell} ipython3
