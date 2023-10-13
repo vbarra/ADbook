@@ -380,6 +380,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 
   
   ### Exemple
+  
 On génère des données
 ```{code-cell} ipython3
 from sklearn.datasets import make_blobs
