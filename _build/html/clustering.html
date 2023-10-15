@@ -971,7 +971,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/022d604ac4bf1dacf0952668454a0b3e4799cbff0a78ac6e149ee27030500cb3.png" src="_images/022d604ac4bf1dacf0952668454a0b3e4799cbff0a78ac6e149ee27030500cb3.png" />
+<img alt="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" src="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" />
 </div>
 </div>
 </div>
@@ -1006,7 +1006,8 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 \[Tr(\Sigma_0) = \displaystyle\sum_{k=1}^K \pi_k (\mu_k-\mu_0)^T(\mu_k-\mu_0) + \displaystyle\sum_{k=1}^K\pi_k Tr(\Sigma_k)\]</div>
 <p>Si les matrices de covariance sont approchées par leur estimation empirique, on retrouve la décomposition classique</p>
 <div class="math notranslate nohighlight">
-\[Tr(\hat \Sigma_0) = \frac1n \displaystyle\sum_{i=1}^n (x_i-\hat\mu_0)^T(x_i-\hat\mu_0) + \frac1n \displaystyle\sum_{k=1}^K \displaystyle\sum_{i\in P_k} (x_i-\hat\mu_k)^T(x_i-\hat\mu_k)\]</div>
+\[Tr(\hat \Sigma_0) = \frac1n \displaystyle\sum_{i=1}^n (x_i-\hat\mu_0)^T(x_i-\hat\mu_0) = \frac1n \displaystyle\sum_{k=1}^K n_k (\hat\mu_k-\hat\mu_0)^T (\hat\mu_k-\hat\mu_0)+ \frac1n \displaystyle\sum_{k=1}^K \displaystyle\sum_{i\in P_k} (x_i-\hat\mu_k)^T(x_i-\hat\mu_k) = B+W\]</div>
+<p>où <span class="math notranslate nohighlight">\(B\)</span> est la vatiation inter-classes (Between), et W la variation intra classe (Within).</p>
 </div>
 </div>
 </div>
