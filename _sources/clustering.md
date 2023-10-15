@@ -457,7 +457,11 @@ $$Tr(\Sigma_0) = \displaystyle\sum_{k=1}^K \pi_k (\mu_k-\mu_0)^T(\mu_k-\mu_0) + 
 
 Si les matrices de covariance sont approchées par leur estimation empirique, on retrouve la décomposition classique 
 
-$$Tr(\hat \Sigma_0) = \frac1n \displaystyle\sum_{i=1}^n (x_i-\hat\mu_0)^T(x_i-\hat\mu_0) = \frac1n \displaystyle\sum_{k=1}^K n_k (\hat\mu_k-\hat\mu_0)^T (\hat\mu_k-\hat\mu_0)+ \frac1n \displaystyle\sum_{k=1}^K \displaystyle\sum_{i\in P_k} (x_i-\hat\mu_k)^T(x_i-\hat\mu_k) = B+W$$
+$$Tr(\hat \Sigma_0) = \frac1n \displaystyle\sum_{i=1}^n (x_i-\hat\mu_0)^T(x_i-\hat\mu_0)$$$
+
+ou 
+
+$$Tr(\hat \Sigma_0)= \frac1n \displaystyle\sum_{k=1}^K n_k (\hat\mu_k-\hat\mu_0)^T (\hat\mu_k-\hat\mu_0)+ \frac1n \displaystyle\sum_{k=1}^K \displaystyle\sum_{i\in P_k} (x_i-\hat\mu_k)^T(x_i-\hat\mu_k) = B+W$$
 
 où $B$ est la vatiation inter-classes (Between), et W la variation intra classe (Within).
 
