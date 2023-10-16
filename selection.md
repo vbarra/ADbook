@@ -192,8 +192,7 @@ print("Taille des données avant sélection",X.shape)
 knn = KNeighborsClassifier(n_neighbors=3)
 sfs = SequentialFeatureSelector(knn, n_features_to_select=3)
 sfs.fit(X, y)
-print("Desctipteurs sélectionnés")
-sfs.get_support()
+print("Descripteurs sélectionnés",sfs.get_support())
 print("Taille des données après sélection",sfs.transform(X).shape)
 
 ```

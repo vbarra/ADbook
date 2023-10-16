@@ -79,7 +79,7 @@ de l'ensemble de données. La génération stochastique génère aléatoirement 
 
 #### Filtres
 Le critère d'évaluation utilisé évalue la pertinence d'une caractéristique selon des mesures
-qui reposent sur les propriétés des données d'apprentissage.
+qui reposent sur les propriétés de données d'apprentissage.
 
 Pour $n$ exemples  $\mathbf x_i,1\leq i\leq n$ , on note $\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d$  une donnée d'apprentissage (la $j^e$ caractéristique $f_j$ ayant donc pour valeur $x_{ij}$) , d'étiquette $y_i$ (en classification ou régression). Les méthodes de type filtres calculent un score pour évaluer le degré de pertinence de chacune des caractéristiques $f_i$ , parmi lesquelles on peut citer
 
@@ -100,9 +100,29 @@ $$I(i) = \displaystyle\sum_{\mathbf x_i} \displaystyle\sum_{y}P(X=\mathbf x_i,Y=
 
 qui mesure la dépendance entre les distributions de deux populations. Ici $X$ et $Y$ sont deux variables aléatoires dont les réalisations sont les valeurs de $f_i$ et des étiquettes de classes. Les probabilités sont estimées de manière fréquentiste.
 
+Dans l'exemple suivant, on choisit de garder $|\hat{F|}=2$ descripteurs, en contrôlant la pertinence par l'information mutuelle en classification. 
+
+```{code-cell} ipython3
+from sklearn.datasets import load_iris
+from sklearn.feature_selection import SelectKBest
+from sklearn.feature_selection import mutual_info_classif
+X, y = load_iris(return_X_y=True)
+print("Taille des données avant : ",X.shape)
+X2 = SelectKBest(mutual_info_classif,k=2).fit_transform(X, y)
+print("Taille des données après : ",X2.shape)
+```
+
+
+
 #### Méthodes enveloppantes
 Le principal inconvénient des approches précédentes est le fait qu'elles ignorent l'influence des caractéristiques sélectionnées sur la performance de l'algorithme à utiliser par la suite. Les méthodes de type enveloppantes (wrappers)  évaluent un sous-ensemble de caractéristiques par sa performance
 de classification en utilisant un algorithme d'apprentissage.  Les sous-ensembles de caractéristiques sélectionnés par cette méthode sont bien adaptés à l'algorithme de classification utilisé, mais ils ne sont pas nécessairement pour un autre. De plus, la complexité de l'algorithme d'apprentissage rend ces méthodes coûteuses.
+
+```{prf:remark}
+:class: dropdown
+Les wrappers sélectionnent les caractéristiques en se fondant sur une estimation du risque réel.
+```
+
 
 #### Méthodes intégrées
 Les méthodes intégrées incluent la sélection de variables lors du processus d'apprentissage. Un tel mécanisme intégré pour la sélection des caractéristiques peut être trouvé, par
@@ -111,8 +131,32 @@ arbres de décision.
 
 ## Quelques méthodes de sélection
 
+### Suppression des descripteurs à variance faible
+Une première idée simple consiste ) supprimer les descripteurs ayant une faible variance, ces derniers n'étant pas discriminants dans la définition des individus.
+
+
+
+```{code-cell} ipython3
+from sklearn.feature_selection import VarianceThreshold
+from sklearn import datasets
+
+iris = datasets.load_iris()
+X = iris.data
+y = iris.target
+
+X2 = VarianceThreshold(threshold=.5).fit_transform(X)
+print(X2[0:7])
+
+print("Avant sélection, ",X.shape)
+print("Après sélection, ",X2.shape)
+
+
+```
+
+
 ### Algorithmes de sélection séquentielle
 Les algorithmes SFS (Sequential Forward Selection, {prf:ref}`SFS`) et SBS (Sequential Backward Selection, {prf:ref}`SFS`-rouge) ont été les premiers à être proposés. Ils utilisent des approches heuristiques de recherche en partant, pour la première, d'un ensemble de caractéristiques vide et pour la seconde de  $F$ tout entier. 
+
 
 ```{prf:algorithm} Algorithmes SFS et SBS
 :label: SFS
@@ -129,15 +173,33 @@ Les algorithmes SFS (Sequential Forward Selection, {prf:ref}`SFS`) et SBS (Seque
 
 ```
 
+L'étape d'évaluation utilise des données d'apprentissage : une heuristique évalue, sur un critère de performance, l'intérêt d'ajouter (ou de supprimer) le descripteur $f_i$.
+
 Des variantes autour de ces algorithmes simples ont été proposées depuis et par exemple : 
 
 - il est possible à chaque itération d'inclure (ou d'exclure) un sous-ensemble de caractéristiques, plutôt qu'une seule (méthodes GSFS et GSBS)
--on peut appliquer $p$ fois SFS puis $q$ fois SBS, de manière itérative, avec $p,q$ des paramètres qui peuvent évoluer au cours des itérations (algorithme SFFS et SFBS)
+- on peut appliquer $p$ fois SFS puis $q$ fois SBS, de manière itérative, avec $p,q$ des paramètres qui peuvent évoluer au cours des itérations (algorithme SFFS et SFBS)
 
 
+Dans l'exemple suivant, l'heuristique choisie est l'algorithme des 3 plus proches voisins et la mesure de performance sous-jacente est la mesure de validation croisée.
+
+```{code-cell} ipython3
+from sklearn.feature_selection import SequentialFeatureSelector
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.datasets import load_iris
+X, y = load_iris(return_X_y=True)
+print("Taille des données avant sélection",X.shape)
+knn = KNeighborsClassifier(n_neighbors=3)
+sfs = SequentialFeatureSelector(knn, n_features_to_select=3)
+sfs.fit(X, y)
+print("Desctipteurs sélectionnés")
+sfs.get_support()
+print("Taille des données après sélection",sfs.transform(X).shape)
+
+```
 
 ### Algorithme Focus
-L'algorithme de filtrage Focus (algorithme {prf:FOCUS}) repose sur une recherche exhaustive sur $F$ pour trouver le sous-ensemble le plus performant de taille optimale. 
+L'algorithme de filtrage Focus (algorithme {prf:ref}`FOCUS`}) repose sur une recherche exhaustive sur $F$ pour trouver le sous-ensemble le plus performant de taille optimale. 
 
 
 ```{prf:algorithm} Algorithme FOCUS
@@ -156,7 +218,7 @@ L'algorithme de filtrage Focus (algorithme {prf:FOCUS}) repose sur une recherche
 
 
 ### Algorithme relief
-La méthode relief en classification binaire (algorithme {prf:relief}), propose de calculer une mesure globale de la pertinence des caractéristiques en accumulant la différence des distances entre des exemples d'apprentissage choisis aléatoirement et leurs plus proches voisins de la même classe et de l'autre classe.
+La méthode relief en classification binaire (algorithme {prf:ref}`relief`), propose de calculer une mesure globale de la pertinence des caractéristiques en accumulant la différence des distances entre des exemples d'apprentissage choisis aléatoirement et leurs plus proches voisins de la même classe et de l'autre classe.
 
 
 ```{prf:algorithm} Algorithme FOCUS
@@ -169,7 +231,7 @@ La méthode relief en classification binaire (algorithme {prf:relief}), propose 
     1. $w_i\leftarrow 0$
 2. Pour $i=1$ à $ T$
     1. Choisir aléatoirement un exemple $\mathbf x_k$
-    2. Chercher deux plus proches voisins de $x_k$, l'un ($\mathbf x_p$) dans sa  classe, l'autre ($\mathbf x_q$) dans l'autre classe
+    2. Chercher deux plus proches voisins de $\mathbf x_k$, l'un ($\mathbf x_p$) dans sa  classe, l'autre ($\mathbf x_q$) dans l'autre classe
     3. Pour $j=1$ à $d$
         1. $w_j\leftarrow w_j+\frac{1}{nT}\left (|x_{kj} -x_{qj}|-|x_{kj} -x_{pj}| \right )$
 ```
@@ -182,6 +244,12 @@ $$m_1(i) = \frac{1}{i}\displaystyle\sum_{j=1}^i Perf (M_j)\textrm{ et } m_2(i) =
 Deux variances des performances  $v_1^2(i)$ et $ v_2^2(i)$ sont alors calculées à partir de ces moyennes, et le sous-ensemble de caractéristiques sélectionné est celui qui maximise le discriminant de Fisher
 
 $$\frac{|m_1(i)-m_2(i)|}{v_1^2(i)+v_2^2(i)}$$
+
+
+### Algorithme RFE
+L'algorithme RLE (Recusrive Feature Elimination) trie les descripteurs en analysant, localement, la sensibilité de la performance. 
+Étant donné un prédicteur $f$ qui attribue des poids aux caractéristiques (par exemple, les coefficients d'un modèle linéaire), l'objectif de l'algorithme est de sélectionner les caractéristiques en considérant de manière récursive des ensembles de caractéristiques de plus en plus petits. Tout d'abord, le prédicteur $f$ est entraîné sur l'ensemble initial de caractéristiques et l'importance de chaque caractéristique est calculée par un algorithme dédié (critère de Gini, entropie...). Les caractéristiques les moins importantes sont éliminées de l'ensemble actuel de caractéristiques. Cette procédure est répétée de manière récursive sur l'ensemble élagué jusqu'à ce que le nombre souhaité de caractéristiques à sélectionner soit finalement atteint.
+
 
 ### Algorithmes génétiques
 Les algorithmes génétiques ont été utilisés dans le domaine de la sélection de caractéristiques
