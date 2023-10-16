@@ -10,6 +10,7 @@ parts:
     - file: elemstats
 #    - file: exoprobas
     - file: statsdescriptives
+    - file: selection
     - file: acp
     - file: regression
     - file: clustering
