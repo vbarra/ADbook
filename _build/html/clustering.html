@@ -1001,16 +1001,38 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </div>
 <div class="section" id="algorithme-em">
 <h3>Algorithme EM<a class="headerlink" href="#algorithme-em" title="Permalink to this heading">#</a></h3>
-<p>Plutôt que d’optimiser <span class="math notranslate nohighlight">\(\ell\)</span> directement depuis les données <span class="math notranslate nohighlight">\(s\)</span>, l’algorithme EM augmente d’abord les données des variables latentes (les étiquettes <span class="math notranslate nohighlight">\(\mathbf z=(z_1\cdots z_n)\)</span> des classes). L’idée est que <span class="math notranslate nohighlight">\(s\)</span> est uniquement la partie observée des données aléatoires <span class="math notranslate nohighlight">\((\mathcal S,\mathbf Z)\)</span> générées d’abord en tirant <span class="math notranslate nohighlight">\(Z\)</span> suivant <span class="math notranslate nohighlight">\(P(Z=z)\)</span>, puis en tirant <span class="math notranslate nohighlight">\(\mathbf X\)</span> suivant <span class="math notranslate nohighlight">\(\Phi_z\)</span>, de sorte à avoir</p>
+<p>Plutôt que d’optimiser <span class="math notranslate nohighlight">\(\ell\)</span> directement depuis les données <span class="math notranslate nohighlight">\(s\)</span>, l’algorithme EM (<a class="reference internal" href="#EM">Algorithm 6</a>) augmente d’abord les données des variables latentes (les étiquettes <span class="math notranslate nohighlight">\(\mathbf z=(z_1\cdots z_n)\)</span> des classes). L’idée est que <span class="math notranslate nohighlight">\(s\)</span> est uniquement la partie observée des données aléatoires <span class="math notranslate nohighlight">\((\mathcal S,\mathbf Z)\)</span> générées d’abord en tirant <span class="math notranslate nohighlight">\(Z\)</span> suivant <span class="math notranslate nohighlight">\(P(Z=z)\)</span>, puis en tirant <span class="math notranslate nohighlight">\(\mathbf X\)</span> suivant <span class="math notranslate nohighlight">\(\Phi_z\)</span>, de sorte à avoir</p>
 <div class="math notranslate nohighlight">
 \[g(s,z|\boldsymbol \theta) = \displaystyle\prod_{i=1}^n w_{z_i} \Phi_{z_i}(\mathbf x_i)\]</div>
-<p>Ainsi, la log vraisemblance des données complètes, en généralt plus facile à optimiser, est</p>
+<p>Ainsi, la log vraisemblance des données complètes, en général plus facile à optimiser, est</p>
 <div class="math notranslate nohighlight">
 \[\bar\ell(\boldsymbol\theta|s,z) =\displaystyle\sum{i=1}^n ln(w_{z_i} \Phi_{z_i}(\mathbf x_i))\]</div>
-<p>Cependant, les <span class="math notranslate nohighlight">\(z\)</span> ne sont pas observées et <span class="math notranslate nohighlight">\(\bar\ell\)</span> ne peut être évaluée. Dans l’étape E de l’algorithme EM, <span class="math notranslate nohighlight">\(\bar\ell\)</span> est remplacée par <span class="math notranslate nohighlight">\(\mathbb{E}_p \bar\ell(\boldsymbol \theta \s,\mathbf Z)\)</span>, où l’indice <span class="math notranslate nohighlight">\(p\)</span> indique que <span class="math notranslate nohighlight">\(\mathbf Z\)</span> est distribuée selon la distribution conditionnelle de <span class="math notranslate nohighlight">\(\mathbf Z\)</span> étant donnée <span class="math notranslate nohighlight">\(\mathcal S=s\)</span>, soit</p>
+<p>Cependant, les <span class="math notranslate nohighlight">\(z\)</span> ne sont pas observées et <span class="math notranslate nohighlight">\(\bar\ell\)</span> ne peut être évaluée. Dans l’étape E de l’algorithme EM, <span class="math notranslate nohighlight">\(\bar\ell\)</span> est remplacée par <span class="math notranslate nohighlight">\(\mathbb{E}_p \bar\ell(\boldsymbol \theta |s,\mathbf Z)\)</span>, où l’indice <span class="math notranslate nohighlight">\(p\)</span> indique que <span class="math notranslate nohighlight">\(\mathbf Z\)</span> est distribuée selon la distribution conditionnelle de <span class="math notranslate nohighlight">\(\mathbf Z\)</span> étant donnée <span class="math notranslate nohighlight">\(\mathcal S=s\)</span>, soit</p>
 <div class="math notranslate nohighlight">
 \[p(z)=g(z|s,\boldsymbol \theta) \propto g(s,z|\boldsymbol \theta)\]</div>
+<div class="proof remark dropdown admonition" id="remark-5">
+<p class="admonition-title"><span class="caption-number">Remark 22 </span></p>
+<div class="remark-content section" id="proof-content">
+<p><span class="math notranslate nohighlight">\(p(z)\)</span> est de la forme <span class="math notranslate nohighlight">\(p_1(z_1)\cdots p_n(z_n)\)</span> de telle sorte que, étant donné <span class="math notranslate nohighlight">\(\mathcal S=s\)</span>, les composantes de <span class="math notranslate nohighlight">\(\mathbf Z\)</span> sont deux à deux indépendantes.</p>
 </div>
+</div><div class="proof algorithm admonition" id="EM">
+<p class="admonition-title"><span class="caption-number">Algorithm 6 </span> (Algorithmes EM)</p>
+<div class="algorithm-content section" id="proof-content">
+<p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(s,\boldsymbol\theta^{(0)}\)</span></p>
+<p><strong>Sortie :</strong> Approximation de la log vraisemblance maximale</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(i=1\)</span></p></li>
+<li><p>Tant que (not stop)</p>
+<ol class="arabic simple">
+<li><p>Etape E : Trouver <span class="math notranslate nohighlight">\(p^{(i)}(z) = g(s|s,\boldsymbol\theta^{(i-1)}) et \)</span>Q^{(i)}(\boldsymbol\theta)=\mathbb{E}_p \bar\ell(\boldsymbol \theta |s,\mathbf Z)$</p></li>
+<li><p>Etape M : <span class="math notranslate nohighlight">\(\boldsymbol\theta^{(i)} = Arg \displaystyle\max_{\boldsymbol\theta} Q^{(i)}(\boldsymbol\theta)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(i = i+1\)</span></p></li>
+</ol>
+</li>
+<li><p>Retourner <span class="math notranslate nohighlight">\(\boldsymbol\theta{(i)}\)</span></p></li>
+</ol>
+</div>
+</div></div>
 </div>
 </div>
 

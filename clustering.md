@@ -438,7 +438,7 @@ $$\Phi_{Z,\mathbf X}(z,\mathbf x) = \Phi_Z(z)\Phi_{\mathbf X|Z}(\mathbf x,z) = w
 
 et la distribution marginale de $\mathbf X$ est calculée en sommant sur $z$ les probabilités jointes.
 
-Un vecteur aléatoire $\mathbf X$ suivant $g$ peut donc être simulé d'abord en tirant $Z$ suivant $P(Z=z)=w_z,z\\in[\![1,K]\!]$, puis en tirant $\mathbf X$ suivant $\Phi_Z$. La famille $\mathcal S$ ne contenant que les $\mathbf X_i$, les $Z_i$ sont des variables latentes, interprétées comme les étiquettes cachées des classes auxquelles les $\mathbf X_i$ appartiennent.
+Un vecteur aléatoire $\mathbf X$ suivant $g$ peut donc être simulé d'abord en tirant $Z$ suivant $P(Z=z)=w_z,z\in[\![1,K]\!]$, puis en tirant $\mathbf X$ suivant $\Phi_Z$. La famille $\mathcal S$ ne contenant que les $\mathbf X_i$, les $Z_i$ sont des variables latentes, interprétées comme les étiquettes cachées des classes auxquelles les $\mathbf X_i$ appartiennent.
 
 Typiquement, les $\Phi_k$ sont des lois paramétriques. Classiquement ce sont des lois gaussiennes $\mathcal N(\boldsymbol \mu_k,\boldsymbol \Sigma_k)$ et donc en rassemblant tous les paramètres des lois, incluant les $w_k$, dans un vecteur de paramètre $\boldsymbol \theta = (\mu_k,\boldsymbol \Sigma_k,w_k,k\in[\!1,K]\!])$, on peut écrire
 
@@ -481,12 +481,39 @@ $p(z)$ est de la forme $p_1(z_1)\cdots p_n(z_n)$ de telle sorte que, étant donn
 
 1. $i=1$
 2.  Tant que (not stop)
-    1. Etape E : Trouver $p^{(i)}(z) = g(s|s,\boldsymbol\theta^{(i-1)}) et $Q^{(i)}(\boldsymbol\theta)=\mathbb{E}_p \bar\ell(\boldsymbol \theta |s,\mathbf Z)$
+    1. Etape E : Trouver $p^{(i)}(z) = g(s|s,\boldsymbol\theta^{(i-1)})$ et $Q^{(i)}(\boldsymbol\theta)=\mathbb{E}_p \bar\ell(\boldsymbol \theta |s,\mathbf Z)$
     2. Etape M : $\boldsymbol\theta^{(i)} = Arg \displaystyle\max_{\boldsymbol\theta} Q^{(i)}(\boldsymbol\theta)$
     3. $i = i+1$
 3. Retourner $\boldsymbol\theta{(i)}$
 ```
 
+Dans l'{prf:ref}`EM`, un critère d'arrêt est par exemple
+
+$$\frac{\ell(\boldsymbol\theta{(i)}|s)-\ell(\boldsymbol\theta^{(i-1)}|s)}{\ell(\boldsymbol\theta{(i)}|s)}<\epsilon$$
+
+Sous certaines conditions, la suite des $\ell(\boldsymbol\theta{(i)}|s)$ converge vers un maximum local de la log vraisemblance $\ell$. La convergence vers le maximum global dépend bien sûr du choix de $\boldsymbol\theta^{(0)}$, de sorte qu'une stratégie possible est d'exécuter plusieurs fois l'algorithme avec des initialisations différentes.
+
+Dans le cas d'un mélange gaussien, $\Phi_k=\mathcal N(\boldsymbol\mu_k,\boldsymbol\Sigma_k),k\in[\![1,K]\!]$. Si $\boldsymbol\theta^{(i-1)}$ est le vecteur optimal à l'itération courante, constitué des poids $w_k^{(i-1)}$, des vecteurs moyenne $(\boldsymbol\mu_k)^{(i-1)}$ et des matrices de covariances $(\boldsymbol\Sigma_k)^{(i-1)}$, alors on détermine $p^{(i)}$, la distribution de $\mathbf Z$ conditionnelement à $\mathcal S=s$, pour le paramètre $\boldsymbol\theta^{(i-1)}$. Puisque les composantes de $\mathbf Z$ étant donné $\mathcal S=s$ sont indépendantes, il suffit de spécifier la distribution discrète $p_j^{(i)}$ de chaque $Z_j$, étant données l'observation $\mathbf X_j=\mathbf x_j$, calculée à l'aide de la forule de Bayes
+
+$$p_j^{(i)}(k)\propto w_k^{(i-1)}\Phi_k(\mathbf x_j|\boldsymbol\mu_k^{(i-1)},\boldsymbol\Sigma_k^{(i-1)}),k\in[\![1,K]\!]$$
+
+Alors
+1. Pour l'étape E
+
+$$Q^{(i)}(\boldsymbol\theta) = \mathbb{E}_p \displaystyle\sum_{j=1}^n \left (ln w_{z_j} + ln \Phi_{z_j}(\mathbf x_j|\boldsymbol\mu_{Z_j}},\boldsymbol\Sigma_{Z_j}}) \right )$$
+
+où les $Z_j$ sont indépendants et distribués selon $p_j^{(i)}$. 
+2. Pour l'étape M, on maximise 
+
+$$ \displaystyle\sum_{j=1}^n\displaystyle\sum_{k=1}^K p_j^{(i)}(k)\left (ln w_k + ln \Phi_k(\mathbf x_j|\boldsymbol\mu_{k}},\boldsymbol\Sigma_{k}})\right )$$
+
+sous la contrainte $\displaystyle\sum_{k=1}^K w_k=1$. En utilisant une relxation lagrangienne, et le fait que $\displaystyle\sum_{k=1}^K p_j^{(i)}(k)=1$ on trouve pour tout $k\in[\![1,K]\!]$
+
+$$w_k = \frac1n\displaystyle\sum_{j=1}^n p_j^{(i)}(k)$$
+
+$$\boldsymbol\mu_k = \frac{\displaystyle\sum_{j=1}^n p_j^{(i)}(k) \mathbf x_j}{\displaystyle\sum_{j=1}^n p_j^{(i)}(k)}$$
+
+$$\boldsymbol\Sigma_{k} = \frac{\displaystyle\sum_{j=1}^n p_j^{(i)}(k) (\mathbf x_j-\boldsymbol\mu_k)(\mathbf x_j-\boldsymbol\mu_k)^T}{\displaystyle\sum_{j=1}^n p_j^{(i)}(k)}$$
 
 
 

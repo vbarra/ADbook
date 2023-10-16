@@ -454,19 +454,38 @@ $$\ell(\boldsymbol\theta|s) = \displaystyle\sum_{i=1}^n ln(g(\mathbf x_i|\boldsy
 ce qui est en général complexe, la fonction $\ell$ admettant de nombreux extrema locaux.
 
 ### Algorithme EM
- Plutôt que d'optimiser $\ell$ directement depuis les données $s$, l'algorithme EM augmente d'abord les données des variables latentes (les étiquettes $\mathbf z=(z_1\cdots z_n)$ des classes). L'idée est que $s$ est uniquement la partie observée des données aléatoires $(\mathcal S,\mathbf Z)$ générées d'abord en tirant $Z$ suivant $P(Z=z)$, puis en tirant $\mathbf X$ suivant $\Phi_z$, de sorte à avoir 
+ Plutôt que d'optimiser $\ell$ directement depuis les données $s$, l'algorithme EM ({prf:ref}`EM`) augmente d'abord les données des variables latentes (les étiquettes $\mathbf z=(z_1\cdots z_n)$ des classes). L'idée est que $s$ est uniquement la partie observée des données aléatoires $(\mathcal S,\mathbf Z)$ générées d'abord en tirant $Z$ suivant $P(Z=z)$, puis en tirant $\mathbf X$ suivant $\Phi_z$, de sorte à avoir 
 
  $$g(s,z|\boldsymbol \theta) = \displaystyle\prod_{i=1}^n w_{z_i} \Phi_{z_i}(\mathbf x_i)$$
 
- Ainsi, la log vraisemblance des données complètes, en généralt plus facile à optimiser, est 
+ Ainsi, la log vraisemblance des données complètes, en général plus facile à optimiser, est 
 
  $$\bar\ell(\boldsymbol\theta|s,z) =\displaystyle\sum{i=1}^n ln(w_{z_i} \Phi_{z_i}(\mathbf x_i))$$
 
-Cependant, les $z$ ne sont pas observées et $\bar\ell$ ne peut être évaluée. Dans l'étape E de l'algorithme EM, $\bar\ell$ est remplacée par $\mathbb{E}_p \bar\ell(\boldsymbol \theta \s,\mathbf Z)$, où l'indice $p$ indique que $\mathbf Z$ est distribuée selon la distribution conditionnelle de $\mathbf Z$ étant donnée $\mathcal S=s$, soit 
+Cependant, les $z$ ne sont pas observées et $\bar\ell$ ne peut être évaluée. Dans l'étape E de l'algorithme EM, $\bar\ell$ est remplacée par $\mathbb{E}_p \bar\ell(\boldsymbol \theta |s,\mathbf Z)$, où l'indice $p$ indique que $\mathbf Z$ est distribuée selon la distribution conditionnelle de $\mathbf Z$ étant donnée $\mathcal S=s$, soit 
 
 $$p(z)=g(z|s,\boldsymbol \theta) \propto g(s,z|\boldsymbol \theta)$$
 
 
+```{prf:remark}
+:class: dropdown
+$p(z)$ est de la forme $p_1(z_1)\cdots p_n(z_n)$ de telle sorte que, étant donné $\mathcal S=s$, les composantes de $\mathbf Z$ sont deux à deux indépendantes.
+
+```
+
+```{prf:algorithm} Algorithmes EM
+:label: EM
+**Entrée :** $s,\boldsymbol\theta^{(0)}$
+
+**Sortie :** Approximation de la log vraisemblance maximale
+
+1. $i=1$
+2.  Tant que (not stop)
+    1. Etape E : Trouver $p^{(i)}(z) = g(s|s,\boldsymbol\theta^{(i-1)}) et $Q^{(i)}(\boldsymbol\theta)=\mathbb{E}_p \bar\ell(\boldsymbol \theta |s,\mathbf Z)$
+    2. Etape M : $\boldsymbol\theta^{(i)} = Arg \displaystyle\max_{\boldsymbol\theta} Q^{(i)}(\boldsymbol\theta)$
+    3. $i = i+1$
+3. Retourner $\boldsymbol\theta{(i)}$
+```
 
 
 
