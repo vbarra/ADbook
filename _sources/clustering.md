@@ -440,13 +440,31 @@ et la distribution marginale de $\mathbf X$ est calculée en sommant sur $z$ les
 
 Un vecteur aléatoire $\mathbf X$ suivant $g$ peut donc être simulé d'abord en tirant $Z$ suivant $P(Z=z)=w_z,z\\in[\![1,K]\!]$, puis en tirant $\mathbf X$ suivant $\Phi_Z$. La famille $\mathcal S$ ne contenant que les $\mathbf X_i$, les $Z_i$ sont des variables latentes, interprétées comme les étiquettes cachées des classes auxquelles les $\mathbf X_i$ appartiennent.
 
-Typiquement, les $\Phi_k$ sont des lois paramétriques. Classiquement ce sont des lois gaussiennes $\mathcal N(\boldsymbol \mu_k,\boldsymbol \Sigma_k)$ et donc en rassemblant tous les paramètres des lois, incluant les $w_k$, dans un vecteur de paramètre $\boldsymbol \theta = (\mu_k,\boldsymbol \Sigma_k,w_k,k\in[\!1,K]\!]$, on peut écrire
+Typiquement, les $\Phi_k$ sont des lois paramétriques. Classiquement ce sont des lois gaussiennes $\mathcal N(\boldsymbol \mu_k,\boldsymbol \Sigma_k)$ et donc en rassemblant tous les paramètres des lois, incluant les $w_k$, dans un vecteur de paramètre $\boldsymbol \theta = (\mu_k,\boldsymbol \Sigma_k,w_k,k\in[\!1,K]\!])$, on peut écrire
 
-$$g(s|\boldsymbol \theta) = \prod_{i=1}^n g(x_i|\boldsymbol \theta) = \prod_{i=1}^n \displaystyle\sum_{k=1}^K w_k \Phi_k(x_i|\boldsymbol\mu_k \boldsymbol\Sigma_k)$$
+$$g(s|\boldsymbol \theta) = \prod_{i=1}^n g(\mathbf x_i|\boldsymbol \theta) = \prod_{i=1}^n \displaystyle\sum_{k=1}^K w_k \Phi_k(\mathbf x_i|\boldsymbol\mu_k \boldsymbol\Sigma_k)$$
 
 où $s=(\mathbf x_1\cdots \mathbf x_n)$ dénote une réalisation de $\mathcal S$.
 
 
+On estime alors $\boldsymbol\theta$ en maximisant la log vraisemblance
+
+$$\ell(\boldsymbol\theta|s) = \displaystyle\sum_{i=1}^n ln(g(\mathbf x_i|\boldsymbol \theta)) = \displaystyle\sum_{i=1}^n ln \left ( \displaystyle\sum_{k=1}^K w_k \Phi_k(\mathbf x_i|\boldsymbol\mu_k \boldsymbol\Sigma_k) \right )$$
+
+ce qui est en général complexe, la fonction $\ell$ admettant de nombreux extrema locaux.
+
+### Algorithme EM
+ Plutôt que d'optimiser $\ell$ directement depuis les données $s$, l'algorithme EM augmente d'abord les données des variables latentes (les étiquettes $\mathbf z=(z_1\cdots z_n)$ des classes). L'idée est que $s$ est uniquement la partie observée des données aléatoires $(\mathcal S,\mathbf Z)$ générées d'abord en tirant $Z$ suivant $P(Z=z)$, puis en tirant $\mathbf X$ suivant $\Phi_z$, de sorte à avoir 
+
+ $$g(s,z|\boldsymbol \theta) = \displaystyle\prod_{i=1}^n w_{z_i} \Phi_{z_i}(\mathbf x_i)$$
+
+ Ainsi, la log vraisemblance des données complètes, en généralt plus facile à optimiser, est 
+
+ $$\bar\ell(\boldsymbol\theta|s,z) =\displaystyle\sum{i=1}^n ln(w_{z_i} \Phi_{z_i}(\mathbf x_i))$$
+
+Cependant, les $z$ ne sont pas observées et $\bar\ell$ ne peut être évaluée. Dans l'étape E de l'algorithme EM, $\bar\ell$ est remplacée par $\mathbb{E}_p \bar\ell(\boldsymbol \theta \s,\mathbf Z)$, où l'indice $p$ indique que $\mathbf Z$ est distribuée selon la distribution conditionnelle de $\mathbf Z$ étant donnée $\mathcal S=s$, soit 
+
+$$p(z)=g(z|s,\boldsymbol \theta) \propto g(s,z|\boldsymbol \theta)$$
 
 
 
