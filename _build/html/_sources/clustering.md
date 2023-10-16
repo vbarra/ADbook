@@ -428,9 +428,9 @@ L'optimisation directe de la fonction de vraisemblance dans ce cas n'est pas une
 ### Définition
 
 
-Soient $\mathcal S = \{\mathbf X_1\cdots X_m\}$ $m$ vecteurs aléatoires i.i.d. à valeur dans $\mathcal X\subset \mathbb{R}^d$ , chaque $\mathbf X_i$ étant distribué selon 
+Soient $\mathcal S = \{\mathbf X_1\cdots X_n\}$ $n$ vecteurs aléatoires i.i.d. à valeur dans $\mathcal X\subset \mathbb{R}^d$ , chaque $\mathbf X_i$ étant distribué selon 
 
-$g(\mathbf x|\boldsymbol \theta) = \displaystyle\sum_{i=1}^K w_i\Phi_i(\mathbf x)$$
+$$g(\mathbf x|\boldsymbol \theta) = \displaystyle\sum_{i=1}^K w_i\Phi_i(\mathbf x)$$
 
 où $\Phi_i,i\in[\![1,K]\!]$ sont des densités de probabilité sur $\mathcal X$ et les $w_i$ sont des poids positifs, sommant à 1. $g$ peut être interprétée comme suit : soit $Z$ une variable aléatoire discrète prenant les valeurs $i\in[\![1,K]\!]$ avec probabilité $w_i$, et soit $\mathbf X$ un vecteur aléatoire dont la distribution conditionnelle, étant donnée $Z=z$ est $\Phi_z$. Alors 
 
@@ -440,7 +440,12 @@ et la distribution marginale de $\mathbf X$ est calculée en sommant sur $z$ les
 
 Un vecteur aléatoire $\mathbf X$ suivant $g$ peut donc être simulé d'abord en tirant $Z$ suivant $P(Z=z)=w_z,z\\in[\![1,K]\!]$, puis en tirant $\mathbf X$ suivant $\Phi_Z$. La famille $\mathcal S$ ne contenant que les $\mathbf X_i$, les $Z_i$ sont des variables latentes, interprétées comme les étiquettes cachées des classes auxquelles les $\mathbf X_i$ appartiennent.
 
-Typiquement, les $\Phi_k$ sont connues à un paramètre vectoriel $\boldsymbol \eta_k$ près. Classiquement ce sont des lois gaussiennes $\mathcal N(\boldsymbol \mu_k,\boldsymbol \Sigma_k)$ et donc $\boldsymbol \eta_k = (\mu_k,\boldsymbol \Sigma_k)$.
+Typiquement, les $\Phi_k$ sont des lois paramétriques. Classiquement ce sont des lois gaussiennes $\mathcal N(\boldsymbol \mu_k,\boldsymbol \Sigma_k)$ et donc en rassemblant tous les paramètres des lois, incluant les $w_k$, dans un vecteur de paramètre $\boldsymbol \theta = (\mu_k,\boldsymbol \Sigma_k,w_k,k\in[\!1,K]\!]$, on peut écrire
+
+$$g(s|\boldsymbol \theta) = \prod_{i=1}^n g(x_i|\boldsymbol \theta) = \prod_{i=1}^n \displaystyle\sum_{k=1}^K w_k \Phi_k(x_i|\boldsymbol\mu_k \boldsymbol\Sigma_k)$$
+
+où $s=(\mathbf x_1\cdots \mathbf x_n)$ dénote une réalisation de $\mathcal S$.
+
 
 
 
