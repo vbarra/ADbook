@@ -1044,11 +1044,13 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 <li><p>Pour l’étape E</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[Q^{(i)}(\boldsymbol\theta) = \mathbb{E}_p \displaystyle\sum_{j=1}^n \left (ln w_{z_j} + ln \Phi_{z_j}(\mathbf x_j|\boldsymbol\mu_{Z_j}},\boldsymbol\Sigma_{Z_j}}) \right )\]</div>
-<p>où les <span class="math notranslate nohighlight">\(Z_j\)</span> sont indépendants et distribués selon <span class="math notranslate nohighlight">\(p_j^{(i)}\)</span>.
-2. Pour l’étape M, on maximise</p>
+\[Q^{(i)}(\boldsymbol\theta) = \mathbb{E}_p \displaystyle\sum_{j=1}^n \left (ln w_{z_j} + ln \Phi_{z_j}(\mathbf x_j|\boldsymbol\mu_{Z_j},\boldsymbol\Sigma_{Z_j}}) \right )\]</div>
+<p>où les <span class="math notranslate nohighlight">\(Z_j\)</span> sont indépendants et distribués selon <span class="math notranslate nohighlight">\(p_j^{(i)}\)</span>.</p>
+<ol class="arabic simple" start="2">
+<li><p>Pour l’étape M, on maximise</p></li>
+</ol>
 <div class="math notranslate nohighlight">
-\[ \displaystyle\sum_{j=1}^n\displaystyle\sum_{k=1}^K p_j^{(i)}(k)\left (ln w_k + ln \Phi_k(\mathbf x_j|\boldsymbol\mu_{k}},\boldsymbol\Sigma_{k}})\right )\]</div>
+\[ \displaystyle\sum_{j=1}^n\displaystyle\sum_{k=1}^K p_j^{(i)}(k)\left (ln w_k + ln \Phi_k(\mathbf x_j|\boldsymbol\mu_{k},\boldsymbol\Sigma_{k})\right )\]</div>
 <p>sous la contrainte <span class="math notranslate nohighlight">\(\displaystyle\sum_{k=1}^K w_k=1\)</span>. En utilisant une relxation lagrangienne, et le fait que <span class="math notranslate nohighlight">\(\displaystyle\sum_{k=1}^K p_j^{(i)}(k)=1\)</span> on trouve pour tout <span class="math notranslate nohighlight">\(k\in[\![1,K]\!]\)</span></p>
 <div class="math notranslate nohighlight">
 \[w_k = \frac1n\displaystyle\sum_{j=1}^n p_j^{(i)}(k)\]</div>

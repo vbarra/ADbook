@@ -500,7 +500,7 @@ $$p_j^{(i)}(k)\propto w_k^{(i-1)}\Phi_k(\mathbf x_j|\boldsymbol\mu_k^{(i-1)},\bo
 Alors
 1. Pour l'étape E
 
-$$Q^{(i)}(\boldsymbol\theta) = \mathbb{E}_p \displaystyle\sum_{j=1}^n \left (ln w_{z_j} + ln \Phi_{z_j}(\mathbf x_j|\boldsymbol\mu_{Z_j},\boldsymbol\Sigma_{Z_j}}) \right )$$
+$$Q^{(i)}(\boldsymbol\theta) = \mathbb{E}_p \displaystyle\sum_{j=1}^n \left (ln w_{z_j} + ln \Phi_{z_j}(\mathbf x_j|\boldsymbol\mu_{Z_j},\boldsymbol\Sigma_{Z_j}) \right )$$
 
 où les $Z_j$ sont indépendants et distribués selon $p_j^{(i)}$. 
 
