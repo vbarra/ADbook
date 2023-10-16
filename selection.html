@@ -405,7 +405,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-relief">Algorithme relief</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-sac">Méthode SAC</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-rfe">Algorithme RFE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmes-genetiques">Algorithmes génétiques</a></li>
 </ul>
 </li>
 </ul>
@@ -637,7 +636,7 @@ Taille des données après sélection (150, 3)
 </div>
 <div class="section" id="algorithme-focus">
 <h3>Algorithme Focus<a class="headerlink" href="#algorithme-focus" title="Permalink to this heading">#</a></h3>
-<p>L’algorithme de filtrage Focus (algorithme <a class="reference internal" href="#FOCUS">Algorithm 2</a>}) repose sur une recherche exhaustive sur <span class="math notranslate nohighlight">\(F\)</span> pour trouver le sous-ensemble le plus performant de taille optimale.</p>
+<p>L’algorithme de filtrage Focus (<a class="reference internal" href="#FOCUS">Algorithm 2</a>}) repose sur une recherche exhaustive sur <span class="math notranslate nohighlight">\(F\)</span> pour trouver le sous-ensemble le plus performant de taille optimale.</p>
 <div class="proof algorithm admonition" id="FOCUS">
 <p class="admonition-title"><span class="caption-number">Algorithm 2 </span> (Algorithme FOCUS)</p>
 <div class="algorithm-content section" id="proof-content">
@@ -664,7 +663,7 @@ Taille des données après sélection (150, 3)
 </div></div>
 <div class="section" id="algorithme-relief">
 <h3>Algorithme relief<a class="headerlink" href="#algorithme-relief" title="Permalink to this heading">#</a></h3>
-<p>La méthode relief en classification binaire (algorithme <a class="reference internal" href="#relief">Algorithm 3</a>), propose de calculer une mesure globale de la pertinence des caractéristiques en accumulant la différence des distances entre des exemples d’apprentissage choisis aléatoirement et leurs plus proches voisins de la même classe et de l’autre classe.</p>
+<p>La méthode relief en classification binaire (<a class="reference internal" href="#relief">Algorithm 3</a>), propose de calculer une mesure globale de la pertinence des caractéristiques en accumulant la différence des distances entre des exemples d’apprentissage choisis aléatoirement et leurs plus proches voisins de la même classe et de l’autre classe.</p>
 <div class="proof algorithm admonition" id="relief">
 <p class="admonition-title"><span class="caption-number">Algorithm 3 </span> (Algorithme FOCUS)</p>
 <div class="algorithm-content section" id="proof-content">
@@ -703,12 +702,6 @@ Taille des données après sélection (150, 3)
 <h3>Algorithme RFE<a class="headerlink" href="#algorithme-rfe" title="Permalink to this heading">#</a></h3>
 <p>L’algorithme RLE (Recusrive Feature Elimination) trie les descripteurs en analysant, localement, la sensibilité de la performance.
 Étant donné un prédicteur <span class="math notranslate nohighlight">\(f\)</span> qui attribue des poids aux caractéristiques (par exemple, les coefficients d’un modèle linéaire), l’objectif de l’algorithme est de sélectionner les caractéristiques en considérant de manière récursive des ensembles de caractéristiques de plus en plus petits. Tout d’abord, le prédicteur <span class="math notranslate nohighlight">\(f\)</span> est entraîné sur l’ensemble initial de caractéristiques et l’importance de chaque caractéristique est calculée par un algorithme dédié (critère de Gini, entropie…). Les caractéristiques les moins importantes sont éliminées de l’ensemble actuel de caractéristiques. Cette procédure est répétée de manière récursive sur l’ensemble élagué jusqu’à ce que le nombre souhaité de caractéristiques à sélectionner soit finalement atteint.</p>
-</div>
-<div class="section" id="algorithmes-genetiques">
-<h3>Algorithmes génétiques<a class="headerlink" href="#algorithmes-genetiques" title="Permalink to this heading">#</a></h3>
-<p>Les algorithmes génétiques ont été utilisés dans le domaine de la sélection de caractéristiques
-afin d’accélérer la recherche et d’éviter les optima locaux. Les méthodes qui utilisent les techniques génétiques  ont donné de meilleurs résultats que les résultats obtenus par les
-autres méthodes de sélection.</p>
 </div>
 </div>
 </div>
@@ -795,7 +788,6 @@ autres méthodes de sélection.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-relief">Algorithme relief</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-sac">Méthode SAC</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-rfe">Algorithme RFE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmes-genetiques">Algorithmes génétiques</a></li>
 </ul>
 </li>
 </ul>

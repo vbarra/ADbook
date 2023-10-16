@@ -421,9 +421,26 @@ plt.tight_layout()
 
 
 
+## Modèles de mélange
+Les modèles de mélange supposent que les données proviennent d'un mélange de distributions (généralement gaussiennes), et l'objectif est alors d'estimer les paramètres du modèle de mélange en maximisant la fonction de vraisemblance pour les données.
+L'optimisation directe de la fonction de vraisemblance dans ce cas n'est pas une tâche simple, en raison des contraintes nécessaires sur les paramètres et de la nature complexe de la fonction de vraisemblance, qui présente généralement un grand nombre de maxima locaux et de points de selle. Une méthode courante pour estimer les paramètres du modèle de mélange est l'algorithme EM.
+
+### Définition
 
 
+Soient $\mathcal S = \{\mathbf X_1\cdots X_m\}$ $m$ vecteurs aléatoires i.i.d. à valeur dans $\mathcal X\subset \mathbb{R}^d$ , chaque $\mathbf X_i$ étant distribué selon 
 
+$g(\mathbf x|\bm \theta) = \displaystyle\sum_{i=1}^K w_i\Phi_i(\mathbf x)$$
+
+où $\Phi_i,i\in[\![1,K]\!]$ sont des densités de probabilité sur $\mathcal X$ et les $w_i$ sont des poids positifs, sommant à 1. $g$ peut être interprétée comme suit : soit $Z$ une variable aléatoire discrète prenant les valeurs $i\in[\![1,K]\!]$ avec probabilité $w_i$, et soit $\mathbf X$ un vecteur aléatoire dont la distribution conditionnelle, étant donnée $Z=z$ est $\Phi_z$. Alors 
+
+$$\Phi_{Z,\Mathbf X}(z,\mathbf x) = \Phi_Z(z)\Phi_{\mathbf X|Z}(\mathbf x,z) = w_z(\mathbf x)$$
+
+et la distribution marginale de $\Mathbf X$ est calculée en sommant sur $z$ les probabilités jointes.
+
+Un vecteur aléatoire $\mathbf X$ suivant $g$ peut donc être simulé d'abord en tirant $Z$ suivant $P(Z=z)=w_z,z\\in[\![1,K]\!]$, puis en tirant $\mathbf X$ suivant $\Phi_Z$. La famille $\mathcal S$ ne contenant que les $\mathbf X_i$, les $Z_i$ sont des variables latentes, interprétées comme les étiquettes cachées des classes auxquelles les $\mathbf X_i$ appartiennent.
+
+Typiquement, les $\Phi_k$ sont connues à un paramètre vectoriel $\bm \eta_k$ près. Classiquement ce sont des lois gaussiennes $\mathcal N(\bm \mu_k,\bm \Sigma_k)$ et donc $\bm \eta_k = (\mu_k,\bm \Sigma_k)$.
 
 
 
