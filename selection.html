@@ -399,10 +399,12 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelques-methodes-de-selection">Quelques méthodes de sélection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suppression-des-descripteurs-a-variance-faible">Suppression des descripteurs à variance faible</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmes-de-selection-sequentielle">Algorithmes de sélection séquentielle</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-focus">Algorithme Focus</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-relief">Algorithme relief</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-sac">Méthode SAC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-rfe">Algorithme RFE</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmes-genetiques">Algorithmes génétiques</a></li>
 </ul>
 </li>
@@ -482,7 +484,7 @@ de l’ensemble de données. La génération stochastique génère aléatoiremen
 <div class="section" id="filtres">
 <h4>Filtres<a class="headerlink" href="#filtres" title="Permalink to this heading">#</a></h4>
 <p>Le critère d’évaluation utilisé évalue la pertinence d’une caractéristique selon des mesures
-qui reposent sur les propriétés des données d’apprentissage.</p>
+qui reposent sur les propriétés de données d’apprentissage.</p>
 <p>Pour <span class="math notranslate nohighlight">\(n\)</span> exemples  <span class="math notranslate nohighlight">\(\mathbf x_i,1\leq i\leq n\)</span> , on note <span class="math notranslate nohighlight">\(\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d\)</span>  une donnée d’apprentissage (la <span class="math notranslate nohighlight">\(j^e\)</span> caractéristique <span class="math notranslate nohighlight">\(f_j\)</span> ayant donc pour valeur <span class="math notranslate nohighlight">\(x_{ij}\)</span>) , d’étiquette <span class="math notranslate nohighlight">\(y_i\)</span> (en classification ou régression). Les méthodes de type filtres calculent un score pour évaluer le degré de pertinence de chacune des caractéristiques <span class="math notranslate nohighlight">\(f_i\)</span> , parmi lesquelles on peut citer</p>
 <ul class="simple">
 <li><p>Le critère de corrélation, utilisé en classification binaire</p></li>
@@ -503,12 +505,37 @@ d’une caractéristique donnée</p></li>
 <div class="math notranslate nohighlight">
 \[I(i) = \displaystyle\sum_{\mathbf x_i} \displaystyle\sum_{y}P(X=\mathbf x_i,Y=y)log\left ( \frac{P(X=\mathbf x_i,Y=y)}{P(X=\mathbf x_i)P(Y=y)}\right )\]</div>
 <p>qui mesure la dépendance entre les distributions de deux populations. Ici <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> sont deux variables aléatoires dont les réalisations sont les valeurs de <span class="math notranslate nohighlight">\(f_i\)</span> et des étiquettes de classes. Les probabilités sont estimées de manière fréquentiste.</p>
+<p>Dans l’exemple suivant, on choisit de garder <span class="math notranslate nohighlight">\(|\hat{F|}=2\)</span> descripteurs, en contrôlant la pertinence par l’information mutuelle en classification.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectKBest</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">mutual_info_classif</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Taille des données avant : &quot;</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">X2</span> <span class="o">=</span> <span class="n">SelectKBest</span><span class="p">(</span><span class="n">mutual_info_classif</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Taille des données après : &quot;</span><span class="p">,</span><span class="n">X2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Taille des données avant :  (150, 4)
+Taille des données après :  (150, 2)
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="methodes-enveloppantes">
 <h4>Méthodes enveloppantes<a class="headerlink" href="#methodes-enveloppantes" title="Permalink to this heading">#</a></h4>
 <p>Le principal inconvénient des approches précédentes est le fait qu’elles ignorent l’influence des caractéristiques sélectionnées sur la performance de l’algorithme à utiliser par la suite. Les méthodes de type enveloppantes (wrappers)  évaluent un sous-ensemble de caractéristiques par sa performance
 de classification en utilisant un algorithme d’apprentissage.  Les sous-ensembles de caractéristiques sélectionnés par cette méthode sont bien adaptés à l’algorithme de classification utilisé, mais ils ne sont pas nécessairement pour un autre. De plus, la complexité de l’algorithme d’apprentissage rend ces méthodes coûteuses.</p>
+<div class="proof remark dropdown admonition" id="remark-1">
+<p class="admonition-title"><span class="caption-number">Remark 13 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Les wrappers sélectionnent les caractéristiques en se fondant sur une estimation du risque réel.</p>
 </div>
+</div></div>
 <div class="section" id="methodes-integrees">
 <h4>Méthodes intégrées<a class="headerlink" href="#methodes-integrees" title="Permalink to this heading">#</a></h4>
 <p>Les méthodes intégrées incluent la sélection de variables lors du processus d’apprentissage. Un tel mécanisme intégré pour la sélection des caractéristiques peut être trouvé, par
@@ -519,6 +546,41 @@ arbres de décision.</p>
 </div>
 <div class="section" id="quelques-methodes-de-selection">
 <h2>Quelques méthodes de sélection<a class="headerlink" href="#quelques-methodes-de-selection" title="Permalink to this heading">#</a></h2>
+<div class="section" id="suppression-des-descripteurs-a-variance-faible">
+<h3>Suppression des descripteurs à variance faible<a class="headerlink" href="#suppression-des-descripteurs-a-variance-faible" title="Permalink to this heading">#</a></h3>
+<p>Une première idée simple consiste ) supprimer les descripteurs ayant une faible variance, ces derniers n’étant pas discriminants dans la définition des individus.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">VarianceThreshold</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+
+<span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+
+<span class="n">X2</span> <span class="o">=</span> <span class="n">VarianceThreshold</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X2</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">7</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Avant sélection, &quot;</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Après sélection, &quot;</span><span class="p">,</span><span class="n">X2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[5.1 1.4 0.2]
+ [4.9 1.4 0.2]
+ [4.7 1.3 0.2]
+ [4.6 1.5 0.2]
+ [5.  1.4 0.2]
+ [5.4 1.7 0.4]
+ [4.6 1.4 0.3]]
+Avant sélection,  (150, 4)
+Après sélection,  (150, 3)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="algorithmes-de-selection-sequentielle">
 <h3>Algorithmes de sélection séquentielle<a class="headerlink" href="#algorithmes-de-selection-sequentielle" title="Permalink to this heading">#</a></h3>
 <p>Les algorithmes SFS (Sequential Forward Selection, <a class="reference internal" href="#SFS">Algorithm 1</a>) et SBS (Sequential Backward Selection, <a class="reference internal" href="#SFS">Algorithm 1</a>-rouge) ont été les premiers à être proposés. Ils utilisent des approches heuristiques de recherche en partant, pour la première, d’un ensemble de caractéristiques vide et pour la seconde de  <span class="math notranslate nohighlight">\(F\)</span> tout entier.</p>
@@ -542,15 +604,41 @@ arbres de décision.</p>
 </li>
 </ol>
 </div>
-</div><p>Des variantes autour de ces algorithmes simples ont été proposées depuis et par exemple :</p>
+</div><p>L’étape d’évaluation utilise des données d’apprentissage : une heuristique évalue, sur un critère de performance, l’intérêt d’ajouter (ou de supprimer) le descripteur <span class="math notranslate nohighlight">\(f_i\)</span>.</p>
+<p>Des variantes autour de ces algorithmes simples ont été proposées depuis et par exemple :</p>
 <ul class="simple">
-<li><p>il est possible à chaque itération d’inclure (ou d’exclure) un sous-ensemble de caractéristiques, plutôt qu’une seule (méthodes GSFS et GSBS)
--on peut appliquer <span class="math notranslate nohighlight">\(p\)</span> fois SFS puis <span class="math notranslate nohighlight">\(q\)</span> fois SBS, de manière itérative, avec <span class="math notranslate nohighlight">\(p,q\)</span> des paramètres qui peuvent évoluer au cours des itérations (algorithme SFFS et SFBS)</p></li>
+<li><p>il est possible à chaque itération d’inclure (ou d’exclure) un sous-ensemble de caractéristiques, plutôt qu’une seule (méthodes GSFS et GSBS)</p></li>
+<li><p>on peut appliquer <span class="math notranslate nohighlight">\(p\)</span> fois SFS puis <span class="math notranslate nohighlight">\(q\)</span> fois SBS, de manière itérative, avec <span class="math notranslate nohighlight">\(p,q\)</span> des paramètres qui peuvent évoluer au cours des itérations (algorithme SFFS et SFBS)</p></li>
 </ul>
+<p>Dans l’exemple suivant, l’heuristique choisie est l’algorithme des 3 plus proches voisins et la mesure de performance sous-jacente est la mesure de validation croisée.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SequentialFeatureSelector</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Taille des données avant sélection&quot;</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">sfs</span> <span class="o">=</span> <span class="n">SequentialFeatureSelector</span><span class="p">(</span><span class="n">knn</span><span class="p">,</span> <span class="n">n_features_to_select</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">sfs</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desctipteurs sélectionnés&quot;</span><span class="p">)</span>
+<span class="n">sfs</span><span class="o">.</span><span class="n">get_support</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Taille des données après sélection&quot;</span><span class="p">,</span><span class="n">sfs</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Taille des données avant sélection (150, 4)
+Desctipteurs sélectionnés
+Taille des données après sélection (150, 3)
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="algorithme-focus">
 <h3>Algorithme Focus<a class="headerlink" href="#algorithme-focus" title="Permalink to this heading">#</a></h3>
-<p>L’algorithme de filtrage Focus (algorithme {prf:FOCUS}) repose sur une recherche exhaustive sur <span class="math notranslate nohighlight">\(F\)</span> pour trouver le sous-ensemble le plus performant de taille optimale.</p>
+<p>L’algorithme de filtrage Focus (algorithme <a class="reference internal" href="#FOCUS">Algorithm 2</a>}) repose sur une recherche exhaustive sur <span class="math notranslate nohighlight">\(F\)</span> pour trouver le sous-ensemble le plus performant de taille optimale.</p>
 <div class="proof algorithm admonition" id="FOCUS">
 <p class="admonition-title"><span class="caption-number">Algorithm 2 </span> (Algorithme FOCUS)</p>
 <div class="algorithm-content section" id="proof-content">
@@ -577,7 +665,7 @@ arbres de décision.</p>
 </div></div>
 <div class="section" id="algorithme-relief">
 <h3>Algorithme relief<a class="headerlink" href="#algorithme-relief" title="Permalink to this heading">#</a></h3>
-<p>La méthode relief en classification binaire (algorithme {prf:relief}), propose de calculer une mesure globale de la pertinence des caractéristiques en accumulant la différence des distances entre des exemples d’apprentissage choisis aléatoirement et leurs plus proches voisins de la même classe et de l’autre classe.</p>
+<p>La méthode relief en classification binaire (algorithme <a class="reference internal" href="#relief">Algorithm 3</a>), propose de calculer une mesure globale de la pertinence des caractéristiques en accumulant la différence des distances entre des exemples d’apprentissage choisis aléatoirement et leurs plus proches voisins de la même classe et de l’autre classe.</p>
 <div class="proof algorithm admonition" id="relief">
 <p class="admonition-title"><span class="caption-number">Algorithm 3 </span> (Algorithme FOCUS)</p>
 <div class="algorithm-content section" id="proof-content">
@@ -592,7 +680,7 @@ arbres de décision.</p>
 <li><p>Pour <span class="math notranslate nohighlight">\(i=1\)</span> à <span class="math notranslate nohighlight">\( T\)</span></p>
 <ol class="arabic simple">
 <li><p>Choisir aléatoirement un exemple <span class="math notranslate nohighlight">\(\mathbf x_k\)</span></p></li>
-<li><p>Chercher deux plus proches voisins de <span class="math notranslate nohighlight">\(x_k\)</span>, l’un (<span class="math notranslate nohighlight">\(\mathbf x_p\)</span>) dans sa  classe, l’autre (<span class="math notranslate nohighlight">\(\mathbf x_q\)</span>) dans l’autre classe</p></li>
+<li><p>Chercher deux plus proches voisins de <span class="math notranslate nohighlight">\(\mathbf x_k\)</span>, l’un (<span class="math notranslate nohighlight">\(\mathbf x_p\)</span>) dans sa  classe, l’autre (<span class="math notranslate nohighlight">\(\mathbf x_q\)</span>) dans l’autre classe</p></li>
 <li><p>Pour <span class="math notranslate nohighlight">\(j=1\)</span> à <span class="math notranslate nohighlight">\(d\)</span></p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(w_j\leftarrow w_j+\frac{1}{nT}\left (|x_{kj} -x_{qj}|-|x_{kj} -x_{pj}| \right )\)</span></p></li>
@@ -611,6 +699,11 @@ arbres de décision.</p>
 <p>Deux variances des performances  <span class="math notranslate nohighlight">\(v_1^2(i)\)</span> et <span class="math notranslate nohighlight">\( v_2^2(i)\)</span> sont alors calculées à partir de ces moyennes, et le sous-ensemble de caractéristiques sélectionné est celui qui maximise le discriminant de Fisher</p>
 <div class="math notranslate nohighlight">
 \[\frac{|m_1(i)-m_2(i)|}{v_1^2(i)+v_2^2(i)}\]</div>
+</div>
+<div class="section" id="algorithme-rfe">
+<h3>Algorithme RFE<a class="headerlink" href="#algorithme-rfe" title="Permalink to this heading">#</a></h3>
+<p>L’algorithme RLE (Recusrive Feature Elimination) trie les descripteurs en analysant, localement, la sensibilité de la performance.
+Étant donné un prédicteur <span class="math notranslate nohighlight">\(f\)</span> qui attribue des poids aux caractéristiques (par exemple, les coefficients d’un modèle linéaire), l’objectif de l’algorithme est de sélectionner les caractéristiques en considérant de manière récursive des ensembles de caractéristiques de plus en plus petits. Tout d’abord, le prédicteur <span class="math notranslate nohighlight">\(f\)</span> est entraîné sur l’ensemble initial de caractéristiques et l’importance de chaque caractéristique est calculée par un algorithme dédié (critère de Gini, entropie…). Les caractéristiques les moins importantes sont éliminées de l’ensemble actuel de caractéristiques. Cette procédure est répétée de manière récursive sur l’ensemble élagué jusqu’à ce que le nombre souhaité de caractéristiques à sélectionner soit finalement atteint.</p>
 </div>
 <div class="section" id="algorithmes-genetiques">
 <h3>Algorithmes génétiques<a class="headerlink" href="#algorithmes-genetiques" title="Permalink to this heading">#</a></h3>
@@ -697,10 +790,12 @@ autres méthodes de sélection.</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelques-methodes-de-selection">Quelques méthodes de sélection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suppression-des-descripteurs-a-variance-faible">Suppression des descripteurs à variance faible</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmes-de-selection-sequentielle">Algorithmes de sélection séquentielle</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-focus">Algorithme Focus</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-relief">Algorithme relief</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-sac">Méthode SAC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-rfe">Algorithme RFE</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmes-genetiques">Algorithmes génétiques</a></li>
 </ul>
 </li>
