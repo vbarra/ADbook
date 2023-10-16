@@ -421,52 +421,6 @@ plt.tight_layout()
 
 
 
-## Modèles de mélange
-
-### Définition
-
-On suppose que la distribution des données est un mélange de la distribution des $K$ classes $P_k$ sous-jacentes. On se fixe un entier $K$ et on modélise chaque classe $k\in[\![1,K]\!]$ par une distribution $F_k$, de paramètre $\theta_k$. La densité de probabilité de cette classe est notée $f_k(x) = f(x|k)$. La moyenne (respectivement variance) conditionnelle de la classe est $\mathbb{E}(x|k) = \mu_k$ (resp. $\mathbb{V}(x|k)=\Sigma_k$).  Enfin, la probabilité de la classe $k$ est notée $\pi_k$.
-
-Avec ces notations, le modèle de mélange pour la donnée observée $x$ est 
-
-$$f_m(x) = \displaystyle\sum_{k=1}^K \pi_k f_(x)$$
-
-Très souvent, on choisit $f_k(x) = \mathcal N(x|\mu_k,\Sigma_k)$ et les modèles correspondants sont appelés modèles de mélange gaussiens (GMM, Gaussian Mixture models).
-
-### Moyenne et variance du modèle de mélange
-
-La moyenne du modèle de mélange se calcule facilement puisque 
-
-$$\mathbb{E}(x) = \mathbb{E}(\mathbb{E}(x|k)) = \displaystyle\sum_{k=1}^K \pi_k\mu_k = \mu_0$$
-
-et de même 
-
-$$\mathbb{V}(x) = \mathbb{V}(\mathbb{E}(x|k)) + \mathbb{E}(\mathbb{V}(x|k)) = \displaystyle\sum_{k=1}^K \pi_k(\mu_k-\mu_0)(\mu_k-\mu_0)^T +  \displaystyle\sum_{k=1}^K \pi_k\Sigma_k= \Sigma_0$$
-
-La variance se décompose en deux termes : la variance expliquée (entre les classes) et non expliquée (intra classe). 
-
-### Variation totale
-
-La variation totale est la trace de la matrice de covariance. On a donc 
-
-$$Tr(\Sigma_0) = \displaystyle\sum_{k=1}^K \pi_k Tr(((\mu_k-\mu_0)(\mu_k-\mu_0)^T)) + \displaystyle\sum_{k=1}^K\pi_k Tr(\Sigma_k)$$
-
-d'où 
-
-$$Tr(\Sigma_0) = \displaystyle\sum_{k=1}^K \pi_k (\mu_k-\mu_0)^T(\mu_k-\mu_0) + \displaystyle\sum_{k=1}^K\pi_k Tr(\Sigma_k)$$
-
-Si les matrices de covariance sont approchées par leur estimation empirique, on retrouve la décomposition classique 
-
-$$Tr(\hat \Sigma_0) = \frac1n \displaystyle\sum_{i=1}^n (x_i-\hat\mu_0)^T(x_i-\hat\mu_0)$$$
-
-ou 
-
-$$Tr(\hat \Sigma_0)= \frac1n \displaystyle\sum_{k=1}^K n_k (\hat\mu_k-\hat\mu_0)^T (\hat\mu_k-\hat\mu_0)+ \frac1n \displaystyle\sum_{k=1}^K \displaystyle\sum_{i\in P_k} (x_i-\hat\mu_k)^T(x_i-\hat\mu_k) = B+W$$
-
-où $B$ est la vatiation inter-classes (Between), et W la variation intra classe (Within).
-
-
-
 
 
 
