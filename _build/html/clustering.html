@@ -443,6 +443,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeles-de-melange">Modèles de mélange</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Définition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-em">Algorithme EM</a></li>
 </ul>
 </li>
 </ul>
@@ -970,7 +971,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" src="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" />
+<img alt="_images/282a71541470bf599f673324fd8333f803863bae5ab287f44588409753ee6b0a.png" src="_images/282a71541470bf599f673324fd8333f803863bae5ab287f44588409753ee6b0a.png" />
 </div>
 </div>
 </div>
@@ -989,10 +990,26 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 \[\Phi_{Z,\mathbf X}(z,\mathbf x) = \Phi_Z(z)\Phi_{\mathbf X|Z}(\mathbf x,z) = w_z(\mathbf x)\]</div>
 <p>et la distribution marginale de <span class="math notranslate nohighlight">\(\mathbf X\)</span> est calculée en sommant sur <span class="math notranslate nohighlight">\(z\)</span> les probabilités jointes.</p>
 <p>Un vecteur aléatoire <span class="math notranslate nohighlight">\(\mathbf X\)</span> suivant <span class="math notranslate nohighlight">\(g\)</span> peut donc être simulé d’abord en tirant <span class="math notranslate nohighlight">\(Z\)</span> suivant <span class="math notranslate nohighlight">\(P(Z=z)=w_z,z\\in[\![1,K]\!]\)</span>, puis en tirant <span class="math notranslate nohighlight">\(\mathbf X\)</span> suivant <span class="math notranslate nohighlight">\(\Phi_Z\)</span>. La famille <span class="math notranslate nohighlight">\(\mathcal S\)</span> ne contenant que les <span class="math notranslate nohighlight">\(\mathbf X_i\)</span>, les <span class="math notranslate nohighlight">\(Z_i\)</span> sont des variables latentes, interprétées comme les étiquettes cachées des classes auxquelles les <span class="math notranslate nohighlight">\(\mathbf X_i\)</span> appartiennent.</p>
-<p>Typiquement, les <span class="math notranslate nohighlight">\(\Phi_k\)</span> sont des lois paramétriques. Classiquement ce sont des lois gaussiennes <span class="math notranslate nohighlight">\(\mathcal N(\boldsymbol \mu_k,\boldsymbol \Sigma_k)\)</span> et donc en rassemblant tous les paramètres des lois, incluant les <span class="math notranslate nohighlight">\(w_k\)</span>, dans un vecteur de paramètre <span class="math notranslate nohighlight">\(\boldsymbol \theta = (\mu_k,\boldsymbol \Sigma_k,w_k,k\in[\!1,K]\!]\)</span>, on peut écrire</p>
+<p>Typiquement, les <span class="math notranslate nohighlight">\(\Phi_k\)</span> sont des lois paramétriques. Classiquement ce sont des lois gaussiennes <span class="math notranslate nohighlight">\(\mathcal N(\boldsymbol \mu_k,\boldsymbol \Sigma_k)\)</span> et donc en rassemblant tous les paramètres des lois, incluant les <span class="math notranslate nohighlight">\(w_k\)</span>, dans un vecteur de paramètre <span class="math notranslate nohighlight">\(\boldsymbol \theta = (\mu_k,\boldsymbol \Sigma_k,w_k,k\in[\!1,K]\!])\)</span>, on peut écrire</p>
 <div class="math notranslate nohighlight">
-\[g(s|\boldsymbol \theta) = \prod_{i=1}^n g(x_i|\boldsymbol \theta) = \prod_{i=1}^n \displaystyle\sum_{k=1}^K w_k \Phi_k(x_i|\boldsymbol\mu_k \boldsymbol\Sigma_k)\]</div>
+\[g(s|\boldsymbol \theta) = \prod_{i=1}^n g(\mathbf x_i|\boldsymbol \theta) = \prod_{i=1}^n \displaystyle\sum_{k=1}^K w_k \Phi_k(\mathbf x_i|\boldsymbol\mu_k \boldsymbol\Sigma_k)\]</div>
 <p>où <span class="math notranslate nohighlight">\(s=(\mathbf x_1\cdots \mathbf x_n)\)</span> dénote une réalisation de <span class="math notranslate nohighlight">\(\mathcal S\)</span>.</p>
+<p>On estime alors <span class="math notranslate nohighlight">\(\boldsymbol\theta\)</span> en maximisant la log vraisemblance</p>
+<div class="math notranslate nohighlight">
+\[\ell(\boldsymbol\theta|s) = \displaystyle\sum_{i=1}^n ln(g(\mathbf x_i|\boldsymbol \theta)) = \displaystyle\sum_{i=1}^n ln \left ( \displaystyle\sum_{k=1}^K w_k \Phi_k(\mathbf x_i|\boldsymbol\mu_k \boldsymbol\Sigma_k) \right )\]</div>
+<p>ce qui est en général complexe, la fonction <span class="math notranslate nohighlight">\(\ell\)</span> admettant de nombreux extrema locaux.</p>
+</div>
+<div class="section" id="algorithme-em">
+<h3>Algorithme EM<a class="headerlink" href="#algorithme-em" title="Permalink to this heading">#</a></h3>
+<p>Plutôt que d’optimiser <span class="math notranslate nohighlight">\(\ell\)</span> directement depuis les données <span class="math notranslate nohighlight">\(s\)</span>, l’algorithme EM augmente d’abord les données des variables latentes (les étiquettes <span class="math notranslate nohighlight">\(\mathbf z=(z_1\cdots z_n)\)</span> des classes). L’idée est que <span class="math notranslate nohighlight">\(s\)</span> est uniquement la partie observée des données aléatoires <span class="math notranslate nohighlight">\((\mathcal S,\mathbf Z)\)</span> générées d’abord en tirant <span class="math notranslate nohighlight">\(Z\)</span> suivant <span class="math notranslate nohighlight">\(P(Z=z)\)</span>, puis en tirant <span class="math notranslate nohighlight">\(\mathbf X\)</span> suivant <span class="math notranslate nohighlight">\(\Phi_z\)</span>, de sorte à avoir</p>
+<div class="math notranslate nohighlight">
+\[g(s,z|\boldsymbol \theta) = \displaystyle\prod_{i=1}^n w_{z_i} \Phi_{z_i}(\mathbf x_i)\]</div>
+<p>Ainsi, la log vraisemblance des données complètes, en généralt plus facile à optimiser, est</p>
+<div class="math notranslate nohighlight">
+\[\bar\ell(\boldsymbol\theta|s,z) =\displaystyle\sum{i=1}^n ln(w_{z_i} \Phi_{z_i}(\mathbf x_i))\]</div>
+<p>Cependant, les <span class="math notranslate nohighlight">\(z\)</span> ne sont pas observées et <span class="math notranslate nohighlight">\(\bar\ell\)</span> ne peut être évaluée. Dans l’étape E de l’algorithme EM, <span class="math notranslate nohighlight">\(\bar\ell\)</span> est remplacée par <span class="math notranslate nohighlight">\(\mathbb{E}_p \bar\ell(\boldsymbol \theta \s,\mathbf Z)\)</span>, où l’indice <span class="math notranslate nohighlight">\(p\)</span> indique que <span class="math notranslate nohighlight">\(\mathbf Z\)</span> est distribuée selon la distribution conditionnelle de <span class="math notranslate nohighlight">\(\mathbf Z\)</span> étant donnée <span class="math notranslate nohighlight">\(\mathcal S=s\)</span>, soit</p>
+<div class="math notranslate nohighlight">
+\[p(z)=g(z|s,\boldsymbol \theta) \propto g(s,z|\boldsymbol \theta)\]</div>
 </div>
 </div>
 </div>
@@ -1117,6 +1134,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeles-de-melange">Modèles de mélange</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Définition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-em">Algorithme EM</a></li>
 </ul>
 </li>
 </ul>
