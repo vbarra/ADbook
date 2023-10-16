@@ -430,17 +430,17 @@ L'optimisation directe de la fonction de vraisemblance dans ce cas n'est pas une
 
 Soient $\mathcal S = \{\mathbf X_1\cdots X_m\}$ $m$ vecteurs aléatoires i.i.d. à valeur dans $\mathcal X\subset \mathbb{R}^d$ , chaque $\mathbf X_i$ étant distribué selon 
 
-$g(\mathbf x|\bm \theta) = \displaystyle\sum_{i=1}^K w_i\Phi_i(\mathbf x)$$
+$g(\mathbf x|\boldsymbol \theta) = \displaystyle\sum_{i=1}^K w_i\Phi_i(\mathbf x)$$
 
 où $\Phi_i,i\in[\![1,K]\!]$ sont des densités de probabilité sur $\mathcal X$ et les $w_i$ sont des poids positifs, sommant à 1. $g$ peut être interprétée comme suit : soit $Z$ une variable aléatoire discrète prenant les valeurs $i\in[\![1,K]\!]$ avec probabilité $w_i$, et soit $\mathbf X$ un vecteur aléatoire dont la distribution conditionnelle, étant donnée $Z=z$ est $\Phi_z$. Alors 
 
-$$\Phi_{Z,\Mathbf X}(z,\mathbf x) = \Phi_Z(z)\Phi_{\mathbf X|Z}(\mathbf x,z) = w_z(\mathbf x)$$
+$$\Phi_{Z,\mathbf X}(z,\mathbf x) = \Phi_Z(z)\Phi_{\mathbf X|Z}(\mathbf x,z) = w_z(\mathbf x)$$
 
-et la distribution marginale de $\Mathbf X$ est calculée en sommant sur $z$ les probabilités jointes.
+et la distribution marginale de $\mathbf X$ est calculée en sommant sur $z$ les probabilités jointes.
 
 Un vecteur aléatoire $\mathbf X$ suivant $g$ peut donc être simulé d'abord en tirant $Z$ suivant $P(Z=z)=w_z,z\\in[\![1,K]\!]$, puis en tirant $\mathbf X$ suivant $\Phi_Z$. La famille $\mathcal S$ ne contenant que les $\mathbf X_i$, les $Z_i$ sont des variables latentes, interprétées comme les étiquettes cachées des classes auxquelles les $\mathbf X_i$ appartiennent.
 
-Typiquement, les $\Phi_k$ sont connues à un paramètre vectoriel $\bm \eta_k$ près. Classiquement ce sont des lois gaussiennes $\mathcal N(\bm \mu_k,\bm \Sigma_k)$ et donc $\bm \eta_k = (\mu_k,\bm \Sigma_k)$.
+Typiquement, les $\Phi_k$ sont connues à un paramètre vectoriel $\boldsymbol \eta_k$ près. Classiquement ce sont des lois gaussiennes $\mathcal N(\boldsymbol \mu_k,\boldsymbol \Sigma_k)$ et donc $\boldsymbol \eta_k = (\mu_k,\boldsymbol \Sigma_k)$.
 
 
 
