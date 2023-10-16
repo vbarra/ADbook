@@ -621,15 +621,14 @@ Après sélection,  (150, 3)
 <span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">sfs</span> <span class="o">=</span> <span class="n">SequentialFeatureSelector</span><span class="p">(</span><span class="n">knn</span><span class="p">,</span> <span class="n">n_features_to_select</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">sfs</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desctipteurs sélectionnés&quot;</span><span class="p">)</span>
-<span class="n">sfs</span><span class="o">.</span><span class="n">get_support</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Descripteurs sélectionnés&quot;</span><span class="p">,</span><span class="n">sfs</span><span class="o">.</span><span class="n">get_support</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Taille des données après sélection&quot;</span><span class="p">,</span><span class="n">sfs</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Taille des données avant sélection (150, 4)
-Desctipteurs sélectionnés
+Descripteurs sélectionnés [ True False  True  True]
 Taille des données après sélection (150, 3)
 </pre></div>
 </div>

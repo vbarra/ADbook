@@ -198,7 +198,7 @@ print("Taille des données après sélection",sfs.transform(X).shape)
 ```
 
 ### Algorithme Focus
-L'algorithme de filtrage Focus (algorithme {prf:ref}`FOCUS`}) repose sur une recherche exhaustive sur $F$ pour trouver le sous-ensemble le plus performant de taille optimale. 
+L'algorithme de filtrage Focus ({prf:ref}`FOCUS`}) repose sur une recherche exhaustive sur $F$ pour trouver le sous-ensemble le plus performant de taille optimale. 
 
 
 ```{prf:algorithm} Algorithme FOCUS
@@ -217,7 +217,7 @@ L'algorithme de filtrage Focus (algorithme {prf:ref}`FOCUS`}) repose sur une rec
 
 
 ### Algorithme relief
-La méthode relief en classification binaire (algorithme {prf:ref}`relief`), propose de calculer une mesure globale de la pertinence des caractéristiques en accumulant la différence des distances entre des exemples d'apprentissage choisis aléatoirement et leurs plus proches voisins de la même classe et de l'autre classe.
+La méthode relief en classification binaire ({prf:ref}`relief`), propose de calculer une mesure globale de la pertinence des caractéristiques en accumulant la différence des distances entre des exemples d'apprentissage choisis aléatoirement et leurs plus proches voisins de la même classe et de l'autre classe.
 
 
 ```{prf:algorithm} Algorithme FOCUS
@@ -249,9 +249,4 @@ $$\frac{|m_1(i)-m_2(i)|}{v_1^2(i)+v_2^2(i)}$$
 L'algorithme RLE (Recusrive Feature Elimination) trie les descripteurs en analysant, localement, la sensibilité de la performance. 
 Étant donné un prédicteur $f$ qui attribue des poids aux caractéristiques (par exemple, les coefficients d'un modèle linéaire), l'objectif de l'algorithme est de sélectionner les caractéristiques en considérant de manière récursive des ensembles de caractéristiques de plus en plus petits. Tout d'abord, le prédicteur $f$ est entraîné sur l'ensemble initial de caractéristiques et l'importance de chaque caractéristique est calculée par un algorithme dédié (critère de Gini, entropie...). Les caractéristiques les moins importantes sont éliminées de l'ensemble actuel de caractéristiques. Cette procédure est répétée de manière récursive sur l'ensemble élagué jusqu'à ce que le nombre souhaité de caractéristiques à sélectionner soit finalement atteint.
 
-
-### Algorithmes génétiques
-Les algorithmes génétiques ont été utilisés dans le domaine de la sélection de caractéristiques
-afin d'accélérer la recherche et d'éviter les optima locaux. Les méthodes qui utilisent les techniques génétiques  ont donné de meilleurs résultats que les résultats obtenus par les
-autres méthodes de sélection.
 
