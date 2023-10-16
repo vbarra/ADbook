@@ -970,7 +970,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ffae37902b68cb11c778d6f96e26902cfa10a75a9dc869facfc69b37a5c3ab62.png" src="_images/ffae37902b68cb11c778d6f96e26902cfa10a75a9dc869facfc69b37a5c3ab62.png" />
+<img alt="_images/022d604ac4bf1dacf0952668454a0b3e4799cbff0a78ac6e149ee27030500cb3.png" src="_images/022d604ac4bf1dacf0952668454a0b3e4799cbff0a78ac6e149ee27030500cb3.png" />
 </div>
 </div>
 </div>
@@ -982,13 +982,13 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 <div class="section" id="definition">
 <h3>Définition<a class="headerlink" href="#definition" title="Permalink to this heading">#</a></h3>
 <p>Soient <span class="math notranslate nohighlight">\(\mathcal S = \{\mathbf X_1\cdots X_m\}\)</span> <span class="math notranslate nohighlight">\(m\)</span> vecteurs aléatoires i.i.d. à valeur dans <span class="math notranslate nohighlight">\(\mathcal X\subset \mathbb{R}^d\)</span> , chaque <span class="math notranslate nohighlight">\(\mathbf X_i\)</span> étant distribué selon</p>
-<p><span class="math notranslate nohighlight">\(g(\mathbf x|\bm \theta) = \displaystyle\sum_{i=1}^K w_i\Phi_i(\mathbf x)\)</span>$</p>
+<p><span class="math notranslate nohighlight">\(g(\mathbf x|\boldsymbol \theta) = \displaystyle\sum_{i=1}^K w_i\Phi_i(\mathbf x)\)</span>$</p>
 <p>où <span class="math notranslate nohighlight">\(\Phi_i,i\in[\![1,K]\!]\)</span> sont des densités de probabilité sur <span class="math notranslate nohighlight">\(\mathcal X\)</span> et les <span class="math notranslate nohighlight">\(w_i\)</span> sont des poids positifs, sommant à 1. <span class="math notranslate nohighlight">\(g\)</span> peut être interprétée comme suit : soit <span class="math notranslate nohighlight">\(Z\)</span> une variable aléatoire discrète prenant les valeurs <span class="math notranslate nohighlight">\(i\in[\![1,K]\!]\)</span> avec probabilité <span class="math notranslate nohighlight">\(w_i\)</span>, et soit <span class="math notranslate nohighlight">\(\mathbf X\)</span> un vecteur aléatoire dont la distribution conditionnelle, étant donnée <span class="math notranslate nohighlight">\(Z=z\)</span> est <span class="math notranslate nohighlight">\(\Phi_z\)</span>. Alors</p>
 <div class="math notranslate nohighlight">
-\[\Phi_{Z,\Mathbf X}(z,\mathbf x) = \Phi_Z(z)\Phi_{\mathbf X|Z}(\mathbf x,z) = w_z(\mathbf x)\]</div>
-<p>et la distribution marginale de <span class="math notranslate nohighlight">\(\Mathbf X\)</span> est calculée en sommant sur <span class="math notranslate nohighlight">\(z\)</span> les probabilités jointes.</p>
+\[\Phi_{Z,\mathbf X}(z,\mathbf x) = \Phi_Z(z)\Phi_{\mathbf X|Z}(\mathbf x,z) = w_z(\mathbf x)\]</div>
+<p>et la distribution marginale de <span class="math notranslate nohighlight">\(\mathbf X\)</span> est calculée en sommant sur <span class="math notranslate nohighlight">\(z\)</span> les probabilités jointes.</p>
 <p>Un vecteur aléatoire <span class="math notranslate nohighlight">\(\mathbf X\)</span> suivant <span class="math notranslate nohighlight">\(g\)</span> peut donc être simulé d’abord en tirant <span class="math notranslate nohighlight">\(Z\)</span> suivant <span class="math notranslate nohighlight">\(P(Z=z)=w_z,z\\in[\![1,K]\!]\)</span>, puis en tirant <span class="math notranslate nohighlight">\(\mathbf X\)</span> suivant <span class="math notranslate nohighlight">\(\Phi_Z\)</span>. La famille <span class="math notranslate nohighlight">\(\mathcal S\)</span> ne contenant que les <span class="math notranslate nohighlight">\(\mathbf X_i\)</span>, les <span class="math notranslate nohighlight">\(Z_i\)</span> sont des variables latentes, interprétées comme les étiquettes cachées des classes auxquelles les <span class="math notranslate nohighlight">\(\mathbf X_i\)</span> appartiennent.</p>
-<p>Typiquement, les <span class="math notranslate nohighlight">\(\Phi_k\)</span> sont connues à un paramètre vectoriel <span class="math notranslate nohighlight">\(\bm \eta_k\)</span> près. Classiquement ce sont des lois gaussiennes <span class="math notranslate nohighlight">\(\mathcal N(\bm \mu_k,\bm \Sigma_k)\)</span> et donc <span class="math notranslate nohighlight">\(\bm \eta_k = (\mu_k,\bm \Sigma_k)\)</span>.</p>
+<p>Typiquement, les <span class="math notranslate nohighlight">\(\Phi_k\)</span> sont connues à un paramètre vectoriel <span class="math notranslate nohighlight">\(\boldsymbol \eta_k\)</span> près. Classiquement ce sont des lois gaussiennes <span class="math notranslate nohighlight">\(\mathcal N(\boldsymbol \mu_k,\boldsymbol \Sigma_k)\)</span> et donc <span class="math notranslate nohighlight">\(\boldsymbol \eta_k = (\mu_k,\boldsymbol \Sigma_k)\)</span>.</p>
 </div>
 </div>
 </div>
