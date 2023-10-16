@@ -10,9 +10,9 @@ kernelspec:
   name: python3
 ---
 
-# Sélection de vaiables
+# Sélection de variables
 
-On s'intéresse ici à $n$ individus  $\x_i, 1\leq i\leq n$ décrits par $d$ variables quantitatives ou caractéristiques (features), $x_i\in \mathbb{R}^d$. Avec l'avènement des Big Data, et la généralisation des capteurs, $d$ peut être très grand (plusieurs milliers), et analyser telles quelles les données brutes devient difficile d'un point de vue calculatoire et interprétation. De plus, il est rare que les caractéristiques soient totalement utiles et indépendantes. 
+On s'intéresse ici à $n$ individus  $\mathbf x_i, 1\leq i\leq n$ décrits par $d$ variables quantitatives ou caractéristiques (features), $x_i\in \mathbb{R}^d$. Avec l'avènement des Big Data, et la généralisation des capteurs, $d$ peut être très grand (plusieurs milliers), et analyser telles quelles les données brutes devient difficile d'un point de vue calculatoire et interprétation. De plus, il est rare que les caractéristiques soient totalement utiles et indépendantes. 
 
 Une étape souvent utilisée en analyse de données consiste donc à prétraiter cet espace, par exemple pour :
 
@@ -27,12 +27,18 @@ Deux stratégies peuvent alors être utilisées :
 1. sélectionner un sous-ensemble des variables initiales comme descripteurs des individus
 2. calculer de nouveaux descripteurs à partir des variables initiales.
 
-Nous nous intéressons ici à la première approche, la seconde étant abordée pour une approche linéaire dans le chapitre sur l'analyse en composantes principales.
+Nous nous intéressons ici à la première approche, la seconde (extraction de caractéristiques) étant abordée pour une approche linéaire dans le chapitre sur l'analyse en composantes principales.
+
+
+```{prf:remark}
+:class: dropdown
+Les méthodes d'extraction de caractéristiques peuvent être soit linéaires (on recherche des combinaisons linéaires des variables initiales  permettant d'optimiser un cerrtain critère), ou non linéaires (on parle également de manifold learning)
+```
 
 
 
 ## Définitions
-La sélection de caractéristiques consiste à choisir parmi les $d$ descripteurs d'un ensemble d'individus $\x_i,1\leq i\leq n$, un sous-ensemble de  $t<d$  caractéristiques jugées "les plus pertinentes", les $d-t$ restantes étant ignorées.  
+La sélection de caractéristiques consiste à choisir parmi les $d$ descripteurs d'un ensemble d'individus $\mathbf x_i,1\leq i\leq n$, un sous-ensemble de  $t<d$  caractéristiques jugées "les plus pertinentes", les $d-t$ restantes étant ignorées.  
 
 On note $F = \left (f_1\cdots f_d\right )$ les $d$ caractéristiques.  On note $Perf$ une fonction qui permet d'évaluer un sous-ensemble de caractéristiques, et on suppose que $Perf$ atteint son maximum pour le meilleur sous-ensemble de caractéristiques ("le plus pertinent"). Le problème de sélection se formule donc comme un problème d'optimisation
 
@@ -49,7 +55,7 @@ On distingue alors trois stratégies :
 
 La mesure de pertinence d'une caractéristique est donc au centre des algorithmes de sélection. Plusieurs définitions sont possibles, et nous dirons ici  qu'une caractéristique $f_i$ est :
 
-- pertinente si son absence entraîne une détérioration significative de la performance de l'algorithme utilisé en aval (classification régression)
+- pertinente si son absence entraîne une détérioration significative de la performance de l'algorithme utilisé en aval (classification ou régression)
 - peu pertinente si elle n'est pas pertinente et s'il existe un sous-ensemble $U$ tel que la performance de $U\cup\{f_i\}$ est significativement meilleure que la peformance de $U$
 - non pertinente, si elle ne rentre pas dans les deux premières définitions. En général, ces caractéristiques sont supprimées.
 
@@ -58,7 +64,7 @@ La mesure de pertinence d'une caractéristique est donc au centre des algorithme
 Une méthode de sélection basée sur l'optimisation de $Perf$ utilise généralement trois étapes. Les  deux dernières sont itérées jusqu'à un test d'arrêt.
  
 ### Initialisation
-L'initialisation consiste à choisir l'ensemble de départ des caractéristiques. Il peut s'agir de l'ensemble vide, de $F$ tout entier, ou un sous-ensemble quelconque $U\subset F$
+L'initialisation consiste à choisir l'ensemble de départ des caractéristiques. Il peut s'agir de l'ensemble vide, de $F$ tout entier, ou un sous-ensemble quelconque $U\subset F$.
 
 ### Exploration des sous-ensembles
 A partir de cette initialisation, les stratégies d'exploration des sous-ensembles de caractéristiques se déclinent en trois catégories : 
@@ -66,7 +72,7 @@ A partir de cette initialisation, les stratégies d'exploration des sous-ensembl
 1. génération exhaustive : tous les sous-ensembles de caractéristiques sont évalués. Si elle garantit de trouver la valeur optimale, cette méthode n'est que peu applicable dès que $|F|$ devient important ($2^{|F|}$ sous-ensembles possibles)
 2. génération heuristique : une génération itérative est effectuée, chaque itération permettant de sélectionner ou de rejeter une ou plusieurs caractéristiques. La génération peut être ascendante (ajout de caractéristiques à partir de l'ensemble vide), descendante (suppression de caractéristiques à partir de $F$), ou mixte. 
 3. génération stochastique : pour un ensemble de données et une initialisation définie, une stratégie de recherche heuristique retourne toujours le même sous-ensemble, ce qui la rend très sensible au changement
-de l'ensemble de données. La génération stochastique génère aléatoirement un nombre fini de sous-ensembles de caractéristiques afin de sélectionner le meilleur. La convergence est sous-optimale mais peut s'avérer préférable dans des algorithmes d'apprentissage, par exemple pour éviter le phénomène d'overfitting.
+de l'ensemble de données. La génération stochastique génère aléatoirement un nombre fini de sous-ensembles de caractéristiques afin de sélectionner le meilleur. La convergence est sous-optimale mais peut s'avérer préférable dans des algorithmes d'apprentissage, par exemple pour éviter le phénomène de surapprentissage.
 
 
 ### Evaluation des sous-ensembles
@@ -75,22 +81,22 @@ de l'ensemble de données. La génération stochastique génère aléatoirement 
 Le critère d'évaluation utilisé évalue la pertinence d'une caractéristique selon des mesures
 qui reposent sur les propriétés des données d'apprentissage.
 
-Pour $n$ exemples  $\x_i,1\leq i\leq n$ , on note $\x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d$  une donnée d'apprentissage (la $j^e$ caractéristique $f_j$ ayant donc pour valeur $x_{ij}$) , d'étiquette $y_i$ (en classification ou régression). Les méthodes de type filtres calculent un score pour évaluer le degré de pertinence de chacune des caractéristiques $f_i$ , parmi lesquelles on peut citer
+Pour $n$ exemples  $\mathbf x_i,1\leq i\leq n$ , on note $\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d$  une donnée d'apprentissage (la $j^e$ caractéristique $f_j$ ayant donc pour valeur $x_{ij}$) , d'étiquette $y_i$ (en classification ou régression). Les méthodes de type filtres calculent un score pour évaluer le degré de pertinence de chacune des caractéristiques $f_i$ , parmi lesquelles on peut citer
 
-- Le critère de corrélation, utilisé en classification binaire : 
-- 
-$$C_i \frac{\dsum_{k=1}^n\left (x_{ki} -\mu_i\right )\left (y_{k} -\mu_y\right )}{\sqrt{\dsum_{k=1}^n\left (x_{ki} -\mu_i\right )^2\dsum_{k=1}^n\left (y_{k} -\mu_y\right )^2}}$$
+- Le critère de corrélation, utilisé en classification binaire 
 
-o\`u $\mu_i$ (resp. $\mu_k$) est la moyenne de la caractéristique $f_i$ observée sur $x_1\cdots x_n$ (resp. moyenne des étiquettes)
+$$C_i \frac{\displaystyle\sum_{k=1}^n\left (x_{ki} -\mu_i\right )\left (y_{k} -\mu_y\right )}{\sqrt{\displaystyle\sum_{k=1}^n\left (x_{ki} -\mu_i\right )^2\displaystyle\sum_{k=1}^n\left (y_{k} -\mu_y\right )^2}}$$
+
+où $\mu_i$ (resp. $\mu_k$) est la moyenne de la caractéristique $f_i$ observée sur $\mathbf x_1\cdots \mathbf x_n$ (resp. moyenne des étiquettes)
 - Le critère de Fisher,  qui permet de mesurer dans un problème de classification multiclasses le degré de séparabilité des classes à l'aide
 d'une caractéristique donnée
 
-$$F_i = \frac{\dsum_{c=1}^C n_c\left (\mu_c^i-\mu_i \right )^2}{\dsum_{c=1}^C n_c(\Sigma_c^i)^2}$$
+$$F_i = \frac{\displaystyle\sum_{c=1}^C n_c\left (\mu_c^i-\mu_i \right )^2}{\displaystyle\sum_{c=1}^C n_c(\Sigma_c^i)^2}$$
 
-o\`u $n_c, \mu_c^i$ et $\Sigma_c^i$ sont l'effectif, la moyenne et l'écart-type de la caractéristique  $f_i$ dans la classe $c$ 
+où $n_c, \mu_c^i$ et $\Sigma_c^i$ sont l'effectif, la moyenne et l'écart-type de la caractéristique  $f_i$ dans la classe $c$ 
 - l'information mutuelle
-- 
-$$I(i) = \dsum_{\x_i} \dsum_{y}P(X=\x_i,Y=y)log\left ( \frac{P(X=\x_i,Y=y)}{P(X=\x_i)P(Y=y)}\right )$$
+
+$$I(i) = \displaystyle\sum_{\mathbf x_i} \displaystyle\sum_{y}P(X=\mathbf x_i,Y=y)log\left ( \frac{P(X=\mathbf x_i,Y=y)}{P(X=\mathbf x_i)P(Y=y)}\right )$$
 
 qui mesure la dépendance entre les distributions de deux populations. Ici $X$ et $Y$ sont deux variables aléatoires dont les réalisations sont les valeurs de $f_i$ et des étiquettes de classes. Les probabilités sont estimées de manière fréquentiste.
 
@@ -106,7 +112,7 @@ arbres de décision.
 ## Quelques méthodes de sélection
 
 ### Algorithmes de sélection séquentielle
-Les algorithmes SFS (Sequential Forward Selection, {prf:SFS}) et SBS (Sequential Backward Selection, {prf:SFS}-rouge) ont été les premiers à être proposés. Ils utilisent des approches heuristiques de recherche en partant, pour la première, d'un ensemble de caractéristiques vide et pour la seconde de  $F$ tout entier. 
+Les algorithmes SFS (Sequential Forward Selection, {prf:ref}`SFS`) et SBS (Sequential Backward Selection, {prf:ref}`SFS`-rouge) ont été les premiers à être proposés. Ils utilisent des approches heuristiques de recherche en partant, pour la première, d'un ensemble de caractéristiques vide et pour la seconde de  $F$ tout entier. 
 
 ```{prf:algorithm} Algorithmes SFS et SBS
 :label: SFS
@@ -136,7 +142,7 @@ L'algorithme de filtrage Focus (algorithme {prf:FOCUS}) repose sur une recherche
 
 ```{prf:algorithm} Algorithme FOCUS
 :label: FOCUS
-**Entrée :** $A= \{\x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d,1\leq i\leq n  \}$ , taille de l'ensemble final  $T$, seuil $\epsilon$
+**Entrée :** $A= \{\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d,1\leq i\leq n  \}$ , taille de l'ensemble final  $T$, seuil $\epsilon$
 
 **Sortie :** $\hat{F}$
 
@@ -155,15 +161,15 @@ La méthode relief en classification binaire (algorithme {prf:relief}), propose 
 
 ```{prf:algorithm} Algorithme FOCUS
 :label: relief
-**Entrée :** $A= \{\x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d,1\leq i\leq n  \}$ , nombre d'itérations $T$
+**Entrée :** $A= \{\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d,1\leq i\leq n  \}$ , nombre d'itérations $T$
 
 **Sortie :** $w\in\mathbb{R}^d$ un vecteur de poids des caractéristiques, $w_i\in[-1,1],1\leq i\leq d$
 
 1. Pour $i=1$ à $ d$
     1. $w_i\leftarrow 0$
 2. Pour $i=1$ à $ T$
-    1. Choisir aléatoirement un exemple $\x_k$
-    2. Chercher deux plus proches voisins de $x_k$, l'un ($\x_p$) dans sa  classe, l'autre ($\x_q$) dans l'autre classe
+    1. Choisir aléatoirement un exemple $\mathbf x_k$
+    2. Chercher deux plus proches voisins de $x_k$, l'un ($\mathbf x_p$) dans sa  classe, l'autre ($\mathbf x_q$) dans l'autre classe
     3. Pour $j=1$ à $d$
         1. $w_j\leftarrow w_j+\frac{1}{nT}\left (|x_{kj} -x_{qj}|-|x_{kj} -x_{pj}| \right )$
 ```

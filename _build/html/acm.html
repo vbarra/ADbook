@@ -173,7 +173,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Rappels.html">Rappels de probabilité</a></li>
 <li class="toctree-l1"><a class="reference internal" href="elemstats.html">Elements de statistiques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="statsdescriptives.html">Statistique descriptive</a></li>
-<li class="toctree-l1"><a class="reference internal" href="selection.html">Sélection de vaiables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selection.html">Sélection de variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acp.html">Analyse en composantes principales</a></li>
 <li class="toctree-l1"><a class="reference internal" href="regression.html">Régression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="clustering.html">Quelques méthodes de classification</a></li>
@@ -460,7 +460,7 @@ Deux individus sont proches s’ils possèdent les mêmes modalités, sachant qu
 <p><span class="math notranslate nohighlight">\(\chi^2(j,j') = (\mathbf{B}_{\bullet j}-\mathbf{B}_{\bullet j'})^T\mathbf {D_n}^{-1} (\mathbf{B}_{\bullet j}-\mathbf{B}_{\bullet j'}) = n\displaystyle\sum_{i=1}^n\left (\frac{T_{ij}}{n_j} -\frac{T_{ij'}}{n_{j'}}\right )^2\)</span>
 et deux modalités sont proches si elles sont possédées par les mêmes individus.</p>
 <div class="proof remark dropdown admonition" id="remark-1">
-<p class="admonition-title"><span class="caption-number">Remark 21 </span></p>
+<p class="admonition-title"><span class="caption-number">Remark 22 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>On a de plus  <span class="math notranslate nohighlight">\(\chi^2(j,\mathbf{a}) = \frac{n}{n_j}-1\)</span> et  <span class="math notranslate nohighlight">\(f_{\bullet j}\chi^2(j,\mathbf{a}) = \frac{1}{p}\left( 1-\frac{n_j}{n}\right )\)</span>. Donc la distance d’une modalité au centre du nuage est d’autant plus grande que la modalité est rare et la part de l’inertie totale, due à une modalité est d’autant plus grande que la modalité est rare.  On  évite donc en pratique de conserver dans l’analyse les modalités trop rares.</p>
 <p>De même, puisque <span class="math notranslate nohighlight">\(\displaystyle\sum_{k\in \mathcal{M}_j}f_{\bullet k}\chi^2(k,\mathbf{a}) = \frac{1}{p}\left( m_j-1\right )\)</span>, la part de l’inertie totale, due à une variable  <span class="math notranslate nohighlight">\(j\)</span> est d’autant plus grande que le nombre de modalités  de cette variable est grand. Là aussi, on  évite en pratique de conserver dans l’analyse des variables ayant des nombres de modalités trop différents.</p>
@@ -471,7 +471,7 @@ et deux modalités sont proches si elles sont possédées par les mêmes individ
 <p>L’analyse en composantes multiples consiste alors à appliquer l’analyse factorielle des correspondances  du tableau des  contingences <span class="math notranslate nohighlight">\(\mathbf T\)</span>, c’est-à-dire effectuer une ACP pondérée des nuages des point-individus et des point-modalités .</p>
 <p>Une différence notable vient cependant de l’interprétation de l’inertie de ces nuages de points  individus (<span class="math notranslate nohighlight">\(I(\mathbf{A})\)</span>) et modalités (<span class="math notranslate nohighlight">\(I(\mathbf{B})\)</span>). En AFC, on pouvait interpréter statistiquement cette inertie en terme de <span class="math notranslate nohighlight">\(\chi^2/n\)</span> mesurant l’indépendance entre les deux variables qualitatives. Ici, ce n’est plus le cas puisque l’on peut montrer que <span class="math notranslate nohighlight">\(I(\mathbf{A}) = I(\mathbf{B})= m/p-1\)</span>. L’inertie dépend donc du nombre moyen <span class="math notranslate nohighlight">\(m/p\)</span> de catégories par variable.</p>
 <div class="proof remark dropdown admonition" id="remark-2">
-<p class="admonition-title"><span class="caption-number">Remark 22 </span></p>
+<p class="admonition-title"><span class="caption-number">Remark 23 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Les anglo-saxons considère que l’ACM consiste à effectuer l’analyse factorielle des correspondances  du tableau de Burt <span class="math notranslate nohighlight">\(\mathbf T^T \mathbf T\)</span>, matrice symétrique de taille <span class="math notranslate nohighlight">\(m\)</span>. Les profils ligne et colonne sont alors identiques et correspondent aux modalités que l’on veut analyser. On ne peut donc pas effectuer d’analyse des individus.</p>
 </div>
