@@ -76,7 +76,10 @@ Etant donné un $n$-échantillon $(X_1\cdots X_n)$ d'une variable aléatoire par
 ``` 
 ```{index} variance empirique
 ``` 
-- moyenne empirique du $n$-échantillon la variable aléatoire $$\bar{X_n}=\frac1n \displaystyle\sum_{k=1}^n X_k$$
+- moyenne empirique du $n$-échantillon la variable aléatoire 
+
+- $$\bar{X_n}=\frac1n \displaystyle\sum_{k=1}^n X_k$$
+
 -  variance empirique biaisée du $n$-échantillon la variable aléatoire (Ne pas confondre avec la variable $S_n$ du schéma de Bernoulli)
 
 $$S_n^2=\frac1n \displaystyle\sum_{k=1}^n (X_k-\bar{X_n})^2=\frac1n \displaystyle\sum_{k=1}^n X_k^2 -\bar{X_n}^2$$
