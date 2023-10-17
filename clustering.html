@@ -523,7 +523,7 @@ document.write(`
 <p>On remplace cette condition trop exigeante par une fonction numérique (critère) qui mesure la qualité d’homogénéité d’une partition. Le problème peut paraître alors très simple. En effet, par exemple, dans le cas de la recherche d’une partition, il suffit de chercher parmi l’ensemble fini de toutes les partitions celle qui optimise le critère numérique. Malheureusement, le nombre de ces partitions étant très grand, leur énumération est impossible dans un temps raisonnable.
 Le nombre de partitions en <span class="math notranslate nohighlight">\(g\)</span> classes d’un ensemble à <span class="math notranslate nohighlight">\(n\)</span> éléments, que l’on note <span class="math notranslate nohighlight">\(S_n^g\)</span> est le nombre de Stirling de deuxième espèce. En posant <span class="math notranslate nohighlight">\(S_0^0=1\)</span> et pour tout <span class="math notranslate nohighlight">\(n&gt;0\)</span>, <span class="math notranslate nohighlight">\(S_n^0=S_0^n=0\)</span>, il peut être calculé par récurrence grâce à la relation <span class="math notranslate nohighlight">\(S_n^g=S_{n-1}^{g-1}+gS_{n-1}^g\)</span>. On peut montrer que</p>
 <div class="math notranslate nohighlight">
-\[S_n^g = \frac{1}{g!}\displaystyle\sum_{i=1}^g C_g^i (-1)^{g-i}i^n\]</div>
+\[\begin{split}S_n^g = \frac{1}{g!}\displaystyle\sum_{i=1}^g (-1)^{g-i}\begin{pmatrix}g\\ i \end{pmatrix}i^n\end{split}\]</div>
 <p>et donc <span class="math notranslate nohighlight">\(S_n^g\sim \frac{g^n}{g!}\)</span> lorsque <span class="math notranslate nohighlight">\(n\rightarrow\infty\)</span>. En pratique, sur un ordinateur calculant <span class="math notranslate nohighlight">\(10^6\)</span> partitions par seconde, il faut 126 000 ans pour calculer l’ensemble des partitions d’un ensemble à <span class="math notranslate nohighlight">\(n=25\)</span> éléments.</p>
 <p>On utilise alors des heuristiques qui donnent, non pas la meilleure solution, mais une “bonne solution”, proche de la solution optimale. On parle alors d’optimisation locale. Lorsqu’il existe une structure d’ordre sur l’ensemble  <span class="math notranslate nohighlight">\(\Omega\)</span> et que celle-ci doit être respectée par la partition, il existe un algorithme de programmation dynamique (algorithme de Fisher), qui fournit la solution optimale.</p>
 </div>
@@ -976,7 +976,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ffae37902b68cb11c778d6f96e26902cfa10a75a9dc869facfc69b37a5c3ab62.png" src="_images/ffae37902b68cb11c778d6f96e26902cfa10a75a9dc869facfc69b37a5c3ab62.png" />
+<img alt="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" src="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" />
 </div>
 </div>
 </div>
