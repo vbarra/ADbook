@@ -14,7 +14,7 @@ Les méthodes factorielles ont pour but de traiter et visualiser des données mu
 
 Les principales méthodes de ce type incluent l'analyse factorielle des correspondances, l'analyse des correspondances multiples, l'analyse factorielle d'un tableau de distance (pour les tableaux de proximité) ou encore l'analyse factorielle discriminante. Ces méthodes sont proposées en annexe de ce cours.
 
-Nous nous intéressons ici à une méthode de réduction de dimension linéaire, l'analyse en composantes principales.
+Nous nous intéressons ici à une méthode de réduction de dimension linéaire sur données quantitatives, l'analyse en composantes principales.
 
 # Analyse en composantes principales
 
@@ -28,13 +28,13 @@ Pour les données quantitatives, l'Analyse en Composantes Principales (ACP) est 
 ![](./images/acpintro.png)
 
 
-Dans la suite, les données seront des tableaux $n\times p$ de variables quantitatives, une ligne étant un individu, et les colonnes décrivant les paramètres mesurés. Les observations de $p$ variables sur $n$ individus sont donc rassemblées dans une matrice ${\bf X}\in\mathcal{M}_{np}(\mathbb{R})$ .  On notera $x^j$ la j-ème variable, identifiée par la j-ème colonne ${\bf X_{\bullet,j}}$ de ${\bf X}$, et $\mathbf{e_i}$ le i-ème individu (i.e. ${\bf X_{i,\bullet}^T}$).
+Dans la suite, les données seront des tableaux $n\times d$ de variables quantitatives, une ligne étant un individu, et les colonnes décrivant les paramètres mesurés. Les observations de $d$ variables sur $n$ individus sont donc rassemblées dans une matrice ${\bf X}\in\mathcal{M}_{n,d}(\mathbb{R})$ .  On notera $x^j$ la j-ème variable, identifiée par la j-ème colonne ${\bf X_{\bullet,j}}$ de ${\bf X}$, et $\mathbf{e_i}$ le i-ème individu (i.e. ${\bf X_{i,\bullet}^T}$).
  
 ## Principe de la méthode
 ## Pré-traitement du tableau
  En analyse en composantes principales, on raisonne souvent sur des variables centrées et/ou réduites.
 ### Données centrées
- Notons $\mathbf{g} = \left ( \bar{x}^1\cdots \bar{x}^p\right )$ le vecteur des moyennes arithmétiques de chaque variable (centre de gravité) : 
+ Notons $\mathbf{g} = \left ( \bar{x}^1\cdots \bar{x}^d\right )$ le vecteur des moyennes arithmétiques de chaque variable (centre de gravité) : 
  
  $\mathbf{g}={\bf X^TD\mathbf{1}}$
  
@@ -46,19 +46,19 @@ Dans la suite, les données seront des tableaux $n\times p$ de variables quantit
 
  Si on note ${\bf D_{1/\sigma}}$ la matrice diagonale des inverses des écarts-types des variables, alors  ${\bf Z}={\bf YD_{1/\sigma}}$ 
  est la matrice des données centrées réduites. La matrice ${\bf R}={\bf D_{1/\sigma}VD_{1/\sigma}}={\bf Z^TDZ}$ 
- est la matrice de corrélation des données et résume la structure des dépendances linéaires entre les $p$ variables.
+ est la matrice de corrélation des données et résume la structure des dépendances linéaires entre les $d$ variables.
  
 
 ## Projection des individus sur un sous-espace
 Le principe de la méthode est d'obtenir une représentation approchée du nuage des $n$ individus dans un sous-espace $F_k$ de dimension faible. Ceci s'effectue par un mécanisme de projection.
 
-Le choix de l'espace de projection est dicté par le critère suivant, qui revient à déformer le moins possible les distances en projection: le sous-espace de dimension $k$ recherché est tel que la moyenne des carrés des distances entre projections soit la plus grande possible. En définissant l'inertie d'un nuage de points comme la moyenne pondérée des carrés des distances au centre de gravité, le critère revient alors à maximiser l'inertie du nuage projeté sur $F_k$.
+Le choix de l'espace de projection est dicté par le critère suivant, qui revient à déformer le moins possible les distances en projection : le sous-espace de dimension $k$ recherché est tel que la moyenne des carrés des distances entre projections soit la plus grande possible. En définissant l'inertie d'un nuage de points comme la moyenne pondérée des carrés des distances au centre de gravité, le critère revient alors à maximiser l'inertie du nuage projeté sur $F_k$.
 
 Soit ${\bf P}$ la projection orthogonale sur $F_k$. Le nuage de points projeté est associé au tableau ${\bf XP^T}$ puisque chaque individu $\mathbf{e_i}$ se projette sur $F_k$ selon un vecteur colonne $\mathbf{Pe_i}$ ou ligne $\mathbf{e_i P^T}$. 
 
 La matrice de variance du tableau ${\bf XP^T}$ est, dans le cas où les variables sont centrées :
 ${\bf (XP^T)^TD(XP^T) }= {\bf PVP^T}$.
-L'inertie du nuage projeté est donc égale à $Tr({\bf PVP^TM})$, où ${\bf M}$ est une matrice symétrique définie positive de taille $p$, définissant la distance entre deux individus
+L'inertie du nuage projeté est donc égale à $Tr({\bf PVP^TM})$, où ${\bf M}$ est une matrice symétrique définie positive de taille $d$, définissant la distance entre deux individus
 
 $d^2(\mathbf{e_i},\mathbf{e_j}) = (\mathbf{e_i}-\mathbf{e_j})^T{\bf M}(\mathbf{e_i}-\mathbf{e_j})$
 
@@ -121,7 +121,7 @@ Les droites portées par ces vecteurs propres sont les axes principaux. Dans la 
 ```
 ```{index} Facteurs principaux
 ```
-On associe à  $Lin(\mathbf{a})$ la forme linéaire $\mathbf{u}$, coordonnée orthogonale sur l'axe $Lin(\mathbf{a})$. Le vecteur $\mathbf{u}$ définit une combinaison linéaire des variables descriptives $x^1\cdots x^p$. A l'axe principal $\mathbf{a}$ est associé le facteur principal $\mathbf{u}=\mathbf{Ma}$. Puisque $\mathbf{a}$ est vecteur propre de ${\bf VM}$, on peut alors écrire 
+On associe à  $Lin(\mathbf{a})$ la forme linéaire $\mathbf{u}$, coordonnée orthogonale sur l'axe $Lin(\mathbf{a})$. Le vecteur $\mathbf{u}$ définit une combinaison linéaire des variables descriptives $x^1\cdots x^d$. A l'axe principal $\mathbf{a}$ est associé le facteur principal $\mathbf{u}=\mathbf{Ma}$. Puisque $\mathbf{a}$ est vecteur propre de ${\bf VM}$, on peut alors écrire 
 
 ${\bf MVM}\mathbf{a}=\lambda {\bf M}\mathbf{a}$
 
@@ -142,33 +142,34 @@ Mais $\displaystyle\sum_j \mathbf{u_j}\mathbf{u_j}^T{\bf M^{-1}}=\mathbb{I}$  ca
 ${\bf X}=\displaystyle\sum_j\mathbf{c_j}\mathbf{u_j}^T{\bf M^{-1}}$
 et si l'on s'intéresse à l'approximation de ${\bf X}$ on ne somme que les $k$ premiers termes.
 
-A noter que lorsque ${\bf M}=\mathbb{I}, {\bf X}= \displaystyle\sum_j\sqrt{\lambda_j}\mathbf{z_j}\mathbf{v_j^T}$ où les $\mathbf{z_j}$ sont les vecteurs propres unitaires de ${\bf XX^T}$ et les $\mathbf{v_j}$ les vecteurs propres unitaires de ${\bf X^TX}$ (décomposition en valeurs singulières).
+A noter que lorsque ${\bf M}=\mathbb{I}, {\bf X}= \displaystyle\sum_j\sqrt{\lambda_j}\mathbf{z_j}\mathbf{v_j^T}$ où les $\mathbf{z_j}$ sont les vecteurs propres unitaires de ${\bf XX^T}$ et les $\mathbf{v_j}$ les vecteurs propres unitaires de ${\bf X^TX}$ (décomposition dite en valeurs singulières).
  
 ## Interprétation des résultats
 ## Quelle dimension pour $F_k$ ?
 Le but premier de l'ACP est de réduire la dimension pour permettre une visualisation efficace des données, tout en préservant l'information (ici représentée par la variance du nuage de points).  Il faut donc se doter d'outils permettant de répondre à la question : quelle dimension pour $F_k$ ? Il n'y a pas de réponse théorique satisfaisante, l'essentiel étant d'avoir une représentation suffisamment expressive pour permettre une interprétation correcte du nuage de points.
-En préambule, il convient de remarquer que la réduction de dimension ne sera possible que si les variables $x^1\cdots x^p$ ne sont pas indépendantes.
+En préambule, il convient de remarquer que la réduction de dimension ne sera possible que si les variables $x^1\cdots x^d$ ne sont pas indépendantes.
 
 
 ### Critère théorique
-On détermine ici si les valeurs propres sont significativement différentes entre elles à partir d'un certain rang: si la réponse est négative on conserve les
+On détermine ici si les valeurs propres sont significativement différentes entre elles à partir d'un certain rang : si la réponse est négative on conserve les
 premières valeurs propres.
 
-On fait l'hypothèse que les $n$ individus proviennent d'un tirage aléatoire dans une population gaussienne  où $\lambda_{k+1}=\cdots =\lambda_{p}$. Si l'hypothèse est vérifiée, la moyenne arithmétique $\alpha$ des $p-k$ dernières valeurs propres et leur moyenne géométrique $\gamma$ sont peu différentes. On admet que :
+On fait l'hypothèse que les $n$ individus proviennent d'un tirage aléatoire dans une population gaussienne  où $\lambda_{k+1}=\cdots =\lambda_{d}$. Si l'hypothèse est vérifiée, la moyenne arithmétique $\alpha$ des $d-k$ dernières valeurs propres et leur moyenne géométrique $\gamma$ sont peu différentes. On admet que :
 
-$c=\left ( n-\frac{2p+11}{6}\right )(p-k) ln\frac{\alpha}{\gamma}$
-suit une loi du $\chi^2$ de degré de liberté $\frac{(p-k+2)(p-k-1)}{2}$ et on rejette l'hypothèse d'égalité des $p-k$ valeurs propres si $c$ est trop grand.
+$c=\left ( n-\frac{2p+11}{6}\right )(d-k) ln\frac{\alpha}{\gamma}$
+suit une loi du $\chi^2$ de degré de liberté $\frac{(d-k+2)(d-k-1)}{2}$ et on rejette l'hypothèse d'égalité des $d-k$ valeurs propres si $c$ est trop grand.
 
 ### Pourcentage d'inertie
 Le critère couramment utilisé est le pourcentage d'inertie totale expliquée, qui s'exprime sur les $k$ premiers axes par :
 
-$\frac{\displaystyle\sum_{j=1}^k \lambda_j}{\displaystyle\sum_{j=1}^p \lambda_j}$
+$$\frac{\displaystyle\sum_{j=1}^k \lambda_j}{\displaystyle\sum_{j=1}^d \lambda_j}$$
+
 Un seuil par exemple de 90\% d'inertie totale expliquée donne une valeur de $k$ correspondante. Attention cependant, le pourcentage d'inertie doit faire intervenir le nombre de variables initiales.
 
 ![](./images/scree.png)
 
 ### Mesures locales
-Le pourcentage d'inertie expliquée est un critère global qui doit être complété par d'autres considérations. Supposons que le plan $F_2$ explique une part importante d'inertie, et que, en projection sur ce plan, deux individus soient très proches. Cette proximité peut être illusoire si les deux individus se trouvent éloignés dans l'orthogonal de $F_2$. Pour prendre en compte ce phénomène, il faut envisager pour chaque individu $\mathbf{e_i}$ la qualité de sa représentation, souvent exprimée par le cosinus de l'angle entre le plan principal et le vecteur $\mathbf{e_i}$. Si ce cosinus est grand, $\mathbf{e_i}$ est voisin du plan, on peut  alors examiner la position de sa projection sur le plan par rapport à d'autres points.
+Le pourcentage d'inertie expliquée est un critère global qui doit être complété par d'autres considérations. Supposons que le plan $F_2$ explique une part importante d'inertie, et que, en projection sur ce plan, deux individus soient très proches. Cette proximité peut être illusoire si les deux individus se trouvent éloignés dans l'orthogonal de $F_2$. Pour prendre en compte ce phénomène, il faut envisager pour chaque individu $\mathbf{e_i}$ la qualité de sa représentation, souvent exprimée par le **cosinus de l'angle entre le plan principal et le vecteur $\mathbf{e_i}$**. Si ce cosinus est grand, $\mathbf{e_i}$ est voisin du plan, on peut  alors examiner la position de sa projection sur le plan par rapport à d'autres points.
 
 Dans la figure suivante, ${\bf e_i} $ et ${\bf e_j}$ se projettent sur $F_2$ en ${\bf p}$ mais sont éloignés dans $F_2^\perp$.
 
@@ -185,7 +186,7 @@ Lorsqu'on travaille sur données centrées réduites, on retient les composantes
 
 ## Interprétation des résultats : exemple
 
-Une analyse en composantes principales est réalisée sur un jeu de données composé de 9 indicateurs de qualité pour 329 villes américaines. Les paragraphes suivants sont illustrés par ces données.
+Une analyse en composantes principales est réalisée sur un jeu de données composé de $d$=9 indicateurs de qualité pour $n$=329 villes américaines. Les paragraphes suivants sont illustrés par ces données.
 
 ### Corrélation variables-facteurs
 Pour donner du sens aux composantes principales $\mathbf{c}$, il faut les relier aux variables initiales $x^j$ en calculant les coefficients de corrélation linéaire  $r(\mathbf{c},x^j)$ et en seuillant ces coefficients en valeur absolue.
@@ -220,7 +221,8 @@ Dire que $\mathbf{c_1}$ est très corrélée à $x^j$ signifie que les individus
 
 Il est très utile aussi de calculer pour chaque axe la contribution apportée par les divers individus à cet axe. Si $c_{ki}$ est la valeur de la composante $k$ pour le $i^e$ individu, alors par construction 
 
-$\displaystyle\sum_{i=1}^np_ic_{ki}^2=\lambda_k$
+$$\displaystyle\sum_{i=1}^np_ic_{ki}^2=\lambda_k$$
+
 où $p_i$ est le poids de l'individu $i$. On appelle alors contribution de l'individu $i$ à la composante $\mathbf{c_k}$ la quantité $\frac{p_ic_{ki}^2}{\lambda_k}$. Dans le cas où le poids est différent de $1/n$ (certains individus sont "plus importants" que d'autres), la contribution est riche d'interprétation. Dans le cas contraire, elle n'apporte rien de plus que les coordonnées de l'individu.
 
 On peut alors positionner les individus sur les sous-espaces des premières composantes principales (plans factoriels). La figure suivante présente le positionnement de 329 villes américaines, où les 9 variables de qualité de vie précédentes ont été mesurées. Par soucis de lisibilité, seul les villes qui contribuent le plus à la création de la première composante principale ont leurs noms inscrits.
@@ -244,7 +246,7 @@ La deuxième composante principale différencie alors des individus de "taille" 
 ## Ajout de variable et ou d'individu
 Toutes les interprétations précédentes expliquent les résultats à l'aide des données initiales, qui ont permis de les calculer. On risque alors de prendre pour une propriété intrinsèque des données un simple artefact de la méthode (par exemple il existe de fortes corrélations entre la première composante principale et certaines variables, puisque $\mathbf{c_1}$ maximise $\sum_j r^2(\mathbf{c},x^j)$).
 
-En revanche une forte corrélation entre une composante principale et une variable qui n'a pas servi à l'analyse sera significative. D'où la pratique courante de partager en deux groupes l'ensemble des variables: d'une part les variables actives qui servent à déterminer les axes principaux, d'autre part les variables passives ou supplémentaires que l'on relie a posteriori aux composantes principales. On distingue alors les variables supplémentaires suivant leur type, numérique (à placer dans les cercles de corrélation) ou qualitative (donnée d'une partition des $n$ individus en $k$ classes).
+En revanche une forte corrélation entre une composante principale et une variable qui n'a pas servi à l'analyse sera significative. D'où la pratique courante de partager en deux groupes l'ensemble des variables : d'une part les variables actives qui servent à déterminer les axes principaux, d'autre part les variables passives ou supplémentaires que l'on relie a posteriori aux composantes principales. On distingue alors les variables supplémentaires suivant leur type, numérique (à placer dans les cercles de corrélation) ou qualitative (donnée d'une partition des $n$ individus en $k$ classes).
 
 ## Exemple
 On étudie les consommations annuelles en 1972, exprimées en devises, de 8 denrées alimentaires (les variables), les individus étant 8 catégories socio-professionnelles (CSP) . Les données sont des moyennes par CSP : 
@@ -320,7 +322,7 @@ PAA et VIO sont très proches de la contribution moyenne, on les intègre donc d
 Toutes les variables sont bien représentées sur l'axe (la qualité de représentation est égale à la coordonnée au carré). D'un point de vue graphique, une variable bien représentée est proche du bord du cercle des corrélation et à proximité de l'axe. La première composante principale explique donc correctement tous les types de consommations alimentaires.
 
 2- **Individus** : de même, les individus contribuant le plus à la formation de l'axe 1 sont ceux dont les coordonnées sur cet axe sont les plus élevées en valeur absolue. Le premier axe met donc en opposition les agriculteurs et les cadres supérieurs quant à leurs habitudes alimentaires. Les autres catégories socio-professionnelles, assez bien représentées sur l'axe à l'exception des inactifs (cf. contributions des individus sur l'axe 1), s'échelonnent suivant la hiérarchie habituelle. Elles sont bien expliquées par l'axe.
-\end{itemize}
+
 
 - Axe 2 : 
 
@@ -350,24 +352,24 @@ vins = pd.read_csv("./data/vins.csv",delimiter=",",header=None)
 cat_vins = vins.loc[: , 0]
 X = vins.loc[:,1:vins.shape[1]]
 X = np.array(X)
-n,p = X.shape
+n,d = X.shape
 ind = np.arange(n)
 variables = ['% alcool', 'acide malique', 'cendres', 'alcalinité', 'magnésium', 'phénols' , 
                 'flavonoïdes', 'non flavanoïdes', 'proanthocyanidines', 'couleur', 'teinte', 
                 'OD280/OD315','proline']
 
 # Affichage d'un tableau
-def print_tab (n, p, ind, tab):
+def print_tab (n, d, ind, tab):
     r = " " * 12 + "\t"
-    c = ['CP'+str(i+1) for i in range(p)]
-    for j in range(p - 1):
+    c = ['CP'+str(i+1) for i in range(d)]
+    for j in range(d - 1):
         r += c[j] + "\t"
-    r += c[p - 1] + " \n"
+    r += c[d - 1] + " \n"
     for i in range(n):
         r += "  %8.8s\t" % ind[i]
-        for j in range(p - 1):
+        for j in range(d - 1):
             r += "%.2f \t" % tab[i][j]
-        r += "%.2f\n" % tab[i][p - 1]
+        r += "%.2f\n" % tab[i][d - 1]
     return r
 ``` 
 
@@ -410,7 +412,7 @@ $R = D_{1/\sigma}VD_{1/\sigma} = Z^T  D  Z$ = Matrice (symétrique) de variance/
 ```{code-cell} ipython3
 sigma = seq = [np.std(x) for x in Xt]
 i_sigma = [1./s for s in sigma]
-D_sigma = i_sigma * np.identity(p)
+D_sigma = i_sigma * np.identity(d)
 Z = np.matmul (Y, D_sigma)
 R = np.matmul (np.matmul(D_sigma, V), D_sigma)
 plt.imshow(R)
@@ -452,28 +454,28 @@ print (calcul_inertie_trace(R, M))
 ```{code-cell} ipython3
 eigenvalues,eigenvectors = np.linalg.eig(R)
 eigenvalues = sorted(eigenvalues, reverse=True)
-u = [eigenvectors[:,i] for i in range(p)]
+u = [eigenvectors[:,i] for i in range(d)]
 ```
 
 ### Calcul des composantes principales
 ```{code-cell} ipython3
 c = []
-for j in range(p):
+for j in range(d):
     c.append(np.matmul (Z, u[j]))
 ```
 
 ### Pourcentage d'inertie expliquée par un axe
-Pourcentage d'inertie cumulée expliquée par les $k$ premiers axes : $\frac{\displaystyle\sum_{j=1}^k\lambda_j}{\displaystyle\sum_{j=1}^p\lambda_j}$
+Pourcentage d'inertie cumulée expliquée par les $k$ premiers axes : $\frac{\displaystyle\sum_{j=1}^k\lambda_j}{\displaystyle\sum_{j=1}^d\lambda_j}$
 
 ```{code-cell} ipython3
-i_lambda = [l/p for l in eigenvalues]
-i_cum = np.cumsum(eigenvalues)/p
+i_lambda = [l/d for l in eigenvalues]
+i_cum = np.cumsum(eigenvalues)/d
 plt.figure(figsize=(10,5))
 plt.subplot(121)
-plt.plot(np.arange(1,p+1),i_lambda)
+plt.plot(np.arange(1,d+1),i_lambda)
 plt.title('Valeurs propres')
 plt.subplot(122)
-plt.plot(np.arange(1,p+1),i_cum)
+plt.plot(np.arange(1,d+1),i_cum)
 plt.title('% de variance expliquée');
 plt.tight_layout()
 ```
@@ -491,7 +493,7 @@ print ("On retient " + str(nb_l) + " axes")
 
 ```{code-cell} ipython3
 r = []
-for j in range(p):
+for j in range(d):
     r.append(np.sqrt(eigenvalues[j]) * u[j])
 ```
 
@@ -553,12 +555,12 @@ plt.tight_layout()
 
 ```{code-cell} ipython3
 contributions_variables = []
-for i in range (p):
+for i in range (d):
     line = []
-    for j in range (p):
+    for j in range (d):
         line.append(np.transpose(u)[i][j]*np.transpose(u)[i][j])
     contributions_variables.append(line)
-print (print_tab (p, p, variables, contributions_variables))
+print (print_tab (d, d, variables, contributions_variables))
 ```
 
 ### Représentation des individus
@@ -609,16 +611,16 @@ $\frac{p_ic_{ki}^2}{\lambda_k}$
 contributions_individus = []
 for i in range (n):
     line = []
-    for k in range (p):
+    for k in range (d):
         val = (np.transpose(c)[i][k]*np.transpose(c)[i][k]) / (n * eigenvalues[k]) 
         line.append(val)
     contributions_individus.append(line)
     
-print (print_tab (n, p, ind, contributions_individus))
+print (print_tab (n, d, ind, contributions_individus))
 ```
 
 ### Tableau des cosinus carrés
-$\frac{c_{ki}^2}{\displaystyle\sum_{j=1}^p c_{ji}^2}$
+$\frac{c_{ki}^2}{\displaystyle\sum_{j=1}^d c_{ji}^2}$
 
 
 ```{code-cell} ipython3
@@ -629,9 +631,9 @@ for i in range(n):
     line = []
     # on prend la représentation de l'individu i sur chacune des composantes
     tot = np.sum([x*x for x in c[:,i]])
-    for k in range(p):
+    for k in range(d):
         line.append(c[:,i][k]*c[:,i][k]/tot)
     cosinus_carres.append(line)
 
-print (print_tab (n, p, ind, cosinus_carres))
+print (print_tab (n, d, ind, cosinus_carres))
 ```
