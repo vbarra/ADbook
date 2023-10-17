@@ -60,7 +60,7 @@ L'objectif de la classification automatique est l'organisation en classes homog�
 On remplace cette condition trop exigeante par une fonction numérique (critère) qui mesure la qualité d'homogénéité d'une partition. Le problème peut paraître alors très simple. En effet, par exemple, dans le cas de la recherche d'une partition, il suffit de chercher parmi l'ensemble fini de toutes les partitions celle qui optimise le critère numérique. Malheureusement, le nombre de ces partitions étant très grand, leur énumération est impossible dans un temps raisonnable. 
 Le nombre de partitions en $g$ classes d'un ensemble à $n$ éléments, que l'on note $S_n^g$ est le nombre de Stirling de deuxième espèce. En posant $S_0^0=1$ et pour tout $n>0$, $S_n^0=S_0^n=0$, il peut être calculé par récurrence grâce à la relation $S_n^g=S_{n-1}^{g-1}+gS_{n-1}^g$. On peut montrer que 
 
-$$S_n^g = \frac{1}{g!}\displaystyle\sum_{i=1}^g C_g^i (-1)^{g-i}i^n$$
+$$S_n^g = \frac{1}{g!}\displaystyle\sum_{i=1}^g (-1)^{g-i}\begin{pmatrix}g\\ i \end{pmatrix}i^n$$
 
 et donc $S_n^g\sim \frac{g^n}{g!}$ lorsque $n\rightarrow\infty$. En pratique, sur un ordinateur calculant $10^6$ partitions par seconde, il faut 126 000 ans pour calculer l'ensemble des partitions d'un ensemble à $n=25$ éléments.
 
