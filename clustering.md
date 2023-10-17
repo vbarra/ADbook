@@ -523,7 +523,7 @@ from scipy.stats import multivariate_normal
 import matplotlib.pyplot as plt
 import matplotlib
 
-X = np.genfromtxt('mixture.csv', delimiter=',')
+X = np.genfromtxt('./data/mixture.csv', delimiter=',')
 K = 3
 n, d = X.shape
 
