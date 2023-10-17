@@ -968,27 +968,46 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 <li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf c,\mathbf {c'}\in C\)</span> alculer <span class="math notranslate nohighlight">\(\delta (\mathbf c,\mathbf {c'})\)</span></p></li>
 <li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf c\)</span> <span class="math notranslate nohighlight">\(s(c)= \frac{1}{2}\displaystyle\min_{\mathbf {c'}\neq \mathbf c} \delta(\mathbf c,\mathbf {c'})\)</span></p></li>
 <li><p>Identifier les <span class="math notranslate nohighlight">\(\x\)</span> tels que <span class="math notranslate nohighlight">\(u(\x)\leq s(\mathbf c(\x))\)</span></p></li>
-<li><p>Pour tout <span class="math notranslate nohighlight">\(\x\in X,\mathbf c\in C\)</span> tels que <span class="math notranslate nohighlight">\(\mathbf c\neq \mathbf c(\x)\)</span> et <span class="math notranslate nohighlight">\(u(\x)&gt;l(\x,\mathbf c)\)</span> et <span class="math notranslate nohighlight">\(u(\x)&gt;\frac{1}{2}d(\mathbf c(\x),\mathbf c)\)</span></p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(r(\mathbf x)\)</span>
-1. Calculer <span class="math notranslate nohighlight">\(d(\mathbf c(\x),\mathbf x)\)</span>
-2. <span class="math notranslate nohighlight">\(r(\x)=Faux\)</span></p></li>
-<li><p>Sinon</p></li>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\x\in X,\mathbf c\in C\)</span> tels que <span class="math notranslate nohighlight">\(\mathbf c\neq \mathbf c(\x)\)</span> et <span class="math notranslate nohighlight">\(u(\x)&gt;l(\x,\mathbf c)\)</span> et <span class="math notranslate nohighlight">\(u(\x)&gt;\frac{1}{2}d(\mathbf c(\x),\mathbf c)\)</span></p>
+<ol class="arabic simple">
+<li><p>Si <span class="math notranslate nohighlight">\(r(\mathbf x)\)</span></p></li>
+<li><p>Calculer <span class="math notranslate nohighlight">\(d(\mathbf c(\x),\mathbf x)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(r(\x)=Faux\)</span></p></li>
+</ol>
+</li>
+<li><p>Sinon</p>
+<ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(d(\mathbf c(\x),\mathbf x)=u(\x)\)</span></p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(d(\mathbf c(\x),\mathbf x)&gt;l(\x,\mathbf c)\)</span>  ou <span class="math notranslate nohighlight">\(d(\mathbf c(\x),\mathbf x)&gt;\frac{1}{2}d(\mathbf c(\x),\mathbf c)\)</span></p></li>
+</ol>
+</li>
+<li><p>Si <span class="math notranslate nohighlight">\(d(\mathbf c(\x),\mathbf x)&gt;l(\x,\mathbf c)\)</span>  ou <span class="math notranslate nohighlight">\(d(\mathbf c(\x),\mathbf x)&gt;\frac{1}{2}d(\mathbf c(\x),\mathbf c)\)</span></p>
+<ol class="arabic simple">
 <li><p>Calculer <span class="math notranslate nohighlight">\(d(\x,\mathbf c)\)</span></p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(d(\x,\mathbf c)&lt;d(\mathbf c(\x),\mathbf x)\)</span>
-1. <span class="math notranslate nohighlight">\(\mathbf c(\x)= \mathbf c\)</span></p></li>
-<li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf c\in C\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(d(\x,\mathbf c)&lt;d(\mathbf c(\x),\mathbf x)\)</span></p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf c(\x)= \mathbf c\)</span></p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf c\in C\)</span></p>
+<ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbf m(\mathbf c)\)</span> : centre de masse des points de <span class="math notranslate nohighlight">\(X\)</span> plus proches de <span class="math notranslate nohighlight">\(\mathbf c\)</span></p></li>
-<li><p>Pour tout <span class="math notranslate nohighlight">\(\x\in X,\mathbf c\in C\)</span></p></li>
+</ol>
+</li>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\x\in X,\mathbf c\in C\)</span></p>
+<ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(l(\x,\mathbf c)=max\left (l(\x,\mathbf c)-d(\mathbf m(\mathbf c),\mathbf c),0 \right )\)</span></p></li>
-<li><p>Pour tout <span class="math notranslate nohighlight">\(\x\in X\)</span></p></li>
+</ol>
+</li>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\x\in X\)</span></p>
+<ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(u(\x)=u(\x)+d(\mathbf m(\mathbf c(\x)),\mathbf c(\x))\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(r(\x)=Vrai\)</span>
-10 Pour tout <span class="math notranslate nohighlight">\(\mathbf c\in C\)</span>
-{</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathbf c = \mathbf m(\mathbf c)\)</span>
-}</p></li>
+10 Pour tout <span class="math notranslate nohighlight">\(\mathbf c\in C\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf c = \mathbf m(\mathbf c)\)</span></p></li>
+</ol>
+</li>
 </ol>
 </li>
 </ol>
@@ -1008,17 +1027,17 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 <li><p>Tant que non convergence</p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(\mathcal{B}\leftarrow\)</span> batch de <span class="math notranslate nohighlight">\(b\)</span> exemples tirés de <span class="math notranslate nohighlight">\(X\)</span></p></li>
-<li><p>Pour tout <span class="math notranslate nohighlight">\(\x\in \mathcal{B}\)</span></p>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf x\in \mathcal{B}\)</span></p>
 <ol class="arabic simple">
-<li><p>Affecter <span class="math notranslate nohighlight">\(\x\)</span> à la classe du centre le plus proche <span class="math notranslate nohighlight">\(\mathbf d(\x)\)</span></p></li>
+<li><p>Affecter <span class="math notranslate nohighlight">\(\mathbf x\)</span> à la classe du centre le plus proche <span class="math notranslate nohighlight">\(\mathbf T(\mathbf x)\)</span></p></li>
 </ol>
 </li>
-<li><p>Pour tout <span class="math notranslate nohighlight">\(\x\in \mathcal{B}\)</span></p>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf x\in \mathcal{B}\)</span></p>
 <ol class="arabic simple">
-<li><p>$\mathbf c = \mathbf d(\x)$\</p></li>
+<li><p>$\mathbf c = \mathbf T(\mathbf x)$\</p></li>
 <li><p>$v_c = v_c + 1$\</p></li>
 <li><p>$\eta = \frac{1}{v_c}$\</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathbf c = (1-\eta)\mathbf c + \eta \x\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf c = (1-\eta)\mathbf c + \eta \mathbf x\)</span></p></li>
 </ol>
 </li>
 </ol>
@@ -1078,7 +1097,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/282a71541470bf599f673324fd8333f803863bae5ab287f44588409753ee6b0a.png" src="_images/282a71541470bf599f673324fd8333f803863bae5ab287f44588409753ee6b0a.png" />
+<img alt="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" src="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" />
 </div>
 </div>
 </div>
