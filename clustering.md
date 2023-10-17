@@ -418,13 +418,13 @@ L'algorithme original peut être amélioré de manière significative en évitan
       3. Identifier les $\mathbf x$ tels que $u(\mathbf x)\leq s(\mathbf c(\mathbf x))$
       4. Pour tout $\mathbf x\in X,\mathbf c\in C$ tels que $\mathbf c\neq \mathbf c(\mathbf x)$ et $u(\mathbf x)>l(\mathbf x,\mathbf c)$ et $u(\mathbf x)>\frac{1}{2}\delta(\mathbf c(\mathbf x),\mathbf c)$
           1. Si $r(\mathbf x)$
-              1. Calculer $d(\mathbf c(\mathbf x),\mathbf x)$
+              1. Calculer $\delta(\mathbf c(\mathbf x),\mathbf x)$
               2. $r(\mathbf x)=Faux$
-      5. Sinon
-          1. $d(\mathbf c(\mathbf x),\mathbf x)=u(\mathbf x)$
-      6. Si $d(\mathbf c(\mathbf x),\mathbf x)>l(\mathbf x,\mathbf c)$  ou $d(\mathbf c(\mathbf x),\mathbf x)>\frac{1}{2}d(\mathbf c(\mathbf x),\mathbf c)$
-          1. Calculer $d(\mathbf x,\mathbf c)$
-          2. Si $d(\mathbf x,\mathbf c)<d(\mathbf c(\mathbf x),\mathbf x)$
+          2. Sinon
+              1. $d(\mathbf c(\mathbf x),\mathbf x)=u(\mathbf x)$
+          3. Si $d(\mathbf c(\mathbf x),\mathbf x)>l(\mathbf x,\mathbf c)$  ou $d(\mathbf c(\mathbf x),\mathbf x)>\frac{1}{2}d(\mathbf c(\mathbf x),\mathbf c)$
+              1. Calculer $d(\mathbf x,\mathbf c)$
+              2. Si $d(\mathbf x,\mathbf c)<d(\mathbf c(\mathbf x),\mathbf x)$
               1. $\mathbf c(\mathbf x)= \mathbf c$
       7. Pour tout $\mathbf c\in C$ 
           1. $\mathbf m(\mathbf c)$ : centre de masse des points de $X$ plus proches de $\mathbf c$
