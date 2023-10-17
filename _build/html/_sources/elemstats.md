@@ -278,7 +278,7 @@ La figure suivante illustre ce modèle dans le cas où la variable aléatoire pa
 ### Commentaires
 Pour mesurer une grandeur de valeur inconnue $m$, il suffit d'une seule mesure lorsqu'il n'y a pas d'erreur expérimentale. Mais les mesures sont toujours entâchées d'erreur et une expérience ou mesure peut être modélisée par une variable aléatoire $X$ dnot la moyenne théorique $\mathbb{E}(X)$ est la valeur cherchée $m$ si les mesures ne sont pas biaisées, c'est-à-dire affectées d'une erreur systématique.
 
-Ayant effectué $n$ mesures, on a une réalisation d'un $n$-échantillon de $X$ et une valeur observée $\bar x_n$ de la moyenne empirique $/bar X_n$. On peut prendre cette valeur comme estimation de $m$, l'écart $|\bar x_n-m|$ étant une réalisation de $|\bar X_n-m|$. 
+Ayant effectué $n$ mesures, on a une réalisation d'un $n$-échantillon de $X$ et une valeur observée $\bar x_n$ de la moyenne empirique $\bar X_n$. On peut prendre cette valeur comme estimation de $m$, l'écart $|\bar x_n-m|$ étant une réalisation de $|\bar X_n-m|$. 
 
 - La loi forte des grands nombres justifie cette estimation en supposant  $\mathbb{E}(X)=m$
 - L'inégalité de Tchebychev donne une idée grossière de l'écart en terme de probabilité
@@ -472,7 +472,8 @@ Si $X$ et $Y$ sont des variables aléatoires indépendantes de loi respective $\
 ```
 
 ```{prf:theorem}
-Si $X$ est de loi $\mathcal{N}(0,1)$ alors la variable aléatoire $Y=X^2$ admet une loi $\gamma(\frac12,\frac12)$.\\ 
+Si $X$ est de loi $\mathcal{N}(0,1)$ alors la variable aléatoire $Y=X^2$ admet une loi $\gamma(\frac12,\frac12)$.
+
 Etant données plus généralement $n$ variables aléatoires i.i.d. de loi $\mathcal{N}(m,\sigma)$, alors  la variable aléatoire $V=\displaystyle\sum_{k=1}^n \left (\frac{X_k-m}{\sigma}\right )^2$ admet une loi $\gamma(\frac{n}{2},\frac12)$. C'est la loi du khi-deux à $n$ degrés de liberté.
 ```
 
