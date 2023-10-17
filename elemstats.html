@@ -631,7 +631,7 @@ Soit <span class="math notranslate nohighlight">\(A=\left \{|X-m|\geq t\right \}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3db19e1c6b0d25a14ca87a726c9080fb340592c4dcc94fb6502f55b29797c83a.png" src="_images/3db19e1c6b0d25a14ca87a726c9080fb340592c4dcc94fb6502f55b29797c83a.png" />
+<img alt="_images/ceb1fa7e416d632397faaac4c8dbaf935f9540f7f482eeb715186b3a284208b5.png" src="_images/ceb1fa7e416d632397faaac4c8dbaf935f9540f7f482eeb715186b3a284208b5.png" />
 </div>
 </div>
 <p>La fluctuation de la fréquence est importante pour des petites valeurs de <span class="math notranslate nohighlight">\(n\)</span>, puis elle s’atténue, pour se stabiliser autour d’une valeur voisine de <span class="math notranslate nohighlight">\(p\)</span>.</p>
@@ -685,8 +685,9 @@ Soit <span class="math notranslate nohighlight">\(A=\left \{|X-m|\geq t\right \}
 <p>Soit <span class="math notranslate nohighlight">\(S_n\)</span> une variable aléatoire de loi <span class="math notranslate nohighlight">\(\mathcal{B}(n,p)\)</span>. Lorsque <span class="math notranslate nohighlight">\(n\)</span> est grand (&gt;50) et <span class="math notranslate nohighlight">\(p\)</span> petite (<span class="math notranslate nohighlight">\(np\)</span>&lt;10), on peut approcher la loi de <span class="math notranslate nohighlight">\(S_n\)</span> par une loi de Poisson <span class="math notranslate nohighlight">\(\mathcal P(np)\)</span>. On lit alors la valeur correspondante dans la table de la loi de Poisson, pour tout <span class="math notranslate nohighlight">\(k\in[\![0,n]\!]\)</span>
 <span class="math notranslate nohighlight">\(P(S_n=k)\approx e^{-\lambda}\frac{\lambda^k}{k!}\)</span></p>
 <p>De plus, en remarquant que <span class="math notranslate nohighlight">\(\Sigma_n=n-S_n\)</span> suit <span class="math notranslate nohighlight">\(\mathcal{B}(n,1-p)\)</span>, on a</p>
-<p><span class="math notranslate nohighlight">\(P(\Sigma_n=k)=P(S_n=n-k)=\begin{pmatrix}n\\p\end{pmatrix} p^{n-k}(1-p)^{k} \)</span>
-et quand <span class="math notranslate nohighlight">\(n\)</span> est grand (&gt;50) et <span class="math notranslate nohighlight">\(p\)</span> voisin de 1 (<span class="math notranslate nohighlight">\(n(1-p)&lt;10\)</span>) on peut approcher la loi de <span class="math notranslate nohighlight">\(\Sigma_n\)</span> par une loi de Poisson <span class="math notranslate nohighlight">\(\mathcal P(n(1-p))\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}P(\Sigma_n=k)=P(S_n=n-k)=\begin{pmatrix}n\\p\end{pmatrix} p^{n-k}(1-p)^{k} \end{split}\]</div>
+<p>et quand <span class="math notranslate nohighlight">\(n\)</span> est grand (&gt;50) et <span class="math notranslate nohighlight">\(p\)</span> voisin de 1 (<span class="math notranslate nohighlight">\(n(1-p)&lt;10\)</span>) on peut approcher la loi de <span class="math notranslate nohighlight">\(\Sigma_n\)</span> par une loi de Poisson <span class="math notranslate nohighlight">\(\mathcal P(n(1-p))\)</span>.</p>
 </div>
 </div>
 <div class="section" id="theoreme-central-limite">
@@ -702,7 +703,7 @@ et quand <span class="math notranslate nohighlight">\(n\)</span> est grand (&gt;
 où <span class="math notranslate nohighlight">\( \phi(x)\)</span> est la fonction de répartition de la loi normale centrée réduite <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span>.</p>
 <p>On dit que <span class="math notranslate nohighlight">\(\left (\sqrt{n}\frac{\bar X_n-m}{\sigma}\right )_{n\geq 1}\)</span> converge en loi vers <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span>.</p>
 </div>
-</div><p>La figure suivante illustre ce modèle dans le cas où la variable aléatoire parente <span class="math notranslate nohighlight">\(X\)</span> suit un schéma de Bernoulli avec <span class="math notranslate nohighlight">\(P(X = 1)=0.2, P(X=0)=0.8\)</span>.</p>
+</div><p>La figure suivante illustre ce modèle dans le cas où la variable aléatoire parente <span class="math notranslate nohighlight">\(X\)</span> suit un schéma de Bernoulli avec <span class="math notranslate nohighlight">\(P(X = 1)=0.1, P(X=0)=0.9\)</span>.</p>
 <p><img alt="" src="_images/tcl.png" /></p>
 </div>
 <div class="section" id="commentaires">
