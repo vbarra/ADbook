@@ -508,24 +508,24 @@ document.write(`
 <span class="target" id="index-0"></span><ul id="index-1">
 <li><p>moyenne empirique du <span class="math notranslate nohighlight">\(n\)</span>-échantillon la variable aléatoire</p></li>
 <li><div class="math notranslate nohighlight">
-\[\bar{X_n}=\frac1n \displaystyle\sum_{k=1}^n X_k\]</div>
+\[\bar{X}_n=\frac1n \displaystyle\sum_{k=1}^n X_k\]</div>
 </li>
 <li><p>variance empirique biaisée du <span class="math notranslate nohighlight">\(n\)</span>-échantillon la variable aléatoire (Ne pas confondre avec la variable <span class="math notranslate nohighlight">\(S_n\)</span> du schéma de Bernoulli)</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[S_n^2=\frac1n \displaystyle\sum_{k=1}^n (X_k-\bar{X_n})^2=\frac1n \displaystyle\sum_{k=1}^n X_k^2 -\bar{X_n}^2\]</div>
+\[S_n^2=\frac1n \displaystyle\sum_{k=1}^n (X_k-\bar{X}_n)^2=\frac1n \displaystyle\sum_{k=1}^n X_k^2 -\bar{X}_n^2\]</div>
 <ul class="simple">
 <li><p>variance empirique non biaisée du <span class="math notranslate nohighlight">\(n\)</span>-échantillon la variable aléatoire</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[{S'}_n^2=\frac{1}{n-1} \displaystyle\sum_{k=1}^n (X_k-\bar{X_n})^2\]</div>
+\[{S'}_n^2=\frac{1}{n-1} \displaystyle\sum_{k=1}^n (X_k-\bar{X}_n)^2\]</div>
 <p>On a bien sûr <span class="math notranslate nohighlight">\((n-1){S'}_n^2=nS_n^2\)</span>.</p>
-<p>Les valeurs prises par <span class="math notranslate nohighlight">\(\bar{X_n}\)</span> coïncident avec la moyenne expérimentale <span class="math notranslate nohighlight">\(\bar{x_n}\)</span> des données expérimentales <span class="math notranslate nohighlight">\((x_1\cdots x_n)\)</span>, réalisation du <span class="math notranslate nohighlight">\(n\)</span>-échantillon. De même pour <span class="math notranslate nohighlight">\(S_n^2\)</span> pour la variance expérimentale.</p>
+<p>Les valeurs prises par <span class="math notranslate nohighlight">\(\bar{X}_n\)</span> coïncident avec la moyenne expérimentale <span class="math notranslate nohighlight">\(\bar{x}_n\)</span> des données expérimentales <span class="math notranslate nohighlight">\((x_1\cdots x_n)\)</span>, réalisation du <span class="math notranslate nohighlight">\(n\)</span>-échantillon. De même pour <span class="math notranslate nohighlight">\(S_n^2\)</span> pour la variance expérimentale.</p>
 <div class="proof property admonition" id="property-2">
 <p class="admonition-title"><span class="caption-number">Property 5 </span></p>
 <div class="property-content section" id="proof-content">
 <ol class="arabic simple">
-<li><p><span class="math notranslate nohighlight">\(\mathbb{E}(\bar{X_n})= \mathbb{E}(X)=m\; ;\; \mathbb{V}(\bar{X_n}) = \frac{\mathbb{V}(X)}{n}=\frac{\sigma^2}{n}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{E}(\bar{X}_n)= \mathbb{E}(X)=m\; ;\; \mathbb{V}(\bar{X}_n) = \frac{\mathbb{V}(X)}{n}=\frac{\sigma^2}{n}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb{E}(S_n^2) = \frac{n-1}{n}\sigma^2\; ;\;  \mathbb{E}({S'}_n^2)=\sigma^2\)</span></p></li>
 <li><p>Sous l’hypothèse de normalité, <span class="math notranslate nohighlight">\(\mathbb{V}({S'}_n^2)=\frac{2\sigma^4}{n-1}\)</span></p></li>
 </ol>
@@ -628,7 +628,7 @@ Soit <span class="math notranslate nohighlight">\(A=\left \{|X-m|\geq t\right \}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/54bc8932d87df20c74fe5fae2a18a1905a36a3068d3822f6a2a50d27d0c0b19a.png" src="_images/54bc8932d87df20c74fe5fae2a18a1905a36a3068d3822f6a2a50d27d0c0b19a.png" />
+<img alt="_images/19995b9791e289d53625d89e83f9369b25933aa17bc1dfbad870fe3573279bd0.png" src="_images/19995b9791e289d53625d89e83f9369b25933aa17bc1dfbad870fe3573279bd0.png" />
 </div>
 </div>
 <p>La fluctuation de la fréquence est importante pour des petites valeurs de <span class="math notranslate nohighlight">\(n\)</span>, puis elle s’atténue, pour se stabiliser autour d’une valeur voisine de <span class="math notranslate nohighlight">\(p\)</span>.</p>
@@ -643,18 +643,18 @@ Soit <span class="math notranslate nohighlight">\(A=\left \{|X-m|\geq t\right \}
 <div class="proof theorem admonition" id="theorem-6">
 <p class="admonition-title"><span class="caption-number">Theorem 3 </span></p>
 <div class="theorem-content section" id="proof-content">
-<p>Soit <span class="math notranslate nohighlight">\((X_n)_{n\geq 1}\)</span> une suite de variables aléatoires indépendantes, identiquement distribuées (i.i.d) de même loi qu’une variable <span class="math notranslate nohighlight">\(X\)</span>, admettant une moyenne <span class="math notranslate nohighlight">\(m\)</span> et un écart-type <span class="math notranslate nohighlight">\(\sigma\)</span>. Si <span class="math notranslate nohighlight">\((\bar{X_n})_{n\geq 1}\)</span> est la suite des moyennes empiriques associée à <span class="math notranslate nohighlight">\((X_n)_{n\geq 1}\)</span> alors</p>
-<p><span class="math notranslate nohighlight">\((\forall t&gt;0)\; \displaystyle\lim_{n\rightarrow\infty} P(|\bar{X_n}-m|\geq t) = 0\)</span></p>
-<p>On dit que la suite converge en probatilité vers <span class="math notranslate nohighlight">\(m\)</span> et on note <span class="math notranslate nohighlight">\(\bar{X_n}\xrightarrow[n\rightarrow\infty]{P} m\)</span></p>
+<p>Soit <span class="math notranslate nohighlight">\((X_n)_{n\geq 1}\)</span> une suite de variables aléatoires indépendantes, identiquement distribuées (i.i.d) de même loi qu’une variable <span class="math notranslate nohighlight">\(X\)</span>, admettant une moyenne <span class="math notranslate nohighlight">\(m\)</span> et un écart-type <span class="math notranslate nohighlight">\(\sigma\)</span>. Si <span class="math notranslate nohighlight">\((\bar{X}_n)_{n\geq 1}\)</span> est la suite des moyennes empiriques associée à <span class="math notranslate nohighlight">\((X_n)_{n\geq 1}\)</span> alors</p>
+<p><span class="math notranslate nohighlight">\((\forall t&gt;0)\; \displaystyle\lim_{n\rightarrow\infty} P(|\bar{X}_n-m|\geq t) = 0\)</span></p>
+<p>On dit que la suite converge en probatilité vers <span class="math notranslate nohighlight">\(m\)</span> et on note <span class="math notranslate nohighlight">\(\bar{X}_n\xrightarrow[n\rightarrow\infty]{P} m\)</span></p>
 </div>
-</div><p>C’est une conséquence immédiate de l’inégalité de Tchebychev : <span class="math notranslate nohighlight">\(P(|\bar{X_n}-m|\geq t)\leq\frac{\sigma^2}{nt^2}\)</span> puisque <span class="math notranslate nohighlight">\(\mathbb{V}(\bar{X_n})=\frac{\sigma^2}{n}\)</span></p>
+</div><p>C’est une conséquence immédiate de l’inégalité de Tchebychev : <span class="math notranslate nohighlight">\(P(|\bar{X}_n-m|\geq t)\leq\frac{\sigma^2}{nt^2}\)</span> puisque <span class="math notranslate nohighlight">\(\mathbb{V}(\bar{X}_n)=\frac{\sigma^2}{n}\)</span></p>
 <p>L’observation des valeurs prises par la moyenne empirique donne une bonne information sur la moyenne théorique <span class="math notranslate nohighlight">\(m\)</span> de <span class="math notranslate nohighlight">\(X\)</span>. La précision, au sens ci-dessus, est d’autant meilleure que <span class="math notranslate nohighlight">\(n\)</span> est grand.</p>
 </div>
 <div class="section" id="loi-forte-des-grands-nombres">
 <h3>Loi forte des grands nombres<a class="headerlink" href="#loi-forte-des-grands-nombres" title="Permalink to this heading">#</a></h3>
 <p>avec les hypothèses précédentes, on peut montrer que</p>
-<p><span class="math notranslate nohighlight">\(P(\{\omega\in\Omega, \displaystyle\lim_{n\rightarrow\infty} \bar{X_n}(\omega)=m\})=1\)</span></p>
-<p>Sauf cas très improbable (avec probabilité nulle), la suite des réalisations <span class="math notranslate nohighlight">\((\bar{x}_n)_{n\geq 1}\)</span> des moyennes expérimentales des mesures converge vers la moyenne théorique <span class="math notranslate nohighlight">\(m\)</span>. On dit que la suite <span class="math notranslate nohighlight">\((\bar{X_n})_{n\geq 1}\)</span> converge presque sûrement vers <span class="math notranslate nohighlight">\(m\)</span> et on note <span class="math notranslate nohighlight">\(\bar{X_n}\xrightarrow[n\rightarrow\infty]{p.s.} m\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(P(\{\omega\in\Omega, \displaystyle\lim_{n\rightarrow\infty} \bar{X}_n(\omega)=m\})=1\)</span></p>
+<p>Sauf cas très improbable (avec probabilité nulle), la suite des réalisations <span class="math notranslate nohighlight">\((\bar{x}_n)_{n\geq 1}\)</span> des moyennes expérimentales des mesures converge vers la moyenne théorique <span class="math notranslate nohighlight">\(m\)</span>. On dit que la suite <span class="math notranslate nohighlight">\((\bar{X}_n)_{n\geq 1}\)</span> converge presque sûrement vers <span class="math notranslate nohighlight">\(m\)</span> et on note <span class="math notranslate nohighlight">\(\bar{X}_n\xrightarrow[n\rightarrow\infty]{p.s.} m\)</span>.</p>
 <div class="proof remark dropdown admonition" id="remark-7">
 <p class="admonition-title"><span class="caption-number">Remark 7 </span></p>
 <div class="remark-content section" id="proof-content">
