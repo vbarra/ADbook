@@ -111,7 +111,7 @@ Le dernier point est admis.
 
 ### Echantillons de variables aléatoires normales
 
-Les lois de probabilité usuelles sont rappelées en fin de ce chapitre ({ref}`loisusuelles). 
+Les lois de probabilité usuelles sont rappelées en fin de ce chapitre ({ref}`loisusuelles`). 
 
 
 #### Etude d'un $n$-échantillon
