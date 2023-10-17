@@ -163,12 +163,12 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &\textrm{ si}& x\in[c^-_j,c^+_j[\\
 
 ## Pré-traitement des données
 
-faire une analyse de données, c'est traiter un tableau de taille $n\times p$ où $n$ est le nombre d'individus et $p$ le nombre de variables (caractères) mesurées sur des individus. En raison de la colecte des données, des erreurs de mesure ou d'autres facteurs, ce tableau est parfois imcomplet et il convient de le prétraiter pour pouvoir effectuer l'analyse.
+Faire une analyse de données, c'est traiter un tableau de taille $n\times p$ où $n$ est le nombre d'individus et $p$ le nombre de variables (caractères) mesurées sur ces individus. En raison de la colecte des données, des erreurs de mesure ou d'autres facteurs, ce tableau est parfois incomplet et il convient de le prétraiter pour pouvoir effectuer l'analyse.
 
 ### Points aberrants
 Une anomalie (ou point aberrant, ou outlier) est une observation (ou un sous-ensemble d'observations) qui semble incompatible avec le reste de l'ensemble de données.
 
-S'il est parfois possible d'identifier graphiquement ces points aberrants à l'aide de boîtes à moustaches (voir section~\ref{S:boxplot}), il existe une vaste littérature sur la détection d'anomalies qu'il n'est pas possible d'aborder ici. De plus, suivant le type de données manipulées (données séquentielles ou non), le type de méthode peut être différent. On mentionne donc ici quelques techniques simples :
+S'il est parfois possible d'identifier graphiquement ces points aberrants à l'aide de boîtes à moustaches (voir ({ref}`boxplot`), il existe une vaste littérature sur la détection d'anomalies qu'il n'est pas possible d'aborder ici. De plus, suivant le type de données manipulées (données séquentielles ou non), le type de méthode peut être différent. On mentionne donc ici quelques techniques simples :
 
 - le détecteur de Hampel : on considère que $x_i$ est un point aberrant si 
 
@@ -469,7 +469,7 @@ Une distribution est alors dite :
 
 
 
-
+(boxplot)=
 Les principales statistiques d'une série statistique peuvent être résumées dans des **boîtes à moustache**, qui permettent de voir sur un même graphique :
 
 - la médiane
