@@ -420,7 +420,7 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="selection-de-variables">
 <h1>Sélection de variables<a class="headerlink" href="#selection-de-variables" title="Permalink to this heading">#</a></h1>
-<p>On s’intéresse ici à <span class="math notranslate nohighlight">\(n\)</span> individus  <span class="math notranslate nohighlight">\(\mathbf x_i, i\in[\[1,n]\!]\)</span> décrits par <span class="math notranslate nohighlight">\(d\)</span> variables quantitatives ou caractéristiques (features), <span class="math notranslate nohighlight">\(x_i\in \mathbb{R}^d\)</span>. Avec l’avènement des Big Data, et la généralisation des capteurs, <span class="math notranslate nohighlight">\(d\)</span> peut être très grand (plusieurs milliers), et analyser telles quelles les données brutes devient difficile d’un point de vue calculatoire et interprétation. De plus, il est rare que les caractéristiques soient totalement utiles et indépendantes.</p>
+<p>On s’intéresse ici à <span class="math notranslate nohighlight">\(n\)</span> individus  <span class="math notranslate nohighlight">\(\mathbf x_i, i\in[\![1,n]\!]\)</span> décrits par <span class="math notranslate nohighlight">\(d\)</span> variables quantitatives ou caractéristiques (features), <span class="math notranslate nohighlight">\(x_i\in \mathbb{R}^d\)</span>. Avec l’avènement des Big Data, et la généralisation des capteurs, <span class="math notranslate nohighlight">\(d\)</span> peut être très grand (plusieurs milliers), et analyser telles quelles les données brutes devient difficile d’un point de vue calculatoire et interprétation. De plus, il est rare que les caractéristiques soient totalement utiles et indépendantes.</p>
 <p>Une étape souvent utilisée en analyse de données consiste donc à prétraiter cet espace, par exemple pour :</p>
 <ul class="simple">
 <li><p>le transformer en un format compatible avec des algorithmes qui seront utilisés</p></li>
@@ -428,8 +428,12 @@ document.write(`
 <li><p>réduire la complexité spatiale du problème traité</p></li>
 <li><p>découpler des variables et chercher les dépendances</p></li>
 <li><p>introduire des a priori, ou des propriétés importantes pour les algorithmes (données centrées normées, descripteurs épars…)</p></li>
-<li><p>permettre une interprétation plus intuitive et/ou graphique</p></li>
+<li><p>permettre une interprétation plus intuitive et/ou graphique (<a class="reference internal" href="#tsne"><span class="std std-ref">figure 1</span></a>)</p></li>
 </ul>
+<div class="figure align-default" id="tsne">
+<img alt="_images/tsne.png" src="_images/tsne.png" />
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Exemple de réduction de dimension (source: Maaten &amp; Hinton, 2008). Des images 28<span class="math notranslate nohighlight">\(\times\)</span> 28 de chiffres manuscrits sont représentées par un vecteur de 784 valeurs, puis transformés en vecteurs de <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> pour les projeter dans le plan. La méthode utilisée permet d’optimiser la transformation de sorte à ce que les images représentant le même chiffre soient regroupées dans des nuages compacts.</span><a class="headerlink" href="#tsne" title="Permalink to this image">#</a></p>
+</div>
 <p>Deux stratégies peuvent alors être utilisées :</p>
 <ol class="arabic simple">
 <li><p>sélectionner un sous-ensemble des variables initiales comme descripteurs des individus</p></li>
