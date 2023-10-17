@@ -130,6 +130,14 @@ print("Variables sélectionnées : ", s.get_support())
 Le principal inconvénient des approches précédentes est le fait qu'elles ignorent l'influence des caractéristiques sélectionnées sur la performance de l'algorithme à utiliser par la suite. Les méthodes de type enveloppantes (wrappers)  évaluent un sous-ensemble de caractéristiques par sa performance
 de classification en utilisant un algorithme d'apprentissage.  Les sous-ensembles de caractéristiques sélectionnés par cette méthode sont bien adaptés à l'algorithme de classification utilisé, mais ils ne sont pas nécessairement pour un autre. De plus, la complexité de l'algorithme d'apprentissage rend ces méthodes coûteuses.
 
+Les principales différences entre les filtres et les méthodes enveloppantes pour la sélection des caractéristiques sont les suivantes :
+
+- Les filtres mesurent la pertinence des caractéristiques par leur corrélation avec la variable dépendante, tandis que les méthodes enveloppantes mesurent l'utilité d'un sous-ensemble de caractéristiques en entraînant un modèle sur celles-ci.
+- Les filtres sont beaucoup plus rapides que les méthodes enveloppantes car elles n'impliquent pas l'apprentissage des modèles. D'un autre côté, les méthodes enveloppantes sont également très coûteuses en termes de calcul.
+- Les filtres utilisent des méthodes statistiques pour l'évaluation d'un sous-ensemble de caractéristiques, tandis que les méthodes enveloppantes utilisent la validation croisée.
+- Les filtres peuvent échouer à trouver le meilleur sous-ensemble de caractéristiques dans de nombreuses occasions, mais les méthodes enveloppantes peuvent toujours fournir le meilleur sous-ensemble de caractéristiques.
+- L'utilisation d'un sous-ensemble de caractéristiques à partir des méthodes enveloppantes amène plus facilement au phénomène de surapprentissage 
+
 ```{prf:remark}
 :class: dropdown
 Les wrappers sélectionnent les caractéristiques en se fondant sur une estimation du risque réel.
@@ -144,7 +152,7 @@ arbres de décision.
 ## Quelques méthodes de sélection
 
 ### Suppression des descripteurs à variance faible
-Une première idée simple consiste ) supprimer les descripteurs ayant une faible variance, ces derniers n'étant pas discriminants dans la définition des individus.
+Une première idée simple consiste à supprimer les descripteurs ayant une faible variance, ces derniers n'étant pas discriminants dans la définition des individus.
 
 
 
@@ -156,13 +164,12 @@ iris = datasets.load_iris()
 X = iris.data
 y = iris.target
 
-X2 = VarianceThreshold(threshold=.5).fit_transform(X)
-print(X2[0:7])
+v = VarianceThreshold(threshold=.5)
+X2 = v.fit_transform(X)
 
 print("Avant sélection, ",X.shape)
 print("Après sélection, ",X2.shape)
-
-
+print("Variables sélectionnées : ", v.get_support())
 ```
 
 
@@ -206,7 +213,7 @@ sfs = SequentialFeatureSelector(knn, n_features_to_select=3)
 sfs.fit(X, y)
 print("Descripteurs sélectionnés",sfs.get_support())
 print("Taille des données après sélection",sfs.transform(X).shape)
-
+print("Variables sélectionnées : ", sfs.get_support())
 ```
 
 ### Algorithme Focus

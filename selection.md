@@ -207,11 +207,11 @@ from sklearn.feature_selection import SequentialFeatureSelector
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.datasets import load_iris
 X, y = load_iris(return_X_y=True)
-print("Taille des données avant sélection",X.shape)
 knn = KNeighborsClassifier(n_neighbors=3)
 sfs = SequentialFeatureSelector(knn, n_features_to_select=3)
 sfs.fit(X, y)
-print("Descripteurs sélectionnés",sfs.get_support())
+
+print("Taille des données avant sélection",X.shape)
 print("Taille des données après sélection",sfs.transform(X).shape)
 print("Variables sélectionnées : ", sfs.get_support())
 ```
@@ -239,11 +239,11 @@ L'algorithme de filtrage Focus ({prf:ref}`FOCUS`}) repose sur une recherche exha
 La méthode relief en classification binaire ({prf:ref}`relief`), propose de calculer une mesure globale de la pertinence des caractéristiques en accumulant la différence des distances entre des exemples d'apprentissage choisis aléatoirement et leurs plus proches voisins de la même classe et de l'autre classe.
 
 
-```{prf:algorithm} Algorithme FOCUS
+```{prf:algorithm} Algorithme Relief
 :label: relief
 **Entrée :** $A= \{\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d,1\leq i\leq n  \}$ , nombre d'itérations $T$
 
-**Sortie :** $w\in\mathbb{R}^d$ un vecteur de poids des caractéristiques, $w_i\in[-1,1],1\leq i\leq d$
+**Sortie :** $w\in\mathbb{R}^d$ un vecteur de poids des caractéristiques, $w_i\in[-1,1],i\in[\![1,d]\!]$
 
 1. Pour $i=1$ à $ d$
     1. $w_i\leftarrow 0$
@@ -255,7 +255,7 @@ La méthode relief en classification binaire ({prf:ref}`relief`), propose de cal
 ```
 
 ### Méthode SAC
-L'algorithme SAC (Selection Adaptative de Caractéristiques)  construit un ensemble de classificateurs $(M_1\cdots M_d)$ appris sur chacun des descripteurs et sélectionne les meilleurs par discrimination linéaire de Fisher. Pour ce faire, l'algorithme construit un vecteur dont les éléments sont les performances $Perf(M_i)$ des modèles $M_i$, triés par ordre décroissant. Deux moyennes $m_1(i)$ et $m_2(i)$ sont calculées, qui représentent les deux moyennes de performance d'apprentissage qui ont une valeur respectivement plus grande (plus petite) que la performance du modèle $M_i$ : 
+L'algorithme SAC (Selection Adaptative de Caractéristiques)  construit un ensemble de classifieurs (ou de régresseurs) $(M_1\cdots M_d)$ appris sur chacun des descripteurs et sélectionne les meilleurs par discrimination linéaire de Fisher. Pour ce faire, l'algorithme construit un vecteur dont les éléments sont les performances $Perf(M_i)$ des modèles $M_i$, triés par ordre décroissant. Deux moyennes $m_1(i)$ et $m_2(i)$ sont calculées, qui représentent les deux moyennes de performance d'apprentissage qui ont une valeur respectivement plus grande (plus petite) que la performance du modèle $M_i$ : 
 
 $$m_1(i) = \frac{1}{i}\displaystyle\sum_{j=1}^i Perf (M_j)\textrm{ et } m_2(i) = \frac{1}{d-i}\displaystyle\sum_{j=i+1}^d Perf (M_j)$$
 
@@ -268,4 +268,18 @@ $$\frac{|m_1(i)-m_2(i)|}{v_1^2(i)+v_2^2(i)}$$
 L'algorithme RLE (Recusrive Feature Elimination) trie les descripteurs en analysant, localement, la sensibilité de la performance. 
 Étant donné un prédicteur $f$ qui attribue des poids aux caractéristiques (par exemple, les coefficients d'un modèle linéaire), l'objectif de l'algorithme est de sélectionner les caractéristiques en considérant de manière récursive des ensembles de caractéristiques de plus en plus petits. Tout d'abord, le prédicteur $f$ est entraîné sur l'ensemble initial de caractéristiques et l'importance de chaque caractéristique est calculée par un algorithme dédié (critère de Gini, entropie...). Les caractéristiques les moins importantes sont éliminées de l'ensemble actuel de caractéristiques. Cette procédure est répétée de manière récursive sur l'ensemble élagué jusqu'à ce que le nombre souhaité de caractéristiques à sélectionner soit finalement atteint.
 
+
+```{code-cell} ipython3
+from sklearn.feature_selection import RFE 
+from sklearn.datasets import load_iris
+from sklearn.tree import DecisionTreeClassifier
+X, y = load_iris(return_X_y=True)
+estimator = DecisionTreeClassifier()
+s = RFE(estimator, n_features_to_select=2, step=1)
+s.fit(X, y)
+
+print("Taille des données avant sélection",X.shape)
+print("Variables sélectionnées : ", s.get_support())
+print(s.ranking_)
+```
 
