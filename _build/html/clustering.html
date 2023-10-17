@@ -546,27 +546,27 @@ notion d’ultramétrique (ultramétrique optimale).</p>
 <div class="proof definition admonition" id="definition-2">
 <p class="admonition-title"><span class="caption-number">Definition 42 </span> (Dissimilarité - ultramétrique)</p>
 <div class="definition-content section" id="proof-content">
-<p>Une mesure de dissimilarité <span class="math notranslate nohighlight">\(d\)</span> est une fonction de</p>
+<p>Une mesure de dissimilarité <span class="math notranslate nohighlight">\(\delta\)</span> est une fonction de</p>
 <p><span class="math notranslate nohighlight">\(
-d : \begin{array}{ccc}
+ \delta: \begin{array}{ccc}
 \mathbb{R}^d\times\mathbb{R}^d &amp;\rightarrow &amp;\mathbb{R}^+\\
-(\mathbf x_i,\mathbf x_j)&amp;\mapsto &amp; d_{ij} = d(\mathbf x_i,\mathbf x_j)
+(\mathbf x_i,\mathbf x_j)&amp;\mapsto &amp; \delta_{ij} = \delta(\mathbf x_i,\mathbf x_j)
 \end{array}
 \)</span></p>
 <p>vérifiant :</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\((\forall i,j\in[\![1, n]\!])\ d_{ij}=d_{ji}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\((\forall i\in[\![1, n]\!])\ d_{ii}= 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((\forall i,j\in[\![1, n]\!])\ \delta_{ij}=\delta_{ji}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((\forall i\in[\![1, n]\!])\ \delta_{ii}= 0\)</span></p></li>
 </ul>
-<p>Si l’inégalité triangulaire <span class="math notranslate nohighlight">\(d_{ij}\leq d_{ik}+d_{kj}\)</span> est de plus vérifiée pour tout <span class="math notranslate nohighlight">\(i,j,k\)</span>, alors <span class="math notranslate nohighlight">\(d\)</span> est une distance.</p>
-<p>Si enfin l’inégalité ultramétrique  <span class="math notranslate nohighlight">\(d_{ij}\leq max(d_{ik}+d_{jk})\)</span> est  vérifiée pour tout <span class="math notranslate nohighlight">\(i,j,k\)</span>, <span class="math notranslate nohighlight">\(d\)</span> est une ultramétrique.</p>
+<p>Si l’inégalité triangulaire <span class="math notranslate nohighlight">\(\delta_{ij}\leq \delta_{ik}+\delta_{kj}\)</span> est de plus vérifiée pour tout <span class="math notranslate nohighlight">\(i,j,k\)</span>, alors <span class="math notranslate nohighlight">\(\delta\)</span> est une distance.</p>
+<p>Si enfin l’inégalité ultramétrique  <span class="math notranslate nohighlight">\(\delta_{ij}\leq max(\delta_{ik}+\delta_{jk})\)</span> est  vérifiée pour tout <span class="math notranslate nohighlight">\(i,j,k\)</span>, <span class="math notranslate nohighlight">\(\delta\)</span> est une ultramétrique.</p>
 </div>
-</div><p>A partir des mesures de dissimilarité, on déduit des mesures de similarité <span class="math notranslate nohighlight">\(s_{ij}\)</span> le passage de l’une à l’autre se faisant par exemple par <span class="math notranslate nohighlight">\(d_{ij} = s_{max}-s_{ij}\)</span>.</p>
+</div><p>A partir des mesures de dissimilarité, on déduit des mesures de similarité <span class="math notranslate nohighlight">\(s_{ij}\)</span> le passage de l’une à l’autre se faisant par exemple par <span class="math notranslate nohighlight">\(\delta_{ij} = s_{max}-s_{ij}\)</span>.</p>
 </div>
 <div class="section" id="cas-de-variables-qualitatives">
 <h4>Cas de variables qualitatives<a class="headerlink" href="#cas-de-variables-qualitatives" title="Permalink to this heading">#</a></h4>
-<p>On suppose que les <span class="math notranslate nohighlight">\(p\)</span> composantes des <span class="math notranslate nohighlight">\({\bf x_i}\)</span> sont qualitatives, et on se limite ici au cas de variables bimodales.
-Étant donnés <span class="math notranslate nohighlight">\({\bf x_i}=\begin{pmatrix} x_i^1\ldots x_i^p\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\({\bf x_j}\)</span>, on note :</p>
+<p>On suppose que les <span class="math notranslate nohighlight">\(d\)</span> composantes des <span class="math notranslate nohighlight">\({\bf x_i}\)</span> sont qualitatives, et on se limite ici au cas de variables bimodales.
+Étant donnés <span class="math notranslate nohighlight">\({\bf x_i}=\begin{pmatrix} x_i^1\ldots x_i^d\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\({\bf x_j}\)</span>, on note :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(a_{ij}\)</span> le nombre de co-occurences entre les individus <span class="math notranslate nohighlight">\(i\)</span> et <span class="math notranslate nohighlight">\(j\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(b_{ij}\)</span> le nombre de co-absences entre les individus <span class="math notranslate nohighlight">\(i\)</span> et <span class="math notranslate nohighlight">\(j\)</span></p></li>
@@ -575,33 +575,33 @@ d : \begin{array}{ccc}
 </ul>
 <p>les mesures suivantes sont des exemples de dissimilarité :</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(d_{ij} = \sqrt{b_{ij}+c_{ij}}\)</span> [distance “euclidienne” binaire]</p></li>
-<li><p><span class="math notranslate nohighlight">\(d_{ij} = \frac{(b_{ij}-c_{ij})^2}{(a_{ij}+b_{ij}+c_{ij}+d_{ij})^2}\)</span> [différence binaire de taille]</p></li>
-<li><p><span class="math notranslate nohighlight">\(d_{ij} = \frac{(b_{ij}c_{ij})}{(a_{ij}+b_{ij}+c_{ij}+d_{ij})^2}\)</span> [différence binaire de motif]</p></li>
-<li><p><span class="math notranslate nohighlight">\(d_{ij} = \frac{(a_{ij}+b_{ij}+c_{ij}+d_{ij})(b_{ij}+c_{ij})-(b_{ij}-c_{ij})^2}{(a_{ij}+b_{ij}+c_{ij}+d_{ij})^2}\)</span> [différence binaire de forme]</p></li>
-<li><p><span class="math notranslate nohighlight">\(d_{ij} = \frac{(b_{ij}+c_{ij})}{4(a_{ij}+b_{ij}+c_{ij}+d_{ij})}\)</span> [dissimilarité binaire de variance]</p></li>
-<li><p><span class="math notranslate nohighlight">\(d_{ij} = \frac{(b_{ij}+c_{ij})}{2a_{ij}+b_{ij}+c_{ij}}\)</span> [dissimilarité binaire de Lance et Williams]</p></li>
+<li><p><span class="math notranslate nohighlight">\(\delta_{ij} = \sqrt{b_{ij}+c_{ij}}\)</span> [distance “euclidienne” binaire]</p></li>
+<li><p><span class="math notranslate nohighlight">\(\delta_{ij} = \frac{(b_{ij}-c_{ij})^2}{(a_{ij}+b_{ij}+c_{ij}+d_{ij})^2}\)</span> [différence binaire de taille]</p></li>
+<li><p><span class="math notranslate nohighlight">\(\delta_{ij} = \frac{(b_{ij}c_{ij})}{(a_{ij}+b_{ij}+c_{ij}+d_{ij})^2}\)</span> [différence binaire de motif]</p></li>
+<li><p><span class="math notranslate nohighlight">\(\delta_{ij} = \frac{(a_{ij}+b_{ij}+c_{ij}+d_{ij})(b_{ij}+c_{ij})-(b_{ij}-c_{ij})^2}{(a_{ij}+b_{ij}+c_{ij}+d_{ij})^2}\)</span> [différence binaire de forme]</p></li>
+<li><p><span class="math notranslate nohighlight">\(\delta_{ij} = \frac{(b_{ij}+c_{ij})}{4(a_{ij}+b_{ij}+c_{ij}+d_{ij})}\)</span> [dissimilarité binaire de variance]</p></li>
+<li><p><span class="math notranslate nohighlight">\(\delta_{ij} = \frac{(b_{ij}+c_{ij})}{2a_{ij}+b_{ij}+c_{ij}}\)</span> [dissimilarité binaire de Lance et Williams]</p></li>
 </ul>
 </div>
 <div class="section" id="cas-de-variables-quantitatives">
 <h4>Cas de variables quantitatives<a class="headerlink" href="#cas-de-variables-quantitatives" title="Permalink to this heading">#</a></h4>
-<p>Dans le cas de variables quantitatives, les normes  <span class="math notranslate nohighlight">\(L_r\)</span> :</p>
-<p><span class="math notranslate nohighlight">\(\|{\bf x_i}\|_r=\left (\displaystyle\sum_{j=1}^p|x_i^j|^r\right ) ^\frac{1}{r}\)</span></p>
+<p>Dans le cas de variables quantitatives, les normes  <span class="math notranslate nohighlight">\(L_p\)</span> :</p>
+<p><span class="math notranslate nohighlight">\(\|{\bf x_i}\|_p=\left (\displaystyle\sum_{j=1}^d|x_i^j|^p\right ) ^\frac{1}{p}\)</span></p>
 <p>sont classiquement utilisées, et par exemple</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(r=1\)</span> : <span class="math notranslate nohighlight">\(\|{\bf x_i}-{\bf x_j}\|_1=\displaystyle\sum_{k=1}^p|x_i^k-x_j^k|\)</span> est la norme <span class="math notranslate nohighlight">\(L_1\)</span> (ou city block).</p></li>
-<li><p><span class="math notranslate nohighlight">\(r=2\)</span> : <span class="math notranslate nohighlight">\(\|{\bf x_i}-{\bf x_j}\|_2=\sqrt{\displaystyle\sum_{k=1}^p(x_i^k-x_j^k)^2}\)</span> est la norme <span class="math notranslate nohighlight">\(L_2\)</span> (ou norme euclidienne).</p></li>
-<li><p><span class="math notranslate nohighlight">\(r=\infty\)</span> : <span class="math notranslate nohighlight">\(\|{\bf x_i}-{\bf x_j}\|_\infty = \displaystyle\max_{1\leq k\leq p}\{|x_i^k-x_j^k|\}\)</span> est la norme du max (ou norme de Tchebychev)</p></li>
+<li><p><span class="math notranslate nohighlight">\(p=1\)</span> : <span class="math notranslate nohighlight">\(\|{\bf x_i}-{\bf x_j}\|_1=\displaystyle\sum_{k=1}^d|x_i^k-x_j^k|\)</span> est la norme <span class="math notranslate nohighlight">\(L_1\)</span> (ou city block).</p></li>
+<li><p><span class="math notranslate nohighlight">\(p=2\)</span> : <span class="math notranslate nohighlight">\(\|{\bf x_i}-{\bf x_j}\|_2=\sqrt{\displaystyle\sum_{k=1}^d(x_i^k-x_j^k)^2}\)</span> est la norme <span class="math notranslate nohighlight">\(L_2\)</span> (ou norme euclidienne).</p></li>
+<li><p><span class="math notranslate nohighlight">\(&quot;p=\infty&quot;\)</span> : <span class="math notranslate nohighlight">\(\|{\bf x_i}-{\bf x_j}\|_\infty = \displaystyle\max_{1\leq k\leq d}\{|x_i^k-x_j^k|\}\)</span> est la norme du max (ou norme de Tchebychev)</p></li>
 </ul>
 <p>Si les variables ne sont pas normalisées, on peut utiliser la distance de Mahalanobis</p>
-<p><span class="math notranslate nohighlight">\(d_{ij} = \displaystyle\sum_{k=1}^p\displaystyle\sum_{l=1}^pw_{kl}(x_i^k-x_j^k)(x_i^l-x_j^l)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\delta_{ij} = \displaystyle\sum_{k=1}^pd\displaystyle\sum_{l=1}^dw_{kl}(x_i^k-x_j^k)(x_i^l-x_j^l)\)</span></p>
 <p>où la matrice des <span class="math notranslate nohighlight">\(w_{kl}\)</span> est l’inverse de la matrice de covariance empirique. Cette distance élimine également les corrélations entre variables.</p>
-<p>Enfin, on peut utiliser une métrique issue du coefficient de corrélation, dite distance de Pearson : <span class="math notranslate nohighlight">\(d_{ij} =\sqrt{1-r^2_{ij}}\)</span>, avec</p>
-<p><span class="math notranslate nohighlight">\(r^2_{ij} = \frac{\left (\displaystyle\sum_{k=1}^p (x_i^k-\bar{x_i})(x_j^k-\bar{x_j})\right )^2}{\displaystyle\sum_{k=1}^p(x_i^k-\bar{x_i})^2\displaystyle\sum_{k=1}^p(x_j^k-\bar{x_j})^2}\)</span></p>
+<p>Enfin, on peut utiliser une métrique issue du coefficient de corrélation, dite distance de Pearson : <span class="math notranslate nohighlight">\(p\delta_{ij} =\sqrt{1-r^2_{ij}}\)</span>, avec</p>
+<p><span class="math notranslate nohighlight">\(r^2_{ij} = \frac{\left (\displaystyle\sum_{k=1}^d (x_i^k-\bar{x_i})(x_j^k-\bar{x_j})\right )^2}{\displaystyle\sum_{k=1}^d(x_i^k-\bar{x_i})^2\displaystyle\sum_{k=1}^d(x_j^k-\bar{x_j})^2}\)</span></p>
 </div>
 <div class="section" id="variables-de-comptage">
 <h4>Variables de comptage<a class="headerlink" href="#variables-de-comptage" title="Permalink to this heading">#</a></h4>
-<p>Dans le cas particulier de variables de comptage (<span class="math notranslate nohighlight">\(x_i^k\)</span> effectif de la classe <span class="math notranslate nohighlight">\(k\)</span> pour l’individu <span class="math notranslate nohighlight">\(i\)</span>), une mesure naturelle de dissimilarité entre <span class="math notranslate nohighlight">\({\bf x_i}\)</span> et <span class="math notranslate nohighlight">\({\bf x_j}\)</span> est le <span class="math notranslate nohighlight">\(\chi^2\)</span> du tableau de contingence 2<span class="math notranslate nohighlight">\(\times p\)</span> associé.</p>
+<p>Dans le cas particulier de variables de comptage (<span class="math notranslate nohighlight">\(x_i^k\)</span> effectif de la classe <span class="math notranslate nohighlight">\(k\)</span> pour l’individu <span class="math notranslate nohighlight">\(i\)</span>), une mesure naturelle de dissimilarité entre <span class="math notranslate nohighlight">\({\bf x_i}\)</span> et <span class="math notranslate nohighlight">\({\bf x_j}\)</span> est le <span class="math notranslate nohighlight">\(\chi^2\)</span> du tableau de contingence 2<span class="math notranslate nohighlight">\(\times d\)</span> associé.</p>
 </div>
 <div class="section" id="quelle-mesure-choisir">
 <h4>Quelle mesure choisir ?<a class="headerlink" href="#quelle-mesure-choisir" title="Permalink to this heading">#</a></h4>
@@ -976,7 +976,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" src="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" />
+<img alt="_images/022d604ac4bf1dacf0952668454a0b3e4799cbff0a78ac6e149ee27030500cb3.png" src="_images/022d604ac4bf1dacf0952668454a0b3e4799cbff0a78ac6e149ee27030500cb3.png" />
 </div>
 </div>
 </div>
