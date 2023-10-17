@@ -280,6 +280,6 @@ s.fit(X, y)
 
 print("Taille des données avant sélection",X.shape)
 print("Variables sélectionnées : ", s.get_support())
-print(s.ranking_)
+print("Classement des variables : ",s.ranking_)
 ```
 

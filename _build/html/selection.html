@@ -626,11 +626,11 @@ Variables sélectionnées :  [ True False  True  True]
 <span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
 <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Taille des données avant sélection&quot;</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">sfs</span> <span class="o">=</span> <span class="n">SequentialFeatureSelector</span><span class="p">(</span><span class="n">knn</span><span class="p">,</span> <span class="n">n_features_to_select</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">sfs</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Descripteurs sélectionnés&quot;</span><span class="p">,</span><span class="n">sfs</span><span class="o">.</span><span class="n">get_support</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Taille des données avant sélection&quot;</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Taille des données après sélection&quot;</span><span class="p">,</span><span class="n">sfs</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variables sélectionnées : &quot;</span><span class="p">,</span> <span class="n">sfs</span><span class="o">.</span><span class="n">get_support</span><span class="p">())</span>
 </pre></div>
@@ -638,7 +638,6 @@ Variables sélectionnées :  [ True False  True  True]
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Taille des données avant sélection (150, 4)
-Descripteurs sélectionnés [ True False  True  True]
 Taille des données après sélection (150, 3)
 Variables sélectionnées :  [ True False  True  True]
 </pre></div>
@@ -677,10 +676,10 @@ Variables sélectionnées :  [ True False  True  True]
 <h3>Algorithme relief<a class="headerlink" href="#algorithme-relief" title="Permalink to this heading">#</a></h3>
 <p>La méthode relief en classification binaire (<a class="reference internal" href="#relief">Algorithm 3</a>), propose de calculer une mesure globale de la pertinence des caractéristiques en accumulant la différence des distances entre des exemples d’apprentissage choisis aléatoirement et leurs plus proches voisins de la même classe et de l’autre classe.</p>
 <div class="proof algorithm admonition" id="relief">
-<p class="admonition-title"><span class="caption-number">Algorithm 3 </span> (Algorithme FOCUS)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 3 </span> (Algorithme Relief)</p>
 <div class="algorithm-content section" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(A= \{\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d,1\leq i\leq n  \}\)</span> , nombre d’itérations <span class="math notranslate nohighlight">\(T\)</span></p>
-<p><strong>Sortie :</strong> <span class="math notranslate nohighlight">\(w\in\mathbb{R}^d\)</span> un vecteur de poids des caractéristiques, <span class="math notranslate nohighlight">\(w_i\in[-1,1],1\leq i\leq d\)</span></p>
+<p><strong>Sortie :</strong> <span class="math notranslate nohighlight">\(w\in\mathbb{R}^d\)</span> un vecteur de poids des caractéristiques, <span class="math notranslate nohighlight">\(w_i\in[-1,1],i\in[\![1,d]\!]\)</span></p>
 <ol class="arabic simple">
 <li><p>Pour <span class="math notranslate nohighlight">\(i=1\)</span> à <span class="math notranslate nohighlight">\( d\)</span></p>
 <ol class="arabic simple">
@@ -703,7 +702,7 @@ Variables sélectionnées :  [ True False  True  True]
 </div></div>
 <div class="section" id="methode-sac">
 <h3>Méthode SAC<a class="headerlink" href="#methode-sac" title="Permalink to this heading">#</a></h3>
-<p>L’algorithme SAC (Selection Adaptative de Caractéristiques)  construit un ensemble de classificateurs <span class="math notranslate nohighlight">\((M_1\cdots M_d)\)</span> appris sur chacun des descripteurs et sélectionne les meilleurs par discrimination linéaire de Fisher. Pour ce faire, l’algorithme construit un vecteur dont les éléments sont les performances <span class="math notranslate nohighlight">\(Perf(M_i)\)</span> des modèles <span class="math notranslate nohighlight">\(M_i\)</span>, triés par ordre décroissant. Deux moyennes <span class="math notranslate nohighlight">\(m_1(i)\)</span> et <span class="math notranslate nohighlight">\(m_2(i)\)</span> sont calculées, qui représentent les deux moyennes de performance d’apprentissage qui ont une valeur respectivement plus grande (plus petite) que la performance du modèle <span class="math notranslate nohighlight">\(M_i\)</span> :</p>
+<p>L’algorithme SAC (Selection Adaptative de Caractéristiques)  construit un ensemble de classifieurs (ou de régresseurs) <span class="math notranslate nohighlight">\((M_1\cdots M_d)\)</span> appris sur chacun des descripteurs et sélectionne les meilleurs par discrimination linéaire de Fisher. Pour ce faire, l’algorithme construit un vecteur dont les éléments sont les performances <span class="math notranslate nohighlight">\(Perf(M_i)\)</span> des modèles <span class="math notranslate nohighlight">\(M_i\)</span>, triés par ordre décroissant. Deux moyennes <span class="math notranslate nohighlight">\(m_1(i)\)</span> et <span class="math notranslate nohighlight">\(m_2(i)\)</span> sont calculées, qui représentent les deux moyennes de performance d’apprentissage qui ont une valeur respectivement plus grande (plus petite) que la performance du modèle <span class="math notranslate nohighlight">\(M_i\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[m_1(i) = \frac{1}{i}\displaystyle\sum_{j=1}^i Perf (M_j)\textrm{ et } m_2(i) = \frac{1}{d-i}\displaystyle\sum_{j=i+1}^d Perf (M_j)\]</div>
 <p>Deux variances des performances  <span class="math notranslate nohighlight">\(v_1^2(i)\)</span> et <span class="math notranslate nohighlight">\( v_2^2(i)\)</span> sont alors calculées à partir de ces moyennes, et le sous-ensemble de caractéristiques sélectionné est celui qui maximise le discriminant de Fisher</p>
@@ -714,6 +713,30 @@ Variables sélectionnées :  [ True False  True  True]
 <h3>Algorithme RFE<a class="headerlink" href="#algorithme-rfe" title="Permalink to this heading">#</a></h3>
 <p>L’algorithme RLE (Recusrive Feature Elimination) trie les descripteurs en analysant, localement, la sensibilité de la performance.
 Étant donné un prédicteur <span class="math notranslate nohighlight">\(f\)</span> qui attribue des poids aux caractéristiques (par exemple, les coefficients d’un modèle linéaire), l’objectif de l’algorithme est de sélectionner les caractéristiques en considérant de manière récursive des ensembles de caractéristiques de plus en plus petits. Tout d’abord, le prédicteur <span class="math notranslate nohighlight">\(f\)</span> est entraîné sur l’ensemble initial de caractéristiques et l’importance de chaque caractéristique est calculée par un algorithme dédié (critère de Gini, entropie…). Les caractéristiques les moins importantes sont éliminées de l’ensemble actuel de caractéristiques. Cette procédure est répétée de manière récursive sur l’ensemble élagué jusqu’à ce que le nombre souhaité de caractéristiques à sélectionner soit finalement atteint.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">RFE</span> 
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">estimator</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">()</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">RFE</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">n_features_to_select</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Taille des données avant sélection&quot;</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variables sélectionnées : &quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">get_support</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">ranking_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Taille des données avant sélection (150, 4)
+Variables sélectionnées :  [False False  True  True]
+[2 3 1 1]
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
