@@ -579,7 +579,7 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 </div>
 <div class="section" id="pre-traitement-des-donnees">
 <h2>Pré-traitement des données<a class="headerlink" href="#pre-traitement-des-donnees" title="Permalink to this heading">#</a></h2>
-<p>Faire une analyse de données, c’est traiter un tableau de taille <span class="math notranslate nohighlight">\(n\times p\)</span> où <span class="math notranslate nohighlight">\(n\)</span> est le nombre d’individus et <span class="math notranslate nohighlight">\(p\)</span> le nombre de variables (caractères) mesurées sur ces individus. En raison de la colecte des données, des erreurs de mesure ou d’autres facteurs, ce tableau est parfois incomplet et il convient de le prétraiter pour pouvoir effectuer l’analyse.</p>
+<p>Faire une analyse de données, c’est traiter un tableau de taille <span class="math notranslate nohighlight">\(n\times d\)</span> où <span class="math notranslate nohighlight">\(n\)</span> est le nombre d’individus et <span class="math notranslate nohighlight">\(d\)</span> le nombre de variables (caractères) mesurées sur ces individus. En raison de la colecte des données, des erreurs de mesure ou d’autres facteurs, ce tableau est parfois incomplet et il convient de le prétraiter pour pouvoir effectuer l’analyse.</p>
 <div class="section" id="points-aberrants">
 <h3>Points aberrants<a class="headerlink" href="#points-aberrants" title="Permalink to this heading">#</a></h3>
 <p>Une anomalie (ou point aberrant, ou outlier) est une observation (ou un sous-ensemble d’observations) qui semble incompatible avec le reste de l’ensemble de données.</p>
@@ -606,7 +606,7 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <p>Lors de la collecte des données, il arrive que certaines d’entre elles ne soient pas disponibles ou enregistrées. On distingue trois types de données manquantes :</p>
 <ol class="arabic simple">
 <li><p>les données manquant de manière complètement aléatoire :  la probabilité qu’une donnée soit manquante ne dépend pas des valeurs connues ni de la valeur manquante elle-même.</p></li>
-<li><p>les données manquant de manière aléatoire :  la probabilité qu’une donnée soit manquante peut dépendre de valeurs connues (d’autres variables parmi les <span class="math notranslate nohighlight">\(p\)</span>), mais pas de la variable dont les valeurs sont manquantes.</p></li>
+<li><p>les données manquant de manière aléatoire :  la probabilité qu’une donnée soit manquante peut dépendre de valeurs connues (d’autres variables parmi les <span class="math notranslate nohighlight">\(d\)</span>), mais pas de la variable dont les valeurs sont manquantes.</p></li>
 <li><p>les données manquant de manière non aléatoire : la probabilité qu’une donnée soit manquante dépend d’autres variables qui ont également des valeurs manquantes, ou elle dépend de la variable elle-même.</p></li>
 </ol>
 <p>Pour résoudre ce problème de données manquantes, dans la mesure où ces dernières ne sont pas trop nombreuses, on a recours à des techniques d’<strong>imputation</strong>.</p>
@@ -729,10 +729,10 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
 GeometricMean  :  1258.4787575642572
 HarmonicMean  :  1198.219210728503
-WeightedMean  :  1302.2911272959286
+WeightedMean  :  1321.0204557098723
 </pre></div>
 </div>
-<img alt="_images/0793fcfd043dbd2954bee31b353d2ff8aebe24693f1e6f907cff6f0a45bf37d4.png" src="_images/0793fcfd043dbd2954bee31b353d2ff8aebe24693f1e6f907cff6f0a45bf37d4.png" />
+<img alt="_images/503c012ca191170786c4cabf1cf0a0cf0b7702f0d8ee9b3a9d109fb2721ffdfe.png" src="_images/503c012ca191170786c4cabf1cf0a0cf0b7702f0d8ee9b3a9d109fb2721ffdfe.png" />
 </div>
 </div>
 <div class="proof definition admonition" id="definition-6">
@@ -960,7 +960,7 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/805dccc80241edafe8d89f77779e0678c22e1d7ba4c8a9a79cb722d81ba0f2e3.png" src="_images/805dccc80241edafe8d89f77779e0678c22e1d7ba4c8a9a79cb722d81ba0f2e3.png" />
+<img alt="_images/fcb533c23208dcd7061df34f3efd2c0b4034582ae4a55b9893e14600e5590bb4.png" src="_images/fcb533c23208dcd7061df34f3efd2c0b4034582ae4a55b9893e14600e5590bb4.png" />
 </div>
 </div>
 </div>
@@ -1139,7 +1139,7 @@ pour expliquer la variabilité des notes dans toute la promotion.</p></li>
 <p>Bien évidemment, dans la majorité des cas, un individu sera décrit par <span class="math notranslate nohighlight">\(p\geq 2\)</span> variables. Si certains algorithmes de statistique descriptive multidimensionnelle sont abordés dans ce cours, il est néanmoins possible d’avoir une première approche exploratoire de ce cas.</p>
 <div class="section" id="matrices-de-covariance-et-de-correlation">
 <h3>Matrices de covariance et de corrélation<a class="headerlink" href="#matrices-de-covariance-et-de-correlation" title="Permalink to this heading">#</a></h3>
-<p>La première idée, lorsque l’on a observé <span class="math notranslate nohighlight">\(p\)</span> variables sur <span class="math notranslate nohighlight">\(n\)</span> individus, est de calculer les <span class="math notranslate nohighlight">\(p\)</span> variances de ces variables, et les <span class="math notranslate nohighlight">\(\frac{p(p-1)}{2}\)</span> covariances. Ces mesures sont regroupées dans une matrice <span class="math notranslate nohighlight">\(p\times p\)</span>, symétrique, semi définie positive, appelée matrice de variance-covariance (ou matrice des covariances), et classiquement notée <span class="math notranslate nohighlight">\(\boldsymbol\Sigma\)</span>.</p>
+<p>La première idée, lorsque l’on a observé <span class="math notranslate nohighlight">\(d\)</span> variables sur <span class="math notranslate nohighlight">\(n\)</span> individus, est de calculer les <span class="math notranslate nohighlight">\(d\)</span> variances de ces variables, et les <span class="math notranslate nohighlight">\(\frac{p(p-1)}{2}\)</span> covariances. Ces mesures sont regroupées dans une matrice <span class="math notranslate nohighlight">\(p\times p\)</span>, symétrique, semi définie positive, appelée matrice de variance-covariance (ou matrice des covariances), et classiquement notée <span class="math notranslate nohighlight">\(\boldsymbol\Sigma\)</span>.</p>
 <p>De même, on peut former la matrice des corrélations entre les variables, à diagonale unité et symétrique. La matrice résultante, notée <span class="math notranslate nohighlight">\(\mathbf R\)</span>, est également semi définie positive et sa représentation graphique en fausses couleurs permet d’apprécier les dépendances linéaires entre variables.</p>
 <p><img alt="" src="_images/batiments.png" /></p>
 <p>Dans le cas de variables qualitatives, les coefficients de corrélation peuvent être remplacés par les coefficients de Cramer, de Tschuprow…</p>
