@@ -399,6 +399,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-manquantes">Données manquantes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-des-donnees-qualitatives">Transformation des données qualitatives</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisation">Normalisation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistique-descriptive-univariee">Statistique descriptive univariée</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-position">Paramètres de position</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-dispersion">Paramètres de dispersion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-forme">Paramètres de forme</a><ul class="nav section-nav flex-column">
@@ -637,7 +640,7 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 </div>
 <div class="section" id="normalisation">
 <h3>Normalisation<a class="headerlink" href="#normalisation" title="Permalink to this heading">#</a></h3>
-<p>Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l’analyse des données (<a class="reference internal" href="#biais"><span class="std std-ref">figure 1</span></a>) qu’il convient de corriger : c’est le processus de normalisation des données.</p>
+<p>Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l’analyse des données ({ref}figure 1<biais>`) qu’il convient de corriger. C’est le processus de normalisation des données.</p>
 <p>Pour une colonne <span class="math notranslate nohighlight">\(j\in[\![1,p]\!]\)</span>, on dispose de <span class="math notranslate nohighlight">\(n\)</span> valeurs <span class="math notranslate nohighlight">\(x_{ij},i\in[\![1,n]\!]\)</span>. On note : <span class="math notranslate nohighlight">\(x_{min} = \displaystyle\min_{i\in[\![1,n]\!]}x_{ij}\)</span>, <span class="math notranslate nohighlight">\(x_{max} = \displaystyle\max_{i\in[\![1,n]\!]}x_{ij}\)</span>,   <span class="math notranslate nohighlight">\(\bar x_j\)</span> la moyenne des <span class="math notranslate nohighlight">\(x_{ij}\)</span>, <span class="math notranslate nohighlight">\(\sigma_j\)</span> leur écart-type, <span class="math notranslate nohighlight">\(x_\frac14, x_\frac12\)</span> et <span class="math notranslate nohighlight">\(x_\frac34\)</span> les premier, deuxième et troisième quartiles. On distingue alors classiquement trois types de normalisation :</p>
 <ol class="arabic simple">
 <li><p>la normalisation min-max : <span class="math notranslate nohighlight">\(x_{ij} = \frac{x_{ij}-x_{min}}{x_{max}-x_{min}}\)</span></p></li>
@@ -647,14 +650,14 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <p>La normalisation standard dépend de la présence de points aberrants (qui affectent la moyenne).</p>
 <div class="figure align-default" id="biais">
 <img alt="_images/normK.png" src="_images/normK.png" />
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Effet de la normalisation sur un algorithme de classification (voir chapitre correspondant. En haut un jeu de données avec deux nuages de points allongés selon l’axe des <span class="math notranslate nohighlight">\(x\)</span>, certainement en raison d’une différence d’échelle entre les unités de mesure de <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>. Au milieu une classification par <span class="math notranslate nohighlight">\(k\)</span>-moyennes, <span class="math notranslate nohighlight">\(k\)</span>=2 sans normalisation, en utilisant la distance euclidienne. Les deux classes sont séparées suivant l’axe des <span class="math notranslate nohighlight">\(x\)</span>, ne reflétant pas la répartition naturelle des points. En bas, après normalisation, les deux nuages de points sont correctement séparés```</span><a class="headerlink" href="#biais" title="Permalink to this image">#</a></p>
-<div class="legend">
-<p class="rubric">Statistique descriptive univariée</p>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Effet de la normalisation sur un algorithme de classification (voir chapitre correspondant). En haut un jeu de données avec deux nuages de points allongés selon l’axe des <span class="math notranslate nohighlight">\(x\)</span>, certainement en raison d’une différence d’échelle entre les unités de mesure de <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>. Au milieu une classification par <span class="math notranslate nohighlight">\(k\)</span>-moyennes, <span class="math notranslate nohighlight">\(k\)</span>=2 sans normalisation, en utilisant la distance euclidienne. Les deux classes sont séparées suivant l’axe des <span class="math notranslate nohighlight">\(x\)</span>, ne reflétant pas la répartition naturelle des points. En bas, après normalisation, les deux nuages de points sont correctement séparés</span><a class="headerlink" href="#biais" title="Permalink to this image">#</a></p>
 </div>
 </div>
+</div>
+<div class="section" id="statistique-descriptive-univariee">
+<h2>Statistique descriptive univariée<a class="headerlink" href="#statistique-descriptive-univariee" title="Permalink to this heading">#</a></h2>
 <p id="index-7">La statistique descriptive univariée consiste à étudier un ensemble d’unités d’observations, lorsque celles-ci sont décrites par une seule variable.</p>
 <p>Soit donc <span class="math notranslate nohighlight">\(X\)</span> une variable et <span class="math notranslate nohighlight">\(x_j,j\in [\![1,n]\!]\)</span> l’ensemble des valeurs prises par cette variable, <span class="math notranslate nohighlight">\(n_i\)</span> étant le nombre de fois où la valeur <span class="math notranslate nohighlight">\(x_i\)</span> est prise. <span class="math notranslate nohighlight">\(X\)</span> peut être qualitative ou quantitative, les paramètres de description décrits dans la suite s’appliqueront à l’une de ces natures ou au deux.</p>
-</div>
 <div class="section" id="parametres-de-position">
 <h3>Paramètres de position<a class="headerlink" href="#parametres-de-position" title="Permalink to this heading">#</a></h3>
 <p>Plusieurs paramètres permettent de décrire la position “la plus représentative” d’une variable :</p>
@@ -726,10 +729,10 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
 GeometricMean  :  1258.4787575642572
 HarmonicMean  :  1198.219210728503
-WeightedMean  :  1333.279101491557
+WeightedMean  :  1289.4862626700685
 </pre></div>
 </div>
-<img alt="_images/4a5baa939eaff060211ec32f5a542061b7a9686a7e0203f0453ecf6f188862c6.png" src="_images/4a5baa939eaff060211ec32f5a542061b7a9686a7e0203f0453ecf6f188862c6.png" />
+<img alt="_images/9558bdab20ff83b1076727770606ffe4d9cee28b68c6a79fda0e3222683c2115.png" src="_images/9558bdab20ff83b1076727770606ffe4d9cee28b68c6a79fda0e3222683c2115.png" />
 </div>
 </div>
 <div class="proof definition admonition" id="definition-6">
@@ -957,7 +960,7 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6d91da8847cb2d7f3e29a8b57f7787352cd0e0d3779cb891cfb23390239e77fa.png" src="_images/6d91da8847cb2d7f3e29a8b57f7787352cd0e0d3779cb891cfb23390239e77fa.png" />
+<img alt="_images/1b7db98fbeb4a29c713317980c9369de47db71641d5d8ab0abff9da27f65f766.png" src="_images/1b7db98fbeb4a29c713317980c9369de47db71641d5d8ab0abff9da27f65f766.png" />
 </div>
 </div>
 </div>
@@ -1233,6 +1236,9 @@ suit une loi de Fisher Snedecor, en supposant que les distributions conditionnel
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-manquantes">Données manquantes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-des-donnees-qualitatives">Transformation des données qualitatives</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisation">Normalisation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistique-descriptive-univariee">Statistique descriptive univariée</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-position">Paramètres de position</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-dispersion">Paramètres de dispersion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-forme">Paramètres de forme</a><ul class="nav section-nav flex-column">
