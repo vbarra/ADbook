@@ -58,8 +58,7 @@ L'objectif de la classification automatique est l'organisation en classes homog�
 ### Démarche numérique
 #### Partition
 On remplace cette condition trop exigeante par une fonction numérique (critère) qui mesure la qualité d'homogénéité d'une partition. Le problème peut paraître alors très simple. En effet, par exemple, dans le cas de la recherche d'une partition, il suffit de chercher parmi l'ensemble fini de toutes les partitions celle qui optimise le critère numérique. Malheureusement, le nombre de ces partitions étant très grand, leur énumération est impossible dans un temps raisonnable. 
-Le nombre de partitions en $g$ classes d'un ensemble à $n$ éléments, que l'on note $S_n^g$ est le nombre de Stirling de deuxième espèce. En posant $S_0^0=1$ et pour tout $n>0$, $S_n^0=S_0^n=0$, il peut être calculé par récurrence grâce à la relation $S_n^g=S_{n-1}^{g-1}+gS_{n-1}^g$. \\
-On peut montrer que 
+Le nombre de partitions en $g$ classes d'un ensemble à $n$ éléments, que l'on note $S_n^g$ est le nombre de Stirling de deuxième espèce. En posant $S_0^0=1$ et pour tout $n>0$, $S_n^0=S_0^n=0$, il peut être calculé par récurrence grâce à la relation $S_n^g=S_{n-1}^{g-1}+gS_{n-1}^g$. On peut montrer que 
 
 $$S_n^g = \frac{1}{g!}\displaystyle\sum_{i=1}^g C_g^i (-1)^{g-i}i^n$$
 
@@ -80,13 +79,13 @@ Il s'agit cette fois de définir directement un algorithme qui construit des cla
 Les algorithmes de classification dépendent d'une métrique qui définit implicitement la forme des classes qui seront calculées. Si la distance euclidienne suppose une isotropie dans les axes (et donc une représentation sphérique des classes), d'autres distances ou indices de dissimilarité peuvent être utilisés.
 
 #### Indice de dissimilarité
-On se place dans $\mathbb R^p$, et on considère $n$ individus à classer ${\bf x_1}\ldots {\bf x_n}$.
+On se place dans $\mathbb R^d$, et on considère $n$ individus à classer ${\bf x_1}\ldots {\bf x_n}$.
 ````{prf:definition} Dissimilarité - ultramétrique
 Une mesure de dissimilarité $d$ est une fonction de 
 
 $
 d : \begin{array}{ccc}
-\mathbb{R}^p\times\mathbb{R}^p &\rightarrow &\mathbb{R}^+\\
+\mathbb{R}^d\times\mathbb{R}^d &\rightarrow &\mathbb{R}^+\\
 (\mathbf x_i,\mathbf x_j)&\mapsto & d_{ij} = d(\mathbf x_i,\mathbf x_j)
 \end{array}
 $
@@ -220,9 +219,9 @@ Pour les trois critères d'agrégation précédents, il existe des relations de 
 ### Critère de Ward
 ```{index} Ward ; critère
 ```
-Lorsque l'ensemble   $\Omega$ à classifier est mesuré par $p$ variables quantitatives, il est possible de lui associer un nuage de points pondérés dans $\mathbb{R}^p$ muni de la distance euclidienne $d$. Généralement, les pondérations seront toutes égales à 1. Le critère d'agrégation le plus utilisé dans cette situation est alors le critère d'inertie de Ward :
+Lorsque l'ensemble  $\Omega$ à classifier est mesuré par $d$ variables quantitatives, il est possible de lui associer un nuage de points pondérés dans $\mathbb{R}^d$ muni de la distance euclidienne. Généralement, les pondérations seront toutes égales à 1. Le critère d'agrégation le plus utilisé dans cette situation est alors le critère d'inertie de Ward :
 
-$D(A,B)=\frac{p_Ap_B}{p_A+p_B}d^2({\bf g}(A),{\bf g}(B))$
+$D(A,B)=\frac{p_Ap_B}{p_A+p_B}\|({\bf g}(A),{\bf g}(B))\|_2^2$
 
 où $p_E$ représente la somme des pondérations des éléments d'une classe $E$ et ${\bf g}(E)$ est le centre de gravité d'une classe $E$.
 
@@ -325,7 +324,7 @@ plt.tight_layout()
 
 ```{index} K-means
 ```
-La méthode des centres mobiles est encore connue sous le nom de méthode de réallocation-centrage ou des k-means lorsque l'ensemble à classifier est mesuré par $p$ variables. Ici, $\Omega \in \mathbb{R}^p$ est muni de sa distance euclidienne $d$. Pour simplifier la présentation, les pondérations des individus seront toutes égales à 1, mais la généralisation à des pondérations quelconques ne pose aucun problème.
+La méthode des centres mobiles est encore connue sous le nom de méthode de réallocation-centrage ou des k-means lorsque l'ensemble à classifier est mesuré par $d$ variables. Ici, $\Omega \in \mathbb{R}^d$ est muni de sa distance euclidienne $d$. Pour simplifier la présentation, les pondérations des individus seront toutes égales à 1, mais la généralisation à des pondérations quelconques ne pose aucun problème.
 
 #### Algorithme
 L'algorithme des centres-mobiles peut se définir ainsi :
@@ -369,7 +368,7 @@ La méthode des centres mobiles et la méthode de Ward optimisent toutes deux, �
 ```{index} Nuées dynamiques
 ```
 
-L'idée de base consiste à remplacer les centres   qui étaient des éléments de $\mathbb{R}^p$ jouant le rôle de représentant ou encore de noyau de la classe par des éléments de nature très diverse adaptés au problème que l'on cherche à résoudre.
+L'idée de base consiste à remplacer les centres   qui étaient des éléments de $\mathbb{R}^d$ jouant le rôle de représentant ou encore de noyau de la classe par des éléments de nature très diverse adaptés au problème que l'on cherche à résoudre.
 
 #### Formalisation
 On note $L=\{\lambda_i\}$ l'ensemble des noyaux, $D:\Omega\times L\rightarrow \mathbb{R}^+$ une mesure de ressemblance entre éléments de $\Omega$ et de $L$. L'objectif est alors de trouver la partition en $g$ classes ($g$ fixé a priori) de $\Omega$ minimisant le critère $\displaystyle\sum_{k}\displaystyle\sum_{x\in P_k}D(x,\lambda_k)$
