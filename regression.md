@@ -17,7 +17,8 @@ kernelspec:
 On s'intéresse ici à l'explication d'une variable (aléatoire) $Y$ (la variable expliquée) par une (ou plusieurs) variable(s) aléatoire(s) $X_j$ (prédicteurs, ou variables explicatives). 
 
 ## Régression simple
-On dispose de $n$ couples de variables quantitatives $(\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]$ constituant un échantillon d'observations indépendantes de $(X,Y)$ et on cherche une relation statistique pouvant exister entre $Y$ et $X$. On rappelle ici quelques résultats élémentaires sur la régression linéaire simple.
+On dispose de $n$ couples de variables quantitatives $(\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]$ constituant un échantillon d'observations indépendantes de $(X,Y)$ et on cherche une relation statistique pouvant exister entre $Y$ et $X$. 
+On rappelle ici quelques résultats élémentaires sur la régression linéaire simple.
 
 ### Modèle théorique
 Théoriquement, on cherche une fonction $f$ telle que $f(X)$ soit aussi proche que possible de $Y$. Par proximité, on entend ici au sens des moindres carrés, et donc on cherche $f$ telle que $\mathbb{E}\left ( (Y-f(X))^2\right )$ soit minimale. On sait alors que la fonction $f$ qui satisfait cette propriété est :
@@ -39,20 +40,20 @@ Le rapport de corrélation entre deux variables aléatoires $X$ et $Y$ est défi
 $\eta_{Y\mid X}^2 = \frac{\sigma_{\mathbb{E}(Y\mid X)}^2}{\sigma_Y^2}$
 ````
 
-En pratique, $Y$ est approchée par $Y=\mathbb{E}(Y\mid X)+\epsilon$, où $\epsilon$ est un résidu aléatoire de moyenne nulle, non corrélé à $X$ et à $\mathbb{E}(Y\mid X)$ et tel que $\sigma_\epsilon^2= (1-\eta_{Y\mid X}^2)\sigma_Y^2$.
+En pratique, $Y$ est approchée par $Y=\mathbb{E}(Y\mid X)+\varepsilon$, où $\varepsilon$ est un résidu aléatoire de moyenne nulle, non corrélé à $X$ et à $\mathbb{E}(Y\mid X)$ et tel que $\sigma_\varepsilon^2= (1-\eta_{Y\mid X}^2)\sigma_Y^2$.
 
-Le cadre le plus utilisé est celui de la régression linéaire, c'est-à-dire lorsque $Y=a+bX+\epsilon$ et donc $\mathbb{E}(Y\mid X)=a+bX$, ce qui est le cas lorsque $(X,Y)$ est un couple de variables aléatoires gaussiennes.
+Le cadre le plus utilisé est celui de la régression linéaire, c'est-à-dire lorsque $Y=a+bX+\varepsilon$ et donc $\mathbb{E}(Y\mid X)=a+bX$, ce qui est le cas lorsque $(X,Y)$ est un couple de variables aléatoires gaussiennes.
 
-Puisque $\mathbb{E}(\epsilon)=0$, la droite de régression passe par le point $(\mathbb{E}(X),\mathbb{E}(Y))$. Ainsi
+Puisque $\mathbb{E}(\varepsilon)=0$, la droite de régression passe par le point $(\mathbb{E}(X),\mathbb{E}(Y))$. Ainsi
 
-$Y-\mathbb{E}(Y)=b(X-\mathbb{E}(X))+\epsilon$
+$Y-\mathbb{E}(Y)=b(X-\mathbb{E}(X))+\varepsilon$
 
 En multipliant par $X-\mathbb{E}(X)$ et en prenant l'espérance, on trouve à gauche la covariance de $(X,Y)$ et à droite la variance de $X$, soit
 
 $\begin{array}{ccll}
-\sigma_{XY}&=& b\sigma_X^2+\mathbb{E}(\epsilon(X-\mathbb{E}(X)))&\\
-&=& b\sigma_X^2 + \sigma_{\epsilon X}&[\mathbb{E}(\epsilon)=0]\\ 
-&=& b\sigma_X^2 &[X\text{ et } \epsilon\text{ non corrélés}]\\ 
+\sigma_{XY}&=& b\sigma_X^2+\mathbb{E}(\varepsilon(X-\mathbb{E}(X)))&\\
+&=& b\sigma_X^2 + \sigma_{\varepsilon X}&[\mathbb{E}(\varepsilon)=0]\\ 
+&=& b\sigma_X^2 &[X\text{ et } \varepsilon\text{ non corrélés}]\\ 
 \end{array}
 $
 
@@ -61,14 +62,14 @@ $b = \frac{\sigma_{XY}}{\sigma_X^2} = r_{XY}\frac{\sigma_Y}{\sigma_X}$
 
 L'équation de la droite de régression est donc finalement
 
-$Y-\mathbb{E}(Y)=r_{XY}\frac{\sigma_Y}{\sigma_X}(X-\mathbb{E}(X))+\epsilon$
+$Y-\mathbb{E}(Y)=r_{XY}\frac{\sigma_Y}{\sigma_X}(X-\mathbb{E}(X))+\varepsilon$
 
-En calculant la variance des deux termes, et puisque $\epsilon$ et $X$ ne sont pas corrélés, on trouve 
+En calculant la variance des deux termes, et puisque $\varepsilon$ et $X$ ne sont pas corrélés, on trouve 
 
 $r_{XY}^2 = \eta_{Y\mid X}^2$
 
 ### Ajustement aux données
-On cherche ici à ajuster le modèle linéaire théorique aux $n$ couples d'observations indépendantes $(\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]$. Il s'agit donc de trouver $a,b$ ainsi que la variance du résidu $\epsilon$.
+On cherche ici à ajuster le modèle linéaire théorique aux $n$ couples d'observations indépendantes $(\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]$. Il s'agit donc de trouver $a,b$ ainsi que la variance du résidu $\varepsilon$.
 
 La méthode la plus classique est la méthode des moindres carrés : on cherche à ajuster au nuage de points  $(\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]$ une droite d'équation $y^*=\alpha +\beta x$ de sorte à minimiser 
 
@@ -134,9 +135,9 @@ $\boldsymbol\beta = (\mathbf X^T\mathbf D \mathbf X)^{-1}\mathbf X^T \mathbf D \
 ### Modèle
 On suppose que les $\mathbf X_i$ et $\mathbf Y$ sont $n$ réalisations indépendantes de $p+1$ variables aléatoires $\chi_i$ et $\omega$. De même qu'en régression simple, la recherche de la meilleure approximation de $\omega$ par une fonction des $\chi_i$ amène à $\mathbb{E}(\omega\mid \chi_1\cdots \chi_p)$ et l'hypothèse de régression multiple est
 
-$\mathbb{E}(\omega\mid \chi_0\cdots \chi_p) = b_0+\displaystyle\sum_{i=1}^p b_i\chi_i+\epsilon$
+$\mathbb{E}(\omega\mid \chi_0\cdots \chi_p) = b_0+\displaystyle\sum_{i=1}^p b_i\chi_i+\varepsilon$
 
-avec $\mathbb{E}(\epsilon)=0, \sigma_\epsilon=\sigma^2$ et $\epsilon$ non corrélée aux $\chi_i$.
+avec $\mathbb{E}(\varepsilon)=0, \sigma_\varepsilon=\sigma^2$ et $\varepsilon$ non corrélée aux $\chi_i$.
 
 On peut montrer que $\boldsymbol\beta$ est un estimateur sans biais du vecteur aléatoire  $(b_0\cdots b_p)$, et en est la meilleure approximation. De plus, la meilleure estimation sans biais de la variance $\sigma^2$ est 
 
@@ -160,7 +161,7 @@ $\begin{eqnarray*}
 
 
 ### Modèle
-En ayant une infinité d'observations, on approche le modèle probabiliste. On suppose que $\mathbf Y$ est une réalisation d'un vecteur aléatoire d'espérance $\mathbf X\mathbf b$ et de matrice de variance-covariance $\boldsymbol\Sigma$. Le modèle s'écrit alors  $\mathbf Y=\mathbf X\mathbf b+\epsilon$, avec $\epsilon$ centré de variance $\boldsymbol\Sigma$, et le problème est donc d'estimer $\mathbf b$. On montre que  $\mathbf b = (\mathbf X^T \boldsymbol\Sigma^{-1}\mathbf X)^{-1}\mathbf X^T\boldsymbol\Sigma^{-1}\mathbf Y$, appelé estimation des moindres carrés généralisés est, sous des hypothèses larges, l'estimation de variance minimale de $\mathbf b$.
+En ayant une infinité d'observations, on approche le modèle probabiliste. On suppose que $\mathbf Y$ est une réalisation d'un vecteur aléatoire d'espérance $\mathbf X\mathbf b$ et de matrice de variance-covariance $\boldsymbol\Sigma$. Le modèle s'écrit alors  $\mathbf Y=\mathbf X\mathbf b+\varepsilon$, avec $\varepsilon$ centré de variance $\boldsymbol\Sigma$, et le problème est donc d'estimer $\mathbf b$. On montre que  $\mathbf b = (\mathbf X^T \boldsymbol\Sigma^{-1}\mathbf X)^{-1}\mathbf X^T\boldsymbol\Sigma^{-1}\mathbf Y$, appelé estimation des moindres carrés généralisés est, sous des hypothèses larges, l'estimation de variance minimale de $\mathbf b$.
 
 ## Modèles régularisés
 On peut montrer que l'estimateur des moindres carrés est de variance minimale parmi les estimateurs linéaires sans biais. Cependant, la variance aboutit dans certains cas à des erreurs de prédiction importantes. Dans ce cas, on cherche des estimateurs de variance plus petite quitte à avoir un (léger) biais. Pour ce faire, on peut supprimer l'effet de certaines variables explicatives ce qui revient à leur attribuer un poids nul.
@@ -462,7 +463,7 @@ On s'intéresse aux données suivantes et on cherche s'il existe une relation en
 ### Modèle
 On fait l'hypothèse d'un modèle linéaire 
 
-$y = \beta_0+\beta_1 X_1 + \beta_2 X_2+\epsilon = \mathbf X \boldsymbol\beta+\boldsymbol\epsilon$
+$y = \beta_0+\beta_1 X_1 + \beta_2 X_2+\varepsilon = \mathbf X \boldsymbol\beta+\boldsymbol\varepsilon$
 
 On a alors $\boldsymbol\beta = (\mathbf X^T\mathbf X)^{-1}\mathbf X^T \mathbf Y = \begin{pmatrix} -437.714\\0.336\\0.410\end{pmatrix}$ et l'équation du modèle linéaire (hyperplan) aux moindres carrés est 
 
