@@ -169,9 +169,10 @@ from  random  import  random
 import matplotlib.pyplot as plt
 
 def experience(n):
+    p=0.4
     f = []
     for j in range(n):
-        if random() <0.4:
+        if random() <p:
             f += [1.]
         else:
             f+=[0]
@@ -184,7 +185,8 @@ def experience(n):
 n = 100
 plt.figure(figsize=(12,6))
 x = np.arange(n)
-for i in range(8):
+nb_sequences = 10
+for i in range(nb_sequences):
     f = experience(n)
     plt.plot(x,f)
     plt.xlabel('$n$',fontsize=16)

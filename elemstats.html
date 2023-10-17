@@ -602,9 +602,10 @@ Soit <span class="math notranslate nohighlight">\(A=\left \{|X-m|\geq t\right \}
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="k">def</span> <span class="nf">experience</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">p</span><span class="o">=</span><span class="mf">0.4</span>
     <span class="n">f</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span><span class="mf">0.4</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span><span class="n">p</span><span class="p">:</span>
             <span class="n">f</span> <span class="o">+=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">f</span><span class="o">+=</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -617,7 +618,8 @@ Soit <span class="math notranslate nohighlight">\(A=\left \{|X-m|\geq t\right \}
 <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+<span class="n">nb_sequences</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb_sequences</span><span class="p">):</span>
     <span class="n">f</span> <span class="o">=</span> <span class="n">experience</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$n$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
@@ -629,7 +631,7 @@ Soit <span class="math notranslate nohighlight">\(A=\left \{|X-m|\geq t\right \}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e2d6897cb3c4d655c98f4f20998c1844a79c66f140e92291f40ecc97405267fa.png" src="_images/e2d6897cb3c4d655c98f4f20998c1844a79c66f140e92291f40ecc97405267fa.png" />
+<img alt="_images/3db19e1c6b0d25a14ca87a726c9080fb340592c4dcc94fb6502f55b29797c83a.png" src="_images/3db19e1c6b0d25a14ca87a726c9080fb340592c4dcc94fb6502f55b29797c83a.png" />
 </div>
 </div>
 <p>La fluctuation de la fréquence est importante pour des petites valeurs de <span class="math notranslate nohighlight">\(n\)</span>, puis elle s’atténue, pour se stabiliser autour d’une valeur voisine de <span class="math notranslate nohighlight">\(p\)</span>.</p>
