@@ -377,7 +377,7 @@ La déviation moyenne absolue est définie par
 
 
 ````{prf:definition} Distance interquartile
-La distance interquartile est la différence entre le troisième et le premier quartile. C'est une statistique robuste aux points aberrants.
+La distance interquartile $Q_3-Q_1$ est la différence entre le troisième et le premier quartile. C'est une statistique robuste aux points aberrants.
 ````
 
 ````{prf:definition} Variance
@@ -463,6 +463,8 @@ Tous les coefficients d'asymétrie ont des propriétés similaires : ils sont nu
 
 On peut aussi chercher à mesurer l'aplatissement (ou kurtosis) d'une distribution de mesure. Dans ce cas, on utilise le coefficient d'aplatissement de Pearson ou de Fisher, respectivement donnés par 
 $\beta_2=\frac{m_4}{\sigma^4}\quad\textrm{et}\quad g_2=\beta_2-3$
+
+
 Une distribution est alors dite :
 - mésokurtique si $g_2$ est proche de 0
 - leptokurtique si $g_2>0$ (queues plus longues et distribution plus pointue)
@@ -518,7 +520,7 @@ plt.show()
 
 
 ### La description ne fait pas tout...
-La description d'un ensemble de valeurx $x_j$ par la moyenne, la variance, voire le comportement linéaire (coefficient de corrélation, voir plus loin) peut ne pas suffire à comprendre la distribution des données. Un exemple classique est le quartet d'Anscombe (figure~\ref{F:anscombe}), constitué de quatre ensembles de points  $(x,y)\in\mathbb{R}^2$ de même propriétés statistiques (moyenne, variance, coefficient de régression linéaire) mais qui sont distribués de manière totalement différente dans le plan.
+La description d'un ensemble de valeurx $x_j$ par la moyenne, la variance, voire le comportement linéaire (coefficient de corrélation, voir plus loin) peut ne pas suffire à comprendre la distribution des données. Un exemple classique (analyse bivariée, section suivante) est le quartet d'Anscombe (figure ci-dessous), constitué de quatre ensembles de points  $(x,y)\in\mathbb{R}^2$ de même propriétés statistiques (moyenne, variance, coefficient de régression linéaire) mais qui sont distribués de manière totalement différente dans le plan.
 
 ```{code-cell} ipython3
 import matplotlib.pyplot as plt
@@ -582,7 +584,7 @@ $\sigma_{xy}=\frac{1}{n}\displaystyle\sum_{i=1}^n\left (x_i-\bar{x}\right )\left
 
 ````{prf:definition} Coefficient de corrélation
 Le coefficient de corrélation  de deux variables $x$ et $y$ est défini par 
-$r_{xy}=\frac{\sigma_{xy}}{\sigma_{x}\sigma_{y}}$
+$r_{xy}=\frac{\sigma_{xy}}{\sigma_{x}\sigma_{y}}$.
 Le coefficient de détermination est le carré du coefficient de corrélation.
 ```` 
 Le coefficient de corrélation est donc la covariance normalisée par les écarts types marginaux des variables. Il mesure la dépendance linéaire entre $x$ et $y$. Il est compris dans l'intervalle [-1,1] est est positif (resp. négatif) si les points sont alignés le long d'une droite croissante (resp. décroissante), d'autant plus grand en valeur absolue que la dépendance linéaire est vérifiée. Dans le cas où le coefficient est nul, il n'existe pas de dépendance linéaire.
@@ -592,13 +594,13 @@ $b=\frac{\sigma_{xy}}{\sigma_x^2}\quad\textrm{et}\quad a=\bar{y}-b\bar{x}$
 
 et la droite de régression s'écrit $y-\bar{y}=\frac{\sigma_{xy}}{\sigma_x^2}\left ( x-\bar{x}\right )$.
 
-A partir de cette droite, on peut calculer les valeurs ajustées, obtenues à partir de la droite de régression : $y^*_i=a+bx_i$. Ce sont les valeurs théoriques des $y_i$ et les résidus $e_i=y_i-y_i^*$ représentent la partie inexpliquée des $y_i$ par la droite de régression (ceux là même que l'on essaye de minimiser par la méthode des moindres carrés).
+A partir de cette droite, on peut calculer les valeurs ajustées, obtenues à partir de la droite de régression : $y^*_i=a+bx_i$. Ce sont les valeurs théoriques des $y_i$ et les résidus $e_i=y_i-y_i^*$ représentent la partie inexpliquée des $y_i$ par la droite de régression (ceux là même que l'on essaye de minimiser par la méthode des moindres carrés). Nous reviendrons dans le chapitre sur la régression sur l'analyse de ces résidus.
 
 ### Cas de deux variables qualitatives
 
 Le couple est un couple de valeurs $(x_i,y_i)$ où $x_i$ et $y_i$ prennent comme valeurs des modalités qualitatives. Notons $x_1\cdots x_J$ et $y_1\cdots y_K$ les valeurs distinctes prises. 
 
-Les données peuvent être regroupées sous la forme d'un tableau de contingence prenant la forme suivante :
+Les données peuvent être regroupées sous la forme d'un **tableau de contingence** prenant la forme suivante :
 ```{index} Tableau ; contingence
 ```
 ```{index} Contingence ; tableau
@@ -637,17 +639,22 @@ qui peut être normalisé pour ne plus dépendre du nombre d'observations :
 $\phi^2=\frac{\chi^2_{obs}}{n}$
 
 La construction du tableau des effectifs théoriques et sa comparaison au tableau des observations permet dans un premier temps de mettre en évidence les associations significatives entre modalités des deux variables. Pour cela, on calcule la contribution au $\chi^2$ des modalités $j$ et $k$ :
-$\frac{1}{\chi^2_{obs}}\frac{\left (n_{jk}-n_{j.}n_{.k}\right )^2}{n_{jk}^*}$
+
+$$\frac{1}{\chi^2_{obs}}\frac{\left (n_{jk}-n_{j.}n_{.k}\right )^2}{n_{jk}^*}$$
+
 Le signe de la différence $n_{jk}-n_{jk}^*$ indique alors s'il y a une association positive ou négative entre les modalités $j$ et $k$.
 
 Plus généralement, le $\chi^2_{obs}$ est un indicateur de liaison entre les variables.  Dans le cas où $\chi^2_{obs}=0$, il y a indépendance. Pour rechercher la borne supérieure du khi-deux et voir dans quel cas elle est atteinte, on développe le carré et on obtient 
-$\chi^2_{obs} = n\left [\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J \frac{n_{jk}^2}{n_{j.}n_{.k}} -1\right ]$
-Comme $\frac{n_{jk}}{n_{.k}}\leq 1$ on a $ \frac{n_{jk}^2}{n_{j.}n_{.k}} \leq \frac{n_{jk}}{n_{.k}}$ d'où
-$\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J\frac{n_{jk}^2}{n_{j.}n_{.k}}\leq \displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J \frac{n_{jk}}{n_{.k}} = \displaystyle\sum_{k=1}^K \frac{\displaystyle\sum_{j=1}^J n_{jk}}{n_{.k}}=\displaystyle\sum_{k=1}^K \frac{n_{.k}}{n_{.k}}=1$
 
-d'où $\chi^2_{obs}\leq n(K-1)$. On pourrait de même montrer que $\chi^2_{obs}\leq n(J-1)$ et donc 
-$\phi^2\leq min(J-1,K-1)$
-la borne étant atteinte dans le cas de la dépendance fonctionnelle (si $\forall j \frac{n_{jk}}{n_{j.}}=1$, i.e. il n'existe qu'une case non nulle dans chaque ligne.)
+$$\chi^2_{obs} = n\left [\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J \frac{n_{jk}^2}{n_{j.}n_{.k}} -1\right ]$$
+
+Comme $\frac{n_{jk}}{n_{.k}}\leq 1$ on a $ \frac{n_{jk}^2}{n_{j.}n_{.k}} \leq \frac{n_{jk}}{n_{.k}}$ d'où
+
+$$\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J\frac{n_{jk}^2}{n_{j.}n_{.k}}\leq \displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J \frac{n_{jk}}{n_{.k}} = \displaystyle\sum_{k=1}^K \frac{\displaystyle\sum_{j=1}^J n_{jk}}{n_{.k}}=\displaystyle\sum_{k=1}^K \frac{n_{.k}}{n_{.k}}=1$$
+
+d'où $\chi^2_{obs}\leq n(K-1)$. On pourrait de même montrer que $\chi^2_{obs}\leq n(J-1)$ et donc $\phi^2\leq min(J-1,K-1)$.
+
+La borne est atteinte dans le cas de la dépendance fonctionnelle (si $\forall j \frac{n_{jk}}{n_{j.}}=1$, i.e. il n'existe qu'une case non nulle dans chaque ligne.)
 
 A partir de ce khi-deux normalisé, on calcule finalement plusieurs coefficients permettant de mesurer l'indépendance, et parmi ceux-ci citons :
 
@@ -670,7 +677,7 @@ Soient $U_1\ldots U_p$ $p$ variables i.i.d de loi normale centrée réduite. On 
 ```
 
 
-En effet, les $e_{jk}$ sont liées par $(K-1)(J-1)$ relations linéaires puisqu'on estime les probabilités de réalisation de $x_j$ et $y_k$ respectivement par $n_{j,.}/n$ et $n_{.k}/n$ Il suffit alors de fixer un risque d'erreur $\alpha$ (une valeur qui, s'il y avait indépendance, n'aurait qu'une probabilité faible d'être dépassée), et on rejette l'hypothèse d'indépendance si $\chi^2_{obs}$  est supérieur à la valeur critique qu'une variable $\chi^2_{(K-1)(J-1)}$ a une probabilité $\alpha$ de dépasser.
+En effet, les $e_{jk}$ sont liées par $(K-1)(J-1)$ relations linéaires puisqu'on estime les probabilités de réalisation de $x_j$ et $y_k$ respectivement par $n_{j,.}/n$ et $n_{.k}/n$. Il suffit alors de fixer un risque d'erreur $\alpha$ (une valeur qui, s'il y avait indépendance, n'aurait qu'une probabilité faible d'être dépassée), et on rejette l'hypothèse d'indépendance si $\chi^2_{obs}$  est supérieur à la valeur critique qu'une variable $\chi^2_{(K-1)(J-1)}$ a une probabilité $\alpha$ de dépasser.
 L'espérance d'un $\chi^2_{(K-1)(J-1)}$ étant égale à son degré de liberté, $\chi^2_{obs}$ est d'autant plus grand que le nombre de modalités $J$ et/ou $K$ est grand. 
 
 
@@ -683,9 +690,13 @@ qui sous l'hypothèse d'indépendance suit une loi $\chi^2_{(K-1)(J-1)}$.
 ### Cas d'une variable quantitative et d'une variable qualitative
 On s'intéresse ici au cas où les modalités $x_i$ sont qualitatives, et où $y$ est une variable quantitative, dont les modalités sont des réalisations d'une variable aléatoire $Y$.
 Le rapport de corrélation théorique entre $x$ et $Y$ est défini par 
-$\eta^2_{Y\mid x} = \frac{\sigma^2_{\mathbb{E}_{Y\mid x}}}{\sigma^2_Y}$
+
+$$\eta^2_{Y\mid x} = \frac{\sigma^2_{\mathbb{E}_{Y\mid x}}}{\sigma^2_Y}$$
+
 Si $n_j$ est le nombre d'observations de la modalité $x_j,j\in[\![1\,J]\!]$, $y_{ij}$ la valeur de $Y$ du $i^e$ individu de la modalité $j$, $\bar{y}_1\ldots \bar{y}_J$ sont les moyennes de $Y$ pour ces modalités et $\bar{y}$ la moyenne totale sur les $n$ individus, le rapport de corrélation empirique est défini par 
-$e^2 = \frac{\frac{1}{n}\displaystyle\sum_{j=1}^J n_j\left (\bar{y}_j-\bar{y}\right )^2}{\sigma^2_y}$
+
+
+$$e^2 = \frac{\frac{1}{n}\displaystyle\sum_{j=1}^J n_j\left (\bar{y}_j-\bar{y}\right )^2}{\sigma^2_y}$$
 
 
 La quantité 
@@ -710,10 +721,7 @@ facteurs : le fait que les étudiants assistent ou pas aux cours, et le fait qu'
 pour expliquer la variabilité des notes dans toute la promotion.
 
 
-Pour déterminer à partir de quelle valeur $e^2$ est significatif, on compare donc $\sigma^2_\cap$ à $\sigma^2_\cup$. On peut montrer que si le rapport de corrélation théorique est nul, alors la variable 
-
-$\frac{\left (\frac{e^2}{J-1}\right )}{\left (\frac{1-e^2}{n-J}\right )}$
-suit une loi de Fisher Snedecor, en supposant que les distributions conditionnelles de $Y$ pour chaque modalité de $X$ sont gaussiennes, de même espérance et de même variance. 
+Pour déterminer à partir de quelle valeur $e^2$ est significatif, on compare donc $\sigma^2_\cap$ à $\sigma^2_\cup$. On peut montrer que si le rapport de corrélation théorique est nul, alors la variable $\frac{\left (\frac{e^2}{J-1}\right )}{\left (\frac{1-e^2}{n-J}\right )}$ suit une loi de Fisher Snedecor, en supposant que les distributions conditionnelles de $Y$ pour chaque modalité de $X$ sont gaussiennes, de même espérance et de même variance. 
 
 ```{prf:remark}
 :class: dropdown
