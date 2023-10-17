@@ -163,7 +163,7 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &\textrm{ si}& x\in[c^-_j,c^+_j[\\
 
 ## Pré-traitement des données
 
-Faire une analyse de données, c'est traiter un tableau de taille $n\times p$ où $n$ est le nombre d'individus et $p$ le nombre de variables (caractères) mesurées sur ces individus. En raison de la colecte des données, des erreurs de mesure ou d'autres facteurs, ce tableau est parfois incomplet et il convient de le prétraiter pour pouvoir effectuer l'analyse.
+Faire une analyse de données, c'est traiter un tableau de taille $n\times d$ où $n$ est le nombre d'individus et $d$ le nombre de variables (caractères) mesurées sur ces individus. En raison de la colecte des données, des erreurs de mesure ou d'autres facteurs, ce tableau est parfois incomplet et il convient de le prétraiter pour pouvoir effectuer l'analyse.
 
 ### Points aberrants
 Une anomalie (ou point aberrant, ou outlier) est une observation (ou un sous-ensemble d'observations) qui semble incompatible avec le reste de l'ensemble de données.
@@ -187,7 +187,7 @@ où  $\bar x$ (respectivement $\sigma$) est la moyenne (resp. l'écart-type ) de
 Lors de la collecte des données, il arrive que certaines d'entre elles ne soient pas disponibles ou enregistrées. On distingue trois types de données manquantes :
 
 1. les données manquant de manière complètement aléatoire :  la probabilité qu'une donnée soit manquante ne dépend pas des valeurs connues ni de la valeur manquante elle-même.
-2. les données manquant de manière aléatoire :  la probabilité qu'une donnée soit manquante peut dépendre de valeurs connues (d'autres variables parmi les $p$), mais pas de la variable dont les valeurs sont manquantes.
+2. les données manquant de manière aléatoire :  la probabilité qu'une donnée soit manquante peut dépendre de valeurs connues (d'autres variables parmi les $d$), mais pas de la variable dont les valeurs sont manquantes.
 3. les données manquant de manière non aléatoire : la probabilité qu'une donnée soit manquante dépend d'autres variables qui ont également des valeurs manquantes, ou elle dépend de la variable elle-même.
 
 
@@ -732,7 +732,7 @@ Soient $U$ et $V$ deux variables aléatoires indépendantes suivant respectiveme
 Bien évidemment, dans la majorité des cas, un individu sera décrit par $p\geq 2$ variables. Si certains algorithmes de statistique descriptive multidimensionnelle sont abordés dans ce cours, il est néanmoins possible d'avoir une première approche exploratoire de ce cas.
 
 ### Matrices de covariance et de corrélation
-La première idée, lorsque l'on a observé $p$ variables sur $n$ individus, est de calculer les $p$ variances de ces variables, et les $\frac{p(p-1)}{2}$ covariances. Ces mesures sont regroupées dans une matrice $p\times p$, symétrique, semi définie positive, appelée matrice de variance-covariance (ou matrice des covariances), et classiquement notée $\boldsymbol\Sigma$.
+La première idée, lorsque l'on a observé $d$ variables sur $n$ individus, est de calculer les $d$ variances de ces variables, et les $\frac{p(p-1)}{2}$ covariances. Ces mesures sont regroupées dans une matrice $p\times p$, symétrique, semi définie positive, appelée matrice de variance-covariance (ou matrice des covariances), et classiquement notée $\boldsymbol\Sigma$.
 
 De même, on peut former la matrice des corrélations entre les variables, à diagonale unité et symétrique. La matrice résultante, notée $\mathbf R$, est également semi définie positive et sa représentation graphique en fausses couleurs permet d'apprécier les dépendances linéaires entre variables.
 

@@ -12,7 +12,7 @@ kernelspec:
 
 # Sélection de variables
 
-On s'intéresse ici à $n$ individus  $\mathbf x_i, 1\leq i\leq n$ décrits par $d$ variables quantitatives ou caractéristiques (features), $x_i\in \mathbb{R}^d$. Avec l'avènement des Big Data, et la généralisation des capteurs, $d$ peut être très grand (plusieurs milliers), et analyser telles quelles les données brutes devient difficile d'un point de vue calculatoire et interprétation. De plus, il est rare que les caractéristiques soient totalement utiles et indépendantes. 
+On s'intéresse ici à $n$ individus  $\mathbf x_i, i\in[\[1,n]\!]$ décrits par $d$ variables quantitatives ou caractéristiques (features), $x_i\in \mathbb{R}^d$. Avec l'avènement des Big Data, et la généralisation des capteurs, $d$ peut être très grand (plusieurs milliers), et analyser telles quelles les données brutes devient difficile d'un point de vue calculatoire et interprétation. De plus, il est rare que les caractéristiques soient totalement utiles et indépendantes. 
 
 Une étape souvent utilisée en analyse de données consiste donc à prétraiter cet espace, par exemple pour :
 

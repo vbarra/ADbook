@@ -729,10 +729,10 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
 GeometricMean  :  1258.4787575642572
 HarmonicMean  :  1198.219210728503
-WeightedMean  :  1323.621840499637
+WeightedMean  :  1302.2911272959286
 </pre></div>
 </div>
-<img alt="_images/c09acab7043c9c2cdd42834034f11e36dca7a1b0a7aa12691ef89d2072150c58.png" src="_images/c09acab7043c9c2cdd42834034f11e36dca7a1b0a7aa12691ef89d2072150c58.png" />
+<img alt="_images/0793fcfd043dbd2954bee31b353d2ff8aebe24693f1e6f907cff6f0a45bf37d4.png" src="_images/0793fcfd043dbd2954bee31b353d2ff8aebe24693f1e6f907cff6f0a45bf37d4.png" />
 </div>
 </div>
 <div class="proof definition admonition" id="definition-6">
@@ -804,7 +804,7 @@ quartile  75  :  1626.326538085935
 </div><div class="proof definition admonition" id="definition-11">
 <p class="admonition-title"><span class="caption-number">Definition 27 </span> (Distance interquartile)</p>
 <div class="definition-content section" id="proof-content">
-<p>La distance interquartile est la différence entre le troisième et le premier quartile. C’est une statistique robuste aux points aberrants.</p>
+<p>La distance interquartile <span class="math notranslate nohighlight">\(Q_3-Q_1\)</span> est la différence entre le troisième et le premier quartile. C’est une statistique robuste aux points aberrants.</p>
 </div>
 </div><div class="proof definition admonition" id="definition-12">
 <p class="admonition-title"><span class="caption-number">Definition 28 </span> (Variance)</p>
@@ -906,8 +906,8 @@ IQR  :  1316.3086347078017 +/- 720.4074859619113
 </div><p>Ce coefficient est fondé sur la comparaison de la moyenne et du mode, et est normalisé par l’écart type.</p>
 <p>Tous les coefficients d’asymétrie ont des propriétés similaires : ils sont nuls si la distribution est symétrique, négatifs si la distribution est allongée à gauche (left asymmetry), et positifs si la distribution est allongée à droite (right asymmetry).</p>
 <p>On peut aussi chercher à mesurer l’aplatissement (ou kurtosis) d’une distribution de mesure. Dans ce cas, on utilise le coefficient d’aplatissement de Pearson ou de Fisher, respectivement donnés par
-<span class="math notranslate nohighlight">\(\beta_2=\frac{m_4}{\sigma^4}\quad\textrm{et}\quad g_2=\beta_2-3\)</span>
-Une distribution est alors dite :</p>
+<span class="math notranslate nohighlight">\(\beta_2=\frac{m_4}{\sigma^4}\quad\textrm{et}\quad g_2=\beta_2-3\)</span></p>
+<p>Une distribution est alors dite :</p>
 <ul class="simple">
 <li><p>mésokurtique si <span class="math notranslate nohighlight">\(g_2\)</span> est proche de 0</p></li>
 <li><p>leptokurtique si <span class="math notranslate nohighlight">\(g_2&gt;0\)</span> (queues plus longues et distribution plus pointue)</p></li>
@@ -960,14 +960,14 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f866f86285c9d012ed118bcbe3af4f13aab9cafcf6994a6a0806fef932d3c55c.png" src="_images/f866f86285c9d012ed118bcbe3af4f13aab9cafcf6994a6a0806fef932d3c55c.png" />
+<img alt="_images/805dccc80241edafe8d89f77779e0678c22e1d7ba4c8a9a79cb722d81ba0f2e3.png" src="_images/805dccc80241edafe8d89f77779e0678c22e1d7ba4c8a9a79cb722d81ba0f2e3.png" />
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="la-description-ne-fait-pas-tout">
 <h3>La description ne fait pas tout…<a class="headerlink" href="#la-description-ne-fait-pas-tout" title="Permalink to this heading">#</a></h3>
-<p>La description d’un ensemble de valeurx <span class="math notranslate nohighlight">\(x_j\)</span> par la moyenne, la variance, voire le comportement linéaire (coefficient de corrélation, voir plus loin) peut ne pas suffire à comprendre la distribution des données. Un exemple classique est le quartet d’Anscombe (figure~\ref{F:anscombe}), constitué de quatre ensembles de points  <span class="math notranslate nohighlight">\((x,y)\in\mathbb{R}^2\)</span> de même propriétés statistiques (moyenne, variance, coefficient de régression linéaire) mais qui sont distribués de manière totalement différente dans le plan.</p>
+<p>La description d’un ensemble de valeurx <span class="math notranslate nohighlight">\(x_j\)</span> par la moyenne, la variance, voire le comportement linéaire (coefficient de corrélation, voir plus loin) peut ne pas suffire à comprendre la distribution des données. Un exemple classique (analyse bivariée, section suivante) est le quartet d’Anscombe (figure ci-dessous), constitué de quatre ensembles de points  <span class="math notranslate nohighlight">\((x,y)\in\mathbb{R}^2\)</span> de même propriétés statistiques (moyenne, variance, coefficient de régression linéaire) mais qui sont distribués de manière totalement différente dans le plan.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -1030,19 +1030,19 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 <span id="index-9"></span><p class="admonition-title"><span class="caption-number">Definition 36 </span> (Coefficient de corrélation)</p>
 <div class="definition-content section" id="proof-content">
 <p>Le coefficient de corrélation  de deux variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> est défini par
-<span class="math notranslate nohighlight">\(r_{xy}=\frac{\sigma_{xy}}{\sigma_{x}\sigma_{y}}\)</span>
+<span class="math notranslate nohighlight">\(r_{xy}=\frac{\sigma_{xy}}{\sigma_{x}\sigma_{y}}\)</span>.
 Le coefficient de détermination est le carré du coefficient de corrélation.</p>
 </div>
 </div><p>Le coefficient de corrélation est donc la covariance normalisée par les écarts types marginaux des variables. Il mesure la dépendance linéaire entre <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>. Il est compris dans l’intervalle [-1,1] est est positif (resp. négatif) si les points sont alignés le long d’une droite croissante (resp. décroissante), d’autant plus grand en valeur absolue que la dépendance linéaire est vérifiée. Dans le cas où le coefficient est nul, il n’existe pas de dépendance linéaire.</p>
 <p>Pour connaître plus précisément la relation linéaire qui lie <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>, on effectue une régression linéaire en calculant par exemple la droite de régression : si <span class="math notranslate nohighlight">\(y=a+bx\)</span>, il est facile de montrer que
 <span class="math notranslate nohighlight">\(b=\frac{\sigma_{xy}}{\sigma_x^2}\quad\textrm{et}\quad a=\bar{y}-b\bar{x}\)</span></p>
 <p>et la droite de régression s’écrit <span class="math notranslate nohighlight">\(y-\bar{y}=\frac{\sigma_{xy}}{\sigma_x^2}\left ( x-\bar{x}\right )\)</span>.</p>
-<p>A partir de cette droite, on peut calculer les valeurs ajustées, obtenues à partir de la droite de régression : <span class="math notranslate nohighlight">\(y^*_i=a+bx_i\)</span>. Ce sont les valeurs théoriques des <span class="math notranslate nohighlight">\(y_i\)</span> et les résidus <span class="math notranslate nohighlight">\(e_i=y_i-y_i^*\)</span> représentent la partie inexpliquée des <span class="math notranslate nohighlight">\(y_i\)</span> par la droite de régression (ceux là même que l’on essaye de minimiser par la méthode des moindres carrés).</p>
+<p>A partir de cette droite, on peut calculer les valeurs ajustées, obtenues à partir de la droite de régression : <span class="math notranslate nohighlight">\(y^*_i=a+bx_i\)</span>. Ce sont les valeurs théoriques des <span class="math notranslate nohighlight">\(y_i\)</span> et les résidus <span class="math notranslate nohighlight">\(e_i=y_i-y_i^*\)</span> représentent la partie inexpliquée des <span class="math notranslate nohighlight">\(y_i\)</span> par la droite de régression (ceux là même que l’on essaye de minimiser par la méthode des moindres carrés). Nous reviendrons dans le chapitre sur la régression sur l’analyse de ces résidus.</p>
 </div>
 <div class="section" id="cas-de-deux-variables-qualitatives">
 <h3>Cas de deux variables qualitatives<a class="headerlink" href="#cas-de-deux-variables-qualitatives" title="Permalink to this heading">#</a></h3>
 <p>Le couple est un couple de valeurs <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> où <span class="math notranslate nohighlight">\(x_i\)</span> et <span class="math notranslate nohighlight">\(y_i\)</span> prennent comme valeurs des modalités qualitatives. Notons <span class="math notranslate nohighlight">\(x_1\cdots x_J\)</span> et <span class="math notranslate nohighlight">\(y_1\cdots y_K\)</span> les valeurs distinctes prises.</p>
-<p>Les données peuvent être regroupées sous la forme d’un tableau de contingence prenant la forme suivante :</p>
+<p>Les données peuvent être regroupées sous la forme d’un <strong>tableau de contingence</strong> prenant la forme suivante :</p>
 <span class="target" id="index-10"></span><p id="index-11"><span class="math notranslate nohighlight">\(\begin{array}{c|ccccc|c}
 &amp;y_1&amp;\cdots&amp;y_k&amp;\cdots&amp;y_K&amp;total\\
 \hline
@@ -1066,16 +1066,18 @@ Les effectifs observés <span class="math notranslate nohighlight">\(n_{jk}\)</s
 <span class="math notranslate nohighlight">\(\chi^2_{obs}= \displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J\frac{e_{jk}^2}{n_{jk}^*}\)</span>
 qui peut être normalisé pour ne plus dépendre du nombre d’observations :
 <span class="math notranslate nohighlight">\(\phi^2=\frac{\chi^2_{obs}}{n}\)</span></p>
-<p>La construction du tableau des effectifs théoriques et sa comparaison au tableau des observations permet dans un premier temps de mettre en évidence les associations significatives entre modalités des deux variables. Pour cela, on calcule la contribution au <span class="math notranslate nohighlight">\(\chi^2\)</span> des modalités <span class="math notranslate nohighlight">\(j\)</span> et <span class="math notranslate nohighlight">\(k\)</span> :
-<span class="math notranslate nohighlight">\(\frac{1}{\chi^2_{obs}}\frac{\left (n_{jk}-n_{j.}n_{.k}\right )^2}{n_{jk}^*}\)</span>
-Le signe de la différence <span class="math notranslate nohighlight">\(n_{jk}-n_{jk}^*\)</span> indique alors s’il y a une association positive ou négative entre les modalités <span class="math notranslate nohighlight">\(j\)</span> et <span class="math notranslate nohighlight">\(k\)</span>.</p>
-<p>Plus généralement, le <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span> est un indicateur de liaison entre les variables.  Dans le cas où <span class="math notranslate nohighlight">\(\chi^2_{obs}=0\)</span>, il y a indépendance. Pour rechercher la borne supérieure du khi-deux et voir dans quel cas elle est atteinte, on développe le carré et on obtient
-<span class="math notranslate nohighlight">\(\chi^2_{obs} = n\left [\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J \frac{n_{jk}^2}{n_{j.}n_{.k}} -1\right ]\)</span>
-Comme <span class="math notranslate nohighlight">\(\frac{n_{jk}}{n_{.k}}\leq 1\)</span> on a <span class="math notranslate nohighlight">\( \frac{n_{jk}^2}{n_{j.}n_{.k}} \leq \frac{n_{jk}}{n_{.k}}\)</span> d’où
-<span class="math notranslate nohighlight">\(\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J\frac{n_{jk}^2}{n_{j.}n_{.k}}\leq \displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J \frac{n_{jk}}{n_{.k}} = \displaystyle\sum_{k=1}^K \frac{\displaystyle\sum_{j=1}^J n_{jk}}{n_{.k}}=\displaystyle\sum_{k=1}^K \frac{n_{.k}}{n_{.k}}=1\)</span></p>
-<p>d’où <span class="math notranslate nohighlight">\(\chi^2_{obs}\leq n(K-1)\)</span>. On pourrait de même montrer que <span class="math notranslate nohighlight">\(\chi^2_{obs}\leq n(J-1)\)</span> et donc
-<span class="math notranslate nohighlight">\(\phi^2\leq min(J-1,K-1)\)</span>
-la borne étant atteinte dans le cas de la dépendance fonctionnelle (si <span class="math notranslate nohighlight">\(\forall j \frac{n_{jk}}{n_{j.}}=1\)</span>, i.e. il n’existe qu’une case non nulle dans chaque ligne.)</p>
+<p>La construction du tableau des effectifs théoriques et sa comparaison au tableau des observations permet dans un premier temps de mettre en évidence les associations significatives entre modalités des deux variables. Pour cela, on calcule la contribution au <span class="math notranslate nohighlight">\(\chi^2\)</span> des modalités <span class="math notranslate nohighlight">\(j\)</span> et <span class="math notranslate nohighlight">\(k\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{\chi^2_{obs}}\frac{\left (n_{jk}-n_{j.}n_{.k}\right )^2}{n_{jk}^*}\]</div>
+<p>Le signe de la différence <span class="math notranslate nohighlight">\(n_{jk}-n_{jk}^*\)</span> indique alors s’il y a une association positive ou négative entre les modalités <span class="math notranslate nohighlight">\(j\)</span> et <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<p>Plus généralement, le <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span> est un indicateur de liaison entre les variables.  Dans le cas où <span class="math notranslate nohighlight">\(\chi^2_{obs}=0\)</span>, il y a indépendance. Pour rechercher la borne supérieure du khi-deux et voir dans quel cas elle est atteinte, on développe le carré et on obtient</p>
+<div class="math notranslate nohighlight">
+\[\chi^2_{obs} = n\left [\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J \frac{n_{jk}^2}{n_{j.}n_{.k}} -1\right ]\]</div>
+<p>Comme <span class="math notranslate nohighlight">\(\frac{n_{jk}}{n_{.k}}\leq 1\)</span> on a <span class="math notranslate nohighlight">\( \frac{n_{jk}^2}{n_{j.}n_{.k}} \leq \frac{n_{jk}}{n_{.k}}\)</span> d’où</p>
+<div class="math notranslate nohighlight">
+\[\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J\frac{n_{jk}^2}{n_{j.}n_{.k}}\leq \displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J \frac{n_{jk}}{n_{.k}} = \displaystyle\sum_{k=1}^K \frac{\displaystyle\sum_{j=1}^J n_{jk}}{n_{.k}}=\displaystyle\sum_{k=1}^K \frac{n_{.k}}{n_{.k}}=1\]</div>
+<p>d’où <span class="math notranslate nohighlight">\(\chi^2_{obs}\leq n(K-1)\)</span>. On pourrait de même montrer que <span class="math notranslate nohighlight">\(\chi^2_{obs}\leq n(J-1)\)</span> et donc <span class="math notranslate nohighlight">\(\phi^2\leq min(J-1,K-1)\)</span>.</p>
+<p>La borne est atteinte dans le cas de la dépendance fonctionnelle (si <span class="math notranslate nohighlight">\(\forall j \frac{n_{jk}}{n_{j.}}=1\)</span>, i.e. il n’existe qu’une case non nulle dans chaque ligne.)</p>
 <p>A partir de ce khi-deux normalisé, on calcule finalement plusieurs coefficients permettant de mesurer l’indépendance, et parmi ceux-ci citons :</p>
 <ul class="simple">
 <li><p>le coefficient de Cramer:
@@ -1092,7 +1094,7 @@ la borne étant atteinte dans le cas de la dépendance fonctionnelle (si <span c
 <div class="remark-content section" id="proof-content">
 <p>Soient <span class="math notranslate nohighlight">\(U_1\ldots U_p\)</span> <span class="math notranslate nohighlight">\(p\)</span> variables i.i.d de loi normale centrée réduite. On appelle loi du <span class="math notranslate nohighlight">\(\chi^2\)</span> à <span class="math notranslate nohighlight">\(p\)</span> degrés de liberté la loi de la variable <span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^pU_i^2\)</span>.</p>
 </div>
-</div><p>En effet, les <span class="math notranslate nohighlight">\(e_{jk}\)</span> sont liées par <span class="math notranslate nohighlight">\((K-1)(J-1)\)</span> relations linéaires puisqu’on estime les probabilités de réalisation de <span class="math notranslate nohighlight">\(x_j\)</span> et <span class="math notranslate nohighlight">\(y_k\)</span> respectivement par <span class="math notranslate nohighlight">\(n_{j,.}/n\)</span> et <span class="math notranslate nohighlight">\(n_{.k}/n\)</span> Il suffit alors de fixer un risque d’erreur <span class="math notranslate nohighlight">\(\alpha\)</span> (une valeur qui, s’il y avait indépendance, n’aurait qu’une probabilité faible d’être dépassée), et on rejette l’hypothèse d’indépendance si <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span>  est supérieur à la valeur critique qu’une variable <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span> a une probabilité <span class="math notranslate nohighlight">\(\alpha\)</span> de dépasser.
+</div><p>En effet, les <span class="math notranslate nohighlight">\(e_{jk}\)</span> sont liées par <span class="math notranslate nohighlight">\((K-1)(J-1)\)</span> relations linéaires puisqu’on estime les probabilités de réalisation de <span class="math notranslate nohighlight">\(x_j\)</span> et <span class="math notranslate nohighlight">\(y_k\)</span> respectivement par <span class="math notranslate nohighlight">\(n_{j,.}/n\)</span> et <span class="math notranslate nohighlight">\(n_{.k}/n\)</span>. Il suffit alors de fixer un risque d’erreur <span class="math notranslate nohighlight">\(\alpha\)</span> (une valeur qui, s’il y avait indépendance, n’aurait qu’une probabilité faible d’être dépassée), et on rejette l’hypothèse d’indépendance si <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span>  est supérieur à la valeur critique qu’une variable <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span> a une probabilité <span class="math notranslate nohighlight">\(\alpha\)</span> de dépasser.
 L’espérance d’un <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span> étant égale à son degré de liberté, <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span> est d’autant plus grand que le nombre de modalités <span class="math notranslate nohighlight">\(J\)</span> et/ou <span class="math notranslate nohighlight">\(K\)</span> est grand.</p>
 <p>D’autres indices existent, qui ne dépendent pas de <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span>, comme par exemple</p>
 <p><span class="math notranslate nohighlight">\(\begin{equation} G^2 = 2\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J n_{jk} ln \left (\frac{ n_{jk}}{ n^*_{jk}} \right )\end{equation}\)</span></p>
@@ -1101,10 +1103,12 @@ L’espérance d’un <span class="math notranslate nohighlight">\(\chi^2_{(K-1)
 <div class="section" id="cas-d-une-variable-quantitative-et-d-une-variable-qualitative">
 <h3>Cas d’une variable quantitative et d’une variable qualitative<a class="headerlink" href="#cas-d-une-variable-quantitative-et-d-une-variable-qualitative" title="Permalink to this heading">#</a></h3>
 <p>On s’intéresse ici au cas où les modalités <span class="math notranslate nohighlight">\(x_i\)</span> sont qualitatives, et où <span class="math notranslate nohighlight">\(y\)</span> est une variable quantitative, dont les modalités sont des réalisations d’une variable aléatoire <span class="math notranslate nohighlight">\(Y\)</span>.
-Le rapport de corrélation théorique entre <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> est défini par
-<span class="math notranslate nohighlight">\(\eta^2_{Y\mid x} = \frac{\sigma^2_{\mathbb{E}_{Y\mid x}}}{\sigma^2_Y}\)</span>
-Si <span class="math notranslate nohighlight">\(n_j\)</span> est le nombre d’observations de la modalité <span class="math notranslate nohighlight">\(x_j,j\in[\![1\,J]\!]\)</span>, <span class="math notranslate nohighlight">\(y_{ij}\)</span> la valeur de <span class="math notranslate nohighlight">\(Y\)</span> du <span class="math notranslate nohighlight">\(i^e\)</span> individu de la modalité <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(\bar{y}_1\ldots \bar{y}_J\)</span> sont les moyennes de <span class="math notranslate nohighlight">\(Y\)</span> pour ces modalités et <span class="math notranslate nohighlight">\(\bar{y}\)</span> la moyenne totale sur les <span class="math notranslate nohighlight">\(n\)</span> individus, le rapport de corrélation empirique est défini par
-<span class="math notranslate nohighlight">\(e^2 = \frac{\frac{1}{n}\displaystyle\sum_{j=1}^J n_j\left (\bar{y}_j-\bar{y}\right )^2}{\sigma^2_y}\)</span></p>
+Le rapport de corrélation théorique entre <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> est défini par</p>
+<div class="math notranslate nohighlight">
+\[\eta^2_{Y\mid x} = \frac{\sigma^2_{\mathbb{E}_{Y\mid x}}}{\sigma^2_Y}\]</div>
+<p>Si <span class="math notranslate nohighlight">\(n_j\)</span> est le nombre d’observations de la modalité <span class="math notranslate nohighlight">\(x_j,j\in[\![1\,J]\!]\)</span>, <span class="math notranslate nohighlight">\(y_{ij}\)</span> la valeur de <span class="math notranslate nohighlight">\(Y\)</span> du <span class="math notranslate nohighlight">\(i^e\)</span> individu de la modalité <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(\bar{y}_1\ldots \bar{y}_J\)</span> sont les moyennes de <span class="math notranslate nohighlight">\(Y\)</span> pour ces modalités et <span class="math notranslate nohighlight">\(\bar{y}\)</span> la moyenne totale sur les <span class="math notranslate nohighlight">\(n\)</span> individus, le rapport de corrélation empirique est défini par</p>
+<div class="math notranslate nohighlight">
+\[e^2 = \frac{\frac{1}{n}\displaystyle\sum_{j=1}^J n_j\left (\bar{y}_j-\bar{y}\right )^2}{\sigma^2_y}\]</div>
 <p>La quantité</p>
 <p><span class="math notranslate nohighlight">\(\sigma^2_\cap = \frac{1}{n}\displaystyle\sum_{j=1}^J n_j\sigma_j^2\)</span></p>
 <p>avec <span class="math notranslate nohighlight">\(\sigma_j^2 =  \frac{1}{n_j}\displaystyle\sum_{i=1}^{n_j}\left (y_{ij}-\bar{y}_j \right )^2\)</span>,  est appelée variance intra groupe (ou intra classe), et donne une idée de la variabilité à l’intérieur de chaque modalité.
@@ -1122,9 +1126,7 @@ facteurs : le fait que les étudiants assistent ou pas aux cours, et le fait qu�
 égale (i.e. à l’intérieur d’une même modalité d’assiduité) les étudiants n’ont pas le même niveau. <span class="math notranslate nohighlight">\(e^2\)</span>  permet alors de savoir lequel de ces deux facteurs est prédominant
 pour expliquer la variabilité des notes dans toute la promotion.</p></li>
 </ul>
-<p>Pour déterminer à partir de quelle valeur <span class="math notranslate nohighlight">\(e^2\)</span> est significatif, on compare donc <span class="math notranslate nohighlight">\(\sigma^2_\cap\)</span> à <span class="math notranslate nohighlight">\(\sigma^2_\cup\)</span>. On peut montrer que si le rapport de corrélation théorique est nul, alors la variable</p>
-<p><span class="math notranslate nohighlight">\(\frac{\left (\frac{e^2}{J-1}\right )}{\left (\frac{1-e^2}{n-J}\right )}\)</span>
-suit une loi de Fisher Snedecor, en supposant que les distributions conditionnelles de <span class="math notranslate nohighlight">\(Y\)</span> pour chaque modalité de <span class="math notranslate nohighlight">\(X\)</span> sont gaussiennes, de même espérance et de même variance.</p>
+<p>Pour déterminer à partir de quelle valeur <span class="math notranslate nohighlight">\(e^2\)</span> est significatif, on compare donc <span class="math notranslate nohighlight">\(\sigma^2_\cap\)</span> à <span class="math notranslate nohighlight">\(\sigma^2_\cup\)</span>. On peut montrer que si le rapport de corrélation théorique est nul, alors la variable <span class="math notranslate nohighlight">\(\frac{\left (\frac{e^2}{J-1}\right )}{\left (\frac{1-e^2}{n-J}\right )}\)</span> suit une loi de Fisher Snedecor, en supposant que les distributions conditionnelles de <span class="math notranslate nohighlight">\(Y\)</span> pour chaque modalité de <span class="math notranslate nohighlight">\(X\)</span> sont gaussiennes, de même espérance et de même variance.</p>
 <div class="proof remark dropdown admonition" id="remark-22">
 <p class="admonition-title"><span class="caption-number">Remark 11 </span></p>
 <div class="remark-content section" id="proof-content">
