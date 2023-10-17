@@ -958,9 +958,9 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </li>
 <li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf x\in \Omega\)</span></p>
 <ol class="arabic simple">
-<li><p>Affecter <span class="math notranslate nohighlight">\(\mathbf x\)</span> à la classe du centre le plus proche : <span class="math notranslate nohighlight">\(\mathbf c(x) = Arg \displaystyle\min_{\mathbf c\in C} d(\mathbf x,\mathbf c)\)</span></p></li>
-<li><p>A chaque calcul de <span class="math notranslate nohighlight">\(d(\mathbf x,\mathbf c)\)</span>,<span class="math notranslate nohighlight">\( l(\mathbf x,\mathbf c)=d(\mathbf x,\mathbf c)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(u(\mathbf x,\mathbf c)=\displaystyle\min_{\mathbf c\in C} d(\mathbf x,\mathbf c)\)</span></p></li>
+<li><p>Affecter <span class="math notranslate nohighlight">\(\mathbf x\)</span> à la classe du centre le plus proche : <span class="math notranslate nohighlight">\(\mathbf c(x) = Arg \displaystyle\min_{\mathbf c\in C} \delta(\mathbf x,\mathbf c)\)</span></p></li>
+<li><p>A chaque calcul de <span class="math notranslate nohighlight">\(\delta(\mathbf x,\mathbf c)\)</span>,<span class="math notranslate nohighlight">\( l(\mathbf x,\mathbf c)=\delta(\mathbf x,\mathbf c)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(u(\mathbf x,\mathbf c)=\displaystyle\min_{\mathbf c\in C} \delta(\mathbf x,\mathbf c)\)</span></p></li>
 </ol>
 </li>
 <li><p>Tant que (non convergence)</p>
@@ -968,11 +968,14 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 <li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf c,\mathbf {c'}\in C\)</span> alculer <span class="math notranslate nohighlight">\(\delta (\mathbf c,\mathbf {c'})\)</span></p></li>
 <li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf c\)</span> <span class="math notranslate nohighlight">\(s(c)= \frac{1}{2}\displaystyle\min_{\mathbf {c'}\neq \mathbf c} \delta(\mathbf c,\mathbf {c'})\)</span></p></li>
 <li><p>Identifier les <span class="math notranslate nohighlight">\(\mathbf x\)</span> tels que <span class="math notranslate nohighlight">\(u(\mathbf x)\leq s(\mathbf c(\mathbf x))\)</span></p></li>
-<li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf x\in X,\mathbf c\in C\)</span> tels que <span class="math notranslate nohighlight">\(\mathbf c\neq \mathbf c(\mathbf x)\)</span> et <span class="math notranslate nohighlight">\(u(\mathbf x)&gt;l(\mathbf x,\mathbf c)\)</span> et <span class="math notranslate nohighlight">\(u(\mathbf x)&gt;\frac{1}{2}d(\mathbf c(\mathbf x),\mathbf c)\)</span></p>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf x\in X,\mathbf c\in C\)</span> tels que <span class="math notranslate nohighlight">\(\mathbf c\neq \mathbf c(\mathbf x)\)</span> et <span class="math notranslate nohighlight">\(u(\mathbf x)&gt;l(\mathbf x,\mathbf c)\)</span> et <span class="math notranslate nohighlight">\(u(\mathbf x)&gt;\frac{1}{2}\delta(\mathbf c(\mathbf x),\mathbf c)\)</span></p>
 <ol class="arabic simple">
-<li><p>Si <span class="math notranslate nohighlight">\(r(\mathbf x)\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(r(\mathbf x)\)</span></p>
+<ol class="arabic simple">
 <li><p>Calculer <span class="math notranslate nohighlight">\(d(\mathbf c(\mathbf x),\mathbf x)\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(r(\mathbf x)=Faux\)</span></p></li>
+</ol>
+</li>
 </ol>
 </li>
 <li><p>Sinon</p>
