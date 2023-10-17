@@ -81,28 +81,28 @@ Les algorithmes de classification dépendent d'une métrique qui définit implic
 #### Indice de dissimilarité
 On se place dans $\mathbb R^d$, et on considère $n$ individus à classer ${\bf x_1}\ldots {\bf x_n}$.
 ````{prf:definition} Dissimilarité - ultramétrique
-Une mesure de dissimilarité $d$ est une fonction de 
+Une mesure de dissimilarité $\delta$ est une fonction de 
 
 $
-d : \begin{array}{ccc}
+ \delta: \begin{array}{ccc}
 \mathbb{R}^d\times\mathbb{R}^d &\rightarrow &\mathbb{R}^+\\
-(\mathbf x_i,\mathbf x_j)&\mapsto & d_{ij} = d(\mathbf x_i,\mathbf x_j)
+(\mathbf x_i,\mathbf x_j)&\mapsto & \delta_{ij} = \delta(\mathbf x_i,\mathbf x_j)
 \end{array}
 $
 
 vérifiant : 
-- $(\forall i,j\in[\![1, n]\!])\ d_{ij}=d_{ji}$
-- $(\forall i\in[\![1, n]\!])\ d_{ii}= 0$
+- $(\forall i,j\in[\![1, n]\!])\ \delta_{ij}=\delta_{ji}$
+- $(\forall i\in[\![1, n]\!])\ \delta_{ii}= 0$
 
-Si l'inégalité triangulaire $d_{ij}\leq d_{ik}+d_{kj}$ est de plus vérifiée pour tout $i,j,k$, alors $d$ est une distance. 
+Si l'inégalité triangulaire $\delta_{ij}\leq \delta_{ik}+\delta_{kj}$ est de plus vérifiée pour tout $i,j,k$, alors $\delta$ est une distance. 
 
-Si enfin l'inégalité ultramétrique  $d_{ij}\leq max(d_{ik}+d_{jk})$ est  vérifiée pour tout $i,j,k$, $d$ est une ultramétrique.
+Si enfin l'inégalité ultramétrique  $\delta_{ij}\leq max(\delta_{ik}+\delta_{jk})$ est  vérifiée pour tout $i,j,k$, $\delta$ est une ultramétrique.
 ````
-A partir des mesures de dissimilarité, on déduit des mesures de similarité $s_{ij}$ le passage de l'une à l'autre se faisant par exemple par $d_{ij} = s_{max}-s_{ij}$.
+A partir des mesures de dissimilarité, on déduit des mesures de similarité $s_{ij}$ le passage de l'une à l'autre se faisant par exemple par $\delta_{ij} = s_{max}-s_{ij}$.
 
 #### Cas de variables qualitatives
-On suppose que les $p$ composantes des ${\bf x_i}$ sont qualitatives, et on se limite ici au cas de variables bimodales. 
-Étant donnés ${\bf x_i}=\begin{pmatrix} x_i^1\ldots x_i^p\end{pmatrix}$ et ${\bf x_j}$, on note :
+On suppose que les $d$ composantes des ${\bf x_i}$ sont qualitatives, et on se limite ici au cas de variables bimodales. 
+Étant donnés ${\bf x_i}=\begin{pmatrix} x_i^1\ldots x_i^d\end{pmatrix}$ et ${\bf x_j}$, on note :
 
 - $a_{ij}$ le nombre de co-occurences entre les individus $i$ et $j$
 - $b_{ij}$ le nombre de co-absences entre les individus $i$ et $j$
@@ -112,38 +112,38 @@ On suppose que les $p$ composantes des ${\bf x_i}$ sont qualitatives, et on se l
 
 les mesures suivantes sont des exemples de dissimilarité :
 
-- $d_{ij} = \sqrt{b_{ij}+c_{ij}}$ [distance "euclidienne" binaire]
-- $d_{ij} = \frac{(b_{ij}-c_{ij})^2}{(a_{ij}+b_{ij}+c_{ij}+d_{ij})^2}$ [différence binaire de taille]
-- $d_{ij} = \frac{(b_{ij}c_{ij})}{(a_{ij}+b_{ij}+c_{ij}+d_{ij})^2}$ [différence binaire de motif]
-- $d_{ij} = \frac{(a_{ij}+b_{ij}+c_{ij}+d_{ij})(b_{ij}+c_{ij})-(b_{ij}-c_{ij})^2}{(a_{ij}+b_{ij}+c_{ij}+d_{ij})^2}$ [différence binaire de forme]
-- $d_{ij} = \frac{(b_{ij}+c_{ij})}{4(a_{ij}+b_{ij}+c_{ij}+d_{ij})}$ [dissimilarité binaire de variance]
-- $d_{ij} = \frac{(b_{ij}+c_{ij})}{2a_{ij}+b_{ij}+c_{ij}}$ [dissimilarité binaire de Lance et Williams]
+- $\delta_{ij} = \sqrt{b_{ij}+c_{ij}}$ [distance "euclidienne" binaire]
+- $\delta_{ij} = \frac{(b_{ij}-c_{ij})^2}{(a_{ij}+b_{ij}+c_{ij}+d_{ij})^2}$ [différence binaire de taille]
+- $\delta_{ij} = \frac{(b_{ij}c_{ij})}{(a_{ij}+b_{ij}+c_{ij}+d_{ij})^2}$ [différence binaire de motif]
+- $\delta_{ij} = \frac{(a_{ij}+b_{ij}+c_{ij}+d_{ij})(b_{ij}+c_{ij})-(b_{ij}-c_{ij})^2}{(a_{ij}+b_{ij}+c_{ij}+d_{ij})^2}$ [différence binaire de forme]
+- $\delta_{ij} = \frac{(b_{ij}+c_{ij})}{4(a_{ij}+b_{ij}+c_{ij}+d_{ij})}$ [dissimilarité binaire de variance]
+- $\delta_{ij} = \frac{(b_{ij}+c_{ij})}{2a_{ij}+b_{ij}+c_{ij}}$ [dissimilarité binaire de Lance et Williams]
 
 
 #### Cas de variables quantitatives
-Dans le cas de variables quantitatives, les normes  $L_r$ : 
+Dans le cas de variables quantitatives, les normes  $L_p$ : 
 
-$\|{\bf x_i}\|_r=\left (\displaystyle\sum_{j=1}^p|x_i^j|^r\right ) ^\frac{1}{r}$
+$\|{\bf x_i}\|_p=\left (\displaystyle\sum_{j=1}^d|x_i^j|^p\right ) ^\frac{1}{p}$
 
 sont classiquement utilisées, et par exemple 
 
-- $r=1$ : $\|{\bf x_i}-{\bf x_j}\|_1=\displaystyle\sum_{k=1}^p|x_i^k-x_j^k|$ est la norme $L_1$ (ou city block).
-- $r=2$ : $\|{\bf x_i}-{\bf x_j}\|_2=\sqrt{\displaystyle\sum_{k=1}^p(x_i^k-x_j^k)^2}$ est la norme $L_2$ (ou norme euclidienne).
-- $r=\infty$ : $\|{\bf x_i}-{\bf x_j}\|_\infty = \displaystyle\max_{1\leq k\leq p}\{|x_i^k-x_j^k|\}$ est la norme du max (ou norme de Tchebychev)
+- $p=1$ : $\|{\bf x_i}-{\bf x_j}\|_1=\displaystyle\sum_{k=1}^d|x_i^k-x_j^k|$ est la norme $L_1$ (ou city block).
+- $p=2$ : $\|{\bf x_i}-{\bf x_j}\|_2=\sqrt{\displaystyle\sum_{k=1}^d(x_i^k-x_j^k)^2}$ est la norme $L_2$ (ou norme euclidienne).
+- $"p=\infty"$ : $\|{\bf x_i}-{\bf x_j}\|_\infty = \displaystyle\max_{1\leq k\leq d}\{|x_i^k-x_j^k|\}$ est la norme du max (ou norme de Tchebychev)
 
 Si les variables ne sont pas normalisées, on peut utiliser la distance de Mahalanobis 
 
-$d_{ij} = \displaystyle\sum_{k=1}^p\displaystyle\sum_{l=1}^pw_{kl}(x_i^k-x_j^k)(x_i^l-x_j^l)$
+$\delta_{ij} = \displaystyle\sum_{k=1}^pd\displaystyle\sum_{l=1}^dw_{kl}(x_i^k-x_j^k)(x_i^l-x_j^l)$
 
 où la matrice des $w_{kl}$ est l'inverse de la matrice de covariance empirique. Cette distance élimine également les corrélations entre variables.
 
 
-Enfin, on peut utiliser une métrique issue du coefficient de corrélation, dite distance de Pearson : $d_{ij} =\sqrt{1-r^2_{ij}}$, avec
+Enfin, on peut utiliser une métrique issue du coefficient de corrélation, dite distance de Pearson : $p\delta_{ij} =\sqrt{1-r^2_{ij}}$, avec
 
-$r^2_{ij} = \frac{\left (\displaystyle\sum_{k=1}^p (x_i^k-\bar{x_i})(x_j^k-\bar{x_j})\right )^2}{\displaystyle\sum_{k=1}^p(x_i^k-\bar{x_i})^2\displaystyle\sum_{k=1}^p(x_j^k-\bar{x_j})^2}$
+$r^2_{ij} = \frac{\left (\displaystyle\sum_{k=1}^d (x_i^k-\bar{x_i})(x_j^k-\bar{x_j})\right )^2}{\displaystyle\sum_{k=1}^d(x_i^k-\bar{x_i})^2\displaystyle\sum_{k=1}^d(x_j^k-\bar{x_j})^2}$
 
 #### Variables de comptage
-Dans le cas particulier de variables de comptage ($x_i^k$ effectif de la classe $k$ pour l'individu $i$), une mesure naturelle de dissimilarité entre ${\bf x_i}$ et ${\bf x_j}$ est le $\chi^2$ du tableau de contingence 2$\times p$ associé. 
+Dans le cas particulier de variables de comptage ($x_i^k$ effectif de la classe $k$ pour l'individu $i$), une mesure naturelle de dissimilarité entre ${\bf x_i}$ et ${\bf x_j}$ est le $\chi^2$ du tableau de contingence 2$\times d$ associé. 
 
 #### Quelle mesure choisir ?
 Une réflexion  sur le type de dissimilarité à choisir est nécessaire. Il est en particulier intéressant de répondre aux questions suivantes:
