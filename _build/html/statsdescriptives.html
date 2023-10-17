@@ -583,7 +583,7 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <div class="section" id="points-aberrants">
 <h3>Points aberrants<a class="headerlink" href="#points-aberrants" title="Permalink to this heading">#</a></h3>
 <p>Une anomalie (ou point aberrant, ou outlier) est une observation (ou un sous-ensemble d’observations) qui semble incompatible avec le reste de l’ensemble de données.</p>
-<p>S’il est parfois possible d’identifier graphiquement ces points aberrants à l’aide de boîtes à moustaches (voir (<a class="reference internal" href="#boxplot"><span class="std std-ref">Pour résumer</span></a>), il existe une vaste littérature sur la détection d’anomalies qu’il n’est pas possible d’aborder ici. De plus, suivant le type de données manipulées (données séquentielles ou non), le type de méthode peut être différent. On mentionne donc ici quelques techniques simples :</p>
+<p>S’il est parfois possible d’identifier graphiquement ces points aberrants à l’aide de boîtes à moustaches (voir <a class="reference internal" href="#boxplot"><span class="std std-ref">Pour résumer</span></a>), il existe une vaste littérature sur la détection d’anomalies qu’il n’est pas possible d’aborder ici. De plus, suivant le type de données manipulées (données séquentielles ou non), le type de méthode peut être différent. On mentionne donc ici quelques techniques simples :</p>
 <ul class="simple">
 <li><p>le détecteur de Hampel : on considère que <span class="math notranslate nohighlight">\(x_i\)</span> est un point aberrant si</p></li>
 </ul>
@@ -603,25 +603,25 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 </div>
 <div class="section" id="donnees-manquantes">
 <h3>Données manquantes<a class="headerlink" href="#donnees-manquantes" title="Permalink to this heading">#</a></h3>
-<p>On suppose ici collecter <span class="math notranslate nohighlight">\(p\)</span> données (par exemple la taille, le poids, l’âge) sur <span class="math notranslate nohighlight">\(n\)</span> individus. Ces données peuvent donc être regroupées dans un tableau (une matrice) de taille <span class="math notranslate nohighlight">\(n\times p\)</span>. Lors de la collecte de ces données, il arrive que certaines d’entre elles ne soient pas disponibles ou enregistrées. On distingue trois types de données manquantes :</p>
+<p>Lors de la collecte des données, il arrive que certaines d’entre elles ne soient pas disponibles ou enregistrées. On distingue trois types de données manquantes :</p>
 <ol class="arabic simple">
 <li><p>les données manquant de manière complètement aléatoire :  la probabilité qu’une donnée soit manquante ne dépend pas des valeurs connues ni de la valeur manquante elle-même.</p></li>
 <li><p>les données manquant de manière aléatoire :  la probabilité qu’une donnée soit manquante peut dépendre de valeurs connues (d’autres variables parmi les <span class="math notranslate nohighlight">\(p\)</span>), mais pas de la variable dont les valeurs sont manquantes.</p></li>
 <li><p>les données manquant de manière non aléatoire : la probabilité qu’une donnée soit manquante dépend d’autres variables qui ont également des valeurs manquantes, ou elle dépend de la variable elle-même.</p></li>
 </ol>
-<p>Pour résoudre ce problème de données manquantes, dans la mesure où ces dernières ne sont pas trop nombreuses, on a recours à des techniques d’imputation.</p>
+<p>Pour résoudre ce problème de données manquantes, dans la mesure où ces dernières ne sont pas trop nombreuses, on a recours à des techniques d’<strong>imputation</strong>.</p>
 <p>Dans le cas d’une imputation simple (une seule donnée manquante), on peut par exemple remplacer la valeur manquante dans une colonne <span class="math notranslate nohighlight">\(j\in[\![1,p]\!]\)</span> par :</p>
 <ul class="simple">
 <li><p>une valeur fixe</p></li>
 <li><p>une statistique sur la colonne <span class="math notranslate nohighlight">\(j\)</span> (la plus petite ou la plus grande valeur, la moyenne de la colonne, la valeur la plus fréquente…)</p></li>
 <li><p>une valeur issue des <span class="math notranslate nohighlight">\(k\)</span> plus proches voisins de la ligne du tableau où la valeur en position <span class="math notranslate nohighlight">\(j\)</span> est manquante</p></li>
-<li><p>une valeur calculée par régression (voir chapitre~\ref{ch:regression}) sur l’ensemble du tableau</p></li>
+<li><p>une valeur calculée par régression (voir chapitre correspondant) sur l’ensemble du tableau</p></li>
 <li><p>la valeur précédente (ou suivante) dans le cas où la colonne est une série ordonnée ou temporelle.</p></li>
 </ul>
 <p>Dans le cas d’une imputation multiple, où un sous-ensemble de valeurs doit être comblé, on peut adopter la stratégie suivante :</p>
 <ol class="arabic simple">
 <li><p>Effectuer une imputation simple pour toutes les valeurs manquantes de l’ensemble de données.</p></li>
-<li><p>Remettre les valeurs manquantes d’une variable <span class="math notranslate nohighlight">\(j\in[\![1,p]\!]\)</span> à “manquantes”.</p></li>
+<li><p>Remettre les valeurs manquantes d’une variable <span class="math notranslate nohighlight">\(j\in[\![1,p]\!]\)</span> à “manquante”.</p></li>
 <li><p>Former un modèle pour prédire les valeurs manquantes de <span class="math notranslate nohighlight">\(j\)</span> en utilisant les valeurs disponibles de la variable <span class="math notranslate nohighlight">\(j\)</span> en tant que variable dépendante et les autres variables de l’ensemble de données comme indépendantes.</p></li>
 <li><p>Prédire les valeurs manquantes dans la colonne <span class="math notranslate nohighlight">\(j\)</span> en utilisant le modèle entraîné à l’étape 3.</p></li>
 <li><p>Répéter les étapes 2 à 4 pour toutes les autres colonnes présentant des valeurs manquantes.</p></li>
@@ -633,14 +633,14 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <h3>Transformation des données qualitatives<a class="headerlink" href="#transformation-des-donnees-qualitatives" title="Permalink to this heading">#</a></h3>
 <p>Pour pouvoir être traitées numériquement, les données qualitatives doivent être transformées. Plusieurs techniques existent parmi lesquelles :</p>
 <ul class="simple">
-<li><p>pour le cas des variables ordinales : on utilise ici le rang pour encoder les modalités de la variable. Par exemple, pour un niveau de diplomation Brevet<span class="math notranslate nohighlight">\(&lt;\)</span>Bac<span class="math notranslate nohighlight">\(&lt;\)</span>Licence<span class="math notranslate nohighlight">\(&lt;\)</span>Master<span class="math notranslate nohighlight">\(&lt;\)</span>Doctorat, on codera Licence par 3 et Doctorat par 5.</p></li>
+<li><p>pour le cas des variables ordinales : on utilise le rang pour encoder les modalités de la variable. Par exemple, pour un niveau de diplomation Brevet<span class="math notranslate nohighlight">\(&lt;\)</span>Bac<span class="math notranslate nohighlight">\(&lt;\)</span>Licence<span class="math notranslate nohighlight">\(&lt;\)</span>Master<span class="math notranslate nohighlight">\(&lt;\)</span>Doctorat, on codera Licence par 3 et Doctorat par 5.</p></li>
 <li><p>le one-hot encoding : pour une variable qualitative présentant <span class="math notranslate nohighlight">\(J\)</span> modalités, on construit un vecteur de taille <span class="math notranslate nohighlight">\(J\)</span> dont les composantes sont toutes nulles sauf la <span class="math notranslate nohighlight">\(J\)</span>-ème qui vaut 1. Par exemple, si <span class="math notranslate nohighlight">\(J\)</span>=3, on construit 1 vecteur de taille 3, et pour un individu ayant la modalité 2, on le code en (0 1 0). Lorsque <span class="math notranslate nohighlight">\(J\)</span> est élevé, on se retrouve avec un jeu de données volumineux.</p></li>
 <li><p>les méthodes de plongement (embedding) : utilisées principalement en apprentissage profond (Deep learning) pour le traitement du langage naturel, ces classes de méthodes construisent une représentation de chaque modalité d’une variable qualitative en un vecteur numérique de taille fixe et choisie. Pour le mot “rouge” de la variable “couleur”, par exemple, l’encodage peut par exemple être représenté par le vecteur (0.31 0.57 0.12). En pratique, le calcul de ces représentations s’effectue classiquement par l’entraînement d’un réseau de neurones ayant pour entrée uniquement les variables qualitatives. Tout d’abord, un encodage one-hot est appliqué à la variable afin d’être mise en entrée du réseau, qui n’accepte que les entrées numériques. La sortie d’une des couches cachées du réseau constitue alors le vecteur recherché. On concatène ensuite ce vecteur aux données initiales, utilisées dans l’ajustement du modèle final.</p></li>
 </ul>
 </div>
 <div class="section" id="normalisation">
 <h3>Normalisation<a class="headerlink" href="#normalisation" title="Permalink to this heading">#</a></h3>
-<p>Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l’analyse des données (figure~\ref{F:normalisation}) qu’il convient de corriger : c’est le processus de normalisation des données.</p>
+<p>Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l’analyse des données (<span class="xref std std-ref">biais</span>) qu’il convient de corriger : c’est le processus de normalisation des données.</p>
 <p>Pour une colonne <span class="math notranslate nohighlight">\(j\in[\![1,p]\!]\)</span>, on dispose de <span class="math notranslate nohighlight">\(n\)</span> valeurs <span class="math notranslate nohighlight">\(x_{ij},i\in[\![1,n]\!]\)</span>. On note : <span class="math notranslate nohighlight">\(x_{min} = \displaystyle\min_{i\in[\![1,n]\!]}x_{ij}\)</span>, <span class="math notranslate nohighlight">\(x_{max} = \displaystyle\max_{i\in[\![1,n]\!]}x_{ij}\)</span>,   <span class="math notranslate nohighlight">\(\bar x_j\)</span> la moyenne des <span class="math notranslate nohighlight">\(x_{ij}\)</span>, <span class="math notranslate nohighlight">\(\sigma_j\)</span> leur écart-type, <span class="math notranslate nohighlight">\(x_\frac14, x_\frac12\)</span> et <span class="math notranslate nohighlight">\(x_\frac34\)</span> les premier, deuxième et troisième quartiles. On distingue alors classiquement trois types de normalisation :</p>
 <ol class="arabic simple">
 <li><p>la normalisation min-max : <span class="math notranslate nohighlight">\(x_{ij} = \frac{x_{ij}-x_{min}}{x_{max}-x_{min}}\)</span></p></li>
@@ -649,7 +649,8 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 </ol>
 <p>La normalisation standard dépend de la présence de points aberrants (qui affectent la moyenne).</p>
 <p>Dans la figure suivante, on montre l’effet de la normalisation sur un algorithme de classification (voir chapitre correspondant. En haut un jeu de données avec deux nuages de points allongés selon l’axe des <span class="math notranslate nohighlight">\(x\)</span>, certainement en raison d’une différence d’échelle entre les unités de mesure de <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>. Au milieu une classification par <span class="math notranslate nohighlight">\(k\)</span>-moyennes, <span class="math notranslate nohighlight">\(k\)</span>=2 sans normalisation, en utilisant la distance euclidienne. Les deux classes sont séparées suivant l’axe des <span class="math notranslate nohighlight">\(x\)</span>, ne reflétant pas la répartition naturelle des points. En bas, après normalisation, les deux nuages de points sont correctement séparés.</p>
-<p><img alt="" src="_images/normK.png" /></p>
+<p><img alt="" src="_images/normK.png" />
+:name: biais</p>
 </div>
 </div>
 <div class="section" id="statistique-descriptive-univariee">
@@ -727,10 +728,10 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
 GeometricMean  :  1258.4787575642572
 HarmonicMean  :  1198.219210728503
-WeightedMean  :  1267.0609907368923
+WeightedMean  :  1338.542374957673
 </pre></div>
 </div>
-<img alt="_images/6d6c5d2d17de2bffc4d40ecb1b9ade100836d7214348184d523d38f8295e76f4.png" src="_images/6d6c5d2d17de2bffc4d40ecb1b9ade100836d7214348184d523d38f8295e76f4.png" />
+<img alt="_images/99fefe46e56f9d147efa34a8e0afee0bb7de63b0078ef1c7f3ac435cbe799f40.png" src="_images/99fefe46e56f9d147efa34a8e0afee0bb7de63b0078ef1c7f3ac435cbe799f40.png" />
 </div>
 </div>
 <div class="proof definition admonition" id="definition-6">
@@ -958,7 +959,7 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ded8498e1083019e8268f70e66e5c827414fa09b582095d507d71125b5544e9c.png" src="_images/ded8498e1083019e8268f70e66e5c827414fa09b582095d507d71125b5544e9c.png" />
+<img alt="_images/e283677ee71871e690839d77a7a01f27571864a532121470698ab025ba6d3a17.png" src="_images/e283677ee71871e690839d77a7a01f27571864a532121470698ab025ba6d3a17.png" />
 </div>
 </div>
 </div>
