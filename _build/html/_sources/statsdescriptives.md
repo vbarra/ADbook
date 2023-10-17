@@ -264,7 +264,7 @@ Le mode peut être calculé pour tout type de variable, n'est pas nécessairemen
 Les moyennes ne peuvent être définies que sur des variables quantitatives. Plusieurs moyennes peuvent être calculées, parmi lesquelles :
 - la moyenne **arithmétique**  $\bar{x} = \frac{1}{n}{\displaystyle\sum_{i=1}^nx_i}=  \frac{1}{n}{\displaystyle\sum_{i=1}^J n_ix_i}$. C'est le moment à l'origine d'ordre 1.
 - la moyenne **géométrique** : si les $x_i$ sont positifs, la moyenne géométrique est la quantité $G=\left (\displaystyle\prod_{i=1}^n x_i\right )^\frac{1}{n}$. C'est donc l'exponentielle de la moyenne arithmétique des logarithmes des valeurs observées. 
-- a moyenne **harmonique** : si les $x_i$ sont positifs, la moyenne harmonique est définie par $H=\frac{n}{\displaystyle\sum_{i=1}^J 1/x_i}$
+- la moyenne **harmonique** : si les $x_i$ sont positifs, la moyenne harmonique est définie par $H=\frac{n}{\displaystyle\sum_{i=1}^J 1/x_i}$
 - la moyenne **pondérée** : dans certains cas, on n'accorde pas la même importance à toutes les observations (fiabilité, confiance...). La moyenne pondérée est alors définie par 
 $\bar{x}_w= \frac{\displaystyle\sum_{i=1}^n w_ix_i}{\displaystyle\sum_{i=1}^n w_i}$
 ````
@@ -365,13 +365,13 @@ L'étendue est la simple différence entre la plus grande et la plus petite vale
 
 ````{prf:definition}  Déviation maximale
 La déviation maximale est définie par 
-   $ maxdev(X) = max \{ |X[i] - \bar{x}| \,|\, i=1,\dots,n\}$
+   $ maxdev(X) = max \{ |x_i - \bar{x}| \,|\, i\in[\![1,n]\!]\}$
 ````
 
 
 ````{prf:definition}  Déviation moyenne absolue
 La déviation moyenne absolue est définie par 
-   $ mad(X) = \frac{1}{n} \sum_{i=1}^n |X[i] - \bar{x}|$
+   $ mad(X) = \frac{1}{n} \displaystyle\sum_{i=1}^n |x_i - \bar{x}|$
 ````
 
 

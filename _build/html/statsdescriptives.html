@@ -674,7 +674,7 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <ul class="simple">
 <li><p>la moyenne <strong>arithmétique</strong>  <span class="math notranslate nohighlight">\(\bar{x} = \frac{1}{n}{\displaystyle\sum_{i=1}^nx_i}=  \frac{1}{n}{\displaystyle\sum_{i=1}^J n_ix_i}\)</span>. C’est le moment à l’origine d’ordre 1.</p></li>
 <li><p>la moyenne <strong>géométrique</strong> : si les <span class="math notranslate nohighlight">\(x_i\)</span> sont positifs, la moyenne géométrique est la quantité <span class="math notranslate nohighlight">\(G=\left (\displaystyle\prod_{i=1}^n x_i\right )^\frac{1}{n}\)</span>. C’est donc l’exponentielle de la moyenne arithmétique des logarithmes des valeurs observées.</p></li>
-<li><p>a moyenne <strong>harmonique</strong> : si les <span class="math notranslate nohighlight">\(x_i\)</span> sont positifs, la moyenne harmonique est définie par <span class="math notranslate nohighlight">\(H=\frac{n}{\displaystyle\sum_{i=1}^J 1/x_i}\)</span></p></li>
+<li><p>la moyenne <strong>harmonique</strong> : si les <span class="math notranslate nohighlight">\(x_i\)</span> sont positifs, la moyenne harmonique est définie par <span class="math notranslate nohighlight">\(H=\frac{n}{\displaystyle\sum_{i=1}^J 1/x_i}\)</span></p></li>
 <li><p>la moyenne <strong>pondérée</strong> : dans certains cas, on n’accorde pas la même importance à toutes les observations (fiabilité, confiance…). La moyenne pondérée est alors définie par
 <span class="math notranslate nohighlight">\(\bar{x}_w= \frac{\displaystyle\sum_{i=1}^n w_ix_i}{\displaystyle\sum_{i=1}^n w_i}\)</span></p></li>
 </ul>
@@ -729,10 +729,10 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
 GeometricMean  :  1258.4787575642572
 HarmonicMean  :  1198.219210728503
-WeightedMean  :  1306.24370457044
+WeightedMean  :  1323.621840499637
 </pre></div>
 </div>
-<img alt="_images/01b4c54bdd1567da93ed1b7c234ad01b20de660f8aadaf86a00be49d5c61c4e9.png" src="_images/01b4c54bdd1567da93ed1b7c234ad01b20de660f8aadaf86a00be49d5c61c4e9.png" />
+<img alt="_images/c09acab7043c9c2cdd42834034f11e36dca7a1b0a7aa12691ef89d2072150c58.png" src="_images/c09acab7043c9c2cdd42834034f11e36dca7a1b0a7aa12691ef89d2072150c58.png" />
 </div>
 </div>
 <div class="proof definition admonition" id="definition-6">
@@ -793,13 +793,13 @@ quartile  75  :  1626.326538085935
 <p class="admonition-title"><span class="caption-number">Definition 25 </span> (Déviation maximale)</p>
 <div class="definition-content section" id="proof-content">
 <p>La déviation maximale est définie par
-<span class="math notranslate nohighlight">\( maxdev(X) = max \{ |X[i] - \bar{x}| \,|\, i=1,\dots,n\}\)</span></p>
+<span class="math notranslate nohighlight">\( maxdev(X) = max \{ |x_i - \bar{x}| \,|\, i\in[\![1,n]\!]\}\)</span></p>
 </div>
 </div><div class="proof definition admonition" id="definition-10">
 <p class="admonition-title"><span class="caption-number">Definition 26 </span> (Déviation moyenne absolue)</p>
 <div class="definition-content section" id="proof-content">
 <p>La déviation moyenne absolue est définie par
-<span class="math notranslate nohighlight">\( mad(X) = \frac{1}{n} \sum_{i=1}^n |X[i] - \bar{x}|\)</span></p>
+<span class="math notranslate nohighlight">\( mad(X) = \frac{1}{n} \displaystyle\sum_{i=1}^n |x_i - \bar{x}|\)</span></p>
 </div>
 </div><div class="proof definition admonition" id="definition-11">
 <p class="admonition-title"><span class="caption-number">Definition 27 </span> (Distance interquartile)</p>
@@ -960,7 +960,7 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4cfca6fd20fe6cb387c4f70e6a1326d95ee2bbabc98cef7efc6fc69608894bfd.png" src="_images/4cfca6fd20fe6cb387c4f70e6a1326d95ee2bbabc98cef7efc6fc69608894bfd.png" />
+<img alt="_images/f866f86285c9d012ed118bcbe3af4f13aab9cafcf6994a6a0806fef932d3c55c.png" src="_images/f866f86285c9d012ed118bcbe3af4f13aab9cafcf6994a6a0806fef932d3c55c.png" />
 </div>
 </div>
 </div>
