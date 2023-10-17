@@ -444,7 +444,7 @@ print (calcul_inertie_somme(Y, M))
 print (calcul_inertie_trace(V, M))
 
 # Si les données sont centrées réduites, on travaille avec Z et R
-M = np.identity(p)
+M = np.identity(d)
 print (calcul_inertie_somme(Z, M))
 print (calcul_inertie_trace(R, M))
 ```
