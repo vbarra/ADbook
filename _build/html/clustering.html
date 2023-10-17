@@ -521,8 +521,7 @@ document.write(`
 <div class="section" id="id1">
 <h4>Partition<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
 <p>On remplace cette condition trop exigeante par une fonction numérique (critère) qui mesure la qualité d’homogénéité d’une partition. Le problème peut paraître alors très simple. En effet, par exemple, dans le cas de la recherche d’une partition, il suffit de chercher parmi l’ensemble fini de toutes les partitions celle qui optimise le critère numérique. Malheureusement, le nombre de ces partitions étant très grand, leur énumération est impossible dans un temps raisonnable.
-Le nombre de partitions en <span class="math notranslate nohighlight">\(g\)</span> classes d’un ensemble à <span class="math notranslate nohighlight">\(n\)</span> éléments, que l’on note <span class="math notranslate nohighlight">\(S_n^g\)</span> est le nombre de Stirling de deuxième espèce. En posant <span class="math notranslate nohighlight">\(S_0^0=1\)</span> et pour tout <span class="math notranslate nohighlight">\(n&gt;0\)</span>, <span class="math notranslate nohighlight">\(S_n^0=S_0^n=0\)</span>, il peut être calculé par récurrence grâce à la relation <span class="math notranslate nohighlight">\(S_n^g=S_{n-1}^{g-1}+gS_{n-1}^g\)</span>. \
-On peut montrer que</p>
+Le nombre de partitions en <span class="math notranslate nohighlight">\(g\)</span> classes d’un ensemble à <span class="math notranslate nohighlight">\(n\)</span> éléments, que l’on note <span class="math notranslate nohighlight">\(S_n^g\)</span> est le nombre de Stirling de deuxième espèce. En posant <span class="math notranslate nohighlight">\(S_0^0=1\)</span> et pour tout <span class="math notranslate nohighlight">\(n&gt;0\)</span>, <span class="math notranslate nohighlight">\(S_n^0=S_0^n=0\)</span>, il peut être calculé par récurrence grâce à la relation <span class="math notranslate nohighlight">\(S_n^g=S_{n-1}^{g-1}+gS_{n-1}^g\)</span>. On peut montrer que</p>
 <div class="math notranslate nohighlight">
 \[S_n^g = \frac{1}{g!}\displaystyle\sum_{i=1}^g C_g^i (-1)^{g-i}i^n\]</div>
 <p>et donc <span class="math notranslate nohighlight">\(S_n^g\sim \frac{g^n}{g!}\)</span> lorsque <span class="math notranslate nohighlight">\(n\rightarrow\infty\)</span>. En pratique, sur un ordinateur calculant <span class="math notranslate nohighlight">\(10^6\)</span> partitions par seconde, il faut 126 000 ans pour calculer l’ensemble des partitions d’un ensemble à <span class="math notranslate nohighlight">\(n=25\)</span> éléments.</p>
@@ -543,14 +542,14 @@ notion d’ultramétrique (ultramétrique optimale).</p>
 <p>Les algorithmes de classification dépendent d’une métrique qui définit implicitement la forme des classes qui seront calculées. Si la distance euclidienne suppose une isotropie dans les axes (et donc une représentation sphérique des classes), d’autres distances ou indices de dissimilarité peuvent être utilisés.</p>
 <div class="section" id="indice-de-dissimilarite">
 <h4>Indice de dissimilarité<a class="headerlink" href="#indice-de-dissimilarite" title="Permalink to this heading">#</a></h4>
-<p>On se place dans <span class="math notranslate nohighlight">\(\mathbb R^p\)</span>, et on considère <span class="math notranslate nohighlight">\(n\)</span> individus à classer <span class="math notranslate nohighlight">\({\bf x_1}\ldots {\bf x_n}\)</span>.</p>
+<p>On se place dans <span class="math notranslate nohighlight">\(\mathbb R^d\)</span>, et on considère <span class="math notranslate nohighlight">\(n\)</span> individus à classer <span class="math notranslate nohighlight">\({\bf x_1}\ldots {\bf x_n}\)</span>.</p>
 <div class="proof definition admonition" id="definition-2">
 <p class="admonition-title"><span class="caption-number">Definition 42 </span> (Dissimilarité - ultramétrique)</p>
 <div class="definition-content section" id="proof-content">
 <p>Une mesure de dissimilarité <span class="math notranslate nohighlight">\(d\)</span> est une fonction de</p>
 <p><span class="math notranslate nohighlight">\(
 d : \begin{array}{ccc}
-\mathbb{R}^p\times\mathbb{R}^p &amp;\rightarrow &amp;\mathbb{R}^+\\
+\mathbb{R}^d\times\mathbb{R}^d &amp;\rightarrow &amp;\mathbb{R}^+\\
 (\mathbf x_i,\mathbf x_j)&amp;\mapsto &amp; d_{ij} = d(\mathbf x_i,\mathbf x_j)
 \end{array}
 \)</span></p>
@@ -680,8 +679,8 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </div>
 <div class="section" id="critere-de-ward">
 <h3>Critère de Ward<a class="headerlink" href="#critere-de-ward" title="Permalink to this heading">#</a></h3>
-<p id="index-3">Lorsque l’ensemble   <span class="math notranslate nohighlight">\(\Omega\)</span> à classifier est mesuré par <span class="math notranslate nohighlight">\(p\)</span> variables quantitatives, il est possible de lui associer un nuage de points pondérés dans <span class="math notranslate nohighlight">\(\mathbb{R}^p\)</span> muni de la distance euclidienne <span class="math notranslate nohighlight">\(d\)</span>. Généralement, les pondérations seront toutes égales à 1. Le critère d’agrégation le plus utilisé dans cette situation est alors le critère d’inertie de Ward :</p>
-<p><span class="math notranslate nohighlight">\(D(A,B)=\frac{p_Ap_B}{p_A+p_B}d^2({\bf g}(A),{\bf g}(B))\)</span></p>
+<p id="index-3">Lorsque l’ensemble  <span class="math notranslate nohighlight">\(\Omega\)</span> à classifier est mesuré par <span class="math notranslate nohighlight">\(d\)</span> variables quantitatives, il est possible de lui associer un nuage de points pondérés dans <span class="math notranslate nohighlight">\(\mathbb{R}^d\)</span> muni de la distance euclidienne. Généralement, les pondérations seront toutes égales à 1. Le critère d’agrégation le plus utilisé dans cette situation est alors le critère d’inertie de Ward :</p>
+<p><span class="math notranslate nohighlight">\(D(A,B)=\frac{p_Ap_B}{p_A+p_B}\|({\bf g}(A),{\bf g}(B))\|_2^2\)</span></p>
 <p>où <span class="math notranslate nohighlight">\(p_E\)</span> représente la somme des pondérations des éléments d’une classe <span class="math notranslate nohighlight">\(E\)</span> et <span class="math notranslate nohighlight">\({\bf g}(E)\)</span> est le centre de gravité d’une classe <span class="math notranslate nohighlight">\(E\)</span>.</p>
 </div>
 <div class="section" id="proprietes-d-optimalite">
@@ -867,7 +866,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 <h2>Recherche de partitions<a class="headerlink" href="#recherche-de-partitions" title="Permalink to this heading">#</a></h2>
 <div class="section" id="methode-des-centres-mobiles">
 <h3>Méthode des centres mobiles<a class="headerlink" href="#methode-des-centres-mobiles" title="Permalink to this heading">#</a></h3>
-<span class="target" id="index-5"></span><p id="index-6">La méthode des centres mobiles est encore connue sous le nom de méthode de réallocation-centrage ou des k-means lorsque l’ensemble à classifier est mesuré par <span class="math notranslate nohighlight">\(p\)</span> variables. Ici, <span class="math notranslate nohighlight">\(\Omega \in \mathbb{R}^p\)</span> est muni de sa distance euclidienne <span class="math notranslate nohighlight">\(d\)</span>. Pour simplifier la présentation, les pondérations des individus seront toutes égales à 1, mais la généralisation à des pondérations quelconques ne pose aucun problème.</p>
+<span class="target" id="index-5"></span><p id="index-6">La méthode des centres mobiles est encore connue sous le nom de méthode de réallocation-centrage ou des k-means lorsque l’ensemble à classifier est mesuré par <span class="math notranslate nohighlight">\(d\)</span> variables. Ici, <span class="math notranslate nohighlight">\(\Omega \in \mathbb{R}^d\)</span> est muni de sa distance euclidienne <span class="math notranslate nohighlight">\(d\)</span>. Pour simplifier la présentation, les pondérations des individus seront toutes égales à 1, mais la généralisation à des pondérations quelconques ne pose aucun problème.</p>
 <div class="section" id="id2">
 <h4>Algorithme<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
 <p>L’algorithme des centres-mobiles peut se définir ainsi :</p>
@@ -907,7 +906,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </div>
 <div class="section" id="generalisation-les-nuees-dynamiques">
 <h3>Généralisation : les nuées dynamiques<a class="headerlink" href="#generalisation-les-nuees-dynamiques" title="Permalink to this heading">#</a></h3>
-<p id="index-7">L’idée de base consiste à remplacer les centres   qui étaient des éléments de <span class="math notranslate nohighlight">\(\mathbb{R}^p\)</span> jouant le rôle de représentant ou encore de noyau de la classe par des éléments de nature très diverse adaptés au problème que l’on cherche à résoudre.</p>
+<p id="index-7">L’idée de base consiste à remplacer les centres   qui étaient des éléments de <span class="math notranslate nohighlight">\(\mathbb{R}^d\)</span> jouant le rôle de représentant ou encore de noyau de la classe par des éléments de nature très diverse adaptés au problème que l’on cherche à résoudre.</p>
 <div class="section" id="formalisation">
 <h4>Formalisation<a class="headerlink" href="#formalisation" title="Permalink to this heading">#</a></h4>
 <p>On note <span class="math notranslate nohighlight">\(L=\{\lambda_i\}\)</span> l’ensemble des noyaux, <span class="math notranslate nohighlight">\(D:\Omega\times L\rightarrow \mathbb{R}^+\)</span> une mesure de ressemblance entre éléments de <span class="math notranslate nohighlight">\(\Omega\)</span> et de <span class="math notranslate nohighlight">\(L\)</span>. L’objectif est alors de trouver la partition en <span class="math notranslate nohighlight">\(g\)</span> classes (<span class="math notranslate nohighlight">\(g\)</span> fixé a priori) de <span class="math notranslate nohighlight">\(\Omega\)</span> minimisant le critère <span class="math notranslate nohighlight">\(\displaystyle\sum_{k}\displaystyle\sum_{x\in P_k}D(x,\lambda_k)\)</span></p>
@@ -977,7 +976,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/282a71541470bf599f673324fd8333f803863bae5ab287f44588409753ee6b0a.png" src="_images/282a71541470bf599f673324fd8333f803863bae5ab287f44588409753ee6b0a.png" />
+<img alt="_images/ffae37902b68cb11c778d6f96e26902cfa10a75a9dc869facfc69b37a5c3ab62.png" src="_images/ffae37902b68cb11c778d6f96e26902cfa10a75a9dc869facfc69b37a5c3ab62.png" />
 </div>
 </div>
 </div>
