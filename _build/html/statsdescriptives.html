@@ -637,7 +637,7 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 </div>
 <div class="section" id="normalisation">
 <h3>Normalisation<a class="headerlink" href="#normalisation" title="Permalink to this heading">#</a></h3>
-<p>Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l’analyse des données (<a class="reference internal" href="#biais"><span class="std std-ref">Effet de la normalisation sur un algorithme de classification (voir chapitre correspondant. En haut un jeu de données avec deux nuages de points allongés selon l’axe des x, certainement en raison d’une différence d’échelle entre les unités de mesure de x et y. Au milieu une classification par k-moyennes, k=2 sans normalisation, en utilisant la distance euclidienne. Les deux classes sont séparées suivant l’axe des x, ne reflétant pas la répartition naturelle des points. En bas, après normalisation, les deux nuages de points sont correctement séparés```</span></a>) qu’il convient de corriger : c’est le processus de normalisation des données.</p>
+<p>Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l’analyse des données ({ref}figure 1<biais>`) qu’il convient de corriger : c’est le processus de normalisation des données.</p>
 <p>Pour une colonne <span class="math notranslate nohighlight">\(j\in[\![1,p]\!]\)</span>, on dispose de <span class="math notranslate nohighlight">\(n\)</span> valeurs <span class="math notranslate nohighlight">\(x_{ij},i\in[\![1,n]\!]\)</span>. On note : <span class="math notranslate nohighlight">\(x_{min} = \displaystyle\min_{i\in[\![1,n]\!]}x_{ij}\)</span>, <span class="math notranslate nohighlight">\(x_{max} = \displaystyle\max_{i\in[\![1,n]\!]}x_{ij}\)</span>,   <span class="math notranslate nohighlight">\(\bar x_j\)</span> la moyenne des <span class="math notranslate nohighlight">\(x_{ij}\)</span>, <span class="math notranslate nohighlight">\(\sigma_j\)</span> leur écart-type, <span class="math notranslate nohighlight">\(x_\frac14, x_\frac12\)</span> et <span class="math notranslate nohighlight">\(x_\frac34\)</span> les premier, deuxième et troisième quartiles. On distingue alors classiquement trois types de normalisation :</p>
 <ol class="arabic simple">
 <li><p>la normalisation min-max : <span class="math notranslate nohighlight">\(x_{ij} = \frac{x_{ij}-x_{min}}{x_{max}-x_{min}}\)</span></p></li>
@@ -726,10 +726,10 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
 GeometricMean  :  1258.4787575642572
 HarmonicMean  :  1198.219210728503
-WeightedMean  :  1288.4101841449537
+WeightedMean  :  1331.6312721929507
 </pre></div>
 </div>
-<img alt="_images/9558bdab20ff83b1076727770606ffe4d9cee28b68c6a79fda0e3222683c2115.png" src="_images/9558bdab20ff83b1076727770606ffe4d9cee28b68c6a79fda0e3222683c2115.png" />
+<img alt="_images/f550eff2f178646febd9bc07ed76b0db7103ce81fbf215c71095b8924953e9bb.png" src="_images/f550eff2f178646febd9bc07ed76b0db7103ce81fbf215c71095b8924953e9bb.png" />
 </div>
 </div>
 <div class="proof definition admonition" id="definition-6">
@@ -957,7 +957,7 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/67ef174372717ea74832a1a68bcaf1cd9624479b62ba0f51a60b4c01ee76d934.png" src="_images/67ef174372717ea74832a1a68bcaf1cd9624479b62ba0f51a60b4c01ee76d934.png" />
+<img alt="_images/fb867dcfc6496dacebf94d43f66cccef1674746cd01136d06311eb87938ac7e8.png" src="_images/fb867dcfc6496dacebf94d43f66cccef1674746cd01136d06311eb87938ac7e8.png" />
 </div>
 </div>
 </div>
