@@ -101,7 +101,8 @@ La figure suivante illustre la régression linéaire d'un ensemble de points, d�
 ```
 ### Ajustement linéaire d'un ensemble d'observations
 
-La régression multiple généralise la régression simple au cas de $p\geq 2$ prédicteurs quantitatifs (ou variables explicatives). Ici on considère un échantillon de $n$ individus, sur lesquels $p+1$ variables sont mesurées : une variable à expliquer $\mathbf Y = (y_1\cdots y_n)^T\in\mathbb{R}^n$ et $p$ variables explicatives $\mathbf X_i$ linéairement indépendantes, mais possiblement en relation.\\ 
+La régression multiple généralise la régression simple au cas de $p\geq 2$ prédicteurs quantitatifs (ou variables explicatives). Ici on considère un échantillon de $n$ individus, sur lesquels $p+1$ variables sont mesurées : une variable à expliquer $\mathbf Y = (y_1\cdots y_n)^T\in\mathbb{R}^n$ et $p$ variables explicatives $\mathbf X_i$ linéairement indépendantes, mais possiblement en relation.
+
 On cherche 
 
 $\mathbf Y^* = \beta_0 \mathbf{1} + \displaystyle\sum_{i=1}^p \beta_i\mathbf X_i$
@@ -145,10 +146,11 @@ $\hat{\sigma}^2 = \frac{\|\mathbf Y -\mathbf Y^*\|^2}{n-p-1}$
 
 ## Modèle linéaire généralisé
 ### Position du problème
-Dans le cas le plus général, on ne cherche pas à expliquer une seule variable mais $k\in\mathbb{N}$, obtenues par répétition de l'expérience, les $\mathbf X_j$ restant identiques : pour $i\in[\![1,k]\!]$ $\mathbf{Y}_i\in\mathbb{R}^n$ est la $i^e$ observation. 
+Dans le cas le plus général, on ne cherche pas à expliquer une seule variable mais $k\in\mathbb{N}$, obtenues par répétitions de l'expérience, les $\mathbf X_j$ restant identiques : pour $i\in[\![1,k]\!]$ $\mathbf{Y}_i\in\mathbb{R}^n$ est la $i^e$ observation. 
 
 ### Solution à partir des données
-Le modèle fait l'hypothèse que le centre de gravité $\mathbf g$ des $k$ observations se situe dans $Im(\mathbf X)$, soit $\mathbf g = \mathbf X \boldsymbol \beta$. La plupart du temps, on ne connaît cependant qu'une seule des $k$ observations $\mathbf Y$, et le problème revient à approximer le mieux possible $\mathbf g$ en ne connaissant que $\mathbf Y$.
+Le modèle fait l'hypothèse que le centre de gravité $\mathbf g$ des $k$ observations se situe dans $Im(\mathbf X)$, soit $\mathbf g = \mathbf X \boldsymbol \beta$
+La plupart du temps, on ne connaît cependant qu'une seule des $k$ observations $\mathbf Y$, et le problème revient à approximer le mieux possible $\mathbf g$ en ne connaissant que $\mathbf Y$.
 
 Cette approximation $\mathbf g^*$ s'exprime comme la projection orthogonale de $\mathbf Y$ sur $Im(\mathbf X)$, selon une métrique $\mathbf M$, à choisir de sorte que $\mathbf g^*$ soit la plus proche possible de $\mathbf g$. Dit autrement, en répétant la projection avec $\mathbf Y_1\cdots \mathbf Y_k$, les $k$ approximations $g^*_i=\mathbf X (\mathbf X^T\mathbf M\mathbf X)^{-1} \mathbf X^T \mathbf M \mathbf Y_i, i\in[\![1,k]\!]$ doivent être le plus concentrées possible autour de $\mathbf g$.
 
@@ -165,7 +167,8 @@ En ayant une infinité d'observations, on approche le modèle probabiliste. On s
 
 ## Modèles régularisés
 On peut montrer que l'estimateur des moindres carrés est de variance minimale parmi les estimateurs linéaires sans biais. Cependant, la variance aboutit dans certains cas à des erreurs de prédiction importantes. Dans ce cas, on cherche des estimateurs de variance plus petite quitte à avoir un (léger) biais. Pour ce faire, on peut supprimer l'effet de certaines variables explicatives ce qui revient à leur attribuer un poids nul.
-Par ailleurs, dans le cas où $p$ est grand, l'interprétation des réultats obtenus est parfois complexe. Ainsi, on pourra préférer un modèle estimé avec moins de variables explicatives afin de privilégier l'interprétation plutôt que la précision.\\
+Par ailleurs, dans le cas où $p$ est grand, l'interprétation des résultats obtenus est parfois complexe. Ainsi, on pourra préférer un modèle estimé avec moins de variables explicatives afin de privilégier l'interprétation plutôt que la précision.
+
 Dans cette section, on s'intéresse à des méthodes permettant de produire des estimateurs dont les valeurs sont d'amplitudes réduites. On parle de modèles parcimonieux lorsque des variables ont des coefficients nuls. 
 
 ### Régression Ridge
@@ -235,12 +238,14 @@ $\mathbf X^*\in\mathcal{M}_{(n+p)p}(\mathbb R) = \frac{1}{\sqrt{1+\lambda_2}}\be
 
 et on note $\gamma=\lambda_1/(\lambda_1+\lambda_2)$. 
 
-Alors la fonction objectif de la régression Elasticnet s'écrit $\|\mathbf Y^*-\mathbf X^*\boldsymbol\beta^*\|_2^2+\gamma\|\boldsymbol\beta^*\|_1$. Si $\hat{\boldsymbol\beta}$ minimise cette fonction, alors l'estimateur naïf de la régression Elasticnet est 
+Alors la fonction objectif de la régression Elasticnet s'écrit $\|\mathbf Y^*-\mathbf X^*\boldsymbol\beta^*\|_2^2+\gamma\|\boldsymbol\beta^*\|_1$. 
+Si $\hat{\boldsymbol\beta}$ minimise cette fonction, alors l'estimateur naïf de la régression Elasticnet est 
 
 $\boldsymbol\beta_e = \frac{1}{\sqrt{1+\lambda_2}}\hat{\boldsymbol\beta}$
 ````
 
-Puisque $\mathbf X^*$ est de rang $p$, la solution peut sélectionner $p$ variables contrairement à la régression Lasso.\\
+Puisque $\mathbf X^*$ est de rang $p$, la solution peut sélectionner $p$ variables contrairement à la régression Lasso.
+
 En pratique, cet estimateur naïf ne donne satisfaction que lorsqu'il est proche de $\boldsymbol\beta_r$ ou de $\boldsymbol\beta_l$. On retient généralement l'estimateur rééchelonné $(1+\lambda_2)\boldsymbol\beta_e = \sqrt{1+\lambda_2}\hat{\boldsymbol\beta}$ (Elasticnet peut être vu comme un Lasso où la matrice de variance-covariance est proche de la matrice Identité, et on montre que le facteur $1+\lambda_2$ intervient alors).
 
 
@@ -265,22 +270,24 @@ Dans les sections précédentes, nous n'avons pas abordé les cas où les prédi
 La régression logistique est un modèle linéaire généralisé utilisé pour prédire une variable binaire, ou catégorielle, à partir de prédicteurs quantitatifs ou catégoriels. 
 
 ### Régression logistique binaire
-Dans un premier temps, la variable à prédire est binaire : elle ne prend donc que deux valeurs 0/1 (ou -1/1). Dans le chapitre~\ref{ch:classif}, nous étudierons des algorithmes permettant d'aborder ce problème sous un angle classification. Ici, nous nous intéressons à une modélisation probabiliste, permettant notamment de prendre en compte le bruit dans les données. 
+Dans un premier temps, la variable à prédire est binaire : elle ne prend donc que deux valeurs 0/1 (ou -1/1). Dans le chapitre suivant, nous étudierons des algorithmes permettant d'aborder ce problème sous un angle classification. Ici, nous nous intéressons à une modélisation probabiliste, permettant notamment de prendre en compte le bruit dans les données. 
 
 #### Modèle
-On recherche une distribution conditionnelle $P(Y|X)$ de la variable à prédire sachant les prédicteurs. Si le problème est en 0/1, alors $Y$ est une variable indicatrice et on a $P(Y=1)=\mathbb{E}(Y)$ et $P(Y=1|X=x)=\mathbb{E}(Y|X=x)$. La probabilité conditionnelle est donc l'espérance conditionnelle de l'indicatrice.\\
+On recherche une distribution conditionnelle $P(Y|X)$ de la variable à prédire sachant les prédicteurs. Si le problème est en 0/1, alors $Y$ est une variable indicatrice et on a $P(Y=1)=\mathbb{E}(Y)$ et $P(Y=1|X=x)=\mathbb{E}(Y|X=x)$. La probabilité conditionnelle est donc l'espérance conditionnelle de l'indicatrice.
+
 Supposons que $P(Y=1|X=x)=p(x,\boldsymbol\theta)$ avec $p$ fonction paramétrée par $\boldsymbol\theta$. On suppose également que les observations sont indépendantes. La vraisemblance est alors donnée par
 
-$\prod_{i=1}^n P(Y=y_i|X=x_i) = \prod_{i=1}^n p(x_i,\boldsymbol\theta)^{y_i}(1-p(x_i,\boldsymbol\theta))^{1-y_i}$
+$\displaystyle\prod_{i=1}^n P(Y=y_i|X=x_i) = \displaystyle\prod_{i=1}^n p(x_i,\boldsymbol\theta)^{y_i}(1-p(x_i,\boldsymbol\theta))^{1-y_i}$
 
 
 ```{prf:remark}
 :class: dropdown
-Pour $n$ tirages d'une variable de Bernoulli dont la probabilité de succès est constante et vaut $p$, la vraisemblance est $\prod_{i=1}^n p^{y_i}(1-p)^{1-y_i}$. Cette vraisemblance est maximisée lorsque 
+Pour $n$ tirages d'une variable de Bernoulli dont la probabilité de succès est constante et vaut $p$, la vraisemblance est $\displaystyle\prod_{i=1}^n p^{y_i}(1-p)^{1-y_i}$. Cette vraisemblance est maximisée lorsque 
 $p=n^{-1}\displaystyle\sum_{i=1}^n y_i$.
 ```
 
-En notant $p_i=p(x_i,\boldsymbol\theta)$, maximiser la vraisemblance sans contrainte amène à la solution non informative $p_i=1$ si $y_i=1$ et 0 sinon. Si l'on essaye d'ajouter des contraintes (relations entre les $p_i$), alors l'estimation du maximum de vraisemblance devient difficile.\\
+En notant $p_i=p(x_i,\boldsymbol\theta)$, maximiser la vraisemblance sans contrainte amène à la solution non informative $p_i=1$ si $y_i=1$ et 0 sinon. Si l'on essaye d'ajouter des contraintes (relations entre les $p_i$), alors l'estimation du maximum de vraisemblance devient difficile.
+
 Ici le modèle  $p_i=p(x_i,\boldsymbol\theta)$ suppose que si $p$ est continue, alors des valeurs proches de $x_i$ amènent à des valeurs proches de $p_i$. En supposant $p$ connue comme fonction de $\boldsymbol\theta$, la vraisemblance est une fonction de $\boldsymbol\theta$ et on peut estimer ce paramètre en maximisant la vraisemblance.
 
 
@@ -289,7 +296,7 @@ On recherche un ''bon'' modèle pour $p$ :
 
 1. On peut dans un premier temps supposer que $p(\mathbf x)$ est une fonction linéaire de $\mathbf x$. Les fonctions linéaires étant non bornées, elles ne peuvent modéliser des probabilités.  
 2. On peut alors supposer que $log\ p(\mathbf x)$ est une fonction linéaire de $\mathbf x$. Là aussi, la fonction logarithme est non bornée supérieurement, et ne peut modéliser une probabilité.
-3. Partant de cette idée, on borne le logarithme en utilisant la transformation logistique (ou logit) $log\frac{p(\mathbf x)}{1-p(\mathbf x)}$. Etant donné un événement ayant une probabilité $p$ de réussir, le rapport $p/(1-p)$ est appelé la côte de l'événement (rapport de la probabilité qu'il se produise sur celle qu'il ne se produise pas. Si vous avez $p$=3/4 de chances de réussir à votre examen de permis, cotre côte est $p/(1-p)=\frac{3/4}{1/4}$=3 contre un. On peut alors supposer que cette fonction de $p$ est linéaire en $\mathbf x$.
+3. Partant de cette idée, on borne le logarithme en utilisant la transformation logistique (ou logit) $log\frac{p(\mathbf x)}{1-p(\mathbf x)}$. Etant donné un événement ayant une probabilité $p$ de réussir, le rapport $p/(1-p)$ est appelé la côte de l'événement (rapport de la probabilité qu'il se produise sur celle qu'il ne se produise pas. Si vous avez $p$=3/4 de chances de réussir à votre examen de permis, cotre côte est $p/(1-p)=\frac{3/4}{1/4}$=3 contre un). On peut alors supposer que cette fonction de $p$ est linéaire en $\mathbf x$.
 
 
 Le modèle de régression logistique s'écrit alors formellement 
@@ -303,10 +310,11 @@ $p(\mathbf x,\boldsymbol\theta) = \frac{e^{\beta_0\mathbf 1 + \boldsymbol\beta\m
 
 Pour minimiser les erreurs de prédiction, on doit prédire $Y=1$ si $p\geq 0.5$, soit $\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x\geq 0$ et $Y=0$ sinon. La régression logistique est donc un classifieur linéaire, dont la frontière de décision est justement l'hyperplan $\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x= 0$. On peut montrer que la distance de $\mathbf x$ à cet hyperplan est $\beta_0/\|\boldsymbol\beta\| + \mathbf x^T\boldsymbol\beta/\|\boldsymbol\beta\|$. Les probabilités d'appartenance de $\mathbf x$ aux classes décroissent donc d'autant plus vite que $\|\boldsymbol\beta\|$ est grand.
 
+Dans la figure suivante, la probabilité d'appartenance à la classe 1 (points rouges) est donnée en fausses couleurs.
+
 
 ![](./images/regression.png)
- Dans cette figuren la probabilité d'appartenance à la classe 1 (points rouges) est donnée en fausses couleurs.
-
+ 
 
 ### Régression logistique à plusieurs classes
 Dans ce cas, $Y$ peut prendre $k$ valeurs. Le modèle reste le même, chaque classe $c\in[\![0,k-1]\!]$ ayant son jeu de paramètres $\boldsymbol\theta_c=(\beta^c_0,\boldsymbol\beta^c)^T$. Les probabilités conditionnelles prédites sont alors 
@@ -315,7 +323,8 @@ $(\forall c\in[\![0,k-1]\!])\;\;P(Y=c|X=\mathbf x) = \frac{e^{\beta^c_0\mathbf 1
 
 
 ### Interprétation
-Si $\mathbf x=\mathbf 0$, alors $p(\mathbf x)=\frac{1}{1+e^{-\beta_0}}$. L'ordonnée à l'origine fixe donc le taux d'événements "de base". \\
+Si $\mathbf x=\mathbf 0$, alors $p(\mathbf x)=\frac{1}{1+e^{-\beta_0}}$. L'ordonnée à l'origine fixe donc le taux d'événements "de base". 
+
 Supposons $\boldsymbol\beta\in\mathbb{R}$ (l'interprétation sera la même dans le cas général). Considérons l'effet sur la probabilité d'un évènement du changement de $x\in\mathbb{R}$ d'une unité, passant de $x_0$ à $x_0+1$. Alors :
 
 $logit(p(x_0+1))-logit(p(x_0)) = \beta_0+\beta(x_0+1)-(\beta_0+\beta(x_0)) = \beta$
@@ -333,7 +342,7 @@ Dans le cas où $\boldsymbol\beta$ est un vecteur, sa ième composante est une e
 ### Estimation des coefficients de la régression logistique
 D'après le modèle probabiliste, la distribution associée à la régression logistique est la loi binomiale. Pour $n$ échantillons $(x_i,y_i),i\in[\![1,n]\!]$, la vraisemblance s'écrit 
 
-$\prod_{i=1}^n p(x_i,\boldsymbol\theta)^{y_i}(1-p(x_i,\boldsymbol\theta))^{1-y_i}$
+$\displaystyle\prod_{i=1}^n p(x_i,\boldsymbol\theta)^{y_i}(1-p(x_i,\boldsymbol\theta))^{1-y_i}$
 
 Pour estimer les paramètres $\beta_0$ et $\boldsymbol\beta$ à partir des données, on maximise cette vraisemblance. On prend son logarithme, on calcule son gradient et on en déduit un système d'équations à résoudre. Cette approche amène à des calculs complexes, la formulation analytique n'étant pas simple, et une approximation numérique est en pratique mise en oeuvre pour trouver l'optimal.
 
@@ -391,13 +400,13 @@ On appelle résidu studentisé la quantité $\frac{y_i-y^*_i}{\hat{\sigma}\sqrt{
 
 ```{prf:remark}
 :class: dropdown
-Il convient de rester prudent lorsque $p_i$ est grand}, et la quantité 
+Il convient de rester prudent lorsque $p_i$ est grand, et la quantité 
  $\displaystyle\sum_{i=1}^n  \frac{(y_i-y_i^*)^2}{(1-p_i)^2}$
  est une mesure du pouvoir prédictif du modèle.
  ``` 
 2. étudier l'influence d'une observation sur les estimations des paramètres de la régression $\beta_i$. On peut par exemple calculer une distance, dite de Cook, entre $\boldsymbol \beta$ et $\boldsymbol \beta_{\bar{i}}$ :
-3. 
- $d(\boldsymbol \beta,\boldsymbol\beta_{\bar{i}}) = \frac{(\boldsymbol \beta-\boldsymbol\beta_{\bar{i}})^T\mathbf X^T \mathbf X(\boldsymbol \beta-\boldsymbol\beta_{\bar{i}})}{\hat{\sigma}^2(p+1)}=\frac{\|\mathbf Y^*-\mathbf Y_{\bar{i}}^*\|^2}{\hat{\sigma}^2(p+1)}$
+
+ $$d(\boldsymbol \beta,\boldsymbol\beta_{\bar{i}}) = \frac{(\boldsymbol \beta-\boldsymbol\beta_{\bar{i}})^T\mathbf X^T \mathbf X(\boldsymbol \beta-\boldsymbol\beta_{\bar{i}})}{\hat{\sigma}^2(p+1)}=\frac{\|\mathbf Y^*-\mathbf Y_{\bar{i}}^*\|^2}{\hat{\sigma}^2(p+1)}$$
 
  où $\mathbf Y_{\bar{i}}^*=\mathbf X\boldsymbol\beta_{\bar{i}}$. Si $d(\boldsymbol \beta,\boldsymbol\beta_{\bar{i}})>1$, alors en général l'observation $i$ a une influence anormale.
 
@@ -426,20 +435,7 @@ Il convient de rester prudent lorsque $p_i$ est grand}, et la quantité
 
 
 ## Sélection des variables
- Plutôt que d'expliquer $\mathbf Y$ par l'ensemble des prédicteurs, on peut chercher un sous-ensemble de ces $p$ variables permettant d'obtenir quasiment le même résultat (régression). Contrairement aux méthodes d'extraction (telles que l'analyse en composantes principales, chapitre~\ref{ch:ACP}), les méthodes de sélection utilisent les variables initiales. 
-
-### Exploration de l'ensemble des régressions possibles
- Si $p$ n'est pas trop grand, on peut envisager d'étudier les $2^p-1$ régressions obtenues avec tous les sous-ensembles de variables. On peut alémiorer cette stratégie en testant pour chaque régression les coefficients à l'aide du test de Fisher pour mettre en évidence les variables ou combinaisons de variables les plus significatives. On choisit alors le sous-ensemble de variables qui donne le coefficient de détermination maximum (à $p$ fixe) ou le $\hat{\sigma}^2$ minimum (à $p$ variable).
-
-### Méthodes pas à pas
-On ajoute (ou retire) les variables à partir d'un ensemble initial : 
-- pour l'ajout, on part de la meilleure régression à une variable et on ajoute itérativement celle qui améliore le plus le coefficient de détermination
-- pour l'élimination, on supprime la variable la moins significative (par exemple celle qui amène à la plus petite diminution du coefficient de détermination). On recalcule alors la régression correspondante et on itère.
-
-
-En plus de ces stratégies simples, on peut ajouter une méthode dite de stepwise qui consiste à effectuer en plus à chaque itération des tests de signification de type Student ou F pour ne pas introduire une variable non significative et pour éliminer éventuellement des variables déjà introduites qui deviendraient inutiles compte tenu de la dernière opération effecuté. 
-
-L'arrêt des itérations s'effectue en fonction d'un critère sur le coefficient de détermination, le nombre de variables à garder, ...
+ Plutôt que d'expliquer $\mathbf Y$ par l'ensemble des prédicteurs, on peut chercher un sous-ensemble de ces $p$ variables permettant d'obtenir quasiment le même résultat (régression). Nous avons déjà abordé la sélection de variables dans un chapitre précédent.
 
 
 ## Exemple
