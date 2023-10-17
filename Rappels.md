@@ -180,7 +180,7 @@ La notion d'indépendance n'est pas une notion purement ensembliste. Deux évèn
 ### Théorème des probabilités totales
 
 ```{prf:theorem}
-Soit $B_i$ un système complet d'évènements (qui forment donc une partition de $\Omega$). Pour tout évènement $A$, on peut écrire 
+Soit $\{B_i\}$ un système complet d'évènements (qui forment donc une partition de $\Omega$). Pour tout évènement $A$, on peut écrire 
 
 $P(A) = \displaystyle\sum_i P(A\bigcap B_i) = \displaystyle\sum_i P(A| B_i) P(B_i)$
 ```
@@ -285,6 +285,7 @@ plt.plot( x, f, 'o' )
 plt.vlines( x, 0, f )   
 plt.ylim( bottom=0 ) 
 plt.title("Loi de probabilité d'une variable aléatoire discrète")
+plt.tight_layout()
 plt.show()
 ```
 
@@ -382,11 +383,12 @@ print("Espérance : ", distribution.expect())
 
 ```{code-cell} ipython3
 from scipy.stats import rv_continuous
-a = 49.5 
-b = 50.5 
+from math import exp
+a = 3.5 
+b = 5.5 
 class distribution_gen(rv_continuous):
     def _pdf(self, x):
-        return 1.5 - 6*(x - 50)**2
+        return 6*exp(-(x - 5)**2)
 distribution = distribution_gen()
 print("Espérance : ", distribution.expect(lambda x: 1, lb=a, ub=b))
 ```
@@ -462,11 +464,13 @@ print("Ecart-type : ", distribution.std())
 
 ```{code-cell} ipython3
 from scipy.stats import rv_continuous
-a = 49.5 
-b = 50.5 
+from math import exp
+a = 3.5 
+b = 5.5 
 class distribution_gen(rv_continuous):
     def _pdf(self, x):
-        return 1.5 - 6*(x - 50)**2
+        return 6*exp(-(x - 5)**2)
+distribution = distribution_gen()
 distribution = distribution_gen(a=a, b=b)
 print("Variance: ", distribution.var())
 print("Ecart-type : ", distribution.std())
