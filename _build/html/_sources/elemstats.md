@@ -111,7 +111,7 @@ Le dernier point est admis.
 
 ### Echantillons de variables aléatoires normales
 
-Les lois de probabilité usuelles sont rappelées en fin de ce chapitre ({ref}`loisusuelles`). 
+Les lois de probabilité usuelles sont rappelées en fin de ce chapitre ({ref}`loisusuelles). 
 
 
 #### Etude d'un $n$-échantillon
@@ -187,8 +187,8 @@ x = np.arange(n)
 for i in range(8):
     f = experience(n)
     plt.plot(x,f)
-    plt.xlabel('$n$')
-    plt.ylabel('$f_n$')
+    plt.xlabel('$n$',fontsize=16)
+    plt.ylabel('$f_n$',fontsize=16)
 plt.axhline(y = 0.4, color = 'k', linestyle = '--')
 
 plt.tight_layout()
