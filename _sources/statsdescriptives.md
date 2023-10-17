@@ -225,7 +225,7 @@ Pour pouvoir être traitées numériquement, les données qualitatives doivent �
 
 
 ### Normalisation
-Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l'analyse des données ({ref}figure 1<biais>`) qu'il convient de corriger : c'est le processus de normalisation des données.
+Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l'analyse des données ({ref}`figure 1<biais>`) qu'il convient de corriger : c'est le processus de normalisation des données.
 
 Pour une colonne $j\in[\![1,p]\!]$, on dispose de $n$ valeurs $x_{ij},i\in[\![1,n]\!]$. On note : $x_{min} = \displaystyle\min_{i\in[\![1,n]\!]}x_{ij}$, $x_{max} = \displaystyle\max_{i\in[\![1,n]\!]}x_{ij}$,   $\bar x_j$ la moyenne des $x_{ij}$, $\sigma_j$ leur écart-type, $x_\frac14, x_\frac12$ et $x_\frac34$ les premier, deuxième et troisième quartiles. On distingue alors classiquement trois types de normalisation : 
 
