@@ -470,6 +470,7 @@ Une distribution est alors dite :
 
 
 (boxplot)=
+#### Pour résumer
 Les principales statistiques d'une série statistique peuvent être résumées dans des **boîtes à moustache**, qui permettent de voir sur un même graphique :
 
 - la médiane
