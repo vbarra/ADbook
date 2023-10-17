@@ -406,33 +406,33 @@ L'algorithme original peut être amélioré de manière significative en évitan
 **Sortie :** $P$ une partition de $X$ en $g$ classes
 
 1. Initialisation : tirage au hasard de $g$ points $C =\{\mathbf {c_1}\cdots \mathbf {c_g\}}$
-2.  Pour $\x\in \Omega,\mathbf c\in C$
-    1. $l(\x,\mathbf c)=0$
-3.  Pour tout $\x\in \Omega$
-      1. Affecter $\x$ à la classe du centre le plus proche : $\mathbf c(x) = Arg \displaystyle\min_{\mathbf c\in C} d(\x,\mathbf c)$
-      2. A chaque calcul de $d(\x,\mathbf c)$,$ l(\x,\mathbf c)=d(\x,\mathbf c)$
-      3. $u(\x,\mathbf c)=\displaystyle\min_{\mathbf c\in C} d(\x,\mathbf c)$
+2.  Pour $\mathbf x\in \Omega,\mathbf c\in C$
+    1. $l(\mathbf x,\mathbf c)=0$
+3.  Pour tout $\mathbf x\in \Omega$
+      1. Affecter $\mathbf x$ à la classe du centre le plus proche : $\mathbf c(x) = Arg \displaystyle\min_{\mathbf c\in C} d(\mathbf x,\mathbf c)$
+      2. A chaque calcul de $d(\mathbf x,\mathbf c)$,$ l(\mathbf x,\mathbf c)=d(\mathbf x,\mathbf c)$
+      3. $u(\mathbf x,\mathbf c)=\displaystyle\min_{\mathbf c\in C} d(\mathbf x,\mathbf c)$
 4. Tant que (non convergence)
       1. Pour tout $\mathbf c,\mathbf {c'}\in C$ alculer $\delta (\mathbf c,\mathbf {c'})$
       2. Pour tout $\mathbf c$ $s(c)= \frac{1}{2}\displaystyle\min_{\mathbf {c'}\neq \mathbf c} \delta(\mathbf c,\mathbf {c'})$
-      3. Identifier les $\x$ tels que $u(\x)\leq s(\mathbf c(\x))$
-      4. Pour tout $\x\in X,\mathbf c\in C$ tels que $\mathbf c\neq \mathbf c(\x)$ et $u(\x)>l(\x,\mathbf c)$ et $u(\x)>\frac{1}{2}d(\mathbf c(\x),\mathbf c)$
+      3. Identifier les $\mathbf x$ tels que $u(\mathbf x)\leq s(\mathbf c(\mathbf x))$
+      4. Pour tout $\mathbf x\in X,\mathbf c\in C$ tels que $\mathbf c\neq \mathbf c(\mathbf x)$ et $u(\mathbf x)>l(\mathbf x,\mathbf c)$ et $u(\mathbf x)>\frac{1}{2}d(\mathbf c(\mathbf x),\mathbf c)$
           1. Si $r(\mathbf x)$
-            1. Calculer $d(\mathbf c(\x),\mathbf x)$
-            2. $r(\x)=Faux$
+            1. Calculer $d(\mathbf c(\mathbf x),\mathbf x)$
+            2. $r(\mathbf x)=Faux$
       5. Sinon
-          1. $d(\mathbf c(\x),\mathbf x)=u(\x)$
-      6. Si $d(\mathbf c(\x),\mathbf x)>l(\x,\mathbf c)$  ou $d(\mathbf c(\x),\mathbf x)>\frac{1}{2}d(\mathbf c(\x),\mathbf c)$
-          1. Calculer $d(\x,\mathbf c)$
-          2. Si $d(\x,\mathbf c)<d(\mathbf c(\x),\mathbf x)$
-              1. $\mathbf c(\x)= \mathbf c$
+          1. $d(\mathbf c(\mathbf x),\mathbf x)=u(\mathbf x)$
+      6. Si $d(\mathbf c(\mathbf x),\mathbf x)>l(\mathbf x,\mathbf c)$  ou $d(\mathbf c(\mathbf x),\mathbf x)>\frac{1}{2}d(\mathbf c(\mathbf x),\mathbf c)$
+          1. Calculer $d(\mathbf x,\mathbf c)$
+          2. Si $d(\mathbf x,\mathbf c)<d(\mathbf c(\mathbf x),\mathbf x)$
+              1. $\mathbf c(\mathbf x)= \mathbf c$
       7. Pour tout $\mathbf c\in C$ 
           1. $\mathbf m(\mathbf c)$ : centre de masse des points de $X$ plus proches de $\mathbf c$
-      8. Pour tout $\x\in X,\mathbf c\in C$
-          1. $l(\x,\mathbf c)=max\left (l(\x,\mathbf c)-d(\mathbf m(\mathbf c),\mathbf c),0 \right )$
-      9. Pour tout $\x\in X$
-          1. $u(\x)=u(\x)+d(\mathbf m(\mathbf c(\x)),\mathbf c(\x))$
-          2. $r(\x)=Vrai$
+      8. Pour tout $\mathbf x\in X,\mathbf c\in C$
+          1. $l(\mathbf x,\mathbf c)=max\left (l(\mathbf x,\mathbf c)-d(\mathbf m(\mathbf c),\mathbf c),0 \right )$
+      9. Pour tout $\mathbf x\in X$
+          1. $u(\mathbf x)=u(\mathbf x)+d(\mathbf m(\mathbf c(\mathbf x)),\mathbf c(\mathbf x))$
+          2. $r(\mathbf x)=Vrai$
       10 Pour tout $\mathbf c\in C$
           1. $\mathbf c = \mathbf m(\mathbf c)$
 ```
@@ -457,9 +457,9 @@ Il est également possible d'appliquer une optimisation par mini-batchs dans l'a
     2. Pour tout $\mathbf x\in \mathcal{B}$
         1. Affecter $\mathbf x$ à la classe du centre le plus proche $\mathbf T(\mathbf x)$
     3. Pour tout $\mathbf x\in \mathcal{B}$
-        1. $\mathbf c = \mathbf T(\mathbf x)$\\
-        2. $v_c = v_c + 1$\\
-        3. $\eta = \frac{1}{v_c}$\\
+        1. $\mathbf c = \mathbf T(\mathbf x)$
+        2. $v_c = v_c + 1$
+        3. $\eta = \frac{1}{v_c}$
         4. $\mathbf c = (1-\eta)\mathbf c + \eta \mathbf x$
   ```
 

@@ -409,17 +409,17 @@ L'algorithme original peut être amélioré de manière significative en évitan
 2.  Pour $\mathbf x\in \Omega,\mathbf c\in C$
     1. $l(\mathbf x,\mathbf c)=0$
 3.  Pour tout $\mathbf x\in \Omega$
-      1. Affecter $\mathbf x$ à la classe du centre le plus proche : $\mathbf c(x) = Arg \displaystyle\min_{\mathbf c\in C} d(\mathbf x,\mathbf c)$
-      2. A chaque calcul de $d(\mathbf x,\mathbf c)$,$ l(\mathbf x,\mathbf c)=d(\mathbf x,\mathbf c)$
-      3. $u(\mathbf x,\mathbf c)=\displaystyle\min_{\mathbf c\in C} d(\mathbf x,\mathbf c)$
+      1. Affecter $\mathbf x$ à la classe du centre le plus proche : $\mathbf c(x) = Arg \displaystyle\min_{\mathbf c\in C} \delta(\mathbf x,\mathbf c)$
+      2. A chaque calcul de $\delta(\mathbf x,\mathbf c)$,$ l(\mathbf x,\mathbf c)=\delta(\mathbf x,\mathbf c)$
+      3. $u(\mathbf x,\mathbf c)=\displaystyle\min_{\mathbf c\in C} \delta(\mathbf x,\mathbf c)$
 4. Tant que (non convergence)
       1. Pour tout $\mathbf c,\mathbf {c'}\in C$ alculer $\delta (\mathbf c,\mathbf {c'})$
       2. Pour tout $\mathbf c$ $s(c)= \frac{1}{2}\displaystyle\min_{\mathbf {c'}\neq \mathbf c} \delta(\mathbf c,\mathbf {c'})$
       3. Identifier les $\mathbf x$ tels que $u(\mathbf x)\leq s(\mathbf c(\mathbf x))$
-      4. Pour tout $\mathbf x\in X,\mathbf c\in C$ tels que $\mathbf c\neq \mathbf c(\mathbf x)$ et $u(\mathbf x)>l(\mathbf x,\mathbf c)$ et $u(\mathbf x)>\frac{1}{2}d(\mathbf c(\mathbf x),\mathbf c)$
+      4. Pour tout $\mathbf x\in X,\mathbf c\in C$ tels que $\mathbf c\neq \mathbf c(\mathbf x)$ et $u(\mathbf x)>l(\mathbf x,\mathbf c)$ et $u(\mathbf x)>\frac{1}{2}\delta(\mathbf c(\mathbf x),\mathbf c)$
           1. Si $r(\mathbf x)$
-            1. Calculer $d(\mathbf c(\mathbf x),\mathbf x)$
-            2. $r(\mathbf x)=Faux$
+              1. Calculer $d(\mathbf c(\mathbf x),\mathbf x)$
+              2. $r(\mathbf x)=Faux$
       5. Sinon
           1. $d(\mathbf c(\mathbf x),\mathbf x)=u(\mathbf x)$
       6. Si $d(\mathbf c(\mathbf x),\mathbf x)>l(\mathbf x,\mathbf c)$  ou $d(\mathbf c(\mathbf x),\mathbf x)>\frac{1}{2}d(\mathbf c(\mathbf x),\mathbf c)$
