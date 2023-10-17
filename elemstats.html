@@ -541,7 +541,7 @@ et le résultat.</p>
 </div>
 <div class="section" id="echantillons-de-variables-aleatoires-normales">
 <h3>Echantillons de variables aléatoires normales<a class="headerlink" href="#echantillons-de-variables-aleatoires-normales" title="Permalink to this heading">#</a></h3>
-<p>Les lois de probabilité usuelles sont rappelées en fin de ce chapitre (<a class="reference internal" href="#loisusuelles"><span class="std std-ref">Modèles probabilistes usuels</span></a>).</p>
+<p>Les lois de probabilité usuelles sont rappelées en fin de ce chapitre ({ref}`loisusuelles).</p>
 <div class="section" id="etude-d-un-n-echantillon">
 <h4>Etude d’un <span class="math notranslate nohighlight">\(n\)</span>-échantillon<a class="headerlink" href="#etude-d-un-n-echantillon" title="Permalink to this heading">#</a></h4>
 <p>Soit un <span class="math notranslate nohighlight">\(n\)</span>-échantillon <span class="math notranslate nohighlight">\(X_1\cdots X_n\)</span> de variable aléatoire parente <span class="math notranslate nohighlight">\(X\)</span> de loi <span class="math notranslate nohighlight">\(\mathcal{N}(m,\sigma)\)</span>. On a les résultats suivants :</p>
@@ -620,8 +620,8 @@ Soit <span class="math notranslate nohighlight">\(A=\left \{|X-m|\geq t\right \}
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
     <span class="n">f</span> <span class="o">=</span> <span class="n">experience</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$n$&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$f_n$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$n$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$f_n$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
@@ -629,7 +629,7 @@ Soit <span class="math notranslate nohighlight">\(A=\left \{|X-m|\geq t\right \}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8e95703d4a6287fbb369214aaaec30cf896fd70a23c745a99e7b45e3a9d92f79.png" src="_images/8e95703d4a6287fbb369214aaaec30cf896fd70a23c745a99e7b45e3a9d92f79.png" />
+<img alt="_images/e2d6897cb3c4d655c98f4f20998c1844a79c66f140e92291f40ecc97405267fa.png" src="_images/e2d6897cb3c4d655c98f4f20998c1844a79c66f140e92291f40ecc97405267fa.png" />
 </div>
 </div>
 <p>La fluctuation de la fréquence est importante pour des petites valeurs de <span class="math notranslate nohighlight">\(n\)</span>, puis elle s’atténue, pour se stabiliser autour d’une valeur voisine de <span class="math notranslate nohighlight">\(p\)</span>.</p>
