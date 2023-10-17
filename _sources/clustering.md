@@ -396,7 +396,7 @@ Plutôt que d'initialiser les centres de manière aléatoire, l'algorithme K-mea
 
 
 #### Accélération des k-means
-L'algorithme original peut être amélioré de manière significative en évitant les calculs de distances non nécessaires. En exploitant l'inégalité triangulaire, et en conservant les bornes inférieures et supérieures des distances entre les points et les centres de classe, l'algorithme correspondant est performant, y compris pour de grandes valeurs de $k$ ({prf:ref}`km`})
+L'algorithme original peut être amélioré de manière significative en évitant les calculs de distances non nécessaires. En exploitant l'inégalité triangulaire, et en conservant les bornes inférieures et supérieures des distances entre les points et les centres de classe, l'algorithme correspondant est performant, y compris pour de grandes valeurs de $k$ ({prf:ref}`km`)
 
 
 ```{prf:algorithm} Accélération des k-means
@@ -425,7 +425,7 @@ L'algorithme original peut être amélioré de manière significative en évitan
           3. Si $d(\mathbf c(\mathbf x),\mathbf x)>l(\mathbf x,\mathbf c)$  ou $d(\mathbf c(\mathbf x),\mathbf x)>\frac{1}{2}d(\mathbf c(\mathbf x),\mathbf c)$
               1. Calculer $d(\mathbf x,\mathbf c)$
               2. Si $d(\mathbf x,\mathbf c)<d(\mathbf c(\mathbf x),\mathbf x)$
-              1. $\mathbf c(\mathbf x)= \mathbf c$
+                  1. $\mathbf c(\mathbf x)= \mathbf c$
       7. Pour tout $\mathbf c\in C$ 
           1. $\mathbf m(\mathbf c)$ : centre de masse des points de $X$ plus proches de $\mathbf c$
       8. Pour tout $\mathbf x\in X,\mathbf c\in C$
@@ -433,14 +433,14 @@ L'algorithme original peut être amélioré de manière significative en évitan
       9. Pour tout $\mathbf x\in X$
           1. $u(\mathbf x)=u(\mathbf x)+d(\mathbf m(\mathbf c(\mathbf x)),\mathbf c(\mathbf x))$
           2. $r(\mathbf x)=Vrai$
-      10 Pour tout $\mathbf c\in C$
+      10. Pour tout $\mathbf c\in C$
           1. $\mathbf c = \mathbf m(\mathbf c)$
 ```
 
 
 
 #### k-means à mini batchs
-Il est également possible d'appliquer une optimisation par mini-batchs dans l'algorithme des k-means ({prf:ref}`kmbatch`}).
+Il est également possible d'appliquer une optimisation par mini-batchs dans l'algorithme des k-means ({prf:ref}`kmbatch`).
 
 
 ```{prf:algorithm} Accélération des k-means
