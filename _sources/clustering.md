@@ -244,7 +244,7 @@ L'ensemble des itérations peut être visualisé sous la forme d'un arbre, appel
 Le critère d'arrêt permet de déterminer la partition  de $X$ la plus appropriée. Ici encore, plusieurs choix sont possibles :
 
 - en fixant a priori un nombre de classes
-- en fixant une borne supérieure $r$ pour $D$, et en stoppant les itérations dès que les distances calculées par les liens dépassent $r$. A noter que $r$ peut être également calculé par $r=\alpha max\{d(x,y),x,y\in X\}$ (critère dit "scale distance upper bound").
+- en fixant une borne supérieure $r$ pour $D$, et en stoppant les itérations dès que les distances calculées par les liens dépassent $r$. A noter que $r$ peut être également calculé par $r=\alpha max\{\delta(x,y),x,y\in X\}$ (critère dit "scale distance upper bound").
 - en coupant le dendrogramme au saut de distance $D$ maximal.
 
 ![](./images/dendro2.png)
@@ -253,7 +253,7 @@ Le critère d'arrêt permet de déterminer la partition  de $X$ la plus appropri
 
 
 ### Utilisation des méthodes
-La première difficulté est le choix de la mesure de dissimilarité sur  $\Omega$ et du critère d'agrégation. Généralement, lorsque l'on dispose de variables quantitatives, le critère conseillé est le critère d'inertie. Ensuite, il est souvent nécessaire de disposer d'outils d'aide à l'interprétation et d'outils permettant de diminuer le nombre de niveaux de hiérarchie. Il est d'autre part conseillé d'utiliser conjointement d'autres méthodes d'analyse des données comme l'Analyse en Composantes Principales vue au chapitre précédent.
+La première difficulté est le choix de la mesure de dissimilarité sur  $\Omega$ et du critère d'agrégation. Généralement, lorsque l'on dispose de variables quantitatives, le critère conseillé est le critère d'inertie. Ensuite, il est souvent nécessaire de disposer d'outils d'aide à l'interprétation et d'outils permettant de diminuer le nombre de niveaux de hiérarchie. Il est d'autre part conseillé d'utiliser conjointement d'autres méthodes d'analyse des données comme l'Analyse en Composantes Principales.
 
 ### Exemple
 On étudie ici un jeu de données correspondant aux achats dans un supermarché. On cherche à caractériser les comportements des acheteurs en fonction de leurs revenus
@@ -299,7 +299,7 @@ dendrogram = sch.dendrogram(sch.linkage(X, method = 'ward'))
 plt.show()
 ```
 
-On projette ensuite le résultat de la classificatiob
+On projette ensuite le résultat de la classification
 ```{code-cell} ipython3
 from sklearn.cluster import AgglomerativeClustering
 model = AgglomerativeClustering(n_clusters = 5, metric = 'euclidean', linkage = 'ward')
@@ -324,7 +324,7 @@ plt.tight_layout()
 
 ```{index} K-means
 ```
-La méthode des centres mobiles est encore connue sous le nom de méthode de réallocation-centrage ou des k-means lorsque l'ensemble à classifier est mesuré par $d$ variables. Ici, $\Omega \in \mathbb{R}^d$ est muni de sa distance euclidienne $d$. Pour simplifier la présentation, les pondérations des individus seront toutes égales à 1, mais la généralisation à des pondérations quelconques ne pose aucun problème.
+La méthode des centres mobiles est encore connue sous le nom de méthode de réallocation-centrage ou des k-means lorsque l'ensemble à classifier est mesuré par $d$ variables. Ici, $\Omega \in \mathbb{R}^d$ est muni de sa distance euclidienne $\delta$. Pour simplifier la présentation, les pondérations des individus seront toutes égales à 1, mais la généralisation à des pondérations quelconques ne pose aucun problème.
 
 #### Algorithme
 L'algorithme des centres-mobiles peut se définir ainsi :
@@ -385,6 +385,90 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 - on effectue des tests statistiques sur les classes
  
   
+
+### Quelques variantes
+
+#### K-means++
+Plutôt que d'initialiser les centres de manière aléatoire, l'algorithme K-means++ propose de partitionner $\Omega=\{\mathbf x_1\cdots \mathbf x_n\}$ selon l'algorithme suivant :
+
+1. Tirer uniformément le premier centre de classe $c_1$ dans $\Omega$\
+2. Pour $i\in[\![2,g]\!]$, choisir $\mathbf{c_i}$ à partir de $\mathbf x_i$ selon la probabilité $D(\mathbf{x}_i)^2$ / $\displaystyle\sum\limits_{j=1}^{m}{D(\mathbf{x}_j)}^2$ où  $D(\mathbf{x}_i)$ est la distance entre $\mathbf{x}_i$ et le centre de classe le plus proche déjà choisi. Ceci assure de tirer des centres de classe éloignés avec forte probabilité. 
+
+
+#### Accélération des k-means
+L'algorithme original peut être amélioré de manière significative en évitant les calculs de distances non nécessaires. En exploitant l'inégalité triangulaire, et en conservant les bornes inférieures et supérieures des distances entre les points et les centres de classe, l'algorithme correspondant est performant, y compris pour de grandes valeurs de $k$ ({prf:ref}`km`})
+
+
+```{prf:algorithm} Accélération des k-means
+:label: km
+**Entrée :** $\Omega, g$
+
+**Sortie :** $P$ une partition de $X$ en $g$ classes
+
+1. Initialisation : tirage au hasard de $g$ points $C =\{\mathbf {c_1}\cdots \mathbf {c_g\}}$
+2.  Pour $\x\in \Omega,\mathbf c\in C$
+    1. $l(\x,\mathbf c)=0$
+3.  Pour tout $\x\in \Omega$
+    1. Affecter $\x$ à la classe du centre le plus proche : $\mathbf c(x) = Arg \displaystyle\min_{\mathbf c\in C} d(\x,\mathbf c)$
+    2. A chaque calcul de $d(\x,\mathbf c)$,$ l(\x,\mathbf c)=d(\x,\mathbf c)$
+    3. $u(\x,\mathbf c)=\displaystyle\min_{\mathbf c\in C} d(\x,\mathbf c)$
+4. Tant que (non convergence)
+    1. Pour tout $\mathbf c,\mathbf {c'}\in C$ alculer $\delta (\mathbf c,\mathbf {c'})$
+    2. Pour tout $\mathbf c$ $s(c)= \frac{1}{2}\displaystyle\min_{\mathbf {c'}\neq \mathbf c} \delta(\mathbf c,\mathbf {c'})$
+    3. Identifier les $\x$ tels que $u(\x)\leq s(\mathbf c(\x))$
+    4. Pour tout $\x\in X,\mathbf c\in C$ tels que $\mathbf c\neq \mathbf c(\x)$ et $u(\x)>l(\x,\mathbf c)$ et $u(\x)>\frac{1}{2}d(\mathbf c(\x),\mathbf c)$
+      1. Si $r(\mathbf x)$
+        1. Calculer $d(\mathbf c(\x),\mathbf x)$
+        2. $r(\x)=Faux$
+    5. Sinon
+      1. $d(\mathbf c(\x),\mathbf x)=u(\x)$
+    6. Si $d(\mathbf c(\x),\mathbf x)>l(\x,\mathbf c)$  ou $d(\mathbf c(\x),\mathbf x)>\frac{1}{2}d(\mathbf c(\x),\mathbf c)$
+      1. Calculer $d(\x,\mathbf c)$
+      2. Si $d(\x,\mathbf c)<d(\mathbf c(\x),\mathbf x)$
+        1. $\mathbf c(\x)= \mathbf c$
+    7. Pour tout $\mathbf c\in C$ 
+      1. $\mathbf m(\mathbf c)$ : centre de masse des points de $X$ plus proches de $\mathbf c$
+    8. Pour tout $\x\in X,\mathbf c\in C$
+      1. $l(\x,\mathbf c)=max\left (l(\x,\mathbf c)-d(\mathbf m(\mathbf c),\mathbf c),0 \right )$
+    9. Pour tout $\x\in X$
+      1. $u(\x)=u(\x)+d(\mathbf m(\mathbf c(\x)),\mathbf c(\x))$
+      2. $r(\x)=Vrai$
+    10 Pour tout $\mathbf c\in C$
+    {
+      1. $\mathbf c = \mathbf m(\mathbf c)$
+    }
+```
+
+
+
+#### k-means à mini batchs
+Il est également possible d'appliquer une optimisation par mini-batchs dans l'algorithme des k-means ({prf:ref}`kmbatch`}).
+
+
+```{prf:algorithm} Accélération des k-means
+:label: kmbatch
+**Entrée :** $\Omega, g$, $b$ taille des batchs
+
+**Sortie :** $P$ une partition de $X$ en $g$ classes
+
+
+1. Initialisation : tirage au hasard de $g$ points $C =\{\mathbf {c_1}\cdots \mathbf {c_g\}}$
+2. $\mathbf v=0\in\mathbb{R}^g$
+2.  Tant que non convergence
+    1. $\mathcal{B}\leftarrow$ batch de $b$ exemples tirés de $X$
+    2. Pour tout $\x\in \mathcal{B}$
+      1. Affecter $\x$ à la classe du centre le plus proche $\mathbf d(\x)$
+    3. Pour tout $\x\in \mathcal{B}$
+      1. $\mathbf c = \mathbf d(\x)$\\
+      2. $v_c = v_c + 1$\\
+      3. $\eta = \frac{1}{v_c}$\\
+      4. $\mathbf c = (1-\eta)\mathbf c + \eta \x$
+  ```
+
+
+
+
+
 ### Exemple
   
 On génère des données

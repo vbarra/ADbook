@@ -438,6 +438,12 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#choix-du-nombre-de-classes">Choix du nombre de classes</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quelques-variantes">Quelques variantes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means">K-means++</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acceleration-des-k-means">Accélération des k-means</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-a-mini-batchs">k-means à mini batchs</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exemple</a></li>
 </ul>
 </li>
@@ -699,14 +705,14 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 <p>Le critère d’arrêt permet de déterminer la partition  de <span class="math notranslate nohighlight">\(X\)</span> la plus appropriée. Ici encore, plusieurs choix sont possibles :</p>
 <ul class="simple">
 <li><p>en fixant a priori un nombre de classes</p></li>
-<li><p>en fixant une borne supérieure <span class="math notranslate nohighlight">\(r\)</span> pour <span class="math notranslate nohighlight">\(D\)</span>, et en stoppant les itérations dès que les distances calculées par les liens dépassent <span class="math notranslate nohighlight">\(r\)</span>. A noter que <span class="math notranslate nohighlight">\(r\)</span> peut être également calculé par <span class="math notranslate nohighlight">\(r=\alpha max\{d(x,y),x,y\in X\}\)</span> (critère dit “scale distance upper bound”).</p></li>
+<li><p>en fixant une borne supérieure <span class="math notranslate nohighlight">\(r\)</span> pour <span class="math notranslate nohighlight">\(D\)</span>, et en stoppant les itérations dès que les distances calculées par les liens dépassent <span class="math notranslate nohighlight">\(r\)</span>. A noter que <span class="math notranslate nohighlight">\(r\)</span> peut être également calculé par <span class="math notranslate nohighlight">\(r=\alpha max\{\delta(x,y),x,y\in X\}\)</span> (critère dit “scale distance upper bound”).</p></li>
 <li><p>en coupant le dendrogramme au saut de distance <span class="math notranslate nohighlight">\(D\)</span> maximal.</p></li>
 </ul>
 <p><img alt="" src="_images/dendro2.png" /></p>
 </div>
 <div class="section" id="utilisation-des-methodes">
 <h3>Utilisation des méthodes<a class="headerlink" href="#utilisation-des-methodes" title="Permalink to this heading">#</a></h3>
-<p>La première difficulté est le choix de la mesure de dissimilarité sur  <span class="math notranslate nohighlight">\(\Omega\)</span> et du critère d’agrégation. Généralement, lorsque l’on dispose de variables quantitatives, le critère conseillé est le critère d’inertie. Ensuite, il est souvent nécessaire de disposer d’outils d’aide à l’interprétation et d’outils permettant de diminuer le nombre de niveaux de hiérarchie. Il est d’autre part conseillé d’utiliser conjointement d’autres méthodes d’analyse des données comme l’Analyse en Composantes Principales vue au chapitre précédent.</p>
+<p>La première difficulté est le choix de la mesure de dissimilarité sur  <span class="math notranslate nohighlight">\(\Omega\)</span> et du critère d’agrégation. Généralement, lorsque l’on dispose de variables quantitatives, le critère conseillé est le critère d’inertie. Ensuite, il est souvent nécessaire de disposer d’outils d’aide à l’interprétation et d’outils permettant de diminuer le nombre de niveaux de hiérarchie. Il est d’autre part conseillé d’utiliser conjointement d’autres méthodes d’analyse des données comme l’Analyse en Composantes Principales.</p>
 </div>
 <div class="section" id="exemple">
 <h3>Exemple<a class="headerlink" href="#exemple" title="Permalink to this heading">#</a></h3>
@@ -836,7 +842,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 <img alt="_images/78d4a9a45386b64f29780bb351aae8389a5aa0d02e0f3b4e0007c6466783e532.png" src="_images/78d4a9a45386b64f29780bb351aae8389a5aa0d02e0f3b4e0007c6466783e532.png" />
 </div>
 </div>
-<p>On projette ensuite le résultat de la classificatiob</p>
+<p>On projette ensuite le résultat de la classification</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
@@ -866,7 +872,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 <h2>Recherche de partitions<a class="headerlink" href="#recherche-de-partitions" title="Permalink to this heading">#</a></h2>
 <div class="section" id="methode-des-centres-mobiles">
 <h3>Méthode des centres mobiles<a class="headerlink" href="#methode-des-centres-mobiles" title="Permalink to this heading">#</a></h3>
-<span class="target" id="index-5"></span><p id="index-6">La méthode des centres mobiles est encore connue sous le nom de méthode de réallocation-centrage ou des k-means lorsque l’ensemble à classifier est mesuré par <span class="math notranslate nohighlight">\(d\)</span> variables. Ici, <span class="math notranslate nohighlight">\(\Omega \in \mathbb{R}^d\)</span> est muni de sa distance euclidienne <span class="math notranslate nohighlight">\(d\)</span>. Pour simplifier la présentation, les pondérations des individus seront toutes égales à 1, mais la généralisation à des pondérations quelconques ne pose aucun problème.</p>
+<span class="target" id="index-5"></span><p id="index-6">La méthode des centres mobiles est encore connue sous le nom de méthode de réallocation-centrage ou des k-means lorsque l’ensemble à classifier est mesuré par <span class="math notranslate nohighlight">\(d\)</span> variables. Ici, <span class="math notranslate nohighlight">\(\Omega \in \mathbb{R}^d\)</span> est muni de sa distance euclidienne <span class="math notranslate nohighlight">\(\delta\)</span>. Pour simplifier la présentation, les pondérations des individus seront toutes égales à 1, mais la généralisation à des pondérations quelconques ne pose aucun problème.</p>
 <div class="section" id="id2">
 <h4>Algorithme<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
 <p>L’algorithme des centres-mobiles peut se définir ainsi :</p>
@@ -925,6 +931,96 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </ul>
 </div>
 </div>
+<div class="section" id="quelques-variantes">
+<h3>Quelques variantes<a class="headerlink" href="#quelques-variantes" title="Permalink to this heading">#</a></h3>
+<div class="section" id="k-means">
+<h4>K-means++<a class="headerlink" href="#k-means" title="Permalink to this heading">#</a></h4>
+<p>Plutôt que d’initialiser les centres de manière aléatoire, l’algorithme K-means++ propose de partitionner <span class="math notranslate nohighlight">\(\Omega=\{\mathbf x_1\cdots \mathbf x_n\}\)</span> selon l’algorithme suivant :</p>
+<ol class="arabic simple">
+<li><p>Tirer uniformément le premier centre de classe <span class="math notranslate nohighlight">\(c_1\)</span> dans <span class="math notranslate nohighlight">\(\Omega\)</span>\</p></li>
+<li><p>Pour <span class="math notranslate nohighlight">\(i\in[\![2,g]\!]\)</span>, choisir <span class="math notranslate nohighlight">\(\mathbf{c_i}\)</span> à partir de <span class="math notranslate nohighlight">\(\mathbf x_i\)</span> selon la probabilité <span class="math notranslate nohighlight">\(D(\mathbf{x}_i)^2\)</span> / <span class="math notranslate nohighlight">\(\displaystyle\sum\limits_{j=1}^{m}{D(\mathbf{x}_j)}^2\)</span> où  <span class="math notranslate nohighlight">\(D(\mathbf{x}_i)\)</span> est la distance entre <span class="math notranslate nohighlight">\(\mathbf{x}_i\)</span> et le centre de classe le plus proche déjà choisi. Ceci assure de tirer des centres de classe éloignés avec forte probabilité.</p></li>
+</ol>
+</div>
+<div class="section" id="acceleration-des-k-means">
+<h4>Accélération des k-means<a class="headerlink" href="#acceleration-des-k-means" title="Permalink to this heading">#</a></h4>
+<p>L’algorithme original peut être amélioré de manière significative en évitant les calculs de distances non nécessaires. En exploitant l’inégalité triangulaire, et en conservant les bornes inférieures et supérieures des distances entre les points et les centres de classe, l’algorithme correspondant est performant, y compris pour de grandes valeurs de <span class="math notranslate nohighlight">\(k\)</span> (<a class="reference internal" href="#km">Algorithm 6</a>})</p>
+<div class="proof algorithm admonition" id="km">
+<p class="admonition-title"><span class="caption-number">Algorithm 6 </span> (Accélération des k-means)</p>
+<div class="algorithm-content section" id="proof-content">
+<p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(\Omega, g\)</span></p>
+<p><strong>Sortie :</strong> <span class="math notranslate nohighlight">\(P\)</span> une partition de <span class="math notranslate nohighlight">\(X\)</span> en <span class="math notranslate nohighlight">\(g\)</span> classes</p>
+<ol class="arabic simple">
+<li><p>Initialisation : tirage au hasard de <span class="math notranslate nohighlight">\(g\)</span> points <span class="math notranslate nohighlight">\(C =\{\mathbf {c_1}\cdots \mathbf {c_g\}}\)</span></p></li>
+<li><p>Pour <span class="math notranslate nohighlight">\(\x\in \Omega,\mathbf c\in C\)</span></p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(l(\x,\mathbf c)=0\)</span></p></li>
+</ol>
+</li>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\x\in \Omega\)</span></p>
+<ol class="arabic simple">
+<li><p>Affecter <span class="math notranslate nohighlight">\(\x\)</span> à la classe du centre le plus proche : <span class="math notranslate nohighlight">\(\mathbf c(x) = Arg \displaystyle\min_{\mathbf c\in C} d(\x,\mathbf c)\)</span></p></li>
+<li><p>A chaque calcul de <span class="math notranslate nohighlight">\(d(\x,\mathbf c)\)</span>,<span class="math notranslate nohighlight">\( l(\x,\mathbf c)=d(\x,\mathbf c)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(u(\x,\mathbf c)=\displaystyle\min_{\mathbf c\in C} d(\x,\mathbf c)\)</span></p></li>
+</ol>
+</li>
+<li><p>Tant que (non convergence)</p>
+<ol class="arabic simple">
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf c,\mathbf {c'}\in C\)</span> alculer <span class="math notranslate nohighlight">\(\delta (\mathbf c,\mathbf {c'})\)</span></p></li>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf c\)</span> <span class="math notranslate nohighlight">\(s(c)= \frac{1}{2}\displaystyle\min_{\mathbf {c'}\neq \mathbf c} \delta(\mathbf c,\mathbf {c'})\)</span></p></li>
+<li><p>Identifier les <span class="math notranslate nohighlight">\(\x\)</span> tels que <span class="math notranslate nohighlight">\(u(\x)\leq s(\mathbf c(\x))\)</span></p></li>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\x\in X,\mathbf c\in C\)</span> tels que <span class="math notranslate nohighlight">\(\mathbf c\neq \mathbf c(\x)\)</span> et <span class="math notranslate nohighlight">\(u(\x)&gt;l(\x,\mathbf c)\)</span> et <span class="math notranslate nohighlight">\(u(\x)&gt;\frac{1}{2}d(\mathbf c(\x),\mathbf c)\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(r(\mathbf x)\)</span>
+1. Calculer <span class="math notranslate nohighlight">\(d(\mathbf c(\x),\mathbf x)\)</span>
+2. <span class="math notranslate nohighlight">\(r(\x)=Faux\)</span></p></li>
+<li><p>Sinon</p></li>
+<li><p><span class="math notranslate nohighlight">\(d(\mathbf c(\x),\mathbf x)=u(\x)\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(d(\mathbf c(\x),\mathbf x)&gt;l(\x,\mathbf c)\)</span>  ou <span class="math notranslate nohighlight">\(d(\mathbf c(\x),\mathbf x)&gt;\frac{1}{2}d(\mathbf c(\x),\mathbf c)\)</span></p></li>
+<li><p>Calculer <span class="math notranslate nohighlight">\(d(\x,\mathbf c)\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(d(\x,\mathbf c)&lt;d(\mathbf c(\x),\mathbf x)\)</span>
+1. <span class="math notranslate nohighlight">\(\mathbf c(\x)= \mathbf c\)</span></p></li>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf c\in C\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf m(\mathbf c)\)</span> : centre de masse des points de <span class="math notranslate nohighlight">\(X\)</span> plus proches de <span class="math notranslate nohighlight">\(\mathbf c\)</span></p></li>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\x\in X,\mathbf c\in C\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(l(\x,\mathbf c)=max\left (l(\x,\mathbf c)-d(\mathbf m(\mathbf c),\mathbf c),0 \right )\)</span></p></li>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\x\in X\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(u(\x)=u(\x)+d(\mathbf m(\mathbf c(\x)),\mathbf c(\x))\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(r(\x)=Vrai\)</span>
+10 Pour tout <span class="math notranslate nohighlight">\(\mathbf c\in C\)</span>
+{</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf c = \mathbf m(\mathbf c)\)</span>
+}</p></li>
+</ol>
+</li>
+</ol>
+</div>
+</div></div>
+<div class="section" id="k-means-a-mini-batchs">
+<h4>k-means à mini batchs<a class="headerlink" href="#k-means-a-mini-batchs" title="Permalink to this heading">#</a></h4>
+<p>Il est également possible d’appliquer une optimisation par mini-batchs dans l’algorithme des k-means (<a class="reference internal" href="#kmbatch">Algorithm 7</a>}).</p>
+<div class="proof algorithm admonition" id="kmbatch">
+<p class="admonition-title"><span class="caption-number">Algorithm 7 </span> (Accélération des k-means)</p>
+<div class="algorithm-content section" id="proof-content">
+<p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(\Omega, g\)</span>, <span class="math notranslate nohighlight">\(b\)</span> taille des batchs</p>
+<p><strong>Sortie :</strong> <span class="math notranslate nohighlight">\(P\)</span> une partition de <span class="math notranslate nohighlight">\(X\)</span> en <span class="math notranslate nohighlight">\(g\)</span> classes</p>
+<ol class="arabic simple">
+<li><p>Initialisation : tirage au hasard de <span class="math notranslate nohighlight">\(g\)</span> points <span class="math notranslate nohighlight">\(C =\{\mathbf {c_1}\cdots \mathbf {c_g\}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf v=0\in\mathbb{R}^g\)</span></p></li>
+<li><p>Tant que non convergence</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\mathcal{B}\leftarrow\)</span> batch de <span class="math notranslate nohighlight">\(b\)</span> exemples tirés de <span class="math notranslate nohighlight">\(X\)</span></p></li>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\x\in \mathcal{B}\)</span></p></li>
+<li><p>Affecter <span class="math notranslate nohighlight">\(\x\)</span> à la classe du centre le plus proche <span class="math notranslate nohighlight">\(\mathbf d(\x)\)</span></p></li>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\x\in \mathcal{B}\)</span></p></li>
+<li><p>$\mathbf c = \mathbf d(\x)$\</p></li>
+<li><p>$v_c = v_c + 1$\</p></li>
+<li><p>$\eta = \frac{1}{v_c}$\</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf c = (1-\eta)\mathbf c + \eta \x\)</span></p></li>
+</ol>
+</li>
+</ol>
+</div>
+</div></div>
+</div>
 <div class="section" id="id3">
 <h3>Exemple<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <p>On génère des données</p>
@@ -976,7 +1072,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" src="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" />
+<img alt="_images/282a71541470bf599f673324fd8333f803863bae5ab287f44588409753ee6b0a.png" src="_images/282a71541470bf599f673324fd8333f803863bae5ab287f44588409753ee6b0a.png" />
 </div>
 </div>
 </div>
@@ -1006,7 +1102,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </div>
 <div class="section" id="algorithme-em">
 <h3>Algorithme EM<a class="headerlink" href="#algorithme-em" title="Permalink to this heading">#</a></h3>
-<p>Plutôt que d’optimiser <span class="math notranslate nohighlight">\(\ell\)</span> directement depuis les données <span class="math notranslate nohighlight">\(s\)</span>, l’algorithme EM (<a class="reference internal" href="#EM">Algorithm 6</a>) augmente d’abord les données des variables latentes (les étiquettes <span class="math notranslate nohighlight">\(\mathbf z=(z_1\cdots z_n)\)</span> des classes). L’idée est que <span class="math notranslate nohighlight">\(s\)</span> est uniquement la partie observée des données aléatoires <span class="math notranslate nohighlight">\((\mathcal S,\mathbf Z)\)</span> générées d’abord en tirant <span class="math notranslate nohighlight">\(Z\)</span> suivant <span class="math notranslate nohighlight">\(P(Z=z)\)</span>, puis en tirant <span class="math notranslate nohighlight">\(\mathbf X\)</span> suivant <span class="math notranslate nohighlight">\(\Phi_z\)</span>, de sorte à avoir</p>
+<p>Plutôt que d’optimiser <span class="math notranslate nohighlight">\(\ell\)</span> directement depuis les données <span class="math notranslate nohighlight">\(s\)</span>, l’algorithme EM (<a class="reference internal" href="#EM">Algorithm 8</a>) augmente d’abord les données des variables latentes (les étiquettes <span class="math notranslate nohighlight">\(\mathbf z=(z_1\cdots z_n)\)</span> des classes). L’idée est que <span class="math notranslate nohighlight">\(s\)</span> est uniquement la partie observée des données aléatoires <span class="math notranslate nohighlight">\((\mathcal S,\mathbf Z)\)</span> générées d’abord en tirant <span class="math notranslate nohighlight">\(Z\)</span> suivant <span class="math notranslate nohighlight">\(P(Z=z)\)</span>, puis en tirant <span class="math notranslate nohighlight">\(\mathbf X\)</span> suivant <span class="math notranslate nohighlight">\(\Phi_z\)</span>, de sorte à avoir</p>
 <div class="math notranslate nohighlight">
 \[g(s,z|\boldsymbol \theta) = \displaystyle\prod_{i=1}^n w_{z_i} \Phi_{z_i}(\mathbf x_i)\]</div>
 <p>Ainsi, la log vraisemblance des données complètes, en général plus facile à optimiser, est</p>
@@ -1015,13 +1111,13 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 <p>Cependant, les <span class="math notranslate nohighlight">\(z\)</span> ne sont pas observées et <span class="math notranslate nohighlight">\(\bar\ell\)</span> ne peut être évaluée. Dans l’étape E de l’algorithme EM, <span class="math notranslate nohighlight">\(\bar\ell\)</span> est remplacée par <span class="math notranslate nohighlight">\(\mathbb{E}_p \bar\ell(\boldsymbol \theta |s,\mathbf Z)\)</span>, où l’indice <span class="math notranslate nohighlight">\(p\)</span> indique que <span class="math notranslate nohighlight">\(\mathbf Z\)</span> est distribuée selon la distribution conditionnelle de <span class="math notranslate nohighlight">\(\mathbf Z\)</span> étant donnée <span class="math notranslate nohighlight">\(\mathcal S=s\)</span>, soit</p>
 <div class="math notranslate nohighlight">
 \[p(z)=g(z|s,\boldsymbol \theta) \propto g(s,z|\boldsymbol \theta)\]</div>
-<div class="proof remark dropdown admonition" id="remark-5">
+<div class="proof remark dropdown admonition" id="remark-7">
 <p class="admonition-title"><span class="caption-number">Remark 22 </span></p>
 <div class="remark-content section" id="proof-content">
 <p><span class="math notranslate nohighlight">\(p(z)\)</span> est de la forme <span class="math notranslate nohighlight">\(p_1(z_1)\cdots p_n(z_n)\)</span> de telle sorte que, étant donné <span class="math notranslate nohighlight">\(\mathcal S=s\)</span>, les composantes de <span class="math notranslate nohighlight">\(\mathbf Z\)</span> sont deux à deux indépendantes.</p>
 </div>
 </div><div class="proof algorithm admonition" id="EM">
-<p class="admonition-title"><span class="caption-number">Algorithm 6 </span> (Algorithmes EM)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 8 </span> (Algorithmes EM)</p>
 <div class="algorithm-content section" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(s,\boldsymbol\theta^{(0)}\)</span></p>
 <p><strong>Sortie :</strong> Approximation de la log vraisemblance maximale</p>
@@ -1037,7 +1133,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 <li><p>Retourner <span class="math notranslate nohighlight">\(\boldsymbol\theta{(i)}\)</span></p></li>
 </ol>
 </div>
-</div><p>Dans l’<a class="reference internal" href="#EM">Algorithm 6</a>, un critère d’arrêt est par exemple</p>
+</div><p>Dans l’<a class="reference internal" href="#EM">Algorithm 8</a>, un critère d’arrêt est par exemple</p>
 <div class="math notranslate nohighlight">
 \[\frac{\ell(\boldsymbol\theta{(i)}|s)-\ell(\boldsymbol\theta^{(i-1)}|s)}{\ell(\boldsymbol\theta{(i)}|s)}&lt;\epsilon\]</div>
 <p>Sous certaines conditions, la suite des <span class="math notranslate nohighlight">\(\ell(\boldsymbol\theta{(i)}|s)\)</span> converge vers un maximum local de la log vraisemblance <span class="math notranslate nohighlight">\(\ell\)</span>. La convergence vers le maximum global dépend bien sûr du choix de <span class="math notranslate nohighlight">\(\boldsymbol\theta^{(0)}\)</span>, de sorte qu’une stratégie possible est d’exécuter plusieurs fois l’algorithme avec des initialisations différentes.</p>
@@ -1241,6 +1337,12 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalisation-les-nuees-dynamiques">Généralisation : les nuées dynamiques</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#formalisation">Formalisation</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#choix-du-nombre-de-classes">Choix du nombre de classes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quelques-variantes">Quelques variantes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means">K-means++</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acceleration-des-k-means">Accélération des k-means</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-a-mini-batchs">k-means à mini batchs</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exemple</a></li>
