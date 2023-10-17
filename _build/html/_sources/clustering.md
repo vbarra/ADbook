@@ -457,12 +457,12 @@ Il est également possible d'appliquer une optimisation par mini-batchs dans l'a
 2.  Tant que non convergence
     1. $\mathcal{B}\leftarrow$ batch de $b$ exemples tirés de $X$
     2. Pour tout $\x\in \mathcal{B}$
-      1. Affecter $\x$ à la classe du centre le plus proche $\mathbf d(\x)$
+        1. Affecter $\x$ à la classe du centre le plus proche $\mathbf d(\x)$
     3. Pour tout $\x\in \mathcal{B}$
-      1. $\mathbf c = \mathbf d(\x)$\\
-      2. $v_c = v_c + 1$\\
-      3. $\eta = \frac{1}{v_c}$\\
-      4. $\mathbf c = (1-\eta)\mathbf c + \eta \x$
+        1. $\mathbf c = \mathbf d(\x)$\\
+        2. $v_c = v_c + 1$\\
+        3. $\eta = \frac{1}{v_c}$\\
+        4. $\mathbf c = (1-\eta)\mathbf c + \eta \x$
   ```
 
 

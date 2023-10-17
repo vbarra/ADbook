@@ -1008,13 +1008,19 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 <li><p>Tant que non convergence</p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(\mathcal{B}\leftarrow\)</span> batch de <span class="math notranslate nohighlight">\(b\)</span> exemples tirés de <span class="math notranslate nohighlight">\(X\)</span></p></li>
-<li><p>Pour tout <span class="math notranslate nohighlight">\(\x\in \mathcal{B}\)</span></p></li>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\x\in \mathcal{B}\)</span></p>
+<ol class="arabic simple">
 <li><p>Affecter <span class="math notranslate nohighlight">\(\x\)</span> à la classe du centre le plus proche <span class="math notranslate nohighlight">\(\mathbf d(\x)\)</span></p></li>
-<li><p>Pour tout <span class="math notranslate nohighlight">\(\x\in \mathcal{B}\)</span></p></li>
+</ol>
+</li>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\x\in \mathcal{B}\)</span></p>
+<ol class="arabic simple">
 <li><p>$\mathbf c = \mathbf d(\x)$\</p></li>
 <li><p>$v_c = v_c + 1$\</p></li>
 <li><p>$\eta = \frac{1}{v_c}$\</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbf c = (1-\eta)\mathbf c + \eta \x\)</span></p></li>
+</ol>
+</li>
 </ol>
 </li>
 </ol>
