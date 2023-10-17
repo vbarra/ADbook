@@ -21,7 +21,7 @@ Une étape souvent utilisée en analyse de données consiste donc à prétraiter
 - réduire la complexité spatiale du problème traité
 - découpler des variables et chercher les dépendances
 - introduire des a priori, ou des propriétés importantes pour les algorithmes (données centrées normées, descripteurs épars...)
-- permettre une interprétation plus intuitive et/ou graphique ({ref}`figure 1<tsne>`) 
+- permettre une interprétation plus intuitive et/ou graphique ({ref}`figure 2<tsne>`) 
 
 
 
@@ -48,7 +48,7 @@ Les méthodes d'extraction de caractéristiques peuvent être soit linéaires (o
 
 
 ## Définitions
-La sélection de caractéristiques consiste à choisir parmi les $d$ descripteurs d'un ensemble d'individus $\mathbf x_i,1\leq i\leq n$, un sous-ensemble de  $t<d$  caractéristiques jugées "les plus pertinentes", les $d-t$ restantes étant ignorées.  
+La sélection de caractéristiques consiste à choisir parmi les $d$ descripteurs d'un ensemble d'individus $\mathbf x_i,i\in[\![1,n]\!]$, un sous-ensemble de  $t<d$  caractéristiques jugées "les plus pertinentes", les $d-t$ restantes étant ignorées.  
 
 On note $F = \left (f_1\cdots f_d\right )$ les $d$ caractéristiques.  On note $Perf$ une fonction qui permet d'évaluer un sous-ensemble de caractéristiques, et on suppose que $Perf$ atteint son maximum pour le meilleur sous-ensemble de caractéristiques ("le plus pertinent"). Le problème de sélection se formule donc comme un problème d'optimisation
 
@@ -91,14 +91,14 @@ de l'ensemble de données. La génération stochastique génère aléatoirement 
 Le critère d'évaluation utilisé évalue la pertinence d'une caractéristique selon des mesures
 qui reposent sur les propriétés de données d'apprentissage.
 
-Pour $n$ exemples  $\mathbf x_i,1\leq i\leq n$ , on note $\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d$  une donnée d'apprentissage (la $j^e$ caractéristique $f_j$ ayant donc pour valeur $x_{ij}$) , d'étiquette $y_i$ (en classification ou régression). Les méthodes de type filtres calculent un score pour évaluer le degré de pertinence de chacune des caractéristiques $f_i$ , parmi lesquelles on peut citer
+Pour $n$ exemples  $\mathbf x_i, i\in[\![1,n]\!]$ , on note $\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d$  une donnée d'apprentissage (la $j^e$ caractéristique $f_j$ ayant donc pour valeur $x_{ij}$) , d'étiquette $y_i$ (en classification ou régression). Les méthodes de type filtres calculent un score pour évaluer le degré de pertinence de chacune des caractéristiques $f_i$ , parmi lesquelles on peut citer
 
 - Le critère de corrélation, utilisé en classification binaire 
 
-$$C_i \frac{\displaystyle\sum_{k=1}^n\left (x_{ki} -\mu_i\right )\left (y_{k} -\mu_y\right )}{\sqrt{\displaystyle\sum_{k=1}^n\left (x_{ki} -\mu_i\right )^2\displaystyle\sum_{k=1}^n\left (y_{k} -\mu_y\right )^2}}$$
+$$C_i =\frac{\displaystyle\sum_{k=1}^n\left (x_{ki} -\mu_i\right )\left (y_{k} -\mu_k\right )}{\sqrt{\displaystyle\sum_{k=1}^n\left (x_{ki} -\mu_i\right )^2\displaystyle\sum_{k=1}^n\left (y_{k} -\mu_k\right )^2}}$$
 
 où $\mu_i$ (resp. $\mu_k$) est la moyenne de la caractéristique $f_i$ observée sur $\mathbf x_1\cdots \mathbf x_n$ (resp. moyenne des étiquettes)
-- Le critère de Fisher,  qui permet de mesurer dans un problème de classification multiclasses le degré de séparabilité des classes à l'aide
+- Le critère de Fisher,  qui permet de mesurer dans un problème de classification à $C$ classes le degré de séparabilité des classes à l'aide
 d'une caractéristique donnée
 
 $$F_i = \frac{\displaystyle\sum_{c=1}^C n_c\left (\mu_c^i-\mu_i \right )^2}{\displaystyle\sum_{c=1}^C n_c(\Sigma_c^i)^2}$$
@@ -118,8 +118,10 @@ from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import mutual_info_classif
 X, y = load_iris(return_X_y=True)
 print("Taille des données avant : ",X.shape)
-X2 = SelectKBest(mutual_info_classif,k=2).fit_transform(X, y)
+s = SelectKBest(mutual_info_classif,k=2)
+X2 = s.fit_transform(X, y)
 print("Taille des données après : ",X2.shape)
+print("Variables sélectionnées : ", s.get_support())
 ```
 
 

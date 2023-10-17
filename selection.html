@@ -428,7 +428,7 @@ document.write(`
 <li><p>réduire la complexité spatiale du problème traité</p></li>
 <li><p>découpler des variables et chercher les dépendances</p></li>
 <li><p>introduire des a priori, ou des propriétés importantes pour les algorithmes (données centrées normées, descripteurs épars…)</p></li>
-<li><p>permettre une interprétation plus intuitive et/ou graphique (<a class="reference internal" href="#tsne"><span class="std std-ref">figure 1</span></a>)</p></li>
+<li><p>permettre une interprétation plus intuitive et/ou graphique (<a class="reference internal" href="#tsne"><span class="std std-ref">figure 2</span></a>)</p></li>
 </ul>
 <div class="figure align-default" id="tsne">
 <img alt="_images/tsne.png" src="_images/tsne.png" />
@@ -447,7 +447,7 @@ document.write(`
 </div>
 </div><div class="section" id="definitions">
 <h2>Définitions<a class="headerlink" href="#definitions" title="Permalink to this heading">#</a></h2>
-<p>La sélection de caractéristiques consiste à choisir parmi les <span class="math notranslate nohighlight">\(d\)</span> descripteurs d’un ensemble d’individus <span class="math notranslate nohighlight">\(\mathbf x_i,1\leq i\leq n\)</span>, un sous-ensemble de  <span class="math notranslate nohighlight">\(t&lt;d\)</span>  caractéristiques jugées “les plus pertinentes”, les <span class="math notranslate nohighlight">\(d-t\)</span> restantes étant ignorées.</p>
+<p>La sélection de caractéristiques consiste à choisir parmi les <span class="math notranslate nohighlight">\(d\)</span> descripteurs d’un ensemble d’individus <span class="math notranslate nohighlight">\(\mathbf x_i,i\in[\![1,n]\!]\)</span>, un sous-ensemble de  <span class="math notranslate nohighlight">\(t&lt;d\)</span>  caractéristiques jugées “les plus pertinentes”, les <span class="math notranslate nohighlight">\(d-t\)</span> restantes étant ignorées.</p>
 <p>On note <span class="math notranslate nohighlight">\(F = \left (f_1\cdots f_d\right )\)</span> les <span class="math notranslate nohighlight">\(d\)</span> caractéristiques.  On note <span class="math notranslate nohighlight">\(Perf\)</span> une fonction qui permet d’évaluer un sous-ensemble de caractéristiques, et on suppose que <span class="math notranslate nohighlight">\(Perf\)</span> atteint son maximum pour le meilleur sous-ensemble de caractéristiques (“le plus pertinent”). Le problème de sélection se formule donc comme un problème d’optimisation</p>
 <div class="math notranslate nohighlight">
 \[\hat{F} = Arg\displaystyle\max_{U\subset F} Perf(U)\]</div>
@@ -488,15 +488,15 @@ de l’ensemble de données. La génération stochastique génère aléatoiremen
 <h4>Filtres<a class="headerlink" href="#filtres" title="Permalink to this heading">#</a></h4>
 <p>Le critère d’évaluation utilisé évalue la pertinence d’une caractéristique selon des mesures
 qui reposent sur les propriétés de données d’apprentissage.</p>
-<p>Pour <span class="math notranslate nohighlight">\(n\)</span> exemples  <span class="math notranslate nohighlight">\(\mathbf x_i,1\leq i\leq n\)</span> , on note <span class="math notranslate nohighlight">\(\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d\)</span>  une donnée d’apprentissage (la <span class="math notranslate nohighlight">\(j^e\)</span> caractéristique <span class="math notranslate nohighlight">\(f_j\)</span> ayant donc pour valeur <span class="math notranslate nohighlight">\(x_{ij}\)</span>) , d’étiquette <span class="math notranslate nohighlight">\(y_i\)</span> (en classification ou régression). Les méthodes de type filtres calculent un score pour évaluer le degré de pertinence de chacune des caractéristiques <span class="math notranslate nohighlight">\(f_i\)</span> , parmi lesquelles on peut citer</p>
+<p>Pour <span class="math notranslate nohighlight">\(n\)</span> exemples  <span class="math notranslate nohighlight">\(\mathbf x_i, i\in[\![1,n]\!]\)</span> , on note <span class="math notranslate nohighlight">\(\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d\)</span>  une donnée d’apprentissage (la <span class="math notranslate nohighlight">\(j^e\)</span> caractéristique <span class="math notranslate nohighlight">\(f_j\)</span> ayant donc pour valeur <span class="math notranslate nohighlight">\(x_{ij}\)</span>) , d’étiquette <span class="math notranslate nohighlight">\(y_i\)</span> (en classification ou régression). Les méthodes de type filtres calculent un score pour évaluer le degré de pertinence de chacune des caractéristiques <span class="math notranslate nohighlight">\(f_i\)</span> , parmi lesquelles on peut citer</p>
 <ul class="simple">
 <li><p>Le critère de corrélation, utilisé en classification binaire</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[C_i \frac{\displaystyle\sum_{k=1}^n\left (x_{ki} -\mu_i\right )\left (y_{k} -\mu_y\right )}{\sqrt{\displaystyle\sum_{k=1}^n\left (x_{ki} -\mu_i\right )^2\displaystyle\sum_{k=1}^n\left (y_{k} -\mu_y\right )^2}}\]</div>
+\[C_i =\frac{\displaystyle\sum_{k=1}^n\left (x_{ki} -\mu_i\right )\left (y_{k} -\mu_k\right )}{\sqrt{\displaystyle\sum_{k=1}^n\left (x_{ki} -\mu_i\right )^2\displaystyle\sum_{k=1}^n\left (y_{k} -\mu_k\right )^2}}\]</div>
 <p>où <span class="math notranslate nohighlight">\(\mu_i\)</span> (resp. <span class="math notranslate nohighlight">\(\mu_k\)</span>) est la moyenne de la caractéristique <span class="math notranslate nohighlight">\(f_i\)</span> observée sur <span class="math notranslate nohighlight">\(\mathbf x_1\cdots \mathbf x_n\)</span> (resp. moyenne des étiquettes)</p>
 <ul class="simple">
-<li><p>Le critère de Fisher,  qui permet de mesurer dans un problème de classification multiclasses le degré de séparabilité des classes à l’aide
+<li><p>Le critère de Fisher,  qui permet de mesurer dans un problème de classification à <span class="math notranslate nohighlight">\(C\)</span> classes le degré de séparabilité des classes à l’aide
 d’une caractéristique donnée</p></li>
 </ul>
 <div class="math notranslate nohighlight">
@@ -516,14 +516,17 @@ d’une caractéristique donnée</p></li>
 <span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">mutual_info_classif</span>
 <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Taille des données avant : &quot;</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">X2</span> <span class="o">=</span> <span class="n">SelectKBest</span><span class="p">(</span><span class="n">mutual_info_classif</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">SelectKBest</span><span class="p">(</span><span class="n">mutual_info_classif</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">X2</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Taille des données après : &quot;</span><span class="p">,</span><span class="n">X2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variables sélectionnées : &quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">get_support</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Taille des données avant :  (150, 4)
 Taille des données après :  (150, 2)
+Variables sélectionnées :  [False False  True  True]
 </pre></div>
 </div>
 </div>
