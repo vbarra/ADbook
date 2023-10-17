@@ -591,12 +591,12 @@ notion d’ultramétrique (ultramétrique optimale).</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(p=1\)</span> : <span class="math notranslate nohighlight">\(\|{\bf x_i}-{\bf x_j}\|_1=\displaystyle\sum_{k=1}^d|x_i^k-x_j^k|\)</span> est la norme <span class="math notranslate nohighlight">\(L_1\)</span> (ou city block).</p></li>
 <li><p><span class="math notranslate nohighlight">\(p=2\)</span> : <span class="math notranslate nohighlight">\(\|{\bf x_i}-{\bf x_j}\|_2=\sqrt{\displaystyle\sum_{k=1}^d(x_i^k-x_j^k)^2}\)</span> est la norme <span class="math notranslate nohighlight">\(L_2\)</span> (ou norme euclidienne).</p></li>
-<li><p><span class="math notranslate nohighlight">\(&quot;p=\infty&quot;\)</span> : <span class="math notranslate nohighlight">\(\|{\bf x_i}-{\bf x_j}\|_\infty = \displaystyle\max_{1\leq k\leq d}\{|x_i^k-x_j^k|\}\)</span> est la norme du max (ou norme de Tchebychev)</p></li>
+<li><p>“<span class="math notranslate nohighlight">\(p=\infty\)</span>” : <span class="math notranslate nohighlight">\(\|{\bf x_i}-{\bf x_j}\|_\infty = \displaystyle\max_{1\leq k\leq d}\{|x_i^k-x_j^k|\}\)</span> est la norme du max (ou norme de Tchebychev)</p></li>
 </ul>
 <p>Si les variables ne sont pas normalisées, on peut utiliser la distance de Mahalanobis</p>
-<p><span class="math notranslate nohighlight">\(\delta_{ij} = \displaystyle\sum_{k=1}^pd\displaystyle\sum_{l=1}^dw_{kl}(x_i^k-x_j^k)(x_i^l-x_j^l)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\delta_{ij} = \displaystyle\sum_{k=1}^d\displaystyle\sum_{l=1}^dw_{kl}(x_i^k-x_j^k)(x_i^l-x_j^l)\)</span></p>
 <p>où la matrice des <span class="math notranslate nohighlight">\(w_{kl}\)</span> est l’inverse de la matrice de covariance empirique. Cette distance élimine également les corrélations entre variables.</p>
-<p>Enfin, on peut utiliser une métrique issue du coefficient de corrélation, dite distance de Pearson : <span class="math notranslate nohighlight">\(p\delta_{ij} =\sqrt{1-r^2_{ij}}\)</span>, avec</p>
+<p>Enfin, on peut utiliser une métrique issue du coefficient de corrélation, dite distance de Pearson : <span class="math notranslate nohighlight">\(\delta_{ij} =\sqrt{1-r^2_{ij}}\)</span>, avec</p>
 <p><span class="math notranslate nohighlight">\(r^2_{ij} = \frac{\left (\displaystyle\sum_{k=1}^d (x_i^k-\bar{x_i})(x_j^k-\bar{x_j})\right )^2}{\displaystyle\sum_{k=1}^d(x_i^k-\bar{x_i})^2\displaystyle\sum_{k=1}^d(x_j^k-\bar{x_j})^2}\)</span></p>
 </div>
 <div class="section" id="variables-de-comptage">
@@ -616,7 +616,7 @@ notion d’ultramétrique (ultramétrique optimale).</p>
 </div>
 <div class="section" id="classification-ascendante-hierarchique">
 <h2>Classification ascendante hiérarchique<a class="headerlink" href="#classification-ascendante-hierarchique" title="Permalink to this heading">#</a></h2>
-<p>L’objectif est de construire une hiérarchie indicée d’un ensemble <span class="math notranslate nohighlight">\(\Omega\)</span> sur lequel on connaît une mesure de dissimilarité <span class="math notranslate nohighlight">\(d\)</span> telle que les points les plus proches soient regroupés dans les classes de plus petit indice. La hiérarchie est alors construite en appliquant itérativement ce principe, et l’arbre obtenu sur l’ensemble des itérations est appelé un dendrogramme.</p>
+<p>L’objectif est de construire une hiérarchie indicée d’un ensemble <span class="math notranslate nohighlight">\(\Omega\)</span> sur lequel on connaît une mesure de dissimilarité <span class="math notranslate nohighlight">\(\delta\)</span> telle que les points les plus proches soient regroupés dans les classes de plus petit indice. La hiérarchie est alors construite en appliquant itérativement ce principe, et l’arbre obtenu sur l’ensemble des itérations est appelé un dendrogramme.</p>
 <p>Il existe essentiellement
 deux approches :</p>
 <ul class="simple">
@@ -627,7 +627,7 @@ deux approches :</p>
 <h3>Algorithme<a class="headerlink" href="#algorithme" title="Permalink to this heading">#</a></h3>
 <div class="section" id="construction-de-la-hierarchie">
 <span id="index-2"></span><h4>Construction de la hiérarchie<a class="headerlink" href="#construction-de-la-hierarchie" title="Permalink to this heading">#</a></h4>
-<p><span class="math notranslate nohighlight">\(\Omega\)</span>  étant l’ensemble à classifier et <span class="math notranslate nohighlight">\(d\)</span> une mesure de dissimilarité sur cet ensemble, on définit, à partir de <span class="math notranslate nohighlight">\(d\)</span>, une  distance <span class="math notranslate nohighlight">\(D\)</span> entre les parties de  <span class="math notranslate nohighlight">\(\Omega\)</span>. Cette distance est en réalité une mesure de dissimilarité qui ne vérifie pas nécessairement toutes les propriétés d’une distance sur l’ensemble des parties de <span class="math notranslate nohighlight">\(\Omega\)</span>. En général, <span class="math notranslate nohighlight">\(D\)</span> est appelé critère d’agrégation.
+<p><span class="math notranslate nohighlight">\(\Omega\)</span>  étant l’ensemble à classifier et <span class="math notranslate nohighlight">\(\delta\)</span> une mesure de dissimilarité sur cet ensemble, on définit à partir de <span class="math notranslate nohighlight">\(\delta\)</span> une  distance <span class="math notranslate nohighlight">\(D\)</span> entre les parties de  <span class="math notranslate nohighlight">\(\Omega\)</span>. Cette distance est en réalité une mesure de dissimilarité qui ne vérifie pas nécessairement toutes les propriétés d’une distance sur l’ensemble des parties de <span class="math notranslate nohighlight">\(\Omega\)</span>. En général, <span class="math notranslate nohighlight">\(D\)</span> est appelé critère d’agrégation.
 L’algorithme est alors le suivant :</p>
 <div class="proof algorithm admonition" id="algorithm-3">
 <p class="admonition-title"><span class="caption-number">Algorithm 4 </span> (Algorithme de clustering hiérarchique ascendant)</p>
@@ -653,7 +653,7 @@ L’algorithme est alors le suivant :</p>
 défini en associant à chacune des classes construites au cours de l’algorithme la distance <span class="math notranslate nohighlight">\(D\)</span> qui séparait les deux classes fusionnées pour former cette nouvelle classe. Pour que cette définition conduise bien à un indice, il est nécessaire que
 les indices obtenus soient strictement croissants avec le niveau de la hiérarchie. Plusieurs difficultés peuvent alors apparaître :</p>
 <ul class="simple">
-<li><p>pour certains critères d’agrégation, l’indice ainsi défini n’est pas nécessaire-ment- croissant. On parle alors d’inversion. Par exemple, si les données sont formées par trois points du plan situés au sommet d’un triangle équilatéral de côté 1 et si on prend comme distance <span class="math notranslate nohighlight">\(D\)</span> entre classes la distance entre les centres de gravité, on obtient une inversion.</p></li>
+<li><p>pour certains critères d’agrégation, l’indice ainsi défini n’est pas nécessairement croissant. On parle alors d’inversion. Par exemple, si les données sont formées par trois points du plan situés au sommet d’un triangle équilatéral de côté 1 et si on prend comme distance <span class="math notranslate nohighlight">\(D\)</span> entre classes la distance entre les centres de gravité, on obtient une inversion.</p></li>
 <li><p>lorsqu’il y a égalité de l’indice pour plusieurs niveaux emboîtés, il suffit de filtrer la hiérarchie, c’est-à-dire conserver une seule classe qui regroupe toutes les classes emboîtées ayant le même indice.</p></li>
 </ul>
 </div>
@@ -662,9 +662,9 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 <h3>Critères d’agrégation<a class="headerlink" href="#criteres-d-agregation" title="Permalink to this heading">#</a></h3>
 <p>Il existe de nombreux critères d’agrégation, mais les plus utilisés sont les suivants :</p>
 <ul class="simple">
-<li><p>critère du lien commun : <span class="math notranslate nohighlight">\(D_{min}(A,B)=\displaystyle\min_{i\in A,j\in B}d_{ij}\)</span></p></li>
-<li><p>critère du lien maximum: <span class="math notranslate nohighlight">\(D_{max}(A,B)=\displaystyle\max_{i\in A,j\in B}d_{ij}\)</span></p></li>
-<li><p>critère du lien moyen : <span class="math notranslate nohighlight">\(D_{moy}(A,B)=\frac{\displaystyle\sum_{i\in A}\displaystyle\sum_{j\in B}d_{ij}}{|A||B|}\)</span></p></li>
+<li><p>critère du lien commun : <span class="math notranslate nohighlight">\(D_{min}(A,B)=\displaystyle\min_{i\in A,j\in B}\delta_{ij}\)</span></p></li>
+<li><p>critère du lien maximum: <span class="math notranslate nohighlight">\(D_{max}(A,B)=\displaystyle\max_{i\in A,j\in B}\delta_{ij}\)</span></p></li>
+<li><p>critère du lien moyen : <span class="math notranslate nohighlight">\(D_{moy}(A,B)=\frac{\displaystyle\sum_{i\in A}\displaystyle\sum_{j\in B}\delta_{ij}}{|A||B|}\)</span></p></li>
 </ul>
 <p><img alt="" src="_images/agreg.png" /></p>
 </div>
@@ -686,10 +686,10 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 <div class="section" id="proprietes-d-optimalite">
 <h3>Propriétés d’optimalité<a class="headerlink" href="#proprietes-d-optimalite" title="Permalink to this heading">#</a></h3>
 <p>La notion de hiérarchie indicée est équivalente à la notion d’ultramétrique. La classification hiérarchique ascendante transforme donc la mesure de dissimilarité <span class="math notranslate nohighlight">\(d\)</span> initiale en une mesure de dissimilarité <span class="math notranslate nohighlight">\(\delta\)</span> qui possède la propriété d’être une ultramétrique.</p>
-<p>Le problème de la classification hiérarchique peut donc également se poser en ces termes : trouver l’ultramétrique <span class="math notranslate nohighlight">\(\delta\)</span> la plus proche de <span class="math notranslate nohighlight">\(d\)</span>. Il reste à munir l’espace des mesures de dissimilarité sur  <span class="math notranslate nohighlight">\(\Omega\)</span> d’une distance. On pourra utiliser, par exemple :</p>
+<p>Le problème de la classification hiérarchique peut donc également se poser en ces termes : trouver l’ultramétrique <span class="math notranslate nohighlight">\(\delta^*\)</span> la plus proche de <span class="math notranslate nohighlight">\(\delta\)</span>. Il reste à munir l’espace des mesures de dissimilarité sur  <span class="math notranslate nohighlight">\(\Omega\)</span> d’une distance. On pourra utiliser, par exemple :</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\Delta(\delta,d)=\displaystyle\sum_{i,j\in \Omega}(d_{ij}-\delta_{ij})^2\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\Delta(\delta,d)=\displaystyle\sum_{i,j\in \Omega}|d_{ij}-\delta_{ij}|\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta(\delta,\delta^**)=\displaystyle\sum_{i,j\in \Omega}(\delta_{ij}-\delta^*_{ij})^2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta(\delta,\delta^**)=\displaystyle\sum_{i,j\in \Omega}|\delta_{ij}-\delta^*_{ij}|\)</span></p></li>
 </ul>
 </div>
 <div class="section" id="critere-d-arret-et-partition">
@@ -976,7 +976,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/022d604ac4bf1dacf0952668454a0b3e4799cbff0a78ac6e149ee27030500cb3.png" src="_images/022d604ac4bf1dacf0952668454a0b3e4799cbff0a78ac6e149ee27030500cb3.png" />
+<img alt="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" src="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" />
 </div>
 </div>
 </div>

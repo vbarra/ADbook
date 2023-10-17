@@ -129,16 +129,16 @@ sont classiquement utilisées, et par exemple
 
 - $p=1$ : $\|{\bf x_i}-{\bf x_j}\|_1=\displaystyle\sum_{k=1}^d|x_i^k-x_j^k|$ est la norme $L_1$ (ou city block).
 - $p=2$ : $\|{\bf x_i}-{\bf x_j}\|_2=\sqrt{\displaystyle\sum_{k=1}^d(x_i^k-x_j^k)^2}$ est la norme $L_2$ (ou norme euclidienne).
-- $"p=\infty"$ : $\|{\bf x_i}-{\bf x_j}\|_\infty = \displaystyle\max_{1\leq k\leq d}\{|x_i^k-x_j^k|\}$ est la norme du max (ou norme de Tchebychev)
+- "$p=\infty$" : $\|{\bf x_i}-{\bf x_j}\|_\infty = \displaystyle\max_{1\leq k\leq d}\{|x_i^k-x_j^k|\}$ est la norme du max (ou norme de Tchebychev)
 
 Si les variables ne sont pas normalisées, on peut utiliser la distance de Mahalanobis 
 
-$\delta_{ij} = \displaystyle\sum_{k=1}^pd\displaystyle\sum_{l=1}^dw_{kl}(x_i^k-x_j^k)(x_i^l-x_j^l)$
+$\delta_{ij} = \displaystyle\sum_{k=1}^d\displaystyle\sum_{l=1}^dw_{kl}(x_i^k-x_j^k)(x_i^l-x_j^l)$
 
 où la matrice des $w_{kl}$ est l'inverse de la matrice de covariance empirique. Cette distance élimine également les corrélations entre variables.
 
 
-Enfin, on peut utiliser une métrique issue du coefficient de corrélation, dite distance de Pearson : $p\delta_{ij} =\sqrt{1-r^2_{ij}}$, avec
+Enfin, on peut utiliser une métrique issue du coefficient de corrélation, dite distance de Pearson : $\delta_{ij} =\sqrt{1-r^2_{ij}}$, avec
 
 $r^2_{ij} = \frac{\left (\displaystyle\sum_{k=1}^d (x_i^k-\bar{x_i})(x_j^k-\bar{x_j})\right )^2}{\displaystyle\sum_{k=1}^d(x_i^k-\bar{x_i})^2\displaystyle\sum_{k=1}^d(x_j^k-\bar{x_j})^2}$
 
@@ -153,7 +153,7 @@ Une réflexion  sur le type de dissimilarité à choisir est nécessaire. Il est
 - quelles doivent être les importances relatives des diverses variables retenues dans la constitution de la dissimilarité ?
 
 ## Classification ascendante hiérarchique
-L'objectif est de construire une hiérarchie indicée d'un ensemble $\Omega$ sur lequel on connaît une mesure de dissimilarité $d$ telle que les points les plus proches soient regroupés dans les classes de plus petit indice. La hiérarchie est alors construite en appliquant itérativement ce principe, et l'arbre obtenu sur l'ensemble des itérations est appelé un dendrogramme. 
+L'objectif est de construire une hiérarchie indicée d'un ensemble $\Omega$ sur lequel on connaît une mesure de dissimilarité $\delta$ telle que les points les plus proches soient regroupés dans les classes de plus petit indice. La hiérarchie est alors construite en appliquant itérativement ce principe, et l'arbre obtenu sur l'ensemble des itérations est appelé un dendrogramme. 
 
 Il existe essentiellement
 deux approches :
@@ -167,7 +167,7 @@ deux approches :
 ```
 
 #### Construction de la hiérarchie
-$\Omega$  étant l'ensemble à classifier et $d$ une mesure de dissimilarité sur cet ensemble, on définit, à partir de $d$, une  distance $D$ entre les parties de  $\Omega$. Cette distance est en réalité une mesure de dissimilarité qui ne vérifie pas nécessairement toutes les propriétés d'une distance sur l'ensemble des parties de $\Omega$. En général, $D$ est appelé critère d'agrégation.
+$\Omega$  étant l'ensemble à classifier et $\delta$ une mesure de dissimilarité sur cet ensemble, on définit à partir de $\delta$ une  distance $D$ entre les parties de  $\Omega$. Cette distance est en réalité une mesure de dissimilarité qui ne vérifie pas nécessairement toutes les propriétés d'une distance sur l'ensemble des parties de $\Omega$. En général, $D$ est appelé critère d'agrégation.
 L'algorithme est alors le suivant :
 
 ```{prf:algorithm} Algorithme de clustering hiérarchique ascendant
@@ -191,16 +191,16 @@ Après avoir défini une hiérarchie, il est nécessaire de lui associer un indi
 défini en associant à chacune des classes construites au cours de l'algorithme la distance $D$ qui séparait les deux classes fusionnées pour former cette nouvelle classe. Pour que cette définition conduise bien à un indice, il est nécessaire que
 les indices obtenus soient strictement croissants avec le niveau de la hiérarchie. Plusieurs difficultés peuvent alors apparaître :
 
-- pour certains critères d'agrégation, l'indice ainsi défini n'est pas nécessaire\-ment\- croissant. On parle alors d'inversion. Par exemple, si les données sont formées par trois points du plan situés au sommet d'un triangle équilatéral de côté 1 et si on prend comme distance $D$ entre classes la distance entre les centres de gravité, on obtient une inversion.
+- pour certains critères d'agrégation, l'indice ainsi défini n'est pas nécessairement croissant. On parle alors d'inversion. Par exemple, si les données sont formées par trois points du plan situés au sommet d'un triangle équilatéral de côté 1 et si on prend comme distance $D$ entre classes la distance entre les centres de gravité, on obtient une inversion.
 - lorsqu'il y a égalité de l'indice pour plusieurs niveaux emboîtés, il suffit de filtrer la hiérarchie, c'est-à-dire conserver une seule classe qui regroupe toutes les classes emboîtées ayant le même indice. 
 
 
 ### Critères d'agrégation
 Il existe de nombreux critères d'agrégation, mais les plus utilisés sont les suivants :
 
-- critère du lien commun : $D_{min}(A,B)=\displaystyle\min_{i\in A,j\in B}d_{ij}$
-- critère du lien maximum: $D_{max}(A,B)=\displaystyle\max_{i\in A,j\in B}d_{ij}$
-- critère du lien moyen : $D_{moy}(A,B)=\frac{\displaystyle\sum_{i\in A}\displaystyle\sum_{j\in B}d_{ij}}{|A||B|}$
+- critère du lien commun : $D_{min}(A,B)=\displaystyle\min_{i\in A,j\in B}\delta_{ij}$
+- critère du lien maximum: $D_{max}(A,B)=\displaystyle\max_{i\in A,j\in B}\delta_{ij}$
+- critère du lien moyen : $D_{moy}(A,B)=\frac{\displaystyle\sum_{i\in A}\displaystyle\sum_{j\in B}\delta_{ij}}{|A||B|}$
 
 
 
@@ -228,10 +228,10 @@ où $p_E$ représente la somme des pondérations des éléments d'une classe $E$
 ### Propriétés d'optimalité
 La notion de hiérarchie indicée est équivalente à la notion d'ultramétrique. La classification hiérarchique ascendante transforme donc la mesure de dissimilarité $d$ initiale en une mesure de dissimilarité $\delta$ qui possède la propriété d'être une ultramétrique. 
 
-Le problème de la classification hiérarchique peut donc également se poser en ces termes : trouver l'ultramétrique $\delta$ la plus proche de $d$. Il reste à munir l'espace des mesures de dissimilarité sur  $\Omega$ d'une distance. On pourra utiliser, par exemple :
+Le problème de la classification hiérarchique peut donc également se poser en ces termes : trouver l'ultramétrique $\delta^*$ la plus proche de $\delta$. Il reste à munir l'espace des mesures de dissimilarité sur  $\Omega$ d'une distance. On pourra utiliser, par exemple :
 
-- $\Delta(\delta,d)=\displaystyle\sum_{i,j\in \Omega}(d_{ij}-\delta_{ij})^2$
-- $\Delta(\delta,d)=\displaystyle\sum_{i,j\in \Omega}|d_{ij}-\delta_{ij}|$
+- $\Delta(\delta,\delta^**)=\displaystyle\sum_{i,j\in \Omega}(\delta_{ij}-\delta^*_{ij})^2$
+- $\Delta(\delta,\delta^**)=\displaystyle\sum_{i,j\in \Omega}|\delta_{ij}-\delta^*_{ij}|$
 
 
 ### Critère d'arrêt et partition
