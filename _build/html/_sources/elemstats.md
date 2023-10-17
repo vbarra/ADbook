@@ -16,7 +16,7 @@ Dans l'expression "étude statistique", il faut distinguer :
 1. **les données statistiques** : suivant l'étude, plusieurs problèmes peuvent être posés :
 
     -  Recueil des données (brutes) avec notamment le problème des sondages
-    -  -Nature des données avec éventuellement la transformation des données brutes, notamment pour les séries chronologiques (série corrigée des variations saisonnières)
+    -  Nature des données avec éventuellement la transformation des données brutes, notamment pour les séries chronologiques (série corrigée des variations saisonnières)
     -  Organisation des données : il s'agit le plus souvent de résumer l'information par les techniques de la statistique descriptive 
 
 2. **le modèle mathématique** : une analyse du phénomène étudié doit permettre de traduire les problèmes posés par l'étude dans un langage formel, celui des probabilités. Après avoir fait des choix, des hypothèses sur la loi de probabilité et sur les paramètres de cette loi, on s'efforce de se placer dans un modèle statistique dans lequel des outils théoriques permettent de résoudre un certain nombre de problèmes théoriques. Dans ce modèle théorique, il s'agit de donner une interprétation aux données expérimentales et, souvent, des hypothèses implificatrices de "même loi" et d'indépendance sont faites.
@@ -35,9 +35,9 @@ Les résultats théoriques devront être interprétés dans le contexte de l'ét
 ````{prf:definition} Echantillon
 Soit une variable aléatoire $X:(\Omega,\mathcal A,P)\mapsto \mathbb{R}$. On appelle $n$-échantillon de la variable aléatoire parente $X$ la donnée de $n$ variables aléatoires $X_1\cdots X_n$, définies sur le même espace, indépendantes, ayant même loi que $X$.
 ````
-On a donc 
+On a donc pour tout $(x_1\cdots x_n)^T\in\mathbb{R}^n$
 
-$\forall (x_1\cdots x_n)^T\in\mathbb{R}^n\;P(X_1<x_1\cdots X_n<x_n)=P(X_1<x_1)\cdots P(X_n<x_n)=P(X<x_1)\cdots P(X<x_n)$
+$P(X_1<x_1\cdots X_n<x_n)=P(X_1<x_1)\cdots P(X_n<x_n)=P(X<x_1)\cdots P(X<x_n)$
 
 On considère alors une expérience aléatoire $\mathcal E$ décrite par l'intermédiaire de la variable aléatoire $X$. Considérer un $n$ échantillon de $X$ consiste à supposer la possibilité de $n$ répétitions de l'expérience $\mathcal E$ dans des conditions identiques, sans interactions entre elles.
 
@@ -48,10 +48,10 @@ A noter que les hypothèses de même loi et d'indépendance sont simplificatrice
 ### Schéma de Bernoulli et modèle binomial
 Si $\mathcal E$ n'a que deux éventualités possibles (réalisation ou non d'un évènement $A$), alors l'expérience peut être décrite par l'intermédiaire d'une variable aléatoire $X$ ($\mathbb{1}_A$, fonction indicatrice de $A$), de Bernoulli $X:(\Omega,\mathcal A,P)\mapsto \{0,1\}$ avec $P(X=1)=P(A)=p\in]0,1[$.
 
-Si $\mathcal E$ est répétée $n$ fois dans des conditions identiques, sans interaction entre elles, on considèer un $n$-échantillon $(X_1\cdots X_n)$ de variable aléatoire parente $X$. Les valeurs proses par la variable aléatoire $S_n=X_1+\cdots X_n$ représentent le nombre de réalisations de $A$ à la suite des $n$ répétitions. Une telle situation est dite relever du schéma de Bernoulli.
+Si $\mathcal E$ est répétée $n$ fois dans des conditions identiques, sans interaction entre elles, on considère un $n$-échantillon $(X_1\cdots X_n)$ de variable aléatoire parente $X$. Les valeurs prises par la variable aléatoire $S_n=X_1+\cdots X_n$ représentent le nombre de réalisations de $A$ à la suite des $n$ répétitions. Une telle situation est dite relever du schéma de Bernoulli.
 
 ````{prf:property}
-$S_n:(\Omega,\mathcal A,P)\mapsto \{0,1\cdots n\}$ a une loi binomiale $\mathcal{B}(n,p)$ : 
+$S_n:(\Omega,\mathcal A,P)\mapsto [\![0,n]\!]$ a une loi binomiale $\mathcal{B}(n,p)$ : 
 
 -  $\forall k\in[\![0,n]\!]\; P(S_n=k)=\begin{pmatrix}n\\k\end{pmatrix} p^k (1-p)^{n-k}$
 -  $\mathbb{E}(S_n)=np,\; \mathbb{V}(S_n)=np(1-p)$
@@ -72,14 +72,18 @@ $\mathbb{E}(S_n) = \displaystyle\sum_{k=1}^n \mathbb{E}(X_k)=n\mathbb{E}(X)=np\q
 
 ### Moyenne et variances empiriques d'un $n$-échantillon
 Etant donné un $n$-échantillon $(X_1\cdots X_n)$ d'une variable aléatoire parente $X$, on appelle :
+```{index} moyenne empirique
+``` 
+```{index} variance empirique
+``` 
+- moyenne empirique du $n$-échantillon la variable aléatoire $$\bar{X_n}=\frac1n \displaystyle\sum_{k=1}^n X_k$$
+-  variance empirique biaisée du $n$-échantillon la variable aléatoire (Ne pas confondre avec la variable $S_n$ du schéma de Bernoulli)
 
-- moyenne empirique du $n$-échantillon\index{moyenne empirique} la variable aléatoire $$\bar{X_n}=\frac1n \displaystyle\sum_{k=1}^n X_k$$
--  variance empirique biaisée du $n$-échantillon\ la variable aléatoire (Ne pas confondre avec la variable $S_n$ du schéma de Bernoulli)
--  
--  $S_n^2=\frac1n \displaystyle\sum_{k=1}^n (X_k-\bar{X_n})^2=\frac1n \displaystyle\sum_{k=1}^n X_k^2 -\bar{X_n}^2$
+$$S_n^2=\frac1n \displaystyle\sum_{k=1}^n (X_k-\bar{X_n})^2=\frac1n \displaystyle\sum_{k=1}^n X_k^2 -\bar{X_n}^2$$
 
--  variance empirique non biaisée du $n$-échantillon\index{variance!non biaisee@non biaisée} la variable aléatoire 
-${S'}_n^2=\frac{1}{n-1} \displaystyle\sum_{k=1}^n (X_k-\bar{X_n})^2$
+-  variance empirique non biaisée du $n$-échantillon la variable aléatoire 
+
+$${S'}_n^2=\frac{1}{n-1} \displaystyle\sum_{k=1}^n (X_k-\bar{X_n})^2$$
 
 
 On a bien sûr $(n-1){S'}_n^2=nS_n^2$.
