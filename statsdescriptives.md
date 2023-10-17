@@ -225,7 +225,7 @@ Pour pouvoir être traitées numériquement, les données qualitatives doivent �
 
 
 ### Normalisation
-Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l'analyse des données ({ref}`figure 1<biais>`) qu'il convient de corriger : c'est le processus de normalisation des données.
+Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l'analyse des données ({ref}figure 1<biais>`) qu'il convient de corriger. C'est le processus de normalisation des données.
 
 Pour une colonne $j\in[\![1,p]\!]$, on dispose de $n$ valeurs $x_{ij},i\in[\![1,n]\!]$. On note : $x_{min} = \displaystyle\min_{i\in[\![1,n]\!]}x_{ij}$, $x_{max} = \displaystyle\max_{i\in[\![1,n]\!]}x_{ij}$,   $\bar x_j$ la moyenne des $x_{ij}$, $\sigma_j$ leur écart-type, $x_\frac14, x_\frac12$ et $x_\frac34$ les premier, deuxième et troisième quartiles. On distingue alors classiquement trois types de normalisation : 
 
@@ -240,7 +240,8 @@ La normalisation standard dépend de la présence de points aberrants (qui affec
 ```{figure} ./images/normK.png
 :name: biais
 
-Effet de la normalisation sur un algorithme de classification (voir chapitre correspondant. En haut un jeu de données avec deux nuages de points allongés selon l'axe des $x$, certainement en raison d'une différence d'échelle entre les unités de mesure de $x$ et $y$. Au milieu une classification par $k$-moyennes, $k$=2 sans normalisation, en utilisant la distance euclidienne. Les deux classes sont séparées suivant l'axe des $x$, ne reflétant pas la répartition naturelle des points. En bas, après normalisation, les deux nuages de points sont correctement séparés``` 
+Effet de la normalisation sur un algorithme de classification (voir chapitre correspondant). En haut un jeu de données avec deux nuages de points allongés selon l'axe des $x$, certainement en raison d'une différence d'échelle entre les unités de mesure de $x$ et $y$. Au milieu une classification par $k$-moyennes, $k$=2 sans normalisation, en utilisant la distance euclidienne. Les deux classes sont séparées suivant l'axe des $x$, ne reflétant pas la répartition naturelle des points. En bas, après normalisation, les deux nuages de points sont correctement séparés
+``` 
 
 
 
