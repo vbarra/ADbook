@@ -517,7 +517,60 @@ $$\boldsymbol\mu_k = \frac{\displaystyle\sum_{j=1}^n p_j^{(i)}(k) \mathbf x_j}{\
 $$\boldsymbol\Sigma_{k} = \frac{\displaystyle\sum_{j=1}^n p_j^{(i)}(k) (\mathbf x_j-\boldsymbol\mu_k)(\mathbf x_j-\boldsymbol\mu_k)^T}{\displaystyle\sum_{j=1}^n p_j^{(i)}(k)}$$
 
 
-LIVRE DSML page 139
+```{code-cell} ipython3
+import numpy as np
+from scipy.stats import multivariate_normal
+import matplotlib.pyplot as plt
+import matplotlib
+
+X = np.genfromtxt('mixture.csv', delimiter=',')
+K = 3
+n, d = X.shape
+
+# Paramètres initiaux
+W = np.array([[1/3,1/3,1/3]]) # poids
+M  = np.array([[-2.0,-4,0],[-3,1,-1]]) # Moyennes
+C = np.zeros((3,2,2)) # Co
+
+C[:,0,0] = 1
+C[:,1,1] = 1
+
+p = np.zeros((3,300))
+
+for i in range(0,100): 
+
+    # Etape E
+    for k in range(0,K):  
+        mvn = multivariate_normal( M[:,k].T, C[k,:,:] )
+        p[k,:] = W[0,k]*mvn.pdf(X)
+
+    # Etape M
+    p = p/sum(p,0)   
+    W = np.mean(p,1).reshape(1,3)
+    for k in range(0,K):
+        M[:,k] = (X.T @ p[k,:].T)/sum(p[k,:])
+        xm = X.T - M[:,k].reshape(2,1)
+        C[k,:,:] = xm @ (xm*p[k,:]).T/sum(p[k,:])
+
+
+fig = plt.subplot(1, 1, 1)
+plt.scatter(X[:,0],X[:,1])
+c = ['r','b','g']
+for i in range(0,3):
+    v, w = np.linalg.eigh(C[i,:,:])
+    v = 2.0 * np.sqrt(2.0) * np.sqrt(v)
+    u = w[0] / np.linalg.norm(w[0])
+
+    angle = np.arctan(u[1] / u[0])
+    angle = 180.0 * angle / np.pi  
+    ell = matplotlib.patches.Ellipse(M[:,i], v[0], v[1], angle=180.0 + angle, color=c[i])
+    ell.set_clip_box(fig.bbox)
+    ell.set_alpha(0.5)
+    fig.add_artist(ell)
+
+plt.tight_layout()
+plt.show()
+```
 
 
 
