@@ -12,7 +12,7 @@ kernelspec:
 
 # Statistique descriptive
 ## Définitions
-Dans la suite, nous nous intéressons à des unités statistiques ou individus statistiques ou unités d'observation (individus,  entreprises,  ménages, données abstraites...). Bien que le cas infini soit envisageable, nous nous restreignons ici à l'étude d'un nombre fini de ces unités. Un ou plusieurs caractères (ou variables) est mesuré sur chaque unité. Les variables sont désignées par simplicité par une lettre. Leurs valeurs possibles sont appelées modalités et l'ensemble des valeurs possibles ou des modalités est appelé le domaine. L'ensemble des individus statistiques forment la population.
+Dans la suite, nous nous intéressons à des unités statistiques ou individus statistiques ou unités d'observation (individus,  entreprises,  ménages, données abstraites...). Bien que le cas infini soit envisageable, nous nous restreignons ici à l'étude d'un nombre fini de ces unités. Un ou plusieurs caractères (ou variables) est mesuré sur chaque unité. Les variables sont désignées par simplicité par une lettre. Leurs valeurs possibles sont appelées modalités et l'ensemble des valeurs possibles ou des modalités est appelé le domaine. L'ensemble des individus statistiques forme la population.
 ### Typologie des variables
 La typologie des variables définit le type de problème statistique que l'on doit aborder :
 
@@ -163,6 +163,8 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &\textrm{ si}& x\in[c^-_j,c^+_j[\\
 
 ## Pré-traitement des données
 
+faire une analyse de données, c'est traiter un tableau de taille $n\times p$ où $n$ est le nombre d'individus et $p$ le nombre de variables (caractères) mesurées sur des individus. En raison de la colecte des données, des erreurs de mesure ou d'autres facteurs, ce tableau est parfois imcomplet et il convient de le prétraiter pour pouvoir effectuer l'analyse.
+
 ### Points aberrants
 Une anomalie (ou point aberrant, ou outlier) est une observation (ou un sous-ensemble d'observations) qui semble incompatible avec le reste de l'ensemble de données.
 
@@ -180,7 +182,6 @@ $$|x_i-\bar x|>3.\sigma$$
 où  $\bar x$ (respectivement $\sigma$) est la moyenne (resp. l'écart-type ) des données.
 - la méthode LOF (Local Outlier Factor) qui repose sur le concept de densité locale, où la localité est donnée par les $k$ voisins les plus proches, dont la distance est utilisée pour estimer la densité. En comparant la densité locale d'un objet aux densités locales de ses voisins, il est possible d'identifier des régions de densité similaire et des points dont la densité est nettement inférieure à celle de leurs voisins. Ces derniers sont considérés comme des valeurs aberrantes. La densité locale est estimée par la distance typique à laquelle un point peut être atteint à partir de ses voisins. 
 - la méthode COF (Connectivity based Outlier Factor) basée sur le même principe que LOF, à ceci près que l'estimation de densité est effectuée en utilisant le minimum de la somme des distances reliant tous les voisins d'un point donné.
-
 
 ### Données manquantes
 On suppose ici collecter $p$ données (par exemple la taille, le poids, l'âge) sur $n$ individus. Ces données peuvent donc être regroupées dans un tableau (une matrice) de taille $n\times p$. Lors de la collecte de ces données, il arrive que certaines d'entre elles ne soient pas disponibles ou enregistrées. On distingue trois types de données manquantes :
