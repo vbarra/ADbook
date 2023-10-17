@@ -78,23 +78,23 @@ Etant donné un $n$-échantillon $(X_1\cdots X_n)$ d'une variable aléatoire par
 ``` 
 - moyenne empirique du $n$-échantillon la variable aléatoire 
 
-- $$\bar{X_n}=\frac1n \displaystyle\sum_{k=1}^n X_k$$
+- $$\bar{X}_n=\frac1n \displaystyle\sum_{k=1}^n X_k$$
 
 -  variance empirique biaisée du $n$-échantillon la variable aléatoire (Ne pas confondre avec la variable $S_n$ du schéma de Bernoulli)
 
-$$S_n^2=\frac1n \displaystyle\sum_{k=1}^n (X_k-\bar{X_n})^2=\frac1n \displaystyle\sum_{k=1}^n X_k^2 -\bar{X_n}^2$$
+$$S_n^2=\frac1n \displaystyle\sum_{k=1}^n (X_k-\bar{X}_n)^2=\frac1n \displaystyle\sum_{k=1}^n X_k^2 -\bar{X}_n^2$$
 
 -  variance empirique non biaisée du $n$-échantillon la variable aléatoire 
 
-$${S'}_n^2=\frac{1}{n-1} \displaystyle\sum_{k=1}^n (X_k-\bar{X_n})^2$$
+$${S'}_n^2=\frac{1}{n-1} \displaystyle\sum_{k=1}^n (X_k-\bar{X}_n)^2$$
 
 
 On a bien sûr $(n-1){S'}_n^2=nS_n^2$.
 
-Les valeurs prises par $\bar{X_n}$ coïncident avec la moyenne expérimentale $\bar{x_n}$ des données expérimentales $(x_1\cdots x_n)$, réalisation du $n$-échantillon. De même pour $S_n^2$ pour la variance expérimentale.
+Les valeurs prises par $\bar{X}_n$ coïncident avec la moyenne expérimentale $\bar{x}_n$ des données expérimentales $(x_1\cdots x_n)$, réalisation du $n$-échantillon. De même pour $S_n^2$ pour la variance expérimentale.
 
 ````{prf:property}
-1.  $\mathbb{E}(\bar{X_n})= \mathbb{E}(X)=m\; ;\; \mathbb{V}(\bar{X_n}) = \frac{\mathbb{V}(X)}{n}=\frac{\sigma^2}{n}$
+1.  $\mathbb{E}(\bar{X}_n)= \mathbb{E}(X)=m\; ;\; \mathbb{V}(\bar{X}_n) = \frac{\mathbb{V}(X)}{n}=\frac{\sigma^2}{n}$
 2.  $\mathbb{E}(S_n^2) = \frac{n-1}{n}\sigma^2\; ;\;  \mathbb{E}({S'}_n^2)=\sigma^2$
 3. Sous l'hypothèse de normalité, $\mathbb{V}({S'}_n^2)=\frac{2\sigma^4}{n-1}$
 ````
@@ -200,14 +200,14 @@ Cette constatation expérimentale conduit aux remarques suivantes, qui sont pré
 
 ### Loi faible des grands nombres
 ```{prf:theorem}
-Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires indépendantes, identiquement distribuées (i.i.d) de même loi qu'une variable $X$, admettant une moyenne $m$ et un écart-type $\sigma$. Si $(\bar{X_n})_{n\geq 1}$ est la suite des moyennes empiriques associée à $(X_n)_{n\geq 1}$ alors
+Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires indépendantes, identiquement distribuées (i.i.d) de même loi qu'une variable $X$, admettant une moyenne $m$ et un écart-type $\sigma$. Si $(\bar{X}_n)_{n\geq 1}$ est la suite des moyennes empiriques associée à $(X_n)_{n\geq 1}$ alors
 
-$(\forall t>0)\; \displaystyle\lim_{n\rightarrow\infty} P(|\bar{X_n}-m|\geq t) = 0$
+$(\forall t>0)\; \displaystyle\lim_{n\rightarrow\infty} P(|\bar{X}_n-m|\geq t) = 0$
 
-On dit que la suite converge en probatilité vers $m$ et on note $\bar{X_n}\xrightarrow[n\rightarrow\infty]{P} m$
+On dit que la suite converge en probatilité vers $m$ et on note $\bar{X}_n\xrightarrow[n\rightarrow\infty]{P} m$
 ```
 
-C'est une conséquence immédiate de l'inégalité de Tchebychev : $P(|\bar{X_n}-m|\geq t)\leq\frac{\sigma^2}{nt^2}$ puisque $\mathbb{V}(\bar{X_n})=\frac{\sigma^2}{n}$
+C'est une conséquence immédiate de l'inégalité de Tchebychev : $P(|\bar{X}_n-m|\geq t)\leq\frac{\sigma^2}{nt^2}$ puisque $\mathbb{V}(\bar{X}_n)=\frac{\sigma^2}{n}$
 
 
 L'observation des valeurs prises par la moyenne empirique donne une bonne information sur la moyenne théorique $m$ de $X$. La précision, au sens ci-dessus, est d'autant meilleure que $n$ est grand.
@@ -215,9 +215,9 @@ L'observation des valeurs prises par la moyenne empirique donne une bonne inform
 ### Loi forte des grands nombres
 avec les hypothèses précédentes, on peut montrer que 
 
-$P(\{\omega\in\Omega, \displaystyle\lim_{n\rightarrow\infty} \bar{X_n}(\omega)=m\})=1$
+$P(\{\omega\in\Omega, \displaystyle\lim_{n\rightarrow\infty} \bar{X}_n(\omega)=m\})=1$
 
-Sauf cas très improbable (avec probabilité nulle), la suite des réalisations $(\bar{x}_n)_{n\geq 1}$ des moyennes expérimentales des mesures converge vers la moyenne théorique $m$. On dit que la suite $(\bar{X_n})_{n\geq 1}$ converge presque sûrement vers $m$ et on note $\bar{X_n}\xrightarrow[n\rightarrow\infty]{p.s.} m$.
+Sauf cas très improbable (avec probabilité nulle), la suite des réalisations $(\bar{x}_n)_{n\geq 1}$ des moyennes expérimentales des mesures converge vers la moyenne théorique $m$. On dit que la suite $(\bar{X}_n)_{n\geq 1}$ converge presque sûrement vers $m$ et on note $\bar{X}_n\xrightarrow[n\rightarrow\infty]{p.s.} m$.
 
 ```{prf:remark}
 :class: dropdown
