@@ -110,6 +110,10 @@ Le dernier point est admis.
 
 
 ### Echantillons de variables aléatoires normales
+
+Les lois de probabilité usuelles sont rappelées en fin de ce chapitre ({ref}`loisusuelles`). 
+
+
 #### Etude d'un $n$-échantillon
 Soit un $n$-échantillon $X_1\cdots X_n$ de variable aléatoire parente $X$ de loi $\mathcal{N}(m,\sigma)$. On a les résultats suivants :
 
@@ -290,6 +294,8 @@ $ (\forall x\in\mathbb{R})\; \displaystyle\lim_{n\rightarrow\infty}P\left (\frac
 ``` 
 On peut donc approcher une loi binomiale par une loi normale.
 
+
+(loisusuelles)=
 ## Modèles probabilistes usuels
 
 On donne ici un catalogue non exhaustif des principaux modèles probabilistes, et leurs principales propriétés. Une illustration graphique des lois correspondantes est proposée dans les figures suivantes.
