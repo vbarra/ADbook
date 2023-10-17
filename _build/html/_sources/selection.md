@@ -12,7 +12,7 @@ kernelspec:
 
 # Sélection de variables
 
-On s'intéresse ici à $n$ individus  $\mathbf x_i, i\in[\[1,n]\!]$ décrits par $d$ variables quantitatives ou caractéristiques (features), $x_i\in \mathbb{R}^d$. Avec l'avènement des Big Data, et la généralisation des capteurs, $d$ peut être très grand (plusieurs milliers), et analyser telles quelles les données brutes devient difficile d'un point de vue calculatoire et interprétation. De plus, il est rare que les caractéristiques soient totalement utiles et indépendantes. 
+On s'intéresse ici à $n$ individus  $\mathbf x_i, i\in[\![1,n]\!]$ décrits par $d$ variables quantitatives ou caractéristiques (features), $x_i\in \mathbb{R}^d$. Avec l'avènement des Big Data, et la généralisation des capteurs, $d$ peut être très grand (plusieurs milliers), et analyser telles quelles les données brutes devient difficile d'un point de vue calculatoire et interprétation. De plus, il est rare que les caractéristiques soient totalement utiles et indépendantes. 
 
 Une étape souvent utilisée en analyse de données consiste donc à prétraiter cet espace, par exemple pour :
 
@@ -21,7 +21,17 @@ Une étape souvent utilisée en analyse de données consiste donc à prétraiter
 - réduire la complexité spatiale du problème traité
 - découpler des variables et chercher les dépendances
 - introduire des a priori, ou des propriétés importantes pour les algorithmes (données centrées normées, descripteurs épars...)
-- permettre une interprétation plus intuitive et/ou graphique
+- permettre une interprétation plus intuitive et/ou graphique ({ref}`figure 1<tsne>`) 
+
+
+
+```{figure} ./images/tsne.png
+:name: tsne
+
+Exemple de réduction de dimension (source: Maaten & Hinton, 2008). Des images 28$\times$ 28 de chiffres manuscrits sont représentées par un vecteur de 784 valeurs, puis transformés en vecteurs de $\mathbb{R}^2$ pour les projeter dans le plan. La méthode utilisée permet d'optimiser la transformation de sorte à ce que les images représentant le même chiffre soient regroupées dans des nuages compacts.
+``` 
+
+
 
 Deux stratégies peuvent alors être utilisées :
 1. sélectionner un sous-ensemble des variables initiales comme descripteurs des individus
