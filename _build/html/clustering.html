@@ -943,7 +943,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 <div class="section" id="acceleration-des-k-means">
 <h4>Accélération des k-means<a class="headerlink" href="#acceleration-des-k-means" title="Permalink to this heading">#</a></h4>
-<p>L’algorithme original peut être amélioré de manière significative en évitant les calculs de distances non nécessaires. En exploitant l’inégalité triangulaire, et en conservant les bornes inférieures et supérieures des distances entre les points et les centres de classe, l’algorithme correspondant est performant, y compris pour de grandes valeurs de <span class="math notranslate nohighlight">\(k\)</span> (<a class="reference internal" href="#km">Algorithm 6</a>})</p>
+<p>L’algorithme original peut être amélioré de manière significative en évitant les calculs de distances non nécessaires. En exploitant l’inégalité triangulaire, et en conservant les bornes inférieures et supérieures des distances entre les points et les centres de classe, l’algorithme correspondant est performant, y compris pour de grandes valeurs de <span class="math notranslate nohighlight">\(k\)</span> (<a class="reference internal" href="#km">Algorithm 6</a>)</p>
 <div class="proof algorithm admonition" id="km">
 <p class="admonition-title"><span class="caption-number">Algorithm 6 </span> (Accélération des k-means)</p>
 <div class="algorithm-content section" id="proof-content">
@@ -984,8 +984,11 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 <li><p>Si <span class="math notranslate nohighlight">\(d(\mathbf c(\mathbf x),\mathbf x)&gt;l(\mathbf x,\mathbf c)\)</span>  ou <span class="math notranslate nohighlight">\(d(\mathbf c(\mathbf x),\mathbf x)&gt;\frac{1}{2}d(\mathbf c(\mathbf x),\mathbf c)\)</span></p>
 <ol class="arabic simple">
 <li><p>Calculer <span class="math notranslate nohighlight">\(d(\mathbf x,\mathbf c)\)</span></p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(d(\mathbf x,\mathbf c)&lt;d(\mathbf c(\mathbf x),\mathbf x)\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(d(\mathbf x,\mathbf c)&lt;d(\mathbf c(\mathbf x),\mathbf x)\)</span></p>
+<ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbf c(\mathbf x)= \mathbf c\)</span></p></li>
+</ol>
+</li>
 </ol>
 </li>
 </ol>
@@ -1003,8 +1006,11 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 <li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf x\in X\)</span></p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(u(\mathbf x)=u(\mathbf x)+d(\mathbf m(\mathbf c(\mathbf x)),\mathbf c(\mathbf x))\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(r(\mathbf x)=Vrai\)</span>
-10 Pour tout <span class="math notranslate nohighlight">\(\mathbf c\in C\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(r(\mathbf x)=Vrai\)</span></p></li>
+</ol>
+</li>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf c\in C\)</span></p>
+<ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbf c = \mathbf m(\mathbf c)\)</span></p></li>
 </ol>
 </li>
@@ -1015,7 +1021,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div></div>
 <div class="section" id="k-means-a-mini-batchs">
 <h4>k-means à mini batchs<a class="headerlink" href="#k-means-a-mini-batchs" title="Permalink to this heading">#</a></h4>
-<p>Il est également possible d’appliquer une optimisation par mini-batchs dans l’algorithme des k-means (<a class="reference internal" href="#kmbatch">Algorithm 7</a>}).</p>
+<p>Il est également possible d’appliquer une optimisation par mini-batchs dans l’algorithme des k-means (<a class="reference internal" href="#kmbatch">Algorithm 7</a>).</p>
 <div class="proof algorithm admonition" id="kmbatch">
 <p class="admonition-title"><span class="caption-number">Algorithm 7 </span> (Accélération des k-means)</p>
 <div class="algorithm-content section" id="proof-content">
@@ -1097,7 +1103,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/282a71541470bf599f673324fd8333f803863bae5ab287f44588409753ee6b0a.png" src="_images/282a71541470bf599f673324fd8333f803863bae5ab287f44588409753ee6b0a.png" />
+<img alt="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" src="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" />
 </div>
 </div>
 </div>

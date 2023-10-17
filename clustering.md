@@ -413,25 +413,25 @@ L'algorithme original peut être amélioré de manière significative en évitan
       2. A chaque calcul de $\delta(\mathbf x,\mathbf c)$,$ l(\mathbf x,\mathbf c)=\delta(\mathbf x,\mathbf c)$
       3. $u(\mathbf x,\mathbf c)=\displaystyle\min_{\mathbf c\in C} \delta(\mathbf x,\mathbf c)$
 4. Tant que (non convergence)
-      1. Pour tout $\mathbf c,\mathbf {c'}\in C$ alculer $\delta (\mathbf c,\mathbf {c'})$
+      1. Pour tout $\mathbf c,\mathbf {c'}\in C$ calculer $\delta (\mathbf c,\mathbf {c'})$
       2. Pour tout $\mathbf c$ $s(c)= \frac{1}{2}\displaystyle\min_{\mathbf {c'}\neq \mathbf c} \delta(\mathbf c,\mathbf {c'})$
       3. Identifier les $\mathbf x$ tels que $u(\mathbf x)\leq s(\mathbf c(\mathbf x))$
-      4. Pour tout $\mathbf x\in X,\mathbf c\in C$ tels que $\mathbf c\neq \mathbf c(\mathbf x)$ et $u(\mathbf x)>l(\mathbf x,\mathbf c)$ et $u(\mathbf x)>\frac{1}{2}\delta(\mathbf c(\mathbf x),\mathbf c)$
+      4. Pour tout $\mathbf x\in \Omega,\mathbf c\in C$ tels que $\mathbf c\neq \mathbf c(\mathbf x)$ et $u(\mathbf x)>l(\mathbf x,\mathbf c)$ et $u(\mathbf x)>\frac{1}{2}\delta(\mathbf c(\mathbf x),\mathbf c)$
           1. Si $r(\mathbf x)$
               1. Calculer $\delta(\mathbf c(\mathbf x),\mathbf x)$
               2. $r(\mathbf x)=Faux$
           2. Sinon
-              1. $d(\mathbf c(\mathbf x),\mathbf x)=u(\mathbf x)$
-          3. Si $d(\mathbf c(\mathbf x),\mathbf x)>l(\mathbf x,\mathbf c)$  ou $d(\mathbf c(\mathbf x),\mathbf x)>\frac{1}{2}d(\mathbf c(\mathbf x),\mathbf c)$
-              1. Calculer $d(\mathbf x,\mathbf c)$
-              2. Si $d(\mathbf x,\mathbf c)<d(\mathbf c(\mathbf x),\mathbf x)$
+              1. $\delta(\mathbf c(\mathbf x),\mathbf x)=u(\mathbf x)$
+          3. Si $\delta(\mathbf c(\mathbf x),\mathbf x)>l(\mathbf x,\mathbf c)$  ou $\delta(\mathbf c(\mathbf x),\mathbf x)>\frac{1}{2}\delta(\mathbf c(\mathbf x),\mathbf c)$
+              1. Calculer $\delta(\mathbf x,\mathbf c)$
+              2. Si $\delta(\mathbf x,\mathbf c)<\delta(\mathbf c(\mathbf x),\mathbf x)$
                   1. $\mathbf c(\mathbf x)= \mathbf c$
       7. Pour tout $\mathbf c\in C$ 
-          1. $\mathbf m(\mathbf c)$ : centre de masse des points de $X$ plus proches de $\mathbf c$
-      8. Pour tout $\mathbf x\in X,\mathbf c\in C$
+          1. $\mathbf m(\mathbf c)$ : centre de masse des points de $\Omega$ plus proches de $\mathbf c$
+      8. Pour tout $\mathbf x\in \Omega,\mathbf c\in C$
           1. $l(\mathbf x,\mathbf c)=max\left (l(\mathbf x,\mathbf c)-d(\mathbf m(\mathbf c),\mathbf c),0 \right )$
-      9. Pour tout $\mathbf x\in X$
-          1. $u(\mathbf x)=u(\mathbf x)+d(\mathbf m(\mathbf c(\mathbf x)),\mathbf c(\mathbf x))$
+      9. Pour tout $\mathbf x\in \Omega$
+          1. $u(\mathbf x)=u(\mathbf x)+\delta(\mathbf m(\mathbf c(\mathbf x)),\mathbf c(\mathbf x))$
           2. $r(\mathbf x)=Vrai$
       10. Pour tout $\mathbf c\in C$
           1. $\mathbf c = \mathbf m(\mathbf c)$
