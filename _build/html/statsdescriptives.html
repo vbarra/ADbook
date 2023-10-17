@@ -404,7 +404,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistique-descriptive-univariee">Statistique descriptive univariée</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-position">Paramètres de position</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-dispersion">Paramètres de dispersion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-forme">Paramètres de forme</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-forme">Paramètres de forme</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pour-resumer">Pour résumer</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-description-ne-fait-pas-tout">La description ne fait pas tout…</a></li>
 </ul>
 </li>
@@ -580,7 +583,7 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <div class="section" id="points-aberrants">
 <h3>Points aberrants<a class="headerlink" href="#points-aberrants" title="Permalink to this heading">#</a></h3>
 <p>Une anomalie (ou point aberrant, ou outlier) est une observation (ou un sous-ensemble d’observations) qui semble incompatible avec le reste de l’ensemble de données.</p>
-<p>S’il est parfois possible d’identifier graphiquement ces points aberrants à l’aide de boîtes à moustaches (voir (<span class="xref std std-ref">boxplot</span>), il existe une vaste littérature sur la détection d’anomalies qu’il n’est pas possible d’aborder ici. De plus, suivant le type de données manipulées (données séquentielles ou non), le type de méthode peut être différent. On mentionne donc ici quelques techniques simples :</p>
+<p>S’il est parfois possible d’identifier graphiquement ces points aberrants à l’aide de boîtes à moustaches (voir (<a class="reference internal" href="#boxplot"><span class="std std-ref">Pour résumer</span></a>), il existe une vaste littérature sur la détection d’anomalies qu’il n’est pas possible d’aborder ici. De plus, suivant le type de données manipulées (données séquentielles ou non), le type de méthode peut être différent. On mentionne donc ici quelques techniques simples :</p>
 <ul class="simple">
 <li><p>le détecteur de Hampel : on considère que <span class="math notranslate nohighlight">\(x_i\)</span> est un point aberrant si</p></li>
 </ul>
@@ -724,10 +727,10 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
 GeometricMean  :  1258.4787575642572
 HarmonicMean  :  1198.219210728503
-WeightedMean  :  1300.147065755699
+WeightedMean  :  1267.0609907368923
 </pre></div>
 </div>
-<img alt="_images/0793fcfd043dbd2954bee31b353d2ff8aebe24693f1e6f907cff6f0a45bf37d4.png" src="_images/0793fcfd043dbd2954bee31b353d2ff8aebe24693f1e6f907cff6f0a45bf37d4.png" />
+<img alt="_images/6d6c5d2d17de2bffc4d40ecb1b9ade100836d7214348184d523d38f8295e76f4.png" src="_images/6d6c5d2d17de2bffc4d40ecb1b9ade100836d7214348184d523d38f8295e76f4.png" />
 </div>
 </div>
 <div class="proof definition admonition" id="definition-6">
@@ -908,7 +911,9 @@ Une distribution est alors dite :</p>
 <li><p>leptokurtique si <span class="math notranslate nohighlight">\(g_2&gt;0\)</span> (queues plus longues et distribution plus pointue)</p></li>
 <li><p>platykyrtique si <span class="math notranslate nohighlight">\(g_2&lt;0\)</span> (queues plus courtes et distribution arrondie).</p></li>
 </ul>
-<p id="boxplot">Les principales statistiques d’une série statistique peuvent être résumées dans des <strong>boîtes à moustache</strong>, qui permettent de voir sur un même graphique :</p>
+<div class="section" id="pour-resumer">
+<span id="boxplot"></span><h4>Pour résumer<a class="headerlink" href="#pour-resumer" title="Permalink to this heading">#</a></h4>
+<p>Les principales statistiques d’une série statistique peuvent être résumées dans des <strong>boîtes à moustache</strong>, qui permettent de voir sur un même graphique :</p>
 <ul class="simple">
 <li><p>la médiane</p></li>
 <li><p>une boîte entre les premier et le troisième quartile</p></li>
@@ -953,7 +958,8 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7111e0507248ca88daa3b96813acbff717f0d9aa2537f079c2ca7a99268d9570.png" src="_images/7111e0507248ca88daa3b96813acbff717f0d9aa2537f079c2ca7a99268d9570.png" />
+<img alt="_images/ded8498e1083019e8268f70e66e5c827414fa09b582095d507d71125b5544e9c.png" src="_images/ded8498e1083019e8268f70e66e5c827414fa09b582095d507d71125b5544e9c.png" />
+</div>
 </div>
 </div>
 </div>
@@ -1233,7 +1239,10 @@ suit une loi de Fisher Snedecor, en supposant que les distributions conditionnel
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistique-descriptive-univariee">Statistique descriptive univariée</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-position">Paramètres de position</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-dispersion">Paramètres de dispersion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-forme">Paramètres de forme</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-forme">Paramètres de forme</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pour-resumer">Pour résumer</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-description-ne-fait-pas-tout">La description ne fait pas tout…</a></li>
 </ul>
 </li>

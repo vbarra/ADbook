@@ -168,7 +168,7 @@ Faire une analyse de données, c'est traiter un tableau de taille $n\times p$ o�
 ### Points aberrants
 Une anomalie (ou point aberrant, ou outlier) est une observation (ou un sous-ensemble d'observations) qui semble incompatible avec le reste de l'ensemble de données.
 
-S'il est parfois possible d'identifier graphiquement ces points aberrants à l'aide de boîtes à moustaches (voir ({ref}`boxplot`), il existe une vaste littérature sur la détection d'anomalies qu'il n'est pas possible d'aborder ici. De plus, suivant le type de données manipulées (données séquentielles ou non), le type de méthode peut être différent. On mentionne donc ici quelques techniques simples :
+S'il est parfois possible d'identifier graphiquement ces points aberrants à l'aide de boîtes à moustaches (voir {ref}`boxplot`), il existe une vaste littérature sur la détection d'anomalies qu'il n'est pas possible d'aborder ici. De plus, suivant le type de données manipulées (données séquentielles ou non), le type de méthode peut être différent. On mentionne donc ici quelques techniques simples :
 
 - le détecteur de Hampel : on considère que $x_i$ est un point aberrant si 
 
@@ -184,28 +184,28 @@ où  $\bar x$ (respectivement $\sigma$) est la moyenne (resp. l'écart-type ) de
 - la méthode COF (Connectivity based Outlier Factor) basée sur le même principe que LOF, à ceci près que l'estimation de densité est effectuée en utilisant le minimum de la somme des distances reliant tous les voisins d'un point donné.
 
 ### Données manquantes
-On suppose ici collecter $p$ données (par exemple la taille, le poids, l'âge) sur $n$ individus. Ces données peuvent donc être regroupées dans un tableau (une matrice) de taille $n\times p$. Lors de la collecte de ces données, il arrive que certaines d'entre elles ne soient pas disponibles ou enregistrées. On distingue trois types de données manquantes :
+Lors de la collecte des données, il arrive que certaines d'entre elles ne soient pas disponibles ou enregistrées. On distingue trois types de données manquantes :
 
 1. les données manquant de manière complètement aléatoire :  la probabilité qu'une donnée soit manquante ne dépend pas des valeurs connues ni de la valeur manquante elle-même.
 2. les données manquant de manière aléatoire :  la probabilité qu'une donnée soit manquante peut dépendre de valeurs connues (d'autres variables parmi les $p$), mais pas de la variable dont les valeurs sont manquantes.
 3. les données manquant de manière non aléatoire : la probabilité qu'une donnée soit manquante dépend d'autres variables qui ont également des valeurs manquantes, ou elle dépend de la variable elle-même.
 
 
-Pour résoudre ce problème de données manquantes, dans la mesure où ces dernières ne sont pas trop nombreuses, on a recours à des techniques d'imputation.
+Pour résoudre ce problème de données manquantes, dans la mesure où ces dernières ne sont pas trop nombreuses, on a recours à des techniques d'**imputation**.
 
 Dans le cas d'une imputation simple (une seule donnée manquante), on peut par exemple remplacer la valeur manquante dans une colonne $j\in[\![1,p]\!]$ par :
 
 -  une valeur fixe
 -  une statistique sur la colonne $j$ (la plus petite ou la plus grande valeur, la moyenne de la colonne, la valeur la plus fréquente...)
 -  une valeur issue des $k$ plus proches voisins de la ligne du tableau où la valeur en position $j$ est manquante
--  une valeur calculée par régression (voir chapitre~\ref{ch:regression}) sur l'ensemble du tableau
+-  une valeur calculée par régression (voir chapitre correspondant) sur l'ensemble du tableau
 -  la valeur précédente (ou suivante) dans le cas où la colonne est une série ordonnée ou temporelle.
 
 
 Dans le cas d'une imputation multiple, où un sous-ensemble de valeurs doit être comblé, on peut adopter la stratégie suivante : 
 
 1. Effectuer une imputation simple pour toutes les valeurs manquantes de l'ensemble de données.
-2. Remettre les valeurs manquantes d'une variable $j\in[\![1,p]\!]$ à "manquantes".
+2. Remettre les valeurs manquantes d'une variable $j\in[\![1,p]\!]$ à "manquante".
 3. Former un modèle pour prédire les valeurs manquantes de $j$ en utilisant les valeurs disponibles de la variable $j$ en tant que variable dépendante et les autres variables de l'ensemble de données comme indépendantes.
 4. Prédire les valeurs manquantes dans la colonne $j$ en utilisant le modèle entraîné à l'étape 3.
 5. Répéter les étapes 2 à 4 pour toutes les autres colonnes présentant des valeurs manquantes.
@@ -217,7 +217,7 @@ Dans le cas d'une imputation multiple, où un sous-ensemble de valeurs doit êtr
 ### Transformation des données qualitatives
 Pour pouvoir être traitées numériquement, les données qualitatives doivent être transformées. Plusieurs techniques existent parmi lesquelles :
 
-- pour le cas des variables ordinales : on utilise ici le rang pour encoder les modalités de la variable. Par exemple, pour un niveau de diplomation Brevet$<$Bac$<$Licence$<$Master$<$Doctorat, on codera Licence par 3 et Doctorat par 5.
+- pour le cas des variables ordinales : on utilise le rang pour encoder les modalités de la variable. Par exemple, pour un niveau de diplomation Brevet$<$Bac$<$Licence$<$Master$<$Doctorat, on codera Licence par 3 et Doctorat par 5.
 -  le one-hot encoding : pour une variable qualitative présentant $J$ modalités, on construit un vecteur de taille $J$ dont les composantes sont toutes nulles sauf la $J$-ème qui vaut 1. Par exemple, si $J$=3, on construit 1 vecteur de taille 3, et pour un individu ayant la modalité 2, on le code en (0 1 0). Lorsque $J$ est élevé, on se retrouve avec un jeu de données volumineux.
 -  les méthodes de plongement (embedding) : utilisées principalement en apprentissage profond (Deep learning) pour le traitement du langage naturel, ces classes de méthodes construisent une représentation de chaque modalité d'une variable qualitative en un vecteur numérique de taille fixe et choisie. Pour le mot "rouge" de la variable "couleur", par exemple, l'encodage peut par exemple être représenté par le vecteur (0.31 0.57 0.12). En pratique, le calcul de ces représentations s'effectue classiquement par l'entraînement d'un réseau de neurones ayant pour entrée uniquement les variables qualitatives. Tout d'abord, un encodage one-hot est appliqué à la variable afin d'être mise en entrée du réseau, qui n'accepte que les entrées numériques. La sortie d'une des couches cachées du réseau constitue alors le vecteur recherché. On concatène ensuite ce vecteur aux données initiales, utilisées dans l'ajustement du modèle final. 
 
@@ -225,7 +225,7 @@ Pour pouvoir être traitées numériquement, les données qualitatives doivent �
 
 
 ### Normalisation
-Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l'analyse des données (figure~\ref{F:normalisation}) qu'il convient de corriger : c'est le processus de normalisation des données.
+Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l'analyse des données ({ref}`biais`) qu'il convient de corriger : c'est le processus de normalisation des données.
 
 Pour une colonne $j\in[\![1,p]\!]$, on dispose de $n$ valeurs $x_{ij},i\in[\![1,n]\!]$. On note : $x_{min} = \displaystyle\min_{i\in[\![1,n]\!]}x_{ij}$, $x_{max} = \displaystyle\max_{i\in[\![1,n]\!]}x_{ij}$,   $\bar x_j$ la moyenne des $x_{ij}$, $\sigma_j$ leur écart-type, $x_\frac14, x_\frac12$ et $x_\frac34$ les premier, deuxième et troisième quartiles. On distingue alors classiquement trois types de normalisation : 
 
@@ -240,6 +240,7 @@ Dans la figure suivante, on montre l'effet de la normalisation sur un algorithme
 
 
 ![](./images/normK.png)
+:name: biais
 
 
 
