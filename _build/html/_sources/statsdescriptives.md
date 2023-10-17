@@ -236,8 +236,8 @@ Pour une colonne $j\in[\![1,p]\!]$, on dispose de $n$ valeurs $x_{ij},i\in[\![1,
 
 La normalisation standard dépend de la présence de points aberrants (qui affectent la moyenne).
 
-```{figure}
-![](./images/normK.png)
+
+```{figure} ./images/normK.png
 :name: biais
 
 Effet de la normalisation sur un algorithme de classification (voir chapitre correspondant. En haut un jeu de données avec deux nuages de points allongés selon l'axe des $x$, certainement en raison d'une différence d'échelle entre les unités de mesure de $x$ et $y$. Au milieu une classification par $k$-moyennes, $k$=2 sans normalisation, en utilisant la distance euclidienne. Les deux classes sont séparées suivant l'axe des $x$, ne reflétant pas la répartition naturelle des points. En bas, après normalisation, les deux nuages de points sont correctement séparés``` 
