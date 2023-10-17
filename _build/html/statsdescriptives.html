@@ -399,9 +399,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-manquantes">Données manquantes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-des-donnees-qualitatives">Transformation des données qualitatives</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisation">Normalisation</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistique-descriptive-univariee">Statistique descriptive univariée</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-position">Paramètres de position</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-dispersion">Paramètres de dispersion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-forme">Paramètres de forme</a><ul class="nav section-nav flex-column">
@@ -648,15 +645,9 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <li><p>la normalisation robuste : <span class="math notranslate nohighlight">\(x_{ij}=\frac{x_{ij}-x_\frac12}{x_\frac34-x_\frac14}\)</span></p></li>
 </ol>
 <p>La normalisation standard dépend de la présence de points aberrants (qui affectent la moyenne).</p>
-<p>Dans la figure suivante, on montre l’effet de la normalisation sur un algorithme de classification (voir chapitre correspondant. En haut un jeu de données avec deux nuages de points allongés selon l’axe des <span class="math notranslate nohighlight">\(x\)</span>, certainement en raison d’une différence d’échelle entre les unités de mesure de <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>. Au milieu une classification par <span class="math notranslate nohighlight">\(k\)</span>-moyennes, <span class="math notranslate nohighlight">\(k\)</span>=2 sans normalisation, en utilisant la distance euclidienne. Les deux classes sont séparées suivant l’axe des <span class="math notranslate nohighlight">\(x\)</span>, ne reflétant pas la répartition naturelle des points. En bas, après normalisation, les deux nuages de points sont correctement séparés.</p>
-<p><img alt="" src="_images/normK.png" />
-:name: biais</p>
-</div>
-</div>
-<div class="section" id="statistique-descriptive-univariee">
-<h2>Statistique descriptive univariée<a class="headerlink" href="#statistique-descriptive-univariee" title="Permalink to this heading">#</a></h2>
-<p id="index-7">La statistique descriptive univariée consiste à étudier un ensemble d’unités d’observations, lorsque celles-ci sont décrites par une seule variable.</p>
+<p>La statistique descriptive univariée consiste à étudier un ensemble d’unités d’observations, lorsque celles-ci sont décrites par une seule variable.</p>
 <p>Soit donc <span class="math notranslate nohighlight">\(X\)</span> une variable et <span class="math notranslate nohighlight">\(x_j,j\in [\![1,n]\!]\)</span> l’ensemble des valeurs prises par cette variable, <span class="math notranslate nohighlight">\(n_i\)</span> étant le nombre de fois où la valeur <span class="math notranslate nohighlight">\(x_i\)</span> est prise. <span class="math notranslate nohighlight">\(X\)</span> peut être qualitative ou quantitative, les paramètres de description décrits dans la suite s’appliqueront à l’une de ces natures ou au deux.</p>
+</div>
 <div class="section" id="parametres-de-position">
 <h3>Paramètres de position<a class="headerlink" href="#parametres-de-position" title="Permalink to this heading">#</a></h3>
 <p>Plusieurs paramètres permettent de décrire la position “la plus représentative” d’une variable :</p>
@@ -728,10 +719,10 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
 GeometricMean  :  1258.4787575642572
 HarmonicMean  :  1198.219210728503
-WeightedMean  :  1338.542374957673
+WeightedMean  :  1300.2836551849568
 </pre></div>
 </div>
-<img alt="_images/99fefe46e56f9d147efa34a8e0afee0bb7de63b0078ef1c7f3ac435cbe799f40.png" src="_images/99fefe46e56f9d147efa34a8e0afee0bb7de63b0078ef1c7f3ac435cbe799f40.png" />
+<img alt="_images/0793fcfd043dbd2954bee31b353d2ff8aebe24693f1e6f907cff6f0a45bf37d4.png" src="_images/0793fcfd043dbd2954bee31b353d2ff8aebe24693f1e6f907cff6f0a45bf37d4.png" />
 </div>
 </div>
 <div class="proof definition admonition" id="definition-6">
@@ -959,7 +950,7 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e283677ee71871e690839d77a7a01f27571864a532121470698ab025ba6d3a17.png" src="_images/e283677ee71871e690839d77a7a01f27571864a532121470698ab025ba6d3a17.png" />
+<img alt="_images/4291ac0b6cf728cfa7565fbf5dd1fcf18d4ad3e461ff356b0af8e65ad6983ed8.png" src="_images/4291ac0b6cf728cfa7565fbf5dd1fcf18d4ad3e461ff356b0af8e65ad6983ed8.png" />
 </div>
 </div>
 </div>
@@ -1025,8 +1016,8 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 <p>La covariance de <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> est définie par :
 <span class="math notranslate nohighlight">\(\sigma_{xy}=\frac{1}{n}\displaystyle\sum_{i=1}^n\left (x_i-\bar{x}\right )\left (y_i-\bar{y}\right )\)</span></p>
 </div>
-</div><span class="target" id="index-8"></span><div class="proof definition admonition" id="definition-20">
-<span id="index-9"></span><p class="admonition-title"><span class="caption-number">Definition 36 </span> (Coefficient de corrélation)</p>
+</div><span class="target" id="index-7"></span><div class="proof definition admonition" id="definition-20">
+<span id="index-8"></span><p class="admonition-title"><span class="caption-number">Definition 36 </span> (Coefficient de corrélation)</p>
 <div class="definition-content section" id="proof-content">
 <p>Le coefficient de corrélation  de deux variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> est défini par
 <span class="math notranslate nohighlight">\(r_{xy}=\frac{\sigma_{xy}}{\sigma_{x}\sigma_{y}}\)</span>
@@ -1042,7 +1033,7 @@ Le coefficient de détermination est le carré du coefficient de corrélation.</
 <h3>Cas de deux variables qualitatives<a class="headerlink" href="#cas-de-deux-variables-qualitatives" title="Permalink to this heading">#</a></h3>
 <p>Le couple est un couple de valeurs <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> où <span class="math notranslate nohighlight">\(x_i\)</span> et <span class="math notranslate nohighlight">\(y_i\)</span> prennent comme valeurs des modalités qualitatives. Notons <span class="math notranslate nohighlight">\(x_1\cdots x_J\)</span> et <span class="math notranslate nohighlight">\(y_1\cdots y_K\)</span> les valeurs distinctes prises.</p>
 <p>Les données peuvent être regroupées sous la forme d’un tableau de contingence prenant la forme suivante :</p>
-<span class="target" id="index-10"></span><p id="index-11"><span class="math notranslate nohighlight">\(\begin{array}{c|ccccc|c}
+<span class="target" id="index-9"></span><p id="index-10"><span class="math notranslate nohighlight">\(\begin{array}{c|ccccc|c}
 &amp;y_1&amp;\cdots&amp;y_k&amp;\cdots&amp;y_K&amp;total\\
 \hline
 x_1&amp;n_{11}&amp;\cdots&amp;n_{1k}&amp;\cdots&amp;n_{1K}&amp;n_{1.}\\
@@ -1061,7 +1052,7 @@ total&amp;n_{.1}&amp;\cdots&amp;n_{.k}&amp;\cdots&amp;n_{.K}&amp;n\\
 <p>Si l’on cherche un lien entre les variables, on construit un tableau d’effectifs théoriques qui représente la situation où les variables ne sont pas liées (indépendance). Ce tableau est constitué des effectifs
 <span class="math notranslate nohighlight">\(n_{jk}^*=\frac{n_{j.}n_{.k}}{n}\)</span>
 Les effectifs observés <span class="math notranslate nohighlight">\(n_{jk}\)</span> ont les mêmes marges que les <span class="math notranslate nohighlight">\(n_{jk}^*\)</span>, et les écarts à l’indépendance sont calculés par la différence <span class="math notranslate nohighlight">\(e_{jk}=n_{jk}-n_{jk}^*\)</span></p>
-<p id="index-12">La dépendance du tableau se mesure au moyen du khi-deux défini par
+<p id="index-11">La dépendance du tableau se mesure au moyen du khi-deux défini par
 <span class="math notranslate nohighlight">\(\chi^2_{obs}= \displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J\frac{e_{jk}^2}{n_{jk}^*}\)</span>
 qui peut être normalisé pour ne plus dépendre du nombre d’observations :
 <span class="math notranslate nohighlight">\(\phi^2=\frac{\chi^2_{obs}}{n}\)</span></p>
@@ -1154,7 +1145,7 @@ suit une loi de Fisher Snedecor, en supposant que les distributions conditionnel
 <div class="section" id="tableaux-de-burt">
 <h3>Tableaux de Burt<a class="headerlink" href="#tableaux-de-burt" title="Permalink to this heading">#</a></h3>
 <p>Le tableau de Burt est une généralisation particulière de la table de contingence dans le cas où l’on étudie simultanément <span class="math notranslate nohighlight">\(p\)</span> variables qualitatives <span class="math notranslate nohighlight">\(X_1\ldots X_p\)</span>. Notons <span class="math notranslate nohighlight">\(c_j\)</span> le nombre de modalités de <span class="math notranslate nohighlight">\(X_j\)</span> et posons <span class="math notranslate nohighlight">\(c=\displaystyle\sum_{j=1}^p c_j\)</span>.</p>
-<span class="target" id="index-13"></span><p id="index-14">Le tableau de Burt est une matrice carrée symétrique de taille <span class="math notranslate nohighlight">\(c\)</span>, constituée de <span class="math notranslate nohighlight">\(p^2\)</span> sous-matrices. Chacune des <span class="math notranslate nohighlight">\(p\)</span> sous-matrices diagonales est relative à l’une des <span class="math notranslate nohighlight">\(p\)</span> variables, la <span class="math notranslate nohighlight">\(j^e\)</span> étant carrée de taille <span class="math notranslate nohighlight">\(c_j\)</span>, diagonale, et de coefficients diagonaux les effectifs marginaux de <span class="math notranslate nohighlight">\(X_j\)</span>. La sous-matrice dans le bloc <span class="math notranslate nohighlight">\((k,l)\)</span> du tableau, <span class="math notranslate nohighlight">\(k\neq l\)</span>, est la table de contingence des variables <span class="math notranslate nohighlight">\(X_k\)</span> et <span class="math notranslate nohighlight">\(X_l\)</span>.</p>
+<span class="target" id="index-12"></span><p id="index-13">Le tableau de Burt est une matrice carrée symétrique de taille <span class="math notranslate nohighlight">\(c\)</span>, constituée de <span class="math notranslate nohighlight">\(p^2\)</span> sous-matrices. Chacune des <span class="math notranslate nohighlight">\(p\)</span> sous-matrices diagonales est relative à l’une des <span class="math notranslate nohighlight">\(p\)</span> variables, la <span class="math notranslate nohighlight">\(j^e\)</span> étant carrée de taille <span class="math notranslate nohighlight">\(c_j\)</span>, diagonale, et de coefficients diagonaux les effectifs marginaux de <span class="math notranslate nohighlight">\(X_j\)</span>. La sous-matrice dans le bloc <span class="math notranslate nohighlight">\((k,l)\)</span> du tableau, <span class="math notranslate nohighlight">\(k\neq l\)</span>, est la table de contingence des variables <span class="math notranslate nohighlight">\(X_k\)</span> et <span class="math notranslate nohighlight">\(X_l\)</span>.</p>
 </div>
 </div>
 </div>
@@ -1235,9 +1226,6 @@ suit une loi de Fisher Snedecor, en supposant que les distributions conditionnel
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-manquantes">Données manquantes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-des-donnees-qualitatives">Transformation des données qualitatives</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisation">Normalisation</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistique-descriptive-univariee">Statistique descriptive univariée</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-position">Paramètres de position</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-dispersion">Paramètres de dispersion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-forme">Paramètres de forme</a><ul class="nav section-nav flex-column">
