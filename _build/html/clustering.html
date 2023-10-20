@@ -965,10 +965,10 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </li>
 <li><p>Tant que (non convergence)</p>
 <ol class="arabic simple">
-<li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf c,\mathbf {c'}\in C\)</span> alculer <span class="math notranslate nohighlight">\(\delta (\mathbf c,\mathbf {c'})\)</span></p></li>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf c,\mathbf {c'}\in C\)</span> calculer <span class="math notranslate nohighlight">\(\delta (\mathbf c,\mathbf {c'})\)</span></p></li>
 <li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf c\)</span> <span class="math notranslate nohighlight">\(s(c)= \frac{1}{2}\displaystyle\min_{\mathbf {c'}\neq \mathbf c} \delta(\mathbf c,\mathbf {c'})\)</span></p></li>
 <li><p>Identifier les <span class="math notranslate nohighlight">\(\mathbf x\)</span> tels que <span class="math notranslate nohighlight">\(u(\mathbf x)\leq s(\mathbf c(\mathbf x))\)</span></p></li>
-<li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf x\in X,\mathbf c\in C\)</span> tels que <span class="math notranslate nohighlight">\(\mathbf c\neq \mathbf c(\mathbf x)\)</span> et <span class="math notranslate nohighlight">\(u(\mathbf x)&gt;l(\mathbf x,\mathbf c)\)</span> et <span class="math notranslate nohighlight">\(u(\mathbf x)&gt;\frac{1}{2}\delta(\mathbf c(\mathbf x),\mathbf c)\)</span></p>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf x\in \Omega,\mathbf c\in C\)</span> tels que <span class="math notranslate nohighlight">\(\mathbf c\neq \mathbf c(\mathbf x)\)</span> et <span class="math notranslate nohighlight">\(u(\mathbf x)&gt;l(\mathbf x,\mathbf c)\)</span> et <span class="math notranslate nohighlight">\(u(\mathbf x)&gt;\frac{1}{2}\delta(\mathbf c(\mathbf x),\mathbf c)\)</span></p>
 <ol class="arabic simple">
 <li><p>Si <span class="math notranslate nohighlight">\(r(\mathbf x)\)</span></p>
 <ol class="arabic simple">
@@ -978,13 +978,13 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </li>
 <li><p>Sinon</p>
 <ol class="arabic simple">
-<li><p><span class="math notranslate nohighlight">\(d(\mathbf c(\mathbf x),\mathbf x)=u(\mathbf x)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\delta(\mathbf c(\mathbf x),\mathbf x)=u(\mathbf x)\)</span></p></li>
 </ol>
 </li>
-<li><p>Si <span class="math notranslate nohighlight">\(d(\mathbf c(\mathbf x),\mathbf x)&gt;l(\mathbf x,\mathbf c)\)</span>  ou <span class="math notranslate nohighlight">\(d(\mathbf c(\mathbf x),\mathbf x)&gt;\frac{1}{2}d(\mathbf c(\mathbf x),\mathbf c)\)</span></p>
+<li><p>Si <span class="math notranslate nohighlight">\(\delta(\mathbf c(\mathbf x),\mathbf x)&gt;l(\mathbf x,\mathbf c)\)</span>  ou <span class="math notranslate nohighlight">\(\delta(\mathbf c(\mathbf x),\mathbf x)&gt;\frac{1}{2}\delta(\mathbf c(\mathbf x),\mathbf c)\)</span></p>
 <ol class="arabic simple">
-<li><p>Calculer <span class="math notranslate nohighlight">\(d(\mathbf x,\mathbf c)\)</span></p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(d(\mathbf x,\mathbf c)&lt;d(\mathbf c(\mathbf x),\mathbf x)\)</span></p>
+<li><p>Calculer <span class="math notranslate nohighlight">\(\delta(\mathbf x,\mathbf c)\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(\delta(\mathbf x,\mathbf c)&lt;\delta(\mathbf c(\mathbf x),\mathbf x)\)</span></p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbf c(\mathbf x)= \mathbf c\)</span></p></li>
 </ol>
@@ -995,17 +995,17 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </li>
 <li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf c\in C\)</span></p>
 <ol class="arabic simple">
-<li><p><span class="math notranslate nohighlight">\(\mathbf m(\mathbf c)\)</span> : centre de masse des points de <span class="math notranslate nohighlight">\(X\)</span> plus proches de <span class="math notranslate nohighlight">\(\mathbf c\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf m(\mathbf c)\)</span> : centre de masse des points de <span class="math notranslate nohighlight">\(\Omega\)</span> plus proches de <span class="math notranslate nohighlight">\(\mathbf c\)</span></p></li>
 </ol>
 </li>
-<li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf x\in X,\mathbf c\in C\)</span></p>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf x\in \Omega,\mathbf c\in C\)</span></p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(l(\mathbf x,\mathbf c)=max\left (l(\mathbf x,\mathbf c)-d(\mathbf m(\mathbf c),\mathbf c),0 \right )\)</span></p></li>
 </ol>
 </li>
-<li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf x\in X\)</span></p>
+<li><p>Pour tout <span class="math notranslate nohighlight">\(\mathbf x\in \Omega\)</span></p>
 <ol class="arabic simple">
-<li><p><span class="math notranslate nohighlight">\(u(\mathbf x)=u(\mathbf x)+d(\mathbf m(\mathbf c(\mathbf x)),\mathbf c(\mathbf x))\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(u(\mathbf x)=u(\mathbf x)+\delta(\mathbf m(\mathbf c(\mathbf x)),\mathbf c(\mathbf x))\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(r(\mathbf x)=Vrai\)</span></p></li>
 </ol>
 </li>
@@ -1103,7 +1103,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" src="_images/f18efb7595d30ed315cfc8256ea410e4d40376b7d658792af90b9b6affaafbb6.png" />
+<img alt="_images/ffae37902b68cb11c778d6f96e26902cfa10a75a9dc869facfc69b37a5c3ab62.png" src="_images/ffae37902b68cb11c778d6f96e26902cfa10a75a9dc869facfc69b37a5c3ab62.png" />
 </div>
 </div>
 </div>

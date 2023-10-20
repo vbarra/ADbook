@@ -1,0 +1,91 @@
+\begin{sphinxtheindex}
+\let\lettergroup\sphinxstyleindexlettergroup
+\let\lettergroupDefault\sphinxstyleindexlettergroupDefault
+\let\spxpagem\sphinxstyleindexpagemain
+\let\spxentry\sphinxstyleindexentry
+\let\spxextra\sphinxstyleindexextra
+
+
+  \lettergroup{B}
+  \item \spxentry{Bayes}
+    \subitem \spxentry{règle de}, \hyperpage{11}
+
+  \indexspace
+
+  \lettergroup{C}
+  \item \spxentry{Caractère}, \hyperpage{1}
+
+  \indexspace
+
+  \lettergroup{D}
+  \item \spxentry{Densité de probabilité}, \hyperpage{13}
+  \item \spxentry{Distribution de probabilité}, \hyperpage{13}
+
+  \indexspace
+
+  \lettergroup{E}
+  \item \spxentry{Ecart\sphinxhyphen{}type}, \hyperpage{18}
+  \item \spxentry{Echantillon}, \hyperpage{1}
+  \item \spxentry{Espérance}, \hyperpage{16}
+  \item \spxentry{Evènement}, \hyperpage{7}
+
+  \indexspace
+
+  \lettergroup{F}
+  \item \spxentry{Fonction de répartition}, \hyperpage{14}
+
+  \indexspace
+
+  \lettergroup{I}
+  \item \spxentry{Indépendance}, \hyperpage{11}
+  \item \spxentry{Individu}, \hyperpage{1}
+
+  \indexspace
+
+  \lettergroup{K}
+  \item \spxentry{Kurtosis}, \hyperpage{19}
+
+  \indexspace
+
+  \lettergroup{M}
+  \item \spxentry{Moment}, \hyperpage{17}
+    \subitem \spxentry{centré}, \hyperpage{17}
+    \subitem \spxentry{d'ordre k}, \hyperpage{17}
+  \item \spxentry{moyenne empirique}, \hyperpage{23}
+
+  \indexspace
+
+  \lettergroup{P}
+  \item \spxentry{Population}, \hyperpage{1}
+  \item \spxentry{Probabilité}, \hyperpage{9}
+    \subitem \spxentry{conditionnelle}, \hyperpage{10}
+    \subitem \spxentry{densité de}, \hyperpage{13}
+    \subitem \spxentry{distribution de}, \hyperpage{13}
+
+  \indexspace
+
+  \lettergroup{S}
+  \item \spxentry{Skewness}, \hyperpage{19}
+  \item \spxentry{Statistique}
+    \subitem \spxentry{descriptive}, \hyperpage{2}
+    \subitem \spxentry{exploratoire}, \hyperpage{2}
+    \subitem \spxentry{inférentielle}, \hyperpage{2}
+    \subitem \spxentry{série}, \hyperpage{39}
+
+  \indexspace
+
+  \lettergroup{T}
+  \item \spxentry{Tribu}, \hyperpage{8}
+
+  \indexspace
+
+  \lettergroup{V}
+  \item \spxentry{Variable}
+    \subitem \spxentry{qualitative}, \hyperpage{39}
+    \subitem \spxentry{quantitative}, \hyperpage{39}
+  \item \spxentry{Variable aléatoire}, \hyperpage{12}
+    \subitem \spxentry{mesurable}, \hyperpage{12}
+  \item \spxentry{Variance}, \hyperpage{18}
+  \item \spxentry{variance empirique}, \hyperpage{23}
+
+\end{sphinxtheindex}

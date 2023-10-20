@@ -429,7 +429,7 @@ L'algorithme original peut être amélioré de manière significative en évitan
       7. Pour tout $\mathbf c\in C$ 
           1. $\mathbf m(\mathbf c)$ : centre de masse des points de $\Omega$ plus proches de $\mathbf c$
       8. Pour tout $\mathbf x\in \Omega,\mathbf c\in C$
-          1. $l(\mathbf x,\mathbf c)=max\left (l(\mathbf x,\mathbf c)-d(\mathbf m(\mathbf c),\mathbf c),0 \right )$
+          1. $l(\mathbf x,\mathbf c)=max\left (l(\mathbf x,\mathbf c)-\delta(\mathbf m(\mathbf c),\mathbf c),0 \right )$
       9. Pour tout $\mathbf x\in \Omega$
           1. $u(\mathbf x)=u(\mathbf x)+\delta(\mathbf m(\mathbf c(\mathbf x)),\mathbf c(\mathbf x))$
           2. $r(\mathbf x)=Vrai$
