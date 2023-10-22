@@ -59,6 +59,6 @@ File [0;32m/usr/local/lib/python3.9/site-packages/pandas/core/indexes/base.py:6
 [1;32m   6132[0m not_found [38;5;241m=[39m [38;5;28mlist[39m(ensure_index(key)[missing_mask[38;5;241m.[39mnonzero()[[38;5;241m0[39m]][38;5;241m.[39munique())
 [1;32m   6133[0m [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00mnot_found[38;5;132;01m}[39;00m[38;5;124m not in index[39m[38;5;124m"[39m)
 
-[0;31mKeyError[0m: "None of [Int64Index([ 5077, 54564, 33640, 52200, 27713, 55239, 60615, 25625, 15494,\n            63631,\n            ...\n            54060,  9169, 30143, 33383, 67184, 39258, 62540,  3250, 55448,\n            66732],\n           dtype='int64', length=70000)] are in the [columns]"
-KeyError: "None of [Int64Index([ 5077, 54564, 33640, 52200, 27713, 55239, 60615, 25625, 15494,\n            63631,\n            ...\n            54060,  9169, 30143, 33383, 67184, 39258, 62540,  3250, 55448,\n            66732],\n           dtype='int64', length=70000)] are in the [columns]"
+[0;31mKeyError[0m: "None of [Int64Index([53844,  9072,  6247,  8363, 69766, 15685, 37442, 56649, 53204,\n            21866,\n            ...\n             4085, 25648, 29592, 37364, 15629, 25487, 64448, 23276, 31574,\n            45444],\n           dtype='int64', length=70000)] are in the [columns]"
+KeyError: "None of [Int64Index([53844,  9072,  6247,  8363, 69766, 15685, 37442, 56649, 53204,\n            21866,\n            ...\n             4085, 25648, 29592, 37364, 15629, 25487, 64448, 23276, 31574,\n            45444],\n           dtype='int64', length=70000)] are in the [columns]"
 
