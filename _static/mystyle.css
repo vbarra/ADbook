@@ -56,13 +56,6 @@ body {
     counter-reset: sidenote-counter;
 }
 
-/* Adds dark mode */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #151515;
-        color: #ddd;
-    }
-}
 
 h1 {
     font-weight: 400;
@@ -141,50 +134,7 @@ p {
     vertical-align: baseline;
 }
 
-/* Chapter Epigraphs */
-div.epigraph {
-    margin: 5em 0;
-}
 
-div.epigraph > blockquote {
-    margin-top: 3em;
-    margin-bottom: 3em;
-}
-
-div.epigraph > blockquote,
-div.epigraph > blockquote > p {
-    font-style: italic;
-}
-
-div.epigraph > blockquote > footer {
-    font-style: normal;
-}
-
-div.epigraph > blockquote > footer > cite {
-    font-style: italic;
-}
-/* end chapter epigraphs styles */
-
-blockquote {
-    font-size: 1.4rem;
-}
-
-blockquote p {
-    width: 55%;
-    margin-right: 40px;
-}
-
-blockquote footer {
-    width: 55%;
-    font-size: 1.1rem;
-    text-align: right;
-}
-
-section > p,
-section > footer,
-section > table {
-    width: 55%;
-}
 
 /* 50 + 5 == 55, to be the same width as paragraph */
 section > dl,

@@ -5,50 +5,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="lang:clipboard.copy" content="Copy to clipboard">
-  <meta name="lang:clipboard.copied" content="Copied to clipboard">
-  <meta name="lang:search.language" content="en">
-  <meta name="lang:search.pipeline.stopwords" content="True">
-  <meta name="lang:search.pipeline.trimmer" content="True">
-  <meta name="lang:search.result.none" content="No matching documents">
-  <meta name="lang:search.result.one" content="1 matching document">
-  <meta name="lang:search.result.other" content="# matching documents">
-  <meta name="lang:search.tokenizer" content="[\s\-]+">
-
-  
-    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
-
-    <style>
-      body,
-      input {
-        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
-      }
-
-      code,
-      kbd,
-      pre {
-        font-family: "Roboto Mono", "Courier New", Courier, monospace
-      }
-    </style>
-  
-
-  <link rel="stylesheet" href="_static/stylesheets/application.css"/>
-  <link rel="stylesheet" href="_static/stylesheets/application-palette.css"/>
-  <link rel="stylesheet" href="_static/stylesheets/application-fixes.css"/>
-  
-  <link rel="stylesheet" href="_static/fonts/material-icons.css"/>
-  
-  <meta name="theme-color" content="#3f51b5">
-  <script src="_static/javascripts/modernizr.js"></script>
-  
-  
-  
     <title>Elements de statistiques &#8212; Analyse de données</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/material.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -56,6 +27,10 @@
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystyle.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -75,240 +50,381 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Statistique descriptive" href="statsdescriptives.html" />
     <link rel="prev" title="Rappels de probabilité" href="Rappels.html" />
-  
-   
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
 
+    <!-- Google Analytics -->
+    
   </head>
-  <body dir=ltr
-        data-md-color-primary=blue-grey data-md-color-accent=blue>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="intro.html">
+  <img src="_static/isimainp.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
   
-  <svg class="md-svg">
-    <defs data-children-count="0">
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
       
-      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="Rappels.html">
+  Rappels de probabilité
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  Elements de statistiques
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="statsdescriptives.html">
+  Statistique descriptive
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="selection.html">
+  Sélection de variables
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="acp.html">
+  Analyse en composantes principales
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="regression.html">
+  Régression
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="clustering.html">
+  Quelques méthodes de classification
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="afc.html">
+  Analyse Factorielle des correspondances
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="acm.html">
+  Analyse des correspondances multiples
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="genindex.html">
+  Index
+ </a>
+</li>
+
+    
+</ul>
+      </div>
       
-    </defs>
-  </svg>
-  
-  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
-  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
-  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#elemstats" tabindex="1" class="md-skip"> Skip to content </a>
-  <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="intro.html" title="Analyse de données"
-           class="md-header-nav__button md-logo">
-          
-              <img src="_static/isimainp.png" height="26"
-                   alt="Analyse de données logo">
-          
-        </a>
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
       </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">Analyse de données</span>
-          <span class="md-header-nav__topic"> Elements de statistiques </span>
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-        
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder=""Search""
-             autocapitalize="off" autocomplete="off" spellcheck="false"
-             data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
-      </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta">
-            Type to start searching
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
+      
     </div>
   </div>
 </div>
-
-      </div>
-      
-      
-  
-  <script src="_static/javascripts/version_dropdown.js"></script>
-  <script>
-    var json_loc = ""versions.json"",
-        target_loc = "../",
-        text = "Versions";
-    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
-  </script>
-  
-
-    </div>
-  </nav>
-</header>
-
-  
-  <div class="md-container">
+    </nav>
     
-    
-    
-  <nav class="md-tabs" data-md-component="tabs">
-    <div class="md-tabs__inner md-grid">
-      <ul class="md-tabs__list">
-          <li class="md-tabs__item"><a href="intro.html" class="md-tabs__link">Analyse de données</a></li>
-      </ul>
-    </div>
-  </nav>
-    <main class="md-main">
-      <div class="md-main__inner md-grid" data-md-component="container">
-        
-          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-            <div class="md-sidebar__scrollwrap">
-              <div class="md-sidebar__inner">
-                <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="intro.html" title="Analyse de données" class="md-nav__button md-logo">
-      
-        <img src="_static/isimainp.png" alt=" logo" width="48" height="48">
-      
-    </a>
-    <a href="intro.html"
-       title="Analyse de données">Analyse de données</a>
-  </label>
-  
 
-</nav>
-              </div>
-            </div>
-          </div>
-          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-            <div class="md-sidebar__scrollwrap">
-              <div class="md-sidebar__inner">
-                
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">"Contents"</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#elemstats--page-root" class="md-nav__link">Elements de statistiques</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#echantillon-d-une-variable-aleatoire" class="md-nav__link">Echantillon d’une variable aléatoire</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#definition" class="md-nav__link">Définition</a>
-        </li>
-        <li class="md-nav__item"><a href="#schema-de-bernoulli-et-modele-binomial" class="md-nav__link">Schéma de Bernoulli et modèle binomial</a>
-        </li>
-        <li class="md-nav__item"><a href="#moyenne-et-variances-empiriques-d-un-n-echantillon" class="md-nav__link">Moyenne et variances empiriques d’un <span class="math notranslate nohighlight">\(n\)</span>-échantillon</a>
-        </li>
-        <li class="md-nav__item"><a href="#echantillons-de-variables-aleatoires-normales" class="md-nav__link">Echantillons de variables aléatoires normales</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#etude-d-un-n-echantillon" class="md-nav__link">Etude d’un <span class="math notranslate nohighlight">\(n\)</span>-échantillon</a>
-        </li>
-        <li class="md-nav__item"><a href="#etude-de-deux-echantillons-independants" class="md-nav__link">Etude de deux échantillons indépendants</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#loi-des-grands-nombres" class="md-nav__link">Loi des grands nombres</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#inegalite-de-tchebychev" class="md-nav__link">Inégalité de Tchebychev</a>
-        </li>
-        <li class="md-nav__item"><a href="#phenomene-de-regularite-statistique" class="md-nav__link">Phénomène de régularité statistique</a>
-        </li>
-        <li class="md-nav__item"><a href="#loi-faible-des-grands-nombres" class="md-nav__link">Loi faible des grands nombres</a>
-        </li>
-        <li class="md-nav__item"><a href="#loi-forte-des-grands-nombres" class="md-nav__link">Loi forte des grands nombres</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#approximation-de-mathcal-b-n-p-par-la-loi-de-poisson-mathcal-p-lambda" class="md-nav__link">Approximation de <span class="math notranslate nohighlight">\(\mathcal{B}(n,p)\)</span> par la loi de Poisson <span class="math notranslate nohighlight">\(\mathcal P(\lambda)\)</span></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#theoreme-d-analyse" class="md-nav__link">Théorème d’analyse</a>
-        </li>
-        <li class="md-nav__item"><a href="#application" class="md-nav__link">Application</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#theoreme-central-limite" class="md-nav__link">Théorème central limite</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#le-t-c-l" class="md-nav__link">Le T.C.L.</a>
-        </li>
-        <li class="md-nav__item"><a href="#commentaires" class="md-nav__link">Commentaires</a>
-        </li>
-        <li class="md-nav__item"><a href="#cas-particulier-theoreme-de-moivre-laplace" class="md-nav__link">Cas particulier : théorème de Moivre-Laplace</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#modeles-probabilistes-usuels" class="md-nav__link">Modèles probabilistes usuels</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#lois-discretes" class="md-nav__link">Lois discrètes</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#modele-de-bernoulli" class="md-nav__link">Modèle de Bernoulli</a>
-        </li>
-        <li class="md-nav__item"><a href="#loi-binomiale" class="md-nav__link">Loi binomiale</a>
-        </li>
-        <li class="md-nav__item"><a href="#loi-hypergeometrique" class="md-nav__link">Loi hypergéométrique</a>
-        </li>
-        <li class="md-nav__item"><a href="#distribution-de-poisson" class="md-nav__link">Distribution de Poisson</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#lois-absolument-continues" class="md-nav__link">Lois absolument continues</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#modele-uniforme" class="md-nav__link">Modèle uniforme</a>
-        </li>
-        <li class="md-nav__item"><a href="#loi-normale" class="md-nav__link">Loi normale</a>
-        </li>
-        <li class="md-nav__item"><a href="#loi-exponentielle" class="md-nav__link">Loi exponentielle</a>
-        </li>
-        <li class="md-nav__item"><a href="#distribution-gamma" class="md-nav__link">Distribution Gamma</a>
-        </li>
-        <li class="md-nav__item"><a href="#loi-du-khi-deux" class="md-nav__link">Loi du Khi-deux</a>
-        </li>
-        <li class="md-nav__item"><a href="#loi-de-student" class="md-nav__link">Loi de Student</a>
-        </li>
-        <li class="md-nav__item"><a href="#loi-de-fisher-snedecor" class="md-nav__link">Loi de Fisher-Snédécor</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="_sources/elemstats.md">Show Source</a> </li>
-
-<li id="searchbox" class="md-nav__item"></li>
-
-  </ul>
-</nav>
-              </div>
-            </div>
-          </div>
-        
-        <div class="md-content">
-          <article class="md-content__inner md-typeset" role="main">
+    <div class="container-xl">
+      <div class="row">
+          
             
-  
-<h1 id="elemstats--page-root">Elements de statistiques<a class="headerlink" href="#elemstats--page-root" title="Permalink to this headline">¶</a></h1>
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#echantillon-d-une-variable-aleatoire">
+   Echantillon d’une variable aléatoire
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition">
+     Définition
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#schema-de-bernoulli-et-modele-binomial">
+     Schéma de Bernoulli et modèle binomial
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#moyenne-et-variances-empiriques-d-un-n-echantillon">
+     Moyenne et variances empiriques d’un
+     <span class="math notranslate nohighlight">
+      \(n\)
+     </span>
+     -échantillon
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#echantillons-de-variables-aleatoires-normales">
+     Echantillons de variables aléatoires normales
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#etude-d-un-n-echantillon">
+       Etude d’un
+       <span class="math notranslate nohighlight">
+        \(n\)
+       </span>
+       -échantillon
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#etude-de-deux-echantillons-independants">
+       Etude de deux échantillons indépendants
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loi-des-grands-nombres">
+   Loi des grands nombres
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inegalite-de-tchebychev">
+     Inégalité de Tchebychev
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#phenomene-de-regularite-statistique">
+     Phénomène de régularité statistique
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loi-faible-des-grands-nombres">
+     Loi faible des grands nombres
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loi-forte-des-grands-nombres">
+     Loi forte des grands nombres
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#approximation-de-mathcal-b-n-p-par-la-loi-de-poisson-mathcal-p-lambda">
+   Approximation de
+   <span class="math notranslate nohighlight">
+    \(\mathcal{B}(n,p)\)
+   </span>
+   par la loi de Poisson
+   <span class="math notranslate nohighlight">
+    \(\mathcal P(\lambda)\)
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theoreme-d-analyse">
+     Théorème d’analyse
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#application">
+     Application
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#theoreme-central-limite">
+   Théorème central limite
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#le-t-c-l">
+     Le T.C.L.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#commentaires">
+     Commentaires
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cas-particulier-theoreme-de-moivre-laplace">
+     Cas particulier : théorème de Moivre-Laplace
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modeles-probabilistes-usuels">
+   Modèles probabilistes usuels
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lois-discretes">
+     Lois discrètes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modele-de-bernoulli">
+       Modèle de Bernoulli
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#loi-binomiale">
+       Loi binomiale
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#loi-hypergeometrique">
+       Loi hypergéométrique
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#distribution-de-poisson">
+       Distribution de Poisson
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lois-absolument-continues">
+     Lois absolument continues
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modele-uniforme">
+       Modèle uniforme
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#loi-normale">
+       Loi normale
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#loi-exponentielle">
+       Loi exponentielle
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#distribution-gamma">
+       Distribution Gamma
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#loi-du-khi-deux">
+       Loi du Khi-deux
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#loi-de-student">
+       Loi de Student
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#loi-de-fisher-snedecor">
+       Loi de Fisher-Snédécor
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="elements-de-statistiques">
+<h1>Elements de statistiques<a class="headerlink" href="#elements-de-statistiques" title="Permalink to this headline">#</a></h1>
 <p>Dans l’expression “étude statistique”, il faut distinguer :</p>
 <ol class="simple">
 <li><p><strong>les données statistiques</strong> : suivant l’étude, plusieurs problèmes peuvent être posés :</p>
@@ -328,43 +444,43 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>juger l’adéquation du modèle retenu en termes de lois de probabilité avec la même réserve que ci-dessus</p></li>
 </ul>
 <p>Les résultats théoriques devront être interprétés dans le contexte de l’étude en considérant que ces résultats ont été obtenus dans le cadre d’un modèle théorique précis, d’où la nécessité d’une analyse correcte et d’une bonne formalisation. De plus, il faudra prendre en compte les techniques utilisées, qui ne permettent de répondre qu’à des questions précises. Enfin, dans le cas d’une application pratique, il faudra garder à l’esprit que les conclusions auront des conséquences économiques (ou autres).</p>
-
-<h2 id="echantillon-d-une-variable-aleatoire">Echantillon d’une variable aléatoire<a class="headerlink" href="#echantillon-d-une-variable-aleatoire" title="Permalink to this headline">¶</a></h2>
-
-<h3 id="definition">Définition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="echantillon-d-une-variable-aleatoire">
+<h2>Echantillon d’une variable aléatoire<a class="headerlink" href="#echantillon-d-une-variable-aleatoire" title="Permalink to this headline">#</a></h2>
+<div class="section" id="definition">
+<h3>Définition<a class="headerlink" href="#definition" title="Permalink to this headline">#</a></h3>
 <div class="proof definition admonition" id="definition-0">
 <p class="admonition-title"><span class="caption-number">Definition 16 </span> (Echantillon)</p>
-
+<div class="definition-content section" id="proof-content">
 <p>Soit une variable aléatoire <span class="math notranslate nohighlight">\(X:(\Omega,\mathcal A,P)\mapsto \mathbb{R}\)</span>. On appelle <span class="math notranslate nohighlight">\(n\)</span>-échantillon de la variable aléatoire parente <span class="math notranslate nohighlight">\(X\)</span> la donnée de <span class="math notranslate nohighlight">\(n\)</span> variables aléatoires <span class="math notranslate nohighlight">\(X_1\cdots X_n\)</span>, définies sur le même espace, indépendantes, ayant même loi que <span class="math notranslate nohighlight">\(X\)</span>.</p>
-
+</div>
 </div><p>On a donc pour tout <span class="math notranslate nohighlight">\((x_1\cdots x_n)^T\in\mathbb{R}^n\)</span></p>
 <p><span class="math notranslate nohighlight">\(P(X_1&lt;x_1\cdots X_n&lt;x_n)=P(X_1&lt;x_1)\cdots P(X_n&lt;x_n)=P(X&lt;x_1)\cdots P(X&lt;x_n)\)</span></p>
 <p>On considère alors une expérience aléatoire <span class="math notranslate nohighlight">\(\mathcal E\)</span> décrite par l’intermédiaire de la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span>. Considérer un <span class="math notranslate nohighlight">\(n\)</span> échantillon de <span class="math notranslate nohighlight">\(X\)</span> consiste à supposer la possibilité de <span class="math notranslate nohighlight">\(n\)</span> répétitions de l’expérience <span class="math notranslate nohighlight">\(\mathcal E\)</span> dans des conditions identiques, sans interactions entre elles.</p>
 <p>Chaque répétition conduit à l’observation d’une valeur prise par <span class="math notranslate nohighlight">\(X\)</span>, d’où l’observation de <span class="math notranslate nohighlight">\(n\)</span> valeurs <span class="math notranslate nohighlight">\(x_1\cdots x_n\)</span> à la suite des <span class="math notranslate nohighlight">\(n\)</span> répétitions, considérées comme une valeur effectivement prise par le <span class="math notranslate nohighlight">\(n\)</span>-échantillon <span class="math notranslate nohighlight">\((X_1\cdots X_n)\)</span> de <span class="math notranslate nohighlight">\(X\)</span>. Les valeurs <span class="math notranslate nohighlight">\((x_1\cdots x_n)\)</span>  relèvent de l’observation : ce sont les données statistiques recueillies à la suite des <span class="math notranslate nohighlight">\(n\)</span> expériences : elles sont appelées réalisation du <span class="math notranslate nohighlight">\(n\)</span>-échantillon.</p>
 <p>A noter que les hypothèses de même loi et d’indépendance sont simplificatrices.</p>
-
-
-<h3 id="schema-de-bernoulli-et-modele-binomial">Schéma de Bernoulli et modèle binomial<a class="headerlink" href="#schema-de-bernoulli-et-modele-binomial" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="schema-de-bernoulli-et-modele-binomial">
+<h3>Schéma de Bernoulli et modèle binomial<a class="headerlink" href="#schema-de-bernoulli-et-modele-binomial" title="Permalink to this headline">#</a></h3>
 <p>Si <span class="math notranslate nohighlight">\(\mathcal E\)</span> n’a que deux éventualités possibles (réalisation ou non d’un évènement <span class="math notranslate nohighlight">\(A\)</span>), alors l’expérience peut être décrite par l’intermédiaire d’une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> (<span class="math notranslate nohighlight">\(\mathbb{1}_A\)</span>, fonction indicatrice de <span class="math notranslate nohighlight">\(A\)</span>), de Bernoulli <span class="math notranslate nohighlight">\(X:(\Omega,\mathcal A,P)\mapsto \{0,1\}\)</span> avec <span class="math notranslate nohighlight">\(P(X=1)=P(A)=p\in]0,1[\)</span>.</p>
 <p>Si <span class="math notranslate nohighlight">\(\mathcal E\)</span> est répétée <span class="math notranslate nohighlight">\(n\)</span> fois dans des conditions identiques, sans interaction entre elles, on considère un <span class="math notranslate nohighlight">\(n\)</span>-échantillon <span class="math notranslate nohighlight">\((X_1\cdots X_n)\)</span> de variable aléatoire parente <span class="math notranslate nohighlight">\(X\)</span>. Les valeurs prises par la variable aléatoire <span class="math notranslate nohighlight">\(S_n=X_1+\cdots X_n\)</span> représentent le nombre de réalisations de <span class="math notranslate nohighlight">\(A\)</span> à la suite des <span class="math notranslate nohighlight">\(n\)</span> répétitions. Une telle situation est dite relever du schéma de Bernoulli.</p>
 <div class="proof property admonition" id="property-1">
 <p class="admonition-title"><span class="caption-number">Property 4 </span></p>
-
+<div class="property-content section" id="proof-content">
 <p><span class="math notranslate nohighlight">\(S_n:(\Omega,\mathcal A,P)\mapsto [\![0,n]\!]\)</span> a une loi binomiale <span class="math notranslate nohighlight">\(\mathcal{B}(n,p)\)</span> :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\forall k\in[\![0,n]\!]\; P(S_n=k)=\begin{pmatrix}n\\k\end{pmatrix} p^k (1-p)^{n-k}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb{E}(S_n)=np,\; \mathbb{V}(S_n)=np(1-p)\)</span></p></li>
 </ul>
-
+</div>
 </div><p>En effet, d’après l’indépendance pour toute suite (<span class="math notranslate nohighlight">\(\delta_1\cdots \delta_n\)</span>) avec pour tout <span class="math notranslate nohighlight">\(k\in[\![1,n]\!]\)</span> <span class="math notranslate nohighlight">\(\delta_k\in\{0,1\}\)</span>, on a :</p>
 <p><span class="math notranslate nohighlight">\(P(X_1=\delta_1\cdots X_n=\delta_n) = \displaystyle\prod_{k=1}^n P(X_k=\delta_k) = \displaystyle\prod_{k=1}^n P(X=\delta_k)=p^{s_n}(1-p)^{(n-s_n)}\)</span></p>
 <p>avec <span class="math notranslate nohighlight">\(\delta_1+\cdots+ \delta_n=s_n\)</span> , les variables aléatoires ayant même loi de Bernoulli que <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <p>Le nombre de solutions de <span class="math notranslate nohighlight">\(\delta_1+\cdots+ \delta_n=s_n\)</span> avec <span class="math notranslate nohighlight">\(s_n\in[\![0,n]\!]\)</span> et <span class="math notranslate nohighlight">\(\delta_k\in\{0,1\}\)</span> est <span class="math notranslate nohighlight">\(\begin{pmatrix}s_n\\n\end{pmatrix}\)</span>, d’où le résultat.</p>
 <p>D’après la linéarité de l’espérance et l’égalité de Bienaymé, on a de plus
 <span class="math notranslate nohighlight">\(\mathbb{E}(S_n) = \displaystyle\sum_{k=1}^n \mathbb{E}(X_k)=n\mathbb{E}(X)=np\quad \mathbb{V}(S_n)=\displaystyle\sum_{k=1}^n \mathbb{V}(X_k)=n\mathbb{V}(X)=np(1-p)\)</span></p>
-
-
-<h3 id="moyenne-et-variances-empiriques-d-un-n-echantillon">Moyenne et variances empiriques d’un <span class="math notranslate nohighlight">\(n\)</span>-échantillon<a class="headerlink" href="#moyenne-et-variances-empiriques-d-un-n-echantillon" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="moyenne-et-variances-empiriques-d-un-n-echantillon">
+<h3>Moyenne et variances empiriques d’un <span class="math notranslate nohighlight">\(n\)</span>-échantillon<a class="headerlink" href="#moyenne-et-variances-empiriques-d-un-n-echantillon" title="Permalink to this headline">#</a></h3>
 <p>Etant donné un <span class="math notranslate nohighlight">\(n\)</span>-échantillon <span class="math notranslate nohighlight">\((X_1\cdots X_n)\)</span> d’une variable aléatoire parente <span class="math notranslate nohighlight">\(X\)</span>, on appelle :</p>
 <span class="target" id="index-0"></span><ul id="index-1">
 <li><p>moyenne empirique du <span class="math notranslate nohighlight">\(n\)</span>-échantillon la variable aléatoire</p></li>
@@ -384,13 +500,13 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Les valeurs prises par <span class="math notranslate nohighlight">\(\bar{X}_n\)</span> coïncident avec la moyenne expérimentale <span class="math notranslate nohighlight">\(\bar{x}_n\)</span> des données expérimentales <span class="math notranslate nohighlight">\((x_1\cdots x_n)\)</span>, réalisation du <span class="math notranslate nohighlight">\(n\)</span>-échantillon. De même pour <span class="math notranslate nohighlight">\(S_n^2\)</span> pour la variance expérimentale.</p>
 <div class="proof property admonition" id="property-2">
 <p class="admonition-title"><span class="caption-number">Property 5 </span></p>
-
+<div class="property-content section" id="proof-content">
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbb{E}(\bar{X}_n)= \mathbb{E}(X)=m\; ;\; \mathbb{V}(\bar{X}_n) = \frac{\mathbb{V}(X)}{n}=\frac{\sigma^2}{n}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb{E}(S_n^2) = \frac{n-1}{n}\sigma^2\; ;\;  \mathbb{E}({S'}_n^2)=\sigma^2\)</span></p></li>
 <li><p>Sous l’hypothèse de normalité, <span class="math notranslate nohighlight">\(\mathbb{V}({S'}_n^2)=\frac{2\sigma^4}{n-1}\)</span></p></li>
 </ol>
-
+</div>
 </div><p>En effet :</p>
 <ol class="simple">
 <li><p>Immédiat d’après la linéarité de l’espérance, l’égalité de Bienaymé et la propriété <span class="math notranslate nohighlight">\(\mathbb{V}(\alpha X)=\alpha^2\mathbb{V}(X)\)</span></p></li>
@@ -399,12 +515,12 @@ const thebe_selector_output = ".output, .cell_output"
 <p><span class="math notranslate nohighlight">\((n-1)\mathbb{E}({S'}_n^2)=\displaystyle\sum_{k=1}^n\mathbb{E}(X_k^2)-n\mathbb{E}(\bar{X_n^2})=n(\sigma^2+m^2)-n\left (\frac{\sigma^2}{n}+m^2 \right )\)</span>
 et le résultat.</p>
 <p>Le dernier point est admis.</p>
-
-
-<h3 id="echantillons-de-variables-aleatoires-normales">Echantillons de variables aléatoires normales<a class="headerlink" href="#echantillons-de-variables-aleatoires-normales" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="echantillons-de-variables-aleatoires-normales">
+<h3>Echantillons de variables aléatoires normales<a class="headerlink" href="#echantillons-de-variables-aleatoires-normales" title="Permalink to this headline">#</a></h3>
 <p>Les lois de probabilité usuelles sont rappelées en fin de ce chapitre ({ref}`loisusuelles).</p>
-
-<h4 id="etude-d-un-n-echantillon">Etude d’un <span class="math notranslate nohighlight">\(n\)</span>-échantillon<a class="headerlink" href="#etude-d-un-n-echantillon" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="etude-d-un-n-echantillon">
+<h4>Etude d’un <span class="math notranslate nohighlight">\(n\)</span>-échantillon<a class="headerlink" href="#etude-d-un-n-echantillon" title="Permalink to this headline">#</a></h4>
 <p>Soit un <span class="math notranslate nohighlight">\(n\)</span>-échantillon <span class="math notranslate nohighlight">\(X_1\cdots X_n\)</span> de variable aléatoire parente <span class="math notranslate nohighlight">\(X\)</span> de loi <span class="math notranslate nohighlight">\(\mathcal{N}(m,\sigma)\)</span>. On a les résultats suivants :</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(\sqrt{n} \frac{\bar{X}_n-m}{\sigma}\)</span> suit une loi <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span></p></li>
@@ -412,9 +528,9 @@ et le résultat.</p>
 <li><p>les variables aléatoires <span class="math notranslate nohighlight">\(\bar{X}_n\)</span> et <span class="math notranslate nohighlight">\(S_n^2\)</span> sont indépendantes</p></li>
 <li><p><span class="math notranslate nohighlight">\(T=\sqrt{n}\frac{\bar{X}_n-m}{S'_n}=\sqrt{n-1}\frac{\bar{X}_n-m}{S_n}\)</span> suit une loi de Student à <span class="math notranslate nohighlight">\(n-1\)</span> degrés de liberté.</p></li>
 </ol>
-
-
-<h4 id="etude-de-deux-echantillons-independants">Etude de deux échantillons indépendants<a class="headerlink" href="#etude-de-deux-echantillons-independants" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="etude-de-deux-echantillons-independants">
+<h4>Etude de deux échantillons indépendants<a class="headerlink" href="#etude-de-deux-echantillons-independants" title="Permalink to this headline">#</a></h4>
 <p>Soient un <span class="math notranslate nohighlight">\(n\)</span>-échantillon <span class="math notranslate nohighlight">\(X_1\cdots X_n\)</span> de <span class="math notranslate nohighlight">\(X\)</span> de loi <span class="math notranslate nohighlight">\(\mathcal{N}(m_1,\sigma_1)\)</span>, un <span class="math notranslate nohighlight">\(m\)</span>-échantillon <span class="math notranslate nohighlight">\(Y_1\cdots Y_m\)</span> de <span class="math notranslate nohighlight">\(Y\)</span> de loi <span class="math notranslate nohighlight">\(\mathcal{N}(m_2,\sigma_2)\)</span>, les échantillons étant indépendants. Avec des notations évidentes, on a les résultats suivants :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(F = \frac{\sigma_2^2 S'^2_n(X)}{\sigma_1^2 S'^2_m(Y)} = \frac{(m-1)n}{(n-1)m}\frac{\sigma_2^2S_n^2(X)}{\sigma_1^2S_m^2(Y)}\)</span> admet une loi de Fisher-Snédécor FS(<span class="math notranslate nohighlight">\(n-1\)</span>,<span class="math notranslate nohighlight">\(m-1\)</span>)</p></li>
@@ -422,26 +538,26 @@ et le résultat.</p>
 </ul>
 <div class="proof remark dropdown admonition" id="remark-3">
 <p class="admonition-title"><span class="caption-number">Remark 5 </span></p>
-
+<div class="remark-content section" id="proof-content">
 <p>Sous l’hypothèse <span class="math notranslate nohighlight">\(\sigma_1=\sigma_2=\sigma\)</span> :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\bar{X}_n-\bar{Y}_m\)</span> suit une loi <span class="math notranslate nohighlight">\(\mathcal{N}(m_1-m_2,\sigma\sqrt{\frac1n+\frac1m})\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\frac{nS_n^2(X)}{\sigma^2}+\frac{mS_m^2(Y)}{\sigma^2}\)</span> a une loi <span class="math notranslate nohighlight">\(\chi^2_{n-1+m-1}\)</span>.</p></li>
 </ul>
-
 </div>
-
-
-
-<h2 id="loi-des-grands-nombres">Loi des grands nombres<a class="headerlink" href="#loi-des-grands-nombres" title="Permalink to this headline">¶</a></h2>
-
-<h3 id="inegalite-de-tchebychev">Inégalité de Tchebychev<a class="headerlink" href="#inegalite-de-tchebychev" title="Permalink to this headline">¶</a></h3>
+</div></div>
+</div>
+</div>
+<div class="section" id="loi-des-grands-nombres">
+<h2>Loi des grands nombres<a class="headerlink" href="#loi-des-grands-nombres" title="Permalink to this headline">#</a></h2>
+<div class="section" id="inegalite-de-tchebychev">
+<h3>Inégalité de Tchebychev<a class="headerlink" href="#inegalite-de-tchebychev" title="Permalink to this headline">#</a></h3>
 <div class="proof theorem admonition" id="theorem-4">
 <p class="admonition-title"><span class="caption-number">Theorem 2 </span></p>
-
+<div class="theorem-content section" id="proof-content">
 <p>Soit une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> de moyenne <span class="math notranslate nohighlight">\(m\)</span> et d’écart-type <span class="math notranslate nohighlight">\(\sigma\)</span>. Alors :</p>
 <p><span class="math notranslate nohighlight">\((\forall t&gt;0)\; P(|X-m|\geq t)\leq \frac{\sigma^2}{t^2}\quad\textrm{et}\quad (\forall u&gt;0)\; P(\frac{|X-m|}{\sigma}\geq u)\leq \frac{1}{u^2}\)</span></p>
-
+</div>
 </div><p>En effet :
 Soit <span class="math notranslate nohighlight">\(A=\left \{|X-m|\geq t\right \}\)</span> et <span class="math notranslate nohighlight">\(\mathbb{1}_A(\omega)\)</span> = 1 si <span class="math notranslate nohighlight">\(\omega\in A\)</span>, 0 sinon. Alors :</p>
 <p><span class="math notranslate nohighlight">\((\forall \omega\in\Omega)\; |X(\omega)-m|^2\geq |X(\omega)-m|^2\mathbb{1}_A(\omega) \geq t^2\mathbb{1}_A(\omega)\)</span></p>
@@ -449,12 +565,12 @@ Soit <span class="math notranslate nohighlight">\(A=\left \{|X-m|\geq t\right \}
 <span class="math notranslate nohighlight">\(\sigma^2=\mathbb{E}(|X-m|^2)\geq t^2P(A) = t^2P(|X-m|\geq t)\)</span> et le résultat.</p>
 <div class="proof remark dropdown admonition" id="remark-5">
 <p class="admonition-title"><span class="caption-number">Remark 6 </span></p>
-
+<div class="remark-content section" id="proof-content">
 <p>Ces inégalités, souvent très grossières et d’intéret essentiellement théorique, n’ont d’utilité que pour <span class="math notranslate nohighlight">\(t&gt;\sigma\)</span> ou <span class="math notranslate nohighlight">\(u&gt;1\)</span> (une probabilité est toujours inférieure à 1). La seconde donne un majorant de la probabilité d’observer des valeurs prises par <span class="math notranslate nohighlight">\(X\)</span> à l’extérieur de l’intervalle <span class="math notranslate nohighlight">\([m-u\sigma,m+u\sigma]\)</span></p>
-
 </div>
-
-<h3 id="phenomene-de-regularite-statistique">Phénomène de régularité statistique<a class="headerlink" href="#phenomene-de-regularite-statistique" title="Permalink to this headline">¶</a></h3>
+</div></div>
+<div class="section" id="phenomene-de-regularite-statistique">
+<h3>Phénomène de régularité statistique<a class="headerlink" href="#phenomene-de-regularite-statistique" title="Permalink to this headline">#</a></h3>
 <p>Considérons plusieurs séquences de 100 lancers d’une pièce de monnaie et notons, pour chaque séquence, la suite <span class="math notranslate nohighlight">\((f_n)_{n\geq 1}\)</span> des fréquences des piles obtenus. Un exemple de simulation avec <span class="math notranslate nohighlight">\(p=0.4\)</span> est proposé dans la figure suivante avec le code ayant servi à la produire.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -483,16 +599,16 @@ Soit <span class="math notranslate nohighlight">\(A=\left \{|X-m|\geq t\right \}
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb_sequences</span><span class="p">):</span>
     <span class="n">f</span> <span class="o">=</span> <span class="n">experience</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'$n$'</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'$f_n$'</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'k'</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">'--'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$n$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$f_n$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/elemstats_1_0.png" src="_images/elemstats_1_0.png"/>
+<img alt="_images/elemstats_1_0.png" src="_images/elemstats_1_0.png" />
 </div>
 </div>
 <p>La fluctuation de la fréquence est importante pour des petites valeurs de <span class="math notranslate nohighlight">\(n\)</span>, puis elle s’atténue, pour se stabiliser autour d’une valeur voisine de <span class="math notranslate nohighlight">\(p\)</span>.</p>
@@ -501,74 +617,74 @@ Soit <span class="math notranslate nohighlight">\(A=\left \{|X-m|\geq t\right \}
 <li><p><span class="math notranslate nohighlight">\(f_n\)</span> donne une idée de la valeur de <span class="math notranslate nohighlight">\(p\)</span> avec une plus ou moins grande précision</p></li>
 <li><p>la probabilité apparaît comme une fréquence limite.</p></li>
 </ul>
-
-
-<h3 id="loi-faible-des-grands-nombres">Loi faible des grands nombres<a class="headerlink" href="#loi-faible-des-grands-nombres" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="loi-faible-des-grands-nombres">
+<h3>Loi faible des grands nombres<a class="headerlink" href="#loi-faible-des-grands-nombres" title="Permalink to this headline">#</a></h3>
 <div class="proof theorem admonition" id="theorem-6">
 <p class="admonition-title"><span class="caption-number">Theorem 3 </span></p>
-
+<div class="theorem-content section" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\((X_n)_{n\geq 1}\)</span> une suite de variables aléatoires indépendantes, identiquement distribuées (i.i.d) de même loi qu’une variable <span class="math notranslate nohighlight">\(X\)</span>, admettant une moyenne <span class="math notranslate nohighlight">\(m\)</span> et un écart-type <span class="math notranslate nohighlight">\(\sigma\)</span>. Si <span class="math notranslate nohighlight">\((\bar{X}_n)_{n\geq 1}\)</span> est la suite des moyennes empiriques associée à <span class="math notranslate nohighlight">\((X_n)_{n\geq 1}\)</span> alors</p>
 <p><span class="math notranslate nohighlight">\((\forall t&gt;0)\; \displaystyle\lim_{n\rightarrow\infty} P(|\bar{X}_n-m|\geq t) = 0\)</span></p>
 <p>On dit que la suite converge en probatilité vers <span class="math notranslate nohighlight">\(m\)</span> et on note <span class="math notranslate nohighlight">\(\bar{X}_n\xrightarrow[n\rightarrow\infty]{P} m\)</span></p>
-
+</div>
 </div><p>C’est une conséquence immédiate de l’inégalité de Tchebychev : <span class="math notranslate nohighlight">\(P(|\bar{X}_n-m|\geq t)\leq\frac{\sigma^2}{nt^2}\)</span> puisque <span class="math notranslate nohighlight">\(\mathbb{V}(\bar{X}_n)=\frac{\sigma^2}{n}\)</span></p>
 <p>L’observation des valeurs prises par la moyenne empirique donne une bonne information sur la moyenne théorique <span class="math notranslate nohighlight">\(m\)</span> de <span class="math notranslate nohighlight">\(X\)</span>. La précision, au sens ci-dessus, est d’autant meilleure que <span class="math notranslate nohighlight">\(n\)</span> est grand.</p>
-
-
-<h3 id="loi-forte-des-grands-nombres">Loi forte des grands nombres<a class="headerlink" href="#loi-forte-des-grands-nombres" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="loi-forte-des-grands-nombres">
+<h3>Loi forte des grands nombres<a class="headerlink" href="#loi-forte-des-grands-nombres" title="Permalink to this headline">#</a></h3>
 <p>avec les hypothèses précédentes, on peut montrer que</p>
 <p><span class="math notranslate nohighlight">\(P(\{\omega\in\Omega, \displaystyle\lim_{n\rightarrow\infty} \bar{X}_n(\omega)=m\})=1\)</span></p>
 <p>Sauf cas très improbable (avec probabilité nulle), la suite des réalisations <span class="math notranslate nohighlight">\((\bar{x}_n)_{n\geq 1}\)</span> des moyennes expérimentales des mesures converge vers la moyenne théorique <span class="math notranslate nohighlight">\(m\)</span>. On dit que la suite <span class="math notranslate nohighlight">\((\bar{X}_n)_{n\geq 1}\)</span> converge presque sûrement vers <span class="math notranslate nohighlight">\(m\)</span> et on note <span class="math notranslate nohighlight">\(\bar{X}_n\xrightarrow[n\rightarrow\infty]{p.s.} m\)</span>.</p>
 <div class="proof remark dropdown admonition" id="remark-7">
 <p class="admonition-title"><span class="caption-number">Remark 7 </span></p>
-
+<div class="remark-content section" id="proof-content">
 <p>Si <span class="math notranslate nohighlight">\(X=\mathbb{1}_A\)</span> alors <span class="math notranslate nohighlight">\(m=p=P(A)\)</span> et la probabilité de l’évènement <span class="math notranslate nohighlight">\(A\)</span> apparaît comme une fréquence limite.</p>
-
 </div>
-
-
-<h2 id="approximation-de-mathcal-b-n-p-par-la-loi-de-poisson-mathcal-p-lambda">Approximation de <span class="math notranslate nohighlight">\(\mathcal{B}(n,p)\)</span> par la loi de Poisson <span class="math notranslate nohighlight">\(\mathcal P(\lambda)\)</span><a class="headerlink" href="#approximation-de-mathcal-b-n-p-par-la-loi-de-poisson-mathcal-p-lambda" title="Permalink to this headline">¶</a></h2>
-
-<h3 id="theoreme-d-analyse">Théorème d’analyse<a class="headerlink" href="#theoreme-d-analyse" title="Permalink to this headline">¶</a></h3>
+</div></div>
+</div>
+<div class="section" id="approximation-de-mathcal-b-n-p-par-la-loi-de-poisson-mathcal-p-lambda">
+<h2>Approximation de <span class="math notranslate nohighlight">\(\mathcal{B}(n,p)\)</span> par la loi de Poisson <span class="math notranslate nohighlight">\(\mathcal P(\lambda)\)</span><a class="headerlink" href="#approximation-de-mathcal-b-n-p-par-la-loi-de-poisson-mathcal-p-lambda" title="Permalink to this headline">#</a></h2>
+<div class="section" id="theoreme-d-analyse">
+<h3>Théorème d’analyse<a class="headerlink" href="#theoreme-d-analyse" title="Permalink to this headline">#</a></h3>
 <div class="proof theorem admonition" id="theorem-8">
 <p class="admonition-title"><span class="caption-number">Theorem 4 </span></p>
-
+<div class="theorem-content section" id="proof-content">
 <p>Si <span class="math notranslate nohighlight">\(p\)</span> est une fonction de <span class="math notranslate nohighlight">\(n\)</span> telle que <span class="math notranslate nohighlight">\(\displaystyle\lim_{n\rightarrow\infty}np(n)=\lambda&gt;0\)</span>, alors pour tout <span class="math notranslate nohighlight">\(k\geq 0\)</span></p>
 <p><span class="math notranslate nohighlight">\(\displaystyle\lim_{n\rightarrow\infty}\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k} = e^{-\lambda}\frac{\lambda^k}{k!}\)</span></p>
-
+</div>
 </div><p>En effet</p>
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k}=\frac{n(n-1)\cdots (n-k+1)}{k!}p^k(1-p)^{n-k}\)</span></p>
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k}=\frac{(np)^k}{k!}\displaystyle\prod_{j=0}^k\left (1-\frac{j}{n}\right )(1-p)^{n-k}\)</span></p>
 <p>et le résultat est démontré en remarquant que <span class="math notranslate nohighlight">\(\displaystyle\lim_{n\rightarrow\infty} p(n)=0\)</span>.</p>
-
-
-<h3 id="application">Application<a class="headerlink" href="#application" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="application">
+<h3>Application<a class="headerlink" href="#application" title="Permalink to this headline">#</a></h3>
 <p>Soit <span class="math notranslate nohighlight">\(S_n\)</span> une variable aléatoire de loi <span class="math notranslate nohighlight">\(\mathcal{B}(n,p)\)</span>. Lorsque <span class="math notranslate nohighlight">\(n\)</span> est grand (&gt;50) et <span class="math notranslate nohighlight">\(p\)</span> petite (<span class="math notranslate nohighlight">\(np\)</span>&lt;10), on peut approcher la loi de <span class="math notranslate nohighlight">\(S_n\)</span> par une loi de Poisson <span class="math notranslate nohighlight">\(\mathcal P(np)\)</span>. On lit alors la valeur correspondante dans la table de la loi de Poisson, pour tout <span class="math notranslate nohighlight">\(k\in[\![0,n]\!]\)</span>
 <span class="math notranslate nohighlight">\(P(S_n=k)\approx e^{-\lambda}\frac{\lambda^k}{k!}\)</span></p>
 <p>De plus, en remarquant que <span class="math notranslate nohighlight">\(\Sigma_n=n-S_n\)</span> suit <span class="math notranslate nohighlight">\(\mathcal{B}(n,1-p)\)</span>, on a</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}P(\Sigma_n=k)=P(S_n=n-k)=\begin{pmatrix}n\\p\end{pmatrix} p^{n-k}(1-p)^{k} \end{split}\]</div>
 <p>et quand <span class="math notranslate nohighlight">\(n\)</span> est grand (&gt;50) et <span class="math notranslate nohighlight">\(p\)</span> voisin de 1 (<span class="math notranslate nohighlight">\(n(1-p)&lt;10\)</span>) on peut approcher la loi de <span class="math notranslate nohighlight">\(\Sigma_n\)</span> par une loi de Poisson <span class="math notranslate nohighlight">\(\mathcal P(n(1-p))\)</span>.</p>
-
-
-
-<h2 id="theoreme-central-limite">Théorème central limite<a class="headerlink" href="#theoreme-central-limite" title="Permalink to this headline">¶</a></h2>
-
-<h3 id="le-t-c-l">Le T.C.L.<a class="headerlink" href="#le-t-c-l" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="theoreme-central-limite">
+<h2>Théorème central limite<a class="headerlink" href="#theoreme-central-limite" title="Permalink to this headline">#</a></h2>
+<div class="section" id="le-t-c-l">
+<h3>Le T.C.L.<a class="headerlink" href="#le-t-c-l" title="Permalink to this headline">#</a></h3>
 <div class="proof theorem admonition" id="theorem-9">
 <p class="admonition-title"><span class="caption-number">Theorem 5 </span></p>
-
+<div class="theorem-content section" id="proof-content">
 <p>Soit une suite <span class="math notranslate nohighlight">\((X_n)_{n\geq 1}\)</span> de variables aléatoires, i.i.d. de même loi qu’une variable parente <span class="math notranslate nohighlight">\(X\)</span>, définies sur le même espace <span class="math notranslate nohighlight">\((\Omega,\mathcal A,P)\)</span>. On considère la suite des moyennes empiriques <span class="math notranslate nohighlight">\((X_n)_{n\geq 1}\)</span> des <span class="math notranslate nohighlight">\(n\)</span>-échantillons <span class="math notranslate nohighlight">\((X_1\cdots X_n)\)</span>.</p>
 <p>Si <span class="math notranslate nohighlight">\(X\)</span> admet une moyenne <span class="math notranslate nohighlight">\(m\)</span> et un écart-type <span class="math notranslate nohighlight">\(\sigma\)</span>, alors</p>
 <p><span class="math notranslate nohighlight">\((\forall x\in\mathbb{R})\; \displaystyle\lim_{n\rightarrow\infty}P\left (\sqrt{n}\frac{\bar X_n-m}{\sigma} &lt;x\right) = \phi(x)\)</span>
 où <span class="math notranslate nohighlight">\( \phi(x)\)</span> est la fonction de répartition de la loi normale centrée réduite <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span>.</p>
 <p>On dit que <span class="math notranslate nohighlight">\(\left (\sqrt{n}\frac{\bar X_n-m}{\sigma}\right )_{n\geq 1}\)</span> converge en loi vers <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span>.</p>
-
+</div>
 </div><p>La figure suivante illustre ce modèle dans le cas où la variable aléatoire parente <span class="math notranslate nohighlight">\(X\)</span> suit un schéma de Bernoulli avec <span class="math notranslate nohighlight">\(P(X = 1)=0.1, P(X=0)=0.9\)</span>.</p>
-<p><img alt="" src="_images/tcl.png"/></p>
-
-
-<h3 id="commentaires">Commentaires<a class="headerlink" href="#commentaires" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="_images/tcl.png" /></p>
+</div>
+<div class="section" id="commentaires">
+<h3>Commentaires<a class="headerlink" href="#commentaires" title="Permalink to this headline">#</a></h3>
 <p>Pour mesurer une grandeur de valeur inconnue <span class="math notranslate nohighlight">\(m\)</span>, il suffit d’une seule mesure lorsqu’il n’y a pas d’erreur expérimentale. Mais les mesures sont toujours entâchées d’erreur et une expérience ou mesure peut être modélisée par une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> dnot la moyenne théorique <span class="math notranslate nohighlight">\(\mathbb{E}(X)\)</span> est la valeur cherchée <span class="math notranslate nohighlight">\(m\)</span> si les mesures ne sont pas biaisées, c’est-à-dire affectées d’une erreur systématique.</p>
 <p>Ayant effectué <span class="math notranslate nohighlight">\(n\)</span> mesures, on a une réalisation d’un <span class="math notranslate nohighlight">\(n\)</span>-échantillon de <span class="math notranslate nohighlight">\(X\)</span> et une valeur observée <span class="math notranslate nohighlight">\(\bar x_n\)</span> de la moyenne empirique <span class="math notranslate nohighlight">\(\bar X_n\)</span>. On peut prendre cette valeur comme estimation de <span class="math notranslate nohighlight">\(m\)</span>, l’écart <span class="math notranslate nohighlight">\(|\bar x_n-m|\)</span> étant une réalisation de <span class="math notranslate nohighlight">\(|\bar X_n-m|\)</span>.</p>
 <ul class="simple">
@@ -578,25 +694,25 @@ où <span class="math notranslate nohighlight">\( \phi(x)\)</span> est la foncti
 </ul>
 <p>Dans la pratique, pour <span class="math notranslate nohighlight">\(n\)</span> grand, dans le cadre de ce théorème, on a l’approximation suivante :</p>
 <p><span class="math notranslate nohighlight">\((\forall a&lt;b)\;\;\;\; P\left (a\sqrt{n}\frac{\bar X_n-m}{\sigma} &lt;b\right)\approx \phi(b)-\phi(a)\)</span></p>
-
-
-<h3 id="cas-particulier-theoreme-de-moivre-laplace">Cas particulier : théorème de Moivre-Laplace<a class="headerlink" href="#cas-particulier-theoreme-de-moivre-laplace" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="cas-particulier-theoreme-de-moivre-laplace">
+<h3>Cas particulier : théorème de Moivre-Laplace<a class="headerlink" href="#cas-particulier-theoreme-de-moivre-laplace" title="Permalink to this headline">#</a></h3>
 <div class="proof theorem admonition" id="theorem-10">
 <p class="admonition-title"><span class="caption-number">Theorem 6 </span></p>
-
+<div class="theorem-content section" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\(X=\mathbb{1}_A\)</span>  une variable aléatoire de Bernoulli avec <span class="math notranslate nohighlight">\(P(A)=p\)</span>. Dans les conditions du théorème central limite la variable <span class="math notranslate nohighlight">\(S_n=\displaystyle\sum_{k=1}^n X_k=n\bar X_n\)</span> suit une loi binomiale <span class="math notranslate nohighlight">\(\mathcal{B}(n,p)\)</span> et</p>
 <p><span class="math notranslate nohighlight">\( (\forall x\in\mathbb{R})\; \displaystyle\lim_{n\rightarrow\infty}P\left (\frac{S_n-np}{\sqrt{np(1-p)}} &lt;x\right) = \phi(x)\)</span></p>
-
+</div>
 </div><p>On peut donc approcher une loi binomiale par une loi normale.</p>
-
-
-
-<span id="loisusuelles"></span><h2 id="modeles-probabilistes-usuels">Modèles probabilistes usuels<a class="headerlink" href="#modeles-probabilistes-usuels" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="modeles-probabilistes-usuels">
+<span id="loisusuelles"></span><h2>Modèles probabilistes usuels<a class="headerlink" href="#modeles-probabilistes-usuels" title="Permalink to this headline">#</a></h2>
 <p>On donne ici un catalogue non exhaustif des principaux modèles probabilistes, et leurs principales propriétés. Une illustration graphique des lois correspondantes est proposée dans les figures suivantes.</p>
-
-<h3 id="lois-discretes">Lois discrètes<a class="headerlink" href="#lois-discretes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="lois-discretes">
+<h3>Lois discrètes<a class="headerlink" href="#lois-discretes" title="Permalink to this headline">#</a></h3>
 <p>On considère une variable aléatoire <span class="math notranslate nohighlight">\(X:(\Omega,\mathcal A,P)\mapsto \mathcal D\)</span></p>
-<table>
+<table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Modèle</p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(\boldsymbol{\mathcal D}\)</span></p></th>
@@ -644,16 +760,16 @@ où <span class="math notranslate nohighlight">\( \phi(x)\)</span> est la foncti
 </tr>
 </tbody>
 </table>
-<p><img alt="" src="_images/discretes.png"/></p>
-
-<h4 id="modele-de-bernoulli">Modèle de Bernoulli<a class="headerlink" href="#modele-de-bernoulli" title="Permalink to this headline">¶</a></h4>
+<p><img alt="" src="_images/discretes.png" /></p>
+<div class="section" id="modele-de-bernoulli">
+<h4>Modèle de Bernoulli<a class="headerlink" href="#modele-de-bernoulli" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">bernoulli</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#nombre de répétitions de l'expérience</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#nombre de répétitions de l&#39;expérience</span>
 <span class="n">p</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="c1"># probabilité de succès</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Moyenne : "</span><span class="p">,</span> <span class="n">bernoulli</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Variance: "</span><span class="p">,</span> <span class="n">bernoulli</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Moyenne : &quot;</span><span class="p">,</span> <span class="n">bernoulli</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance: &quot;</span><span class="p">,</span> <span class="n">bernoulli</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -664,9 +780,9 @@ Variance:  0.21
 </div>
 </div>
 </div>
-
-
-<h4 id="loi-binomiale">Loi binomiale<a class="headerlink" href="#loi-binomiale" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="loi-binomiale">
+<h4>Loi binomiale<a class="headerlink" href="#loi-binomiale" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span>
@@ -675,10 +791,10 @@ Variance:  0.21
 <span class="n">x</span> <span class="o">=</span> <span class="mi">7</span> 
 <span class="n">p</span> <span class="o">=</span> <span class="mf">0.2</span> 
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Moyenne : "</span><span class="p">,</span> <span class="n">binom</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Variance: "</span><span class="p">,</span> <span class="n">binom</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Densité de probabilité : "</span><span class="p">,</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Fonction de répartition : "</span><span class="p">,</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Moyenne : &quot;</span><span class="p">,</span> <span class="n">binom</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance: &quot;</span><span class="p">,</span> <span class="n">binom</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Densité de probabilité : &quot;</span><span class="p">,</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fonction de répartition : &quot;</span><span class="p">,</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -691,9 +807,9 @@ Fonction de répartition :  0.9999220736
 </div>
 </div>
 </div>
-
-
-<h4 id="loi-hypergeometrique">Loi hypergéométrique<a class="headerlink" href="#loi-hypergeometrique" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="loi-hypergeometrique">
+<h4>Loi hypergéométrique<a class="headerlink" href="#loi-hypergeometrique" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">hypergeom</span>
@@ -703,10 +819,10 @@ Fonction de répartition :  0.9999220736
 <span class="n">m</span> <span class="o">=</span> <span class="mi">9</span> 
 <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span> 
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Moyenne : "</span><span class="p">,</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Variance: "</span><span class="p">,</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Densité de probabilité : "</span><span class="p">,</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Fonction de répartition : "</span><span class="p">,</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Moyenne : &quot;</span><span class="p">,</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance: &quot;</span><span class="p">,</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Densité de probabilité : &quot;</span><span class="p">,</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fonction de répartition : &quot;</span><span class="p">,</span> <span class="n">hypergeom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -719,9 +835,9 @@ Fonction de répartition :  0.28671328671328666
 </div>
 </div>
 </div>
-
-
-<h4 id="distribution-de-poisson">Distribution de Poisson<a class="headerlink" href="#distribution-de-poisson" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="distribution-de-poisson">
+<h4>Distribution de Poisson<a class="headerlink" href="#distribution-de-poisson" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">poisson</span>
@@ -729,10 +845,10 @@ Fonction de répartition :  0.28671328671328666
 <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> 
 <span class="n">Lambda</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="mi">3</span> 
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Moyenne : "</span><span class="p">,</span> <span class="n">poisson</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Lambda</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Variance: "</span><span class="p">,</span> <span class="n">poisson</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">Lambda</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Densité de probabilité : "</span><span class="p">,</span> <span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Lambda</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Fonction de répartition : "</span><span class="p">,</span> <span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Lambda</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Moyenne : &quot;</span><span class="p">,</span> <span class="n">poisson</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Lambda</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance: &quot;</span><span class="p">,</span> <span class="n">poisson</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">Lambda</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Densité de probabilité : &quot;</span><span class="p">,</span> <span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Lambda</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fonction de répartition : &quot;</span><span class="p">,</span> <span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Lambda</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -745,11 +861,11 @@ Fonction de répartition :  0.8556951983876534
 </div>
 </div>
 </div>
-
-
-
-<h3 id="lois-absolument-continues">Lois absolument continues<a class="headerlink" href="#lois-absolument-continues" title="Permalink to this headline">¶</a></h3>
-<table>
+</div>
+</div>
+<div class="section" id="lois-absolument-continues">
+<h3>Lois absolument continues<a class="headerlink" href="#lois-absolument-continues" title="Permalink to this headline">#</a></h3>
+<table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Modèle</p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(\boldsymbol{\mathcal D}\)</span></p></th>
@@ -818,21 +934,21 @@ Fonction de répartition :  0.8556951983876534
 </tr>
 </tbody>
 </table>
-<p><img alt="" src="_images/continues.png"/></p>
-
-<h4 id="modele-uniforme">Modèle uniforme<a class="headerlink" href="#modele-uniforme" title="Permalink to this headline">¶</a></h4>
+<p><img alt="" src="_images/continues.png" /></p>
+<div class="section" id="modele-uniforme">
+<h4>Modèle uniforme<a class="headerlink" href="#modele-uniforme" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">uniform</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mf">2.5</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> 
 <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span> 
-<span class="n">mean</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">uniform</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">moments</span><span class="o">=</span><span class="s1">'mv'</span><span class="p">,</span><span class="n">loc</span><span class="o">=</span><span class="n">a</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mean</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">uniform</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mv&#39;</span><span class="p">,</span><span class="n">loc</span><span class="o">=</span><span class="n">a</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Espérance: "</span><span class="p">,</span> <span class="n">mean</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Variance: "</span><span class="p">,</span> <span class="n">var</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Densité de probabilité : "</span><span class="p">,</span> <span class="n">uniform</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Fonction de répartition : "</span><span class="p">,</span> <span class="n">uniform</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Espérance: &quot;</span><span class="p">,</span> <span class="n">mean</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance: &quot;</span><span class="p">,</span> <span class="n">var</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Densité de probabilité : &quot;</span><span class="p">,</span> <span class="n">uniform</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fonction de répartition : &quot;</span><span class="p">,</span> <span class="n">uniform</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -845,9 +961,9 @@ Fonction de répartition :  0.375
 </div>
 </div>
 </div>
-
-
-<h4 id="loi-normale">Loi normale<a class="headerlink" href="#loi-normale" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="loi-normale">
+<h4>Loi normale<a class="headerlink" href="#loi-normale" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
@@ -856,12 +972,12 @@ Fonction de répartition :  0.375
 <span class="n">m</span> <span class="o">=</span> <span class="mi">0</span> 
 <span class="n">sigma</span> <span class="o">=</span> <span class="mi">1</span> 
 
-<span class="n">mean</span><span class="p">,</span><span class="n">var</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="n">m</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">moments</span><span class="o">=</span><span class="s1">'mv'</span><span class="p">)</span>
+<span class="n">mean</span><span class="p">,</span><span class="n">var</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="n">m</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mv&#39;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Moyenne : "</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Variance : "</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Densité de probabilité : "</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">m</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Fonction de répartition : "</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">m</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Moyenne : &quot;</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance : &quot;</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Densité de probabilité : &quot;</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">m</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fonction de répartition : &quot;</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">m</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -877,37 +993,37 @@ Fonction de répartition :  0.9031995154143897
 <p>Sous l’hypothèse de normalité, de nombreux outils statistiques sont disponibles. Souvent, l’hypothèse de normalité est justifiée par l’intermédiaire du théorème centrale limite. Des considérations, parfois abusives, permettent de se placer dans le cadre d’utilisation de ce théorème et de choisir un modèle normal alors qu’une étude des données statistiques met en défaut le choix de ce modèle (problème dit d’adéquation).</p>
 <div class="proof property admonition" id="property-11">
 <p class="admonition-title"><span class="caption-number">Property 6 </span></p>
-
+<div class="property-content section" id="proof-content">
 <p>Si <span class="math notranslate nohighlight">\(X\)</span> est une variable aléatoire de loi <span class="math notranslate nohighlight">\(\mathcal{N}(m,\sigma)\)</span> alors la variable <span class="math notranslate nohighlight">\(Z=\frac{X-m}{\sigma}\)</span> est la variable centrée réduite associée, et suit une loi <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span> dite aussi loi de Gauss-Laplace.</p>
-
+</div>
 </div><p>La fonction de répartition de <span class="math notranslate nohighlight">\(Z\)</span> est <span class="math notranslate nohighlight">\(\phi(Z) = P(Z&lt;z) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^z e^{-\frac{t^2}{2}}dt\)</span>, dont les valeurs peuvent être lues dans une table.</p>
 <div class="proof theorem admonition" id="theorem-12">
 <p class="admonition-title"><span class="caption-number">Theorem 7 </span></p>
-
+<div class="theorem-content section" id="proof-content">
 <p>Soient <span class="math notranslate nohighlight">\(X_1\)</span> et <span class="math notranslate nohighlight">\(X_2\)</span> deux variables aléatoires indépendantes, de loi respective <span class="math notranslate nohighlight">\(\mathcal{N}(m_1,\sigma_1)\)</span> et <span class="math notranslate nohighlight">\(\mathcal{N}(m_2,\sigma_2)\)</span>. Alors la variable aléatoire <span class="math notranslate nohighlight">\(X=\alpha_1X_1+\alpha_2X_2\)</span> admet une loi <span class="math notranslate nohighlight">\(\mathcal{N}(m,\sigma)\)</span> avec</p>
 <p><span class="math notranslate nohighlight">\(m = \alpha_1 m_1+\alpha_2 m_2\quad \textrm{et}\quad \sigma_2^2 = \alpha_1^2 \sigma_1+\alpha_2^2 \sigma_2^2\)</span></p>
 <p>En particulier, étant données <span class="math notranslate nohighlight">\(n\)</span> variables aléatoires <span class="math notranslate nohighlight">\(X_1\cdots X_n\)</span> i.i.d. de loi <span class="math notranslate nohighlight">\(\mathcal{N}(m,\sigma)\)</span>, alors la variable aléatoire <span class="math notranslate nohighlight">\(\bar X_n = \frac1n \displaystyle\sum_{k=1}^nX_k\)</span> suit une loi normale <span class="math notranslate nohighlight">\(\mathcal{N}(m,\sigma/\sqrt{n})\)</span>.</p>
-
+</div>
 </div><div class="proof remark admonition" id="remark-13">
 <p class="admonition-title"><span class="caption-number">Remark 8 </span></p>
-
+<div class="remark-content section" id="proof-content">
 <p>Dans ce cas, <span class="math notranslate nohighlight">\(\sqrt{n}\frac{\bar X_n-m}{\sigma}\)</span> suit une loi <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span>.</p>
-
 </div>
-
-<h4 id="loi-exponentielle">Loi exponentielle<a class="headerlink" href="#loi-exponentielle" title="Permalink to this headline">¶</a></h4>
+</div></div>
+<div class="section" id="loi-exponentielle">
+<h4>Loi exponentielle<a class="headerlink" href="#loi-exponentielle" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">expon</span>
 
 <span class="n">Lambda</span> <span class="o">=</span> <span class="mf">0.5</span> 
 <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> 
-<span class="n">mean</span><span class="p">,</span><span class="n">var</span> <span class="o">=</span> <span class="n">expon</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">Lambda</span><span class="p">,</span> <span class="n">moments</span><span class="o">=</span><span class="s1">'mv'</span><span class="p">)</span>
+<span class="n">mean</span><span class="p">,</span><span class="n">var</span> <span class="o">=</span> <span class="n">expon</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">Lambda</span><span class="p">,</span> <span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mv&#39;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Espérance : "</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Variance : "</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Densité de probabilité : "</span><span class="p">,</span> <span class="n">expon</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Fonction de répartition : "</span><span class="p">,</span> <span class="n">expon</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Espérance : &quot;</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance : &quot;</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Densité de probabilité : &quot;</span><span class="p">,</span> <span class="n">expon</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fonction de répartition : &quot;</span><span class="p">,</span> <span class="n">expon</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -922,9 +1038,9 @@ Fonction de répartition :  0.8646647167633873
 </div>
 <p>On parle de loi de probabilité sans mémoire car elle vérifie :
 <span class="math notranslate nohighlight">\( (\forall s,t\in(\mathbb{R}^+)^*\; P(X&gt;s+t |X&gt;t) = P(X&gt;s)\)</span></p>
-
-
-<h4 id="distribution-gamma">Distribution Gamma<a class="headerlink" href="#distribution-gamma" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="distribution-gamma">
+<h4>Distribution Gamma<a class="headerlink" href="#distribution-gamma" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">gamma</span>
@@ -933,11 +1049,11 @@ Fonction de répartition :  0.8646647167633873
 <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span> 
 <span class="n">Lambda</span> <span class="o">=</span> <span class="mf">1.8</span> 
 
-<span class="n">mean</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">gamma</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">a</span><span class="p">,</span>  <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">Lambda</span><span class="p">,</span> <span class="n">moments</span><span class="o">=</span><span class="s1">'mv'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Moyenne : "</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Variance : "</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Densité de probabilité : "</span><span class="p">,</span> <span class="n">gamma</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span>  <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">Lambda</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Fonction de répartition : "</span><span class="p">,</span> <span class="n">gamma</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">Lambda</span><span class="p">))</span>
+<span class="n">mean</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">gamma</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">a</span><span class="p">,</span>  <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">Lambda</span><span class="p">,</span> <span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mv&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Moyenne : &quot;</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance : &quot;</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Densité de probabilité : &quot;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span>  <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">Lambda</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fonction de répartition : &quot;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">Lambda</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -953,28 +1069,28 @@ Fonction de répartition :  0.9052421318239862
 <p>Les propriétés de cette loi reposent sur celles de la fonction <span class="math notranslate nohighlight">\(\Gamma(a) = \int_0^{+\infty} x-{a-1}e^{-x}dx\)</span>, intégrale convergente pour tout <span class="math notranslate nohighlight">\(a&gt;0\)</span>.</p>
 <div class="proof theorem admonition" id="theorem-14">
 <p class="admonition-title"><span class="caption-number">Theorem 8 </span></p>
-
+<div class="theorem-content section" id="proof-content">
 <p>Si <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> sont des variables aléatoires indépendantes de loi respective <span class="math notranslate nohighlight">\(\gamma(a,\lambda)\)</span> et <span class="math notranslate nohighlight">\(\gamma(b,\lambda)\)</span>, alors <span class="math notranslate nohighlight">\(X=X_1+X_2\)</span> est de loi <span class="math notranslate nohighlight">\(\gamma(a+b,\lambda)\)</span></p>
-
+</div>
 </div><div class="proof theorem admonition" id="theorem-15">
 <p class="admonition-title"><span class="caption-number">Theorem 9 </span></p>
-
+<div class="theorem-content section" id="proof-content">
 <p>Si <span class="math notranslate nohighlight">\(X\)</span> est de loi <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span> alors la variable aléatoire <span class="math notranslate nohighlight">\(Y=X^2\)</span> admet une loi <span class="math notranslate nohighlight">\(\gamma(\frac12,\frac12)\)</span>.</p>
 <p>Etant données plus généralement <span class="math notranslate nohighlight">\(n\)</span> variables aléatoires i.i.d. de loi <span class="math notranslate nohighlight">\(\mathcal{N}(m,\sigma)\)</span>, alors  la variable aléatoire <span class="math notranslate nohighlight">\(V=\displaystyle\sum_{k=1}^n \left (\frac{X_k-m}{\sigma}\right )^2\)</span> admet une loi <span class="math notranslate nohighlight">\(\gamma(\frac{n}{2},\frac12)\)</span>. C’est la loi du khi-deux à <span class="math notranslate nohighlight">\(n\)</span> degrés de liberté.</p>
-
 </div>
-
-<h4 id="loi-du-khi-deux">Loi du Khi-deux<a class="headerlink" href="#loi-du-khi-deux" title="Permalink to this headline">¶</a></h4>
+</div></div>
+<div class="section" id="loi-du-khi-deux">
+<h4>Loi du Khi-deux<a class="headerlink" href="#loi-du-khi-deux" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2</span>
 <span class="n">x</span><span class="o">=</span><span class="mi">3</span>
 <span class="n">n</span><span class="o">=</span><span class="mi">2</span>
-<span class="n">mean</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">chi2</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">moments</span><span class="o">=</span><span class="s1">'mv'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Moyenne : "</span><span class="p">,</span>  <span class="n">mean</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Variance : "</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Densité de probabilité : "</span><span class="p">,</span> <span class="n">chi2</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Fonction de répartition : "</span><span class="p">,</span> <span class="n">chi2</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">mean</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">chi2</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mv&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Moyenne : &quot;</span><span class="p">,</span>  <span class="n">mean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance : &quot;</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Densité de probabilité : &quot;</span><span class="p">,</span> <span class="n">chi2</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fonction de répartition : &quot;</span><span class="p">,</span> <span class="n">chi2</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -987,19 +1103,19 @@ Fonction de répartition :  0.7768698398515702
 </div>
 </div>
 </div>
-
-
-<h4 id="loi-de-student">Loi de Student<a class="headerlink" href="#loi-de-student" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="loi-de-student">
+<h4>Loi de Student<a class="headerlink" href="#loi-de-student" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">x</span><span class="o">=</span><span class="mi">3</span>
-<span class="n">mean</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">moments</span><span class="o">=</span><span class="s1">'mv'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Moyenne : "</span><span class="p">,</span>  <span class="n">mean</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Variance : "</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Densité de probabilité : "</span><span class="p">,</span> <span class="n">t</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Fonction de répartition : "</span><span class="p">,</span> <span class="n">t</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">mean</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mv&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Moyenne : &quot;</span><span class="p">,</span>  <span class="n">mean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance : &quot;</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Densité de probabilité : &quot;</span><span class="p">,</span> <span class="n">t</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fonction de répartition : &quot;</span><span class="p">,</span> <span class="n">t</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1015,23 +1131,23 @@ Fonction de répartition :  0.9522670168666454
 <p>L’utilisation pratique de cette loi est énoncée par le théorème suivant :</p>
 <div class="proof theorem admonition" id="theorem-16">
 <p class="admonition-title"><span class="caption-number">Theorem 10 </span></p>
-
+<div class="theorem-content section" id="proof-content">
 <p>Soient deux variables aléatoires <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> indépendantes, de loi respective <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span> et <span class="math notranslate nohighlight">\(\chi_n^2\)</span>. Alors la variable aléatoire <span class="math notranslate nohighlight">\(T=\frac{X}{\sqrt{Y/n}}\)</span> admet une loi de Student à <span class="math notranslate nohighlight">\(n\)</span> degrés de liberté.</p>
-
 </div>
-
-<h4 id="loi-de-fisher-snedecor">Loi de Fisher-Snédécor<a class="headerlink" href="#loi-de-fisher-snedecor" title="Permalink to this headline">¶</a></h4>
+</div></div>
+<div class="section" id="loi-de-fisher-snedecor">
+<h4>Loi de Fisher-Snédécor<a class="headerlink" href="#loi-de-fisher-snedecor" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">f</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">m</span><span class="o">=</span><span class="mi">4</span>
 <span class="n">x</span><span class="o">=</span><span class="mi">3</span>
-<span class="n">mean</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span><span class="n">moments</span><span class="o">=</span><span class="s1">'mv'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Moyenne : "</span><span class="p">,</span>  <span class="n">mean</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Variance : "</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Densité de probabilité : "</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Fonction de répartition : "</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">mean</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span><span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mv&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Moyenne : &quot;</span><span class="p">,</span>  <span class="n">mean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance : &quot;</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Densité de probabilité : &quot;</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fonction de répartition : &quot;</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1047,14 +1163,15 @@ Fonction de répartition :  0.84
 <p>L’utilisation pratique de cette loi est énoncée par le théorème suivant :</p>
 <div class="proof theorem admonition" id="theorem-17">
 <p class="admonition-title"><span class="caption-number">Theorem 11 </span></p>
-
+<div class="theorem-content section" id="proof-content">
 <p>Soient deux variables aléatoires <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> indépendantes, de loi respective <span class="math notranslate nohighlight">\(\chi_n^2\)</span> et <span class="math notranslate nohighlight">\(\chi_m^2\)</span>. Alors la variable aléatoire <span class="math notranslate nohighlight">\(T=\frac{X/n}{Y/m}\)</span> admet une loi de Fisher-Snédécor à <span class="math notranslate nohighlight">\(n\)</span> et <span class="math notranslate nohighlight">\(m\)</span> degrés de liberté.</p>
-
+</div>
+</div></div>
+</div>
+</div>
 </div>
 
-
-
-<script type="text/x-thebe-config">
+    <script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
@@ -1072,63 +1189,53 @@ Fonction de répartition :  0.84
         predefinedOutput: true
     }
     </script>
-<script>kernelName = 'python3'</script>
+    <script>kernelName = 'python3'</script>
 
-          </article>
-        </div>
-      </div>
-    </main>
-  </div>
-  <footer class="md-footer">
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-          
-            <a href="Rappels.html" title="Rappels de probabilité"
-               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
-               rel="prev">
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span
-                      class="md-footer-nav__direction"> "Previous" </span> Rappels de probabilité </span>
-              </div>
-            </a>
-          
-          
-            <a href="statsdescriptives.html" title="Statistique descriptive"
-               class="md-flex md-footer-nav__link md-footer-nav__link--next"
-               rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
-                class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> Statistique descriptive </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink"><i
-                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          
-        </a>
-        
-      </nav>
-    </div>
-    <div class="md-footer-meta md-typeset">
-      <div class="md-footer-meta__inner md-grid">
-        <div class="md-footer-copyright">
-          <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2022.
               
-          </div>
-            Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
-             and
-            <a href="https://github.com/bashtage/sphinx-material/">Material for
-              Sphinx</a>
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Rappels.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Rappels de probabilité</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="statsdescriptives.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Statistique descriptive</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
+
       </div>
     </div>
-  </footer>
-  <script src="_static/javascripts/application.js"></script>
-  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
   </body>
 </html>
