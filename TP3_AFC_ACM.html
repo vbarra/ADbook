@@ -5,21 +5,50 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#3f51b5">
+  <script src="_static/javascripts/modernizr.js"></script>
+  
+  
+  
     <title>TP AFC / ACM &#8212; Analyse de données</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/material.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -27,10 +56,6 @@
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystyle.css" />
-    
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -54,291 +79,202 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
+  
+   
 
-    <!-- Google Analytics -->
-    
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
-
-  <div id="navbar-start">
-    
-    
-
-<a class="navbar-brand" href="intro.html">
-  <img src="_static/isimainp.png" class="logo" alt="logo">
-</a>
-
-
-    
+  <body dir=ltr
+        data-md-color-primary=blue-grey data-md-color-accent=blue>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#TP3_AFC_ACM" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="intro.html" title="Analyse de données"
+           class="md-header-nav__button md-logo">
+          
+              <img src="_static/isimainp.png" height="26"
+                   alt="Analyse de données logo">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">Analyse de données</span>
+          <span class="md-header-nav__topic"> TP AFC / ACM </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+      </div>
+      
+      
+  
+  <script src="_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = ""versions.json"",
+        target_loc = "../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
+    </div>
+  </nav>
+</header>
 
   
-  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
-    <div id="navbar-center" class="mr-auto">
-      
-      <div class="navbar-center-item">
-        <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="Rappels.html">
-  Rappels de probabilité
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="elemstats.html">
-  Elements de statistiques
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="statsdescriptives.html">
-  Statistique descriptive
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="selection.html">
-  Sélection de variables
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="acp.html">
-  Analyse en composantes principales
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="regression.html">
-  Régression
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="clustering.html">
-  Quelques méthodes de classification
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="afc.html">
-  Analyse Factorielle des correspondances
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="acm.html">
-  Analyse des correspondances multiples
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="genindex.html">
-  Index
- </a>
-</li>
-
+  <div class="md-container">
     
-</ul>
-      </div>
-      
-    </div>
-
-    <div id="navbar-end">
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="intro.html" class="md-tabs__link">Analyse de données</a></li>
       </ul>
-      </div>
-      
     </div>
-  </div>
-</div>
-    </nav>
-    
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="intro.html" title="Analyse de données" class="md-nav__button md-logo">
+      
+        <img src="_static/isimainp.png" alt=" logo" width="48" height="48">
+      
+    </a>
+    <a href="intro.html"
+       title="Analyse de données">Analyse de données</a>
+  </label>
+  
 
-    <div class="container-xl">
-      <div class="row">
-          
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar">
-              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <div class="bd-toc-item active">
-    
-  </div>
 </nav>
-              </div>
-              <div class="sidebar-end-items">
               </div>
             </div>
-            
-          
-
-          
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-              
-              <div class="toc-item">
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
                 
-<div class="tocsection onthispage mt-5 pt-1 pb-3">
-    <i class="fas fa-list"></i> On this page
-</div>
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#tp3-afc-acm--page-root" class="md-nav__link">TP AFC / ACM</a>
+        </li>
+        <li class="md-nav__item"><a href="#exercice-1-analyse-factorielle-des-correspondances" class="md-nav__link">Exercice 1 : Analyse Factorielle des Correspondances</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#votre-travail" class="md-nav__link">===== Votre travail : =====</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#analyse-factorielle-des-correspondances" class="md-nav__link">Analyse Factorielle des correspondances</a>
+        </li>
+        <li class="md-nav__item"><a href="#valeurs-propres" class="md-nav__link">Valeurs propres</a>
+        </li>
+        <li class="md-nav__item"><a href="#analyse-des-profils-lignes" class="md-nav__link">Analyse des profils lignes</a>
+        </li>
+        <li class="md-nav__item"><a href="#calcul-de-la-distance-du-chi-2" class="md-nav__link">Calcul de la distance du <span class="math notranslate nohighlight">\(\chi^2\)</span></a>
+        </li>
+        <li class="md-nav__item"><a href="#analyse-des-profils-colonnes" class="md-nav__link">Analyse des profils colonnes</a>
+        </li>
+        <li class="md-nav__item"><a href="#analyse-de-l-association-lignes-colonnes" class="md-nav__link">Analyse de l’association lignes-colonnes</a>
+        </li>
+        <li class="md-nav__item"><a href="#representation-simultanee-lignes-colonnes" class="md-nav__link">Représentation simultanée lignes/colonnes</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#exercice-2-analyse-des-correspondances-multiples" class="md-nav__link">Exercice 2 : Analyse des Correspondances Multiples</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#analyse-des-individus" class="md-nav__link">Analyse des individus</a>
+        </li>
+        <li class="md-nav__item"><a href="#id1" class="md-nav__link">===== Votre travail : =====</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#analyse-des-colonnes" class="md-nav__link">Analyse des colonnes</a>
+        </li>
+        <li class="md-nav__item"><a href="#acm" class="md-nav__link">ACM</a>
+        </li>
+        <li class="md-nav__item"><a href="#analyse-des-valeurs-propres" class="md-nav__link">Analyse des valeurs propres</a>
+        </li>
+        <li class="md-nav__item"><a href="#representation-graphique" class="md-nav__link">Représentation graphique</a>
+        </li>
+        <li class="md-nav__item"><a href="#analyse-du-1er-axe" class="md-nav__link">Analyse du 1er axe</a>
+        </li>
+        <li class="md-nav__item"><a href="#analyse-du-deuxieme-axe" class="md-nav__link">Analyse du deuxième axe</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="_sources/TP3_AFC_ACM.ipynb">Show Source</a> </li>
 
-<nav id="bd-toc-nav">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   TP AFC / ACM
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercice-1-analyse-factorielle-des-correspondances">
-   Exercice 1 : Analyse Factorielle des Correspondances
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#votre-travail">
-     ===== Votre travail : =====
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-factorielle-des-correspondances">
-       Analyse Factorielle des correspondances
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#valeurs-propres">
-       Valeurs propres
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-des-profils-lignes">
-       Analyse des profils lignes
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#calcul-de-la-distance-du-chi-2">
-       Calcul de la distance du
-       <span class="math notranslate nohighlight">
-        \(\chi^2\)
-       </span>
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-des-profils-colonnes">
-       Analyse des profils colonnes
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-de-l-association-lignes-colonnes">
-       Analyse de l’association lignes-colonnes
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#representation-simultanee-lignes-colonnes">
-       Représentation simultanée lignes/colonnes
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercice-2-analyse-des-correspondances-multiples">
-   Exercice 2 : Analyse des Correspondances Multiples
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analyse-des-individus">
-     Analyse des individus
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     ===== Votre travail : =====
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-des-colonnes">
-       Analyse des colonnes
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#acm">
-       ACM
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-des-valeurs-propres">
-       Analyse des valeurs propres
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#representation-graphique">
-       Représentation graphique
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-du-1er-axe">
-       Analyse du 1er axe
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#analyse-du-deuxieme-axe">
-       Analyse du deuxième axe
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
-</ul>
+<li id="searchbox" class="md-nav__item"></li>
 
+  </ul>
 </nav>
               </div>
-              
-              <div class="toc-item">
-                
-              </div>
-              
-            
+            </div>
           </div>
-          
-
-          
-          
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
             
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
-              
-              <div>
-                
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># n&#39;exécuter qu&#39;une fois</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># n'exécuter qu'une fois</span>
 <span class="o">!</span>pip3 install seaborn numpy matplotlib pandas mca --q
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">23.2.1</span> -&gt; <span class=" -Color -Color-Green">23.3</span>
-<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python3.11 -m pip install --upgrade pip</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class="-Color -Color-Bold">[</span><span class="-Color -Color-Blue">notice</span><span class="-Color -Color-Bold">]</span> A new release of pip is available: <span class="-Color -Color-Red">23.2.1</span> -&gt; <span class="-Color -Color-Green">23.3</span>
+<span class="-Color -Color-Bold">[</span><span class="-Color -Color-Blue">notice</span><span class="-Color -Color-Bold">]</span> To update, run: <span class="-Color -Color-Green">python3.11 -m pip install --upgrade pip</span>
 </pre></div>
 </div>
 </div>
@@ -354,15 +290,15 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="tp-afc-acm">
-<h1>TP AFC / ACM<a class="headerlink" href="#tp-afc-acm" title="Permalink to this headline">#</a></h1>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="exercice-1-analyse-factorielle-des-correspondances">
-<h1>Exercice 1 : Analyse Factorielle des Correspondances<a class="headerlink" href="#exercice-1-analyse-factorielle-des-correspondances" title="Permalink to this headline">#</a></h1>
+
+<h1 id="tp3-afc-acm--page-root">TP AFC / ACM<a class="headerlink" href="#tp3-afc-acm--page-root" title="Permalink to this headline">¶</a></h1>
+
+
+<h1 id="exercice-1-analyse-factorielle-des-correspondances">Exercice 1 : Analyse Factorielle des Correspondances<a class="headerlink" href="#exercice-1-analyse-factorielle-des-correspondances" title="Permalink to this headline">¶</a></h1>
 <p>Le fichier de données est un tableau d’effectifs, croisant l’origine sociale des sondés (CSP, version simplifiée) avec les médias d’informations utilisés</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">media</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s2">&quot;./data/mediaCSP.txt&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">media</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s2">"./data/mediaCSP.txt"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">media</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -382,8 +318,8 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 </div>
-<div class="section" id="votre-travail">
-<h2>===== Votre travail : =====<a class="headerlink" href="#votre-travail" title="Permalink to this headline">#</a></h2>
+
+<h2 id="votre-travail">===== Votre travail : =====<a class="headerlink" href="#votre-travail" title="Permalink to this headline">¶</a></h2>
 <p>Vous avez à disposition un fichier <a class="reference external" href="http://ca.py">ca.py</a>, permettant de réaliser les calculs relatifs à une analyse factorielle des correspondances. L’objectif est de répondre aux questions suivantes :</p>
 <ul class="simple">
 <li><p>Quelle est la structure des moyens d’information choisis selon la CSP ? (profils lignes).</p></li>
@@ -391,8 +327,8 @@ Inactif          1474  1931        181        852         642       782
 <li><p>Les médias sont-ils différents en termes de CSP ? (profils colonnes)</p></li>
 <li><p>Existe-t-il des relations entre CSP et médias  (des CSP ont-elles une préférences pour certains médias ? Certains médias attirent-ils des catégories particulières de CSP ?)</p></li>
 </ul>
-<div class="section" id="analyse-factorielle-des-correspondances">
-<h3>Analyse Factorielle des correspondances<a class="headerlink" href="#analyse-factorielle-des-correspondances" title="Permalink to this headline">#</a></h3>
+
+<h3 id="analyse-factorielle-des-correspondances">Analyse Factorielle des correspondances<a class="headerlink" href="#analyse-factorielle-des-correspondances" title="Permalink to this headline">¶</a></h3>
 <p>On créé une instance de l’objet CA, que l’on applique sur le tableau des valeurs</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -403,17 +339,17 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>CA(col_labels=Index([&#x27;Radio&#x27;, &#x27;Tel.&#x27;, &#x27;Quot.Nat.&#x27;, &#x27;Quot.Reg.&#x27;, &#x27;Press.Mag.&#x27;, &#x27;Press.TV&#x27;], dtype=&#x27;object&#x27;),
-   row_labels=Index([&#x27;Agriculteur&#x27;, &#x27;Petit.Patr.&#x27;, &#x27;Prof.Cad.Sup&#x27;, &#x27;Prof.Int.&#x27;, &#x27;Employe&#x27;,
-       &#x27;Ouvr.Qualif.&#x27;, &#x27;Ouvr.Non-Qual.&#x27;, &#x27;Inactif&#x27;],
-      dtype=&#x27;object&#x27;, name=&#x27;Prof&#x27;))</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">CA</label><div class="sk-toggleable__content"><pre>CA(col_labels=Index([&#x27;Radio&#x27;, &#x27;Tel.&#x27;, &#x27;Quot.Nat.&#x27;, &#x27;Quot.Reg.&#x27;, &#x27;Press.Mag.&#x27;, &#x27;Press.TV&#x27;], dtype=&#x27;object&#x27;),
-   row_labels=Index([&#x27;Agriculteur&#x27;, &#x27;Petit.Patr.&#x27;, &#x27;Prof.Cad.Sup&#x27;, &#x27;Prof.Int.&#x27;, &#x27;Employe&#x27;,
-       &#x27;Ouvr.Qualif.&#x27;, &#x27;Ouvr.Non-Qual.&#x27;, &#x27;Inactif&#x27;],
-      dtype=&#x27;object&#x27;, name=&#x27;Prof&#x27;))</pre></div></div></div></div></div></div></div>
+<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div class="sk-top-container" id="sk-container-id-1"><div class="sk-text-repr-fallback"><pre>CA(col_labels=Index(['Radio', 'Tel.', 'Quot.Nat.', 'Quot.Reg.', 'Press.Mag.', 'Press.TV'], dtype='object'),
+   row_labels=Index(['Agriculteur', 'Petit.Patr.', 'Prof.Cad.Sup', 'Prof.Int.', 'Employe',
+       'Ouvr.Qualif.', 'Ouvr.Non-Qual.', 'Inactif'],
+      dtype='object', name='Prof'))</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br/>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input checked="" class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-1">CA</label><div class="sk-toggleable__content"><pre>CA(col_labels=Index(['Radio', 'Tel.', 'Quot.Nat.', 'Quot.Reg.', 'Press.Mag.', 'Press.TV'], dtype='object'),
+   row_labels=Index(['Agriculteur', 'Petit.Patr.', 'Prof.Cad.Sup', 'Prof.Int.', 'Employe',
+       'Ouvr.Qualif.', 'Ouvr.Non-Qual.', 'Inactif'],
+      dtype='object', name='Prof'))</pre></div></div></div></div></div></div></div>
 </div>
-</div>
-<div class="section" id="valeurs-propres">
-<h3>Valeurs propres<a class="headerlink" href="#valeurs-propres" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="valeurs-propres">Valeurs propres<a class="headerlink" href="#valeurs-propres" title="Permalink to this headline">¶</a></h3>
 <p>En utilisant l’attribut <span class="math notranslate nohighlight">\(eig\_\)</span> et la fonction plot_eigenvalues (ligne 294 du fichier <span class="math notranslate nohighlight">\(base.py\)</span>),afficher et interpréter les valeurs propres issues de l’analyse factorielle (nombre, contribution des facteurs…)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -429,16 +365,16 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="analyse-des-profils-lignes">
-<h3>Analyse des profils lignes<a class="headerlink" href="#analyse-des-profils-lignes" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="analyse-des-profils-lignes">Analyse des profils lignes<a class="headerlink" href="#analyse-des-profils-lignes" title="Permalink to this headline">¶</a></h3>
 <p>On affiche ici, pour chaque modalité ligne, la distribution des individus colonnes</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span><span class="n">arr</span><span class="o">=</span><span class="n">media</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">func1d</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="n">data_cum</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">media</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;RdYlGn&#39;</span><span class="p">)(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">'RdYlGn'</span><span class="p">)(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">9.2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
@@ -452,20 +388,20 @@ Inactif          1474  1931        181        852         642       782
     <span class="n">xcenters</span> <span class="o">=</span> <span class="n">starts</span> <span class="o">+</span> <span class="n">widths</span> <span class="o">/</span> <span class="mi">2</span>
 
     <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">color</span>
-    <span class="n">text_color</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span> <span class="k">if</span> <span class="n">r</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mf">0.5</span> <span class="k">else</span> <span class="s1">&#39;darkgrey&#39;</span>
+    <span class="n">text_color</span> <span class="o">=</span> <span class="s1">'white'</span> <span class="k">if</span> <span class="n">r</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mf">0.5</span> <span class="k">else</span> <span class="s1">'darkgrey'</span>
     <span class="k">for</span> <span class="n">y</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">xcenters</span><span class="p">,</span> <span class="n">widths</span><span class="p">)):</span>
 
-        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="mi">2</span><span class="p">))),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="mi">2</span><span class="p">))),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span>
                     <span class="n">color</span><span class="o">=</span><span class="n">text_color</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">ncol</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">afc</span><span class="o">.</span><span class="n">col_labels_short_</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-              <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower left&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;small&#39;</span><span class="p">)</span>
+              <span class="n">loc</span><span class="o">=</span><span class="s1">'lower left'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">'small'</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/TP3_AFC_ACM_13_0.png" src="_images/TP3_AFC_ACM_13_0.png" />
+<img alt="_images/TP3_AFC_ACM_13_0.png" src="_images/TP3_AFC_ACM_13_0.png"/>
 </div>
 </div>
 <p>En utilisant l’attribut row_coord_, afficher les coordonnées des modalités lignes par facteur. Calculer la moyenne pondérée et la variance des coordonnées des modalités lignes sur le premier facteur. Qu’obtenez-vous ?</p>
@@ -493,9 +429,9 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="calcul-de-la-distance-du-chi-2">
-<h3>Calcul de la distance du <span class="math notranslate nohighlight">\(\chi^2\)</span><a class="headerlink" href="#calcul-de-la-distance-du-chi-2" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="calcul-de-la-distance-du-chi-2">Calcul de la distance du <span class="math notranslate nohighlight">\(\chi^2\)</span><a class="headerlink" href="#calcul-de-la-distance-du-chi-2" title="Permalink to this headline">¶</a></h3>
 <p>La distance du <span class="math notranslate nohighlight">\(\chi^2\)</span> entre les modalités lignes dans l’espace initial devient distance euclidienne dans l’espace factoriel. Comme en ACP, la restitution est parfaite lorsque tous les facteurs sont pris en compte, et approchée si une partie est utilisée. La précision dépend alors d’une part de la qualité de restitution du repère factoriel choisi, d’autre part de la qualité de représentation des modalités impliquées dans le calcul (les <span class="math notranslate nohighlight">\(cos^2\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -509,19 +445,19 @@ Inactif          1474  1931        181        852         642       782
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">l</span><span class="p">]):</span>
             <span class="n">distPairesLigF1</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">afc</span><span class="o">.</span><span class="n">row_coord_</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">afc</span><span class="o">.</span><span class="n">row_coord_</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> 
-    <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">distPairesLigF1</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">distPairesLigF1</span><span class="p">),</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;Greens&#39;</span><span class="p">,</span><span class="n">xticklabels</span><span class="o">=</span><span class="n">media</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">yticklabels</span><span class="o">=</span><span class="n">media</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distance sur le facteur &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">distPairesLigF1</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">distPairesLigF1</span><span class="p">),</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span> <span class="s1">'Greens'</span><span class="p">,</span><span class="n">xticklabels</span><span class="o">=</span><span class="n">media</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">yticklabels</span><span class="o">=</span><span class="n">media</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Distance sur le facteur "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">f</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/TP3_AFC_ACM_21_0.png" src="_images/TP3_AFC_ACM_21_0.png" />
+<img alt="_images/TP3_AFC_ACM_21_0.png" src="_images/TP3_AFC_ACM_21_0.png"/>
 </div>
 </div>
-</div>
-<div class="section" id="analyse-des-profils-colonnes">
-<h3>Analyse des profils colonnes<a class="headerlink" href="#analyse-des-profils-colonnes" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="analyse-des-profils-colonnes">Analyse des profils colonnes<a class="headerlink" href="#analyse-des-profils-colonnes" title="Permalink to this headline">¶</a></h3>
 <p>Faire la même analsye sur les profils colonnes. Interpréter les résultats</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -530,9 +466,9 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="analyse-de-l-association-lignes-colonnes">
-<h3>Analyse de l’association lignes-colonnes<a class="headerlink" href="#analyse-de-l-association-lignes-colonnes" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="analyse-de-l-association-lignes-colonnes">Analyse de l’association lignes-colonnes<a class="headerlink" href="#analyse-de-l-association-lignes-colonnes" title="Permalink to this headline">¶</a></h3>
 <p>Au-delà de la comparaison des profils, l’intérêt majeur de l’AFC est d’identifier les associations entre les modalités lignes et colonnes : est ce que les agriculteurs s’informent plus par la radio que les autres ? Est ce que la presse magazine attire plus les cadres ?</p>
 <p>Avant de s’intéresser aux relations entre les modalités, il faut déjà vérifier qu’il existe bien une liaison exploitable entre les variables en ligne et colonne du tableau de contingence. La statistique du <span class="math notranslate nohighlight">\(\chi^2\)</span> de l’écart à l’indépendance permet de le faire</p>
 <p>Faire un test du <span class="math notranslate nohighlight">\(\chi^2\)</span> (voir le cours statistiques bivariées), en utilisant la fonction <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.chi2.html"><span class="math notranslate nohighlight">\(scipy.stats.chi2.cdf\)</span></a> du module <span class="math notranslate nohighlight">\(scipy\)</span>. Conclure.</p>
@@ -555,9 +491,9 @@ $<span class="math notranslate nohighlight">\(\frac{P(Y=y_k, X=x_l)}{P(Y=y_k)P(X
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="representation-simultanee-lignes-colonnes">
-<h3>Représentation simultanée lignes/colonnes<a class="headerlink" href="#representation-simultanee-lignes-colonnes" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="representation-simultanee-lignes-colonnes">Représentation simultanée lignes/colonnes<a class="headerlink" href="#representation-simultanee-lignes-colonnes" title="Permalink to this headline">¶</a></h3>
 <p>En utilisant la fonction <span class="math notranslate nohighlight">\(mapping\)</span> (ligne 329 du fichier <a class="reference external" href="http://base.py">base.py</a>), projeter sur le premier plan factoriel les individus ligne et colonne. Interpreter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -582,15 +518,15 @@ $<span class="math notranslate nohighlight">\(\frac{P(Y=y_k, X=x_l)}{P(Y=y_k)P(X
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="exercice-2-analyse-des-correspondances-multiples">
-<h1>Exercice 2 : Analyse des Correspondances Multiples<a class="headerlink" href="#exercice-2-analyse-des-correspondances-multiples" title="Permalink to this headline">#</a></h1>
+
+
+
+
+<h1 id="exercice-2-analyse-des-correspondances-multiples">Exercice 2 : Analyse des Correspondances Multiples<a class="headerlink" href="#exercice-2-analyse-des-correspondances-multiples" title="Permalink to this headline">¶</a></h1>
 <p>Ici on s’intéresse à 6 traits de caractères de 27 races de chien, et on souhaite analyser le tableau par ACM</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chiens</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s2">&quot;./data/chiens.txt&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chiens</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s2">"./data/chiens.txt"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">chiens</span><span class="p">)</span>  
 </pre></div>
 </div>
@@ -632,7 +568,7 @@ Terre-Neuve      Taille++  Poids++   Veloc-      Intell+    Affec-     Agress-
 <p>On récupère les variables actives : on s’intéresse à un sous-ensemble de cardinal <span class="math notranslate nohighlight">\(k\)</span> de variables du jeu de données (vous pouvez changer les variables utilisées).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var_chiens</span> <span class="o">=</span> <span class="n">chiens</span><span class="p">[[</span><span class="s1">&#39;Taille&#39;</span><span class="p">,</span><span class="s1">&#39;Velocite&#39;</span><span class="p">,</span><span class="s1">&#39;Affection&#39;</span><span class="p">]]</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var_chiens</span> <span class="o">=</span> <span class="n">chiens</span><span class="p">[[</span><span class="s1">'Taille'</span><span class="p">,</span><span class="s1">'Velocite'</span><span class="p">,</span><span class="s1">'Affection'</span><span class="p">]]</span> 
 
 <span class="nb">print</span><span class="p">(</span><span class="n">var_chiens</span><span class="p">)</span>
 </pre></div>
@@ -672,13 +608,13 @@ Terre-Neuve      Taille++   Veloc-    Affec-
 </div>
 </div>
 </div>
-<div class="section" id="analyse-des-individus">
-<h2>Analyse des individus<a class="headerlink" href="#analyse-des-individus" title="Permalink to this headline">#</a></h2>
+
+<h2 id="analyse-des-individus">Analyse des individus<a class="headerlink" href="#analyse-des-individus" title="Permalink to this headline">¶</a></h2>
 <p>Dans la suite, on travaille sur le tableau disjonctif complet des données (variables transformées en indicatrices 0/1).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#codage en 0/1 des propriétés des chiens : tableau disjonctif complet</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">var_chiens</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">prefix_sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">var_chiens</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span><span class="n">prefix_sep</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
 <span class="n">n</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span>  <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
@@ -748,9 +684,9 @@ Terre-Neuve           1
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id1">
-<h2>===== Votre travail : =====<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+
+
+<h2 id="id1">===== Votre travail : =====<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Vous avez à disposition un fichier <a class="reference external" href="http://mca.py">mca.py</a>, permettant de réaliser les calculs relatifs à une analyse des correspondances multiples
 Faire une analyse en composantes multiples de ces données et plus précisément :</p>
 <ul class="simple">
@@ -772,7 +708,7 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 <span class="c1">#TODO : calcul de la distance </span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">distchi2</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">distchi2</span><span class="p">),</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;Greens&#39;</span><span class="p">,</span><span class="n">xticklabels</span><span class="o">=</span><span class="n">chiens</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">yticklabels</span><span class="o">=</span><span class="n">chiens</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">distchi2</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">distchi2</span><span class="p">),</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span> <span class="s1">'Greens'</span><span class="p">,</span><span class="n">xticklabels</span><span class="o">=</span><span class="n">chiens</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">yticklabels</span><span class="o">=</span><span class="n">chiens</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -780,7 +716,7 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="_images/TP3_AFC_ACM_41_1.png" src="_images/TP3_AFC_ACM_41_1.png" />
+<img alt="_images/TP3_AFC_ACM_41_1.png" src="_images/TP3_AFC_ACM_41_1.png"/>
 </div>
 </div>
 <p>Ainsi, par exemple, le Basset a plus de caractères en commun avec le Caniche qu’avec le Beauceron.</p>
@@ -794,7 +730,7 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 
 <span class="c1">#TODO : calcul de la distance</span>
 
-<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">distO</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">distO</span><span class="p">),</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;Greens&#39;</span><span class="p">,</span><span class="n">xticklabels</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">distO</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">distO</span><span class="p">),</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span> <span class="s1">'Greens'</span><span class="p">,</span><span class="n">xticklabels</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -802,12 +738,12 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="_images/TP3_AFC_ACM_44_1.png" src="_images/TP3_AFC_ACM_44_1.png" />
+<img alt="_images/TP3_AFC_ACM_44_1.png" src="_images/TP3_AFC_ACM_44_1.png"/>
 </div>
 </div>
 <p>Ainsi par exemple, le Pointer est plus proche du chien moyen que le Cocker.</p>
-<div class="section" id="analyse-des-colonnes">
-<h3>Analyse des colonnes<a class="headerlink" href="#analyse-des-colonnes" title="Permalink to this headline">#</a></h3>
+
+<h3 id="analyse-des-colonnes">Analyse des colonnes<a class="headerlink" href="#analyse-des-colonnes" title="Permalink to this headline">¶</a></h3>
 <p>L’analyse des associations entre les modalités revient à travailler sur les profils colonnes. Le tableau de données est normalisé par les sommes en colonne. Le profil moyen est égal au poids des observations</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -824,7 +760,7 @@ Faire une analyse en composantes multiples de ces données et plus précisément
         <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="p">((</span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">somme_col</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span><span class="n">j</span><span class="p">]</span><span class="o">/</span><span class="n">somme_col</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">dist</span><span class="p">),</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;Greens&#39;</span><span class="p">,</span><span class="n">xticklabels</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">yticklabels</span><span class="o">=</span><span class="n">chiens</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">dist</span><span class="p">),</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span> <span class="s1">'Greens'</span><span class="p">,</span><span class="n">xticklabels</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">yticklabels</span><span class="o">=</span><span class="n">chiens</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -832,7 +768,7 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="_images/TP3_AFC_ACM_47_1.png" src="_images/TP3_AFC_ACM_47_1.png" />
+<img alt="_images/TP3_AFC_ACM_47_1.png" src="_images/TP3_AFC_ACM_47_1.png"/>
 </div>
 </div>
 <p>Calculer la distance à l’origine, qui  donne une information sur la fréquence de la modalité dans la base. Elle est définie par la disance du <span class="math notranslate nohighlight">\(\chi^2\)</span> au profil moyen. Interpréter</p>
@@ -845,7 +781,7 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 
 <span class="c1">#TODO calcul distance</span>
 
-<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">distO</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">distO</span><span class="p">),</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;Greens&#39;</span><span class="p">,</span><span class="n">xticklabels</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">distO</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">distO</span><span class="p">),</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span> <span class="s1">'Greens'</span><span class="p">,</span><span class="n">xticklabels</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -853,13 +789,13 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="_images/TP3_AFC_ACM_49_1.png" src="_images/TP3_AFC_ACM_49_1.png" />
+<img alt="_images/TP3_AFC_ACM_49_1.png" src="_images/TP3_AFC_ACM_49_1.png"/>
 </div>
 </div>
 <p>Ainsi, Veloc+ est moins présent que Veloc- dans les exemples.</p>
-</div>
-<div class="section" id="acm">
-<h3>ACM<a class="headerlink" href="#acm" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="acm">ACM<a class="headerlink" href="#acm" title="Permalink to this headline">¶</a></h3>
 <p>On créé une instance de l’objet MCA (défini dans <a class="reference external" href="http://mca.py">mca.py</a>) et on estime le modèle des correspondances multiples sur les données <span class="math notranslate nohighlight">\(X\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -877,14 +813,14 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">acm</span> <span class="o">=</span> <span class="n">MCA</span><span class="p">(</span><span class="n">row_labels</span><span class="o">=</span><span class="n">var_chiens</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">var_labels</span><span class="o">=</span><span class="n">var_chiens</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">acm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">var_chiens</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 
-<span class="ne">TypeError</span>: __init__() got an unexpected keyword argument &#39;row_labels&#39;
+<span class="ne">TypeError</span>: __init__() got an unexpected keyword argument 'row_labels'
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="analyse-des-valeurs-propres">
-<h3>Analyse des valeurs propres<a class="headerlink" href="#analyse-des-valeurs-propres" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="analyse-des-valeurs-propres">Analyse des valeurs propres<a class="headerlink" href="#analyse-des-valeurs-propres" title="Permalink to this headline">¶</a></h3>
 <p>L’objectif de l’Analyse des Correspondances Multiples est de décomposer l’information sur une succession d’axes factoriels orthogonaux. Le nouveau système de représentation est calculé pour préserver au mieux les distances entre individus. L nombre maximum de facteurs est <span class="math notranslate nohighlight">\(p-k\)</span>, où <span class="math notranslate nohighlight">\(p\)</span> est la somme du nombre de modalités des variables (le nombre de colonnes de <span class="math notranslate nohighlight">\(X\)</span>), et <span class="math notranslate nohighlight">\(k\)</span> le nombre de variables initiales.</p>
 <p>De même que pour l’analyse facrtorielle, calculer les valeurs propres et interpréter les facteurs.</p>
 <div class="cell docutils container">
@@ -894,12 +830,12 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/TP3_AFC_ACM_55_0.png" src="_images/TP3_AFC_ACM_55_0.png" />
+<img alt="_images/TP3_AFC_ACM_55_0.png" src="_images/TP3_AFC_ACM_55_0.png"/>
 </div>
 </div>
-</div>
-<div class="section" id="representation-graphique">
-<h3>Représentation graphique<a class="headerlink" href="#representation-graphique" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="representation-graphique">Représentation graphique<a class="headerlink" href="#representation-graphique" title="Permalink to this headline">¶</a></h3>
 <p>2 types de graphiques peuvent être réalisés :</p>
 <ul class="simple">
 <li><p>Les mappings classiques qui représentent les points lignes et colonnes sur un plan factoriel</p></li>
@@ -917,7 +853,7 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/TP3_AFC_ACM_58_0.png" src="_images/TP3_AFC_ACM_58_0.png" />
+<img alt="_images/TP3_AFC_ACM_58_0.png" src="_images/TP3_AFC_ACM_58_0.png"/>
 </div>
 </div>
 <div class="cell docutils container">
@@ -932,12 +868,12 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/TP3_AFC_ACM_59_0.png" src="_images/TP3_AFC_ACM_59_0.png" />
+<img alt="_images/TP3_AFC_ACM_59_0.png" src="_images/TP3_AFC_ACM_59_0.png"/>
 </div>
 </div>
-</div>
-<div class="section" id="analyse-du-1er-axe">
-<h3>Analyse du 1er axe<a class="headerlink" href="#analyse-du-1er-axe" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="analyse-du-1er-axe">Analyse du 1er axe<a class="headerlink" href="#analyse-du-1er-axe" title="Permalink to this headline">¶</a></h3>
 <p>On utilise les formules de <span class="math notranslate nohighlight">\(cos^2\)</span> pour mesurer la qualité de la projection des individus et des modalités sur les axes factoriels.
 En pratique, si deux individus sont bien projetés alors s’ils sont proches en projections, ils sont effectivement proches dans leur espace d’origine et on peut alors interprèter leur proximité :</p>
 <p>— La proximité entre deux individus s’interprète en terme de distance (du <span class="math notranslate nohighlight">\(\chi^2\)</span>) : deux individus se ressemblent s’ils ont choisis les mêmes modalités.</p>
@@ -1041,11 +977,11 @@ Affec-   &amp; -0.841878 &amp;  0.021943 &amp;  0.521706 \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/TP3_AFC_ACM_68_0.svg" src="_images/TP3_AFC_ACM_68_0.svg" /><img alt="_images/TP3_AFC_ACM_68_1.svg" src="_images/TP3_AFC_ACM_68_1.svg" /></div>
+<img alt="_images/TP3_AFC_ACM_68_0.svg" src="_images/TP3_AFC_ACM_68_0.svg"/><img alt="_images/TP3_AFC_ACM_68_1.svg" src="_images/TP3_AFC_ACM_68_1.svg"/></div>
 </div>
-</div>
-<div class="section" id="analyse-du-deuxieme-axe">
-<h3>Analyse du deuxième axe<a class="headerlink" href="#analyse-du-deuxieme-axe" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="analyse-du-deuxieme-axe">Analyse du deuxième axe<a class="headerlink" href="#analyse-du-deuxieme-axe" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
@@ -1053,13 +989,12 @@ Affec-   &amp; -0.841878 &amp;  0.021943 &amp;  0.521706 \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/TP3_AFC_ACM_70_0.svg" src="_images/TP3_AFC_ACM_70_0.svg" /><img alt="_images/TP3_AFC_ACM_70_1.svg" src="_images/TP3_AFC_ACM_70_1.svg" /></div>
-</div>
-</div>
-</div>
+<img alt="_images/TP3_AFC_ACM_70_0.svg" src="_images/TP3_AFC_ACM_70_0.svg"/><img alt="_images/TP3_AFC_ACM_70_1.svg" src="_images/TP3_AFC_ACM_70_1.svg"/></div>
 </div>
 
-    <script type="text/x-thebe-config">
+
+
+<script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
@@ -1077,39 +1012,39 @@ Affec-   &amp; -0.841878 &amp;  0.021943 &amp;  0.521706 \\
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+<script>kernelName = 'python3'</script>
 
-              </div>
-              
-              
-              <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-</div>
-              
-          </main>
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
           
-
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2022.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
       </div>
     </div>
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-<footer class="footer mt-5 mt-md-0">
-  <div class="container">
-    
-    <div class="footer-item">
-      <p class="copyright">
-    &copy; Copyright 2022.<br>
-</p>
-    </div>
-    
-    <div class="footer-item">
-      <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
-</p>
-    </div>
-    
-  </div>
-</footer>
+  </footer>
+  <script src="_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>

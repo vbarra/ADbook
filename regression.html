@@ -5,21 +5,50 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#3f51b5">
+  <script src="_static/javascripts/modernizr.js"></script>
+  
+  
+  
     <title>Régression &#8212; Analyse de données</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/material.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -27,10 +56,6 @@
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystyle.css" />
-    
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -56,359 +81,247 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Quelques méthodes de classification" href="clustering.html" />
     <link rel="prev" title="Analyse en composantes principales" href="acp.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
+  
+   
 
-    <!-- Google Analytics -->
-    
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
-
-  <div id="navbar-start">
-    
-    
-
-<a class="navbar-brand" href="intro.html">
-  <img src="_static/isimainp.png" class="logo" alt="logo">
-</a>
-
-
-    
+  <body dir=ltr
+        data-md-color-primary=blue-grey data-md-color-accent=blue>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#regression" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="intro.html" title="Analyse de données"
+           class="md-header-nav__button md-logo">
+          
+              <img src="_static/isimainp.png" height="26"
+                   alt="Analyse de données logo">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">Analyse de données</span>
+          <span class="md-header-nav__topic"> Régression </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+      </div>
+      
+      
+  
+  <script src="_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = ""versions.json"",
+        target_loc = "../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
+    </div>
+  </nav>
+</header>
 
   
-  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
-    <div id="navbar-center" class="mr-auto">
-      
-      <div class="navbar-center-item">
-        <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="Rappels.html">
-  Rappels de probabilité
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="elemstats.html">
-  Elements de statistiques
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="statsdescriptives.html">
-  Statistique descriptive
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="selection.html">
-  Sélection de variables
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="acp.html">
-  Analyse en composantes principales
- </a>
-</li>
-
-<li class="toctree-l1 current active nav-item">
- <a class="current reference internal nav-link" href="#">
-  Régression
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="clustering.html">
-  Quelques méthodes de classification
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="afc.html">
-  Analyse Factorielle des correspondances
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="acm.html">
-  Analyse des correspondances multiples
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="genindex.html">
-  Index
- </a>
-</li>
-
+  <div class="md-container">
     
-</ul>
-      </div>
-      
-    </div>
-
-    <div id="navbar-end">
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="intro.html" class="md-tabs__link">Analyse de données</a></li>
       </ul>
-      </div>
-      
     </div>
-  </div>
-</div>
-    </nav>
-    
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="intro.html" title="Analyse de données" class="md-nav__button md-logo">
+      
+        <img src="_static/isimainp.png" alt=" logo" width="48" height="48">
+      
+    </a>
+    <a href="intro.html"
+       title="Analyse de données">Analyse de données</a>
+  </label>
+  
 
-    <div class="container-xl">
-      <div class="row">
-          
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar">
-              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <div class="bd-toc-item active">
-    
-  </div>
 </nav>
-              </div>
-              <div class="sidebar-end-items">
               </div>
             </div>
-            
-          
-
-          
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-              
-              <div class="toc-item">
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
                 
-<div class="tocsection onthispage mt-5 pt-1 pb-3">
-    <i class="fas fa-list"></i> On this page
-</div>
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#regression--page-root" class="md-nav__link">Régression</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#regression-simple" class="md-nav__link">Régression simple</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#modele-theorique" class="md-nav__link">Modèle théorique</a>
+        </li>
+        <li class="md-nav__item"><a href="#ajustement-aux-donnees" class="md-nav__link">Ajustement aux données</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#regression-multiple" class="md-nav__link">Régression multiple</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#ajustement-lineaire-d-un-ensemble-d-observations" class="md-nav__link">Ajustement linéaire d’un ensemble d’observations</a>
+        </li>
+        <li class="md-nav__item"><a href="#modele" class="md-nav__link">Modèle</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#modele-lineaire-generalise" class="md-nav__link">Modèle linéaire généralisé</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#position-du-probleme" class="md-nav__link">Position du problème</a>
+        </li>
+        <li class="md-nav__item"><a href="#solution-a-partir-des-donnees" class="md-nav__link">Solution à partir des données</a>
+        </li>
+        <li class="md-nav__item"><a href="#id1" class="md-nav__link">Modèle</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#modeles-regularises" class="md-nav__link">Modèles régularisés</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#regression-ridge" class="md-nav__link">Régression Ridge</a>
+        </li>
+        <li class="md-nav__item"><a href="#regression-lasso" class="md-nav__link">Régression Lasso</a>
+        </li>
+        <li class="md-nav__item"><a href="#regression-elasticnet" class="md-nav__link">Régression Elasticnet</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#regression-logistique" class="md-nav__link">Régression logistique</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#regression-logistique-binaire" class="md-nav__link">Régression logistique binaire</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#id2" class="md-nav__link">Modèle</a>
+        </li>
+        <li class="md-nav__item"><a href="#id3" class="md-nav__link">Régression logistique</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#regression-logistique-a-plusieurs-classes" class="md-nav__link">Régression logistique à plusieurs classes</a>
+        </li>
+        <li class="md-nav__item"><a href="#interpretation" class="md-nav__link">Interprétation</a>
+        </li>
+        <li class="md-nav__item"><a href="#estimation-des-coefficients-de-la-regression-logistique" class="md-nav__link">Estimation des coefficients de la régression logistique</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#analyse-des-resultats-d-une-regression" class="md-nav__link">Analyse des résultats d’une régression</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#etude-des-residus" class="md-nav__link">Etude des résidus</a>
+        </li>
+        <li class="md-nav__item"><a href="#influence-des-observations" class="md-nav__link">Influence des observations</a>
+        </li>
+        <li class="md-nav__item"><a href="#stabilite-des-coefficients-de-regression" class="md-nav__link">Stabilité des coefficients de régression</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#selection-des-variables" class="md-nav__link">Sélection des variables</a>
+        </li>
+        <li class="md-nav__item"><a href="#exemple" class="md-nav__link">Exemple</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#donnees" class="md-nav__link">Données</a>
+        </li>
+        <li class="md-nav__item"><a href="#id4" class="md-nav__link">Modèle</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="_sources/regression.md">Show Source</a> </li>
 
-<nav id="bd-toc-nav">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#regression-simple">
-   Régression simple
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#modele-theorique">
-     Modèle théorique
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ajustement-aux-donnees">
-     Ajustement aux données
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#regression-multiple">
-   Régression multiple
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ajustement-lineaire-d-un-ensemble-d-observations">
-     Ajustement linéaire d’un ensemble d’observations
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#modele">
-     Modèle
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modele-lineaire-generalise">
-   Modèle linéaire généralisé
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#position-du-probleme">
-     Position du problème
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solution-a-partir-des-donnees">
-     Solution à partir des données
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Modèle
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modeles-regularises">
-   Modèles régularisés
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#regression-ridge">
-     Régression Ridge
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#regression-lasso">
-     Régression Lasso
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#regression-elasticnet">
-     Régression Elasticnet
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#regression-logistique">
-   Régression logistique
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#regression-logistique-binaire">
-     Régression logistique binaire
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
-       Modèle
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id3">
-       Régression logistique
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#regression-logistique-a-plusieurs-classes">
-     Régression logistique à plusieurs classes
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#interpretation">
-     Interprétation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#estimation-des-coefficients-de-la-regression-logistique">
-     Estimation des coefficients de la régression logistique
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#analyse-des-resultats-d-une-regression">
-   Analyse des résultats d’une régression
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#etude-des-residus">
-     Etude des résidus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#influence-des-observations">
-     Influence des observations
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#stabilite-des-coefficients-de-regression">
-     Stabilité des coefficients de régression
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#selection-des-variables">
-   Sélection des variables
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exemple">
-   Exemple
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#donnees">
-     Données
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     Modèle
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+<li id="searchbox" class="md-nav__item"></li>
 
+  </ul>
 </nav>
               </div>
-              
-              <div class="toc-item">
-                
-              </div>
-              
-            
+            </div>
           </div>
-          
-
-          
-          
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
             
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
-              
-              <div>
-                
-  <div class="tex2jax_ignore mathjax_ignore section" id="regression">
-<h1>Régression<a class="headerlink" href="#regression" title="Permalink to this headline">#</a></h1>
+  
+<h1 id="regression--page-root">Régression<a class="headerlink" href="#regression--page-root" title="Permalink to this headline">¶</a></h1>
 <p id="index-0">On s’intéresse ici à l’explication d’une variable (aléatoire) <span class="math notranslate nohighlight">\(Y\)</span> (la variable expliquée) par une (ou plusieurs) variable(s) aléatoire(s) <span class="math notranslate nohighlight">\(X_j\)</span> (prédicteurs, ou variables explicatives).</p>
-<div class="section" id="regression-simple">
-<h2>Régression simple<a class="headerlink" href="#regression-simple" title="Permalink to this headline">#</a></h2>
+
+<h2 id="regression-simple">Régression simple<a class="headerlink" href="#regression-simple" title="Permalink to this headline">¶</a></h2>
 <p>On dispose de <span class="math notranslate nohighlight">\(n\)</span> couples de variables quantitatives <span class="math notranslate nohighlight">\((\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]\)</span> constituant un échantillon d’observations indépendantes de <span class="math notranslate nohighlight">\((X,Y)\)</span> et on cherche une relation statistique pouvant exister entre <span class="math notranslate nohighlight">\(Y\)</span> et <span class="math notranslate nohighlight">\(X\)</span>.
 On rappelle ici quelques résultats élémentaires sur la régression linéaire simple.</p>
-<div class="section" id="modele-theorique">
-<h3>Modèle théorique<a class="headerlink" href="#modele-theorique" title="Permalink to this headline">#</a></h3>
+
+<h3 id="modele-theorique">Modèle théorique<a class="headerlink" href="#modele-theorique" title="Permalink to this headline">¶</a></h3>
 <p>Théoriquement, on cherche une fonction <span class="math notranslate nohighlight">\(f\)</span> telle que <span class="math notranslate nohighlight">\(f(X)\)</span> soit aussi proche que possible de <span class="math notranslate nohighlight">\(Y\)</span>. Par proximité, on entend ici au sens des moindres carrés, et donc on cherche <span class="math notranslate nohighlight">\(f\)</span> telle que <span class="math notranslate nohighlight">\(\mathbb{E}\left ( (Y-f(X))^2\right )\)</span> soit minimale. On sait alors que la fonction <span class="math notranslate nohighlight">\(f\)</span> qui satisfait cette propriété est :</p>
 <p><span class="math notranslate nohighlight">\(f(X) = \mathbb{E}(Y\mid X)\)</span></p>
 <div class="proof definition admonition" id="definition-0">
 <p class="admonition-title"><span class="caption-number">Definition 37 </span> (Fonction de régression)</p>
-<div class="definition-content section" id="proof-content">
+
 <p>La fonction <span class="math notranslate nohighlight">\(x\mapsto \mathbb{E}(Y\mid X=x)\)</span> est la fonction de régression de <span class="math notranslate nohighlight">\(Y\)</span> en <span class="math notranslate nohighlight">\(X\)</span>.</p>
-</div>
+
 </div><p>La qualité de l’approximation est mesurée par le rapport de corrélation.</p>
 <div class="proof definition admonition" id="definition-1">
 <span id="index-1"></span><p class="admonition-title"><span class="caption-number">Definition 38 </span> (Rapport de corrélation)</p>
-<div class="definition-content section" id="proof-content">
+
 <p>Le rapport de corrélation entre deux variables aléatoires <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> est défini par le rapport entre la variation expliquée et la variation totale :</p>
 <p><span class="math notranslate nohighlight">\(\eta_{Y\mid X}^2 = \frac{\sigma_{\mathbb{E}(Y\mid X)}^2}{\sigma_Y^2}\)</span></p>
-</div>
+
 </div><p>En pratique, <span class="math notranslate nohighlight">\(Y\)</span> est approchée par <span class="math notranslate nohighlight">\(Y=\mathbb{E}(Y\mid X)+\varepsilon\)</span>, où <span class="math notranslate nohighlight">\(\varepsilon\)</span> est un résidu aléatoire de moyenne nulle, non corrélé à <span class="math notranslate nohighlight">\(X\)</span> et à <span class="math notranslate nohighlight">\(\mathbb{E}(Y\mid X)\)</span> et tel que <span class="math notranslate nohighlight">\(\sigma_\varepsilon^2= (1-\eta_{Y\mid X}^2)\sigma_Y^2\)</span>.</p>
 <p>Le cadre le plus utilisé est celui de la régression linéaire, c’est-à-dire lorsque <span class="math notranslate nohighlight">\(Y=a+bX+\varepsilon\)</span> et donc <span class="math notranslate nohighlight">\(\mathbb{E}(Y\mid X)=a+bX\)</span>, ce qui est le cas lorsque <span class="math notranslate nohighlight">\((X,Y)\)</span> est un couple de variables aléatoires gaussiennes.</p>
 <p>Puisque <span class="math notranslate nohighlight">\(\mathbb{E}(\varepsilon)=0\)</span>, la droite de régression passe par le point <span class="math notranslate nohighlight">\((\mathbb{E}(X),\mathbb{E}(Y))\)</span>. Ainsi</p>
@@ -426,9 +339,9 @@ On rappelle ici quelques résultats élémentaires sur la régression linéaire 
 <p><span class="math notranslate nohighlight">\(Y-\mathbb{E}(Y)=r_{XY}\frac{\sigma_Y}{\sigma_X}(X-\mathbb{E}(X))+\varepsilon\)</span></p>
 <p>En calculant la variance des deux termes, et puisque <span class="math notranslate nohighlight">\(\varepsilon\)</span> et <span class="math notranslate nohighlight">\(X\)</span> ne sont pas corrélés, on trouve</p>
 <p><span class="math notranslate nohighlight">\(r_{XY}^2 = \eta_{Y\mid X}^2\)</span></p>
-</div>
-<div class="section" id="ajustement-aux-donnees">
-<h3>Ajustement aux données<a class="headerlink" href="#ajustement-aux-donnees" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="ajustement-aux-donnees">Ajustement aux données<a class="headerlink" href="#ajustement-aux-donnees" title="Permalink to this headline">¶</a></h3>
 <p>On cherche ici à ajuster le modèle linéaire théorique aux <span class="math notranslate nohighlight">\(n\)</span> couples d’observations indépendantes <span class="math notranslate nohighlight">\((\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]\)</span>. Il s’agit donc de trouver <span class="math notranslate nohighlight">\(a,b\)</span> ainsi que la variance du résidu <span class="math notranslate nohighlight">\(\varepsilon\)</span>.</p>
 <p>La méthode la plus classique est la méthode des moindres carrés : on cherche à ajuster au nuage de points  <span class="math notranslate nohighlight">\((\mathbf x_i,\mathbf y_i),i\in[\![1,n]\!]\)</span> une droite d’équation <span class="math notranslate nohighlight">\(y^*=\alpha +\beta x\)</span> de sorte à minimiser</p>
 <p><span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^n (y_i^*-y_i)^2 = \displaystyle\sum_{i=1}^n (\alpha + \beta x_i-y_i)^2\)</span></p>
@@ -438,22 +351,22 @@ On rappelle ici quelques résultats élémentaires sur la régression linéaire 
 <p>La droite de régression linéaire passe donc par le centre de masse du nuage de points.</p>
 <div class="proof remark dropdown admonition" id="remark-2">
 <p class="admonition-title"><span class="caption-number">Remark 15 </span></p>
-<div class="remark-content section" id="proof-content">
+
 <p>les <span class="math notranslate nohighlight">\(x_i\)</span> et <span class="math notranslate nohighlight">\(y_i\)</span> étant des réalisations de variables aléatoires, tous les termes de l’équation de la droite de régression linéaire le sont également.</p>
-</div>
+
 </div><div class="proof remark dropdown admonition" id="remark-3">
 <p class="admonition-title"><span class="caption-number">Remark 16 </span></p>
-<div class="remark-content section" id="proof-content">
+
 <p>On peut montrer que <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span> et <span class="math notranslate nohighlight">\(y^*\)</span> sont des estimateurs sans biais de <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span> et <span class="math notranslate nohighlight">\(\mathbb{E}(Y\mid X)\)</span>.</p>
-</div>
+
 </div><p>La figure suivante illustre la régression linéaire d’un ensemble de points, décomposé en un ensemble d’apprentissage (bleu) sur lequel la droite de régression a été apprise et un ensemble de test (vert) sur lequel les valeurs ont été prédites (magenta).</p>
-<p><img alt="" src="_images/regressionlin.png" /></p>
-</div>
-</div>
-<div class="section" id="regression-multiple">
-<h2>Régression multiple<a class="headerlink" href="#regression-multiple" title="Permalink to this headline">#</a></h2>
-<div class="section" id="ajustement-lineaire-d-un-ensemble-d-observations">
-<span id="index-2"></span><h3>Ajustement linéaire d’un ensemble d’observations<a class="headerlink" href="#ajustement-lineaire-d-un-ensemble-d-observations" title="Permalink to this headline">#</a></h3>
+<p><img alt="" src="_images/regressionlin.png"/></p>
+
+
+
+<h2 id="regression-multiple">Régression multiple<a class="headerlink" href="#regression-multiple" title="Permalink to this headline">¶</a></h2>
+
+<span id="index-2"></span><h3 id="ajustement-lineaire-d-un-ensemble-d-observations">Ajustement linéaire d’un ensemble d’observations<a class="headerlink" href="#ajustement-lineaire-d-un-ensemble-d-observations" title="Permalink to this headline">¶</a></h3>
 <p>La régression multiple généralise la régression simple au cas de <span class="math notranslate nohighlight">\(p\geq 2\)</span> prédicteurs quantitatifs (ou variables explicatives). Ici on considère un échantillon de <span class="math notranslate nohighlight">\(n\)</span> individus, sur lesquels <span class="math notranslate nohighlight">\(p+1\)</span> variables sont mesurées : une variable à expliquer <span class="math notranslate nohighlight">\(\mathbf Y = (y_1\cdots y_n)^T\in\mathbb{R}^n\)</span> et <span class="math notranslate nohighlight">\(p\)</span> variables explicatives <span class="math notranslate nohighlight">\(\mathbf X_i\)</span> linéairement indépendantes, mais possiblement en relation.</p>
 <p>On cherche</p>
 <p><span class="math notranslate nohighlight">\(\mathbf Y^* = \beta_0 \mathbf{1} + \displaystyle\sum_{i=1}^p \beta_i\mathbf X_i\)</span></p>
@@ -469,28 +382,28 @@ On rappelle ici quelques résultats élémentaires sur la régression linéaire 
 <p>et on a donc les paramètres de la régression multiple.</p>
 <div class="proof remark dropdown admonition" id="remark-4">
 <p class="admonition-title"><span class="caption-number">Remark 17 </span></p>
-<div class="remark-content section" id="proof-content">
+
 <p>Dans le cas où la métrique utilisée est définie par une matrice symétrique définie positive <span class="math notranslate nohighlight">\(D\)</span> de taille <span class="math notranslate nohighlight">\(p\)</span>, alors</p>
 <p><span class="math notranslate nohighlight">\(\boldsymbol\beta = (\mathbf X^T\mathbf D \mathbf X)^{-1}\mathbf X^T \mathbf D \mathbf Y\)</span></p>
+
 </div>
-</div></div>
-<div class="section" id="modele">
-<h3>Modèle<a class="headerlink" href="#modele" title="Permalink to this headline">#</a></h3>
+
+<h3 id="modele">Modèle<a class="headerlink" href="#modele" title="Permalink to this headline">¶</a></h3>
 <p>On suppose que les <span class="math notranslate nohighlight">\(\mathbf X_i\)</span> et <span class="math notranslate nohighlight">\(\mathbf Y\)</span> sont <span class="math notranslate nohighlight">\(n\)</span> réalisations indépendantes de <span class="math notranslate nohighlight">\(p+1\)</span> variables aléatoires <span class="math notranslate nohighlight">\(\chi_i\)</span> et <span class="math notranslate nohighlight">\(\omega\)</span>. De même qu’en régression simple, la recherche de la meilleure approximation de <span class="math notranslate nohighlight">\(\omega\)</span> par une fonction des <span class="math notranslate nohighlight">\(\chi_i\)</span> amène à <span class="math notranslate nohighlight">\(\mathbb{E}(\omega\mid \chi_1\cdots \chi_p)\)</span> et l’hypothèse de régression multiple est</p>
 <p><span class="math notranslate nohighlight">\(\mathbb{E}(\omega\mid \chi_0\cdots \chi_p) = b_0+\displaystyle\sum_{i=1}^p b_i\chi_i+\varepsilon\)</span></p>
 <p>avec <span class="math notranslate nohighlight">\(\mathbb{E}(\varepsilon)=0, \sigma_\varepsilon=\sigma^2\)</span> et <span class="math notranslate nohighlight">\(\varepsilon\)</span> non corrélée aux <span class="math notranslate nohighlight">\(\chi_i\)</span>.</p>
 <p>On peut montrer que <span class="math notranslate nohighlight">\(\boldsymbol\beta\)</span> est un estimateur sans biais du vecteur aléatoire  <span class="math notranslate nohighlight">\((b_0\cdots b_p)\)</span>, et en est la meilleure approximation. De plus, la meilleure estimation sans biais de la variance <span class="math notranslate nohighlight">\(\sigma^2\)</span> est</p>
 <p><span class="math notranslate nohighlight">\(\hat{\sigma}^2 = \frac{\|\mathbf Y -\mathbf Y^*\|^2}{n-p-1}\)</span></p>
-</div>
-</div>
-<div class="section" id="modele-lineaire-generalise">
-<h2>Modèle linéaire généralisé<a class="headerlink" href="#modele-lineaire-generalise" title="Permalink to this headline">#</a></h2>
-<div class="section" id="position-du-probleme">
-<h3>Position du problème<a class="headerlink" href="#position-du-probleme" title="Permalink to this headline">#</a></h3>
+
+
+
+<h2 id="modele-lineaire-generalise">Modèle linéaire généralisé<a class="headerlink" href="#modele-lineaire-generalise" title="Permalink to this headline">¶</a></h2>
+
+<h3 id="position-du-probleme">Position du problème<a class="headerlink" href="#position-du-probleme" title="Permalink to this headline">¶</a></h3>
 <p>Dans le cas le plus général, on ne cherche pas à expliquer une seule variable mais <span class="math notranslate nohighlight">\(k\in\mathbb{N}\)</span>, obtenues par répétitions de l’expérience, les <span class="math notranslate nohighlight">\(\mathbf X_j\)</span> restant identiques : pour <span class="math notranslate nohighlight">\(i\in[\![1,k]\!]\)</span> <span class="math notranslate nohighlight">\(\mathbf{Y}_i\in\mathbb{R}^n\)</span> est la <span class="math notranslate nohighlight">\(i^e\)</span> observation.</p>
-</div>
-<div class="section" id="solution-a-partir-des-donnees">
-<h3>Solution à partir des données<a class="headerlink" href="#solution-a-partir-des-donnees" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="solution-a-partir-des-donnees">Solution à partir des données<a class="headerlink" href="#solution-a-partir-des-donnees" title="Permalink to this headline">¶</a></h3>
 <p>Le modèle fait l’hypothèse que le centre de gravité <span class="math notranslate nohighlight">\(\mathbf g\)</span> des <span class="math notranslate nohighlight">\(k\)</span> observations se situe dans <span class="math notranslate nohighlight">\(Im(\mathbf X)\)</span>, soit <span class="math notranslate nohighlight">\(\mathbf g = \mathbf X \boldsymbol \beta\)</span>
 La plupart du temps, on ne connaît cependant qu’une seule des <span class="math notranslate nohighlight">\(k\)</span> observations <span class="math notranslate nohighlight">\(\mathbf Y\)</span>, et le problème revient à approximer le mieux possible <span class="math notranslate nohighlight">\(\mathbf g\)</span> en ne connaissant que <span class="math notranslate nohighlight">\(\mathbf Y\)</span>.</p>
 <p>Cette approximation <span class="math notranslate nohighlight">\(\mathbf g^*\)</span> s’exprime comme la projection orthogonale de <span class="math notranslate nohighlight">\(\mathbf Y\)</span> sur <span class="math notranslate nohighlight">\(Im(\mathbf X)\)</span>, selon une métrique <span class="math notranslate nohighlight">\(\mathbf M\)</span>, à choisir de sorte que <span class="math notranslate nohighlight">\(\mathbf g^*\)</span> soit la plus proche possible de <span class="math notranslate nohighlight">\(\mathbf g\)</span>. Dit autrement, en répétant la projection avec <span class="math notranslate nohighlight">\(\mathbf Y_1\cdots \mathbf Y_k\)</span>, les <span class="math notranslate nohighlight">\(k\)</span> approximations <span class="math notranslate nohighlight">\(g^*_i=\mathbf X (\mathbf X^T\mathbf M\mathbf X)^{-1} \mathbf X^T \mathbf M \mathbf Y_i, i\in[\![1,k]\!]\)</span> doivent être le plus concentrées possible autour de <span class="math notranslate nohighlight">\(\mathbf g\)</span>.</p>
@@ -499,19 +412,19 @@ La plupart du temps, on ne connaît cependant qu’une seule des <span class="ma
 \mathbf g^*&amp;=&amp;\mathbf X(\mathbf X^T\mathbf V^{-1}\mathbf X)^{-1}\mathbf X^T\mathbf V^{-1}\mathbf Y\\
 \boldsymbol \beta&amp;=&amp;(\mathbf X^T\mathbf V^{-1}\mathbf X)^{-1}\mathbf X^T\mathbf V^{-1}\mathbf Y
 \end{eqnarray*}\)</span></p>
-</div>
-<div class="section" id="id1">
-<h3>Modèle<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="id1">Modèle<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>En ayant une infinité d’observations, on approche le modèle probabiliste. On suppose que <span class="math notranslate nohighlight">\(\mathbf Y\)</span> est une réalisation d’un vecteur aléatoire d’espérance <span class="math notranslate nohighlight">\(\mathbf X\mathbf b\)</span> et de matrice de variance-covariance <span class="math notranslate nohighlight">\(\boldsymbol\Sigma\)</span>. Le modèle s’écrit alors  <span class="math notranslate nohighlight">\(\mathbf Y=\mathbf X\mathbf b+\varepsilon\)</span>, avec <span class="math notranslate nohighlight">\(\varepsilon\)</span> centré de variance <span class="math notranslate nohighlight">\(\boldsymbol\Sigma\)</span>, et le problème est donc d’estimer <span class="math notranslate nohighlight">\(\mathbf b\)</span>. On montre que  <span class="math notranslate nohighlight">\(\mathbf b = (\mathbf X^T \boldsymbol\Sigma^{-1}\mathbf X)^{-1}\mathbf X^T\boldsymbol\Sigma^{-1}\mathbf Y\)</span>, appelé estimation des moindres carrés généralisés est, sous des hypothèses larges, l’estimation de variance minimale de <span class="math notranslate nohighlight">\(\mathbf b\)</span>.</p>
-</div>
-</div>
-<div class="section" id="modeles-regularises">
-<h2>Modèles régularisés<a class="headerlink" href="#modeles-regularises" title="Permalink to this headline">#</a></h2>
+
+
+
+<h2 id="modeles-regularises">Modèles régularisés<a class="headerlink" href="#modeles-regularises" title="Permalink to this headline">¶</a></h2>
 <p>On peut montrer que l’estimateur des moindres carrés est de variance minimale parmi les estimateurs linéaires sans biais. Cependant, la variance aboutit dans certains cas à des erreurs de prédiction importantes. Dans ce cas, on cherche des estimateurs de variance plus petite quitte à avoir un (léger) biais. Pour ce faire, on peut supprimer l’effet de certaines variables explicatives ce qui revient à leur attribuer un poids nul.
 Par ailleurs, dans le cas où <span class="math notranslate nohighlight">\(p\)</span> est grand, l’interprétation des résultats obtenus est parfois complexe. Ainsi, on pourra préférer un modèle estimé avec moins de variables explicatives afin de privilégier l’interprétation plutôt que la précision.</p>
 <p>Dans cette section, on s’intéresse à des méthodes permettant de produire des estimateurs dont les valeurs sont d’amplitudes réduites. On parle de modèles parcimonieux lorsque des variables ont des coefficients nuls.</p>
-<div class="section" id="regression-ridge">
-<h3>Régression Ridge<a class="headerlink" href="#regression-ridge" title="Permalink to this headline">#</a></h3>
+
+<h3 id="regression-ridge">Régression Ridge<a class="headerlink" href="#regression-ridge" title="Permalink to this headline">¶</a></h3>
 <span class="target" id="index-3"></span><p id="index-4">Dans l’approche moindres carrés linéaires classique, on cherche <span class="math notranslate nohighlight">\(\mathbf Y^* = \beta_0 \mathbf{1} + \displaystyle\sum_{i=1}^p \beta_i\mathbf X_i\)</span> proche de <span class="math notranslate nohighlight">\(\mathbf Y\)</span> au sens de la minimisation de <span class="math notranslate nohighlight">\(\|\mathbf Y^*-\mathbf Y\|^2 \)</span>. On cherche donc <span class="math notranslate nohighlight">\(\boldsymbol\beta_{mc}\in\mathbb{R}^{p+1}\)</span> tel que :</p>
 <p><span class="math notranslate nohighlight">\(\boldsymbol\beta_{mc} = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p+1}}\left [\displaystyle\sum_{i=1}^n \left (y_i-(\beta_0+\displaystyle\sum_{j=1}^p \beta_j x_{ij})\right )^2\right ]\)</span></p>
 <p>Dans l’approche Ridge regression (ou régression de Tikhonov), on pénalise l’amplitude des coefficients <span class="math notranslate nohighlight">\(\beta_j\)</span>. Pour ce faire, on pose <span class="math notranslate nohighlight">\(\boldsymbol\beta_{\setminus 0}\)</span> le vecteur des <span class="math notranslate nohighlight">\(p\)</span> dernières composantes de <span class="math notranslate nohighlight">\(\boldsymbol\beta\)</span> et on cherche le vecteur <span class="math notranslate nohighlight">\(\boldsymbol\beta_r\)</span> tel que</p>
@@ -525,16 +438,16 @@ Par ailleurs, dans le cas où <span class="math notranslate nohighlight">\(p\)</
 <p><span class="math notranslate nohighlight">\(\hat{\boldsymbol \beta}_r = arg\displaystyle\min_{\mathbf v\in\mathbb{R}^{p}} \left ((\mathbf Y-\mathbf X\mathbf v)^T(\mathbf Y-\mathbf X\mathbf v) + \lambda \mathbf v^T\mathbf v\right )\)</span></p>
 <p>dont la solution analytique est <span class="math notranslate nohighlight">\((\mathbf X^T\mathbf X + \lambda \mathbb{I})^{-1}\mathbf X^T\mathbf Y\)</span>.</p>
 <p>Le choix de <span class="math notranslate nohighlight">\(\lambda\)</span> n’est pas évident. La solution la plus simple consiste à prendre plusieurs valeurs, à tester les solutions proposées par ces valeurs et à retenir le <span class="math notranslate nohighlight">\(\lambda\)</span> ayant obtenu le meilleur score (par exemple la précision sur un ensemble de test). De manière moins expérimentale, il existe des algorithmes (basés sur la décomposition en valeurs singulières) permettant de choisir une ‘’bonne’’ valeur de paramètre.</p>
-</div>
-<div class="section" id="regression-lasso">
-<h3>Régression Lasso<a class="headerlink" href="#regression-lasso" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="regression-lasso">Régression Lasso<a class="headerlink" href="#regression-lasso" title="Permalink to this headline">¶</a></h3>
 <span class="target" id="index-5"></span><p id="index-6">La régression Lasso (Least Absolute Shrinkage and Selection Operator) est, dans son principe, très proche de la régression Ridge, la seule différence résidant dans la norme utilisée dans la fonction de pénalité : on cherche <span class="math notranslate nohighlight">\(\boldsymbol\beta\)</span> minimisant</p>
 <p><span class="math notranslate nohighlight">\(\boldsymbol\beta_l = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p+1}}\left [\displaystyle\sum_{i=1}^n \left (y_i-(\beta_0+\displaystyle\sum_{j=1}^p \beta_j x_{ij})\right )^2+\lambda \| \boldsymbol\beta_{\setminus 0}\|^2_1\right ]\)</span></p>
 <p>Contrairement à la régression Ridge, il n’y a pas de solution analytique (la norme <span class="math notranslate nohighlight">\(\ell_1\)</span> rend la fonction non différentiable) et on doit donc recourir à des méthodes de résolution numérique. Lorsque <span class="math notranslate nohighlight">\(\lambda\)</span> est grand, la minimisation force la fonction de pénalité à être petite : étant donné que cette dernière est une somme de valeurs absolues, la minimisation impose à certains coefficients <span class="math notranslate nohighlight">\(\beta_j,j\in[\![1,p]\!]\)</span> d’être nuls. On parle alors de régression parcimonieuse (et la régression peut donc être vue comme une méthode de sélection de variables).</p>
 <p>Quand <span class="math notranslate nohighlight">\(p&gt;n\)</span>, la méthode ne sélectionne que <span class="math notranslate nohighlight">\(n\)</span> variables. De plus, si plusieurs variables sont corrélées entre elles, Lasso ignore toutes sauf une. Et, pire, même si <span class="math notranslate nohighlight">\(n&gt;p\)</span>, et s’il y a de fortes corrélations entre les variables explicatives, on trouve empiriquement que Ridge donne de meilleurs résultats que Lasso.</p>
-</div>
-<div class="section" id="regression-elasticnet">
-<h3>Régression Elasticnet<a class="headerlink" href="#regression-elasticnet" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="regression-elasticnet">Régression Elasticnet<a class="headerlink" href="#regression-elasticnet" title="Permalink to this headline">¶</a></h3>
 <span class="target" id="index-7"></span><p id="index-8">On suppose ici que <span class="math notranslate nohighlight">\(\mathbf X\)</span> est centré réduit, et <span class="math notranslate nohighlight">\(\mathbf Y\)</span> est centré (donc <span class="math notranslate nohighlight">\(\beta_0=0\)</span>). La régression Elasticnet est un mélange de Ridge et Lasso : on cherche <span class="math notranslate nohighlight">\(\boldsymbol\beta_e\)</span> tel que</p>
 <p><span class="math notranslate nohighlight">\(\boldsymbol\beta_e = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p}}\left [\displaystyle\sum_{i=1}^n \left (y_i-\displaystyle\sum_{j=1}^p \beta_j x_{ij}\right )^2+\lambda_1 \| \boldsymbol\beta\|^2_1 + \lambda_2 \| \boldsymbol\beta\|^2_2\right ]\)</span></p>
 <p>En notant <span class="math notranslate nohighlight">\(\lambda =\lambda_1+\lambda_2\)</span> et <span class="math notranslate nohighlight">\( \alpha = \lambda_1/\lambda\)</span> on minimise alors</p>
@@ -542,45 +455,45 @@ Par ailleurs, dans le cas où <span class="math notranslate nohighlight">\(p\)</
 <p>On montre alors que la solution de la régression Elasticnet peut être obtenue à l’aide de la solution de la régression Lasso.</p>
 <div class="proof property admonition" id="property-5">
 <p class="admonition-title"><span class="caption-number">Property 7 </span></p>
-<div class="property-content section" id="proof-content">
+
 <p>Soit <span class="math notranslate nohighlight">\(\mathbf X\in\mathcal{M}_{np}(\mathbb R)\)</span> la matrice des variables explicatives, et <span class="math notranslate nohighlight">\(\mathbf Y\in\mathbb{R}^n\)</span> le vecteur des valeurs de la variable expliquée. Soient <span class="math notranslate nohighlight">\(\lambda_1,\lambda_2\in\mathbb{R}^+\)</span>. On pose</p>
 <p><span class="math notranslate nohighlight">\(\mathbf X^*\in\mathcal{M}_{(n+p)p}(\mathbb R) = \frac{1}{\sqrt{1+\lambda_2}}\begin{pmatrix}\mathbf X\\\sqrt{\lambda_2 }\mathbb{I}\end{pmatrix}\quad\text{et}\quad \mathbf Y^*=\begin{pmatrix}\mathbf Y\\0\end{pmatrix}\)</span></p>
 <p>et on note <span class="math notranslate nohighlight">\(\gamma=\lambda_1/(\lambda_1+\lambda_2)\)</span>.</p>
 <p>Alors la fonction objectif de la régression Elasticnet s’écrit <span class="math notranslate nohighlight">\(\|\mathbf Y^*-\mathbf X^*\boldsymbol\beta^*\|_2^2+\gamma\|\boldsymbol\beta^*\|_1\)</span>.
 Si <span class="math notranslate nohighlight">\(\hat{\boldsymbol\beta}\)</span> minimise cette fonction, alors l’estimateur naïf de la régression Elasticnet est</p>
 <p><span class="math notranslate nohighlight">\(\boldsymbol\beta_e = \frac{1}{\sqrt{1+\lambda_2}}\hat{\boldsymbol\beta}\)</span></p>
-</div>
+
 </div><p>Puisque <span class="math notranslate nohighlight">\(\mathbf X^*\)</span> est de rang <span class="math notranslate nohighlight">\(p\)</span>, la solution peut sélectionner <span class="math notranslate nohighlight">\(p\)</span> variables contrairement à la régression Lasso.</p>
 <p>En pratique, cet estimateur naïf ne donne satisfaction que lorsqu’il est proche de <span class="math notranslate nohighlight">\(\boldsymbol\beta_r\)</span> ou de <span class="math notranslate nohighlight">\(\boldsymbol\beta_l\)</span>. On retient généralement l’estimateur rééchelonné <span class="math notranslate nohighlight">\((1+\lambda_2)\boldsymbol\beta_e = \sqrt{1+\lambda_2}\hat{\boldsymbol\beta}\)</span> (Elasticnet peut être vu comme un Lasso où la matrice de variance-covariance est proche de la matrice Identité, et on montre que le facteur <span class="math notranslate nohighlight">\(1+\lambda_2\)</span> intervient alors).</p>
 <p>La figure suivante compare les différentes méthodes de régression sur la fonction</p>
 <p><span class="math notranslate nohighlight">\(f(x) = x-\frac35 x^2+\frac15x^3 + 18sin(x)\)</span></p>
 <p>avec <span class="math notranslate nohighlight">\(p=8\)</span> et <span class="math notranslate nohighlight">\(n=20\)</span>. Les <span class="math notranslate nohighlight">\(n=20\)</span> points  échantillonnés sur la courbe <span class="math notranslate nohighlight">\(y=f(x)\)</span> sont utilisés pour faire la régression sur l’intervalle [-10,10].</p>
-<p><img alt="" src="_images/comparregression.png" /></p>
-</div>
-</div>
-<div class="section" id="regression-logistique">
-<h2>Régression logistique<a class="headerlink" href="#regression-logistique" title="Permalink to this headline">#</a></h2>
+<p><img alt="" src="_images/comparregression.png"/></p>
+
+
+
+<h2 id="regression-logistique">Régression logistique<a class="headerlink" href="#regression-logistique" title="Permalink to this headline">¶</a></h2>
 <p id="index-9">Dans les sections précédentes, nous n’avons pas abordé les cas où les prédicteurs exhibent des dépendances non linéaires ou lorsque la variable à prédire n’est pas quantitative.</p>
 <p>La régression logistique est un modèle linéaire généralisé utilisé pour prédire une variable binaire, ou catégorielle, à partir de prédicteurs quantitatifs ou catégoriels.</p>
-<div class="section" id="regression-logistique-binaire">
-<h3>Régression logistique binaire<a class="headerlink" href="#regression-logistique-binaire" title="Permalink to this headline">#</a></h3>
+
+<h3 id="regression-logistique-binaire">Régression logistique binaire<a class="headerlink" href="#regression-logistique-binaire" title="Permalink to this headline">¶</a></h3>
 <p>Dans un premier temps, la variable à prédire est binaire : elle ne prend donc que deux valeurs 0/1 (ou -1/1). Dans le chapitre suivant, nous étudierons des algorithmes permettant d’aborder ce problème sous un angle classification. Ici, nous nous intéressons à une modélisation probabiliste, permettant notamment de prendre en compte le bruit dans les données.</p>
-<div class="section" id="id2">
-<h4>Modèle<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+
+<h4 id="id2">Modèle<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <p>On recherche une distribution conditionnelle <span class="math notranslate nohighlight">\(P(Y|X)\)</span> de la variable à prédire sachant les prédicteurs. Si le problème est en 0/1, alors <span class="math notranslate nohighlight">\(Y\)</span> est une variable indicatrice et on a <span class="math notranslate nohighlight">\(P(Y=1)=\mathbb{E}(Y)\)</span> et <span class="math notranslate nohighlight">\(P(Y=1|X=x)=\mathbb{E}(Y|X=x)\)</span>. La probabilité conditionnelle est donc l’espérance conditionnelle de l’indicatrice.</p>
 <p>Supposons que <span class="math notranslate nohighlight">\(P(Y=1|X=x)=p(x,\boldsymbol\theta)\)</span> avec <span class="math notranslate nohighlight">\(p\)</span> fonction paramétrée par <span class="math notranslate nohighlight">\(\boldsymbol\theta\)</span>. On suppose également que les observations sont indépendantes. La vraisemblance est alors donnée par</p>
 <p><span class="math notranslate nohighlight">\(\displaystyle\prod_{i=1}^n P(Y=y_i|X=x_i) = \displaystyle\prod_{i=1}^n p(x_i,\boldsymbol\theta)^{y_i}(1-p(x_i,\boldsymbol\theta))^{1-y_i}\)</span></p>
 <div class="proof remark dropdown admonition" id="remark-6">
 <p class="admonition-title"><span class="caption-number">Remark 18 </span></p>
-<div class="remark-content section" id="proof-content">
+
 <p>Pour <span class="math notranslate nohighlight">\(n\)</span> tirages d’une variable de Bernoulli dont la probabilité de succès est constante et vaut <span class="math notranslate nohighlight">\(p\)</span>, la vraisemblance est <span class="math notranslate nohighlight">\(\displaystyle\prod_{i=1}^n p^{y_i}(1-p)^{1-y_i}\)</span>. Cette vraisemblance est maximisée lorsque
 <span class="math notranslate nohighlight">\(p=n^{-1}\displaystyle\sum_{i=1}^n y_i\)</span>.</p>
-</div>
+
 </div><p>En notant <span class="math notranslate nohighlight">\(p_i=p(x_i,\boldsymbol\theta)\)</span>, maximiser la vraisemblance sans contrainte amène à la solution non informative <span class="math notranslate nohighlight">\(p_i=1\)</span> si <span class="math notranslate nohighlight">\(y_i=1\)</span> et 0 sinon. Si l’on essaye d’ajouter des contraintes (relations entre les <span class="math notranslate nohighlight">\(p_i\)</span>), alors l’estimation du maximum de vraisemblance devient difficile.</p>
 <p>Ici le modèle  <span class="math notranslate nohighlight">\(p_i=p(x_i,\boldsymbol\theta)\)</span> suppose que si <span class="math notranslate nohighlight">\(p\)</span> est continue, alors des valeurs proches de <span class="math notranslate nohighlight">\(x_i\)</span> amènent à des valeurs proches de <span class="math notranslate nohighlight">\(p_i\)</span>. En supposant <span class="math notranslate nohighlight">\(p\)</span> connue comme fonction de <span class="math notranslate nohighlight">\(\boldsymbol\theta\)</span>, la vraisemblance est une fonction de <span class="math notranslate nohighlight">\(\boldsymbol\theta\)</span> et on peut estimer ce paramètre en maximisant la vraisemblance.</p>
-</div>
-<div class="section" id="id3">
-<h4>Régression logistique<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
+
+
+<h4 id="id3">Régression logistique<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <p>On recherche un ‘’bon’’ modèle pour <span class="math notranslate nohighlight">\(p\)</span> :</p>
 <ol class="simple">
 <li><p>On peut dans un premier temps supposer que <span class="math notranslate nohighlight">\(p(\mathbf x)\)</span> est une fonction linéaire de <span class="math notranslate nohighlight">\(\mathbf x\)</span>. Les fonctions linéaires étant non bornées, elles ne peuvent modéliser des probabilités.</p></li>
@@ -593,16 +506,16 @@ Si <span class="math notranslate nohighlight">\(\hat{\boldsymbol\beta}\)</span> 
 <p><span class="math notranslate nohighlight">\(p(\mathbf x,\boldsymbol\theta) = \frac{e^{\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x}}{1+e^{\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x}}=\frac{1}{1+e^{-(\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x)}}\quad\text{avec }\boldsymbol\theta=(\beta_0,\boldsymbol\beta)^T\)</span></p>
 <p>Pour minimiser les erreurs de prédiction, on doit prédire <span class="math notranslate nohighlight">\(Y=1\)</span> si <span class="math notranslate nohighlight">\(p\geq 0.5\)</span>, soit <span class="math notranslate nohighlight">\(\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x\geq 0\)</span> et <span class="math notranslate nohighlight">\(Y=0\)</span> sinon. La régression logistique est donc un classifieur linéaire, dont la frontière de décision est justement l’hyperplan <span class="math notranslate nohighlight">\(\beta_0\mathbf 1 + \boldsymbol\beta\mathbf x= 0\)</span>. On peut montrer que la distance de <span class="math notranslate nohighlight">\(\mathbf x\)</span> à cet hyperplan est <span class="math notranslate nohighlight">\(\beta_0/\|\boldsymbol\beta\| + \mathbf x^T\boldsymbol\beta/\|\boldsymbol\beta\|\)</span>. Les probabilités d’appartenance de <span class="math notranslate nohighlight">\(\mathbf x\)</span> aux classes décroissent donc d’autant plus vite que <span class="math notranslate nohighlight">\(\|\boldsymbol\beta\|\)</span> est grand.</p>
 <p>Dans la figure suivante, la probabilité d’appartenance à la classe 1 (points rouges) est donnée en fausses couleurs.</p>
-<p><img alt="" src="_images/regression.png" /></p>
-</div>
-</div>
-<div class="section" id="regression-logistique-a-plusieurs-classes">
-<h3>Régression logistique à plusieurs classes<a class="headerlink" href="#regression-logistique-a-plusieurs-classes" title="Permalink to this headline">#</a></h3>
+<p><img alt="" src="_images/regression.png"/></p>
+
+
+
+<h3 id="regression-logistique-a-plusieurs-classes">Régression logistique à plusieurs classes<a class="headerlink" href="#regression-logistique-a-plusieurs-classes" title="Permalink to this headline">¶</a></h3>
 <p>Dans ce cas, <span class="math notranslate nohighlight">\(Y\)</span> peut prendre <span class="math notranslate nohighlight">\(k\)</span> valeurs. Le modèle reste le même, chaque classe <span class="math notranslate nohighlight">\(c\in[\![0,k-1]\!]\)</span> ayant son jeu de paramètres <span class="math notranslate nohighlight">\(\boldsymbol\theta_c=(\beta^c_0,\boldsymbol\beta^c)^T\)</span>. Les probabilités conditionnelles prédites sont alors</p>
 <p><span class="math notranslate nohighlight">\((\forall c\in[\![0,k-1]\!])\;\;P(Y=c|X=\mathbf x) = \frac{e^{\beta^c_0\mathbf 1 + \boldsymbol\beta^c\mathbf x}}{1+e^{\beta^c_0\mathbf 1 + \boldsymbol\beta^c\mathbf x}}\)</span></p>
-</div>
-<div class="section" id="interpretation">
-<h3>Interprétation<a class="headerlink" href="#interpretation" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="interpretation">Interprétation<a class="headerlink" href="#interpretation" title="Permalink to this headline">¶</a></h3>
 <p>Si <span class="math notranslate nohighlight">\(\mathbf x=\mathbf 0\)</span>, alors <span class="math notranslate nohighlight">\(p(\mathbf x)=\frac{1}{1+e^{-\beta_0}}\)</span>. L’ordonnée à l’origine fixe donc le taux d’événements “de base”.</p>
 <p>Supposons <span class="math notranslate nohighlight">\(\boldsymbol\beta\in\mathbb{R}\)</span> (l’interprétation sera la même dans le cas général). Considérons l’effet sur la probabilité d’un évènement du changement de <span class="math notranslate nohighlight">\(x\in\mathbb{R}\)</span> d’une unité, passant de <span class="math notranslate nohighlight">\(x_0\)</span> à <span class="math notranslate nohighlight">\(x_0+1\)</span>. Alors :</p>
 <p><span class="math notranslate nohighlight">\(logit(p(x_0+1))-logit(p(x_0)) = \beta_0+\beta(x_0+1)-(\beta_0+\beta(x_0)) = \beta\)</span>
@@ -613,18 +526,18 @@ log \left  [\frac{\frac{p( x_0+1)}{1-p(x_0+1)}}{\frac{p( x_0)}{1-p(x_0)}} \right
 \end{eqnarray*}\)</span></p>
 <p>En notant OR (Odds Ratio, ou rapport de côte) le terme en argument du log, et en prenant l’exponentielle, on trouve <span class="math notranslate nohighlight">\(OR=e^\beta\)</span>. Le coefficient <span class="math notranslate nohighlight">\(\beta\)</span> est donc tel que <span class="math notranslate nohighlight">\(e^\beta\)</span> est le rapport de côte pour un changement unitaire de l’entrée <span class="math notranslate nohighlight">\(x\)</span>. Si <span class="math notranslate nohighlight">\(x\)</span> est incrémenté de deux unités, alors le rapport de côte est de <span class="math notranslate nohighlight">\(e^{2\beta}=(e^\beta)^2\)</span>, que l’on généralise facilement au cas d’un changement de <span class="math notranslate nohighlight">\(n\)</span> unités à OR=<span class="math notranslate nohighlight">\((e^\beta)^n\)</span>.</p>
 <p>Dans le cas où <span class="math notranslate nohighlight">\(\boldsymbol\beta\)</span> est un vecteur, sa ième composante est une estimation du changement de la probabilité d’un évènement correspondant à une augmentation d’une unité de la ième composante de <span class="math notranslate nohighlight">\(\mathbf x\)</span>, les autres composantes étant constantes.</p>
-</div>
-<div class="section" id="estimation-des-coefficients-de-la-regression-logistique">
-<h3>Estimation des coefficients de la régression logistique<a class="headerlink" href="#estimation-des-coefficients-de-la-regression-logistique" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="estimation-des-coefficients-de-la-regression-logistique">Estimation des coefficients de la régression logistique<a class="headerlink" href="#estimation-des-coefficients-de-la-regression-logistique" title="Permalink to this headline">¶</a></h3>
 <p>D’après le modèle probabiliste, la distribution associée à la régression logistique est la loi binomiale. Pour <span class="math notranslate nohighlight">\(n\)</span> échantillons <span class="math notranslate nohighlight">\((x_i,y_i),i\in[\![1,n]\!]\)</span>, la vraisemblance s’écrit</p>
 <p><span class="math notranslate nohighlight">\(\displaystyle\prod_{i=1}^n p(x_i,\boldsymbol\theta)^{y_i}(1-p(x_i,\boldsymbol\theta))^{1-y_i}\)</span></p>
 <p>Pour estimer les paramètres <span class="math notranslate nohighlight">\(\beta_0\)</span> et <span class="math notranslate nohighlight">\(\boldsymbol\beta\)</span> à partir des données, on maximise cette vraisemblance. On prend son logarithme, on calcule son gradient et on en déduit un système d’équations à résoudre. Cette approche amène à des calculs complexes, la formulation analytique n’étant pas simple, et une approximation numérique est en pratique mise en oeuvre pour trouver l’optimal.</p>
-</div>
-</div>
-<div class="section" id="analyse-des-resultats-d-une-regression">
-<h2>Analyse des résultats d’une régression<a class="headerlink" href="#analyse-des-resultats-d-une-regression" title="Permalink to this headline">#</a></h2>
-<div class="section" id="etude-des-residus">
-<h3>Etude des résidus<a class="headerlink" href="#etude-des-residus" title="Permalink to this headline">#</a></h3>
+
+
+
+<h2 id="analyse-des-resultats-d-une-regression">Analyse des résultats d’une régression<a class="headerlink" href="#analyse-des-resultats-d-une-regression" title="Permalink to this headline">¶</a></h2>
+
+<h3 id="etude-des-residus">Etude des résidus<a class="headerlink" href="#etude-des-residus" title="Permalink to this headline">¶</a></h3>
 <p>L’étude des résidus <span class="math notranslate nohighlight">\( y_i- y^*_i\)</span> permet de repérer les observations aberrantes ou au contraire qui jouent un rôle fondamental dans la détermination de la régression. Elle permet également de vérifier que  le modèle linéaire est justifié.</p>
 <p>Comme <span class="math notranslate nohighlight">\(\mathbf Y = \mathbf Y -\mathbf X\boldsymbol \beta +\mathbf X\boldsymbol \beta\)</span> , où <span class="math notranslate nohighlight">\(\mathbf Y-\mathbf X\boldsymbol \beta \)</span> est orthogonal à <span class="math notranslate nohighlight">\(\mathbf X\boldsymbol \beta\)</span>, la matrice de variance des résidus s’écrit</p>
 <p><span class="math notranslate nohighlight">\(\begin{eqnarray*}
@@ -636,55 +549,55 @@ log \left  [\frac{\frac{p( x_0+1)}{1-p(x_0+1)}}{\frac{p( x_0)}{1-p(x_0)}} \right
 <p>et les résidus sont donc en général corrélés entre eux.</p>
 <div class="proof remark dropdown admonition" id="remark-7">
 <p class="admonition-title"><span class="caption-number">Remark 19 </span></p>
-<div class="remark-content section" id="proof-content">
+
 <p><span class="math notranslate nohighlight">\(\mathbf{I}-\mathbf X(\mathbf X^T\mathbf X)^{-1}\mathbf X^T\)</span> est la projection orthogonale sur <span class="math notranslate nohighlight">\(Im(\mathbf X)^\perp\)</span></p>
-</div>
+
 </div><p>Si <span class="math notranslate nohighlight">\(p_i\)</span> est le <span class="math notranslate nohighlight">\(i^e\)</span> terme diagonal du projecteur <span class="math notranslate nohighlight">\(\mathbf X(\mathbf X^T\mathbf X)^{-1}\mathbf X^T\)</span>, alors</p>
 <p><span class="math notranslate nohighlight">\(\mathbb{V}( y_i- y^*_i) = (1-p_i)\sigma^2\)</span></p>
 <p>d’où l’estimation de la variance du résidu <span class="math notranslate nohighlight">\(\hat{\mathbb{V}}(y_i-y^*_i) = (1-p_i)\hat{\sigma}^2\)</span>.</p>
 <p>Si le modèle linéaire est justifié, alors la distribution des résidus suit approximativement une loi normale. Un test statistique (par exemple le test de Jarque-Berra) viendra confirmer ou infirmer l’hypothèse selon laquelle la distribution peut être considérée comme telle.</p>
-<table class="colwidths-auto table">
+<table>
 <thead>
-<tr class="row-odd"><th class="head"><p><img alt="" src="_images/nuagelin.png" /></p></th>
-<th class="head"><p><img alt="" src="_images/nuagepaslin.png" /></p></th>
+<tr class="row-odd"><th class="head"><p><img alt="" src="_images/nuagelin.png"/></p></th>
+<th class="head"><p><img alt="" src="_images/nuagepaslin.png"/></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><img alt="" src="_images/reslin.png" /></p></td>
-<td><p><img alt="" src="_images/respaslin.png" /></p></td>
+<tr class="row-even"><td><p><img alt="" src="_images/reslin.png"/></p></td>
+<td><p><img alt="" src="_images/respaslin.png"/></p></td>
 </tr>
 </tbody>
 </table>
 <div class="proof definition admonition" id="definition-8">
 <span id="index-10"></span><p class="admonition-title"><span class="caption-number">Definition 39 </span> (Résidu studentisé)</p>
-<div class="definition-content section" id="proof-content">
+
 <p>On appelle résidu studentisé la quantité <span class="math notranslate nohighlight">\(\frac{y_i-y^*_i}{\hat{\sigma}\sqrt{1-hp}}\)</span></p>
-</div>
+
 </div><p>Lorsque <span class="math notranslate nohighlight">\(n\)</span> est grand, ces résidus doivent être compris dans l’intervalle [-2,2].</p>
 <p>Un fort résidu peut indiquer une valeur aberrante, mais la réciproque n’est pas vraie. Il est donc nécessaire d’étudier l’influence de chaque observation sur les résultats.</p>
-</div>
-<div class="section" id="influence-des-observations">
-<h3>Influence des observations<a class="headerlink" href="#influence-des-observations" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="influence-des-observations">Influence des observations<a class="headerlink" href="#influence-des-observations" title="Permalink to this headline">¶</a></h3>
 <p>Pour étudier l’influence des observations sur la prédiction, deux approches sont possibles (et complémentaires) :</p>
 <ol class="simple">
 <li><p>étudier l’influence d’une observation sur sa propre prédiction. On calcule le résidu prédit <span class="math notranslate nohighlight">\(y_i-y_{\bar{i}}^*\)</span>, où <span class="math notranslate nohighlight">\(y_{\bar{i}}^*\)</span> est la prévision obtenue avec les <span class="math notranslate nohighlight">\(n-1\)</span> autres observations que <span class="math notranslate nohighlight">\(y_i\)</span>. Il est facile de montrer que ce résidu vaut <span class="math notranslate nohighlight">\(\frac{y_i-y_i^*}{1-p_i}\)</span></p></li>
 </ol>
 <div class="proof remark dropdown admonition" id="remark-9">
 <p class="admonition-title"><span class="caption-number">Remark 20 </span></p>
-<div class="remark-content section" id="proof-content">
+
 <p>Il convient de rester prudent lorsque <span class="math notranslate nohighlight">\(p_i\)</span> est grand, et la quantité
 <span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^n  \frac{(y_i-y_i^*)^2}{(1-p_i)^2}\)</span>
 est une mesure du pouvoir prédictif du modèle.</p>
-</div>
+
 </div><ol class="simple">
 <li><p>étudier l’influence d’une observation sur les estimations des paramètres de la régression <span class="math notranslate nohighlight">\(\beta_i\)</span>. On peut par exemple calculer une distance, dite de Cook, entre <span class="math notranslate nohighlight">\(\boldsymbol \beta\)</span> et <span class="math notranslate nohighlight">\(\boldsymbol \beta_{\bar{i}}\)</span> :</p></li>
 </ol>
 <div class="math notranslate nohighlight">
 \[d(\boldsymbol \beta,\boldsymbol\beta_{\bar{i}}) = \frac{(\boldsymbol \beta-\boldsymbol\beta_{\bar{i}})^T\mathbf X^T \mathbf X(\boldsymbol \beta-\boldsymbol\beta_{\bar{i}})}{\hat{\sigma}^2(p+1)}=\frac{\|\mathbf Y^*-\mathbf Y_{\bar{i}}^*\|^2}{\hat{\sigma}^2(p+1)}\]</div>
 <p>où <span class="math notranslate nohighlight">\(\mathbf Y_{\bar{i}}^*=\mathbf X\boldsymbol\beta_{\bar{i}}\)</span>. Si <span class="math notranslate nohighlight">\(d(\boldsymbol \beta,\boldsymbol\beta_{\bar{i}})&gt;1\)</span>, alors en général l’observation <span class="math notranslate nohighlight">\(i\)</span> a une influence anormale.</p>
-</div>
-<div class="section" id="stabilite-des-coefficients-de-regression">
-<h3>Stabilité des coefficients de régression<a class="headerlink" href="#stabilite-des-coefficients-de-regression" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="stabilite-des-coefficients-de-regression">Stabilité des coefficients de régression<a class="headerlink" href="#stabilite-des-coefficients-de-regression" title="Permalink to this headline">¶</a></h3>
 <p>La source principale d’instabilité dans l’estimation des paramètres de régression réside dans le fait que les variables explicatives sont très corrélées entre elles. Comme <span class="math notranslate nohighlight">\(\mathbb{V}(\boldsymbol \beta)=\sigma^2(\mathbf X^T\mathbf X)^{-1}\)</span> alors si les <span class="math notranslate nohighlight">\(\mathbf X_i\)</span> sont corrélés, la matrice <span class="math notranslate nohighlight">\(\mathbf X^T\mathbf X\)</span> est mal conditionnée. Dans ce cas, les paramètres sont estimés avec imprécision et les prédictions sont entâchées d’erreur. Il est donc essentiel de mesurer les colinéarités entre prédicteurs. Par simplicité (sans que cela nuise à la généralité), on suppose ici que les variables sont centrées et réduites : <span class="math notranslate nohighlight">\((\mathbf X^T\mathbf X)\)</span> est donc une matrice de taille <span class="math notranslate nohighlight">\(p\)</span> (le fait de centrer les données supprime la constante) et <span class="math notranslate nohighlight">\(\boldsymbol\beta\in\mathbb{R}^p\)</span>. Ainsi <span class="math notranslate nohighlight">\((\mathbf X^T\mathbf X)=n\mathbf R\)</span> où <span class="math notranslate nohighlight">\(\mathbf R\)</span> est la matrice de corrélation entre les prédicteurs.</p>
 <p>Deux stratégies sont classiquement proposées :</p>
 <ol class="simple">
@@ -692,9 +605,9 @@ est une mesure du pouvoir prédictif du modèle.</p>
 </ol>
 <div class="proof remark dropdown admonition" id="remark-10">
 <p class="admonition-title"><span class="caption-number">Remark 21 </span></p>
-<div class="remark-content section" id="proof-content">
+
 <p>Si les variables explicatives sont orthogonales, la régression multiple revient à <span class="math notranslate nohighlight">\(p\)</span> régressions simples.</p>
-</div>
+
 </div><ol class="simple">
 <li><p>La factorisation spectrale de <span class="math notranslate nohighlight">\(\mathbf R\)</span> s’écrit <span class="math notranslate nohighlight">\(\mathbf R = \mathbf U\boldsymbol\Lambda \mathbf U^T\)</span>. Donc <span class="math notranslate nohighlight">\(\mathbf{R}^{-1}=\mathbf U\Lambda^{-1}\mathbf U^T\)</span> et la variance de <span class="math notranslate nohighlight">\(\beta_j\)</span> s’écrit</p></li>
 </ol>
@@ -705,18 +618,18 @@ est une mesure du pouvoir prédictif du modèle.</p>
 <li><p>rejeter certains termes de la somme précédente, par exemple en remplaçant les <span class="math notranslate nohighlight">\(p\)</span> prédicteurs par leurs <span class="math notranslate nohighlight">\(p\)</span> composantes principales (Ceci revient à effectuer <span class="math notranslate nohighlight">\(p\)</span> régressions simples).</p></li>
 <li><p>régulariser la régression en utilisant des approche de type Ridge regression.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="selection-des-variables">
-<h2>Sélection des variables<a class="headerlink" href="#selection-des-variables" title="Permalink to this headline">#</a></h2>
+
+
+
+<h2 id="selection-des-variables">Sélection des variables<a class="headerlink" href="#selection-des-variables" title="Permalink to this headline">¶</a></h2>
 <p>Plutôt que d’expliquer <span class="math notranslate nohighlight">\(\mathbf Y\)</span> par l’ensemble des prédicteurs, on peut chercher un sous-ensemble de ces <span class="math notranslate nohighlight">\(p\)</span> variables permettant d’obtenir quasiment le même résultat (régression). Nous avons déjà abordé la sélection de variables dans un chapitre précédent.</p>
-</div>
-<div class="section" id="exemple">
-<h2>Exemple<a class="headerlink" href="#exemple" title="Permalink to this headline">#</a></h2>
-<div class="section" id="donnees">
-<h3>Données<a class="headerlink" href="#donnees" title="Permalink to this headline">#</a></h3>
+
+
+<h2 id="exemple">Exemple<a class="headerlink" href="#exemple" title="Permalink to this headline">¶</a></h2>
+
+<h3 id="donnees">Données<a class="headerlink" href="#donnees" title="Permalink to this headline">¶</a></h3>
 <p>On s’intéresse aux données suivantes et on cherche s’il existe une relation entre la production <span class="math notranslate nohighlight">\(Y\)</span> et les deux variables prédictives <span class="math notranslate nohighlight">\(X_1\)</span> et <span class="math notranslate nohighlight">\(X_2\)</span>.</p>
-<table class="colwidths-auto table">
+<table>
 <thead>
 <tr class="row-odd"><th class="head"><p>Usine</p></th>
 <th class="head"><p>Travail (h) <span class="math notranslate nohighlight">\(X_1\)</span></p></th>
@@ -772,9 +685,9 @@ est une mesure du pouvoir prédictif du modèle.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="id4">
-<h3>Modèle<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+
+
+<h3 id="id4">Modèle<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>On fait l’hypothèse d’un modèle linéaire</p>
 <p><span class="math notranslate nohighlight">\(y = \beta_0+\beta_1 X_1 + \beta_2 X_2+\varepsilon = \mathbf X \boldsymbol\beta+\boldsymbol\varepsilon\)</span></p>
 <p>On a alors <span class="math notranslate nohighlight">\(\boldsymbol\beta = (\mathbf X^T\mathbf X)^{-1}\mathbf X^T \mathbf Y = \begin{pmatrix} -437.714\\0.336\\0.410\end{pmatrix}\)</span> et l’équation du modèle linéaire (hyperplan) aux moindres carrés est</p>
@@ -784,10 +697,10 @@ est une mesure du pouvoir prédictif du modèle.</p>
 <p>de sorte que la covariance des paramètres de régression vaut</p>
 <p><span class="math notranslate nohighlight">\(\hat{\sigma}^2 (\mathbf X^T\mathbf X)^{-1} = \begin{pmatrix} 3355.56 &amp; -4.152 &amp; 6.184\\-4.152 &amp; 0.008 &amp; -0.016 \\ 6.184 &amp; -0.016 &amp; 0.038\end{pmatrix}\)</span></p>
 <p>Dans la figure suivante, les points au-dessus du plan regresseur sont en bleu, les autres en vert.</p>
-<table class="colwidths-auto table">
+<table>
 <thead>
-<tr class="row-odd"><th class="head"><p><img alt="" src="_images/plan.png" /></p></th>
-<th class="head"><p><img alt="" src="_images/plan2.png" /></p></th>
+<tr class="row-odd"><th class="head"><p><img alt="" src="_images/plan.png"/></p></th>
+<th class="head"><p><img alt="" src="_images/plan2.png"/></p></th>
 </tr>
 </thead>
 <tbody>
@@ -796,11 +709,10 @@ est une mesure du pouvoir prédictif du modèle.</p>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
 
-    <script type="text/x-thebe-config">
+
+
+<script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
@@ -818,53 +730,63 @@ est une mesure du pouvoir prédictif du modèle.</p>
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+<script>kernelName = 'python3'</script>
 
-              </div>
-              
-              
-              <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="acp.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Analyse en composantes principales</p>
+          </article>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="clustering.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Quelques méthodes de classification</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-              
-          </main>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
           
-
+            <a href="acp.html" title="Analyse en composantes principales"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> "Previous" </span> Analyse en composantes principales </span>
+              </div>
+            </a>
+          
+          
+            <a href="clustering.html" title="Quelques méthodes de classification"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> "Next" </span> Quelques méthodes de classification </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2022.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
       </div>
     </div>
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-<footer class="footer mt-5 mt-md-0">
-  <div class="container">
-    
-    <div class="footer-item">
-      <p class="copyright">
-    &copy; Copyright 2022.<br>
-</p>
-    </div>
-    
-    <div class="footer-item">
-      <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
-</p>
-    </div>
-    
-  </div>
-</footer>
+  </footer>
+  <script src="_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
   </body>
 </html>
