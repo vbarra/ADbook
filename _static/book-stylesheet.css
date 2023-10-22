@@ -22,6 +22,28 @@ Styling for Table of Contents
   font-size: 1.1em;
 }
 
+
+
+
+/* Modify Jupyter Styles */
+#top-panel-wrapper,
+#jp-top-bar {
+  background-color: #aecad4 !important;
+}
+
+#menu-panel-wrapper,
+#jp-MainMenu,
+#menu-panel {
+  background-color: #aecad4 !important;
+}
+
+.jp-NotebookPanel-toolbar {
+  background-color: #aecad4 !important;
+}
+.lm-MenuBar-content {
+  color: #02484d;
+}
+
 /*--------------------------------------------------------------------*\
 
 Styling for Embedded Videos (iframes) 

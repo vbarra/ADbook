@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -738,7 +740,7 @@ title="Print to PDF"
 <span class="g g-Whitespace">   </span><span class="mi">6132</span> <span class="n">not_found</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ensure_index</span><span class="p">(</span><span class="n">key</span><span class="p">)[</span><span class="n">missing_mask</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
 <span class="g g-Whitespace">   </span><span class="mi">6133</span> <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">not_found</span><span class="si">}</span><span class="s2"> not in index&quot;</span><span class="p">)</span>
 
-<span class="ne">KeyError</span>: &quot;None of [Int64Index([ 5077, 54564, 33640, 52200, 27713, 55239, 60615, 25625, 15494,\n            63631,\n            ...\n            54060,  9169, 30143, 33383, 67184, 39258, 62540,  3250, 55448,\n            66732],\n           dtype=&#39;int64&#39;, length=70000)] are in the [columns]&quot;
+<span class="ne">KeyError</span>: &quot;None of [Int64Index([53844,  9072,  6247,  8363, 69766, 15685, 37442, 56649, 53204,\n            21866,\n            ...\n             4085, 25648, 29592, 37364, 15629, 25487, 64448, 23276, 31574,\n            45444],\n           dtype=&#39;int64&#39;, length=70000)] are in the [columns]&quot;
 </pre></div>
 </div>
 </div>
