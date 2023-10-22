@@ -5,50 +5,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="lang:clipboard.copy" content="Copy to clipboard">
-  <meta name="lang:clipboard.copied" content="Copied to clipboard">
-  <meta name="lang:search.language" content="en">
-  <meta name="lang:search.pipeline.stopwords" content="True">
-  <meta name="lang:search.pipeline.trimmer" content="True">
-  <meta name="lang:search.result.none" content="No matching documents">
-  <meta name="lang:search.result.one" content="1 matching document">
-  <meta name="lang:search.result.other" content="# matching documents">
-  <meta name="lang:search.tokenizer" content="[\s\-]+">
-
-  
-    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
-
-    <style>
-      body,
-      input {
-        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
-      }
-
-      code,
-      kbd,
-      pre {
-        font-family: "Roboto Mono", "Courier New", Courier, monospace
-      }
-    </style>
-  
-
-  <link rel="stylesheet" href="_static/stylesheets/application.css"/>
-  <link rel="stylesheet" href="_static/stylesheets/application-palette.css"/>
-  <link rel="stylesheet" href="_static/stylesheets/application-fixes.css"/>
-  
-  <link rel="stylesheet" href="_static/fonts/material-icons.css"/>
-  
-  <meta name="theme-color" content="#3f51b5">
-  <script src="_static/javascripts/modernizr.js"></script>
-  
-  
-  
     <title>Sélection de variables &#8212; Analyse de données</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/material.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -56,6 +27,10 @@
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystyle.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -75,194 +50,266 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Analyse en composantes principales" href="acp.html" />
     <link rel="prev" title="Statistique descriptive" href="statsdescriptives.html" />
-  
-   
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
 
+    <!-- Google Analytics -->
+    
   </head>
-  <body dir=ltr
-        data-md-color-primary=blue-grey data-md-color-accent=blue>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="intro.html">
+  <img src="_static/isimainp.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
   
-  <svg class="md-svg">
-    <defs data-children-count="0">
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
       
-      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="Rappels.html">
+  Rappels de probabilité
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="elemstats.html">
+  Elements de statistiques
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="statsdescriptives.html">
+  Statistique descriptive
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  Sélection de variables
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="acp.html">
+  Analyse en composantes principales
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="regression.html">
+  Régression
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="clustering.html">
+  Quelques méthodes de classification
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="afc.html">
+  Analyse Factorielle des correspondances
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="acm.html">
+  Analyse des correspondances multiples
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="genindex.html">
+  Index
+ </a>
+</li>
+
+    
+</ul>
+      </div>
       
-    </defs>
-  </svg>
-  
-  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
-  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
-  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#selection" tabindex="1" class="md-skip"> Skip to content </a>
-  <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="intro.html" title="Analyse de données"
-           class="md-header-nav__button md-logo">
-          
-              <img src="_static/isimainp.png" height="26"
-                   alt="Analyse de données logo">
-          
-        </a>
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
       </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">Analyse de données</span>
-          <span class="md-header-nav__topic"> Sélection de variables </span>
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-        
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder=""Search""
-             autocapitalize="off" autocomplete="off" spellcheck="false"
-             data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
-      </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta">
-            Type to start searching
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
+      
     </div>
   </div>
 </div>
-
-      </div>
-      
-      
-  
-  <script src="_static/javascripts/version_dropdown.js"></script>
-  <script>
-    var json_loc = ""versions.json"",
-        target_loc = "../",
-        text = "Versions";
-    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
-  </script>
-  
-
-    </div>
-  </nav>
-</header>
-
-  
-  <div class="md-container">
+    </nav>
     
-    
-    
-  <nav class="md-tabs" data-md-component="tabs">
-    <div class="md-tabs__inner md-grid">
-      <ul class="md-tabs__list">
-          <li class="md-tabs__item"><a href="intro.html" class="md-tabs__link">Analyse de données</a></li>
-      </ul>
-    </div>
-  </nav>
-    <main class="md-main">
-      <div class="md-main__inner md-grid" data-md-component="container">
-        
-          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-            <div class="md-sidebar__scrollwrap">
-              <div class="md-sidebar__inner">
-                <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="intro.html" title="Analyse de données" class="md-nav__button md-logo">
-      
-        <img src="_static/isimainp.png" alt=" logo" width="48" height="48">
-      
-    </a>
-    <a href="intro.html"
-       title="Analyse de données">Analyse de données</a>
-  </label>
-  
 
-</nav>
-              </div>
-            </div>
-          </div>
-          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-            <div class="md-sidebar__scrollwrap">
-              <div class="md-sidebar__inner">
-                
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">"Contents"</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#selection--page-root" class="md-nav__link">Sélection de variables</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#definitions" class="md-nav__link">Définitions</a>
-        </li>
-        <li class="md-nav__item"><a href="#caracteristiques-des-methodes-de-selection" class="md-nav__link">Caractéristiques des méthodes de sélection</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#initialisation" class="md-nav__link">Initialisation</a>
-        </li>
-        <li class="md-nav__item"><a href="#exploration-des-sous-ensembles" class="md-nav__link">Exploration des sous-ensembles</a>
-        </li>
-        <li class="md-nav__item"><a href="#evaluation-des-sous-ensembles" class="md-nav__link">Evaluation des sous-ensembles</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#filtres" class="md-nav__link">Filtres</a>
-        </li>
-        <li class="md-nav__item"><a href="#methodes-enveloppantes" class="md-nav__link">Méthodes enveloppantes</a>
-        </li>
-        <li class="md-nav__item"><a href="#methodes-integrees" class="md-nav__link">Méthodes intégrées</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#quelques-methodes-de-selection" class="md-nav__link">Quelques méthodes de sélection</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#suppression-des-descripteurs-a-variance-faible" class="md-nav__link">Suppression des descripteurs à variance faible</a>
-        </li>
-        <li class="md-nav__item"><a href="#algorithmes-de-selection-sequentielle" class="md-nav__link">Algorithmes de sélection séquentielle</a>
-        </li>
-        <li class="md-nav__item"><a href="#algorithme-focus" class="md-nav__link">Algorithme Focus</a>
-        </li>
-        <li class="md-nav__item"><a href="#algorithme-relief" class="md-nav__link">Algorithme relief</a>
-        </li>
-        <li class="md-nav__item"><a href="#methode-sac" class="md-nav__link">Méthode SAC</a>
-        </li>
-        <li class="md-nav__item"><a href="#algorithme-rfe" class="md-nav__link">Algorithme RFE</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="_sources/selection.md">Show Source</a> </li>
-
-<li id="searchbox" class="md-nav__item"></li>
-
-  </ul>
-</nav>
-              </div>
-            </div>
-          </div>
-        
-        <div class="md-content">
-          <article class="md-content__inner md-typeset" role="main">
+    <div class="container-xl">
+      <div class="row">
+          
             
-  
-<h1 id="selection--page-root">Sélection de variables<a class="headerlink" href="#selection--page-root" title="Permalink to this headline">¶</a></h1>
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definitions">
+   Définitions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#caracteristiques-des-methodes-de-selection">
+   Caractéristiques des méthodes de sélection
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#initialisation">
+     Initialisation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exploration-des-sous-ensembles">
+     Exploration des sous-ensembles
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evaluation-des-sous-ensembles">
+     Evaluation des sous-ensembles
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#filtres">
+       Filtres
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#methodes-enveloppantes">
+       Méthodes enveloppantes
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#methodes-integrees">
+       Méthodes intégrées
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quelques-methodes-de-selection">
+   Quelques méthodes de sélection
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#suppression-des-descripteurs-a-variance-faible">
+     Suppression des descripteurs à variance faible
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algorithmes-de-selection-sequentielle">
+     Algorithmes de sélection séquentielle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algorithme-focus">
+     Algorithme Focus
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algorithme-relief">
+     Algorithme relief
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methode-sac">
+     Méthode SAC
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algorithme-rfe">
+     Algorithme RFE
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="selection-de-variables">
+<h1>Sélection de variables<a class="headerlink" href="#selection-de-variables" title="Permalink to this headline">#</a></h1>
 <p>On s’intéresse ici à <span class="math notranslate nohighlight">\(n\)</span> individus  <span class="math notranslate nohighlight">\(\mathbf x_i, i\in[\![1,n]\!]\)</span> décrits par <span class="math notranslate nohighlight">\(d\)</span> variables quantitatives ou caractéristiques (features), <span class="math notranslate nohighlight">\(x_i\in \mathbb{R}^d\)</span>. Avec l’avènement des Big Data, et la généralisation des capteurs, <span class="math notranslate nohighlight">\(d\)</span> peut être très grand (plusieurs milliers), et analyser telles quelles les données brutes devient difficile d’un point de vue calculatoire et interprétation. De plus, il est rare que les caractéristiques soient totalement utiles et indépendantes.</p>
 <p>Une étape souvent utilisée en analyse de données consiste donc à prétraiter cet espace, par exemple pour :</p>
 <ul class="simple">
@@ -274,8 +321,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>permettre une interprétation plus intuitive et/ou graphique (<a class="reference internal" href="#tsne"><span class="std std-ref">figure 2</span></a>)</p></li>
 </ul>
 <div class="figure align-default" id="tsne">
-<img alt="_images/tsne.png" src="_images/tsne.png"/>
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Exemple de réduction de dimension (source: Maaten &amp; Hinton, 2008). Des images 28<span class="math notranslate nohighlight">\(\times\)</span> 28 de chiffres manuscrits sont représentées par un vecteur de 784 valeurs, puis transformés en vecteurs de <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> pour les projeter dans le plan. La méthode utilisée permet d’optimiser la transformation de sorte à ce que les images représentant le même chiffre soient regroupées dans des nuages compacts.</span><a class="headerlink" href="#tsne" title="Permalink to this image">¶</a></p>
+<img alt="_images/tsne.png" src="_images/tsne.png" />
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Exemple de réduction de dimension (source: Maaten &amp; Hinton, 2008). Des images 28<span class="math notranslate nohighlight">\(\times\)</span> 28 de chiffres manuscrits sont représentées par un vecteur de 784 valeurs, puis transformés en vecteurs de <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> pour les projeter dans le plan. La méthode utilisée permet d’optimiser la transformation de sorte à ce que les images représentant le même chiffre soient regroupées dans des nuages compacts.</span><a class="headerlink" href="#tsne" title="Permalink to this image">#</a></p>
 </div>
 <p>Deux stratégies peuvent alors être utilisées :</p>
 <ol class="simple">
@@ -285,11 +332,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Nous nous intéressons ici à la première approche, la seconde (extraction de caractéristiques) étant abordée pour une approche linéaire dans le chapitre sur l’analyse en composantes principales.</p>
 <div class="proof remark dropdown admonition" id="remark-0">
 <p class="admonition-title"><span class="caption-number">Remark 12 </span></p>
-
+<div class="remark-content section" id="proof-content">
 <p>Les méthodes d’extraction de caractéristiques peuvent être soit linéaires (on recherche des combinaisons linéaires des variables initiales  permettant d’optimiser un cerrtain critère), ou non linéaires (on parle également de manifold learning)</p>
-
 </div>
-<h2 id="definitions">Définitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h2>
+</div><div class="section" id="definitions">
+<h2>Définitions<a class="headerlink" href="#definitions" title="Permalink to this headline">#</a></h2>
 <p>La sélection de caractéristiques consiste à choisir parmi les <span class="math notranslate nohighlight">\(d\)</span> descripteurs d’un ensemble d’individus <span class="math notranslate nohighlight">\(\mathbf x_i,i\in[\![1,n]\!]\)</span>, un sous-ensemble de  <span class="math notranslate nohighlight">\(t&lt;d\)</span>  caractéristiques jugées “les plus pertinentes”, les <span class="math notranslate nohighlight">\(d-t\)</span> restantes étant ignorées.</p>
 <p>On note <span class="math notranslate nohighlight">\(F = \left (f_1\cdots f_d\right )\)</span> les <span class="math notranslate nohighlight">\(d\)</span> caractéristiques.  On note <span class="math notranslate nohighlight">\(Perf\)</span> une fonction qui permet d’évaluer un sous-ensemble de caractéristiques, et on suppose que <span class="math notranslate nohighlight">\(Perf\)</span> atteint son maximum pour le meilleur sous-ensemble de caractéristiques (“le plus pertinent”). Le problème de sélection se formule donc comme un problème d’optimisation</p>
 <div class="math notranslate nohighlight">
@@ -307,16 +354,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>peu pertinente si elle n’est pas pertinente et s’il existe un sous-ensemble <span class="math notranslate nohighlight">\(U\)</span> tel que la performance de <span class="math notranslate nohighlight">\(U\cup\{f_i\}\)</span> est significativement meilleure que la peformance de <span class="math notranslate nohighlight">\(U\)</span></p></li>
 <li><p>non pertinente, si elle ne rentre pas dans les deux premières définitions. En général, ces caractéristiques sont supprimées.</p></li>
 </ul>
-
-
-<h2 id="caracteristiques-des-methodes-de-selection">Caractéristiques des méthodes de sélection<a class="headerlink" href="#caracteristiques-des-methodes-de-selection" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="caracteristiques-des-methodes-de-selection">
+<h2>Caractéristiques des méthodes de sélection<a class="headerlink" href="#caracteristiques-des-methodes-de-selection" title="Permalink to this headline">#</a></h2>
 <p>Une méthode de sélection basée sur l’optimisation de <span class="math notranslate nohighlight">\(Perf\)</span> utilise généralement trois étapes. Les  deux dernières sont itérées jusqu’à un test d’arrêt.</p>
-
-<h3 id="initialisation">Initialisation<a class="headerlink" href="#initialisation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="initialisation">
+<h3>Initialisation<a class="headerlink" href="#initialisation" title="Permalink to this headline">#</a></h3>
 <p>L’initialisation consiste à choisir l’ensemble de départ des caractéristiques. Il peut s’agir de l’ensemble vide, de <span class="math notranslate nohighlight">\(F\)</span> tout entier, ou un sous-ensemble quelconque <span class="math notranslate nohighlight">\(U\subset F\)</span>.</p>
-
-
-<h3 id="exploration-des-sous-ensembles">Exploration des sous-ensembles<a class="headerlink" href="#exploration-des-sous-ensembles" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="exploration-des-sous-ensembles">
+<h3>Exploration des sous-ensembles<a class="headerlink" href="#exploration-des-sous-ensembles" title="Permalink to this headline">#</a></h3>
 <p>A partir de cette initialisation, les stratégies d’exploration des sous-ensembles de caractéristiques se déclinent en trois catégories :</p>
 <ol class="simple">
 <li><p>génération exhaustive : tous les sous-ensembles de caractéristiques sont évalués. Si elle garantit de trouver la valeur optimale, cette méthode n’est que peu applicable dès que <span class="math notranslate nohighlight">\(|F|\)</span> devient important (<span class="math notranslate nohighlight">\(2^{|F|}\)</span> sous-ensembles possibles)</p></li>
@@ -324,11 +371,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>génération stochastique : pour un ensemble de données et une initialisation définie, une stratégie de recherche heuristique retourne toujours le même sous-ensemble, ce qui la rend très sensible au changement
 de l’ensemble de données. La génération stochastique génère aléatoirement un nombre fini de sous-ensembles de caractéristiques afin de sélectionner le meilleur. La convergence est sous-optimale mais peut s’avérer préférable dans des algorithmes d’apprentissage, par exemple pour éviter le phénomène de surapprentissage.</p></li>
 </ol>
-
-
-<h3 id="evaluation-des-sous-ensembles">Evaluation des sous-ensembles<a class="headerlink" href="#evaluation-des-sous-ensembles" title="Permalink to this headline">¶</a></h3>
-
-<h4 id="filtres">Filtres<a class="headerlink" href="#filtres" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="evaluation-des-sous-ensembles">
+<h3>Evaluation des sous-ensembles<a class="headerlink" href="#evaluation-des-sous-ensembles" title="Permalink to this headline">#</a></h3>
+<div class="section" id="filtres">
+<h4>Filtres<a class="headerlink" href="#filtres" title="Permalink to this headline">#</a></h4>
 <p>Le critère d’évaluation utilisé évalue la pertinence d’une caractéristique selon des mesures
 qui reposent sur les propriétés de données d’apprentissage.</p>
 <p>Pour <span class="math notranslate nohighlight">\(n\)</span> exemples  <span class="math notranslate nohighlight">\(\mathbf x_i, i\in[\![1,n]\!]\)</span> , on note <span class="math notranslate nohighlight">\(\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d\)</span>  une donnée d’apprentissage (la <span class="math notranslate nohighlight">\(j^e\)</span> caractéristique <span class="math notranslate nohighlight">\(f_j\)</span> ayant donc pour valeur <span class="math notranslate nohighlight">\(x_{ij}\)</span>) , d’étiquette <span class="math notranslate nohighlight">\(y_i\)</span> (en classification ou régression). Les méthodes de type filtres calculent un score pour évaluer le degré de pertinence de chacune des caractéristiques <span class="math notranslate nohighlight">\(f_i\)</span> , parmi lesquelles on peut citer</p>
@@ -358,11 +405,11 @@ d’une caractéristique donnée</p></li>
 <span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectKBest</span>
 <span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">mutual_info_classif</span>
 <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Taille des données avant : "</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Taille des données avant : &quot;</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">SelectKBest</span><span class="p">(</span><span class="n">mutual_info_classif</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">X2</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Taille des données après : "</span><span class="p">,</span><span class="n">X2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Variables sélectionnées : "</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">get_support</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Taille des données après : &quot;</span><span class="p">,</span><span class="n">X2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variables sélectionnées : &quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">get_support</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -374,9 +421,9 @@ Variables sélectionnées :  [False False  True  True]
 </div>
 </div>
 </div>
-
-
-<h4 id="methodes-enveloppantes">Méthodes enveloppantes<a class="headerlink" href="#methodes-enveloppantes" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="methodes-enveloppantes">
+<h4>Méthodes enveloppantes<a class="headerlink" href="#methodes-enveloppantes" title="Permalink to this headline">#</a></h4>
 <p>Le principal inconvénient des approches précédentes est le fait qu’elles ignorent l’influence des caractéristiques sélectionnées sur la performance de l’algorithme à utiliser par la suite. Les méthodes de type enveloppantes (wrappers)  évaluent un sous-ensemble de caractéristiques par sa performance
 de classification en utilisant un algorithme d’apprentissage.  Les sous-ensembles de caractéristiques sélectionnés par cette méthode sont bien adaptés à l’algorithme de classification utilisé, mais ils ne sont pas nécessairement pour un autre. De plus, la complexité de l’algorithme d’apprentissage rend ces méthodes coûteuses.</p>
 <p>Les principales différences entre les filtres et les méthodes enveloppantes pour la sélection des caractéristiques sont les suivantes :</p>
@@ -389,22 +436,22 @@ de classification en utilisant un algorithme d’apprentissage.  Les sous-ensemb
 </ul>
 <div class="proof remark dropdown admonition" id="remark-1">
 <p class="admonition-title"><span class="caption-number">Remark 13 </span></p>
-
+<div class="remark-content section" id="proof-content">
 <p>Les wrappers sélectionnent les caractéristiques en se fondant sur une estimation du risque réel.</p>
-
 </div>
-
-<h4 id="methodes-integrees">Méthodes intégrées<a class="headerlink" href="#methodes-integrees" title="Permalink to this headline">¶</a></h4>
+</div></div>
+<div class="section" id="methodes-integrees">
+<h4>Méthodes intégrées<a class="headerlink" href="#methodes-integrees" title="Permalink to this headline">#</a></h4>
 <p>Les méthodes intégrées incluent la sélection de variables lors du processus d’apprentissage. Un tel mécanisme intégré pour la sélection des caractéristiques peut être trouvé, par
 exemple, dans les algorithmes de type SVM,  AdaBoost  ou dans les
 arbres de décision.</p>
-
-
-
-
-<h2 id="quelques-methodes-de-selection">Quelques méthodes de sélection<a class="headerlink" href="#quelques-methodes-de-selection" title="Permalink to this headline">¶</a></h2>
-
-<h3 id="suppression-des-descripteurs-a-variance-faible">Suppression des descripteurs à variance faible<a class="headerlink" href="#suppression-des-descripteurs-a-variance-faible" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="section" id="quelques-methodes-de-selection">
+<h2>Quelques méthodes de sélection<a class="headerlink" href="#quelques-methodes-de-selection" title="Permalink to this headline">#</a></h2>
+<div class="section" id="suppression-des-descripteurs-a-variance-faible">
+<h3>Suppression des descripteurs à variance faible<a class="headerlink" href="#suppression-des-descripteurs-a-variance-faible" title="Permalink to this headline">#</a></h3>
 <p>Une première idée simple consiste à supprimer les descripteurs ayant une faible variance, ces derniers n’étant pas discriminants dans la définition des individus.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -418,9 +465,9 @@ arbres de décision.</p>
 <span class="n">v</span> <span class="o">=</span> <span class="n">VarianceThreshold</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
 <span class="n">X2</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Avant sélection, "</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Après sélection, "</span><span class="p">,</span><span class="n">X2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Variables sélectionnées : "</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">get_support</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Avant sélection, &quot;</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Après sélection, &quot;</span><span class="p">,</span><span class="n">X2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variables sélectionnées : &quot;</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">get_support</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -432,13 +479,13 @@ Variables sélectionnées :  [ True False  True  True]
 </div>
 </div>
 </div>
-
-
-<h3 id="algorithmes-de-selection-sequentielle">Algorithmes de sélection séquentielle<a class="headerlink" href="#algorithmes-de-selection-sequentielle" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="algorithmes-de-selection-sequentielle">
+<h3>Algorithmes de sélection séquentielle<a class="headerlink" href="#algorithmes-de-selection-sequentielle" title="Permalink to this headline">#</a></h3>
 <p>Les algorithmes SFS (Sequential Forward Selection, <a class="reference internal" href="#SFS">Algorithm 1</a>) et SBS (Sequential Backward Selection, <a class="reference internal" href="#SFS">Algorithm 1</a>-rouge) ont été les premiers à être proposés. Ils utilisent des approches heuristiques de recherche en partant, pour la première, d’un ensemble de caractéristiques vide et pour la seconde de  <span class="math notranslate nohighlight">\(F\)</span> tout entier.</p>
 <div class="proof algorithm admonition" id="SFS">
 <p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (Algorithmes SFS et SBS)</p>
-
+<div class="algorithm-content section" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(F = \left (f_1\cdots f_d\right )\)</span>, taille de l’ensemble final  <span class="math notranslate nohighlight">\(T\)</span></p>
 <p><strong>Sortie :</strong> <span class="math notranslate nohighlight">\(\hat{F}\)</span></p>
 <ol class="simple">
@@ -455,7 +502,7 @@ Variables sélectionnées :  [ True False  True  True]
 </ol>
 </li>
 </ol>
-
+</div>
 </div><p>L’étape d’évaluation utilise des données d’apprentissage : une heuristique évalue, sur un critère de performance, l’intérêt d’ajouter (ou de supprimer) le descripteur <span class="math notranslate nohighlight">\(f_i\)</span>.</p>
 <p>Des variantes autour de ces algorithmes simples ont été proposées depuis et par exemple :</p>
 <ul class="simple">
@@ -473,9 +520,9 @@ Variables sélectionnées :  [ True False  True  True]
 <span class="n">sfs</span> <span class="o">=</span> <span class="n">SequentialFeatureSelector</span><span class="p">(</span><span class="n">knn</span><span class="p">,</span> <span class="n">n_features_to_select</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">sfs</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Taille des données avant sélection"</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Taille des données après sélection"</span><span class="p">,</span><span class="n">sfs</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Variables sélectionnées : "</span><span class="p">,</span> <span class="n">sfs</span><span class="o">.</span><span class="n">get_support</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Taille des données avant sélection&quot;</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Taille des données après sélection&quot;</span><span class="p">,</span><span class="n">sfs</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variables sélectionnées : &quot;</span><span class="p">,</span> <span class="n">sfs</span><span class="o">.</span><span class="n">get_support</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -487,13 +534,13 @@ Variables sélectionnées :  [ True False  True  True]
 </div>
 </div>
 </div>
-
-
-<h3 id="algorithme-focus">Algorithme Focus<a class="headerlink" href="#algorithme-focus" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="algorithme-focus">
+<h3>Algorithme Focus<a class="headerlink" href="#algorithme-focus" title="Permalink to this headline">#</a></h3>
 <p>L’algorithme de filtrage Focus (<a class="reference internal" href="#FOCUS">Algorithm 2</a>}) repose sur une recherche exhaustive sur <span class="math notranslate nohighlight">\(F\)</span> pour trouver le sous-ensemble le plus performant de taille optimale.</p>
 <div class="proof algorithm admonition" id="FOCUS">
 <p class="admonition-title"><span class="caption-number">Algorithm 2 </span> (Algorithme FOCUS)</p>
-
+<div class="algorithm-content section" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(A= \{\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d,1\leq i\leq n  \}\)</span> , taille de l’ensemble final  <span class="math notranslate nohighlight">\(T\)</span>, seuil <span class="math notranslate nohighlight">\(\epsilon\)</span></p>
 <p><strong>Sortie :</strong> <span class="math notranslate nohighlight">\(\hat{F}\)</span></p>
 <ol class="simple">
@@ -513,14 +560,14 @@ Variables sélectionnées :  [ True False  True  True]
 </ol>
 </li>
 </ol>
-
 </div>
-
-<h3 id="algorithme-relief">Algorithme relief<a class="headerlink" href="#algorithme-relief" title="Permalink to this headline">¶</a></h3>
+</div></div>
+<div class="section" id="algorithme-relief">
+<h3>Algorithme relief<a class="headerlink" href="#algorithme-relief" title="Permalink to this headline">#</a></h3>
 <p>La méthode relief en classification binaire (<a class="reference internal" href="#relief">Algorithm 3</a>), propose de calculer une mesure globale de la pertinence des caractéristiques en accumulant la différence des distances entre des exemples d’apprentissage choisis aléatoirement et leurs plus proches voisins de la même classe et de l’autre classe.</p>
 <div class="proof algorithm admonition" id="relief">
 <p class="admonition-title"><span class="caption-number">Algorithm 3 </span> (Algorithme Relief)</p>
-
+<div class="algorithm-content section" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(A= \{\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d,1\leq i\leq n  \}\)</span> , nombre d’itérations <span class="math notranslate nohighlight">\(T\)</span></p>
 <p><strong>Sortie :</strong> <span class="math notranslate nohighlight">\(w\in\mathbb{R}^d\)</span> un vecteur de poids des caractéristiques, <span class="math notranslate nohighlight">\(w_i\in[-1,1],i\in[\![1,d]\!]\)</span></p>
 <ol class="simple">
@@ -541,19 +588,19 @@ Variables sélectionnées :  [ True False  True  True]
 </ol>
 </li>
 </ol>
-
 </div>
-
-<h3 id="methode-sac">Méthode SAC<a class="headerlink" href="#methode-sac" title="Permalink to this headline">¶</a></h3>
+</div></div>
+<div class="section" id="methode-sac">
+<h3>Méthode SAC<a class="headerlink" href="#methode-sac" title="Permalink to this headline">#</a></h3>
 <p>L’algorithme SAC (Selection Adaptative de Caractéristiques)  construit un ensemble de classifieurs (ou de régresseurs) <span class="math notranslate nohighlight">\((M_1\cdots M_d)\)</span> appris sur chacun des descripteurs et sélectionne les meilleurs par discrimination linéaire de Fisher. Pour ce faire, l’algorithme construit un vecteur dont les éléments sont les performances <span class="math notranslate nohighlight">\(Perf(M_i)\)</span> des modèles <span class="math notranslate nohighlight">\(M_i\)</span>, triés par ordre décroissant. Deux moyennes <span class="math notranslate nohighlight">\(m_1(i)\)</span> et <span class="math notranslate nohighlight">\(m_2(i)\)</span> sont calculées, qui représentent les deux moyennes de performance d’apprentissage qui ont une valeur respectivement plus grande (plus petite) que la performance du modèle <span class="math notranslate nohighlight">\(M_i\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[m_1(i) = \frac{1}{i}\displaystyle\sum_{j=1}^i Perf (M_j)\textrm{ et } m_2(i) = \frac{1}{d-i}\displaystyle\sum_{j=i+1}^d Perf (M_j)\]</div>
 <p>Deux variances des performances  <span class="math notranslate nohighlight">\(v_1^2(i)\)</span> et <span class="math notranslate nohighlight">\( v_2^2(i)\)</span> sont alors calculées à partir de ces moyennes, et le sous-ensemble de caractéristiques sélectionné est celui qui maximise le discriminant de Fisher</p>
 <div class="math notranslate nohighlight">
 \[\frac{|m_1(i)-m_2(i)|}{v_1^2(i)+v_2^2(i)}\]</div>
-
-
-<h3 id="algorithme-rfe">Algorithme RFE<a class="headerlink" href="#algorithme-rfe" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="algorithme-rfe">
+<h3>Algorithme RFE<a class="headerlink" href="#algorithme-rfe" title="Permalink to this headline">#</a></h3>
 <p>L’algorithme RLE (Recusrive Feature Elimination) trie les descripteurs en analysant, localement, la sensibilité de la performance.
 Étant donné un prédicteur <span class="math notranslate nohighlight">\(f\)</span> qui attribue des poids aux caractéristiques (par exemple, les coefficients d’un modèle linéaire), l’objectif de l’algorithme est de sélectionner les caractéristiques en considérant de manière récursive des ensembles de caractéristiques de plus en plus petits. Tout d’abord, le prédicteur <span class="math notranslate nohighlight">\(f\)</span> est entraîné sur l’ensemble initial de caractéristiques et l’importance de chaque caractéristique est calculée par un algorithme dédié (critère de Gini, entropie…). Les caractéristiques les moins importantes sont éliminées de l’ensemble actuel de caractéristiques. Cette procédure est répétée de manière récursive sur l’ensemble élagué jusqu’à ce que le nombre souhaité de caractéristiques à sélectionner soit finalement atteint.</p>
 <div class="cell docutils container">
@@ -566,9 +613,9 @@ Variables sélectionnées :  [ True False  True  True]
 <span class="n">s</span> <span class="o">=</span> <span class="n">RFE</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">n_features_to_select</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">s</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Taille des données avant sélection"</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Variables sélectionnées : "</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">get_support</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Classement des variables : "</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">ranking_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Taille des données avant sélection&quot;</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variables sélectionnées : &quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">get_support</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Classement des variables : &quot;</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">ranking_</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -580,10 +627,11 @@ Classement des variables :  [2 3 1 1]
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
 
-
-
-<script type="text/x-thebe-config">
+    <script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
@@ -601,63 +649,53 @@ Classement des variables :  [2 3 1 1]
         predefinedOutput: true
     }
     </script>
-<script>kernelName = 'python3'</script>
+    <script>kernelName = 'python3'</script>
 
-          </article>
-        </div>
-      </div>
-    </main>
-  </div>
-  <footer class="md-footer">
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-          
-            <a href="statsdescriptives.html" title="Statistique descriptive"
-               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
-               rel="prev">
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span
-                      class="md-footer-nav__direction"> "Previous" </span> Statistique descriptive </span>
-              </div>
-            </a>
-          
-          
-            <a href="acp.html" title="Analyse en composantes principales"
-               class="md-flex md-footer-nav__link md-footer-nav__link--next"
-               rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
-                class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> Analyse en composantes principales </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink"><i
-                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          
-        </a>
-        
-      </nav>
-    </div>
-    <div class="md-footer-meta md-typeset">
-      <div class="md-footer-meta__inner md-grid">
-        <div class="md-footer-copyright">
-          <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2022.
               
-          </div>
-            Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
-             and
-            <a href="https://github.com/bashtage/sphinx-material/">Material for
-              Sphinx</a>
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="statsdescriptives.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Statistique descriptive</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="acp.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Analyse en composantes principales</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
+
       </div>
     </div>
-  </footer>
-  <script src="_static/javascripts/application.js"></script>
-  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
   </body>
 </html>
