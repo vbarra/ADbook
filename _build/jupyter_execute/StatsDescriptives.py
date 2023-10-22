@@ -3,7 +3,7 @@
 
 # # Statistique descriptive
 # ## Définitions
-# Dans la suite, nous nous intéressons à des unités statistiques ou individus statistiques ou unités d'observation (individus,  entreprises,  ménages, données abstraites...). Bien que le cas infini soit envisageable, nous nous restreignons ici à l'étude d'un nombre fini de ces unités. Un ou plusieurs caractères (ou variables) est mesuré sur chaque unité. Les variables sont désignées par simplicité par une lettre. Leurs valeurs possibles sont appelées modalités et l'ensemble des valeurs possibles ou des modalités est appelé le domaine. L'ensemble des individus statistiques forment la population.
+# Dans la suite, nous nous intéressons à des unités statistiques ou individus statistiques ou unités d'observation (individus,  entreprises,  ménages, données abstraites...). Bien que le cas infini soit envisageable, nous nous restreignons ici à l'étude d'un nombre fini de ces unités. Un ou plusieurs caractères (ou variables) est mesuré sur chaque unité. Les variables sont désignées par simplicité par une lettre. Leurs valeurs possibles sont appelées modalités et l'ensemble des valeurs possibles ou des modalités est appelé le domaine. L'ensemble des individus statistiques forme la population.
 # ### Typologie des variables
 # La typologie des variables définit le type de problème statistique que l'on doit aborder :
 # 
@@ -154,42 +154,49 @@ for subplot, binsize in ((141, 5),(142, 20), (143, 80), (144, 1000)):
 # 
 # ## Pré-traitement des données
 # 
+# Faire une analyse de données, c'est traiter un tableau de taille $n\times d$ où $n$ est le nombre d'individus et $d$ le nombre de variables (caractères) mesurées sur ces individus. En raison de la colecte des données, des erreurs de mesure ou d'autres facteurs, ce tableau est parfois incomplet et il convient de le prétraiter pour pouvoir effectuer l'analyse.
+# 
 # ### Points aberrants
 # Une anomalie (ou point aberrant, ou outlier) est une observation (ou un sous-ensemble d'observations) qui semble incompatible avec le reste de l'ensemble de données.
 # 
-# S'il est parfois possible d'identifier graphiquement ces points aberrants à l'aide de boîtes à moustaches (voir section~\ref{S:boxplot}), il existe une vaste littérature sur la détection d'anomalies qu'il n'est pas possible d'aborder ici. De plus, suivant le type de données manipulées (données séquentielles ou non), le type de méthode peut être différent. On mentionne donc ici quelques techniques simples :
+# S'il est parfois possible d'identifier graphiquement ces points aberrants à l'aide de boîtes à moustaches (voir {ref}`boxplot`), il existe une vaste littérature sur la détection d'anomalies qu'il n'est pas possible d'aborder ici. De plus, suivant le type de données manipulées (données séquentielles ou non), le type de méthode peut être différent. On mentionne donc ici quelques techniques simples :
 # 
-# - le détecteur de Hampel : on considère que $x_i$ est un point aberrant si $$|x_i-x_{\frac12}|>3.MADM$$ 
-#     où $MADM = 1.4826.|x_i-x_{\frac12}|_\frac12$, et où $y_{\frac12}$ est la médiane des données $y$ 
-# - la règle empirique de l'écart-type : on considère que $x_i$ est un point aberrant si $$|x_i-\bar x|>3.\sigma$$
-#     où  $\bar x$ (respectivement $\sigma$) est la moyenne (resp. l'écart-type ) des données.
+# - le détecteur de Hampel : on considère que $x_i$ est un point aberrant si 
+# 
+# $$|x_i-x_{\frac12}|>3.MADM$$ 
+# 
+# où $MADM = 1.4826.|x_i-x_{\frac12}|_\frac12$, et où $y_{\frac12}$ est la médiane des données $y$ 
+# - la règle empirique de l'écart-type : on considère que $x_i$ est un point aberrant si 
+# 
+# $$|x_i-\bar x|>3.\sigma$$
+# 
+# où  $\bar x$ (respectivement $\sigma$) est la moyenne (resp. l'écart-type ) des données.
 # - la méthode LOF (Local Outlier Factor) qui repose sur le concept de densité locale, où la localité est donnée par les $k$ voisins les plus proches, dont la distance est utilisée pour estimer la densité. En comparant la densité locale d'un objet aux densités locales de ses voisins, il est possible d'identifier des régions de densité similaire et des points dont la densité est nettement inférieure à celle de leurs voisins. Ces derniers sont considérés comme des valeurs aberrantes. La densité locale est estimée par la distance typique à laquelle un point peut être atteint à partir de ses voisins. 
 # - la méthode COF (Connectivity based Outlier Factor) basée sur le même principe que LOF, à ceci près que l'estimation de densité est effectuée en utilisant le minimum de la somme des distances reliant tous les voisins d'un point donné.
 # 
-# 
 # ### Données manquantes
-# On suppose ici collecter $p$ données (par exemple la taille, le poids, l'âge) sur $n$ individus. Ces données peuvent donc être regroupées dans un tableau (une matrice) de taille $n\times p$. Lors de la collecte de ces données, il arrive que certaines d'entre elles ne soient pas disponibles ou enregistrées. On distingue trois types de données manquantes :
+# Lors de la collecte des données, il arrive que certaines d'entre elles ne soient pas disponibles ou enregistrées. On distingue trois types de données manquantes :
 # 
 # 1. les données manquant de manière complètement aléatoire :  la probabilité qu'une donnée soit manquante ne dépend pas des valeurs connues ni de la valeur manquante elle-même.
-# 2. les données manquant de manière aléatoire :  la probabilité qu'une donnée soit manquante peut dépendre de valeurs connues (d'autres variables parmi les $p$), mais pas de la variable dont les valeurs sont manquantes.
+# 2. les données manquant de manière aléatoire :  la probabilité qu'une donnée soit manquante peut dépendre de valeurs connues (d'autres variables parmi les $d$), mais pas de la variable dont les valeurs sont manquantes.
 # 3. les données manquant de manière non aléatoire : la probabilité qu'une donnée soit manquante dépend d'autres variables qui ont également des valeurs manquantes, ou elle dépend de la variable elle-même.
 # 
 # 
-# Pour résoudre ce problème de données manquantes, dans la mesure où ces dernières ne sont pas trop nombreuses, on a recours à des techniques d'imputation.
+# Pour résoudre ce problème de données manquantes, dans la mesure où ces dernières ne sont pas trop nombreuses, on a recours à des techniques d'**imputation**.
 # 
 # Dans le cas d'une imputation simple (une seule donnée manquante), on peut par exemple remplacer la valeur manquante dans une colonne $j\in[\![1,p]\!]$ par :
 # 
 # -  une valeur fixe
 # -  une statistique sur la colonne $j$ (la plus petite ou la plus grande valeur, la moyenne de la colonne, la valeur la plus fréquente...)
 # -  une valeur issue des $k$ plus proches voisins de la ligne du tableau où la valeur en position $j$ est manquante
-# -  une valeur calculée par régression (voir chapitre~\ref{ch:regression}) sur l'ensemble du tableau
+# -  une valeur calculée par régression (voir chapitre correspondant) sur l'ensemble du tableau
 # -  la valeur précédente (ou suivante) dans le cas où la colonne est une série ordonnée ou temporelle.
 # 
 # 
 # Dans le cas d'une imputation multiple, où un sous-ensemble de valeurs doit être comblé, on peut adopter la stratégie suivante : 
 # 
 # 1. Effectuer une imputation simple pour toutes les valeurs manquantes de l'ensemble de données.
-# 2. Remettre les valeurs manquantes d'une variable $j\in[\![1,p]\!]$ à "manquantes".
+# 2. Remettre les valeurs manquantes d'une variable $j\in[\![1,p]\!]$ à "manquante".
 # 3. Former un modèle pour prédire les valeurs manquantes de $j$ en utilisant les valeurs disponibles de la variable $j$ en tant que variable dépendante et les autres variables de l'ensemble de données comme indépendantes.
 # 4. Prédire les valeurs manquantes dans la colonne $j$ en utilisant le modèle entraîné à l'étape 3.
 # 5. Répéter les étapes 2 à 4 pour toutes les autres colonnes présentant des valeurs manquantes.
@@ -201,7 +208,7 @@ for subplot, binsize in ((141, 5),(142, 20), (143, 80), (144, 1000)):
 # ### Transformation des données qualitatives
 # Pour pouvoir être traitées numériquement, les données qualitatives doivent être transformées. Plusieurs techniques existent parmi lesquelles :
 # 
-# - pour le cas des variables ordinales : on utilise ici le rang pour encoder les modalités de la variable. Par exemple, pour un niveau de diplomation Brevet$<$Bac$<$Licence$<$Master$<$Doctorat, on codera Licence par 3 et Doctorat par 5.
+# - pour le cas des variables ordinales : on utilise le rang pour encoder les modalités de la variable. Par exemple, pour un niveau de diplomation Brevet$<$Bac$<$Licence$<$Master$<$Doctorat, on codera Licence par 3 et Doctorat par 5.
 # -  le one-hot encoding : pour une variable qualitative présentant $J$ modalités, on construit un vecteur de taille $J$ dont les composantes sont toutes nulles sauf la $J$-ème qui vaut 1. Par exemple, si $J$=3, on construit 1 vecteur de taille 3, et pour un individu ayant la modalité 2, on le code en (0 1 0). Lorsque $J$ est élevé, on se retrouve avec un jeu de données volumineux.
 # -  les méthodes de plongement (embedding) : utilisées principalement en apprentissage profond (Deep learning) pour le traitement du langage naturel, ces classes de méthodes construisent une représentation de chaque modalité d'une variable qualitative en un vecteur numérique de taille fixe et choisie. Pour le mot "rouge" de la variable "couleur", par exemple, l'encodage peut par exemple être représenté par le vecteur (0.31 0.57 0.12). En pratique, le calcul de ces représentations s'effectue classiquement par l'entraînement d'un réseau de neurones ayant pour entrée uniquement les variables qualitatives. Tout d'abord, un encodage one-hot est appliqué à la variable afin d'être mise en entrée du réseau, qui n'accepte que les entrées numériques. La sortie d'une des couches cachées du réseau constitue alors le vecteur recherché. On concatène ensuite ce vecteur aux données initiales, utilisées dans l'ajustement du modèle final. 
 # 
@@ -209,7 +216,7 @@ for subplot, binsize in ((141, 5),(142, 20), (143, 80), (144, 1000)):
 # 
 # 
 # ### Normalisation
-# Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l'analyse des données (figure~\ref{F:normalisation}) qu'il convient de corriger : c'est le processus de normalisation des données.
+# Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l'analyse des données ({ref}`figure 1<biais>`) qu'il convient de corriger. C'est le processus de normalisation des données.
 # 
 # Pour une colonne $j\in[\![1,p]\!]$, on dispose de $n$ valeurs $x_{ij},i\in[\![1,n]\!]$. On note : $x_{min} = \displaystyle\min_{i\in[\![1,n]\!]}x_{ij}$, $x_{max} = \displaystyle\max_{i\in[\![1,n]\!]}x_{ij}$,   $\bar x_j$ la moyenne des $x_{ij}$, $\sigma_j$ leur écart-type, $x_\frac14, x_\frac12$ et $x_\frac34$ les premier, deuxième et troisième quartiles. On distingue alors classiquement trois types de normalisation : 
 # 
@@ -220,11 +227,12 @@ for subplot, binsize in ((141, 5),(142, 20), (143, 80), (144, 1000)):
 # 
 # La normalisation standard dépend de la présence de points aberrants (qui affectent la moyenne).
 # 
-# Dans la figure suivante, on montre l'effet de la normalisation sur un algorithme de classification (voir chapitre correspondant. En haut un jeu de données avec deux nuages de points allongés selon l'axe des $x$, certainement en raison d'une différence d'échelle entre les unités de mesure de $x$ et $y$. Au milieu une classification par $k$-moyennes, $k$=2 sans normalisation, en utilisant la distance euclidienne. Les deux classes sont séparées suivant l'axe des $x$, ne reflétant pas la répartition naturelle des points. En bas, après normalisation, les deux nuages de points sont correctement séparés.
 # 
+# ```{figure} ./images/normK.png
+# :name: biais
 # 
-# ![](./images/normK.png)
-# 
+# Effet de la normalisation sur un algorithme de classification (voir chapitre correspondant). En haut un jeu de données avec deux nuages de points allongés selon l'axe des $x$, certainement en raison d'une différence d'échelle entre les unités de mesure de $x$ et $y$. Au milieu une classification par $k$-moyennes, $k$=2 sans normalisation, en utilisant la distance euclidienne. Les deux classes sont séparées suivant l'axe des $x$, ne reflétant pas la répartition naturelle des points. En bas, après normalisation, les deux nuages de points sont correctement séparés
+# ``` 
 # 
 # 
 # 
@@ -247,7 +255,7 @@ for subplot, binsize in ((141, 5),(142, 20), (143, 80), (144, 1000)):
 # Les moyennes ne peuvent être définies que sur des variables quantitatives. Plusieurs moyennes peuvent être calculées, parmi lesquelles :
 # - la moyenne **arithmétique**  $\bar{x} = \frac{1}{n}{\displaystyle\sum_{i=1}^nx_i}=  \frac{1}{n}{\displaystyle\sum_{i=1}^J n_ix_i}$. C'est le moment à l'origine d'ordre 1.
 # - la moyenne **géométrique** : si les $x_i$ sont positifs, la moyenne géométrique est la quantité $G=\left (\displaystyle\prod_{i=1}^n x_i\right )^\frac{1}{n}$. C'est donc l'exponentielle de la moyenne arithmétique des logarithmes des valeurs observées. 
-# - a moyenne **harmonique** : si les $x_i$ sont positifs, la moyenne harmonique est définie par $H=\frac{n}{\displaystyle\sum_{i=1}^J 1/x_i}$
+# - la moyenne **harmonique** : si les $x_i$ sont positifs, la moyenne harmonique est définie par $H=\frac{n}{\displaystyle\sum_{i=1}^J 1/x_i}$
 # - la moyenne **pondérée** : dans certains cas, on n'accorde pas la même importance à toutes les observations (fiabilité, confiance...). La moyenne pondérée est alors définie par 
 # $\bar{x}_w= \frac{\displaystyle\sum_{i=1}^n w_ix_i}{\displaystyle\sum_{i=1}^n w_i}$
 # ````
@@ -343,19 +351,19 @@ plt.tight_layout()
 # 
 # ````{prf:definition}  Déviation maximale
 # La déviation maximale est définie par 
-#    $ maxdev(X) = max \{ |X[i] - \bar{x}| \,|\, i=1,\dots,n\}$
+#    $ maxdev(X) = max \{ |x_i - \bar{x}| \,|\, i\in[\![1,n]\!]\}$
 # ````
 # 
 # 
 # ````{prf:definition}  Déviation moyenne absolue
 # La déviation moyenne absolue est définie par 
-#    $ mad(X) = \frac{1}{n} \sum_{i=1}^n |X[i] - \bar{x}|$
+#    $ mad(X) = \frac{1}{n} \displaystyle\sum_{i=1}^n |x_i - \bar{x}|$
 # ````
 # 
 # 
 # 
 # ````{prf:definition} Distance interquartile
-# La distance interquartile est la différence entre le troisième et le premier quartile. C'est une statistique robuste aux points aberrants.
+# La distance interquartile $Q_3-Q_1$ est la différence entre le troisième et le premier quartile. C'est une statistique robuste aux points aberrants.
 # ````
 # 
 # ````{prf:definition} Variance
@@ -438,6 +446,8 @@ plt.tight_layout()
 # 
 # On peut aussi chercher à mesurer l'aplatissement (ou kurtosis) d'une distribution de mesure. Dans ce cas, on utilise le coefficient d'aplatissement de Pearson ou de Fisher, respectivement donnés par 
 # $\beta_2=\frac{m_4}{\sigma^4}\quad\textrm{et}\quad g_2=\beta_2-3$
+# 
+# 
 # Une distribution est alors dite :
 # - mésokurtique si $g_2$ est proche de 0
 # - leptokurtique si $g_2>0$ (queues plus longues et distribution plus pointue)
@@ -445,7 +455,8 @@ plt.tight_layout()
 # 
 # 
 # 
-# 
+# (boxplot)=
+# #### Pour résumer
 # Les principales statistiques d'une série statistique peuvent être résumées dans des **boîtes à moustache**, qui permettent de voir sur un même graphique :
 # 
 # - la médiane
@@ -492,7 +503,7 @@ plt.show()
 
 
 # ### La description ne fait pas tout...
-# La description d'un ensemble de valeurx $x_j$ par la moyenne, la variance, voire le comportement linéaire (coefficient de corrélation, voir section~\ref{S:corr}) peut ne pas suffire à comprendre la distribution des données. Un exemple classique est le quartet d'Anscombe (figure~\ref{F:anscombe}), constitué de quatre ensembles de points  $(x,y)\in\mathbb{R}^2$ de même propriétés statistiques (moyenne, variance, coefficient de régression linéaire) mais qui sont distribués de manière totalement différente dans le plan.
+# La description d'un ensemble de valeurx $x_j$ par la moyenne, la variance, voire le comportement linéaire (coefficient de corrélation, voir plus loin) peut ne pas suffire à comprendre la distribution des données. Un exemple classique (analyse bivariée, section suivante) est le quartet d'Anscombe (figure ci-dessous), constitué de quatre ensembles de points  $(x,y)\in\mathbb{R}^2$ de même propriétés statistiques (moyenne, variance, coefficient de régression linéaire) mais qui sont distribués de manière totalement différente dans le plan.
 
 # In[6]:
 
@@ -552,7 +563,7 @@ plt.show()
 # 
 # ````{prf:definition} Coefficient de corrélation
 # Le coefficient de corrélation  de deux variables $x$ et $y$ est défini par 
-# $r_{xy}=\frac{\sigma_{xy}}{\sigma_{x}\sigma_{y}}$
+# $r_{xy}=\frac{\sigma_{xy}}{\sigma_{x}\sigma_{y}}$.
 # Le coefficient de détermination est le carré du coefficient de corrélation.
 # ```` 
 # Le coefficient de corrélation est donc la covariance normalisée par les écarts types marginaux des variables. Il mesure la dépendance linéaire entre $x$ et $y$. Il est compris dans l'intervalle [-1,1] est est positif (resp. négatif) si les points sont alignés le long d'une droite croissante (resp. décroissante), d'autant plus grand en valeur absolue que la dépendance linéaire est vérifiée. Dans le cas où le coefficient est nul, il n'existe pas de dépendance linéaire.
@@ -562,13 +573,13 @@ plt.show()
 # 
 # et la droite de régression s'écrit $y-\bar{y}=\frac{\sigma_{xy}}{\sigma_x^2}\left ( x-\bar{x}\right )$.
 # 
-# A partir de cette droite, on peut calculer les valeurs ajustées, obtenues à partir de la droite de régression : $y^*_i=a+bx_i$. Ce sont les valeurs théoriques des $y_i$ et les résidus $e_i=y_i-y_i^*$ représentent la partie inexpliquée des $y_i$ par la droite de régression (ceux là même que l'on essaye de minimiser par la méthode des moindres carrés).
+# A partir de cette droite, on peut calculer les valeurs ajustées, obtenues à partir de la droite de régression : $y^*_i=a+bx_i$. Ce sont les valeurs théoriques des $y_i$ et les résidus $e_i=y_i-y_i^*$ représentent la partie inexpliquée des $y_i$ par la droite de régression (ceux là même que l'on essaye de minimiser par la méthode des moindres carrés). Nous reviendrons dans le chapitre sur la régression sur l'analyse de ces résidus.
 # 
 # ### Cas de deux variables qualitatives
 # 
 # Le couple est un couple de valeurs $(x_i,y_i)$ où $x_i$ et $y_i$ prennent comme valeurs des modalités qualitatives. Notons $x_1\cdots x_J$ et $y_1\cdots y_K$ les valeurs distinctes prises. 
 # 
-# Les données peuvent être regroupées sous la forme d'un tableau de contingence prenant la forme suivante :
+# Les données peuvent être regroupées sous la forme d'un **tableau de contingence** prenant la forme suivante :
 # ```{index} Tableau ; contingence
 # ```
 # ```{index} Contingence ; tableau
@@ -607,17 +618,22 @@ plt.show()
 # $\phi^2=\frac{\chi^2_{obs}}{n}$
 # 
 # La construction du tableau des effectifs théoriques et sa comparaison au tableau des observations permet dans un premier temps de mettre en évidence les associations significatives entre modalités des deux variables. Pour cela, on calcule la contribution au $\chi^2$ des modalités $j$ et $k$ :
-# $\frac{1}{\chi^2_{obs}}\frac{\left (n_{jk}-n_{j.}n_{.k}\right )^2}{n_{jk}^*}$
+# 
+# $$\frac{1}{\chi^2_{obs}}\frac{\left (n_{jk}-n_{j.}n_{.k}\right )^2}{n_{jk}^*}$$
+# 
 # Le signe de la différence $n_{jk}-n_{jk}^*$ indique alors s'il y a une association positive ou négative entre les modalités $j$ et $k$.
 # 
 # Plus généralement, le $\chi^2_{obs}$ est un indicateur de liaison entre les variables.  Dans le cas où $\chi^2_{obs}=0$, il y a indépendance. Pour rechercher la borne supérieure du khi-deux et voir dans quel cas elle est atteinte, on développe le carré et on obtient 
-# $\chi^2_{obs} = n\left [\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J \frac{n_{jk}^2}{n_{j.}n_{.k}} -1\right ]$
-# Comme $\frac{n_{jk}}{n_{.k}}\leq 1$ on a $ \frac{n_{jk}^2}{n_{j.}n_{.k}} \leq \frac{n_{jk}}{n_{.k}}$ d'où
-# $\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J\frac{n_{jk}^2}{n_{j.}n_{.k}}\leq \displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J \frac{n_{jk}}{n_{.k}} = \displaystyle\sum_{k=1}^K \frac{\displaystyle\sum_{j=1}^J n_{jk}}{n_{.k}}=\displaystyle\sum_{k=1}^K \frac{n_{.k}}{n_{.k}}=1$
 # 
-# d'où $\chi^2_{obs}\leq n(K-1)$. On pourrait de même montrer que $\chi^2_{obs}\leq n(J-1)$ et donc 
-# $\phi^2\leq min(J-1,K-1)$
-# la borne étant atteinte dans le cas de la dépendance fonctionnelle (si $\forall j \frac{n_{jk}}{n_{j.}}=1$, i.e. il n'existe qu'une case non nulle dans chaque ligne.)
+# $$\chi^2_{obs} = n\left [\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J \frac{n_{jk}^2}{n_{j.}n_{.k}} -1\right ]$$
+# 
+# Comme $\frac{n_{jk}}{n_{.k}}\leq 1$ on a $ \frac{n_{jk}^2}{n_{j.}n_{.k}} \leq \frac{n_{jk}}{n_{.k}}$ d'où
+# 
+# $$\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J\frac{n_{jk}^2}{n_{j.}n_{.k}}\leq \displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J \frac{n_{jk}}{n_{.k}} = \displaystyle\sum_{k=1}^K \frac{\displaystyle\sum_{j=1}^J n_{jk}}{n_{.k}}=\displaystyle\sum_{k=1}^K \frac{n_{.k}}{n_{.k}}=1$$
+# 
+# d'où $\chi^2_{obs}\leq n(K-1)$. On pourrait de même montrer que $\chi^2_{obs}\leq n(J-1)$ et donc $\phi^2\leq min(J-1,K-1)$.
+# 
+# La borne est atteinte dans le cas de la dépendance fonctionnelle (si $\forall j \frac{n_{jk}}{n_{j.}}=1$, i.e. il n'existe qu'une case non nulle dans chaque ligne.)
 # 
 # A partir de ce khi-deux normalisé, on calcule finalement plusieurs coefficients permettant de mesurer l'indépendance, et parmi ceux-ci citons :
 # 
@@ -640,7 +656,7 @@ plt.show()
 # ```
 # 
 # 
-# En effet, les $e_{jk}$ sont liées par $(K-1)(J-1)$ relations linéaires puisqu'on estime les probabilités de réalisation de $x_j$ et $y_k$ respectivement par $n_{j,.}/n$ et $n_{.k}/n$ Il suffit alors de fixer un risque d'erreur $\alpha$ (une valeur qui, s'il y avait indépendance, n'aurait qu'une probabilité faible d'être dépassée), et on rejette l'hypothèse d'indépendance si $\chi^2_{obs}$  est supérieur à la valeur critique qu'une variable $\chi^2_{(K-1)(J-1)}$ a une probabilité $\alpha$ de dépasser.
+# En effet, les $e_{jk}$ sont liées par $(K-1)(J-1)$ relations linéaires puisqu'on estime les probabilités de réalisation de $x_j$ et $y_k$ respectivement par $n_{j,.}/n$ et $n_{.k}/n$. Il suffit alors de fixer un risque d'erreur $\alpha$ (une valeur qui, s'il y avait indépendance, n'aurait qu'une probabilité faible d'être dépassée), et on rejette l'hypothèse d'indépendance si $\chi^2_{obs}$  est supérieur à la valeur critique qu'une variable $\chi^2_{(K-1)(J-1)}$ a une probabilité $\alpha$ de dépasser.
 # L'espérance d'un $\chi^2_{(K-1)(J-1)}$ étant égale à son degré de liberté, $\chi^2_{obs}$ est d'autant plus grand que le nombre de modalités $J$ et/ou $K$ est grand. 
 # 
 # 
@@ -653,9 +669,13 @@ plt.show()
 # ### Cas d'une variable quantitative et d'une variable qualitative
 # On s'intéresse ici au cas où les modalités $x_i$ sont qualitatives, et où $y$ est une variable quantitative, dont les modalités sont des réalisations d'une variable aléatoire $Y$.
 # Le rapport de corrélation théorique entre $x$ et $Y$ est défini par 
-# $\eta^2_{Y\mid x} = \frac{\sigma^2_{\mathbb{E}_{Y\mid x}}}{\sigma^2_Y}$
+# 
+# $$\eta^2_{Y\mid x} = \frac{\sigma^2_{\mathbb{E}_{Y\mid x}}}{\sigma^2_Y}$$
+# 
 # Si $n_j$ est le nombre d'observations de la modalité $x_j,j\in[\![1\,J]\!]$, $y_{ij}$ la valeur de $Y$ du $i^e$ individu de la modalité $j$, $\bar{y}_1\ldots \bar{y}_J$ sont les moyennes de $Y$ pour ces modalités et $\bar{y}$ la moyenne totale sur les $n$ individus, le rapport de corrélation empirique est défini par 
-# $e^2 = \frac{\frac{1}{n}\displaystyle\sum_{j=1}^J n_j\left (\bar{y}_j-\bar{y}\right )^2}{\sigma^2_y}$
+# 
+# 
+# $$e^2 = \frac{\frac{1}{n}\displaystyle\sum_{j=1}^J n_j\left (\bar{y}_j-\bar{y}\right )^2}{\sigma^2_y}$$
 # 
 # 
 # La quantité 
@@ -680,10 +700,7 @@ plt.show()
 # pour expliquer la variabilité des notes dans toute la promotion.
 # 
 # 
-# Pour déterminer à partir de quelle valeur $e^2$ est significatif, on compare donc $\sigma^2_\cap$ à $\sigma^2_\cup$. On peut montrer que si le rapport de corrélation théorique est nul, alors la variable 
-# 
-# $\frac{\left (\frac{e^2}{J-1}\right )}{\left (\frac{1-e^2}{n-J}\right )}$
-# suit une loi de Fisher Snedecor, en supposant que les distributions conditionnelles de $Y$ pour chaque modalité de $X$ sont gaussiennes, de même espérance et de même variance. 
+# Pour déterminer à partir de quelle valeur $e^2$ est significatif, on compare donc $\sigma^2_\cap$ à $\sigma^2_\cup$. On peut montrer que si le rapport de corrélation théorique est nul, alors la variable $\frac{\left (\frac{e^2}{J-1}\right )}{\left (\frac{1-e^2}{n-J}\right )}$ suit une loi de Fisher Snedecor, en supposant que les distributions conditionnelles de $Y$ pour chaque modalité de $X$ sont gaussiennes, de même espérance et de même variance. 
 # 
 # ```{prf:remark}
 # :class: dropdown
@@ -694,7 +711,7 @@ plt.show()
 # Bien évidemment, dans la majorité des cas, un individu sera décrit par $p\geq 2$ variables. Si certains algorithmes de statistique descriptive multidimensionnelle sont abordés dans ce cours, il est néanmoins possible d'avoir une première approche exploratoire de ce cas.
 # 
 # ### Matrices de covariance et de corrélation
-# La première idée, lorsque l'on a observé $p$ variables sur $n$ individus, est de calculer les $p$ variances de ces variables, et les $\frac{p(p-1)}{2}$ covariances. Ces mesures sont regroupées dans une matrice $p\times p$, symétrique, semi définie positive, appelée matrice de variance-covariance (ou matrice des covariances), et classiquement notée $\boldsymbol\Sigma$.
+# La première idée, lorsque l'on a observé $d$ variables sur $n$ individus, est de calculer les $d$ variances de ces variables, et les $\frac{p(p-1)}{2}$ covariances. Ces mesures sont regroupées dans une matrice $p\times p$, symétrique, semi définie positive, appelée matrice de variance-covariance (ou matrice des covariances), et classiquement notée $\boldsymbol\Sigma$.
 # 
 # De même, on peut former la matrice des corrélations entre les variables, à diagonale unité et symétrique. La matrice résultante, notée $\mathbf R$, est également semi définie positive et sa représentation graphique en fausses couleurs permet d'apprécier les dépendances linéaires entre variables.
 # 

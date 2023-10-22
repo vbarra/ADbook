@@ -159,7 +159,7 @@ planche(Xmnist)
 # - Inférer sur le nombre de composantes principales nécessaires pour expliquer les données initiales
 # - Essayer de reconstruire une image donnée à partir de ses coordonnées sur les $n$ premières composantes principales (faire varier $n$) et voir la qualité de la reconstruction
 
-# In[62]:
+# In[8]:
 
 
 # Utilisation d'un sous-ensemble de Xmnist (pour ne pas surcharger la visualisation)

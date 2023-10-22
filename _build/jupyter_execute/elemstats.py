@@ -8,7 +8,7 @@
 # 1. **les données statistiques** : suivant l'étude, plusieurs problèmes peuvent être posés :
 # 
 #     -  Recueil des données (brutes) avec notamment le problème des sondages
-#     -  -Nature des données avec éventuellement la transformation des données brutes, notamment pour les séries chronologiques (série corrigée des variations saisonnières)
+#     -  Nature des données avec éventuellement la transformation des données brutes, notamment pour les séries chronologiques (série corrigée des variations saisonnières)
 #     -  Organisation des données : il s'agit le plus souvent de résumer l'information par les techniques de la statistique descriptive 
 # 
 # 2. **le modèle mathématique** : une analyse du phénomène étudié doit permettre de traduire les problèmes posés par l'étude dans un langage formel, celui des probabilités. Après avoir fait des choix, des hypothèses sur la loi de probabilité et sur les paramètres de cette loi, on s'efforce de se placer dans un modèle statistique dans lequel des outils théoriques permettent de résoudre un certain nombre de problèmes théoriques. Dans ce modèle théorique, il s'agit de donner une interprétation aux données expérimentales et, souvent, des hypothèses implificatrices de "même loi" et d'indépendance sont faites.
@@ -27,9 +27,9 @@
 # ````{prf:definition} Echantillon
 # Soit une variable aléatoire $X:(\Omega,\mathcal A,P)\mapsto \mathbb{R}$. On appelle $n$-échantillon de la variable aléatoire parente $X$ la donnée de $n$ variables aléatoires $X_1\cdots X_n$, définies sur le même espace, indépendantes, ayant même loi que $X$.
 # ````
-# On a donc 
+# On a donc pour tout $(x_1\cdots x_n)^T\in\mathbb{R}^n$
 # 
-# $\forall (x_1\cdots x_n)^T\in\mathbb{R}^n\;P(X_1<x_1\cdots X_n<x_n)=P(X_1<x_1)\cdots P(X_n<x_n)=P(X<x_1)\cdots P(X<x_n)$
+# $P(X_1<x_1\cdots X_n<x_n)=P(X_1<x_1)\cdots P(X_n<x_n)=P(X<x_1)\cdots P(X<x_n)$
 # 
 # On considère alors une expérience aléatoire $\mathcal E$ décrite par l'intermédiaire de la variable aléatoire $X$. Considérer un $n$ échantillon de $X$ consiste à supposer la possibilité de $n$ répétitions de l'expérience $\mathcal E$ dans des conditions identiques, sans interactions entre elles.
 # 
@@ -40,10 +40,10 @@
 # ### Schéma de Bernoulli et modèle binomial
 # Si $\mathcal E$ n'a que deux éventualités possibles (réalisation ou non d'un évènement $A$), alors l'expérience peut être décrite par l'intermédiaire d'une variable aléatoire $X$ ($\mathbb{1}_A$, fonction indicatrice de $A$), de Bernoulli $X:(\Omega,\mathcal A,P)\mapsto \{0,1\}$ avec $P(X=1)=P(A)=p\in]0,1[$.
 # 
-# Si $\mathcal E$ est répétée $n$ fois dans des conditions identiques, sans interaction entre elles, on considèer un $n$-échantillon $(X_1\cdots X_n)$ de variable aléatoire parente $X$. Les valeurs proses par la variable aléatoire $S_n=X_1+\cdots X_n$ représentent le nombre de réalisations de $A$ à la suite des $n$ répétitions. Une telle situation est dite relever du schéma de Bernoulli.
+# Si $\mathcal E$ est répétée $n$ fois dans des conditions identiques, sans interaction entre elles, on considère un $n$-échantillon $(X_1\cdots X_n)$ de variable aléatoire parente $X$. Les valeurs prises par la variable aléatoire $S_n=X_1+\cdots X_n$ représentent le nombre de réalisations de $A$ à la suite des $n$ répétitions. Une telle situation est dite relever du schéma de Bernoulli.
 # 
 # ````{prf:property}
-# $S_n:(\Omega,\mathcal A,P)\mapsto \{0,1\cdots n\}$ a une loi binomiale $\mathcal{B}(n,p)$ : 
+# $S_n:(\Omega,\mathcal A,P)\mapsto [\![0,n]\!]$ a une loi binomiale $\mathcal{B}(n,p)$ : 
 # 
 # -  $\forall k\in[\![0,n]\!]\; P(S_n=k)=\begin{pmatrix}n\\k\end{pmatrix} p^k (1-p)^{n-k}$
 # -  $\mathbb{E}(S_n)=np,\; \mathbb{V}(S_n)=np(1-p)$
@@ -64,22 +64,29 @@
 # 
 # ### Moyenne et variances empiriques d'un $n$-échantillon
 # Etant donné un $n$-échantillon $(X_1\cdots X_n)$ d'une variable aléatoire parente $X$, on appelle :
+# ```{index} moyenne empirique
+# ``` 
+# ```{index} variance empirique
+# ``` 
+# - moyenne empirique du $n$-échantillon la variable aléatoire 
 # 
-# - moyenne empirique du $n$-échantillon\index{moyenne empirique} la variable aléatoire $$\bar{X_n}=\frac1n \displaystyle\sum_{k=1}^n X_k$$
-# -  variance empirique biaisée du $n$-échantillon\ la variable aléatoire (Ne pas confondre avec la variable $S_n$ du schéma de Bernoulli)
-# -  
-# -  $S_n^2=\frac1n \displaystyle\sum_{k=1}^n (X_k-\bar{X_n})^2=\frac1n \displaystyle\sum_{k=1}^n X_k^2 -\bar{X_n}^2$
+# - $$\bar{X}_n=\frac1n \displaystyle\sum_{k=1}^n X_k$$
 # 
-# -  variance empirique non biaisée du $n$-échantillon\index{variance!non biaisee@non biaisée} la variable aléatoire 
-# ${S'}_n^2=\frac{1}{n-1} \displaystyle\sum_{k=1}^n (X_k-\bar{X_n})^2$
+# -  variance empirique biaisée du $n$-échantillon la variable aléatoire (Ne pas confondre avec la variable $S_n$ du schéma de Bernoulli)
+# 
+# $$S_n^2=\frac1n \displaystyle\sum_{k=1}^n (X_k-\bar{X}_n)^2=\frac1n \displaystyle\sum_{k=1}^n X_k^2 -\bar{X}_n^2$$
+# 
+# -  variance empirique non biaisée du $n$-échantillon la variable aléatoire 
+# 
+# $${S'}_n^2=\frac{1}{n-1} \displaystyle\sum_{k=1}^n (X_k-\bar{X}_n)^2$$
 # 
 # 
 # On a bien sûr $(n-1){S'}_n^2=nS_n^2$.
 # 
-# Les valeurs prises par $\bar{X_n}$ coïncident avec la moyenne expérimentale $\bar{x_n}$ des données expérimentales $(x_1\cdots x_n)$, réalisation du $n$-échantillon. De même pour $S_n^2$ pour la variance expérimentale.
+# Les valeurs prises par $\bar{X}_n$ coïncident avec la moyenne expérimentale $\bar{x}_n$ des données expérimentales $(x_1\cdots x_n)$, réalisation du $n$-échantillon. De même pour $S_n^2$ pour la variance expérimentale.
 # 
 # ````{prf:property}
-# 1.  $\mathbb{E}(\bar{X_n})= \mathbb{E}(X)=m\; ;\; \mathbb{V}(\bar{X_n}) = \frac{\mathbb{V}(X)}{n}=\frac{\sigma^2}{n}$
+# 1.  $\mathbb{E}(\bar{X}_n)= \mathbb{E}(X)=m\; ;\; \mathbb{V}(\bar{X}_n) = \frac{\mathbb{V}(X)}{n}=\frac{\sigma^2}{n}$
 # 2.  $\mathbb{E}(S_n^2) = \frac{n-1}{n}\sigma^2\; ;\;  \mathbb{E}({S'}_n^2)=\sigma^2$
 # 3. Sous l'hypothèse de normalité, $\mathbb{V}({S'}_n^2)=\frac{2\sigma^4}{n-1}$
 # ````
@@ -95,6 +102,10 @@
 # 
 # 
 # ### Echantillons de variables aléatoires normales
+# 
+# Les lois de probabilité usuelles sont rappelées en fin de ce chapitre ({ref}`loisusuelles). 
+# 
+# 
 # #### Etude d'un $n$-échantillon
 # Soit un $n$-échantillon $X_1\cdots X_n$ de variable aléatoire parente $X$ de loi $\mathcal{N}(m,\sigma)$. On a les résultats suivants :
 # 
@@ -152,9 +163,10 @@ from  random  import  random
 import matplotlib.pyplot as plt
 
 def experience(n):
+    p=0.4
     f = []
     for j in range(n):
-        if random() <0.4:
+        if random() <p:
             f += [1.]
         else:
             f+=[0]
@@ -167,11 +179,12 @@ def experience(n):
 n = 100
 plt.figure(figsize=(12,6))
 x = np.arange(n)
-for i in range(8):
+nb_sequences = 10
+for i in range(nb_sequences):
     f = experience(n)
     plt.plot(x,f)
-    plt.xlabel('$n$')
-    plt.ylabel('$f_n$')
+    plt.xlabel('$n$',fontsize=16)
+    plt.ylabel('$f_n$',fontsize=16)
 plt.axhline(y = 0.4, color = 'k', linestyle = '--')
 
 plt.tight_layout()
@@ -187,14 +200,14 @@ plt.tight_layout()
 # 
 # ### Loi faible des grands nombres
 # ```{prf:theorem}
-# Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires indépendantes, identiquement distribuées (i.i.d) de même loi qu'une variable $X$, admettant une moyenne $m$ et un écart-type $\sigma$. Si $(\bar{X_n})_{n\geq 1}$ est la suite des moyennes empiriques associée à $(X_n)_{n\geq 1}$ alors
+# Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires indépendantes, identiquement distribuées (i.i.d) de même loi qu'une variable $X$, admettant une moyenne $m$ et un écart-type $\sigma$. Si $(\bar{X}_n)_{n\geq 1}$ est la suite des moyennes empiriques associée à $(X_n)_{n\geq 1}$ alors
 # 
-# $(\forall t>0)\; \displaystyle\lim_{n\rightarrow\infty} P(|\bar{X_n}-m|\geq t) = 0$
+# $(\forall t>0)\; \displaystyle\lim_{n\rightarrow\infty} P(|\bar{X}_n-m|\geq t) = 0$
 # 
-# On dit que la suite converge en probatilité vers $m$ et on note $\bar{X_n}\xrightarrow[n\rightarrow\infty]{P} m$
+# On dit que la suite converge en probatilité vers $m$ et on note $\bar{X}_n\xrightarrow[n\rightarrow\infty]{P} m$
 # ```
 # 
-# C'est une conséquence immédiate de l'inégalité de Tchebychev : $P(|\bar{X_n}-m|\geq t)\leq\frac{\sigma^2}{nt^2}$ puisque $\mathbb{V}(\bar{X_n})=\frac{\sigma^2}{n}$
+# C'est une conséquence immédiate de l'inégalité de Tchebychev : $P(|\bar{X}_n-m|\geq t)\leq\frac{\sigma^2}{nt^2}$ puisque $\mathbb{V}(\bar{X}_n)=\frac{\sigma^2}{n}$
 # 
 # 
 # L'observation des valeurs prises par la moyenne empirique donne une bonne information sur la moyenne théorique $m$ de $X$. La précision, au sens ci-dessus, est d'autant meilleure que $n$ est grand.
@@ -202,9 +215,9 @@ plt.tight_layout()
 # ### Loi forte des grands nombres
 # avec les hypothèses précédentes, on peut montrer que 
 # 
-# $P(\{\omega\in\Omega, \displaystyle\lim_{n\rightarrow\infty} \bar{X_n}(\omega)=m\})=1$
+# $P(\{\omega\in\Omega, \displaystyle\lim_{n\rightarrow\infty} \bar{X}_n(\omega)=m\})=1$
 # 
-# Sauf cas très improbable (avec probabilité nulle), la suite des réalisations $(\bar{x}_n)_{n\geq 1}$ des moyennes expérimentales des mesures converge vers la moyenne théorique $m$. On dit que la suite $(\bar{X_n})_{n\geq 1}$ converge presque sûrement vers $m$ et on note $\bar{X_n}\xrightarrow[n\rightarrow\infty]{p.s.} m$.
+# Sauf cas très improbable (avec probabilité nulle), la suite des réalisations $(\bar{x}_n)_{n\geq 1}$ des moyennes expérimentales des mesures converge vers la moyenne théorique $m$. On dit que la suite $(\bar{X}_n)_{n\geq 1}$ converge presque sûrement vers $m$ et on note $\bar{X}_n\xrightarrow[n\rightarrow\infty]{p.s.} m$.
 # 
 # ```{prf:remark}
 # :class: dropdown
@@ -234,7 +247,8 @@ plt.tight_layout()
 # 
 # De plus, en remarquant que $\Sigma_n=n-S_n$ suit $\mathcal{B}(n,1-p)$, on a 
 # 
-# $P(\Sigma_n=k)=P(S_n=n-k)=\begin{pmatrix}n\\p\end{pmatrix} p^{n-k}(1-p)^{k} $
+# $$P(\Sigma_n=k)=P(S_n=n-k)=\begin{pmatrix}n\\p\end{pmatrix} p^{n-k}(1-p)^{k} $$
+# 
 # et quand $n$ est grand (>50) et $p$ voisin de 1 ($n(1-p)<10$) on peut approcher la loi de $\Sigma_n$ par une loi de Poisson $\mathcal P(n(1-p))$.
 # 
 # 
@@ -250,7 +264,7 @@ plt.tight_layout()
 # 
 # On dit que $\left (\sqrt{n}\frac{\bar X_n-m}{\sigma}\right )_{n\geq 1}$ converge en loi vers $\mathcal{N}(0,1)$.
 # ```
-# La figure suivante illustre ce modèle dans le cas où la variable aléatoire parente $X$ suit un schéma de Bernoulli avec $P(X = 1)=0.2, P(X=0)=0.8$.
+# La figure suivante illustre ce modèle dans le cas où la variable aléatoire parente $X$ suit un schéma de Bernoulli avec $P(X = 1)=0.1, P(X=0)=0.9$.
 # 
 # ![](./images/tcl.png)
 # 
@@ -258,7 +272,7 @@ plt.tight_layout()
 # ### Commentaires
 # Pour mesurer une grandeur de valeur inconnue $m$, il suffit d'une seule mesure lorsqu'il n'y a pas d'erreur expérimentale. Mais les mesures sont toujours entâchées d'erreur et une expérience ou mesure peut être modélisée par une variable aléatoire $X$ dnot la moyenne théorique $\mathbb{E}(X)$ est la valeur cherchée $m$ si les mesures ne sont pas biaisées, c'est-à-dire affectées d'une erreur systématique.
 # 
-# Ayant effectué $n$ mesures, on a une réalisation d'un $n$-échantillon de $X$ et une valeur observée $\bar x_n$ de la moyenne empirique $/bar X_n$. On peut prendre cette valeur comme estimation de $m$, l'écart $|\bar x_n-m|$ étant une réalisation de $|\bar X_n-m|$. 
+# Ayant effectué $n$ mesures, on a une réalisation d'un $n$-échantillon de $X$ et une valeur observée $\bar x_n$ de la moyenne empirique $\bar X_n$. On peut prendre cette valeur comme estimation de $m$, l'écart $|\bar x_n-m|$ étant une réalisation de $|\bar X_n-m|$. 
 # 
 # - La loi forte des grands nombres justifie cette estimation en supposant  $\mathbb{E}(X)=m$
 # - L'inégalité de Tchebychev donne une idée grossière de l'écart en terme de probabilité
@@ -277,6 +291,8 @@ plt.tight_layout()
 # ``` 
 # On peut donc approcher une loi binomiale par une loi normale.
 # 
+# 
+# (loisusuelles)=
 # ## Modèles probabilistes usuels
 # 
 # On donne ici un catalogue non exhaustif des principaux modèles probabilistes, et leurs principales propriétés. Une illustration graphique des lois correspondantes est proposée dans les figures suivantes.
@@ -477,7 +493,8 @@ print("Fonction de répartition : ", gamma.cdf(x, a, scale = 1/Lambda))
 # ```
 # 
 # ```{prf:theorem}
-# Si $X$ est de loi $\mathcal{N}(0,1)$ alors la variable aléatoire $Y=X^2$ admet une loi $\gamma(\frac12,\frac12)$.\\ 
+# Si $X$ est de loi $\mathcal{N}(0,1)$ alors la variable aléatoire $Y=X^2$ admet une loi $\gamma(\frac12,\frac12)$.
+# 
 # Etant données plus généralement $n$ variables aléatoires i.i.d. de loi $\mathcal{N}(m,\sigma)$, alors  la variable aléatoire $V=\displaystyle\sum_{k=1}^n \left (\frac{X_k-m}{\sigma}\right )^2$ admet une loi $\gamma(\frac{n}{2},\frac12)$. C'est la loi du khi-deux à $n$ degrés de liberté.
 # ```
 # 
