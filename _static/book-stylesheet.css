@@ -23,26 +23,15 @@ Styling for Table of Contents
 }
 
 
-
-
-/* Modify Jupyter Styles */
-#top-panel-wrapper,
-#jp-top-bar {
-  background-color: #aecad4 !important;
+<style>
+h2 {
+  border: 1.5px solid #333;
+  padding: 8px 12px;
+  background-image: linear-gradient(180deg, #fff, rgb(160, 147, 147));
+  position: static;
 }
+</style>
 
-#menu-panel-wrapper,
-#jp-MainMenu,
-#menu-panel {
-  background-color: #aecad4 !important;
-}
-
-.jp-NotebookPanel-toolbar {
-  background-color: #aecad4 !important;
-}
-.lm-MenuBar-content {
-  color: #02484d;
-}
 
 /*--------------------------------------------------------------------*\
 
