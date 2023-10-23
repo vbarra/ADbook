@@ -13,7 +13,7 @@
 # On munit $\mathbb{R}^n$ d'une métrique ${\bf D}$. 
 # 
 # ### Principe
-# La recherche de variables canoniques consiste à rechercher ${\bf {\bf u_1}}\in Im({\bf {\bf X_1}}), \Vert {\bf {\bf u_1}}\Vert=1$ et  \mbox{${\bf v_1}\in Im({\bf {\bf X_2}})$}, $\Vert {\bf v_1}\Vert=1$ tels que l'angle $({\bf {\bf u_1}},{\bf v_1})$ est le plus faible. On recherche ensuite ${\bf {\bf u_2}}\in Im({\bf {\bf X_1}}), \Vert {\bf {\bf u_2}}\Vert=1$ orthogonal à ${\bf {\bf u_1}}$ au sens de ${\bf D}$, et ${\bf v_2}\in Im({\bf {\bf X_2}}), \Vert {\bf v_2}\Vert=1$ orthogonal à ${\bf v_1}$ au sens de ${\bf D}$ tels que l'angle $({\bf {\bf u_2}},{\bf v_2})$ soit minimal. On poursuit cette procédure itérativement pour arriver au dernier couple $({\bf u_p},{\bf v_p})$.
+# La recherche de variables canoniques consiste à rechercher ${\bf {\bf u_1}}\in Im({\bf {\bf X_1}}), \Vert {\bf {\bf u_1}}\Vert=1$ et  ${\bf v_1}\in Im({\bf {\bf X_2}})$, $\Vert {\bf v_1}\Vert=1$ tels que l'angle $({\bf {\bf u_1}},{\bf v_1})$ est le plus faible. On recherche ensuite ${\bf {\bf u_2}}\in Im({\bf {\bf X_1}}), \Vert {\bf {\bf u_2}}\Vert=1$ orthogonal à ${\bf {\bf u_1}}$ au sens de ${\bf D}$, et ${\bf v_2}\in Im({\bf {\bf X_2}}), \Vert {\bf v_2}\Vert=1$ orthogonal à ${\bf v_1}$ au sens de ${\bf D}$ tels que l'angle $({\bf {\bf u_2}},{\bf v_2})$ soit minimal. On poursuit cette procédure itérativement pour arriver au dernier couple $({\bf u_p},{\bf v_p})$.
 # 
 # ### Formulation matricielle dans $\mathbb{R}^n$
 # On note ${\bf {\bf {\bf P_i}}},i\in[\![1,2]\!]$ la projection orthogonale (au sens de ${\bf D}$) sur $Im({\bf {\bf {\bf X_i}}})$. On sait alors que : 
@@ -56,7 +56,7 @@
 #  On recherche donc maintenant ${\bf v_1}$ tel que ${\bf P_2}{\bf P_1}{\bf v_1}=\lambda_1{\bf v_1}$. Il est immédiat alors que ${\bf {\bf u_1}}$ est vecteur propre de ${\bf P_1}{\bf P_2}$ associé à $\lambda_1$, qui représente le carré du cosinus de l'angle entre ${\bf v_1}$ et ${\bf {\bf u_1}}$ (donc $\lambda_1\leq 1$).
 # 
 #  Le cas $\lambda_1=1$ correspond à ${\bf {\bf u_1}}={\bf v_1}$ et sa multiplicité donne la dimension de $Im({\bf {\bf X_1}})\bigcap Im({\bf {\bf X_2}})$. 
-#  
+# 
 #  Les vecteurs propres associés à des valeurs propres nulles de rang inférieur à $q$ engendrent la partie de $Im({\bf {\bf X_2}})$ orthogonale à $Im({\bf {\bf X_1}})$.
 # En résumé, dans $\mathbb{R}^n$, les vecteurs propres ${\bf u_i},{\bf v_i}$ des matrices ${\bf P_1}{\bf P_2}$ et ${\bf P_2}{\bf P_1}$ vérifient :
 # 
