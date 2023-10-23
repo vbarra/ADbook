@@ -234,7 +234,7 @@ imp = IterativeImputer(max_iter=5, random_state=0)
 X = [[1, 2], [3, 6], [4, 8], [np.nan, 3], [7, np.nan]]
 imp.fit(X)
 print((imp.transform(X)))
-``
+```
 
 
 ### Transformation des données qualitatives
