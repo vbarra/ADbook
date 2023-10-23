@@ -76,15 +76,15 @@
 {\endMakeFramed}
 
 % Env which wraps code cell inputs
+\makeatletter
 \newenvironment{sphinxVerbatimInput}
-  {\colorlet{VerbatimBorderColor}{CodeBlockInputBorderColor}%
-   \colorlet{VerbatimColor}{CodeBlockInputColor}%
-   \begin{adjustwidth}{5pt}{}}
+  {\def\spx@verbatimfcolorbox{\spx@fcolorbox{CodeBlockInputBorderColor}{CodeBlockInputColor}}\begin{adjustwidth}{5pt}{}}
   {\end{adjustwidth}}
+\makeatother
 
 % Env which wraps code cell outputs
+\makeatletter
 \newenvironment{sphinxVerbatimOutput}
-  {\colorlet{VerbatimBorderColor}{CodeBlockOutputBorderColor}%
-   \colorlet{VerbatimColor}{CodeBlockOutputColor}%
-   \begin{adjustwidth}{20pt}{}}
+  {\def\spx@verbatimfcolorbox{\spx@fcolorbox{CodeBlockOutputBorderColor}{CodeBlockOutputColor}} \begin{adjustwidth}{20pt}{}}
   {\end{adjustwidth}}
+\makeatother

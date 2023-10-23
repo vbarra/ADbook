@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.1.21)  20 OCT 2023 07:37
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.1.21)  23 OCT 2023 08:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1054,17 +1054,16 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 (./sphinxlatexnumfig.sty
 File: sphinxlatexnumfig.sty 2021/01/27 numbering
 ) (./sphinxlatexlists.sty
-File: sphinxlatexlists.sty 2021/12/20 lists
-\spx@lineitemlabel=\toks47
+File: sphinxlatexlists.sty 2021/01/27 lists
 )
 \c@sphinxscope=\count327
+\c@sphinxexplicit=\count328
  (./sphinxpackagefootnote.sty
-Package: sphinxpackagefootnote 2022/02/12 v4.5.0 Sphinx custom footnotehyper pa
-ckage (Sphinx team)
+Package: sphinxpackagefootnote 2021/02/04 v1.1d footnotehyper adapted to sphinx
+ (Sphinx team)
 \FNH@notes=\box123
-\FNH@toks=\toks48
+\FNH@toks=\toks47
 \FNH@width=\dimen306
-\c@sphinxfootnotemark=\count328
 ) (./sphinxlatexindbibtoc.sty
 File: sphinxlatexindbibtoc.sty 2021/01/27 index, bib., toc
 
@@ -1104,7 +1103,7 @@ Package: titlesec 2019/10/16 v2.13 Sectioning titles
 \aftertitleunit=\skip78
 \ttl@plus=\dimen307
 \ttl@minus=\dimen308
-\ttl@toksa=\toks49
+\ttl@toksa=\toks48
 \titlewidth=\dimen309
 \titlewidthlast=\dimen310
 \titlewidthfirst=\dimen311
@@ -1135,7 +1134,7 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutheight=\dimen317
 \Gm@layouthoffset=\dimen318
 \Gm@layoutvoffset=\dimen319
-\Gm@dimlist=\toks50
+\Gm@dimlist=\toks49
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
@@ -1692,116 +1691,309 @@ File: kolmogorov.jpeg Graphic file (type bmp)
 Missing character: There is no ⧵ in font [latinmodern-math.otf]/OT:script=math;
 language=dflt;!
  [10] [11] [12]
-File: 2b40be8386aeb598154a1505ed1c5096ec0556bb45e947d1dc4f76ee5f9fec04.png Grap
-hic file (type bmp)
-<2b40be8386aeb598154a1505ed1c5096ec0556bb45e947d1dc4f76ee5f9fec04.png>
+File: Rappels_1_0.png Graphic file (type bmp)
+<Rappels_1_0.png>
  [13]
 Overfull \vbox (1.79214pt too high) detected at line 874
  []
 
 [14]
-File: f8cb77e0cb4ee1d410b20d28e1a812f534de338ae185b2af4a99c78ba7175763.png Grap
-hic file (type bmp)
-<f8cb77e0cb4ee1d410b20d28e1a812f534de338ae185b2af4a99c78ba7175763.png>
+File: Rappels_3_0.png Graphic file (type bmp)
+<Rappels_3_0.png>
  [15] [16] [17] [18] [19] [20
 
 ]
 Chapter 2.
 [21] [22]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00085pt on input line 1348.
+(Font)              scaled to size 8.00085pt on input line 1351.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00064pt on input line 1348.
+(Font)              scaled to size 6.00064pt on input line 1351.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 1348.
+(Font)              scaled to size 7.99915pt on input line 1351.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 1348.
+(Font)              scaled to size 5.99936pt on input line 1351.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1348.
+(hyperref)                removing `math shift' on input line 1351.
 
 [23]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1432.
+(hyperref)                removing `math shift' on input line 1435.
 
 [24]
-File: 0cea81a801c984e24621e903cb2edc97e70a88d552ca3e93915f8d74de36b8f4.png Grap
-hic file (type bmp)
-<0cea81a801c984e24621e903cb2edc97e70a88d552ca3e93915f8d74de36b8f4.png>
+File: elemstats_1_0.png Graphic file (type bmp)
+<elemstats_1_0.png>
  [25] [26]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 14.40152pt on input line 1637.
+(Font)              scaled to size 14.40152pt on input line 1640.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 14.39845pt on input line 1637.
+(Font)              scaled to size 14.39845pt on input line 1640.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1637.
+(hyperref)                removing `math shift' on input line 1640.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\symcal' on input line 1637.
+(hyperref)                removing `\symcal' on input line 1640.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1637.
+(hyperref)                removing `math shift' on input line 1640.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\symcal' on input line 1637.
+(hyperref)                removing `\symcal' on input line 1640.
 
 [27]
 File: tcl.png Graphic file (type bmp)
 <tcl.png>
  [28]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
-(Font)              scaled to size 10.00107pt on input line 1888.
+(Font)              scaled to size 10.00107pt on input line 1891.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
-(Font)              scaled to size 7.00075pt on input line 1888.
+(Font)              scaled to size 7.00075pt on input line 1891.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
-(Font)              scaled to size 5.00053pt on input line 1888.
+(Font)              scaled to size 5.00053pt on input line 1891.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
-(Font)              scaled to size 9.99893pt on input line 1888.
+(Font)              scaled to size 9.99893pt on input line 1891.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
-(Font)              scaled to size 6.99925pt on input line 1888.
+(Font)              scaled to size 6.99925pt on input line 1891.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
-(Font)              scaled to size 4.99947pt on input line 1888.
+(Font)              scaled to size 4.99947pt on input line 1891.
 
-Overfull \hbox (7.68pt too wide) in paragraph at lines 1888--1888
+Overfull \hbox (7.68pt too wide) in paragraph at lines 1891--1891
 []$[]$| 
  []
 
 
-Overfull \hbox (9.44681pt too wide) in paragraph at lines 1888--1888
+Overfull \hbox (9.44681pt too wide) in paragraph at lines 1891--1891
 []$[][][] [][]$| 
  []
 
 
-Underfull \hbox (badness 6094) in paragraph at lines 1888--1888
+Underfull \hbox (badness 6094) in paragraph at lines 1891--1891
 []$[][][] [] [][] []
  []
 
 
-Underfull \hbox (badness 7522) in paragraph at lines 1888--1888
+Underfull \hbox (badness 7522) in paragraph at lines 1891--1891
 []\TU/FreeSerif(0)/m/n/10 Expérience ayant 2
  []
 
 
-Overfull \hbox (8.35318pt too wide) in paragraph at lines 1888--1888
+Overfull \hbox (8.35318pt too wide) in paragraph at lines 1891--1891
 []$[] [][][] [][] []$| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1888--1888
+Underfull \hbox (badness 10000) in paragraph at lines 1891--1891
 []\TU/FreeSerif(0)/m/n/10 Hypergéométrique,
  []
 
 
-Overfull \hbox (8.35318pt too wide) in paragraph at lines 1888--1888
+Overfull \hbox (8.35318pt too wide) in paragraph at lines 1891--1891
 []$[] [][][] [][] []$| 
  []
 
 
-Overfull 
+Overfull \hbox (1.57599pt too wide) in paragraph at lines 1891--1891
+[]$[][]$| 
+ []
+
+
+Overfull \hbox (26.787pt too wide) in paragraph at lines 1891--1891
+[]$[][][][]$| 
+ []
+
+
+Overfull \hbox (8.35318pt too wide) in paragraph at lines 1891--1891
+[]$[] [][][] [][] []$| 
+ []
+
+
+Overfull \hbox (1.771pt too wide) in paragraph at lines 1891--1891
+[]$[]$| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1891--1891
+[]\TU/FreeSerif(0)/m/n/10 Equiprobabilité des
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1891--1891
+[]\TU/FreeSerif(0)/m/n/10 Files d’attente,
+ []
+
+File: discretes.png Graphic file (type bmp)
+<discretes.png>
+[29] [30]
+Underfull \hbox (badness 10000) in paragraph at lines 2203--2203
+[]\TU/FreeSerif(0)/m/n/10 Exponentiel
+ []
+
+
+Overfull \hbox (14.35864pt too wide) in paragraph at lines 2203--2203
+[]$[][][][] [][][]$| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2203--2203
+[]$[][][]$
+ []
+
+
+Overfull \hbox (0.52931pt too wide) in paragraph at lines 2203--2203
+[]$[]$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2203--2203
+[]$[][][][] []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2203--2203
+[]$[][][][] [][] []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2203--2203
+[]$[][][][] []
+ []
+
+
+Overfull \hbox (13.67319pt too wide) in paragraph at lines 2203--2203
+[][] [][]$
+ []
+
+
+Overfull \hbox (13.83057pt too wide) in paragraph at lines 2203--2203
+[]$[][][][][][]$| 
+ []
+
+[31]
+File: continues.png Graphic file (type bmp)
+<continues.png>
+ [32] [33] [34] [35] [36] [37] [38
+
+]
+Chapter 3.
+[39]
+File: baton.png Graphic file (type bmp)
+<baton.png>
+
+! Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.2626 \begin{eqnarray}
+                       
+? 
+! Interruption.
+<to be read again> 
+                   $
+l.2626 \begin{eqnarray}
+                       
+? 
+! Missing \right. inserted.
+<inserted text> 
+                \right .
+l.2626 \begin{eqnarray}
+                       
+? 
+! Interruption.
+<to be read again> 
+                   \right 
+l.2626 \begin{eqnarray}
+                       
+? 
+! You can't use `\halign' in math mode.
+\H@eqnarray ...let \\\@eqncr $$\everycr {}\halign 
+                                                  to\displaywidth \bgroup \h...
+l.2626 \begin{eqnarray}
+                       
+? 
+! Interruption.
+<to be read again> 
+                   t
+l.2626 \begin{eqnarray}
+                       
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \bgroup 
+l.2626 \begin{eqnarray}
+                       
+? 
+! Interruption.
+\H@eqnarray ... {}\halign to\displaywidth \bgroup 
+                                                  \hskip \@centering $\displ...
+l.2626 \begin{eqnarray}
+                       
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \bgroup 
+l.2626 \begin{eqnarray}
+                       
+? 
+! Interruption.
+\H@eqnarray ... {}\halign to\displaywidth \bgroup 
+                                                  \hskip \@centering $\displ...
+l.2626 \begin{eqnarray}
+                       
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.2626 \begin{eqnarray}
+                       
+? 
+! Interruption.
+<to be read again> 
+                   $
+l.2626 \begin{eqnarray}
+                       
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.2626 \begin{eqnarray}
+                       
+? 
+! Interruption.
+<to be read again> 
+                   \displaystyle 
+l.2626 \begin{eqnarray}
+                       
+? 
+! You can't use `macro parameter character #' in math mode.
+\H@eqnarray ...$\displaystyle \tabskip \z@skip {##
+                                                  }$\@eqnsel &\global \@eqcn...
+l.2626 \begin{eqnarray}
+                       
+? 
+! Interruption.
+<to be read again> 
+                   }
+l.2626 \begin{eqnarray}
+                       
+? 
+! Misplaced alignment tab character &.
+\H@eqnarray ...le \tabskip \z@skip {##}$\@eqnsel &
+                                                  \global \@eqcnt \@ne \hski...
+l.2626 \begin{eqnarray}
+                       
+? 
+! You can't use `macro parameter character #' in math mode.
+\H@eqnarray ...\hskip \tw@ \arraycolsep \hfil ${##
+                                                  }$\hfil &\global \@eqcnt \...
+l.2626 \begin{eqnarray}
+                       
+? 
+! Misplaced alignment tab character &.
+\H@eqnarray ...w@ \arraycolsep \hfil ${##}$\hfi

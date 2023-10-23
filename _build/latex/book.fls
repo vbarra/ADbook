@@ -450,10 +450,10 @@ INPUT bayes.jpeg
 INPUT bayes.jpeg
 INPUT kolmogorov.jpeg
 INPUT kolmogorov.jpeg
-INPUT 2b40be8386aeb598154a1505ed1c5096ec0556bb45e947d1dc4f76ee5f9fec04.png
-INPUT 2b40be8386aeb598154a1505ed1c5096ec0556bb45e947d1dc4f76ee5f9fec04.png
-INPUT f8cb77e0cb4ee1d410b20d28e1a812f534de338ae185b2af4a99c78ba7175763.png
-INPUT f8cb77e0cb4ee1d410b20d28e1a812f534de338ae185b2af4a99c78ba7175763.png
+INPUT Rappels_1_0.png
+INPUT Rappels_1_0.png
+INPUT Rappels_3_0.png
+INPUT Rappels_3_0.png
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
@@ -462,8 +462,8 @@ INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm1
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
-INPUT 0cea81a801c984e24621e903cb2edc97e70a88d552ca3e93915f8d74de36b8f4.png
-INPUT 0cea81a801c984e24621e903cb2edc97e70a88d552ca3e93915f8d74de36b8f4.png
+INPUT elemstats_1_0.png
+INPUT elemstats_1_0.png
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
@@ -479,3 +479,5 @@ INPUT continues.png
 INPUT continues.png
 INPUT baton.png
 INPUT baton.png
+INPUT baton2.png
+INPUT baton2.png

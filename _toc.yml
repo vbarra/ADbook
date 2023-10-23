@@ -14,11 +14,11 @@ parts:
     - file: acp
     - file: regression
     - file: clustering
-#  - caption: TP
-#    chapters:
-#    - file: TP1_statsDescriptives
-#    - file: TP2_ACP
-#    - file: TP_Regression_Lineaire
+  - caption: TP
+    chapters:
+    - file: TP1_statsDescriptives
+    - file: TP2_ACP
+    - file: TP_Regression_Lineaire
 #    - file: TP_Regression_Logistique
   - caption: Annexes
     chapters:
