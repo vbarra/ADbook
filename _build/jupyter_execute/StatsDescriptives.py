@@ -201,8 +201,8 @@ for subplot, binsize in ((141, 5),(142, 20), (143, 80), (144, 1000)):
 import numpy as np
 from sklearn.impute import SimpleImputer
 imp = SimpleImputer(missing_values=np.nan, strategy='mean')
-imp.fit([[1, 2], [np.nan, 3], [4, 5]])
-print(imp.transform(X))
+X = [[1, 2], [np.nan, 3], [4, 5]]
+print(imp.fit_transform(X))
 
 
 # Dans le cas d'une imputation multiple, où un sous-ensemble de valeurs doit être comblé, on peut adopter la stratégie suivante : 
@@ -215,7 +215,7 @@ print(imp.transform(X))
 # 6. Répéter l'étape 2-5 jusqu'à convergence (ou un nombre maximal d'itérations)
 # 7. Répéter les étapes 1-6 plusieurs fois avec différentes initialisations de nombres aléatoires pour créer différentes versions de l'ensemble de données complet/imputé.
 
-# In[ ]:
+# In[3]:
 
 
 import numpy as np
@@ -223,8 +223,7 @@ from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import IterativeImputer
 imp = IterativeImputer(max_iter=5, random_state=0)
 X = [[1, 2], [3, 6], [4, 8], [np.nan, 3], [7, np.nan]]
-imp.fit(X)
-print((imp.transform(X)))
+print((imp.fit_transform(X)))
 
 
 # ### Transformation des données qualitatives
@@ -292,7 +291,7 @@ print((imp.transform(X)))
 # 
 # Dans le cas où $\forall i,w_i=1/n$, la moyenne pondérée est la moyenne arithmétique. De plus, dans tous les cas, on peut montrer que $H\leq G\leq \bar{x}$.
 
-# In[ ]:
+# In[4]:
 
 
 import numpy as np
@@ -353,7 +352,7 @@ plt.show()
 # $x_p=x_{\lceil{np}\rceil}$
 # En particulier, un quartile est chacune des 3 valeurs qui divisent les données triées en 4 parts égales, de sorte que chaque partie représente 1/4 de l'échantillon de population. On note $Q_i$ le $i^e$ quartile.
 
-# In[ ]:
+# In[5]:
 
 
 import numpy as np
@@ -414,7 +413,7 @@ plt.tight_layout()
 # 
 # ![](./images/dispersion.png)
 
-# In[ ]:
+# In[6]:
 
 
 import numpy as np
@@ -502,7 +501,7 @@ plt.tight_layout()
 # 
 # Les valeurs de l’ échantillon en dehors des moustaches sont parfois matérialisées par des points et sont alors considérées comme les points aberrants de l'échantillon.
 
-# In[ ]:
+# In[7]:
 
 
 import matplotlib.pyplot as plt
@@ -535,7 +534,7 @@ plt.show()
 # ### La description ne fait pas tout...
 # La description d'un ensemble de valeurx $x_j$ par la moyenne, la variance, voire le comportement linéaire (coefficient de corrélation, voir plus loin) peut ne pas suffire à comprendre la distribution des données. Un exemple classique (analyse bivariée, section suivante) est le quartet d'Anscombe (figure ci-dessous), constitué de quatre ensembles de points  $(x,y)\in\mathbb{R}^2$ de même propriétés statistiques (moyenne, variance, coefficient de régression linéaire) mais qui sont distribués de manière totalement différente dans le plan.
 
-# In[ ]:
+# In[8]:
 
 
 import matplotlib.pyplot as plt

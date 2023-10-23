@@ -922,104 +922,15 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
 <span class="n">imp</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
-<span class="n">imp</span><span class="o">.</span><span class="n">fit</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">imp</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">imp</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">imp</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">imp</span><span class="o">.</span><span class="n">fit</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">imp</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
-
-<span class="nn">File /usr/local/lib/python3.9/site-packages/sklearn/utils/_set_output.py:142,</span> in <span class="ni">_wrap_method_output.&lt;locals&gt;.wrapped</span><span class="nt">(self, X, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">140</span> <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">141</span> <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">142</span>     <span class="n">data_to_wrap</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">143</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_to_wrap</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">144</span>         <span class="c1"># only wrap the first output for cross decomposition</span>
-<span class="g g-Whitespace">    </span><span class="mi">145</span>         <span class="k">return</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">146</span>             <span class="n">_wrap_data_with_container</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">data_to_wrap</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">147</span>             <span class="o">*</span><span class="n">data_to_wrap</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
-<span class="g g-Whitespace">    </span><span class="mi">148</span>         <span class="p">)</span>
-
-<span class="nn">File /usr/local/lib/python3.9/site-packages/sklearn/impute/_base.py:550,</span> in <span class="ni">SimpleImputer.transform</span><span class="nt">(self, X)</span>
-<span class="g g-Whitespace">    </span><span class="mi">535</span> <span class="sd">&quot;&quot;&quot;Impute all missing values in `X`.</span>
-<span class="g g-Whitespace">    </span><span class="mi">536</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">537</span><span class="sd"> Parameters</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">546</span><span class="sd">     `X` with imputed values.</span>
-<span class="g g-Whitespace">    </span><span class="mi">547</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">548</span> <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">550</span> <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_input</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">in_fit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">551</span> <span class="n">statistics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">statistics_</span>
-<span class="g g-Whitespace">    </span><span class="mi">553</span> <span class="k">if</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-
-<span class="nn">File /usr/local/lib/python3.9/site-packages/sklearn/impute/_base.py:343,</span> in <span class="ni">SimpleImputer._validate_input</span><span class="nt">(self, X, in_fit)</span>
-<span class="g g-Whitespace">    </span><span class="mi">341</span>         <span class="k">raise</span> <span class="n">new_ve</span> <span class="kn">from</span> <span class="bp">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">342</span>     <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">343</span>         <span class="k">raise</span> <span class="n">ve</span>
-<span class="g g-Whitespace">    </span><span class="mi">345</span> <span class="k">if</span> <span class="n">in_fit</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">346</span>     <span class="c1"># Use the dtype seen in `fit` for non-`fit` conversion</span>
-<span class="g g-Whitespace">    </span><span class="mi">347</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_fit_dtype</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">dtype</span>
-
-<span class="nn">File /usr/local/lib/python3.9/site-packages/sklearn/impute/_base.py:326,</span> in <span class="ni">SimpleImputer._validate_input</span><span class="nt">(self, X, in_fit)</span>
-<span class="g g-Whitespace">    </span><span class="mi">323</span>     <span class="n">force_all_finite</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="g g-Whitespace">    </span><span class="mi">325</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">326</span>     <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_data</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">327</span>         <span class="n">X</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">328</span>         <span class="n">reset</span><span class="o">=</span><span class="n">in_fit</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">329</span>         <span class="n">accept_sparse</span><span class="o">=</span><span class="s2">&quot;csc&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">330</span>         <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">331</span>         <span class="n">force_all_finite</span><span class="o">=</span><span class="n">force_all_finite</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">332</span>         <span class="n">copy</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">333</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">334</span> <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">ve</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">335</span>     <span class="k">if</span> <span class="s2">&quot;could not convert&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">ve</span><span class="p">):</span>
-
-<span class="nn">File /usr/local/lib/python3.9/site-packages/sklearn/base.py:535,</span> in <span class="ni">BaseEstimator._validate_data</span><span class="nt">(self, X, y, reset, validate_separately, **check_params)</span>
-<span class="g g-Whitespace">    </span><span class="mi">533</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Validation should be done on X, y or both.&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">534</span> <span class="k">elif</span> <span class="ow">not</span> <span class="n">no_val_X</span> <span class="ow">and</span> <span class="n">no_val_y</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">535</span>     <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">input_name</span><span class="o">=</span><span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">check_params</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">536</span>     <span class="n">out</span> <span class="o">=</span> <span class="n">X</span>
-<span class="g g-Whitespace">    </span><span class="mi">537</span> <span class="k">elif</span> <span class="n">no_val_X</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">no_val_y</span><span class="p">:</span>
-
-<span class="nn">File /usr/local/lib/python3.9/site-packages/sklearn/utils/validation.py:900,</span> in <span class="ni">check_array</span><span class="nt">(array, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, estimator, input_name)</span>
-<span class="g g-Whitespace">    </span><span class="mi">898</span>     <span class="c1"># If input is 1D raise error</span>
-<span class="g g-Whitespace">    </span><span class="mi">899</span>     <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">900</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">901</span>             <span class="s2">&quot;Expected 2D array, got 1D array instead:</span><span class="se">\n</span><span class="s2">array=</span><span class="si">{}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">902</span>             <span class="s2">&quot;Reshape your data either using array.reshape(-1, 1) if &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">903</span>             <span class="s2">&quot;your data has a single feature or array.reshape(1, -1) &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">904</span>             <span class="s2">&quot;if it contains a single sample.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">905</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">907</span> <span class="k">if</span> <span class="n">dtype_numeric</span> <span class="ow">and</span> <span class="n">array</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="s2">&quot;USV&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">908</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">909</span>         <span class="s2">&quot;dtype=&#39;numeric&#39; is not compatible with arrays of bytes/strings.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">910</span>         <span class="s2">&quot;Convert your data to numeric values explicitly instead.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">911</span>     <span class="p">)</span>
-
-<span class="ne">ValueError</span>: Expected 2D array, got 1D array instead:
-<span class="n">array</span><span class="o">=</span><span class="p">[</span> <span class="mf">789.73950195</span>  <span class="mf">778.48028564</span>  <span class="mf">820.66223145</span>  <span class="mf">951.75146484</span> <span class="mf">1142.41357422</span>
-<span class="g g-Whitespace"> </span><span class="mi">1340</span><span class="mf">.40576172</span> <span class="mf">1485.84899902</span> <span class="mf">1686.71533203</span> <span class="mf">1672.89733887</span> <span class="mf">1683.21887207</span>
-<span class="g g-Whitespace"> </span><span class="mi">1733</span><span class="mf">.16369629</span> <span class="mf">1708.79638672</span> <span class="mf">1717.03918457</span> <span class="mf">1686.7277832</span>  <span class="mf">1614.70727539</span>
-<span class="g g-Whitespace"> </span><span class="mi">1662</span><span class="mf">.88574219</span> <span class="mf">1819.65490723</span> <span class="mf">2039.40917969</span> <span class="mf">2054.3815918</span>  <span class="mf">1864.98071289</span>
-<span class="g g-Whitespace"> </span><span class="mi">1558</span><span class="mf">.92687988</span> <span class="mf">1121.76098633</span>  <span class="mf">901.66052246</span>  <span class="mf">840.00140381</span>  <span class="mf">807.53955078</span>
-<span class="g g-Whitespace">  </span><span class="mi">787</span><span class="mf">.1607666</span>   <span class="mf">798.59619141</span>  <span class="mf">907.33856201</span> <span class="mf">1122.89770508</span> <span class="mf">1301.90332031</span>
-<span class="g g-Whitespace"> </span><span class="mi">1447</span><span class="mf">.79833984</span> <span class="mf">1504.14526367</span> <span class="mf">1264.86633301</span> <span class="mf">1517.98571777</span> <span class="mf">1497.65588379</span>
-<span class="g g-Whitespace"> </span><span class="mi">1535</span><span class="mf">.8704834</span>  <span class="mf">1470.72045898</span> <span class="mf">1519.08056641</span> <span class="mf">1354.71630859</span> <span class="mf">1490.4708252</span>
-<span class="g g-Whitespace"> </span><span class="mi">1644</span><span class="mf">.65637207</span> <span class="mf">1699.89355469</span> <span class="mf">1937.18054199</span> <span class="mf">1814.11157227</span> <span class="mf">1398.07824707</span>
-<span class="g g-Whitespace"> </span><span class="mi">1113</span><span class="mf">.33337402</span>  <span class="mf">930.78491211</span>  <span class="mf">872.48132324</span>  <span class="mf">778.56170654</span>  <span class="mf">724.97277832</span>
-<span class="g g-Whitespace">  </span><span class="mi">729</span><span class="mf">.55133057</span>  <span class="mf">839.13671875</span> <span class="mf">1005.11901855</span> <span class="mf">1165.40319824</span> <span class="mf">1342.07983398</span>
-<span class="g g-Whitespace"> </span><span class="mi">1395</span><span class="mf">.83935547</span> <span class="mf">1445.84289551</span> <span class="mf">1410.65881348</span> <span class="mf">1397.22436523</span> <span class="mf">1401.24816895</span>
-<span class="g g-Whitespace"> </span><span class="mi">1466</span><span class="mf">.2557373</span>  <span class="mf">1570.61340332</span> <span class="mf">1513.4041748</span>  <span class="mf">1542.7833252</span>  <span class="mf">1638.52062988</span>
-<span class="g g-Whitespace"> </span><span class="mi">1692</span><span class="mf">.25976562</span> <span class="mf">1747.94372559</span> <span class="mf">1622.26184082</span> <span class="mf">1328.52502441</span> <span class="mf">1036.2199707</span>
-<span class="g g-Whitespace">  </span><span class="mi">878</span><span class="mf">.88452148</span>  <span class="mf">806.00726318</span>  <span class="mf">769.5848999</span>   <span class="mf">746.6829834</span>   <span class="mf">777.1796875</span>
-<span class="g g-Whitespace">  </span><span class="mi">851</span><span class="mf">.1953125</span> <span class="p">]</span><span class="o">.</span>
-<span class="n">Reshape</span> <span class="n">your</span> <span class="n">data</span> <span class="n">either</span> <span class="n">using</span> <span class="n">array</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">your</span> <span class="n">data</span> <span class="n">has</span> <span class="n">a</span> <span class="n">single</span> <span class="n">feature</span> <span class="ow">or</span> <span class="n">array</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">it</span> <span class="n">contains</span> <span class="n">a</span> <span class="n">single</span> <span class="n">sample</span><span class="o">.</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.  2. ]
+ [2.5 3. ]
+ [4.  5. ]]
 </pre></div>
 </div>
 </div>
@@ -1041,8 +952,16 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">IterativeImputer</span>
 <span class="n">imp</span> <span class="o">=</span> <span class="n">IterativeImputer</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]]</span>
-<span class="n">imp</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">((</span><span class="n">imp</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">imp</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.          2.        ]
+ [ 3.          6.        ]
+ [ 4.          8.        ]
+ [ 1.50004509  3.        ]
+ [ 7.         14.00004135]]
 </pre></div>
 </div>
 </div>
@@ -1148,6 +1067,15 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
+GeometricMean  :  1258.4787575642572
+HarmonicMean  :  1198.219210728503
+WeightedMean  :  1358.8746684596647
+</pre></div>
+</div>
+<img alt="_images/statsdescriptives_7_1.png" src="_images/statsdescriptives_7_1.png" />
+</div>
 </div>
 <div class="proof definition admonition" id="definition-6">
 <p class="admonition-title"><span class="caption-number">Definition 22 </span> (Médiane)</p>
@@ -1184,6 +1112,14 @@ En particulier, un quartile est chacune des 3 valeurs qui divisent les données 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>quartile  25  :  905.9190521240237
+quartile  50  :  1399.66320800781
+quartile  75  :  1626.326538085935
+</pre></div>
+</div>
+<img alt="_images/statsdescriptives_9_1.png" src="_images/statsdescriptives_9_1.png" />
 </div>
 </div>
 </div>
@@ -1267,6 +1203,15 @@ En particulier, un quartile est chacune des 3 valeurs qui divisent les données 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>max_dev  :  1316.3086347078017 +/- 738.0729570890783
+mad  :  1316.3086347078017 +/- 327.4656915004233
+sigma  :  1316.3086347078017 +/- 374.5723639541368
+IQR  :  1316.3086347078017 +/- 720.4074859619113
+</pre></div>
+</div>
+<img alt="_images/statsdescriptives_11_1.png" src="_images/statsdescriptives_11_1.png" />
 </div>
 </div>
 </div>
@@ -1356,6 +1301,9 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/statsdescriptives_13_0.png" src="_images/statsdescriptives_13_0.png" />
+</div>
 </div>
 </div>
 </div>
@@ -1401,6 +1349,9 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/statsdescriptives_15_0.png" src="_images/statsdescriptives_15_0.png" />
 </div>
 </div>
 </div>

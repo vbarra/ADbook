@@ -207,8 +207,8 @@ Le code suivant remplace les valeurs manquantes (\texttt{np.nan}) par la moyenne
 import numpy as np
 from sklearn.impute import SimpleImputer
 imp = SimpleImputer(missing_values=np.nan, strategy='mean')
-imp.fit([[1, 2], [np.nan, 3], [4, 5]])
-print(imp.transform(X))
+X = [[1, 2], [np.nan, 3], [4, 5]]
+print(imp.fit_transform(X))
  ```
 
 
@@ -232,8 +232,7 @@ from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import IterativeImputer
 imp = IterativeImputer(max_iter=5, random_state=0)
 X = [[1, 2], [3, 6], [4, 8], [np.nan, 3], [7, np.nan]]
-imp.fit(X)
-print((imp.transform(X)))
+print((imp.fit_transform(X)))
 ```
 
 
