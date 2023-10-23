@@ -202,6 +202,18 @@ Dans le cas d'une imputation simple (une seule donnée manquante), on peut par e
 -  la valeur précédente (ou suivante) dans le cas où la colonne est une série ordonnée ou temporelle.
 
 
+Le code suivant remplace les valeurs manquantes (\texttt{np.nan}) par la moyenne de la colonne qui contient ces valeurs.
+```{code-cell} ipython3
+import numpy as np
+from sklearn.impute import SimpleImputer
+imp = SimpleImputer(missing_values=np.nan, strategy='mean')
+imp.fit([[1, 2], [np.nan, 3], [4, 5]])
+print(imp.transform(X))
+ ```
+
+
+
+
 Dans le cas d'une imputation multiple, où un sous-ensemble de valeurs doit être comblé, on peut adopter la stratégie suivante : 
 
 1. Effectuer une imputation simple pour toutes les valeurs manquantes de l'ensemble de données.
@@ -212,6 +224,17 @@ Dans le cas d'une imputation multiple, où un sous-ensemble de valeurs doit êtr
 6. Répéter l'étape 2-5 jusqu'à convergence (ou un nombre maximal d'itérations)
 7. Répéter les étapes 1-6 plusieurs fois avec différentes initialisations de nombres aléatoires pour créer différentes versions de l'ensemble de données complet/imputé.
 
+
+
+```{code-cell} ipython3
+import numpy as np
+from sklearn.experimental import enable_iterative_imputer
+from sklearn.impute import IterativeImputer
+imp = IterativeImputer(max_iter=5, random_state=0)
+X = [[1, 2], [3, 6], [4, 8], [np.nan, 3], [7, np.nan]]
+imp.fit(X)
+print((imp.transform(X)))
+``
 
 
 ### Transformation des données qualitatives
@@ -232,6 +255,14 @@ Pour une colonne $j\in[\![1,p]\!]$, on dispose de $n$ valeurs $x_{ij},i\in[\![1,
 1. la normalisation min-max : $x_{ij} = \frac{x_{ij}-x_{min}}{x_{max}-x_{min}}$
 2. la normalisation standard : $x_{ij}=\frac{x_{ij}-\bar x_j}{\sigma_j}$
 3. la normalisation robuste : $x_{ij}=\frac{x_{ij}-x_\frac12}{x_\frac34-x_\frac14}$
+
+
+```{figure} ./images/normdonnees.png
+:name: normalisation
+
+Effet des différents types de normalisation.
+``` 
+
 
 
 La normalisation standard dépend de la présence de points aberrants (qui affectent la moyenne).

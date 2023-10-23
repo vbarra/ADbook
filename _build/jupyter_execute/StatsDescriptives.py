@@ -193,6 +193,18 @@ for subplot, binsize in ((141, 5),(142, 20), (143, 80), (144, 1000)):
 # -  la valeur précédente (ou suivante) dans le cas où la colonne est une série ordonnée ou temporelle.
 # 
 # 
+# Le code suivant remplace les valeurs manquantes (\texttt{np.nan}) par la moyenne de la colonne qui contient ces valeurs.
+
+# In[2]:
+
+
+import numpy as np
+from sklearn.impute import SimpleImputer
+imp = SimpleImputer(missing_values=np.nan, strategy='mean')
+imp.fit([[1, 2], [np.nan, 3], [4, 5]])
+print(imp.transform(X))
+
+
 # Dans le cas d'une imputation multiple, où un sous-ensemble de valeurs doit être comblé, on peut adopter la stratégie suivante : 
 # 
 # 1. Effectuer une imputation simple pour toutes les valeurs manquantes de l'ensemble de données.
@@ -202,29 +214,46 @@ for subplot, binsize in ((141, 5),(142, 20), (143, 80), (144, 1000)):
 # 5. Répéter les étapes 2 à 4 pour toutes les autres colonnes présentant des valeurs manquantes.
 # 6. Répéter l'étape 2-5 jusqu'à convergence (ou un nombre maximal d'itérations)
 # 7. Répéter les étapes 1-6 plusieurs fois avec différentes initialisations de nombres aléatoires pour créer différentes versions de l'ensemble de données complet/imputé.
-# 
-# 
-# 
-# ### Transformation des données qualitatives
-# Pour pouvoir être traitées numériquement, les données qualitatives doivent être transformées. Plusieurs techniques existent parmi lesquelles :
-# 
-# - pour le cas des variables ordinales : on utilise le rang pour encoder les modalités de la variable. Par exemple, pour un niveau de diplomation Brevet$<$Bac$<$Licence$<$Master$<$Doctorat, on codera Licence par 3 et Doctorat par 5.
-# -  le one-hot encoding : pour une variable qualitative présentant $J$ modalités, on construit un vecteur de taille $J$ dont les composantes sont toutes nulles sauf la $J$-ème qui vaut 1. Par exemple, si $J$=3, on construit 1 vecteur de taille 3, et pour un individu ayant la modalité 2, on le code en (0 1 0). Lorsque $J$ est élevé, on se retrouve avec un jeu de données volumineux.
-# -  les méthodes de plongement (embedding) : utilisées principalement en apprentissage profond (Deep learning) pour le traitement du langage naturel, ces classes de méthodes construisent une représentation de chaque modalité d'une variable qualitative en un vecteur numérique de taille fixe et choisie. Pour le mot "rouge" de la variable "couleur", par exemple, l'encodage peut par exemple être représenté par le vecteur (0.31 0.57 0.12). En pratique, le calcul de ces représentations s'effectue classiquement par l'entraînement d'un réseau de neurones ayant pour entrée uniquement les variables qualitatives. Tout d'abord, un encodage one-hot est appliqué à la variable afin d'être mise en entrée du réseau, qui n'accepte que les entrées numériques. La sortie d'une des couches cachées du réseau constitue alors le vecteur recherché. On concatène ensuite ce vecteur aux données initiales, utilisées dans l'ajustement du modèle final. 
-# 
-# 
-# 
-# 
-# ### Normalisation
-# Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l'analyse des données ({ref}`figure 1<biais>`) qu'il convient de corriger. C'est le processus de normalisation des données.
-# 
-# Pour une colonne $j\in[\![1,p]\!]$, on dispose de $n$ valeurs $x_{ij},i\in[\![1,n]\!]$. On note : $x_{min} = \displaystyle\min_{i\in[\![1,n]\!]}x_{ij}$, $x_{max} = \displaystyle\max_{i\in[\![1,n]\!]}x_{ij}$,   $\bar x_j$ la moyenne des $x_{ij}$, $\sigma_j$ leur écart-type, $x_\frac14, x_\frac12$ et $x_\frac34$ les premier, deuxième et troisième quartiles. On distingue alors classiquement trois types de normalisation : 
-# 
-# 1. la normalisation min-max : $x_{ij} = \frac{x_{ij}-x_{min}}{x_{max}-x_{min}}$
-# 2. la normalisation standard : $x_{ij}=\frac{x_{ij}-\bar x_j}{\sigma_j}$
-# 3. la normalisation robuste : $x_{ij}=\frac{x_{ij}-x_\frac12}{x_\frac34-x_\frac14}$
-# 
-# 
+
+# In[ ]:
+
+
+import numpy as np
+from sklearn.experimental import enable_iterative_imputer
+from sklearn.impute import IterativeImputer
+imp = IterativeImputer(max_iter=5, random_state=0)
+X = [[1, 2], [3, 6], [4, 8], [np.nan, 3], [7, np.nan]]
+imp.fit(X)
+print((imp.transform(X)))
+``
+
+
+### Transformation des données qualitatives
+Pour pouvoir être traitées numériquement, les données qualitatives doivent être transformées. Plusieurs techniques existent parmi lesquelles :
+
+- pour le cas des variables ordinales : on utilise le rang pour encoder les modalités de la variable. Par exemple, pour un niveau de diplomation Brevet$<$Bac$<$Licence$<$Master$<$Doctorat, on codera Licence par 3 et Doctorat par 5.
+-  le one-hot encoding : pour une variable qualitative présentant $J$ modalités, on construit un vecteur de taille $J$ dont les composantes sont toutes nulles sauf la $J$-ème qui vaut 1. Par exemple, si $J$=3, on construit 1 vecteur de taille 3, et pour un individu ayant la modalité 2, on le code en (0 1 0). Lorsque $J$ est élevé, on se retrouve avec un jeu de données volumineux.
+-  les méthodes de plongement (embedding) : utilisées principalement en apprentissage profond (Deep learning) pour le traitement du langage naturel, ces classes de méthodes construisent une représentation de chaque modalité d'une variable qualitative en un vecteur numérique de taille fixe et choisie. Pour le mot "rouge" de la variable "couleur", par exemple, l'encodage peut par exemple être représenté par le vecteur (0.31 0.57 0.12). En pratique, le calcul de ces représentations s'effectue classiquement par l'entraînement d'un réseau de neurones ayant pour entrée uniquement les variables qualitatives. Tout d'abord, un encodage one-hot est appliqué à la variable afin d'être mise en entrée du réseau, qui n'accepte que les entrées numériques. La sortie d'une des couches cachées du réseau constitue alors le vecteur recherché. On concatène ensuite ce vecteur aux données initiales, utilisées dans l'ajustement du modèle final. 
+
+
+
+
+### Normalisation
+Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l'analyse des données ({ref}`figure 1<biais>`) qu'il convient de corriger. C'est le processus de normalisation des données.
+
+Pour une colonne $j\in[\![1,p]\!]$, on dispose de $n$ valeurs $x_{ij},i\in[\![1,n]\!]$. On note : $x_{min} = \displaystyle\min_{i\in[\![1,n]\!]}x_{ij}$, $x_{max} = \displaystyle\max_{i\in[\![1,n]\!]}x_{ij}$,   $\bar x_j$ la moyenne des $x_{ij}$, $\sigma_j$ leur écart-type, $x_\frac14, x_\frac12$ et $x_\frac34$ les premier, deuxième et troisième quartiles. On distingue alors classiquement trois types de normalisation : 
+
+1. la normalisation min-max : $x_{ij} = \frac{x_{ij}-x_{min}}{x_{max}-x_{min}}$
+2. la normalisation standard : $x_{ij}=\frac{x_{ij}-\bar x_j}{\sigma_j}$
+3. la normalisation robuste : $x_{ij}=\frac{x_{ij}-x_\frac12}{x_\frac34-x_\frac14}$
+
+
+```{figure} ./images/normdonnees.png
+:name: normalisation
+
+Effet des différents types de normalisation.
+
+
 # La normalisation standard dépend de la présence de points aberrants (qui affectent la moyenne).
 # 
 # 
@@ -262,7 +291,7 @@ for subplot, binsize in ((141, 5),(142, 20), (143, 80), (144, 1000)):
 # 
 # Dans le cas où $\forall i,w_i=1/n$, la moyenne pondérée est la moyenne arithmétique. De plus, dans tous les cas, on peut montrer que $H\leq G\leq \bar{x}$.
 
-# In[2]:
+# In[ ]:
 
 
 import numpy as np
@@ -323,7 +352,7 @@ plt.show()
 # $x_p=x_{\lceil{np}\rceil}$
 # En particulier, un quartile est chacune des 3 valeurs qui divisent les données triées en 4 parts égales, de sorte que chaque partie représente 1/4 de l'échantillon de population. On note $Q_i$ le $i^e$ quartile.
 
-# In[3]:
+# In[ ]:
 
 
 import numpy as np
@@ -384,7 +413,7 @@ plt.tight_layout()
 # 
 # ![](./images/dispersion.png)
 
-# In[4]:
+# In[ ]:
 
 
 import numpy as np
@@ -472,7 +501,7 @@ plt.tight_layout()
 # 
 # Les valeurs de l’ échantillon en dehors des moustaches sont parfois matérialisées par des points et sont alors considérées comme les points aberrants de l'échantillon.
 
-# In[5]:
+# In[ ]:
 
 
 import matplotlib.pyplot as plt
@@ -505,7 +534,7 @@ plt.show()
 # ### La description ne fait pas tout...
 # La description d'un ensemble de valeurx $x_j$ par la moyenne, la variance, voire le comportement linéaire (coefficient de corrélation, voir plus loin) peut ne pas suffire à comprendre la distribution des données. Un exemple classique (analyse bivariée, section suivante) est le quartet d'Anscombe (figure ci-dessous), constitué de quatre ensembles de points  $(x,y)\in\mathbb{R}^2$ de même propriétés statistiques (moyenne, variance, coefficient de régression linéaire) mais qui sont distribués de manière totalement différente dans le plan.
 
-# In[6]:
+# In[ ]:
 
 
 import matplotlib.pyplot as plt
