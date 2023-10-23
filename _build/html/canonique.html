@@ -51,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -411,30 +409,30 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#repr-sentation-graphique">
-   Repr?sentation graphique
+  <a class="reference internal nav-link" href="#representation-graphique">
+   Représentation graphique
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#repr-sentation-des-variables">
-     Repr?sentation des variables
+    <a class="reference internal nav-link" href="#representation-des-variables">
+     Représentation des variables
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#repr-sentation-des-individus">
-     Repr?sentation des individus
+    <a class="reference internal nav-link" href="#representation-des-individus">
+     Représentation des individus
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quelques-r-flexions-autour-de-l-analyse-canonique">
-   Quelques r?flexions autour de l’analyse canonique
+  <a class="reference internal nav-link" href="#quelques-reflexions-autour-de-l-analyse-canonique">
+   Quelques réflexions autour de l’analyse canonique
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#int-r-t-th-orique">
-     Int?r?t th?orique
+    <a class="reference internal nav-link" href="#interet-theorique">
+     Intérêt théorique
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -447,8 +445,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cas-g-n-ral">
-     Cas g?n?ral
+    <a class="reference internal nav-link" href="#cas-general">
+     Cas général
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -508,30 +506,30 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#repr-sentation-graphique">
-   Repr?sentation graphique
+  <a class="reference internal nav-link" href="#representation-graphique">
+   Représentation graphique
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#repr-sentation-des-variables">
-     Repr?sentation des variables
+    <a class="reference internal nav-link" href="#representation-des-variables">
+     Représentation des variables
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#repr-sentation-des-individus">
-     Repr?sentation des individus
+    <a class="reference internal nav-link" href="#representation-des-individus">
+     Représentation des individus
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quelques-r-flexions-autour-de-l-analyse-canonique">
-   Quelques r?flexions autour de l’analyse canonique
+  <a class="reference internal nav-link" href="#quelques-reflexions-autour-de-l-analyse-canonique">
+   Quelques réflexions autour de l’analyse canonique
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#int-r-t-th-orique">
-     Int?r?t th?orique
+    <a class="reference internal nav-link" href="#interet-theorique">
+     Intérêt théorique
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -544,8 +542,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cas-g-n-ral">
-     Cas g?n?ral
+    <a class="reference internal nav-link" href="#cas-general">
+     Cas général
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -572,41 +570,41 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="analyse-canonique">
 <h1>Analyse canonique<a class="headerlink" href="#analyse-canonique" title="Permalink to this headline">#</a></h1>
-<p>On consid?re <span class="math notranslate nohighlight">\(n\)</span> individus d?crits par deux ensembles de <span class="math notranslate nohighlight">\(p\)</span> et <span class="math notranslate nohighlight">\(q\)</span> variables quantitatives respectivement, o? on suppose sans perte de g?n?ralit? que <span class="math notranslate nohighlight">\(p\leq q\)</span>. L’analyse canonique se propose d’examiner les liens existants entre ces deux ensembles afin de savoir s’ils mesurent les m?mes propri?t?s. On se retreint ici au cas de deux groupes, la g?n?ralisation au cas de <span class="math notranslate nohighlight">\(g\)</span> groupes quelconques donnant lieu ? l’analyse canonique g?n?ralis?e.</p>
-<p>Formellement on dispose donc de deux matrices <span class="math notranslate nohighlight">\({\bf {\bf X_1}}\in\mathcal{M}_{n,p}(\mathbb{R})\)</span> et <span class="math notranslate nohighlight">\({\bf {\bf X_2}}\in\mathcal{M}_{n,q}(\mathbb{R})\)</span>, rassembl?es dans une matrice <span class="math notranslate nohighlight">\({\bf X}=\left[{\bf {\bf X_1}}\mid {\bf {\bf X_2}} \right ]\)</span>. On supposera <span class="math notranslate nohighlight">\({\bf {\bf X_1}}\)</span> et <span class="math notranslate nohighlight">\({\bf {\bf X_2}}\)</span> de rang plein.</p>
-<p>L’?tude de la position g?om?trique relative des sous-espaces <span class="math notranslate nohighlight">\(Im({\bf {\bf X_1}})\)</span> et <span class="math notranslate nohighlight">\(Im({\bf {\bf X_2}})\)</span> permet d’analyser les deux ensembles de variables.</p>
+<p>On considère <span class="math notranslate nohighlight">\(n\)</span> individus décrits par deux ensembles de <span class="math notranslate nohighlight">\(p\)</span> et <span class="math notranslate nohighlight">\(q\)</span> variables quantitatives respectivement, où on suppose sans perte de généralité que <span class="math notranslate nohighlight">\(p\leq q\)</span>. L’analyse canonique se propose d’examiner les liens existants entre ces deux ensembles afin de savoir s’ils mesurent les mêmes propriétés. On se retreint ici au cas de deux groupes, la généralisation au cas de <span class="math notranslate nohighlight">\(g\)</span> groupes quelconques donnant lieu à l’analyse canonique généralisée.</p>
+<p>Formellement on dispose donc de deux matrices <span class="math notranslate nohighlight">\({\bf {\bf X_1}}\in\mathcal{M}_{n,p}(\mathbb{R})\)</span> et <span class="math notranslate nohighlight">\({\bf {\bf X_2}}\in\mathcal{M}_{n,q}(\mathbb{R})\)</span>, rassemblées dans une matrice <span class="math notranslate nohighlight">\({\bf X}=\left[{\bf {\bf X_1}}\mid {\bf {\bf X_2}} \right ]\)</span>. On supposera <span class="math notranslate nohighlight">\({\bf {\bf X_1}}\)</span> et <span class="math notranslate nohighlight">\({\bf {\bf X_2}}\)</span> de rang plein.</p>
+<p>L’étude de la position géométrique relative des sous-espaces <span class="math notranslate nohighlight">\(Im({\bf {\bf X_1}})\)</span> et <span class="math notranslate nohighlight">\(Im({\bf {\bf X_2}})\)</span> permet d’analyser les deux ensembles de variables.</p>
 <div class="section" id="variables-canoniques">
 <h2>Variables canoniques<a class="headerlink" href="#variables-canoniques" title="Permalink to this headline">#</a></h2>
-<p>On munit <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> d’une m?trique <span class="math notranslate nohighlight">\({\bf D}\)</span>.</p>
+<p>On munit <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> d’une métrique <span class="math notranslate nohighlight">\({\bf D}\)</span>.</p>
 <div class="section" id="principe">
 <h3>Principe<a class="headerlink" href="#principe" title="Permalink to this headline">#</a></h3>
-<p>La recherche de variables canoniques consiste ? rechercher <span class="math notranslate nohighlight">\({\bf {\bf u_1}}\in Im({\bf {\bf X_1}}), \Vert {\bf {\bf u_1}}\Vert=1\)</span> et  \mbox{<span class="math notranslate nohighlight">\({\bf v_1}\in Im({\bf {\bf X_2}})\)</span>}, <span class="math notranslate nohighlight">\(\Vert {\bf v_1}\Vert=1\)</span> tels que l’angle <span class="math notranslate nohighlight">\(({\bf {\bf u_1}},{\bf v_1})\)</span> est le plus faible. On recherche ensuite <span class="math notranslate nohighlight">\({\bf {\bf u_2}}\in Im({\bf {\bf X_1}}), \Vert {\bf {\bf u_2}}\Vert=1\)</span> orthogonal ? <span class="math notranslate nohighlight">\({\bf {\bf u_1}}\)</span> au sens de <span class="math notranslate nohighlight">\({\bf D}\)</span>, et <span class="math notranslate nohighlight">\({\bf v_2}\in Im({\bf {\bf X_2}}), \Vert {\bf v_2}\Vert=1\)</span> orthogonal ? <span class="math notranslate nohighlight">\({\bf v_1}\)</span> au sens de <span class="math notranslate nohighlight">\({\bf D}\)</span> tels que l’angle <span class="math notranslate nohighlight">\(({\bf {\bf u_2}},{\bf v_2})\)</span> soit minimal. On poursuit cette proc?dure it?rativement pour arriver au dernier couple <span class="math notranslate nohighlight">\(({\bf u_p},{\bf v_p})\)</span>.</p>
+<p>La recherche de variables canoniques consiste à rechercher <span class="math notranslate nohighlight">\({\bf {\bf u_1}}\in Im({\bf {\bf X_1}}), \Vert {\bf {\bf u_1}}\Vert=1\)</span> et  \mbox{<span class="math notranslate nohighlight">\({\bf v_1}\in Im({\bf {\bf X_2}})\)</span>}, <span class="math notranslate nohighlight">\(\Vert {\bf v_1}\Vert=1\)</span> tels que l’angle <span class="math notranslate nohighlight">\(({\bf {\bf u_1}},{\bf v_1})\)</span> est le plus faible. On recherche ensuite <span class="math notranslate nohighlight">\({\bf {\bf u_2}}\in Im({\bf {\bf X_1}}), \Vert {\bf {\bf u_2}}\Vert=1\)</span> orthogonal à <span class="math notranslate nohighlight">\({\bf {\bf u_1}}\)</span> au sens de <span class="math notranslate nohighlight">\({\bf D}\)</span>, et <span class="math notranslate nohighlight">\({\bf v_2}\in Im({\bf {\bf X_2}}), \Vert {\bf v_2}\Vert=1\)</span> orthogonal à <span class="math notranslate nohighlight">\({\bf v_1}\)</span> au sens de <span class="math notranslate nohighlight">\({\bf D}\)</span> tels que l’angle <span class="math notranslate nohighlight">\(({\bf {\bf u_2}},{\bf v_2})\)</span> soit minimal. On poursuit cette procédure itérativement pour arriver au dernier couple <span class="math notranslate nohighlight">\(({\bf u_p},{\bf v_p})\)</span>.</p>
 </div>
 <div class="section" id="formulation-matricielle-dans-mathbb-r-n">
 <h3>Formulation matricielle dans <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span><a class="headerlink" href="#formulation-matricielle-dans-mathbb-r-n" title="Permalink to this headline">#</a></h3>
 <p>On note <span class="math notranslate nohighlight">\({\bf {\bf {\bf P_i}}},i\in[\![1,2]\!]\)</span> la projection orthogonale (au sens de <span class="math notranslate nohighlight">\({\bf D}\)</span>) sur <span class="math notranslate nohighlight">\(Im({\bf {\bf {\bf X_i}}})\)</span>. On sait alors que : $<span class="math notranslate nohighlight">\({\bf {\bf P_i}}={\bf {\bf X_i}}({\bf {\bf X_i}}^T{\bf D}{\bf {\bf X_i}})^{-1}{\bf {\bf X_i}}^T{\bf D}\)</span><span class="math notranslate nohighlight">\(
-La recherche de  \)</span>{\bf {\bf u_1}}<span class="math notranslate nohighlight">\( et \)</span>{\bf v_1}<span class="math notranslate nohighlight">\( am?ne ? maximiser \)</span>cos({\bf {\bf u_1}},{\bf v_1})$. En utilisant le th?or?me suivant</p>
+La recherche de  \)</span>{\bf {\bf u_1}}<span class="math notranslate nohighlight">\( et \)</span>{\bf v_1}<span class="math notranslate nohighlight">\( amène à maximiser \)</span>cos({\bf {\bf u_1}},{\bf v_1})$. En utilisant le théorème suivant</p>
 <div class="proof theorem admonition" id="theorem-0">
-<p class="admonition-title"><span class="caption-number">Theorem 14 </span> (Th?or?me de projection)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 14 </span> (Théorème de projection)</p>
 <div class="theorem-content section" id="proof-content">
-<p>Soit <span class="math notranslate nohighlight">\(L\)</span> un sous-espace vectoriel de \R<span class="math notranslate nohighlight">\(^n\)</span>. ?tant donn? un point <span class="math notranslate nohighlight">\({\bf y}\in\)</span>\R<span class="math notranslate nohighlight">\(^n\)</span>, il existe un unique point <span class="math notranslate nohighlight">\({\bf p}\)</span> de <span class="math notranslate nohighlight">\(L\)</span>, appel? la projection orthogonale\index{projection orthogonale}
-de <span class="math notranslate nohighlight">\({\bf y}\)</span> sur <span class="math notranslate nohighlight">\(L\)</span>, tel que <span class="math notranslate nohighlight">\(\norme{{\bf y}-{\bf p}}\leq \norme{{\bf y}-{\bf x}},\forall {\bf x}\in L\)</span>. Une condition n?cessaire et suffisante pour que <span class="math notranslate nohighlight">\({\bf p}\in L\)</span> soit la projection orthogonale de <span class="math notranslate nohighlight">\({\bf y}\)</span> sur <span class="math notranslate nohighlight">\(L\)</span> est <span class="math notranslate nohighlight">\({\bf y}-{\bf p}\in L^\bot\)</span></p>
+<p>Soit <span class="math notranslate nohighlight">\(L\)</span> un sous-espace vectoriel de \R<span class="math notranslate nohighlight">\(^n\)</span>. Étant donné un point <span class="math notranslate nohighlight">\({\bf y}\in\)</span>\R<span class="math notranslate nohighlight">\(^n\)</span>, il existe un unique point <span class="math notranslate nohighlight">\({\bf p}\)</span> de <span class="math notranslate nohighlight">\(L\)</span>, appelé la projection orthogonale\index{projection orthogonale}
+de <span class="math notranslate nohighlight">\({\bf y}\)</span> sur <span class="math notranslate nohighlight">\(L\)</span>, tel que <span class="math notranslate nohighlight">\(\norme{{\bf y}-{\bf p}}\leq \norme{{\bf y}-{\bf x}},\forall {\bf x}\in L\)</span>. Une condition nécessaire et suffisante pour que <span class="math notranslate nohighlight">\({\bf p}\in L\)</span> soit la projection orthogonale de <span class="math notranslate nohighlight">\({\bf y}\)</span> sur <span class="math notranslate nohighlight">\(L\)</span> est <span class="math notranslate nohighlight">\({\bf y}-{\bf p}\in L^\bot\)</span></p>
 </div>
-</div><p>On en d?duit que <span class="math notranslate nohighlight">\({\bf v_1}\)</span> doit ?tre tel que <span class="math notranslate nohighlight">\({\bf P_1}{\bf v_1}\)</span> soit colin?aire ? <span class="math notranslate nohighlight">\({\bf {\bf u_1}}\)</span>. De m?me, <span class="math notranslate nohighlight">\({\bf v_1}\)</span> doit ?tre le vecteur de <span class="math notranslate nohighlight">\(Im({\bf {\bf X_2}})\)</span> le plus proche de <span class="math notranslate nohighlight">\({\bf {\bf u_1}}\)</span> (ou de <span class="math notranslate nohighlight">\({\bf P_1}{\bf v_1}\)</span> qui lui est colin?aire), donc <span class="math notranslate nohighlight">\({\bf v_1}\)</span> doit ?tre colin?aire ? <span class="math notranslate nohighlight">\({\bf P_2}{\bf P_1}{\bf v_1}\)</span>. Le probl?me se ram?ne donc ? la recherche des ?l?ments propres de <span class="math notranslate nohighlight">\({\bf P_2}{\bf P_1}\)</span>.</p>
-<p>Tout d’abord, les vecteurs propres de <span class="math notranslate nohighlight">\({\bf P_2}{\bf P_1}\)</span> sont dans <span class="math notranslate nohighlight">\(Im({\bf {\bf X_2}})\)</span>. En effet en multipliant ? gauche <span class="math notranslate nohighlight">\({\bf P_2}{\bf P_1}{\bf v_1}=\lambda_1{\bf v_1}\)</span> par <span class="math notranslate nohighlight">\({\bf P_2}\)</span>, et puisque <span class="math notranslate nohighlight">\({\bf P_2^2}={\bf P_2}\)</span> (projection), on a imm?diatement \mbox{<span class="math notranslate nohighlight">\({\bf P_2}{\bf P_1}{\bf v_1}=\lambda_1{\bf P_2}{\bf v_1}\)</span>} et donc <span class="math notranslate nohighlight">\({\bf P_2}{\bf v_1}={\bf v_1}\in Im({\bf {\bf X_2}})\)</span></p>
-<p>On montre ensuite que <span class="math notranslate nohighlight">\({\bf P_2}{\bf P_1}\)</span> est sym?trique (par rapport ? <span class="math notranslate nohighlight">\({\bf D}\)</span>). Pour cela, en fonction de la remarque pr?c?dente, il suffit de d?montrer que pour tout <span class="math notranslate nohighlight">\({\bf x},{\bf y}\in Im({\bf {\bf X_2}})\)</span> (sym?trie du produit scalaire engendr? par <span class="math notranslate nohighlight">\({\bf D}\)</span>)
+</div><p>On en déduit que <span class="math notranslate nohighlight">\({\bf v_1}\)</span> doit être tel que <span class="math notranslate nohighlight">\({\bf P_1}{\bf v_1}\)</span> soit colinéaire à <span class="math notranslate nohighlight">\({\bf {\bf u_1}}\)</span>. De même, <span class="math notranslate nohighlight">\({\bf v_1}\)</span> doit être le vecteur de <span class="math notranslate nohighlight">\(Im({\bf {\bf X_2}})\)</span> le plus proche de <span class="math notranslate nohighlight">\({\bf {\bf u_1}}\)</span> (ou de <span class="math notranslate nohighlight">\({\bf P_1}{\bf v_1}\)</span> qui lui est colinéaire), donc <span class="math notranslate nohighlight">\({\bf v_1}\)</span> doit être colinéaire à <span class="math notranslate nohighlight">\({\bf P_2}{\bf P_1}{\bf v_1}\)</span>. Le problème se ramène donc à la recherche des éléments propres de <span class="math notranslate nohighlight">\({\bf P_2}{\bf P_1}\)</span>.</p>
+<p>Tout d’abord, les vecteurs propres de <span class="math notranslate nohighlight">\({\bf P_2}{\bf P_1}\)</span> sont dans <span class="math notranslate nohighlight">\(Im({\bf {\bf X_2}})\)</span>. En effet en multipliant à gauche <span class="math notranslate nohighlight">\({\bf P_2}{\bf P_1}{\bf v_1}=\lambda_1{\bf v_1}\)</span> par <span class="math notranslate nohighlight">\({\bf P_2}\)</span>, et puisque <span class="math notranslate nohighlight">\({\bf P_2^2}={\bf P_2}\)</span> (projection), on a immédiatement \mbox{<span class="math notranslate nohighlight">\({\bf P_2}{\bf P_1}{\bf v_1}=\lambda_1{\bf P_2}{\bf v_1}\)</span>} et donc <span class="math notranslate nohighlight">\({\bf P_2}{\bf v_1}={\bf v_1}\in Im({\bf {\bf X_2}})\)</span></p>
+<p>On montre ensuite que <span class="math notranslate nohighlight">\({\bf P_2}{\bf P_1}\)</span> est symétrique (par rapport à <span class="math notranslate nohighlight">\({\bf D}\)</span>). Pour cela, en fonction de la remarque précédente, il suffit de démontrer que pour tout <span class="math notranslate nohighlight">\({\bf x},{\bf y}\in Im({\bf {\bf X_2}})\)</span> (symétrie du produit scalaire engendré par <span class="math notranslate nohighlight">\({\bf D}\)</span>)
 $<span class="math notranslate nohighlight">\({\bf x}^T{\bf D}{\bf P_2}{\bf P_1}{\bf y} = ({\bf P_2}{\bf P_1}{\bf x})^T{\bf D}{\bf y}\)</span>$
 On a en effet :</p>
-<p><span class="math notranslate nohighlight">\({\bf x}^T{\bf D}{\bf P_2}{\bf P_1}{\bf y}\)</span> =<span class="math notranslate nohighlight">\(({\bf P_2}{\bf x})^T{\bf D}{\bf P_1}{\bf y}\)</span>car <span class="math notranslate nohighlight">\({\bf P_2}\)</span> sym?trique</p>
+<p><span class="math notranslate nohighlight">\({\bf x}^T{\bf D}{\bf P_2}{\bf P_1}{\bf y}\)</span> =<span class="math notranslate nohighlight">\(({\bf P_2}{\bf x})^T{\bf D}{\bf P_1}{\bf y}\)</span>car <span class="math notranslate nohighlight">\({\bf P_2}\)</span> symétrique</p>
 <p>=<span class="math notranslate nohighlight">\({\bf x}^T{\bf D}{\bf P_1}{\bf y}\)</span>&amp;car <span class="math notranslate nohighlight">\({\bf x}\in Im({\bf {\bf X_2}})\)</span></p>
-<p>=<span class="math notranslate nohighlight">\(({\bf P_1}{\bf x})^T{\bf D}{\bf y}\)</span>car <span class="math notranslate nohighlight">\({\bf P_1}\)</span> sym?trique</p>
+<p>=<span class="math notranslate nohighlight">\(({\bf P_1}{\bf x})^T{\bf D}{\bf y}\)</span>car <span class="math notranslate nohighlight">\({\bf P_1}\)</span> symétrique</p>
 <p>=<span class="math notranslate nohighlight">\(({\bf P_1}{\bf x})^T{\bf D}{\bf P_2}{\bf y}\)</span>car <span class="math notranslate nohighlight">\({\bf y}\in Im({\bf {\bf X_2}})\)</span></p>
-<p>=<span class="math notranslate nohighlight">\(({\bf P_2}{\bf P_1}{\bf x})^T{\bf D}{\bf y}\)</span>car <span class="math notranslate nohighlight">\({\bf P_2}\)</span> sym?trique</p>
-<p><span class="math notranslate nohighlight">\({\bf P_2}{\bf P_1}\)</span> est donc sym?trique, r?elle, elle est donc diagonalisable. Elle poss?de au plus <span class="math notranslate nohighlight">\(min(p,q)\)</span> valeurs propres non identiquement nulles, toutes positives car les <span class="math notranslate nohighlight">\({\bf {\bf P_i}}\)</span> sont des matrices semi d?finies positives.</p>
-<p>On recherche donc maintenant <span class="math notranslate nohighlight">\({\bf v_1}\)</span> tel que <span class="math notranslate nohighlight">\({\bf P_2}{\bf P_1}{\bf v_1}=\lambda_1{\bf v_1}\)</span>. Il est imm?diat alors que <span class="math notranslate nohighlight">\({\bf {\bf u_1}}\)</span> est vecteur propre de <span class="math notranslate nohighlight">\({\bf P_1}{\bf P_2}\)</span> associ? ? <span class="math notranslate nohighlight">\(\lambda_1\)</span>, qui repr?sente le carr? du cosinus de l’angle entre <span class="math notranslate nohighlight">\({\bf v_1}\)</span> et <span class="math notranslate nohighlight">\({\bf {\bf u_1}}\)</span> (donc <span class="math notranslate nohighlight">\(\lambda_1\leq 1\)</span>).\
-Le cas <span class="math notranslate nohighlight">\(\lambda_1=1\)</span> correspond ? <span class="math notranslate nohighlight">\({\bf {\bf u_1}}={\bf v_1}\)</span> et sa multiplicit? donne la dimension de <span class="math notranslate nohighlight">\(Im({\bf {\bf X_1}})\bigcap Im({\bf {\bf X_2}})\)</span>. \
-Les vecteurs propres associ?s ? des valeurs propres nulles de rang inf?rieur ? <span class="math notranslate nohighlight">\(q\)</span> engendrent la partie de <span class="math notranslate nohighlight">\(Im({\bf {\bf X_2}})\)</span> orthogonale ? <span class="math notranslate nohighlight">\(Im({\bf {\bf X_1}})\)</span>.
-En r?sum?, dans <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, les vecteurs propres <span class="math notranslate nohighlight">\({\bf u_i},{\bf v_i}\)</span> des matrices <span class="math notranslate nohighlight">\({\bf P_1}{\bf P_2}\)</span> et <span class="math notranslate nohighlight">\({\bf P_2}{\bf P_1}\)</span> v?rifient :</p>
+<p>=<span class="math notranslate nohighlight">\(({\bf P_2}{\bf P_1}{\bf x})^T{\bf D}{\bf y}\)</span>car <span class="math notranslate nohighlight">\({\bf P_2}\)</span> symétrique</p>
+<p><span class="math notranslate nohighlight">\({\bf P_2}{\bf P_1}\)</span> est donc symétrique, réelle, elle est donc diagonalisable. Elle possède au plus <span class="math notranslate nohighlight">\(min(p,q)\)</span> valeurs propres non identiquement nulles, toutes positives car les <span class="math notranslate nohighlight">\({\bf {\bf P_i}}\)</span> sont des matrices semi définies positives.</p>
+<p>On recherche donc maintenant <span class="math notranslate nohighlight">\({\bf v_1}\)</span> tel que <span class="math notranslate nohighlight">\({\bf P_2}{\bf P_1}{\bf v_1}=\lambda_1{\bf v_1}\)</span>. Il est immédiat alors que <span class="math notranslate nohighlight">\({\bf {\bf u_1}}\)</span> est vecteur propre de <span class="math notranslate nohighlight">\({\bf P_1}{\bf P_2}\)</span> associé à <span class="math notranslate nohighlight">\(\lambda_1\)</span>, qui représente le carré du cosinus de l’angle entre <span class="math notranslate nohighlight">\({\bf v_1}\)</span> et <span class="math notranslate nohighlight">\({\bf {\bf u_1}}\)</span> (donc <span class="math notranslate nohighlight">\(\lambda_1\leq 1\)</span>).\
+Le cas <span class="math notranslate nohighlight">\(\lambda_1=1\)</span> correspond à <span class="math notranslate nohighlight">\({\bf {\bf u_1}}={\bf v_1}\)</span> et sa multiplicité donne la dimension de <span class="math notranslate nohighlight">\(Im({\bf {\bf X_1}})\bigcap Im({\bf {\bf X_2}})\)</span>. \
+Les vecteurs propres associés à des valeurs propres nulles de rang inférieur à <span class="math notranslate nohighlight">\(q\)</span> engendrent la partie de <span class="math notranslate nohighlight">\(Im({\bf {\bf X_2}})\)</span> orthogonale à <span class="math notranslate nohighlight">\(Im({\bf {\bf X_1}})\)</span>.
+En résumé, dans <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, les vecteurs propres <span class="math notranslate nohighlight">\({\bf u_i},{\bf v_i}\)</span> des matrices <span class="math notranslate nohighlight">\({\bf P_1}{\bf P_2}\)</span> et <span class="math notranslate nohighlight">\({\bf P_2}{\bf P_1}\)</span> vérifient :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\({\bf P_2}{\bf P_1}{\bf v_i}=\lambda_i {\bf v_i}\)</span> et <span class="math notranslate nohighlight">\(\sqrt{\lambda_i}{\bf v_i} = {\bf P_2}{\bf u_i}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\({\bf P_1}{\bf P_2}{\bf u_i}=\lambda_i {\bf u_i}\)</span> et <span class="math notranslate nohighlight">\(\sqrt{\lambda_i}{\bf u_i} = {\bf P_1}{\bf v_i}\)</span></p></li>
@@ -615,75 +613,75 @@ En r?sum?, dans <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</spa
 </div>
 <div class="section" id="formulation-matricielle-dans-les-espaces-des-variables">
 <h3>Formulation matricielle dans les espaces des variables<a class="headerlink" href="#formulation-matricielle-dans-les-espaces-des-variables" title="Permalink to this headline">#</a></h3>
-<p>D’apr?s la d?finition des sous-espaces image, il existe <span class="math notranslate nohighlight">\({\bf a_i}\in\mathbb{R}^p,{\bf b_i}\in\mathbb{R}^q\)</span> tels que  <span class="math notranslate nohighlight">\({\bf u_i}={\bf {\bf X_1}}{\bf a_i}\)</span> et <span class="math notranslate nohighlight">\({\bf v_i}={\bf {\bf X_2}}{\bf b_i}\)</span>. Les <span class="math notranslate nohighlight">\({\bf a_i}\)</span> et <span class="math notranslate nohighlight">\({\bf b_i}\)</span> sont les facteurs canoniques qui se calculent par</p>
+<p>D’après la définition des sous-espaces image, il existe <span class="math notranslate nohighlight">\({\bf a_i}\in\mathbb{R}^p,{\bf b_i}\in\mathbb{R}^q\)</span> tels que  <span class="math notranslate nohighlight">\({\bf u_i}={\bf {\bf X_1}}{\bf a_i}\)</span> et <span class="math notranslate nohighlight">\({\bf v_i}={\bf {\bf X_2}}{\bf b_i}\)</span>. Les <span class="math notranslate nohighlight">\({\bf a_i}\)</span> et <span class="math notranslate nohighlight">\({\bf b_i}\)</span> sont les facteurs canoniques qui se calculent par</p>
 <div class="math notranslate nohighlight">
 \[{\bf P_1}{\bf P_2}{\bf u_i}=\lambda_i {\bf u_i} \Leftrightarrow {\bf P_1}{\bf P_2}{\bf X_1}{\bf a_i}=\lambda_i {\bf X_1} {\bf a_i}\]</div>
 <p>soit</p>
 <div class="math notranslate nohighlight">
 \[({\bf X_1}({\bf X_1}^T{\bf D}{\bf X_1})^{-1}{\bf X_1}^T{\bf D})({\bf X_2}({\bf X_2}^T{\bf D}{\bf X_2})^{-1}{\bf X_2}^T{\bf D}){\bf X_1}{\bf a_i}=\lambda_i {\bf X_1} {\bf a_i}\]</div>
-<p>Or <span class="math notranslate nohighlight">\(Rg({\bf X_1})=p\)</span> donc l’?quation se simplifie en</p>
+<p>Or <span class="math notranslate nohighlight">\(Rg({\bf X_1})=p\)</span> donc l’équation se simplifie en</p>
 <div class="math notranslate nohighlight">
 \[(({\bf X_1}^T{\bf D}{\bf X_1})^{-1}{\bf X_1}^T{\bf D})({\bf X_2}({\bf X_2}^T{\bf D}{\bf X_2})^{-1}{\bf X_2}^T{\bf D}){\bf X_1}{\bf a_i}=\lambda_i {\bf a_i}\]</div>
-<p>et de m?me</p>
+<p>et de même</p>
 <div class="math notranslate nohighlight">
 \[(({\bf X_2}^T{\bf D}{\bf X_2})^{-1}{\bf X_2}^T{\bf D})({\bf X_1}({\bf X_1}^T{\bf D}{\bf X_1})^{-1}{\bf X_1}^T{\bf D}){\bf X_2}{\bf b_i}=\lambda_i {\bf b_i}\]</div>
-<p>Si les variables sont centr?es (<span class="math notranslate nohighlight">\({\bf {\bf X_i}}^T{\bf D}{\bf 1} = 0\)</span>), les matrices <span class="math notranslate nohighlight">\({\bf {\bf X_i}}^T{\bf D}{\bf X_j}\)</span> s’interpr?tent comme des matrices de covariance que l’on note <span class="math notranslate nohighlight">\({\bf V_{ij}} = {\bf {\bf X_i}}^T{\bf D}{\bf X_j}\)</span> et les ?quations des facteurs canoniques s’?crivent finalement</p>
+<p>Si les variables sont centrées (<span class="math notranslate nohighlight">\({\bf {\bf X_i}}^T{\bf D}{\bf 1} = 0\)</span>), les matrices <span class="math notranslate nohighlight">\({\bf {\bf X_i}}^T{\bf D}{\bf X_j}\)</span> s’interprètent comme des matrices de covariance que l’on note <span class="math notranslate nohighlight">\({\bf V_{ij}} = {\bf {\bf X_i}}^T{\bf D}{\bf X_j}\)</span> et les équations des facteurs canoniques s’écrivent finalement</p>
 <p><span class="math notranslate nohighlight">\( {\bf V_{11}^{-1}}{\bf V_{12}}{\bf V_{22}^{-1}}{\bf V_{21}}{\bf a_i}\)</span>=<span class="math notranslate nohighlight">\(\lambda_i {\bf a_i}\)</span></p>
 <p><span class="math notranslate nohighlight">\( {\bf V_{22}^{-1}}{\bf V_{21}}{\bf V_{11}^{-1}}{\bf V_{12}}{\bf b_i}\)</span>=<span class="math notranslate nohighlight">\(\lambda_i {\bf b_i}\)</span></p>
-<p>et les <span class="math notranslate nohighlight">\(\lambda_i\)</span> sont les carr?s des coefficients de corr?lation canonique entre les variables canoniques. Si on impose que les variables canoniques soient de variance unit?, on normalise les facteurs par <span class="math notranslate nohighlight">\({\bf a_i}^T{\bf V_{11}}{\bf a_i}=1\)</span> et  <span class="math notranslate nohighlight">\({\bf b_i}^T{\bf V_{22}}{\bf b_i}=1\)</span>, d’o?</p>
+<p>et les <span class="math notranslate nohighlight">\(\lambda_i\)</span> sont les carrés des coefficients de corrélation canonique entre les variables canoniques. Si on impose que les variables canoniques soient de variance unité, on normalise les facteurs par <span class="math notranslate nohighlight">\({\bf a_i}^T{\bf V_{11}}{\bf a_i}=1\)</span> et  <span class="math notranslate nohighlight">\({\bf b_i}^T{\bf V_{22}}{\bf b_i}=1\)</span>, d’où</p>
 <div class="math notranslate nohighlight">
 \[{\bf b_i}=\frac{1}{\sqrt{\lambda_i}}{\bf V_{22}^{-1}}{\bf V_{21}}{\bf a_i}\textrm{  et } {\bf a_i}=\frac{1}{\sqrt{\lambda_i}}{\bf V_{11}^{-1}}{\bf V_{12}}{\bf b_i}\]</div>
 </div>
 </div>
-<div class="section" id="repr-sentation-graphique">
-<h2>Repr?sentation graphique<a class="headerlink" href="#repr-sentation-graphique" title="Permalink to this headline">#</a></h2>
-<div class="section" id="repr-sentation-des-variables">
-<h3>Repr?sentation des variables<a class="headerlink" href="#repr-sentation-des-variables" title="Permalink to this headline">#</a></h3>
-<p>On peut repr?senter indiff?remment les variables canoniques de <span class="math notranslate nohighlight">\(Im({\bf {\bf X_1}})\)</span> ou <span class="math notranslate nohighlight">\(Im({\bf {\bf X_2}})\)</span> : on repr?sente pour cela les colonnes de <span class="math notranslate nohighlight">\({\bf X_1}\)</span> et <span class="math notranslate nohighlight">\({\bf X_2}\)</span> en projection sur la base des <span class="math notranslate nohighlight">\({\bf u_i}\)</span> (resp <span class="math notranslate nohighlight">\({\bf v_i}\)</span>).</p>
-<p>Par exemple, si l’on s’int?resse ? la repr?sentation sur <span class="math notranslate nohighlight">\(Im({\bf {\bf X_1}})\)</span>,  la projection sur <span class="math notranslate nohighlight">\(Lin({\bf {\bf u_1}},{\bf {\bf u_2}})\)</span> est appel?e cercle des corr?lations, car, si les colonnes de <span class="math notranslate nohighlight">\({\bf X_1}\)</span> et <span class="math notranslate nohighlight">\({\bf X_2}\)</span> sont norm?es par rapport ? <span class="math notranslate nohighlight">\({\bf D}\)</span>, les composantes sur la base des <span class="math notranslate nohighlight">\(({\bf u_i})\)</span> sont les coefficients de corr?lation entre variables initiales et variables canoniques. En effet, si on note pour <span class="math notranslate nohighlight">\(k\in[\![1,p]\!]\)</span> <span class="math notranslate nohighlight">\({\bf X_{\bullet,k}}\)</span> la <span class="math notranslate nohighlight">\(k^e\)</span> colonne de <span class="math notranslate nohighlight">\({\bf X_1}\)</span> alors <span class="math notranslate nohighlight">\({\bf X_{\bullet,k}}^T{\bf D}{\bf {\bf u_1}}={\bf X_{.k}}^T{\bf D}{\bf X_1}{\bf a_1}\)</span>. Le coefficient de corr?lation entre <span class="math notranslate nohighlight">\({\bf X_{\bullet,k}}\)</span> et <span class="math notranslate nohighlight">\({\bf {\bf u_1}}\)</span> est la <span class="math notranslate nohighlight">\(k^e\)</span> composante de <span class="math notranslate nohighlight">\({\bf V_{11}}{\bf a_1}\)</span> car <span class="math notranslate nohighlight">\({\bf X_{\bullet,k}}={\bf X_1}{\bm \delta_k}\)</span>, o? <span class="math notranslate nohighlight">\({\bm \delta_k}\in\mathbb{R}^p\)</span> est le vecteur nul sauf la <span class="math notranslate nohighlight">\(k^e\)</span> composante qui vaut 1.</p>
-<p>De m?me si on note pour <span class="math notranslate nohighlight">\(l\in[\![1,q]\!]\)</span> <span class="math notranslate nohighlight">\({\bf X_{\bullet,l}}\)</span> la <span class="math notranslate nohighlight">\(l^e\)</span> colonne de <span class="math notranslate nohighlight">\({\bf X_2}\)</span> alors <span class="math notranslate nohighlight">\({\bf X_{\bullet,l}}^T{\bf D}{\bf {\bf u_1}}={\bm \delta_l^T}{\bf X_2}^T{\bf D}{\bf X_1}a_1\)</span>, et la corr?lation entre <span class="math notranslate nohighlight">\({\bf X_{\bullet,l}}\)</span> et <span class="math notranslate nohighlight">\({\bf u_i}\)</span> est la <span class="math notranslate nohighlight">\(l^e\)</span> composante de <span class="math notranslate nohighlight">\({\bf V_{21}}{\bf a_i}\)</span> ou encore la <span class="math notranslate nohighlight">\(l^e\)</span> composante de <span class="math notranslate nohighlight">\(\sqrt{\lambda_1}{\bf V_{22}}{\bf b_i}\)</span>.</p>
+<div class="section" id="representation-graphique">
+<h2>Représentation graphique<a class="headerlink" href="#representation-graphique" title="Permalink to this headline">#</a></h2>
+<div class="section" id="representation-des-variables">
+<h3>Représentation des variables<a class="headerlink" href="#representation-des-variables" title="Permalink to this headline">#</a></h3>
+<p>On peut représenter indifféremment les variables canoniques de <span class="math notranslate nohighlight">\(Im({\bf {\bf X_1}})\)</span> ou <span class="math notranslate nohighlight">\(Im({\bf {\bf X_2}})\)</span> : on représente pour cela les colonnes de <span class="math notranslate nohighlight">\({\bf X_1}\)</span> et <span class="math notranslate nohighlight">\({\bf X_2}\)</span> en projection sur la base des <span class="math notranslate nohighlight">\({\bf u_i}\)</span> (resp <span class="math notranslate nohighlight">\({\bf v_i}\)</span>).</p>
+<p>Par exemple, si l’on s’intéresse à la représentation sur <span class="math notranslate nohighlight">\(Im({\bf {\bf X_1}})\)</span>,  la projection sur <span class="math notranslate nohighlight">\(Lin({\bf {\bf u_1}},{\bf {\bf u_2}})\)</span> est appelée cercle des corrélations, car, si les colonnes de <span class="math notranslate nohighlight">\({\bf X_1}\)</span> et <span class="math notranslate nohighlight">\({\bf X_2}\)</span> sont normées par rapport à <span class="math notranslate nohighlight">\({\bf D}\)</span>, les composantes sur la base des <span class="math notranslate nohighlight">\(({\bf u_i})\)</span> sont les coefficients de corrélation entre variables initiales et variables canoniques. En effet, si on note pour <span class="math notranslate nohighlight">\(k\in[\![1,p]\!]\)</span> <span class="math notranslate nohighlight">\({\bf X_{\bullet,k}}\)</span> la <span class="math notranslate nohighlight">\(k^e\)</span> colonne de <span class="math notranslate nohighlight">\({\bf X_1}\)</span> alors <span class="math notranslate nohighlight">\({\bf X_{\bullet,k}}^T{\bf D}{\bf {\bf u_1}}={\bf X_{.k}}^T{\bf D}{\bf X_1}{\bf a_1}\)</span>. Le coefficient de corrélation entre <span class="math notranslate nohighlight">\({\bf X_{\bullet,k}}\)</span> et <span class="math notranslate nohighlight">\({\bf {\bf u_1}}\)</span> est la <span class="math notranslate nohighlight">\(k^e\)</span> composante de <span class="math notranslate nohighlight">\({\bf V_{11}}{\bf a_1}\)</span> car <span class="math notranslate nohighlight">\({\bf X_{\bullet,k}}={\bf X_1}{\bm \delta_k}\)</span>, où <span class="math notranslate nohighlight">\({\bm \delta_k}\in\mathbb{R}^p\)</span> est le vecteur nul sauf la <span class="math notranslate nohighlight">\(k^e\)</span> composante qui vaut 1.</p>
+<p>De même si on note pour <span class="math notranslate nohighlight">\(l\in[\![1,q]\!]\)</span> <span class="math notranslate nohighlight">\({\bf X_{\bullet,l}}\)</span> la <span class="math notranslate nohighlight">\(l^e\)</span> colonne de <span class="math notranslate nohighlight">\({\bf X_2}\)</span> alors <span class="math notranslate nohighlight">\({\bf X_{\bullet,l}}^T{\bf D}{\bf {\bf u_1}}={\bm \delta_l^T}{\bf X_2}^T{\bf D}{\bf X_1}a_1\)</span>, et la corrélation entre <span class="math notranslate nohighlight">\({\bf X_{\bullet,l}}\)</span> et <span class="math notranslate nohighlight">\({\bf u_i}\)</span> est la <span class="math notranslate nohighlight">\(l^e\)</span> composante de <span class="math notranslate nohighlight">\({\bf V_{21}}{\bf a_i}\)</span> ou encore la <span class="math notranslate nohighlight">\(l^e\)</span> composante de <span class="math notranslate nohighlight">\(\sqrt{\lambda_1}{\bf V_{22}}{\bf b_i}\)</span>.</p>
 </div>
-<div class="section" id="repr-sentation-des-individus">
-<h3>Repr?sentation des individus<a class="headerlink" href="#repr-sentation-des-individus" title="Permalink to this headline">#</a></h3>
-<p>L? encore, on peut repr?senter les individus selon les variables canoniques <span class="math notranslate nohighlight">\({\bf u_i}\)</span> ou <span class="math notranslate nohighlight">\({\bf v_i}\)</span>. Dans le plan <span class="math notranslate nohighlight">\(Lin({\bf {\bf u_1}},{\bf {\bf u_2}})\)</span>, par exemple, les coordonn?es du <span class="math notranslate nohighlight">\(k^e\)</span> point sont les <span class="math notranslate nohighlight">\(k^e\)</span> composantes des variables canoniques <span class="math notranslate nohighlight">\({\bf {\bf u_1}}\)</span> et <span class="math notranslate nohighlight">\({\bf {\bf u_2}}\)</span>.</p>
+<div class="section" id="representation-des-individus">
+<h3>Représentation des individus<a class="headerlink" href="#representation-des-individus" title="Permalink to this headline">#</a></h3>
+<p>Là encore, on peut représenter les individus selon les variables canoniques <span class="math notranslate nohighlight">\({\bf u_i}\)</span> ou <span class="math notranslate nohighlight">\({\bf v_i}\)</span>. Dans le plan <span class="math notranslate nohighlight">\(Lin({\bf {\bf u_1}},{\bf {\bf u_2}})\)</span>, par exemple, les coordonnées du <span class="math notranslate nohighlight">\(k^e\)</span> point sont les <span class="math notranslate nohighlight">\(k^e\)</span> composantes des variables canoniques <span class="math notranslate nohighlight">\({\bf {\bf u_1}}\)</span> et <span class="math notranslate nohighlight">\({\bf {\bf u_2}}\)</span>.</p>
 </div>
 </div>
-<div class="section" id="quelques-r-flexions-autour-de-l-analyse-canonique">
-<h2>Quelques r?flexions autour de l’analyse canonique<a class="headerlink" href="#quelques-r-flexions-autour-de-l-analyse-canonique" title="Permalink to this headline">#</a></h2>
-<div class="section" id="int-r-t-th-orique">
-<h3>Int?r?t th?orique<a class="headerlink" href="#int-r-t-th-orique" title="Permalink to this headline">#</a></h3>
-<p>L’analyse canonique pr?sente un int?r?t th?orique certain car plusieurs m?thodes statistiques tr?s utilis?es en sont des cas particuliers.</p>
+<div class="section" id="quelques-reflexions-autour-de-l-analyse-canonique">
+<h2>Quelques réflexions autour de l’analyse canonique<a class="headerlink" href="#quelques-reflexions-autour-de-l-analyse-canonique" title="Permalink to this headline">#</a></h2>
+<div class="section" id="interet-theorique">
+<h3>Intérêt théorique<a class="headerlink" href="#interet-theorique" title="Permalink to this headline">#</a></h3>
+<p>L’analyse canonique présente un intérêt théorique certain car plusieurs méthodes statistiques très utilisées en sont des cas particuliers.</p>
 </div>
 <div class="section" id="cas-q-1">
 <h3>Cas <span class="math notranslate nohighlight">\(q\)</span>=1<a class="headerlink" href="#cas-q-1" title="Permalink to this headline">#</a></h3>
-<p>Si l’on cherche ? expliquer <span class="math notranslate nohighlight">\(\mathbf{X_2}\)</span>  par <span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span> :</p>
+<p>Si l’on cherche à expliquer <span class="math notranslate nohighlight">\(\mathbf{X_2}\)</span>  par <span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span> :</p>
 <ul class="simple">
-<li><p>Si <span class="math notranslate nohighlight">\(p\)</span>=1, c’est un probl?me de r?gression lin?aire (chapitre \ref{ch:regression})</p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(p&gt;\)</span>1, c’est un probl?me de r?gression lin?aire multiple (chapitre \ref{ch:regression})</p></li>
-<li><p>Si  <span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span> est constitu? d’une ou plusieurs variables qualitatives, on aboutit ? un mod?le d’analyse de la variance</p></li>
-<li><p>Si  <span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span> est constitu? de variables qualitatives et quantitatives, on aboutit ? un mod?le d’analyse de la covariance</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(p\)</span>=1, c’est un problème de régression linéaire (chapitre \ref{ch:regression})</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(p&gt;\)</span>1, c’est un problème de régression linéaire multiple (chapitre \ref{ch:regression})</p></li>
+<li><p>Si  <span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span> est constitué d’une ou plusieurs variables qualitatives, on aboutit à un modèle d’analyse de la variance</p></li>
+<li><p>Si  <span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span> est constitué de variables qualitatives et quantitatives, on aboutit à un modèle d’analyse de la covariance</p></li>
 </ul>
-<p>Dans tous ces cas, le probl?me est de maximiser le coefficient de corr?lation entre une variable quantitative et un ensemble de variables, c’est donc bien un probl?me d’analyse canonique.</p>
+<p>Dans tous ces cas, le problème est de maximiser le coefficient de corrélation entre une variable quantitative et un ensemble de variables, c’est donc bien un problème d’analyse canonique.</p>
 </div>
-<div class="section" id="cas-g-n-ral">
-<h3>Cas g?n?ral<a class="headerlink" href="#cas-g-n-ral" title="Permalink to this headline">#</a></h3>
+<div class="section" id="cas-general">
+<h3>Cas général<a class="headerlink" href="#cas-general" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>L’analyse Factorielle Discriminante (cf. chapitre \ref{ch:AFD})  est le cas particulier de l’analyse canonique  pour lequel <span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span> d?crit un ensemble de variables quantitatives et <span class="math notranslate nohighlight">\(\mathbf{X_2}\)</span> une variable qualitative</p></li>
-<li><p>L’Analyse Factorielle des correspondances (cf. chapitre \ref{ch:AFC}) est l’instantiation d’une analyse canonique dans laquelle <span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span>  et <span class="math notranslate nohighlight">\(\mathbf{X_2}\)</span> d?crivent les modalit?s d’une variable qualitative.</p></li>
+<li><p>L’analyse Factorielle Discriminante (cf. chapitre \ref{ch:AFD})  est le cas particulier de l’analyse canonique  pour lequel <span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span> décrit un ensemble de variables quantitatives et <span class="math notranslate nohighlight">\(\mathbf{X_2}\)</span> une variable qualitative</p></li>
+<li><p>L’Analyse Factorielle des correspondances (cf. chapitre \ref{ch:AFC}) est l’instantiation d’une analyse canonique dans laquelle <span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span>  et <span class="math notranslate nohighlight">\(\mathbf{X_2}\)</span> décrivent les modalités d’une variable qualitative.</p></li>
 </ul>
 </div>
 <div class="section" id="limites">
 <h3>Limites<a class="headerlink" href="#limites" title="Permalink to this headline">#</a></h3>
-<p>L’analyse canonique d?crit les relations lin?aires existant entre deux ensembles de variables : les premi?res ?tapes mettent en ?vidence les directions de l’espace des variables selon lesquelles les deux ensembles sont les plus proches. Mais il est possible que les variables canoniques soient faiblement corr?l?es aux variables des tableaux <span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span>  et <span class="math notranslate nohighlight">\(\mathbf{X_2}\)</span>, elles deviennent dans ce cas  difficilement interpr?tables. Les variables d’origine n’interviennent en effet pas dans les calculs de d?termination des composantes canoniques, seuls comptent les projecteurs sur les espaces engendr?s par ces variables.</p>
+<p>L’analyse canonique décrit les relations linéaires existant entre deux ensembles de variables : les premières étapes mettent en évidence les directions de l’espace des variables selon lesquelles les deux ensembles sont les plus proches. Mais il est possible que les variables canoniques soient faiblement corrélées aux variables des tableaux <span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span>  et <span class="math notranslate nohighlight">\(\mathbf{X_2}\)</span>, elles deviennent dans ce cas  difficilement interprétables. Les variables d’origine n’interviennent en effet pas dans les calculs de détermination des composantes canoniques, seuls comptent les projecteurs sur les espaces engendrés par ces variables.</p>
 </div>
 </div>
 <div class="section" id="exemple">
 <h2>Exemple<a class="headerlink" href="#exemple" title="Permalink to this headline">#</a></h2>
-<p>On s’int?resse au jeu de donn?es mtcars\footnote{<a class="reference external" href="https://gist.github.com/seankross/a412dfbd88b3db70b74b">https://gist.github.com/seankross/a412dfbd88b3db70b74b</a>}, qui d?crit 32 voitures ? l’aide de 11 param?tres quantitatifs. Ces param?tres peuvent ?tre class?s en deux cat?gories, l’une  (<span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span>) relative ? des performances de conduite (puissance, consommation, …), l’autre  (<span class="math notranslate nohighlight">\(\mathbf{X_2}\)</span>) plus reli?e aux caract?ristiques de l’automobile (nombre de cylindres, nombre de carburateurs,…). L’objectif est de voir s’il existe un lien entre ces deux ensembles de variables.</p>
-<p>La projection des individus (les voitures) dans le plan <span class="math notranslate nohighlight">\(\mathbf u_1,\mathbf u_2\)</span> est donn?e dans la figure suivante. A gauche, la projection des individus dans (<span class="math notranslate nohighlight">\(\mathbf u_1,\mathbf u_2\)</span>), ? droite la projection des variables sur le cercle des corr?lations. Les  variables de  <span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span> sont repr?sent?es en rouge, celles de  <span class="math notranslate nohighlight">\(\mathbf{X_2}\)</span>  en bleu</p>
+<p>On s’intéresse au jeu de données mtcars\footnote{<a class="reference external" href="https://gist.github.com/seankross/a412dfbd88b3db70b74b">https://gist.github.com/seankross/a412dfbd88b3db70b74b</a>}, qui décrit 32 voitures à l’aide de 11 paramètres quantitatifs. Ces paramètres peuvent être classés en deux catégories, l’une  (<span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span>) relative à des performances de conduite (puissance, consommation, …), l’autre  (<span class="math notranslate nohighlight">\(\mathbf{X_2}\)</span>) plus reliée aux caractéristiques de l’automobile (nombre de cylindres, nombre de carburateurs,…). L’objectif est de voir s’il existe un lien entre ces deux ensembles de variables.</p>
+<p>La projection des individus (les voitures) dans le plan <span class="math notranslate nohighlight">\(\mathbf u_1,\mathbf u_2\)</span> est donnée dans la figure suivante. A gauche, la projection des individus dans (<span class="math notranslate nohighlight">\(\mathbf u_1,\mathbf u_2\)</span>), à droite la projection des variables sur le cercle des corrélations. Les  variables de  <span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span> sont représentées en rouge, celles de  <span class="math notranslate nohighlight">\(\mathbf{X_2}\)</span>  en bleu</p>
 <p><img alt="" src="_images/cca1.png" /><img alt="" src="_images/cca2.png" /></p>
-<p>Ce plan identifie  deux extr?mes : les grandes voitures (en bas ? gauche) et les petites  voitures (en haut ? droite). La corr?lation des donn?es sur ce plan est de 0.98, une relation lin?aire semble donc ?vidente entre ces deux groupes.</p>
-<p>La projection des variables sur le cercle des corr?lations (figure \ref{F:CCA1}-(b)) montre  que toutes les variables sont expressives (pr?s du cercle).</p>
+<p>Ce plan identifie  deux extrêmes : les grandes voitures (en bas à gauche) et les petites  voitures (en haut à droite). La corrélation des données sur ce plan est de 0.98, une relation linéaire semble donc évidente entre ces deux groupes.</p>
+<p>La projection des variables sur le cercle des corrélations (figure \ref{F:CCA1}-(b)) montre  que toutes les variables sont expressives (près du cercle).</p>
 </div>
 </div>
 

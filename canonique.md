@@ -1,3 +1,14 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
 # Analyse canonique
 
 On considère $n$ individus décrits par deux ensembles de $p$ et $q$ variables quantitatives respectivement, où on suppose sans perte de généralité que $p\leq q$. L'analyse canonique se propose d'examiner les liens existants entre ces deux ensembles afin de savoir s'ils mesurent les mêmes propriétés. On se retreint ici au cas de deux groupes, la généralisation au cas de $g$ groupes quelconques donnant lieu à l'analyse canonique généralisée.
