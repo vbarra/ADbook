@@ -22,6 +22,7 @@ parts:
 #    - file: TP_Regression_Logistique
   - caption: Annexes
     chapters:
+    - file: canonique
     - file: afc
     - file: acm
     - file: genindex
