@@ -31,8 +31,7 @@ $${\bf {\bf P_i}}={\bf {\bf X_i}}({\bf {\bf X_i}}^T{\bf D}{\bf {\bf X_i}})^{-1}{
 La recherche de  ${\bf {\bf u_1}}$ et ${\bf v_1}$ amène à maximiser $cos({\bf {\bf u_1}},{\bf v_1})$. En utilisant le théorème suivant 
 
 ```{prf:theorem} Théorème de projection
-Soit $L$ un sous-espace vectoriel de mathbb{R]$^n$. Étant donné un point ${\bf y}\in$mathbb{R]$^n$, il existe un unique point ${\bf p}$ de $L$, appelé la projection orthogonale\index{projection orthogonale}
-de ${\bf y}$ sur $L$, tel que $\|{\bf y}-{\bf p}\|\leq \|{\bf y}-{\bf x}\|,\forall {\bf x}\in L$. Une condition nécessaire et suffisante pour que ${\bf p}\in L$ soit la projection orthogonale de ${\bf y}$ sur $L$ est ${\bf y}-{\bf p}\in L^\bot$
+Soit $L$ un sous-espace vectoriel de mathbb{R]$^n$. Étant donné un point ${\bf y}\in$mathbb{R]$^n$, il existe un unique point ${\bf p}$ de $L$, appelé la projection orthogonale de ${\bf y}$ sur $L$, tel que $\|{\bf y}-{\bf p}\|\leq \|{\bf y}-{\bf x}\|,\forall {\bf x}\in L$. Une condition nécessaire et suffisante pour que ${\bf p}\in L$ soit la projection orthogonale de ${\bf y}$ sur $L$ est ${\bf y}-{\bf p}\in L^\bot$
 ```
 
 On en déduit que ${\bf v_1}$ doit être tel que ${\bf P_1}{\bf v_1}$ soit colinéaire à ${\bf {\bf u_1}}$. De même, ${\bf v_1}$ doit être le vecteur de $Im({\bf {\bf X_2}})$ le plus proche de ${\bf {\bf u_1}}$ (ou de ${\bf P_1}{\bf v_1}$ qui lui est colinéaire), donc ${\bf v_1}$ doit être colinéaire à ${\bf P_2}{\bf P_1}{\bf v_1}$. Le problème se ramène donc à la recherche des éléments propres de ${\bf P_2}{\bf P_1}$.
