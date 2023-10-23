@@ -24,21 +24,25 @@ On munit $\mathbb{R}^n$ d'une métrique ${\bf D}$.
 La recherche de variables canoniques consiste à rechercher ${\bf {\bf u_1}}\in Im({\bf {\bf X_1}}), \Vert {\bf {\bf u_1}}\Vert=1$ et  \mbox{${\bf v_1}\in Im({\bf {\bf X_2}})$}, $\Vert {\bf v_1}\Vert=1$ tels que l'angle $({\bf {\bf u_1}},{\bf v_1})$ est le plus faible. On recherche ensuite ${\bf {\bf u_2}}\in Im({\bf {\bf X_1}}), \Vert {\bf {\bf u_2}}\Vert=1$ orthogonal à ${\bf {\bf u_1}}$ au sens de ${\bf D}$, et ${\bf v_2}\in Im({\bf {\bf X_2}}), \Vert {\bf v_2}\Vert=1$ orthogonal à ${\bf v_1}$ au sens de ${\bf D}$ tels que l'angle $({\bf {\bf u_2}},{\bf v_2})$ soit minimal. On poursuit cette procédure itérativement pour arriver au dernier couple $({\bf u_p},{\bf v_p})$.
 
 ### Formulation matricielle dans $\mathbb{R}^n$
-On note ${\bf {\bf {\bf P_i}}},i\in[\![1,2]\!]$ la projection orthogonale (au sens de ${\bf D}$) sur $Im({\bf {\bf {\bf X_i}}})$. On sait alors que : $${\bf {\bf P_i}}={\bf {\bf X_i}}({\bf {\bf X_i}}^T{\bf D}{\bf {\bf X_i}})^{-1}{\bf {\bf X_i}}^T{\bf D}$$
+On note ${\bf {\bf {\bf P_i}}},i\in[\![1,2]\!]$ la projection orthogonale (au sens de ${\bf D}$) sur $Im({\bf {\bf {\bf X_i}}})$. On sait alors que : 
+
+$${\bf {\bf P_i}}={\bf {\bf X_i}}({\bf {\bf X_i}}^T{\bf D}{\bf {\bf X_i}})^{-1}{\bf {\bf X_i}}^T{\bf D}$$
+
 La recherche de  ${\bf {\bf u_1}}$ et ${\bf v_1}$ amène à maximiser $cos({\bf {\bf u_1}},{\bf v_1})$. En utilisant le théorème suivant 
 
 ```{prf:theorem} Théorème de projection
-Soit $L$ un sous-espace vectoriel de \R$^n$. Étant donné un point ${\bf y}\in$\R$^n$, il existe un unique point ${\bf p}$ de $L$, appelé la projection orthogonale\index{projection orthogonale}
+Soit $L$ un sous-espace vectoriel de mathbb{R]$^n$. Étant donné un point ${\bf y}\in$mathbb{R]$^n$, il existe un unique point ${\bf p}$ de $L$, appelé la projection orthogonale\index{projection orthogonale}
 de ${\bf y}$ sur $L$, tel que $\|{\bf y}-{\bf p}\|\leq \|{\bf y}-{\bf x}\|,\forall {\bf x}\in L$. Une condition nécessaire et suffisante pour que ${\bf p}\in L$ soit la projection orthogonale de ${\bf y}$ sur $L$ est ${\bf y}-{\bf p}\in L^\bot$
 ```
 
 On en déduit que ${\bf v_1}$ doit être tel que ${\bf P_1}{\bf v_1}$ soit colinéaire à ${\bf {\bf u_1}}$. De même, ${\bf v_1}$ doit être le vecteur de $Im({\bf {\bf X_2}})$ le plus proche de ${\bf {\bf u_1}}$ (ou de ${\bf P_1}{\bf v_1}$ qui lui est colinéaire), donc ${\bf v_1}$ doit être colinéaire à ${\bf P_2}{\bf P_1}{\bf v_1}$. Le problème se ramène donc à la recherche des éléments propres de ${\bf P_2}{\bf P_1}$.
 
 
- Tout d'abord, les vecteurs propres de ${\bf P_2}{\bf P_1}$ sont dans $Im({\bf {\bf X_2}})$. En effet en multipliant à gauche ${\bf P_2}{\bf P_1}{\bf v_1}=\lambda_1{\bf v_1}$ par ${\bf P_2}$, et puisque ${\bf P_2^2}={\bf P_2}$ (projection), on a immédiatement \mbox{${\bf P_2}{\bf P_1}{\bf v_1}=\lambda_1{\bf P_2}{\bf v_1}$} et donc ${\bf P_2}{\bf v_1}={\bf v_1}\in Im({\bf {\bf X_2}})$
+ Tout d'abord, les vecteurs propres de ${\bf P_2}{\bf P_1}$ sont dans $Im({\bf {\bf X_2}})$. En effet en multipliant à gauche ${\bf P_2}{\bf P_1}{\bf v_1}=\lambda_1{\bf v_1}$ par ${\bf P_2}$, et puisque ${\bf P_2^2}={\bf P_2}$ (projection), on a immédiatement ${\bf P_2}{\bf P_1}{\bf v_1}=\lambda_1{\bf P_2}{\bf v_1}$ et donc ${\bf P_2}{\bf v_1}={\bf v_1}\in Im({\bf {\bf X_2}})$
  
 
  On montre ensuite que ${\bf P_2}{\bf P_1}$ est symétrique (par rapport à ${\bf D}$). Pour cela, en fonction de la remarque précédente, il suffit de démontrer que pour tout ${\bf x},{\bf y}\in Im({\bf {\bf X_2}})$ (symétrie du produit scalaire engendré par ${\bf D}$)
+
  $${\bf x}^T{\bf D}{\bf P_2}{\bf P_1}{\bf y} = ({\bf P_2}{\bf P_1}{\bf x})^T{\bf D}{\bf y}$$
  On a en effet :
  
@@ -46,19 +50,21 @@ On en déduit que ${\bf v_1}$ doit être tel que ${\bf P_1}{\bf v_1}$ soit colin
 
  ${\bf x}^T{\bf D}{\bf P_2}{\bf P_1}{\bf y}$ =$({\bf P_2}{\bf x})^T{\bf D}{\bf P_1}{\bf y}$car ${\bf P_2}$ symétrique
 
- =${\bf x}^T{\bf D}{\bf P_1}{\bf y}$&car ${\bf x}\in Im({\bf {\bf X_2}})$
+ =${\bf x}^T{\bf D}{\bf P_1}{\bf y}$ car ${\bf x}\in Im({\bf {\bf X_2}})$
 
- =$({\bf P_1}{\bf x})^T{\bf D}{\bf y}$car ${\bf P_1}$ symétrique
+ =$({\bf P_1}{\bf x})^T{\bf D}{\bf y}$ car ${\bf P_1}$ symétrique
 
- =$({\bf P_1}{\bf x})^T{\bf D}{\bf P_2}{\bf y}$car ${\bf y}\in Im({\bf {\bf X_2}})$
+ =$({\bf P_1}{\bf x})^T{\bf D}{\bf P_2}{\bf y}$ car ${\bf y}\in Im({\bf {\bf X_2}})$
 
- =$({\bf P_2}{\bf P_1}{\bf x})^T{\bf D}{\bf y}$car ${\bf P_2}$ symétrique
+ =$({\bf P_2}{\bf P_1}{\bf x})^T{\bf D}{\bf y}$ car ${\bf P_2}$ symétrique
  
 
  ${\bf P_2}{\bf P_1}$ est donc symétrique, réelle, elle est donc diagonalisable. Elle possède au plus $min(p,q)$ valeurs propres non identiquement nulles, toutes positives car les ${\bf {\bf P_i}}$ sont des matrices semi définies positives.
 
- On recherche donc maintenant ${\bf v_1}$ tel que ${\bf P_2}{\bf P_1}{\bf v_1}=\lambda_1{\bf v_1}$. Il est immédiat alors que ${\bf {\bf u_1}}$ est vecteur propre de ${\bf P_1}{\bf P_2}$ associé à $\lambda_1$, qui représente le carré du cosinus de l'angle entre ${\bf v_1}$ et ${\bf {\bf u_1}}$ (donc $\lambda_1\leq 1$).\\
- Le cas $\lambda_1=1$ correspond à ${\bf {\bf u_1}}={\bf v_1}$ et sa multiplicité donne la dimension de $Im({\bf {\bf X_1}})\bigcap Im({\bf {\bf X_2}})$. \\
+ On recherche donc maintenant ${\bf v_1}$ tel que ${\bf P_2}{\bf P_1}{\bf v_1}=\lambda_1{\bf v_1}$. Il est immédiat alors que ${\bf {\bf u_1}}$ est vecteur propre de ${\bf P_1}{\bf P_2}$ associé à $\lambda_1$, qui représente le carré du cosinus de l'angle entre ${\bf v_1}$ et ${\bf {\bf u_1}}$ (donc $\lambda_1\leq 1$).
+
+ Le cas $\lambda_1=1$ correspond à ${\bf {\bf u_1}}={\bf v_1}$ et sa multiplicité donne la dimension de $Im({\bf {\bf X_1}})\bigcap Im({\bf {\bf X_2}})$. 
+ 
  Les vecteurs propres associés à des valeurs propres nulles de rang inférieur à $q$ engendrent la partie de $Im({\bf {\bf X_2}})$ orthogonale à $Im({\bf {\bf X_1}})$.
 En résumé, dans $\mathbb{R}^n$, les vecteurs propres ${\bf u_i},{\bf v_i}$ des matrices ${\bf P_1}{\bf P_2}$ et ${\bf P_2}{\bf P_1}$ vérifient :
 
@@ -114,8 +120,8 @@ L'analyse canonique présente un intérêt théorique certain car plusieurs mét
 ### Cas $q$=1
 Si l'on cherche à expliquer $\mathbf{X_2}$  par $\mathbf{X_1}$ : 
 
-- Si $p$=1, c'est un problème de régression linéaire (chapitre \ref{ch:regression})
-- Si $p>$1, c'est un problème de régression linéaire multiple (chapitre \ref{ch:regression})
+- Si $p$=1, c'est un problème de régression linéaire 
+- Si $p>$1, c'est un problème de régression linéaire multiple 
 - Si  $\mathbf{X_1}$ est constitué d'une ou plusieurs variables qualitatives, on aboutit à un modèle d'analyse de la variance
 - Si  $\mathbf{X_1}$ est constitué de variables qualitatives et quantitatives, on aboutit à un modèle d'analyse de la covariance
 
@@ -123,8 +129,8 @@ Dans tous ces cas, le problème est de maximiser le coefficient de corrélation 
 
 ### Cas général
 
-- L'analyse Factorielle Discriminante (cf. chapitre \ref{ch:AFD})  est le cas particulier de l'analyse canonique  pour lequel $\mathbf{X_1}$ décrit un ensemble de variables quantitatives et $\mathbf{X_2}$ une variable qualitative
-- L'Analyse Factorielle des correspondances (cf. chapitre \ref{ch:AFC}) est l'instantiation d'une analyse canonique dans laquelle $\mathbf{X_1}$  et $\mathbf{X_2}$ décrivent les modalités d'une variable qualitative.
+- L'analyse Factorielle Discriminante est le cas particulier de l'analyse canonique  pour lequel $\mathbf{X_1}$ décrit un ensemble de variables quantitatives et $\mathbf{X_2}$ une variable qualitative
+- L'Analyse Factorielle des correspondances est l'instantiation d'une analyse canonique dans laquelle $\mathbf{X_1}$  et $\mathbf{X_2}$ décrivent les modalités d'une variable qualitative.
 
 
 ### Limites
@@ -141,7 +147,7 @@ La projection des individus (les voitures) dans le plan $\mathbf u_1,\mathbf u_2
 
 Ce plan identifie  deux extrêmes : les grandes voitures (en bas à gauche) et les petites  voitures (en haut à droite). La corrélation des données sur ce plan est de 0.98, une relation linéaire semble donc évidente entre ces deux groupes.
 
-La projection des variables sur le cercle des corrélations (figure \ref{F:CCA1}-(b)) montre  que toutes les variables sont expressives (près du cercle). 
+La projection des variables sur le cercle des corrélations montre  que toutes les variables sont expressives (près du cercle). 
 
 
 
