@@ -1,3 +1,14 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
 # Analyse canonique
 
 On considère $n$ individus décrits par deux ensembles de $p$ et $q$ variables quantitatives respectivement, où on suppose sans perte de généralité que $p\leq q$. L'analyse canonique se propose d'examiner les liens existants entre ces deux ensembles afin de savoir s'ils mesurent les mêmes propriétés. On se retreint ici au cas de deux groupes, la généralisation au cas de $g$ groupes quelconques donnant lieu à l'analyse canonique généralisée.
@@ -18,7 +29,7 @@ La recherche de  ${\bf {\bf u_1}}$ et ${\bf v_1}$ amène à maximiser $cos({\bf 
 
 ```{prf:theorem} Théorème de projection
 Soit $L$ un sous-espace vectoriel de \R$^n$. Étant donné un point ${\bf y}\in$\R$^n$, il existe un unique point ${\bf p}$ de $L$, appelé la projection orthogonale\index{projection orthogonale}
-de ${\bf y}$ sur $L$, tel que $\norme{{\bf y}-{\bf p}}\leq \norme{{\bf y}-{\bf x}},\forall {\bf x}\in L$. Une condition nécessaire et suffisante pour que ${\bf p}\in L$ soit la projection orthogonale de ${\bf y}$ sur $L$ est ${\bf y}-{\bf p}\in L^\bot$
+de ${\bf y}$ sur $L$, tel que $\|{\bf y}-{\bf p}\|\leq \|{\bf y}-{\bf x}\|,\forall {\bf x}\in L$. Une condition nécessaire et suffisante pour que ${\bf p}\in L$ soit la projection orthogonale de ${\bf y}$ sur $L$ est ${\bf y}-{\bf p}\in L^\bot$
 ```
 
 On en déduit que ${\bf v_1}$ doit être tel que ${\bf P_1}{\bf v_1}$ soit colinéaire à ${\bf {\bf u_1}}$. De même, ${\bf v_1}$ doit être le vecteur de $Im({\bf {\bf X_2}})$ le plus proche de ${\bf {\bf u_1}}$ (ou de ${\bf P_1}{\bf v_1}$ qui lui est colinéaire), donc ${\bf v_1}$ doit être colinéaire à ${\bf P_2}{\bf P_1}{\bf v_1}$. Le problème se ramène donc à la recherche des éléments propres de ${\bf P_2}{\bf P_1}$.
@@ -88,9 +99,9 @@ $${\bf b_i}=\frac{1}{\sqrt{\lambda_i}}{\bf V_{22}^{-1}}{\bf V_{21}}{\bf a_i}\tex
 ### Représentation des variables
 On peut représenter indifféremment les variables canoniques de $Im({\bf {\bf X_1}})$ ou $Im({\bf {\bf X_2}})$ : on représente pour cela les colonnes de ${\bf X_1}$ et ${\bf X_2}$ en projection sur la base des ${\bf u_i}$ (resp ${\bf v_i}$).  
 
-Par exemple, si l'on s'intéresse à la représentation sur $Im({\bf {\bf X_1}})$,  la projection sur $Lin({\bf {\bf u_1}},{\bf {\bf u_2}})$ est appelée cercle des corrélations, car, si les colonnes de ${\bf X_1}$ et ${\bf X_2}$ sont normées par rapport à ${\bf D}$, les composantes sur la base des $({\bf u_i})$ sont les coefficients de corrélation entre variables initiales et variables canoniques. En effet, si on note pour $k\in[\![1,p]\!]$ ${\bf X_{\bullet,k}}$ la $k^e$ colonne de ${\bf X_1}$ alors ${\bf X_{\bullet,k}}^T{\bf D}{\bf {\bf u_1}}={\bf X_{.k}}^T{\bf D}{\bf X_1}{\bf a_1}$. Le coefficient de corrélation entre ${\bf X_{\bullet,k}}$ et ${\bf {\bf u_1}}$ est la $k^e$ composante de ${\bf V_{11}}{\bf a_1}$ car ${\bf X_{\bullet,k}}={\bf X_1}{\bm \delta_k}$, où ${\bm \delta_k}\in\mathbb{R}^p$ est le vecteur nul sauf la $k^e$ composante qui vaut 1.
+Par exemple, si l'on s'intéresse à la représentation sur $Im({\bf {\bf X_1}})$,  la projection sur $Lin({\bf {\bf u_1}},{\bf {\bf u_2}})$ est appelée cercle des corrélations, car, si les colonnes de ${\bf X_1}$ et ${\bf X_2}$ sont normées par rapport à ${\bf D}$, les composantes sur la base des $({\bf u_i})$ sont les coefficients de corrélation entre variables initiales et variables canoniques. En effet, si on note pour $k\in[\![1,p]\!]$ ${\bf X_{\bullet,k}}$ la $k^e$ colonne de ${\bf X_1}$ alors ${\bf X_{\bullet,k}}^T{\bf D}{\bf {\bf u_1}}={\bf X_{.k}}^T{\bf D}{\bf X_1}{\bf a_1}$. Le coefficient de corrélation entre ${\bf X_{\bullet,k}}$ et ${\bf {\bf u_1}}$ est la $k^e$ composante de ${\bf V_{11}}{\bf a_1}$ car ${\bf X_{\bullet,k}}={\bf X_1}{\boldsymbol \delta_k}$, où ${\boldsymbol \delta_k}\in\mathbb{R}^p$ est le vecteur nul sauf la $k^e$ composante qui vaut 1.
 
-De même si on note pour $l\in[\![1,q]\!]$ ${\bf X_{\bullet,l}}$ la $l^e$ colonne de ${\bf X_2}$ alors ${\bf X_{\bullet,l}}^T{\bf D}{\bf {\bf u_1}}={\bm \delta_l^T}{\bf X_2}^T{\bf D}{\bf X_1}a_1$, et la corrélation entre ${\bf X_{\bullet,l}}$ et ${\bf u_i}$ est la $l^e$ composante de ${\bf V_{21}}{\bf a_i}$ ou encore la $l^e$ composante de $\sqrt{\lambda_1}{\bf V_{22}}{\bf b_i}$.
+De même si on note pour $l\in[\![1,q]\!]$ ${\bf X_{\bullet,l}}$ la $l^e$ colonne de ${\bf X_2}$ alors ${\bf X_{\bullet,l}}^T{\bf D}{\bf {\bf u_1}}={\boldsymbol \delta_l^T}{\bf X_2}^T{\bf D}{\bf X_1}a_1$, et la corrélation entre ${\bf X_{\bullet,l}}$ et ${\bf u_i}$ est la $l^e$ composante de ${\bf V_{21}}{\bf a_i}$ ou encore la $l^e$ composante de $\sqrt{\lambda_1}{\bf V_{22}}{\bf b_i}$.
 
 
 ### Représentation des individus
