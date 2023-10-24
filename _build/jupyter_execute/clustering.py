@@ -689,9 +689,10 @@ plt.show()
 
 
 from sklearn.cluster import KMeans
-n_samples = 500
-blobs = make_blobs(n_samples=n_samples, random_state=8)
+from sklearn.mixture import GaussianMixture
+from sklearn.datasets import make_blobs
 
+n_samples = 500
 
 # Nuages de points allongés
 random_state = 170
@@ -715,7 +716,7 @@ plt.tight_layout()
 # 
 # Dans le code qui suit, on estime à la fois les matrices de covariance les plus adaptées et le nombre de composantes $k$, en optimisant le critère d'information Bayésien $BIC = -2ln(L) + pln(n)$, où $L$ est la vraisemblance du modèle estimé, $n$ le nombre d'observations, et $p$ le nombre de paramètres libres du modèle.
 
-# In[ ]:
+# In[11]:
 
 
 import itertools
@@ -802,7 +803,7 @@ plt.tight_layout()
 # - d'échantillonner la composante $C_i$ désirée, selon la distribution $P(C_i)=\pi_i$
 # - d'échantillonner un $\mathbf x$ de la distribution de la composante $C_i$, selon ${\cal N}(x|\hat{\theta}_i)$
 
-# In[ ]:
+# In[12]:
 
 
 from matplotlib.colors import LogNorm
