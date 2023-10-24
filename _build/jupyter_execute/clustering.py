@@ -246,11 +246,18 @@
 # 
 # ### Utilisation des méthodes
 # La première difficulté est le choix de la mesure de dissimilarité sur  $\Omega$ et du critère d'agrégation. Généralement, lorsque l'on dispose de variables quantitatives, le critère conseillé est le critère d'inertie. Ensuite, il est souvent nécessaire de disposer d'outils d'aide à l'interprétation et d'outils permettant de diminuer le nombre de niveaux de hiérarchie. Il est d'autre part conseillé d'utiliser conjointement d'autres méthodes d'analyse des données comme l'Analyse en Composantes Principales.
-# 
+
+# In[1]:
+
+
+from IPython.display import Video
+Video("videos/dendrogram.mp4",embed =True,width=800)
+
+
 # ### Exemple
 # On étudie ici un jeu de données correspondant aux achats dans un supermarché. On cherche à caractériser les comportements des acheteurs en fonction de leurs revenus
 
-# In[1]:
+# In[2]:
 
 
 import pandas as pd
@@ -260,7 +267,7 @@ df.head(5)
 
 # On affiche les données
 
-# In[2]:
+# In[3]:
 
 
 import matplotlib.pyplot as plt
@@ -282,7 +289,7 @@ plt.tight_layout()
 
 # L'objectif est de trouver des catégories de population ayant les mêmes comportements d'achat. Le nombre de classes étant inconnu, la classification héararchique va permettre de donner des indications sur le nombre de groupes.
 
-# In[3]:
+# In[4]:
 
 
 import scipy.cluster.hierarchy as sch
@@ -300,7 +307,7 @@ plt.show()
 
 # On projette ensuite le résultat de la classification
 
-# In[4]:
+# In[5]:
 
 
 from sklearn.cluster import AgglomerativeClustering
@@ -349,7 +356,7 @@ plt.tight_layout()
 # 
 # ![](./images/kmeans1.png)
 
-# In[5]:
+# In[6]:
 
 
 from IPython.display import Video
@@ -480,7 +487,7 @@ Video("videos/kmeans.mp4",embed =True,width=800)
 #   
 # On génère des données
 
-# In[6]:
+# In[7]:
 
 
 from sklearn.datasets import make_blobs
@@ -502,7 +509,7 @@ plt.tick_params(labelleft=False)
 
 # Puis on applique l'algorithme des $k$-means.
 
-# In[7]:
+# In[8]:
 
 
 from sklearn.cluster import KMeans
@@ -619,7 +626,7 @@ plt.tight_layout()
 # 
 # $$\boldsymbol\Sigma_{k} = \frac{\displaystyle\sum_{j=1}^n p_j^{(i)}(k) (\mathbf x_j-\boldsymbol\mu_k)(\mathbf x_j-\boldsymbol\mu_k)^T}{\displaystyle\sum_{j=1}^n p_j^{(i)}(k)}$$
 
-# In[8]:
+# In[9]:
 
 
 import numpy as np
@@ -674,4 +681,163 @@ for i in range(0,3):
 
 plt.tight_layout()
 plt.show()
+
+
+# ### Comparaison aux k-means
+
+# In[10]:
+
+
+from sklearn.cluster import KMeans
+n_samples = 500
+blobs = make_blobs(n_samples=n_samples, random_state=8)
+
+
+# Nuages de points allongés
+random_state = 170
+X, y = make_blobs(n_samples=n_samples, random_state=random_state)
+transformation = [[0.6, -0.6], [-0.5, 0.8]]
+X = np.dot(X, transformation)
+
+fig, axes = plt.subplots(1, 2, figsize=(6, 3))
+for ax, model in zip(axes, [GaussianMixture(n_components=3), KMeans(n_clusters=3)]):
+    model.fit(X)
+    ax.scatter(X[:, 0], X[:, 1], c=plt.cm.Accent(model.predict(X)), alpha=.6)
+    ax.set_xticks(())
+    ax.set_yticks(())
+    ax.set_title(type(model).__name__)
+plt.tight_layout()
+
+
+# ### Estimation du nombre de classes
+# 
+# En optimisant un critère statistique, il est possible de trouver, dans le cas où le nombre de composantes $k$ est inconnu, la meilleure valeur par rapport à ce critère. Il est de plus possible, pour les matrices de covariance, d'estimer la meilleure forme des nuages de points, et d'adapter la matrice en fonction de cette forme.
+# 
+# Dans le code qui suit, on estime à la fois les matrices de covariance les plus adaptées et le nombre de composantes $k$, en optimisant le critère d'information Bayésien $BIC = -2ln(L) + pln(n)$, où $L$ est la vraisemblance du modèle estimé, $n$ le nombre d'observations, et $p$ le nombre de paramètres libres du modèle.
+
+# In[ ]:
+
+
+import itertools
+from scipy import linalg
+import matplotlib as mtp
+
+n_samples = 500
+
+fig = plt.figure(figsize=(12, 6))
+
+# Données
+ax1 = plt.subplot(221)
+np.random.seed(0)
+C = np.array([[0., -0.1], [1.7, .4]])
+X = np.r_[np.dot(np.random.randn(n_samples, 2), C),
+          .7 * np.random.randn(n_samples, 2) + np.array([-6, 3])]
+ax1.plot(X)
+
+ax1.set_title('Données', fontsize=12)
+ax1.set_xlabel('t', fontsize=12)
+ax1.set_ylabel('x(t)', fontsize=12)
+
+
+# Critère BIC en fonction des composantes et du modèle de covariance
+ax2 = plt.subplot(223)
+lowest_bic = np.infty
+bic = []
+n_components_range = range(1, 5)
+cv_types = ['spherical', 'tied', 'diag', 'full']
+for cv_type in cv_types:
+    for n_components in n_components_range:
+        gmm = GaussianMixture(n_components=n_components,
+                                      covariance_type=cv_type)
+        gmm.fit(X)
+        bic.append(gmm.bic(X))
+        if bic[-1] < lowest_bic:
+            lowest_bic = bic[-1]
+            best_gmm = gmm
+    
+bic = np.array(bic)
+color_iter = itertools.cycle(['red', 'green', 'blue',
+                              'darkorange'])
+
+bars = []
+
+for i, (cv_type, color) in enumerate(zip(cv_types, color_iter)):
+    xpos = np.array(n_components_range) + .2 * (i - 2)
+    bars.append(plt.bar(xpos, bic[i * len(n_components_range):
+                                  (i + 1) * len(n_components_range)],
+                        width=.2, color=color))
+ax2.set_title('BIC par modèle')
+xpos = np.mod(bic.argmin(), len(n_components_range)) + .65 +\
+    .2 * np.floor(bic.argmin() / len(n_components_range))
+plt.text(xpos, bic.min() * 0.97 + .03 * bic.max(), '*', fontsize=14)
+ax2.set_xlabel('Nombre de composantes')
+ax2.set_ylabel('BIC')
+ax2.legend([b[0] for b in bars], cv_types)
+
+# Affichage classes
+ax3 = plt.subplot(122)
+Y_ = best_gmm.predict(X)
+for i, (mean, cov, color) in enumerate(zip(best_gmm.means_, best_gmm.covariances_,
+                                           color_iter)):
+    v, w = linalg.eigh(cov)
+    if not np.any(Y_ == i):
+        continue
+    plt.scatter(X[Y_ == i, 0], X[Y_ == i, 1], 5,color=color)
+
+    # Ellipse modélisant la composante gaussienne
+    angle = 180. * np.arctan2(w[0][1], w[0][0]) / np.pi
+    v = 2. * np.sqrt(2.*v)
+    ax3.add_artist(mtp.patches.Ellipse(mean, v[0], v[1], 180. + angle, color=color,alpha=.3))
+
+t = "Modèle choisi : "+ best_gmm.covariance_type +" avec "+ str(best_gmm.n_components)+" composantes"
+ax3.set_title(t)
+plt.subplots_adjust(hspace=.35, bottom=.02)
+plt.tight_layout()
+
+
+# ### Modèles de mélange et estimation
+# 
+# Les modèles de mélange sont également utilisés en estimation de densité. Il suffit pour cela :
+# - d'échantillonner la composante $C_i$ désirée, selon la distribution $P(C_i)=\pi_i$
+# - d'échantillonner un $\mathbf x$ de la distribution de la composante $C_i$, selon ${\cal N}(x|\hat{\theta}_i)$
+
+# In[ ]:
+
+
+from matplotlib.colors import LogNorm
+
+plt.figure(figsize=(12, 6))
+plt.subplot(131)
+plt.scatter(Xi[:, 0], Xi[:, 1], s=5, alpha=.6)
+plt.gca().set_aspect("equal")
+xlim = plt.xlim()
+ylim = plt.ylim()
+plt.xticks(())
+plt.yticks(())
+plt.title("Nuage de points")
+
+plt.subplot(132)
+xs = np.linspace(xlim[0], xlim[1], 1000)
+ys = np.linspace(ylim[0], ylim[1], 1000)
+xx, yy = np.meshgrid(xs, ys)
+pred = gmmi.predict_proba(np.c_[xx.ravel(), yy.ravel()])
+plt.scatter(Xi[:, 0], Xi[:, 1], s=5, alpha=.6, c=plt.cm.Accent(assignment))
+plt.gca().set_aspect("equal")
+plt.xticks(())
+plt.yticks(())
+levels = [.9, .95, .99, 1]
+for color, component in zip(range(k), pred.T):
+    plt.contour(xx, yy, component.reshape(xx.shape), colors=[plt.cm.Accent(color)], levels=levels)
+plt.title("Iso probabilités a posteriori \n des classes sachant les données")
+    
+plt.subplot(133)
+scores = -gmmi.score_samples(np.c_[xx.ravel(), yy.ravel()])
+plt.scatter(Xi[:, 0], Xi[:, 1], s=5, alpha=.6, c=plt.cm.Accent(assignment))
+plt.gca().set_aspect("equal")
+plt.xticks(())
+plt.yticks(())
+plt.contour(xx, yy, scores.reshape(xx.shape), levels=np.logspace(0, 1, 20))
+plt.title("Log vraisemblance négative prédite \n par le modèle")
+plt.tight_layout()
+
 
