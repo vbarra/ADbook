@@ -721,6 +721,7 @@ plt.tight_layout()
 import itertools
 from scipy import linalg
 import matplotlib as mtp
+from sklearn.mixture import GaussianMixture
 
 n_samples = 500
 
