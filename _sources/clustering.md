@@ -678,9 +678,10 @@ plt.show()
 
 ```{code-cell} ipython3
 from sklearn.cluster import KMeans
-n_samples = 500
-blobs = make_blobs(n_samples=n_samples, random_state=8)
+from sklearn.mixture import GaussianMixture
+from sklearn.datasets import make_blobs
 
+n_samples = 500
 
 # Nuages de points allongés
 random_state = 170

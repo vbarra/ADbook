@@ -17,36 +17,54 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from sklearn.cluster import KMeans
-n_samples = 500
-blobs = make_blobs(n_samples=n_samples, random_state=8)
+from matplotlib.colors import LogNorm
 
+plt.figure(figsize=(12, 6))
+plt.subplot(131)
+plt.scatter(Xi[:, 0], Xi[:, 1], s=5, alpha=.6)
+plt.gca().set_aspect("equal")
+xlim = plt.xlim()
+ylim = plt.ylim()
+plt.xticks(())
+plt.yticks(())
+plt.title("Nuage de points")
 
-# Nuages de points allongés
-random_state = 170
-X, y = make_blobs(n_samples=n_samples, random_state=random_state)
-transformation = [[0.6, -0.6], [-0.5, 0.8]]
-X = np.dot(X, transformation)
-
-fig, axes = plt.subplots(1, 2, figsize=(6, 3))
-for ax, model in zip(axes, [GaussianMixture(n_components=3), KMeans(n_clusters=3)]):
-    model.fit(X)
-    ax.scatter(X[:, 0], X[:, 1], c=plt.cm.Accent(model.predict(X)), alpha=.6)
-    ax.set_xticks(())
-    ax.set_yticks(())
-    ax.set_title(type(model).__name__)
+plt.subplot(132)
+xs = np.linspace(xlim[0], xlim[1], 1000)
+ys = np.linspace(ylim[0], ylim[1], 1000)
+xx, yy = np.meshgrid(xs, ys)
+pred = gmmi.predict_proba(np.c_[xx.ravel(), yy.ravel()])
+plt.scatter(Xi[:, 0], Xi[:, 1], s=5, alpha=.6, c=plt.cm.Accent(assignment))
+plt.gca().set_aspect("equal")
+plt.xticks(())
+plt.yticks(())
+levels = [.9, .95, .99, 1]
+for color, component in zip(range(k), pred.T):
+    plt.contour(xx, yy, component.reshape(xx.shape), colors=[plt.cm.Accent(color)], levels=levels)
+plt.title("Iso probabilités a posteriori \n des classes sachant les données")
+    
+plt.subplot(133)
+scores = -gmmi.score_samples(np.c_[xx.ravel(), yy.ravel()])
+plt.scatter(Xi[:, 0], Xi[:, 1], s=5, alpha=.6, c=plt.cm.Accent(assignment))
+plt.gca().set_aspect("equal")
+plt.xticks(())
+plt.yticks(())
+plt.contour(xx, yy, scores.reshape(xx.shape), levels=np.logspace(0, 1, 20))
+plt.title("Log vraisemblance négative prédite \n par le modèle")
 plt.tight_layout()
+
+
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Input [0;32mIn [10][0m, in [0;36m<module>[0;34m[0m
-[1;32m     10[0m X [38;5;241m=[39m np[38;5;241m.[39mdot(X, transformation)
-[1;32m     12[0m fig, axes [38;5;241m=[39m plt[38;5;241m.[39msubplots([38;5;241m1[39m, [38;5;241m2[39m, figsize[38;5;241m=[39m([38;5;241m6[39m, [38;5;241m3[39m))
-[0;32m---> 13[0m [38;5;28;01mfor[39;00m ax, model [38;5;129;01min[39;00m [38;5;28mzip[39m(axes, [[43mGaussianMixture[49m(n_components[38;5;241m=[39m[38;5;241m3[39m), KMeans(n_clusters[38;5;241m=[39m[38;5;241m3[39m)]):
-[1;32m     14[0m     model[38;5;241m.[39mfit(X)
-[1;32m     15[0m     ax[38;5;241m.[39mscatter(X[:, [38;5;241m0[39m], X[:, [38;5;241m1[39m], c[38;5;241m=[39mplt[38;5;241m.[39mcm[38;5;241m.[39mAccent(model[38;5;241m.[39mpredict(X)), alpha[38;5;241m=[39m[38;5;241m.6[39m)
+Input [0;32mIn [12][0m, in [0;36m<module>[0;34m[0m
+[1;32m      3[0m plt[38;5;241m.[39mfigure(figsize[38;5;241m=[39m([38;5;241m12[39m, [38;5;241m6[39m))
+[1;32m      4[0m plt[38;5;241m.[39msubplot([38;5;241m131[39m)
+[0;32m----> 5[0m plt[38;5;241m.[39mscatter([43mXi[49m[:, [38;5;241m0[39m], Xi[:, [38;5;241m1[39m], s[38;5;241m=[39m[38;5;241m5[39m, alpha[38;5;241m=[39m[38;5;241m.6[39m)
+[1;32m      6[0m plt[38;5;241m.[39mgca()[38;5;241m.[39mset_aspect([38;5;124m"[39m[38;5;124mequal[39m[38;5;124m"[39m)
+[1;32m      7[0m xlim [38;5;241m=[39m plt[38;5;241m.[39mxlim()
 
-[0;31mNameError[0m: name 'GaussianMixture' is not defined
-NameError: name 'GaussianMixture' is not defined
+[0;31mNameError[0m: name 'Xi' is not defined
+NameError: name 'Xi' is not defined
 
