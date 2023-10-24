@@ -975,10 +975,41 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <li><p>le one-hot encoding : pour une variable qualitative présentant <span class="math notranslate nohighlight">\(J\)</span> modalités, on construit un vecteur de taille <span class="math notranslate nohighlight">\(J\)</span> dont les composantes sont toutes nulles sauf la <span class="math notranslate nohighlight">\(J\)</span>-ème qui vaut 1. Par exemple, si <span class="math notranslate nohighlight">\(J\)</span>=3, on construit 1 vecteur de taille 3, et pour un individu ayant la modalité 2, on le code en (0 1 0). Lorsque <span class="math notranslate nohighlight">\(J\)</span> est élevé, on se retrouve avec un jeu de données volumineux.</p></li>
 <li><p>les méthodes de plongement (embedding) : utilisées principalement en apprentissage profond (Deep learning) pour le traitement du langage naturel, ces classes de méthodes construisent une représentation de chaque modalité d’une variable qualitative en un vecteur numérique de taille fixe et choisie. Pour le mot “rouge” de la variable “couleur”, par exemple, l’encodage peut par exemple être représenté par le vecteur (0.31 0.57 0.12). En pratique, le calcul de ces représentations s’effectue classiquement par l’entraînement d’un réseau de neurones ayant pour entrée uniquement les variables qualitatives. Tout d’abord, un encodage one-hot est appliqué à la variable afin d’être mise en entrée du réseau, qui n’accepte que les entrées numériques. La sortie d’une des couches cachées du réseau constitue alors le vecteur recherché. On concatène ensuite ce vecteur aux données initiales, utilisées dans l’ajustement du modèle final.</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OrdinalEncoder</span><span class="p">,</span><span class="n">OneHotEncoder</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Rouge&#39;</span><span class="p">],[</span><span class="s1">&#39;Vert&#39;</span><span class="p">],[</span><span class="s1">&#39;Rouge&#39;</span><span class="p">],[</span><span class="s1">&#39;Bleu&#39;</span><span class="p">]]</span>
+<span class="n">ohe</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">()</span>
+<span class="n">le</span> <span class="o">=</span> <span class="n">OrdinalEncoder</span><span class="p">()</span>
+<span class="n">transformed</span> <span class="o">=</span> <span class="n">ohe</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Données : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;One Hot Encoder : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">transformed</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ordinal Encoder : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Données : 
+ [[&#39;Rouge&#39;], [&#39;Vert&#39;], [&#39;Rouge&#39;], [&#39;Bleu&#39;]]
+One Hot Encoder : 
+ [[0. 1. 0.]
+ [0. 0. 1.]
+ [0. 1. 0.]
+ [1. 0. 0.]]
+Ordinal Encoder : 
+ [[1.]
+ [2.]
+ [1.]
+ [0.]]
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="normalisation">
 <h3>Normalisation<a class="headerlink" href="#normalisation" title="Permalink to this headline">#</a></h3>
-<p>Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l’analyse des données (<a class="reference internal" href="#biais"><span class="std std-ref">figure 1</span></a>) qu’il convient de corriger. C’est le processus de normalisation des données.</p>
+<p>Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l’analyse des données (<a class="reference internal" href="#biais"><span class="std std-ref">figure 2</span></a>) qu’il convient de corriger. C’est le processus de normalisation des données.</p>
 <p>Pour une colonne <span class="math notranslate nohighlight">\(j\in[\![1,p]\!]\)</span>, on dispose de <span class="math notranslate nohighlight">\(n\)</span> valeurs <span class="math notranslate nohighlight">\(x_{ij},i\in[\![1,n]\!]\)</span>. On note : <span class="math notranslate nohighlight">\(x_{min} = \displaystyle\min_{i\in[\![1,n]\!]}x_{ij}\)</span>, <span class="math notranslate nohighlight">\(x_{max} = \displaystyle\max_{i\in[\![1,n]\!]}x_{ij}\)</span>,   <span class="math notranslate nohighlight">\(\bar x_j\)</span> la moyenne des <span class="math notranslate nohighlight">\(x_{ij}\)</span>, <span class="math notranslate nohighlight">\(\sigma_j\)</span> leur écart-type, <span class="math notranslate nohighlight">\(x_\frac14, x_\frac12\)</span> et <span class="math notranslate nohighlight">\(x_\frac34\)</span> les premier, deuxième et troisième quartiles. On distingue alors classiquement trois types de normalisation :</p>
 <ol class="simple">
 <li><p>la normalisation min-max : <span class="math notranslate nohighlight">\(x_{ij} = \frac{x_{ij}-x_{min}}{x_{max}-x_{min}}\)</span></p></li>
@@ -1071,10 +1102,10 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
 GeometricMean  :  1258.4787575642572
 HarmonicMean  :  1198.219210728503
-WeightedMean  :  1314.1716478036676
+WeightedMean  :  1316.8665671385206
 </pre></div>
 </div>
-<img alt="_images/statsdescriptives_7_1.png" src="_images/statsdescriptives_7_1.png" />
+<img alt="_images/statsdescriptives_9_1.png" src="_images/statsdescriptives_9_1.png" />
 </div>
 </div>
 <div class="proof definition admonition" id="definition-6">
@@ -1119,7 +1150,7 @@ quartile  50  :  1399.66320800781
 quartile  75  :  1626.326538085935
 </pre></div>
 </div>
-<img alt="_images/statsdescriptives_9_1.png" src="_images/statsdescriptives_9_1.png" />
+<img alt="_images/statsdescriptives_11_1.png" src="_images/statsdescriptives_11_1.png" />
 </div>
 </div>
 </div>
@@ -1211,7 +1242,7 @@ sigma  :  1316.3086347078017 +/- 374.5723639541368
 IQR  :  1316.3086347078017 +/- 720.4074859619113
 </pre></div>
 </div>
-<img alt="_images/statsdescriptives_11_1.png" src="_images/statsdescriptives_11_1.png" />
+<img alt="_images/statsdescriptives_13_1.png" src="_images/statsdescriptives_13_1.png" />
 </div>
 </div>
 </div>
@@ -1302,7 +1333,7 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/statsdescriptives_13_0.png" src="_images/statsdescriptives_13_0.png" />
+<img alt="_images/statsdescriptives_15_0.png" src="_images/statsdescriptives_15_0.png" />
 </div>
 </div>
 </div>
@@ -1351,7 +1382,7 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/statsdescriptives_15_0.png" src="_images/statsdescriptives_15_0.png" />
+<img alt="_images/statsdescriptives_17_0.png" src="_images/statsdescriptives_17_0.png" />
 </div>
 </div>
 </div>
