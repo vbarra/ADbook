@@ -407,7 +407,7 @@ Video("videos/kmeans.mp4",embed =True,width=800)
 # #### K-means++
 # Plutôt que d'initialiser les centres de manière aléatoire, l'algorithme K-means++ propose de partitionner $\Omega=\{\mathbf x_1\cdots \mathbf x_n\}$ selon l'algorithme suivant :
 # 
-# 1. Tirer uniformément le premier centre de classe $c_1$ dans $\Omega$\
+# 1. Tirer uniformément le premier centre de classe $c_1$ dans $\Omega$
 # 2. Pour $i\in[\![2,g]\!]$, choisir $\mathbf{c_i}$ à partir de $\mathbf x_i$ selon la probabilité $D(\mathbf{x}_i)^2$ / $\displaystyle\sum\limits_{j=1}^{m}{D(\mathbf{x}_j)}^2$ où  $D(\mathbf{x}_i)$ est la distance entre $\mathbf{x}_i$ et le centre de classe le plus proche déjà choisi. Ceci assure de tirer des centres de classe éloignés avec forte probabilité. 
 # 
 # 
