@@ -610,7 +610,9 @@ où les $Z_j$ sont indépendants et distribués selon $p_j^{(i)}$.
 
 $$ \displaystyle\sum_{j=1}^n\displaystyle\sum_{k=1}^K p_j^{(i)}(k)\left (ln w_k + ln \Phi_k(\mathbf x_j|\boldsymbol\mu_{k},\boldsymbol\Sigma_{k})\right )$$
 
-sous la contrainte $\displaystyle\sum_{k=1}^K w_k=1$. En utilisant une relxation lagrangienne, et le fait que $\displaystyle\sum_{k=1}^K p_j^{(i)}(k)=1$ on trouve pour tout $k\in[\![1,K]\!]$
+sous la contrainte $\displaystyle\sum_{k=1}^K w_k=1$. 
+
+En utilisant une relxation lagrangienne, et le fait que $\displaystyle\sum_{k=1}^K p_j^{(i)}(k)=1$ on trouve pour tout $k\in[\![1,K]\!]$
 
 $$w_k = \frac1n\displaystyle\sum_{j=1}^n p_j^{(i)}(k)$$
 
@@ -673,6 +675,71 @@ for i in range(0,3):
 plt.tight_layout()
 plt.show()
 ```
+
+### Influence des matrices de covariance
+
+Dans le cas multivarié, les descripteurs peuvent être dépendants ou non, introduisant des termes de covariance dans la matrice du même nom. Ainsi, cette dernière peut être pleine (et identique pour toutes les composantes ou non), ou diagonale (avec les variances des descripteurs égales ou non). 
+
+La matrice de covariance peut alors prendre plusieurs formes : 
+- chaque composante gaussienne a sa matrice de covariance propre, de forme générale
+- chaque composante gaussienne a sa matrice de covariance propre, diagonale
+- toutes les composantes gaussiennes ont la même matrice de covariance
+- chaque composante gaussienne a une matrice de covariance diagonale, à terme diagonaux égaux
+
+```{code-cell} ipython3
+from sklearn.mixture import GaussianMixture
+import matplotlib.pyplot as plt
+def Ellipses(gmm, ax):
+    for n in range(gmm.n_components):
+        if gmm.covariance_type == 'full':
+            covariances = gmm.covariances_[n]
+        elif gmm.covariance_type == 'diag':
+            covariances = np.diag(gmm.covariances_[n])
+        elif gmm.covariance_type == 'tied':
+            covariances = gmm.covariances_
+        elif gmm.covariance_type == 'spherical':
+            covariances = np.eye(gmm.means_.shape[1]) * gmm.covariances_[n]
+
+        v, w = np.linalg.eigh(covariances)
+        u = w[0] / np.linalg.norm(w[0])
+        angle = 180 * np.arctan2(u[1], u[0]) / np.pi
+        v = 2. * np.sqrt(2.) * np.sqrt(v)
+        ell = mtp.patches.Ellipse(gmm.means_[n], v[0], v[1],
+                                  180 + angle, color=plt.cm.tab20(n))
+        ell.set_clip_box(ax.bbox)
+        ell.set_alpha(0.3)
+        ax.add_artist(ell)
+
+rnd = np.random.RandomState(4)
+
+# Données
+A = rnd.normal(size=(40, 2)) + rnd.normal(scale=10, size=(1, 2))
+B = rnd.normal(scale=(1, 5), size=(30, 2)) + rnd.normal(scale=(15, 1), size=(1, 2))
+C = np.dot(rnd.normal(scale=(1, 2), size=(40, 2)), [[1, -1], [1, 1]]) + rnd.normal(scale=(10, 1), size=(1, 2))
+
+X = np.vstack([A, B, C])
+
+gmm = [GaussianMixture(n_components=3, covariance_type=cov_type, max_iter=20, random_state=0)
+              for cov_type in ['spherical', 'diag', 'tied', 'full']]
+
+n_estimators = len(gmm)
+
+fig, axes = plt.subplots(1, 4, figsize=(15, 10))
+titles = ("Sphérique", "Diagonale","Partagée", "Générale")
+
+for ax, title, gmmi in zip(axes, titles, gmm):
+    gmmi.fit(X)
+    Ellipses(gmmi, ax)
+    pred = gmmi.predict(X)    
+    ax.scatter(X[:, 0], X[:, 1], c=plt.cm.Accent(pred))
+
+    ax.set_xticks(())
+    ax.set_yticks(())
+    ax.set_title(title)
+    ax.set_aspect("equal")
+plt.tight_layout()
+````
+
 
 ### Comparaison aux k-means
 
@@ -795,6 +862,12 @@ Les modèles de mélange sont également utilisés en estimation de densité. Il
 
 ```{code-cell} ipython3
 from matplotlib.colors import LogNorm
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.datasets import make_blobs
+
+rng = np.random.RandomState(3)
+Xi, yi = make_blobs(n_samples=500, centers=10, random_state=rng, cluster_std=[rng.gamma(1.5) for i in range(10)])
 
 plt.figure(figsize=(12, 6))
 plt.subplot(131)
