@@ -247,11 +247,10 @@ from sklearn.preprocessing import OrdinalEncoder,OneHotEncoder
 import numpy as np
 X = [['Rouge'],['Vert'],['Rouge'],['Bleu']]
 ohe = OneHotEncoder()
-le = OrdinalEncoder()
-transformed = ohe.fit_transform(X)
+oe = OrdinalEncoder()
 print("Données : \n",X)
-print("One Hot Encoder : \n", transformed.toarray())
-print("Ordinal Encoder : \n", le.fit_transform(np.array(X)))
+print("One Hot Encoder : \n", ohe.fit_transform(X).toarray())
+print("Ordinal Encoder : \n", oe.fit_transform(np.array(X)))
 ```
 
 
