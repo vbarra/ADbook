@@ -174,6 +174,49 @@ for subplot, binsize in ((141, 5),(142, 20), (143, 80), (144, 1000)):
 # - la méthode LOF (Local Outlier Factor) qui repose sur le concept de densité locale, où la localité est donnée par les $k$ voisins les plus proches, dont la distance est utilisée pour estimer la densité. En comparant la densité locale d'un objet aux densités locales de ses voisins, il est possible d'identifier des régions de densité similaire et des points dont la densité est nettement inférieure à celle de leurs voisins. Ces derniers sont considérés comme des valeurs aberrantes. La densité locale est estimée par la distance typique à laquelle un point peut être atteint à partir de ses voisins. 
 # - la méthode COF (Connectivity based Outlier Factor) basée sur le même principe que LOF, à ceci près que l'estimation de densité est effectuée en utilisant le minimum de la somme des distances reliant tous les voisins d'un point donné.
 # 
+# 
+# 
+# Dans le code suivant, 7 anomalies sont introduites dans un jeu de données dans le plan, et détectées par la méthode LOF. Le score d'anomalie calculé par la méthode est proportionnel au cercle entourant le point. Les faux positifs (points de données détectés par LOF comme étant des anomalies) sont reportés en rouge.
+
+# In[2]:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+np.random.seed(42)
+X1 = 0.3 * np.random.randn(70, 2)
+X2 = np.random.uniform(low=-5, high=5, size=(7, 2))
+X = np.r_[X1, X2]
+
+anom = np.ones(len(X), dtype=int)
+anom[-len(X2):] = -1
+
+from sklearn.neighbors import LocalOutlierFactor
+
+clf = LocalOutlierFactor(n_neighbors=20, contamination=0.1)
+y_pred = clf.fit_predict(X)
+err = y_pred != anom
+n_errors = (err).sum()
+X_scores = clf.negative_outlier_factor_
+X3 = X[err==True]
+
+fig = plt.figure()
+ax = fig.add_subplot(1, 1, 1)
+ax.spines['left'].set_position('center')
+ax.spines['bottom'].set_position('center')
+ax.spines['right'].set_color('none')
+ax.spines['top'].set_color('none')
+
+plt.scatter(X[:, 0], X[:, 1], color="k", s=3.0)
+plt.scatter(X3[:,0],X3[:,1],color='r',s=10)
+radius = (X_scores.max() - X_scores) / (X_scores.max() - X_scores.min())
+scatter = plt.scatter(X[:, 0],X[:, 1],s=1000 * radius,edgecolors="g",facecolors="none",)
+plt.suptitle("Détection d'anomalies par LOF")
+plt.tight_layout()
+plt.show()
+
+
 # ### Données manquantes
 # Lors de la collecte des données, il arrive que certaines d'entre elles ne soient pas disponibles ou enregistrées. On distingue trois types de données manquantes :
 # 
@@ -195,7 +238,7 @@ for subplot, binsize in ((141, 5),(142, 20), (143, 80), (144, 1000)):
 # 
 # Le code suivant remplace les valeurs manquantes (\texttt{np.nan}) par la moyenne de la colonne qui contient ces valeurs.
 
-# In[2]:
+# In[3]:
 
 
 import numpy as np
@@ -215,7 +258,7 @@ print(imp.fit_transform(X))
 # 6. Répéter l'étape 2-5 jusqu'à convergence (ou un nombre maximal d'itérations)
 # 7. Répéter les étapes 1-6 plusieurs fois avec différentes initialisations de nombres aléatoires pour créer différentes versions de l'ensemble de données complet/imputé.
 
-# In[3]:
+# In[4]:
 
 
 import numpy as np
@@ -233,7 +276,7 @@ print((imp.fit_transform(X)))
 # -  le one-hot encoding : pour une variable qualitative présentant $J$ modalités, on construit un vecteur de taille $J$ dont les composantes sont toutes nulles sauf la $J$-ème qui vaut 1. Par exemple, si $J$=3, on construit 1 vecteur de taille 3, et pour un individu ayant la modalité 2, on le code en (0 1 0). Lorsque $J$ est élevé, on se retrouve avec un jeu de données volumineux.
 # -  les méthodes de plongement (embedding) : utilisées principalement en apprentissage profond (Deep learning) pour le traitement du langage naturel, ces classes de méthodes construisent une représentation de chaque modalité d'une variable qualitative en un vecteur numérique de taille fixe et choisie. Pour le mot "rouge" de la variable "couleur", par exemple, l'encodage peut par exemple être représenté par le vecteur (0.31 0.57 0.12). En pratique, le calcul de ces représentations s'effectue classiquement par l'entraînement d'un réseau de neurones ayant pour entrée uniquement les variables qualitatives. Tout d'abord, un encodage one-hot est appliqué à la variable afin d'être mise en entrée du réseau, qui n'accepte que les entrées numériques. La sortie d'une des couches cachées du réseau constitue alors le vecteur recherché. On concatène ensuite ce vecteur aux données initiales, utilisées dans l'ajustement du modèle final.
 
-# In[4]:
+# In[5]:
 
 
 from sklearn.preprocessing import OrdinalEncoder,OneHotEncoder
@@ -301,7 +344,7 @@ print("Ordinal Encoder : \n", oe.fit_transform(np.array(X)))
 # 
 # Dans le cas où $\forall i,w_i=1/n$, la moyenne pondérée est la moyenne arithmétique. De plus, dans tous les cas, on peut montrer que $H\leq G\leq \bar{x}$.
 
-# In[5]:
+# In[6]:
 
 
 import numpy as np
@@ -362,7 +405,7 @@ plt.show()
 # $x_p=x_{\lceil{np}\rceil}$
 # En particulier, un quartile est chacune des 3 valeurs qui divisent les données triées en 4 parts égales, de sorte que chaque partie représente 1/4 de l'échantillon de population. On note $Q_i$ le $i^e$ quartile.
 
-# In[6]:
+# In[7]:
 
 
 import numpy as np
@@ -423,7 +466,7 @@ plt.tight_layout()
 # 
 # ![](./images/dispersion.png)
 
-# In[7]:
+# In[8]:
 
 
 import numpy as np
@@ -511,7 +554,7 @@ plt.tight_layout()
 # 
 # Les valeurs de l’ échantillon en dehors des moustaches sont parfois matérialisées par des points et sont alors considérées comme les points aberrants de l'échantillon.
 
-# In[8]:
+# In[9]:
 
 
 import matplotlib.pyplot as plt
@@ -544,7 +587,7 @@ plt.show()
 # ### La description ne fait pas tout...
 # La description d'un ensemble de valeurx $x_j$ par la moyenne, la variance, voire le comportement linéaire (coefficient de corrélation, voir plus loin) peut ne pas suffire à comprendre la distribution des données. Un exemple classique (analyse bivariée, section suivante) est le quartet d'Anscombe (figure ci-dessous), constitué de quatre ensembles de points  $(x,y)\in\mathbb{R}^2$ de même propriétés statistiques (moyenne, variance, coefficient de régression linéaire) mais qui sont distribués de manière totalement différente dans le plan.
 
-# In[9]:
+# In[10]:
 
 
 import matplotlib.pyplot as plt

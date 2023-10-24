@@ -183,6 +183,47 @@ où  $\bar x$ (respectivement $\sigma$) est la moyenne (resp. l'écart-type ) de
 - la méthode LOF (Local Outlier Factor) qui repose sur le concept de densité locale, où la localité est donnée par les $k$ voisins les plus proches, dont la distance est utilisée pour estimer la densité. En comparant la densité locale d'un objet aux densités locales de ses voisins, il est possible d'identifier des régions de densité similaire et des points dont la densité est nettement inférieure à celle de leurs voisins. Ces derniers sont considérés comme des valeurs aberrantes. La densité locale est estimée par la distance typique à laquelle un point peut être atteint à partir de ses voisins. 
 - la méthode COF (Connectivity based Outlier Factor) basée sur le même principe que LOF, à ceci près que l'estimation de densité est effectuée en utilisant le minimum de la somme des distances reliant tous les voisins d'un point donné.
 
+
+
+Dans le code suivant, 7 anomalies sont introduites dans un jeu de données dans le plan, et détectées par la méthode LOF. Le score d'anomalie calculé par la méthode est proportionnel au cercle entourant le point. Les faux positifs (points de données détectés par LOF comme étant des anomalies) sont reportés en rouge.
+
+```{code-cell} ipython3
+import numpy as np
+import matplotlib.pyplot as plt
+
+np.random.seed(42)
+X1 = 0.3 * np.random.randn(70, 2)
+X2 = np.random.uniform(low=-5, high=5, size=(7, 2))
+X = np.r_[X1, X2]
+
+anom = np.ones(len(X), dtype=int)
+anom[-len(X2):] = -1
+
+from sklearn.neighbors import LocalOutlierFactor
+
+clf = LocalOutlierFactor(n_neighbors=20, contamination=0.1)
+y_pred = clf.fit_predict(X)
+err = y_pred != anom
+n_errors = (err).sum()
+X_scores = clf.negative_outlier_factor_
+X3 = X[err==True]
+
+fig = plt.figure()
+ax = fig.add_subplot(1, 1, 1)
+ax.spines['left'].set_position('center')
+ax.spines['bottom'].set_position('center')
+ax.spines['right'].set_color('none')
+ax.spines['top'].set_color('none')
+
+plt.scatter(X[:, 0], X[:, 1], color="k", s=3.0)
+plt.scatter(X3[:,0],X3[:,1],color='r',s=10)
+radius = (X_scores.max() - X_scores) / (X_scores.max() - X_scores.min())
+scatter = plt.scatter(X[:, 0],X[:, 1],s=1000 * radius,edgecolors="g",facecolors="none",)
+plt.suptitle("Détection d'anomalies par LOF")
+plt.tight_layout()
+plt.show()
+``` 
+
 ### Données manquantes
 Lors de la collecte des données, il arrive que certaines d'entre elles ne soient pas disponibles ou enregistrées. On distingue trois types de données manquantes :
 
