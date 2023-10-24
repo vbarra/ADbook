@@ -183,16 +183,14 @@ for subplot, binsize in ((141, 5),(142, 20), (143, 80), (144, 1000)):
 
 import numpy as np
 import matplotlib.pyplot as plt
+from sklearn.neighbors import LocalOutlierFactor
 
 np.random.seed(42)
 X1 = 0.3 * np.random.randn(70, 2)
 X2 = np.random.uniform(low=0, high=2, size=(7, 2))
 X = np.r_[X1, X2]
-
 anom = np.ones(len(X), dtype=int)
 anom[-len(X2):] = -1
-
-from sklearn.neighbors import LocalOutlierFactor
 
 clf = LocalOutlierFactor(n_neighbors=20, contamination=0.1)
 y_pred = clf.fit_predict(X)
