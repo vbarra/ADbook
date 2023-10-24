@@ -1487,7 +1487,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 <h4>K-means++<a class="headerlink" href="#k-means" title="Permalink to this headline">#</a></h4>
 <p>Plutôt que d’initialiser les centres de manière aléatoire, l’algorithme K-means++ propose de partitionner <span class="math notranslate nohighlight">\(\Omega=\{\mathbf x_1\cdots \mathbf x_n\}\)</span> selon l’algorithme suivant :</p>
 <ol class="simple">
-<li><p>Tirer uniformément le premier centre de classe <span class="math notranslate nohighlight">\(c_1\)</span> dans <span class="math notranslate nohighlight">\(\Omega\)</span>\</p></li>
+<li><p>Tirer uniformément le premier centre de classe <span class="math notranslate nohighlight">\(c_1\)</span> dans <span class="math notranslate nohighlight">\(\Omega\)</span></p></li>
 <li><p>Pour <span class="math notranslate nohighlight">\(i\in[\![2,g]\!]\)</span>, choisir <span class="math notranslate nohighlight">\(\mathbf{c_i}\)</span> à partir de <span class="math notranslate nohighlight">\(\mathbf x_i\)</span> selon la probabilité <span class="math notranslate nohighlight">\(D(\mathbf{x}_i)^2\)</span> / <span class="math notranslate nohighlight">\(\displaystyle\sum\limits_{j=1}^{m}{D(\mathbf{x}_j)}^2\)</span> où  <span class="math notranslate nohighlight">\(D(\mathbf{x}_i)\)</span> est la distance entre <span class="math notranslate nohighlight">\(\mathbf{x}_i\)</span> et le centre de classe le plus proche déjà choisi. Ceci assure de tirer des centres de classe éloignés avec forte probabilité.</p></li>
 </ol>
 </div>
