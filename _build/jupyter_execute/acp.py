@@ -22,16 +22,16 @@
 # Dans la suite, les données seront des tableaux $n\times d$ de variables quantitatives, une ligne étant un individu, et les colonnes décrivant les paramètres mesurés. Les observations de $d$ variables sur $n$ individus sont donc rassemblées dans une matrice ${\bf X}\in\mathcal{M}_{n,d}(\mathbb{R})$ .  On notera $x^j$ la j-ème variable, identifiée par la j-ème colonne ${\bf X_{\bullet,j}}$ de ${\bf X}$, et $\mathbf{e_i}$ le i-ème individu (i.e. ${\bf X_{i,\bullet}^T}$).
 #  
 # ## Principe de la méthode
-# ## Pré-traitement du tableau
+# ### Pré-traitement du tableau
 #  En analyse en composantes principales, on raisonne souvent sur des variables centrées et/ou réduites.
-# ### Données centrées
+# #### Données centrées
 #  Notons $\mathbf{g} = \left ( \bar{x}^1\cdots \bar{x}^d\right )$ le vecteur des moyennes arithmétiques de chaque variable (centre de gravité) : 
 #  
 #  $\mathbf{g}={\bf X^TD\mathbf{1}}$
 #  
 #  où ${\bf D}$ est une matrice diagonale de poids,  chaque $d_{ii}$ donnant l'importance de l'individu $i$ dans les données (le plus souvent ${\bf D}=\frac{1}{n}{ \mathbb{I}}$),  et $\mathbf{1}$ est le vecteur de $\mathbb{R}^n$ dont toutes les composantes sont égales à 1. Le tableau ${\bf Y}={\bf X}-\mathbf{1}\mathbf{g}^T=({ \mathbb{I}}-\mathbf{1}\mathbf{1}^T{\bf D}){\bf X}$ est le tableau centré associé à ${\bf X}$.
 # 
-# ### Données réduites
+# #### Données réduites
 #  La matrice de variance/covariance des données centrées est égale à 
 #  ${\bf V} = {\bf X^TDX} - \mathbf{g}\mathbf{g^T} = {\bf Y^TDY}$.
 # 
@@ -40,7 +40,7 @@
 #  est la matrice de corrélation des données et résume la structure des dépendances linéaires entre les $d$ variables.
 #  
 # 
-# ## Projection des individus sur un sous-espace
+# ### Projection des individus sur un sous-espace
 # Le principe de la méthode est d'obtenir une représentation approchée du nuage des $n$ individus dans un sous-espace $F_k$ de dimension faible. Ceci s'effectue par un mécanisme de projection.
 # 
 # Le choix de l'espace de projection est dicté par le critère suivant, qui revient à déformer le moins possible les distances en projection : le sous-espace de dimension $k$ recherché est tel que la moyenne des carrés des distances entre projections soit la plus grande possible. En définissant l'inertie d'un nuage de points comme la moyenne pondérée des carrés des distances au centre de gravité, le critère revient alors à maximiser l'inertie du nuage projeté sur $F_k$.
@@ -69,7 +69,7 @@
 # 
 # Soit $F_k$ un sous-espace portant l'inertie maximale. Alors le sous-espace de dimension $k+1$ portant l'inertie maximale est la somme directe de $F_k$ et de la droite orthogonale à $F_k$ portant l'inertie maximale.
 # ```
-# ## Elements principaux
+# ### Elements principaux
 # 
 # ```{index} ACP ; axes principaux
 # ```
@@ -207,7 +207,7 @@
 # 
 # Notons que dans le cas de la métrique $D_{1/\sigma}$, le cercle des corrélations est la projection de l'ensemble des variables centrées-réduites sur le sous-espace engendré par $\mathbf{c_1},\mathbf{c_2}$. En ce sens, le cercle de corrélation est le pendant, dans l'espace des variables, de la projection des individus sur le premier plan principal. 
 # 
-# ## Positionnement des individus
+# ### Positionnement des individus
 # Dire que $\mathbf{c_1}$ est très corrélée à $x^j$ signifie que les individus ayant une forte coordonnée positive sur l'axe 1 sont caractérisés par une valeur de $x^j$ nettement supérieure à la moyenne. 
 # 
 # Il est très utile aussi de calculer pour chaque axe la contribution apportée par les divers individus à cet axe. Si $c_{ki}$ est la valeur de la composante $k$ pour le $i^e$ individu, alors par construction 
@@ -229,16 +229,26 @@
 # Il n'est pas souhaitable, et ceci surtout pour les premières composantes,  qu'un individu ait une contribution excessive car cela serait un facteur d'instabilité, le fait de retirer cet individu modifiant profondément le résultat de l'analyse. Si ce cas se produisait il y aurait intérêt à effectuer l'analyse en éliminant cet individu puis en le mettant en élément supplémentaire, s'il ne s'agit pas d'une donnée erronée qui a été ainsi mise en évidence.
 # 
 # 
-# ## Facteur de taille, facteur de forme
+# ### Facteur de taille, facteur de forme
 # Le théorème de Frobenius stipule qu'une matrice symétrique n'ayant que des termes positifs admet un premier vecteur propre dont toutes les composantes sont de même signe. Si ce signe est positif, la première composante est alors corrélée positivement avec toutes les variables et les individus sont rangés sur l'axe 1 par valeurs croissantes de l'ensemble des variables. Si de plus les corrélations entre variables sont du même ordre de grandeur, la première composante principale est proportionnelle à la moyenne des variables initiales. Cette première composante définit alors un facteur de taille.
 # 
 # La deuxième composante principale différencie alors des individus de "taille" semblable, on l'appelle souvent facteur de forme.
 # 
-# ## Ajout de variable et ou d'individu
+# ### Ajout de variable et ou d'individu
 # Toutes les interprétations précédentes expliquent les résultats à l'aide des données initiales, qui ont permis de les calculer. On risque alors de prendre pour une propriété intrinsèque des données un simple artefact de la méthode (par exemple il existe de fortes corrélations entre la première composante principale et certaines variables, puisque $\mathbf{c_1}$ maximise $\sum_j r^2(\mathbf{c},x^j)$).
 # 
 # En revanche une forte corrélation entre une composante principale et une variable qui n'a pas servi à l'analyse sera significative. D'où la pratique courante de partager en deux groupes l'ensemble des variables : d'une part les variables actives qui servent à déterminer les axes principaux, d'autre part les variables passives ou supplémentaires que l'on relie a posteriori aux composantes principales. On distingue alors les variables supplémentaires suivant leur type, numérique (à placer dans les cercles de corrélation) ou qualitative (donnée d'une partition des $n$ individus en $k$ classes).
 # 
+# 
+# ## Pour résumer
+
+# In[1]:
+
+
+from IPython.display import Video
+Video("videos/ACP.mp4",embed =True,width=800)
+
+
 # ## Exemple
 # On étudie les consommations annuelles en 1972, exprimées en devises, de 8 denrées alimentaires (les variables), les individus étant 8 catégories socio-professionnelles (CSP) . Les données sont des moyennes par CSP : 
 # 
@@ -331,7 +341,7 @@
 # 
 # Nous proposons ici d'implémenter entièrement l'ACP, pour bien comprendre les mécanismes de cette approche.
 
-# In[1]:
+# In[2]:
 
 
 import numpy as np
@@ -373,7 +383,7 @@ def print_tab (n, d, ind, tab):
 # 
 # $D=\frac{1}{n}I$ = Matrice diagonale de poids, chaque $d_{ii}$ donnant l'importance de l'individu $i$ dans les données
 
-# In[2]:
+# In[3]:
 
 
 Xt = np.transpose(X)
@@ -385,7 +395,7 @@ print ('g = \n',g)
 
 # $Y = X - {\bf 1} g^T = (I - {\bf 11}^TD)X$ = Tableau centré associé à $X$
 
-# In[3]:
+# In[4]:
 
 
 gt = np.transpose(g)
@@ -395,7 +405,7 @@ Y = X - np.matmul (un, gt)
 # ### Données réduites
 # $V=X^TDX-gg^T=Y^TDY$ = Matrice de variance/covariance.
 
-# In[4]:
+# In[5]:
 
 
 Yt = np.transpose(Y)
@@ -406,7 +416,7 @@ V = np.matmul (np.matmul (Yt, D), Y)
 # 
 # $R = D_{1/\sigma}VD_{1/\sigma} = Z^T  D  Z$ = Matrice (symétrique) de variance/covariance des données centrées réduites.
 
-# In[5]:
+# In[6]:
 
 
 sigma = seq = [np.std(x) for x in Xt]
@@ -427,7 +437,7 @@ plt.colorbar();
 # 
 # - Si $M=I$ on calcule $ \frac{1}{n}\displaystyle\sum_{i=1}^n (z_i)^T M z_i = Tr(RM)$
 
-# In[6]:
+# In[7]:
 
 
 def calcul_inertie_somme (Y, M):
@@ -452,7 +462,7 @@ print (calcul_inertie_trace(R, M))
 
 # ## Analyse spectrale
 
-# In[7]:
+# In[8]:
 
 
 eigenvalues,eigenvectors = np.linalg.eig(R)
@@ -462,7 +472,7 @@ u = [eigenvectors[:,i] for i in range(d)]
 
 # ### Calcul des composantes principales
 
-# In[8]:
+# In[9]:
 
 
 c = []
@@ -473,7 +483,7 @@ for j in range(d):
 # ### Pourcentage d'inertie expliquée par un axe
 # Pourcentage d'inertie cumulée expliquée par les $k$ premiers axes : $\frac{\displaystyle\sum_{j=1}^k\lambda_j}{\displaystyle\sum_{j=1}^d\lambda_j}$
 
-# In[9]:
+# In[10]:
 
 
 i_lambda = [l/d for l in eigenvalues]
@@ -490,7 +500,7 @@ plt.tight_layout()
 
 # ### Critère de Kaiser
 
-# In[10]:
+# In[11]:
 
 
 nb_l = np.sum(np.array(eigenvalues)>1)
@@ -501,7 +511,7 @@ print ("On retient " + str(nb_l) + " axes")
 # 
 # ### Corrélation variables/facteurs
 
-# In[11]:
+# In[12]:
 
 
 r = []
@@ -512,7 +522,7 @@ for j in range(d):
 # ### Cercle des corrélations pour un couple de composantes principales
 # Pour $c_1$ et $c_2$, chaque variable $x_j$ est repérée par un point d'abscisse $r(c_1,x^j)$ et d'ordonnée $r(c_2, x_j)$.
 
-# In[12]:
+# In[13]:
 
 
 i1 = i_lambda[0] * 100
@@ -567,7 +577,7 @@ plt.tight_layout()
 
 # ### Contribution des variables
 
-# In[13]:
+# In[14]:
 
 
 contributions_variables = []
@@ -581,7 +591,7 @@ print (print_tab (d, d, variables, contributions_variables))
 
 # ### Représentation des individus
 
-# In[14]:
+# In[15]:
 
 
 plt.figure(figsize=(18, 6))
@@ -626,7 +636,7 @@ plt.tight_layout()
 # ### Contribution des individus
 # $\frac{p_ic_{ki}^2}{\lambda_k}$
 
-# In[15]:
+# In[16]:
 
 
 contributions_individus = []
@@ -643,7 +653,7 @@ print (print_tab (n, d, ind, contributions_individus))
 # ### Tableau des cosinus carrés
 # $\frac{c_{ki}^2}{\displaystyle\sum_{j=1}^d c_{ji}^2}$
 
-# In[16]:
+# In[17]:
 
 
 cosinus_carres = []

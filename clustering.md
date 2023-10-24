@@ -255,6 +255,12 @@ Le critère d'arrêt permet de déterminer la partition  de $X$ la plus appropri
 ### Utilisation des méthodes
 La première difficulté est le choix de la mesure de dissimilarité sur  $\Omega$ et du critère d'agrégation. Généralement, lorsque l'on dispose de variables quantitatives, le critère conseillé est le critère d'inertie. Ensuite, il est souvent nécessaire de disposer d'outils d'aide à l'interprétation et d'outils permettant de diminuer le nombre de niveaux de hiérarchie. Il est d'autre part conseillé d'utiliser conjointement d'autres méthodes d'analyse des données comme l'Analyse en Composantes Principales.
 
+
+```{code-cell} ipython3
+from IPython.display import Video
+Video("videos/dendrogram.mp4",embed =True,width=800)
+```
+
 ### Exemple
 On étudie ici un jeu de données correspondant aux achats dans un supermarché. On cherche à caractériser les comportements des acheteurs en fonction de leurs revenus
 ```{code-cell} ipython3
