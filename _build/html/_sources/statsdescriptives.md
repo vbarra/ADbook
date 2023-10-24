@@ -185,7 +185,7 @@ où  $\bar x$ (respectivement $\sigma$) est la moyenne (resp. l'écart-type ) de
 
 
 
-Dans le code suivant, 7 anomalies sont introduites dans un jeu de données dans le plan, et détectées par la méthode LOF. Le score d'anomalie calculé par la méthode est proportionnel au cercle entourant le point. Les faux positifs (points de données détectés par LOF comme étant des anomalies) sont reportés en rouge.
+Dans le code suivant, 7 anomalies sont introduites dans un jeu de 70 données dans le plan, et détectées par la méthode LOF. Le score d'anomalie calculé par la méthode est proportionnel au cercle entourant le point. Les faux positifs (points de données détectés par LOF comme étant des anomalies) sont reportés en rouge.
 
 ```{code-cell} ipython3
 import numpy as np
@@ -193,7 +193,7 @@ import matplotlib.pyplot as plt
 
 np.random.seed(42)
 X1 = 0.3 * np.random.randn(70, 2)
-X2 = np.random.uniform(low=-5, high=5, size=(7, 2))
+X2 = np.random.uniform(low=0, high=2, size=(7, 2))
 X = np.r_[X1, X2]
 
 anom = np.ones(len(X), dtype=int)
@@ -208,7 +208,7 @@ n_errors = (err).sum()
 X_scores = clf.negative_outlier_factor_
 X3 = X[err==True]
 
-fig = plt.figure(figsize=(10,10))
+fig = plt.figure(figsize=(8,8))
 ax = fig.add_subplot(1, 1, 1)
 ax.spines['left'].set_position('center')
 ax.spines['bottom'].set_position('center')
@@ -217,8 +217,8 @@ ax.spines['top'].set_color('none')
 
 plt.scatter(X[:, 0], X[:, 1], color="k", s=3.0)
 plt.scatter(X3[:,0],X3[:,1],color='r',s=10)
-radius = (X_scores.max() - X_scores) / (X_scores.max() - X_scores.min())
-scatter = plt.scatter(X[:, 0],X[:, 1],s=1000 * radius,edgecolors="g",facecolors="none",)
+r = (X_scores.max() - X_scores) / (X_scores.max() - X_scores.min())
+scatter = plt.scatter(X[:, 0],X[:, 1],s=1000 * r,edgecolors="g",facecolors="none",)
 plt.suptitle("Détection d'anomalies par LOF")
 plt.tight_layout()
 plt.show()
