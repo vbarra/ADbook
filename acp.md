@@ -31,16 +31,16 @@ Pour les données quantitatives, l'Analyse en Composantes Principales (ACP) est 
 Dans la suite, les données seront des tableaux $n\times d$ de variables quantitatives, une ligne étant un individu, et les colonnes décrivant les paramètres mesurés. Les observations de $d$ variables sur $n$ individus sont donc rassemblées dans une matrice ${\bf X}\in\mathcal{M}_{n,d}(\mathbb{R})$ .  On notera $x^j$ la j-ème variable, identifiée par la j-ème colonne ${\bf X_{\bullet,j}}$ de ${\bf X}$, et $\mathbf{e_i}$ le i-ème individu (i.e. ${\bf X_{i,\bullet}^T}$).
  
 ## Principe de la méthode
-## Pré-traitement du tableau
+### Pré-traitement du tableau
  En analyse en composantes principales, on raisonne souvent sur des variables centrées et/ou réduites.
-### Données centrées
+#### Données centrées
  Notons $\mathbf{g} = \left ( \bar{x}^1\cdots \bar{x}^d\right )$ le vecteur des moyennes arithmétiques de chaque variable (centre de gravité) : 
  
  $\mathbf{g}={\bf X^TD\mathbf{1}}$
  
  où ${\bf D}$ est une matrice diagonale de poids,  chaque $d_{ii}$ donnant l'importance de l'individu $i$ dans les données (le plus souvent ${\bf D}=\frac{1}{n}{ \mathbb{I}}$),  et $\mathbf{1}$ est le vecteur de $\mathbb{R}^n$ dont toutes les composantes sont égales à 1. Le tableau ${\bf Y}={\bf X}-\mathbf{1}\mathbf{g}^T=({ \mathbb{I}}-\mathbf{1}\mathbf{1}^T{\bf D}){\bf X}$ est le tableau centré associé à ${\bf X}$.
 
-### Données réduites
+#### Données réduites
  La matrice de variance/covariance des données centrées est égale à 
  ${\bf V} = {\bf X^TDX} - \mathbf{g}\mathbf{g^T} = {\bf Y^TDY}$.
 
@@ -49,7 +49,7 @@ Dans la suite, les données seront des tableaux $n\times d$ de variables quantit
  est la matrice de corrélation des données et résume la structure des dépendances linéaires entre les $d$ variables.
  
 
-## Projection des individus sur un sous-espace
+### Projection des individus sur un sous-espace
 Le principe de la méthode est d'obtenir une représentation approchée du nuage des $n$ individus dans un sous-espace $F_k$ de dimension faible. Ceci s'effectue par un mécanisme de projection.
 
 Le choix de l'espace de projection est dicté par le critère suivant, qui revient à déformer le moins possible les distances en projection : le sous-espace de dimension $k$ recherché est tel que la moyenne des carrés des distances entre projections soit la plus grande possible. En définissant l'inertie d'un nuage de points comme la moyenne pondérée des carrés des distances au centre de gravité, le critère revient alors à maximiser l'inertie du nuage projeté sur $F_k$.
@@ -78,7 +78,7 @@ L'analyse en composantes principales consiste alors, de manière itérative, à 
 
 Soit $F_k$ un sous-espace portant l'inertie maximale. Alors le sous-espace de dimension $k+1$ portant l'inertie maximale est la somme directe de $F_k$ et de la droite orthogonale à $F_k$ portant l'inertie maximale.
 ```
-## Elements principaux
+### Elements principaux
 
 ```{index} ACP ; axes principaux
 ```
@@ -216,7 +216,7 @@ Attention de ne pas interpréter des proximités entre points variables, si ceux
 
 Notons que dans le cas de la métrique $D_{1/\sigma}$, le cercle des corrélations est la projection de l'ensemble des variables centrées-réduites sur le sous-espace engendré par $\mathbf{c_1},\mathbf{c_2}$. En ce sens, le cercle de corrélation est le pendant, dans l'espace des variables, de la projection des individus sur le premier plan principal. 
 
-## Positionnement des individus
+### Positionnement des individus
 Dire que $\mathbf{c_1}$ est très corrélée à $x^j$ signifie que les individus ayant une forte coordonnée positive sur l'axe 1 sont caractérisés par une valeur de $x^j$ nettement supérieure à la moyenne. 
 
 Il est très utile aussi de calculer pour chaque axe la contribution apportée par les divers individus à cet axe. Si $c_{ki}$ est la valeur de la composante $k$ pour le $i^e$ individu, alors par construction 
@@ -238,15 +238,25 @@ On peut également superposer les deux informations précédentes pour corréler
 Il n'est pas souhaitable, et ceci surtout pour les premières composantes,  qu'un individu ait une contribution excessive car cela serait un facteur d'instabilité, le fait de retirer cet individu modifiant profondément le résultat de l'analyse. Si ce cas se produisait il y aurait intérêt à effectuer l'analyse en éliminant cet individu puis en le mettant en élément supplémentaire, s'il ne s'agit pas d'une donnée erronée qui a été ainsi mise en évidence.
 
 
-## Facteur de taille, facteur de forme
+### Facteur de taille, facteur de forme
 Le théorème de Frobenius stipule qu'une matrice symétrique n'ayant que des termes positifs admet un premier vecteur propre dont toutes les composantes sont de même signe. Si ce signe est positif, la première composante est alors corrélée positivement avec toutes les variables et les individus sont rangés sur l'axe 1 par valeurs croissantes de l'ensemble des variables. Si de plus les corrélations entre variables sont du même ordre de grandeur, la première composante principale est proportionnelle à la moyenne des variables initiales. Cette première composante définit alors un facteur de taille.
 
 La deuxième composante principale différencie alors des individus de "taille" semblable, on l'appelle souvent facteur de forme.
 
-## Ajout de variable et ou d'individu
+### Ajout de variable et ou d'individu
 Toutes les interprétations précédentes expliquent les résultats à l'aide des données initiales, qui ont permis de les calculer. On risque alors de prendre pour une propriété intrinsèque des données un simple artefact de la méthode (par exemple il existe de fortes corrélations entre la première composante principale et certaines variables, puisque $\mathbf{c_1}$ maximise $\sum_j r^2(\mathbf{c},x^j)$).
 
 En revanche une forte corrélation entre une composante principale et une variable qui n'a pas servi à l'analyse sera significative. D'où la pratique courante de partager en deux groupes l'ensemble des variables : d'une part les variables actives qui servent à déterminer les axes principaux, d'autre part les variables passives ou supplémentaires que l'on relie a posteriori aux composantes principales. On distingue alors les variables supplémentaires suivant leur type, numérique (à placer dans les cercles de corrélation) ou qualitative (donnée d'une partition des $n$ individus en $k$ classes).
+
+
+## Pour résumer
+```{code-cell} ipython3
+from IPython.display import Video
+Video("videos/ACP.mp4",embed =True,width=800)
+```
+
+
+
 
 ## Exemple
 On étudie les consommations annuelles en 1972, exprimées en devises, de 8 denrées alimentaires (les variables), les individus étant 8 catégories socio-professionnelles (CSP) . Les données sont des moyennes par CSP : 

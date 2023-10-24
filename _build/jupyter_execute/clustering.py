@@ -348,8 +348,14 @@ plt.tight_layout()
 # 
 # 
 # ![](./images/kmeans1.png)
-# 
-# 
+
+# In[5]:
+
+
+from IPython.display import Video
+Video("videos/kmeans.mp4",embed =True,width=800)
+
+
 # L'initialisation des centres de classe étant aléatoire, il convient de répliquer l'algorithme plusieurs fois et de, par exemple, retenir la partition majoritaire. La figure suivante présente deux résultats des k-means, sur un même jeu de données (5 classes, 50 points par classes), avec une initialisation aléatoire différente.
 # 
 # ![](./images/kmeans2.png)
@@ -474,7 +480,7 @@ plt.tight_layout()
 #   
 # On génère des données
 
-# In[5]:
+# In[6]:
 
 
 from sklearn.datasets import make_blobs
@@ -496,7 +502,7 @@ plt.tick_params(labelleft=False)
 
 # Puis on applique l'algorithme des $k$-means.
 
-# In[6]:
+# In[7]:
 
 
 from sklearn.cluster import KMeans
@@ -613,7 +619,7 @@ plt.tight_layout()
 # 
 # $$\boldsymbol\Sigma_{k} = \frac{\displaystyle\sum_{j=1}^n p_j^{(i)}(k) (\mathbf x_j-\boldsymbol\mu_k)(\mathbf x_j-\boldsymbol\mu_k)^T}{\displaystyle\sum_{j=1}^n p_j^{(i)}(k)}$$
 
-# In[7]:
+# In[8]:
 
 
 import numpy as np

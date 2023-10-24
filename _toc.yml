@@ -25,4 +25,5 @@ parts:
     - file: canonique
     - file: afc
     - file: acm
+    - file: TP3_AFC_ACM
     - file: genindex
