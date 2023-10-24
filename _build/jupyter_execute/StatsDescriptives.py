@@ -201,7 +201,7 @@ n_errors = (err).sum()
 X_scores = clf.negative_outlier_factor_
 X3 = X[err==True]
 
-fig = plt.figure()
+fig = plt.figure(figsize=(10,10))
 ax = fig.add_subplot(1, 1, 1)
 ax.spines['left'].set_position('center')
 ax.spines['bottom'].set_position('center')
