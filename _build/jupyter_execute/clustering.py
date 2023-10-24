@@ -701,7 +701,7 @@ transformation = [[0.6, -0.6], [-0.5, 0.8]]
 X = np.dot(X, transformation)
 
 fig, axes = plt.subplots(1, 2, figsize=(6, 3))
-for ax, model in zip(axes, [GaussianMixture(n_components=3), KMeans(n_clusters=3)]):
+for ax, model in zip(axes, [GaussianMixture(n_components=3), KMeans(n_clusters=3,n_init='auto')]):
     model.fit(X)
     ax.scatter(X[:, 0], X[:, 1], c=plt.cm.Accent(model.predict(X)), alpha=.6)
     ax.set_xticks(())
