@@ -347,6 +347,11 @@ L'algorithme des centres-mobiles peut se définir ainsi :
 ![](./images/kmeans1.png)
 
 
+```{code-cell} ipython3
+from IPython.display import Video
+Video("videos/kmeans.mp4",embed =True,width=800)
+```
+
 L'initialisation des centres de classe étant aléatoire, il convient de répliquer l'algorithme plusieurs fois et de, par exemple, retenir la partition majoritaire. La figure suivante présente deux résultats des k-means, sur un même jeu de données (5 classes, 50 points par classes), avec une initialisation aléatoire différente.
 
 ![](./images/kmeans2.png)
