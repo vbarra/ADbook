@@ -871,6 +871,10 @@ from sklearn.datasets import make_blobs
 rng = np.random.RandomState(3)
 Xi, yi = make_blobs(n_samples=500, centers=10, random_state=rng, cluster_std=[rng.gamma(1.5) for i in range(10)])
 
+gmmi = GaussianMixture(n_components=3)
+gmmi.fit(Xi)
+assignment = gmmi.predict(Xi)
+
 plt.figure(figsize=(12, 6))
 plt.subplot(131)
 plt.scatter(Xi[:, 0], Xi[:, 1], s=5, alpha=.6)
@@ -886,7 +890,6 @@ xs = np.linspace(xlim[0], xlim[1], 1000)
 ys = np.linspace(ylim[0], ylim[1], 1000)
 xx, yy = np.meshgrid(xs, ys)
 pred = gmmi.predict_proba(np.c_[xx.ravel(), yy.ravel()])
-assignment = gmmi.predict(Xi)
 plt.scatter(Xi[:, 0], Xi[:, 1], s=5, alpha=.6, c=plt.cm.Accent(assignment))
 plt.gca().set_aspect("equal")
 plt.xticks(())
