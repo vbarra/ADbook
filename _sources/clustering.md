@@ -707,7 +707,7 @@ def Ellipses(gmm, ax):
         angle = 180 * np.arctan2(u[1], u[0]) / np.pi
         v = 2. * np.sqrt(2.) * np.sqrt(v)
         ell = matplotlib.patches.Ellipse(gmm.means_[n], v[0], v[1],
-                                   color=plt.cm.tab20(n))
+                                  180 + angle, color=plt.cm.tab20(n))
         ell.set_clip_box(ax.bbox)
         ell.set_alpha(0.3)
         ax.add_artist(ell)
