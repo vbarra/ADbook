@@ -167,13 +167,13 @@ ymnist=ymnist.astype(int)
 nb_digits = 10000
 s = np.arange(Xmnist.shape[0])
 np.random.shuffle(s)
-X0=Xmnist[s]
+X0=Xmnist.to_numpy()[s]
 y0=ymnist[s]
 Xdata = X0[:nb_digits]
 ydata = y0[:nb_digits]
 
 
-# In[73]:
+# In[9]:
 
 
 # Fonction d'affichage sur le plan principal (n1,n2)
