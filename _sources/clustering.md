@@ -710,6 +710,7 @@ Dans le code qui suit, on estime à la fois les matrices de covariance les plus 
 import itertools
 from scipy import linalg
 import matplotlib as mtp
+from sklearn.mixture import GaussianMixture
 
 n_samples = 500
 
