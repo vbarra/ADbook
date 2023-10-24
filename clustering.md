@@ -9,8 +9,8 @@ kernelspec:
   language: python
   name: python3
 ---
-<h1> Quelques méthodes de classification </h1>
-<h2> Introduction </h2>
+# Quelques méthodes de classification 
+## Introduction 
 La classification automatique a pour but d'obtenir une représentation simplifiée des données initiales. Elle consiste à organiser un ensemble de données en classes homogènes ou classes naturelles. 
 
 Une définition formelle de la classification, qui puisse servir de base à un processus automatisé, amène à se poser les questions suivantes :
@@ -667,7 +667,8 @@ for i in range(0,3):
 
     angle = np.arctan(u[1] / u[0])
     angle = 180.0 * angle / np.pi  
-    ell = matplotlib.patches.Ellipse(M[:,i], v[0], v[1], angle=180.0 + angle, color=c[i])
+#    ell = matplotlib.patches.Ellipse(M[:,i], v[0], v[1], angle=180.0 + angle, color=c[i])
+    ell = matplotlib.patches.Ellipse(M[:,i], v[0], v[1],  color=c[i])
     ell.set_clip_box(fig.bbox)
     ell.set_alpha(0.5)
     fig.add_artist(ell)
