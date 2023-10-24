@@ -981,11 +981,10 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Rouge&#39;</span><span class="p">],[</span><span class="s1">&#39;Vert&#39;</span><span class="p">],[</span><span class="s1">&#39;Rouge&#39;</span><span class="p">],[</span><span class="s1">&#39;Bleu&#39;</span><span class="p">]]</span>
 <span class="n">ohe</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">()</span>
-<span class="n">le</span> <span class="o">=</span> <span class="n">OrdinalEncoder</span><span class="p">()</span>
-<span class="n">transformed</span> <span class="o">=</span> <span class="n">ohe</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">oe</span> <span class="o">=</span> <span class="n">OrdinalEncoder</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Données : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;One Hot Encoder : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">transformed</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ordinal Encoder : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;One Hot Encoder : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ohe</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ordinal Encoder : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">oe</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -1102,7 +1101,7 @@ Ordinal Encoder :
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
 GeometricMean  :  1258.4787575642572
 HarmonicMean  :  1198.219210728503
-WeightedMean  :  1316.8665671385206
+WeightedMean  :  1356.3222138461626
 </pre></div>
 </div>
 <img alt="_images/statsdescriptives_9_1.png" src="_images/statsdescriptives_9_1.png" />
