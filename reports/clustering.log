@@ -17,76 +17,60 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from sklearn.mixture import GaussianMixture
+from matplotlib.colors import LogNorm
+import numpy as np
 import matplotlib.pyplot as plt
-def Ellipses(gmm, ax):
-    for n in range(gmm.n_components):
-        if gmm.covariance_type == 'full':
-            covariances = gmm.covariances_[n]
-        elif gmm.covariance_type == 'diag':
-            covariances = np.diag(gmm.covariances_[n])
-        elif gmm.covariance_type == 'tied':
-            covariances = gmm.covariances_
-        elif gmm.covariance_type == 'spherical':
-            covariances = np.eye(gmm.means_.shape[1]) * gmm.covariances_[n]
+from sklearn.datasets import make_blobs
 
-        v, w = np.linalg.eigh(covariances)
-        u = w[0] / np.linalg.norm(w[0])
-        angle = 180 * np.arctan2(u[1], u[0]) / np.pi
-        v = 2. * np.sqrt(2.) * np.sqrt(v)
-        ell = mtp.patches.Ellipse(gmm.means_[n], v[0], v[1],
-                                  180 + angle, color=plt.cm.tab20(n))
-        ell.set_clip_box(ax.bbox)
-        ell.set_alpha(0.3)
-        ax.add_artist(ell)
+rng = np.random.RandomState(3)
+Xi, yi = make_blobs(n_samples=500, centers=10, random_state=rng, cluster_std=[rng.gamma(1.5) for i in range(10)])
 
-rnd = np.random.RandomState(4)
+plt.figure(figsize=(12, 6))
+plt.subplot(131)
+plt.scatter(Xi[:, 0], Xi[:, 1], s=5, alpha=.6)
+plt.gca().set_aspect("equal")
+xlim = plt.xlim()
+ylim = plt.ylim()
+plt.xticks(())
+plt.yticks(())
+plt.title("Nuage de points")
 
-# Données
-A = rnd.normal(size=(40, 2)) + rnd.normal(scale=10, size=(1, 2))
-B = rnd.normal(scale=(1, 5), size=(30, 2)) + rnd.normal(scale=(15, 1), size=(1, 2))
-C = np.dot(rnd.normal(scale=(1, 2), size=(40, 2)), [[1, -1], [1, 1]]) + rnd.normal(scale=(10, 1), size=(1, 2))
-
-X = np.vstack([A, B, C])
-
-gmm = [GaussianMixture(n_components=3, covariance_type=cov_type, max_iter=20, random_state=0)
-              for cov_type in ['spherical', 'diag', 'tied', 'full']]
-
-n_estimators = len(gmm)
-
-fig, axes = plt.subplots(1, 4, figsize=(15, 10))
-titles = ("Sphérique", "Diagonale","Partagée", "Générale")
-
-for ax, title, gmmi in zip(axes, titles, gmm):
-    gmmi.fit(X)
-    Ellipses(gmmi, ax)
-    pred = gmmi.predict(X)    
-    ax.scatter(X[:, 0], X[:, 1], c=plt.cm.Accent(pred))
-
-    ax.set_xticks(())
-    ax.set_yticks(())
-    ax.set_title(title)
-    ax.set_aspect("equal")
+plt.subplot(132)
+xs = np.linspace(xlim[0], xlim[1], 1000)
+ys = np.linspace(ylim[0], ylim[1], 1000)
+xx, yy = np.meshgrid(xs, ys)
+pred = gmmi.predict_proba(np.c_[xx.ravel(), yy.ravel()])
+plt.scatter(Xi[:, 0], Xi[:, 1], s=5, alpha=.6, c=plt.cm.Accent(assignment))
+plt.gca().set_aspect("equal")
+plt.xticks(())
+plt.yticks(())
+levels = [.9, .95, .99, 1]
+for color, component in zip(range(k), pred.T):
+    plt.contour(xx, yy, component.reshape(xx.shape), colors=[plt.cm.Accent(color)], levels=levels)
+plt.title("Iso probabilités a posteriori \n des classes sachant les données")
+    
+plt.subplot(133)
+scores = -gmmi.score_samples(np.c_[xx.ravel(), yy.ravel()])
+plt.scatter(Xi[:, 0], Xi[:, 1], s=5, alpha=.6, c=plt.cm.Accent(assignment))
+plt.gca().set_aspect("equal")
+plt.xticks(())
+plt.yticks(())
+plt.contour(xx, yy, scores.reshape(xx.shape), levels=np.logspace(0, 1, 20))
+plt.title("Log vraisemblance négative prédite \n par le modèle")
 plt.tight_layout()
+
+
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Input [0;32mIn [10][0m, in [0;36m<module>[0;34m[0m
-[1;32m     41[0m [38;5;28;01mfor[39;00m ax, title, gmmi [38;5;129;01min[39;00m [38;5;28mzip[39m(axes, titles, gmm):
-[1;32m     42[0m     gmmi[38;5;241m.[39mfit(X)
-[0;32m---> 43[0m     [43mEllipses[49m[43m([49m[43mgmmi[49m[43m,[49m[43m [49m[43max[49m[43m)[49m
-[1;32m     44[0m     pred [38;5;241m=[39m gmmi[38;5;241m.[39mpredict(X)    
-[1;32m     45[0m     ax[38;5;241m.[39mscatter(X[:, [38;5;241m0[39m], X[:, [38;5;241m1[39m], c[38;5;241m=[39mplt[38;5;241m.[39mcm[38;5;241m.[39mAccent(pred))
+Input [0;32mIn [13][0m, in [0;36m<module>[0;34m[0m
+[1;32m     22[0m xx, yy [38;5;241m=[39m np[38;5;241m.[39mmeshgrid(xs, ys)
+[1;32m     23[0m pred [38;5;241m=[39m gmmi[38;5;241m.[39mpredict_proba(np[38;5;241m.[39mc_[xx[38;5;241m.[39mravel(), yy[38;5;241m.[39mravel()])
+[0;32m---> 24[0m plt[38;5;241m.[39mscatter(Xi[:, [38;5;241m0[39m], Xi[:, [38;5;241m1[39m], s[38;5;241m=[39m[38;5;241m5[39m, alpha[38;5;241m=[39m[38;5;241m.6[39m, c[38;5;241m=[39mplt[38;5;241m.[39mcm[38;5;241m.[39mAccent([43massignment[49m))
+[1;32m     25[0m plt[38;5;241m.[39mgca()[38;5;241m.[39mset_aspect([38;5;124m"[39m[38;5;124mequal[39m[38;5;124m"[39m)
+[1;32m     26[0m plt[38;5;241m.[39mxticks(())
 
-Input [0;32mIn [10][0m, in [0;36mEllipses[0;34m(gmm, ax)[0m
-[1;32m     16[0m angle [38;5;241m=[39m [38;5;241m180[39m [38;5;241m*[39m np[38;5;241m.[39marctan2(u[[38;5;241m1[39m], u[[38;5;241m0[39m]) [38;5;241m/[39m np[38;5;241m.[39mpi
-[1;32m     17[0m v [38;5;241m=[39m [38;5;241m2.[39m [38;5;241m*[39m np[38;5;241m.[39msqrt([38;5;241m2.[39m) [38;5;241m*[39m np[38;5;241m.[39msqrt(v)
-[0;32m---> 18[0m ell [38;5;241m=[39m [43mmtp[49m[38;5;241m.[39mpatches[38;5;241m.[39mEllipse(gmm[38;5;241m.[39mmeans_[n], v[[38;5;241m0[39m], v[[38;5;241m1[39m],
-[1;32m     19[0m                           [38;5;241m180[39m [38;5;241m+[39m angle, color[38;5;241m=[39mplt[38;5;241m.[39mcm[38;5;241m.[39mtab20(n))
-[1;32m     20[0m ell[38;5;241m.[39mset_clip_box(ax[38;5;241m.[39mbbox)
-[1;32m     21[0m ell[38;5;241m.[39mset_alpha([38;5;241m0.3[39m)
-
-[0;31mNameError[0m: name 'mtp' is not defined
-NameError: name 'mtp' is not defined
+[0;31mNameError[0m: name 'assignment' is not defined
+NameError: name 'assignment' is not defined
 
