@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# # TP long
+
 # In[1]:
 
 
@@ -13,7 +15,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
-# # Jeu de données
+# ## Jeu de données
 # L'objectif de ce jeu de données est de prédire une maladie rénale à partir de mesures effectuées sur des individus.
 # Les données ont été recueillies sur une période de deux mois en Inde et comportent 25 caractéristiques
 # 1. Age(en années)
