@@ -47,16 +47,16 @@ warnings.filterwarnings('ignore')
 # In[2]:
 
 
-data = pd.read_csv('data.csv')
+data = pd.read_csv('data/dataTP.csv')
 
 
-# In[3]:
+# In[23]:
 
 
 data.head()
 
 
-# In[4]:
+# In[24]:
 
 
 data.info()
