@@ -97,6 +97,6 @@ data.info()
 
 # ### 3. Problème de régression
 # Le second problème concerne la [régression linéaire](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html) d'une ou plusieurs des colonnes en fonction des autres régression. Vous vous intéresserez donc à :
-# - la régression simple de la colonne 12 en fonction des autres colonnes ()
+# - la régression simple de la colonne 12 en fonction des autres colonnes
 # - la régression multiple des colonnes 16, 17 et 18 en fonction des autres colonnes
 #  
