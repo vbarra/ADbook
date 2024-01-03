@@ -9,6 +9,14 @@ kernelspec:
   language: python
   name: python3
 ---
+```{code-cell} ipython3
+try:
+    import pandas 
+except ModuleNotFoundError: 
+    !pip3 install --quiet pandas
+import numpy, matplotlib,pandas
+```
+
 # Quelques méthodes de classification 
 ## Introduction 
 La classification automatique a pour but d'obtenir une représentation simplifiée des données initiales. Elle consiste à organiser un ensemble de données en classes homogènes ou classes naturelles. 
