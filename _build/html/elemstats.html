@@ -532,33 +532,6 @@ title="Print to PDF"
      Théorème d’analyse
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#application">
-     Application
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#theoreme-central-limite">
-   Théorème central limite
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#le-t-c-l">
-     Le T.C.L.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#commentaires">
-     Commentaires
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cas-particulier-theoreme-de-moivre-laplace">
-     Cas particulier : théorème de Moivre-Laplace
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -745,33 +718,6 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#theoreme-d-analyse">
      Théorème d’analyse
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#application">
-     Application
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#theoreme-central-limite">
-   Théorème central limite
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#le-t-c-l">
-     Le T.C.L.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#commentaires">
-     Commentaires
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cas-particulier-theoreme-de-moivre-laplace">
-     Cas particulier : théorème de Moivre-Laplace
     </a>
    </li>
   </ul>
@@ -1085,64 +1031,69 @@ Soit <span class="math notranslate nohighlight">\(A=\left \{|X-m|\geq t\right \}
 <h2>Approximation de <span class="math notranslate nohighlight">\(\mathcal{B}(n,p)\)</span> par la loi de Poisson <span class="math notranslate nohighlight">\(\mathcal P(\lambda)\)</span><a class="headerlink" href="#approximation-de-mathcal-b-n-p-par-la-loi-de-poisson-mathcal-p-lambda" title="Permalink to this headline">#</a></h2>
 <div class="section" id="theoreme-d-analyse">
 <h3>Théorème d’analyse<a class="headerlink" href="#theoreme-d-analyse" title="Permalink to this headline">#</a></h3>
-<div class="proof theorem admonition" id="theorem-8">
-<p class="admonition-title"><span class="caption-number">Theorem 4 </span></p>
-<div class="theorem-content section" id="proof-content">
-<p>Si <span class="math notranslate nohighlight">\(p\)</span> est une fonction de <span class="math notranslate nohighlight">\(n\)</span> telle que <span class="math notranslate nohighlight">\(\displaystyle\lim_{n\rightarrow\infty}np(n)=\lambda&gt;0\)</span>, alors pour tout <span class="math notranslate nohighlight">\(k\geq 0\)</span></p>
+<p>````{prf:theorem}`
+Si <span class="math notranslate nohighlight">\(p\)</span> est une fonction de <span class="math notranslate nohighlight">\(n\)</span> telle que <span class="math notranslate nohighlight">\(\displaystyle\lim_{n\rightarrow\infty}np(n)=\lambda&gt;0\)</span>, alors pour tout <span class="math notranslate nohighlight">\(k\geq 0\)</span></p>
 <p><span class="math notranslate nohighlight">\(\displaystyle\lim_{n\rightarrow\infty}\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k} = e^{-\lambda}\frac{\lambda^k}{k!}\)</span></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>En effet 
+
+$\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k}=\frac{n(n-1)\cdots (n-k+1)}{k!}p^k(1-p)^{n-k}$
+
+$\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k}=\frac{(np)^k}{k!}\displaystyle\prod_{j=0}^k\left (1-\frac{j}{n}\right )(1-p)^{n-k}$
+
+
+et le résultat est démontré en remarquant que $\displaystyle\lim_{n\rightarrow\infty} p(n)=0$.
+
+
+### Application
+Soit $S_n$ une variable aléatoire de loi $\mathcal{B}(n,p)$. Lorsque $n$ est grand (&gt;50) et $p$ petite ($np$&lt;10), on peut approcher la loi de $S_n$ par une loi de Poisson $\mathcal P(np)$. On lit alors la valeur correspondante dans la table de la loi de Poisson, pour tout $k\in[\![0,n]\!]$ 
+$P(S_n=k)\approx e^{-\lambda}\frac{\lambda^k}{k!}$
+
+De plus, en remarquant que $\Sigma_n=n-S_n$ suit $\mathcal{B}(n,1-p)$, on a 
+
+$$P(\Sigma_n=k)=P(S_n=n-k)=\begin{pmatrix}n\\p\end{pmatrix} p^{n-k}(1-p)^{k} $$
+
+et quand $n$ est grand (&gt;50) et $p$ voisin de 1 ($n(1-p)&lt;10$) on peut approcher la loi de $\Sigma_n$ par une loi de Poisson $\mathcal P(n(1-p))$.
+
+
+## Théorème central limite
+### Le T.C.L.
+````{prf:theorem}`
+Soit une suite $(X_n)_{n\geq 1}$ de variables aléatoires, i.i.d. de même loi qu&#39;une variable parente $X$, définies sur le même espace $(\Omega,\mathcal A,P)$. On considère la suite des moyennes empiriques $(X_n)_{n\geq 1}$ des $n$-échantillons $(X_1\cdots X_n)$.
+
+Si $X$ admet une moyenne $m$ et un écart-type $\sigma$, alors 
+
+$(\forall x\in\mathbb{R})\; \displaystyle\lim_{n\rightarrow\infty}P\left (\sqrt{n}\frac{\bar X_n-m}{\sigma} &lt;x\right) = \phi(x)$
+où $ \phi(x)$ est la fonction de répartition de la loi normale centrée réduite $\mathcal{N}(0,1)$.
+
+On dit que $\left (\sqrt{n}\frac{\bar X_n-m}{\sigma}\right )_{n\geq 1}$ converge en loi vers $\mathcal{N}(0,1)$.
+```
+La figure suivante illustre ce modèle dans le cas où la variable aléatoire parente $X$ suit un schéma de Bernoulli avec $P(X = 1)=0.1, P(X=0)=0.9$.
+
+![](./images/tcl.png)
+
+
+### Commentaires
+Pour mesurer une grandeur de valeur inconnue $m$, il suffit d&#39;une seule mesure lorsqu&#39;il n&#39;y a pas d&#39;erreur expérimentale. Mais les mesures sont toujours entâchées d&#39;erreur et une expérience ou mesure peut être modélisée par une variable aléatoire $X$ dnot la moyenne théorique $\mathbb{E}(X)$ est la valeur cherchée $m$ si les mesures ne sont pas biaisées, c&#39;est-à-dire affectées d&#39;une erreur systématique.
+
+Ayant effectué $n$ mesures, on a une réalisation d&#39;un $n$-échantillon de $X$ et une valeur observée $\bar x_n$ de la moyenne empirique $\bar X_n$. On peut prendre cette valeur comme estimation de $m$, l&#39;écart $|\bar x_n-m|$ étant une réalisation de $|\bar X_n-m|$. 
+
+- La loi forte des grands nombres justifie cette estimation en supposant  $\mathbb{E}(X)=m$
+- L&#39;inégalité de Tchebychev donne une idée grossière de l&#39;écart en terme de probabilité
+- le théorème central limite donne une évaluation asymptotique de cet écart aléatoire
+
+
+Dans la pratique, pour $n$ grand, dans le cadre de ce théorème, on a l&#39;approximation suivante :
+
+$(\forall a&lt;b)\;\;\;\; P\left (a\sqrt{n}\frac{\bar X_n-m}{\sigma} &lt;b\right)\approx \phi(b)-\phi(a)$
+
+### Cas particulier : théorème de Moivre-Laplace
+````{prf:theorem}
+Soit $X=\mathbb{1}_A$  une variable aléatoire de Bernoulli avec $P(A)=p$. Dans les conditions du théorème central limite la variable $S_n=\displaystyle\sum_{k=1}^n X_k=n\bar X_n$ suit une loi binomiale $\mathcal{B}(n,p)$ et 
+
+$ (\forall x\in\mathbb{R})\; \displaystyle\lim_{n\rightarrow\infty}P\left (\frac{S_n-np}{\sqrt{np(1-p)}} &lt;x\right) = \phi(x)$
+</pre></div>
 </div>
-</div><p>En effet</p>
-<p><span class="math notranslate nohighlight">\(\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k}=\frac{n(n-1)\cdots (n-k+1)}{k!}p^k(1-p)^{n-k}\)</span></p>
-<p><span class="math notranslate nohighlight">\(\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k}=\frac{(np)^k}{k!}\displaystyle\prod_{j=0}^k\left (1-\frac{j}{n}\right )(1-p)^{n-k}\)</span></p>
-<p>et le résultat est démontré en remarquant que <span class="math notranslate nohighlight">\(\displaystyle\lim_{n\rightarrow\infty} p(n)=0\)</span>.</p>
-</div>
-<div class="section" id="application">
-<h3>Application<a class="headerlink" href="#application" title="Permalink to this headline">#</a></h3>
-<p>Soit <span class="math notranslate nohighlight">\(S_n\)</span> une variable aléatoire de loi <span class="math notranslate nohighlight">\(\mathcal{B}(n,p)\)</span>. Lorsque <span class="math notranslate nohighlight">\(n\)</span> est grand (&gt;50) et <span class="math notranslate nohighlight">\(p\)</span> petite (<span class="math notranslate nohighlight">\(np\)</span>&lt;10), on peut approcher la loi de <span class="math notranslate nohighlight">\(S_n\)</span> par une loi de Poisson <span class="math notranslate nohighlight">\(\mathcal P(np)\)</span>. On lit alors la valeur correspondante dans la table de la loi de Poisson, pour tout <span class="math notranslate nohighlight">\(k\in[\![0,n]\!]\)</span>
-<span class="math notranslate nohighlight">\(P(S_n=k)\approx e^{-\lambda}\frac{\lambda^k}{k!}\)</span></p>
-<p>De plus, en remarquant que <span class="math notranslate nohighlight">\(\Sigma_n=n-S_n\)</span> suit <span class="math notranslate nohighlight">\(\mathcal{B}(n,1-p)\)</span>, on a</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}P(\Sigma_n=k)=P(S_n=n-k)=\begin{pmatrix}n\\p\end{pmatrix} p^{n-k}(1-p)^{k} \end{split}\]</div>
-<p>et quand <span class="math notranslate nohighlight">\(n\)</span> est grand (&gt;50) et <span class="math notranslate nohighlight">\(p\)</span> voisin de 1 (<span class="math notranslate nohighlight">\(n(1-p)&lt;10\)</span>) on peut approcher la loi de <span class="math notranslate nohighlight">\(\Sigma_n\)</span> par une loi de Poisson <span class="math notranslate nohighlight">\(\mathcal P(n(1-p))\)</span>.</p>
-</div>
-</div>
-<div class="section" id="theoreme-central-limite">
-<h2>Théorème central limite<a class="headerlink" href="#theoreme-central-limite" title="Permalink to this headline">#</a></h2>
-<div class="section" id="le-t-c-l">
-<h3>Le T.C.L.<a class="headerlink" href="#le-t-c-l" title="Permalink to this headline">#</a></h3>
-<div class="proof theorem admonition" id="theorem-9">
-<p class="admonition-title"><span class="caption-number">Theorem 5 </span></p>
-<div class="theorem-content section" id="proof-content">
-<p>Soit une suite <span class="math notranslate nohighlight">\((X_n)_{n\geq 1}\)</span> de variables aléatoires, i.i.d. de même loi qu’une variable parente <span class="math notranslate nohighlight">\(X\)</span>, définies sur le même espace <span class="math notranslate nohighlight">\((\Omega,\mathcal A,P)\)</span>. On considère la suite des moyennes empiriques <span class="math notranslate nohighlight">\((X_n)_{n\geq 1}\)</span> des <span class="math notranslate nohighlight">\(n\)</span>-échantillons <span class="math notranslate nohighlight">\((X_1\cdots X_n)\)</span>.</p>
-<p>Si <span class="math notranslate nohighlight">\(X\)</span> admet une moyenne <span class="math notranslate nohighlight">\(m\)</span> et un écart-type <span class="math notranslate nohighlight">\(\sigma\)</span>, alors</p>
-<p><span class="math notranslate nohighlight">\((\forall x\in\mathbb{R})\; \displaystyle\lim_{n\rightarrow\infty}P\left (\sqrt{n}\frac{\bar X_n-m}{\sigma} &lt;x\right) = \phi(x)\)</span>
-où <span class="math notranslate nohighlight">\( \phi(x)\)</span> est la fonction de répartition de la loi normale centrée réduite <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span>.</p>
-<p>On dit que <span class="math notranslate nohighlight">\(\left (\sqrt{n}\frac{\bar X_n-m}{\sigma}\right )_{n\geq 1}\)</span> converge en loi vers <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span>.</p>
-</div>
-</div><p>La figure suivante illustre ce modèle dans le cas où la variable aléatoire parente <span class="math notranslate nohighlight">\(X\)</span> suit un schéma de Bernoulli avec <span class="math notranslate nohighlight">\(P(X = 1)=0.1, P(X=0)=0.9\)</span>.</p>
-<p><img alt="" src="_images/tcl.png" /></p>
-</div>
-<div class="section" id="commentaires">
-<h3>Commentaires<a class="headerlink" href="#commentaires" title="Permalink to this headline">#</a></h3>
-<p>Pour mesurer une grandeur de valeur inconnue <span class="math notranslate nohighlight">\(m\)</span>, il suffit d’une seule mesure lorsqu’il n’y a pas d’erreur expérimentale. Mais les mesures sont toujours entâchées d’erreur et une expérience ou mesure peut être modélisée par une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> dnot la moyenne théorique <span class="math notranslate nohighlight">\(\mathbb{E}(X)\)</span> est la valeur cherchée <span class="math notranslate nohighlight">\(m\)</span> si les mesures ne sont pas biaisées, c’est-à-dire affectées d’une erreur systématique.</p>
-<p>Ayant effectué <span class="math notranslate nohighlight">\(n\)</span> mesures, on a une réalisation d’un <span class="math notranslate nohighlight">\(n\)</span>-échantillon de <span class="math notranslate nohighlight">\(X\)</span> et une valeur observée <span class="math notranslate nohighlight">\(\bar x_n\)</span> de la moyenne empirique <span class="math notranslate nohighlight">\(\bar X_n\)</span>. On peut prendre cette valeur comme estimation de <span class="math notranslate nohighlight">\(m\)</span>, l’écart <span class="math notranslate nohighlight">\(|\bar x_n-m|\)</span> étant une réalisation de <span class="math notranslate nohighlight">\(|\bar X_n-m|\)</span>.</p>
-<ul class="simple">
-<li><p>La loi forte des grands nombres justifie cette estimation en supposant  <span class="math notranslate nohighlight">\(\mathbb{E}(X)=m\)</span></p></li>
-<li><p>L’inégalité de Tchebychev donne une idée grossière de l’écart en terme de probabilité</p></li>
-<li><p>le théorème central limite donne une évaluation asymptotique de cet écart aléatoire</p></li>
-</ul>
-<p>Dans la pratique, pour <span class="math notranslate nohighlight">\(n\)</span> grand, dans le cadre de ce théorème, on a l’approximation suivante :</p>
-<p><span class="math notranslate nohighlight">\((\forall a&lt;b)\;\;\;\; P\left (a\sqrt{n}\frac{\bar X_n-m}{\sigma} &lt;b\right)\approx \phi(b)-\phi(a)\)</span></p>
-</div>
-<div class="section" id="cas-particulier-theoreme-de-moivre-laplace">
-<h3>Cas particulier : théorème de Moivre-Laplace<a class="headerlink" href="#cas-particulier-theoreme-de-moivre-laplace" title="Permalink to this headline">#</a></h3>
-<div class="proof theorem admonition" id="theorem-10">
-<p class="admonition-title"><span class="caption-number">Theorem 6 </span></p>
-<div class="theorem-content section" id="proof-content">
-<p>Soit <span class="math notranslate nohighlight">\(X=\mathbb{1}_A\)</span>  une variable aléatoire de Bernoulli avec <span class="math notranslate nohighlight">\(P(A)=p\)</span>. Dans les conditions du théorème central limite la variable <span class="math notranslate nohighlight">\(S_n=\displaystyle\sum_{k=1}^n X_k=n\bar X_n\)</span> suit une loi binomiale <span class="math notranslate nohighlight">\(\mathcal{B}(n,p)\)</span> et</p>
-<p><span class="math notranslate nohighlight">\( (\forall x\in\mathbb{R})\; \displaystyle\lim_{n\rightarrow\infty}P\left (\frac{S_n-np}{\sqrt{np(1-p)}} &lt;x\right) = \phi(x)\)</span></p>
-</div>
-</div><p>On peut donc approcher une loi binomiale par une loi normale.</p>
+<p>On peut donc approcher une loi binomiale par une loi normale.</p>
 </div>
 </div>
 <div class="section" id="modeles-probabilistes-usuels">
@@ -1430,20 +1381,20 @@ Fonction de répartition :  0.9031995154143897
 </div>
 </div>
 <p>Sous l’hypothèse de normalité, de nombreux outils statistiques sont disponibles. Souvent, l’hypothèse de normalité est justifiée par l’intermédiaire du théorème centrale limite. Des considérations, parfois abusives, permettent de se placer dans le cadre d’utilisation de ce théorème et de choisir un modèle normal alors qu’une étude des données statistiques met en défaut le choix de ce modèle (problème dit d’adéquation).</p>
-<div class="proof property admonition" id="property-11">
+<div class="proof property admonition" id="property-8">
 <p class="admonition-title"><span class="caption-number">Property 6 </span></p>
 <div class="property-content section" id="proof-content">
 <p>Si <span class="math notranslate nohighlight">\(X\)</span> est une variable aléatoire de loi <span class="math notranslate nohighlight">\(\mathcal{N}(m,\sigma)\)</span> alors la variable <span class="math notranslate nohighlight">\(Z=\frac{X-m}{\sigma}\)</span> est la variable centrée réduite associée, et suit une loi <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span> dite aussi loi de Gauss-Laplace.</p>
 </div>
 </div><p>La fonction de répartition de <span class="math notranslate nohighlight">\(Z\)</span> est <span class="math notranslate nohighlight">\(\phi(Z) = P(Z&lt;z) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^z e^{-\frac{t^2}{2}}dt\)</span>, dont les valeurs peuvent être lues dans une table.</p>
-<div class="proof theorem admonition" id="theorem-12">
-<p class="admonition-title"><span class="caption-number">Theorem 7 </span></p>
+<div class="proof theorem admonition" id="theorem-9">
+<p class="admonition-title"><span class="caption-number">Theorem 4 </span></p>
 <div class="theorem-content section" id="proof-content">
 <p>Soient <span class="math notranslate nohighlight">\(X_1\)</span> et <span class="math notranslate nohighlight">\(X_2\)</span> deux variables aléatoires indépendantes, de loi respective <span class="math notranslate nohighlight">\(\mathcal{N}(m_1,\sigma_1)\)</span> et <span class="math notranslate nohighlight">\(\mathcal{N}(m_2,\sigma_2)\)</span>. Alors la variable aléatoire <span class="math notranslate nohighlight">\(X=\alpha_1X_1+\alpha_2X_2\)</span> admet une loi <span class="math notranslate nohighlight">\(\mathcal{N}(m,\sigma)\)</span> avec</p>
 <p><span class="math notranslate nohighlight">\(m = \alpha_1 m_1+\alpha_2 m_2\quad \textrm{et}\quad \sigma_2^2 = \alpha_1^2 \sigma_1+\alpha_2^2 \sigma_2^2\)</span></p>
 <p>En particulier, étant données <span class="math notranslate nohighlight">\(n\)</span> variables aléatoires <span class="math notranslate nohighlight">\(X_1\cdots X_n\)</span> i.i.d. de loi <span class="math notranslate nohighlight">\(\mathcal{N}(m,\sigma)\)</span>, alors la variable aléatoire <span class="math notranslate nohighlight">\(\bar X_n = \frac1n \displaystyle\sum_{k=1}^nX_k\)</span> suit une loi normale <span class="math notranslate nohighlight">\(\mathcal{N}(m,\sigma/\sqrt{n})\)</span>.</p>
 </div>
-</div><div class="proof remark admonition" id="remark-13">
+</div><div class="proof remark admonition" id="remark-10">
 <p class="admonition-title"><span class="caption-number">Remark 8 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Dans ce cas, <span class="math notranslate nohighlight">\(\sqrt{n}\frac{\bar X_n-m}{\sigma}\)</span> suit une loi <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span>.</p>
@@ -1506,13 +1457,13 @@ Fonction de répartition :  0.9052421318239862
 </div>
 </div>
 <p>Les propriétés de cette loi reposent sur celles de la fonction <span class="math notranslate nohighlight">\(\Gamma(a) = \int_0^{+\infty} x-{a-1}e^{-x}dx\)</span>, intégrale convergente pour tout <span class="math notranslate nohighlight">\(a&gt;0\)</span>.</p>
-<div class="proof theorem admonition" id="theorem-14">
-<p class="admonition-title"><span class="caption-number">Theorem 8 </span></p>
+<div class="proof theorem admonition" id="theorem-11">
+<p class="admonition-title"><span class="caption-number">Theorem 5 </span></p>
 <div class="theorem-content section" id="proof-content">
 <p>Si <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> sont des variables aléatoires indépendantes de loi respective <span class="math notranslate nohighlight">\(\gamma(a,\lambda)\)</span> et <span class="math notranslate nohighlight">\(\gamma(b,\lambda)\)</span>, alors <span class="math notranslate nohighlight">\(X=X_1+X_2\)</span> est de loi <span class="math notranslate nohighlight">\(\gamma(a+b,\lambda)\)</span></p>
 </div>
-</div><div class="proof theorem admonition" id="theorem-15">
-<p class="admonition-title"><span class="caption-number">Theorem 9 </span></p>
+</div><div class="proof theorem admonition" id="theorem-12">
+<p class="admonition-title"><span class="caption-number">Theorem 6 </span></p>
 <div class="theorem-content section" id="proof-content">
 <p>Si <span class="math notranslate nohighlight">\(X\)</span> est de loi <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span> alors la variable aléatoire <span class="math notranslate nohighlight">\(Y=X^2\)</span> admet une loi <span class="math notranslate nohighlight">\(\gamma(\frac12,\frac12)\)</span>.</p>
 <p>Etant données plus généralement <span class="math notranslate nohighlight">\(n\)</span> variables aléatoires i.i.d. de loi <span class="math notranslate nohighlight">\(\mathcal{N}(m,\sigma)\)</span>, alors  la variable aléatoire <span class="math notranslate nohighlight">\(V=\displaystyle\sum_{k=1}^n \left (\frac{X_k-m}{\sigma}\right )^2\)</span> admet une loi <span class="math notranslate nohighlight">\(\gamma(\frac{n}{2},\frac12)\)</span>. C’est la loi du khi-deux à <span class="math notranslate nohighlight">\(n\)</span> degrés de liberté.</p>
@@ -1568,8 +1519,8 @@ Fonction de répartition :  0.9522670168666454
 </div>
 </div>
 <p>L’utilisation pratique de cette loi est énoncée par le théorème suivant :</p>
-<div class="proof theorem admonition" id="theorem-16">
-<p class="admonition-title"><span class="caption-number">Theorem 10 </span></p>
+<div class="proof theorem admonition" id="theorem-13">
+<p class="admonition-title"><span class="caption-number">Theorem 7 </span></p>
 <div class="theorem-content section" id="proof-content">
 <p>Soient deux variables aléatoires <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> indépendantes, de loi respective <span class="math notranslate nohighlight">\(\mathcal{N}(0,1)\)</span> et <span class="math notranslate nohighlight">\(\chi_n^2\)</span>. Alors la variable aléatoire <span class="math notranslate nohighlight">\(T=\frac{X}{\sqrt{Y/n}}\)</span> admet une loi de Student à <span class="math notranslate nohighlight">\(n\)</span> degrés de liberté.</p>
 </div>
@@ -1600,8 +1551,8 @@ Fonction de répartition :  0.84
 </div>
 </div>
 <p>L’utilisation pratique de cette loi est énoncée par le théorème suivant :</p>
-<div class="proof theorem admonition" id="theorem-17">
-<p class="admonition-title"><span class="caption-number">Theorem 11 </span></p>
+<div class="proof theorem admonition" id="theorem-14">
+<p class="admonition-title"><span class="caption-number">Theorem 8 </span></p>
 <div class="theorem-content section" id="proof-content">
 <p>Soient deux variables aléatoires <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> indépendantes, de loi respective <span class="math notranslate nohighlight">\(\chi_n^2\)</span> et <span class="math notranslate nohighlight">\(\chi_m^2\)</span>. Alors la variable aléatoire <span class="math notranslate nohighlight">\(T=\frac{X/n}{Y/m}\)</span> admet une loi de Fisher-Snédécor à <span class="math notranslate nohighlight">\(n\)</span> et <span class="math notranslate nohighlight">\(m\)</span> degrés de liberté.</p>
 </div>

@@ -134,11 +134,11 @@
 # 
 # ## Loi des grands nombres
 # ### Inégalité de Tchebychev
-# ```{prf:theorem}
+# ````{prf:theorem}
 # Soit une variable aléatoire $X$ de moyenne $m$ et d'écart-type $\sigma$. Alors :
 # 
 # $(\forall t>0)\; P(|X-m|\geq t)\leq \frac{\sigma^2}{t^2}\quad\textrm{et}\quad (\forall u>0)\; P(\frac{|X-m|}{\sigma}\geq u)\leq \frac{1}{u^2}$
-# ```
+# ````
 # En effet :
 # Soit $A=\left \{|X-m|\geq t\right \}$ et $\mathbb{1}_A(\omega)$ = 1 si $\omega\in A$, 0 sinon. Alors :
 # 
@@ -199,13 +199,13 @@ plt.tight_layout()
 # 
 # 
 # ### Loi faible des grands nombres
-# ```{prf:theorem}
+# ````{prf:theorem}
 # Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires indépendantes, identiquement distribuées (i.i.d) de même loi qu'une variable $X$, admettant une moyenne $m$ et un écart-type $\sigma$. Si $(\bar{X}_n)_{n\geq 1}$ est la suite des moyennes empiriques associée à $(X_n)_{n\geq 1}$ alors
 # 
 # $(\forall t>0)\; \displaystyle\lim_{n\rightarrow\infty} P(|\bar{X}_n-m|\geq t) = 0$
 # 
 # On dit que la suite converge en probatilité vers $m$ et on note $\bar{X}_n\xrightarrow[n\rightarrow\infty]{P} m$
-# ```
+# ````
 # 
 # C'est une conséquence immédiate de l'inégalité de Tchebychev : $P(|\bar{X}_n-m|\geq t)\leq\frac{\sigma^2}{nt^2}$ puisque $\mathbb{V}(\bar{X}_n)=\frac{\sigma^2}{n}$
 # 
@@ -226,11 +226,11 @@ plt.tight_layout()
 # 
 # ## Approximation de $\mathcal{B}(n,p)$ par la loi de Poisson $\mathcal P(\lambda)$
 # ### Théorème d'analyse
-# ```{prf:theorem}
+# ````{prf:theorem}`
 # Si $p$ est une fonction de $n$ telle que $\displaystyle\lim_{n\rightarrow\infty}np(n)=\lambda>0$, alors pour tout $k\geq 0$
 # 
 # $\displaystyle\lim_{n\rightarrow\infty}\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k} = e^{-\lambda}\frac{\lambda^k}{k!}$
-# ```
+# ````
 # En effet 
 # 
 # $\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k}=\frac{n(n-1)\cdots (n-k+1)}{k!}p^k(1-p)^{n-k}$
@@ -254,7 +254,7 @@ plt.tight_layout()
 # 
 # ## Théorème central limite
 # ### Le T.C.L.
-# ```{prf:theorem}
+# ````{prf:theorem}`
 # Soit une suite $(X_n)_{n\geq 1}$ de variables aléatoires, i.i.d. de même loi qu'une variable parente $X$, définies sur le même espace $(\Omega,\mathcal A,P)$. On considère la suite des moyennes empiriques $(X_n)_{n\geq 1}$ des $n$-échantillons $(X_1\cdots X_n)$.
 # 
 # Si $X$ admet une moyenne $m$ et un écart-type $\sigma$, alors 
@@ -284,11 +284,11 @@ plt.tight_layout()
 # $(\forall a<b)\;\;\;\; P\left (a\sqrt{n}\frac{\bar X_n-m}{\sigma} <b\right)\approx \phi(b)-\phi(a)$
 # 
 # ### Cas particulier : théorème de Moivre-Laplace
-# ```{prf:theorem}
+# ````{prf:theorem}
 # Soit $X=\mathbb{1}_A$  une variable aléatoire de Bernoulli avec $P(A)=p$. Dans les conditions du théorème central limite la variable $S_n=\displaystyle\sum_{k=1}^n X_k=n\bar X_n$ suit une loi binomiale $\mathcal{B}(n,p)$ et 
 # 
 # $ (\forall x\in\mathbb{R})\; \displaystyle\lim_{n\rightarrow\infty}P\left (\frac{S_n-np}{\sqrt{np(1-p)}} <x\right) = \phi(x)$
-# ``` 
+# ```` 
 # On peut donc approcher une loi binomiale par une loi normale.
 # 
 # 
@@ -435,13 +435,13 @@ print("Fonction de répartition : ", norm.cdf(x, loc = m, scale = sigma))
 # ````
 # La fonction de répartition de $Z$ est $\phi(Z) = P(Z<z) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^z e^{-\frac{t^2}{2}}dt$, dont les valeurs peuvent être lues dans une table. 
 # 
-# ```{prf:theorem}
+# ````{prf:theorem}
 # Soient $X_1$ et $X_2$ deux variables aléatoires indépendantes, de loi respective $\mathcal{N}(m_1,\sigma_1)$ et $\mathcal{N}(m_2,\sigma_2)$. Alors la variable aléatoire $X=\alpha_1X_1+\alpha_2X_2$ admet une loi $\mathcal{N}(m,\sigma)$ avec 
 # 
 # $m = \alpha_1 m_1+\alpha_2 m_2\quad \textrm{et}\quad \sigma_2^2 = \alpha_1^2 \sigma_1+\alpha_2^2 \sigma_2^2$
 # 
 # En particulier, étant données $n$ variables aléatoires $X_1\cdots X_n$ i.i.d. de loi $\mathcal{N}(m,\sigma)$, alors la variable aléatoire $\bar X_n = \frac1n \displaystyle\sum_{k=1}^nX_k$ suit une loi normale $\mathcal{N}(m,\sigma/\sqrt{n})$.
-# ``` 
+# ```` 
 # ```{prf:remark}
 # Dans ce cas, $\sqrt{n}\frac{\bar X_n-m}{\sigma}$ suit une loi $\mathcal{N}(0,1)$.
 # ```
@@ -488,15 +488,15 @@ print("Fonction de répartition : ", gamma.cdf(x, a, scale = 1/Lambda))
 
 # Les propriétés de cette loi reposent sur celles de la fonction $\Gamma(a) = \int_0^{+\infty} x-{a-1}e^{-x}dx$, intégrale convergente pour tout $a>0$.
 # 
-# ```{prf:theorem}
+# ````{prf:theorem}
 # Si $X$ et $Y$ sont des variables aléatoires indépendantes de loi respective $\gamma(a,\lambda)$ et $\gamma(b,\lambda)$, alors $X=X_1+X_2$ est de loi $\gamma(a+b,\lambda)$
-# ```
+# ````
 # 
-# ```{prf:theorem}
+# ````{prf:theorem}
 # Si $X$ est de loi $\mathcal{N}(0,1)$ alors la variable aléatoire $Y=X^2$ admet une loi $\gamma(\frac12,\frac12)$.
 # 
 # Etant données plus généralement $n$ variables aléatoires i.i.d. de loi $\mathcal{N}(m,\sigma)$, alors  la variable aléatoire $V=\displaystyle\sum_{k=1}^n \left (\frac{X_k-m}{\sigma}\right )^2$ admet une loi $\gamma(\frac{n}{2},\frac12)$. C'est la loi du khi-deux à $n$ degrés de liberté.
-# ```
+# ````
 # 
 # #### Loi du Khi-deux
 
@@ -530,9 +530,9 @@ print("Fonction de répartition : ", t(n).cdf(x))
 
 # L'utilisation pratique de cette loi est énoncée par le théorème suivant :
 # 
-# ```{prf:theorem}
+# ````{prf:theorem}
 # Soient deux variables aléatoires $X$ et $Y$ indépendantes, de loi respective $\mathcal{N}(0,1)$ et $\chi_n^2$. Alors la variable aléatoire $T=\frac{X}{\sqrt{Y/n}}$ admet une loi de Student à $n$ degrés de liberté. 
-# ```
+# ````
 # 
 # 
 # #### Loi de Fisher-Snédécor
@@ -553,7 +553,7 @@ print("Fonction de répartition : ", f(n,m).cdf(x))
 
 # L'utilisation pratique de cette loi est énoncée par le théorème suivant :
 # 
-# ```{prf:theorem}
+# ````{prf:theorem}
 # Soient deux variables aléatoires $X$ et $Y$ indépendantes, de loi respective $\chi_n^2$ et $\chi_m^2$. Alors la variable aléatoire $T=\frac{X/n}{Y/m}$ admet une loi de Fisher-Snédécor à $n$ et $m$ degrés de liberté. 
 # 
-# ```
+# ````

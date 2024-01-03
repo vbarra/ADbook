@@ -171,11 +171,11 @@
 # 
 # ### Théorème des probabilités totales
 # 
-# ```{prf:theorem}
+# ````{prf:theorem}
 # Soit $\{B_i\}$ un système complet d'évènements (qui forment donc une partition de $\Omega$). Pour tout évènement $A$, on peut écrire 
 # 
 # $P(A) = \displaystyle\sum_i P(A\bigcap B_i) = \displaystyle\sum_i P(A| B_i) P(B_i)$
-# ```
+# ````
 # 
 # 
 # ### Règle de Bayes
