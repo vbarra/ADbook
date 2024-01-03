@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,6 +43,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
+    <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -56,11 +57,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="TP ACP" href="TP2_ACP.html" />
     <link rel="prev" title="Quelques méthodes de classification" href="clustering.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="fr">
     
 
     <!-- Google Analytics -->
@@ -107,17 +108,9 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    Introduction
-                </a>
-            </li>
-        </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Cours
@@ -226,7 +219,7 @@ const thebe_selector_output = ".output, .cell_output"
              <!-- To handle the deprecated key -->
             
             <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
             </div>
             
         </div>
@@ -269,35 +262,6 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/TP1_statsDescriptives.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -311,52 +275,6 @@ title="Fullscreen mode"
   </span>
 
 </button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/TP1_statsDescriptives.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 <label for="__page-toc"
   class="headerbtn headerbtn-page-toc"
   
@@ -453,7 +371,7 @@ title="Print to PDF"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="tp-statistiques-descriptives">
-<h1>TP Statistiques descriptives<a class="headerlink" href="#tp-statistiques-descriptives" title="Permalink to this headline">#</a></h1>
+<h1>TP Statistiques descriptives<a class="headerlink" href="#tp-statistiques-descriptives" title="Lien permanent vers ce titre">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -463,7 +381,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="section" id="statistique-monovariee">
-<h2>Statistique monovariée<a class="headerlink" href="#statistique-monovariee" title="Permalink to this headline">#</a></h2>
+<h2>Statistique monovariée<a class="headerlink" href="#statistique-monovariee" title="Lien permanent vers ce titre">#</a></h2>
 <p>Le tableau suivant donne les notes (sur 10) obtenues à un examen par un groupe d’élèves.
 <span class="math notranslate nohighlight">\(\begin{array}{c|c}
 Nom &amp; Note \\
@@ -554,9 +472,9 @@ Yves &amp;1
 </div>
 </div>
 <div class="section" id="statistique-bivariee">
-<h2>Statistique bivariée<a class="headerlink" href="#statistique-bivariee" title="Permalink to this headline">#</a></h2>
+<h2>Statistique bivariée<a class="headerlink" href="#statistique-bivariee" title="Lien permanent vers ce titre">#</a></h2>
 <div class="section" id="cas-de-variables-quantitatives">
-<h3>Cas de variables quantitatives<a class="headerlink" href="#cas-de-variables-quantitatives" title="Permalink to this headline">#</a></h3>
+<h3>Cas de variables quantitatives<a class="headerlink" href="#cas-de-variables-quantitatives" title="Lien permanent vers ce titre">#</a></h3>
 <p>On donne le fichier de données suivant</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -607,7 +525,7 @@ Yves &amp;1
 </div>
 </div>
 <div class="section" id="cas-de-variables-qualitatives">
-<h3>Cas de variables qualitatives<a class="headerlink" href="#cas-de-variables-qualitatives" title="Permalink to this headline">#</a></h3>
+<h3>Cas de variables qualitatives<a class="headerlink" href="#cas-de-variables-qualitatives" title="Lien permanent vers ce titre">#</a></h3>
 <p>On s’intéresse à un fichier décrivant la réussite d’étudiants en mathématiques (données décrites <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Student+Performance">ici</a>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -766,16 +684,16 @@ Yves &amp;1
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="clustering.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="clustering.html" title="précédent page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-subtitle">précédent</p>
             <p class="prev-next-title">Quelques méthodes de classification</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="TP2_ACP.html" title="next page">
+    <a class='right-next' id="next-link" href="TP2_ACP.html" title="suivant page">
     <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">suivant</p>
         <p class="prev-next-title">TP ACP</p>
     </div>
     <i class="fas fa-angle-right"></i>

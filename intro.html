@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,6 +43,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
+    <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -56,10 +57,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Rappels de probabilité" href="Rappels.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="fr">
     
 
     <!-- Google Analytics -->
@@ -106,17 +107,9 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
-                    Introduction
-                </a>
-            </li>
-        </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Cours
@@ -225,7 +218,7 @@ const thebe_selector_output = ".output, .cell_output"
              <!-- To handle the deprecated key -->
             
             <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
             </div>
             
         </div>
@@ -281,52 +274,6 @@ title="Fullscreen mode"
   </span>
 
 </button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/intro.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 <label for="__page-toc"
   class="headerbtn headerbtn-page-toc"
   
@@ -433,9 +380,9 @@ title="Print to PDF"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
+<h1>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">#</a></h1>
 <div class="section" id="elements-de-vocabulaire">
-<h2>Eléments de vocabulaire<a class="headerlink" href="#elements-de-vocabulaire" title="Permalink to this headline">#</a></h2>
+<h2>Eléments de vocabulaire<a class="headerlink" href="#elements-de-vocabulaire" title="Lien permanent vers ce titre">#</a></h2>
 <p>On définit ici de manière informelle les termes utilisés dans la suite :</p>
 <ul class="simple" id="index-0">
 <li><p><strong>Population</strong> : ensemble de cardinalité finie, notée <span class="math notranslate nohighlight">\(N\)</span>, ou infinie ;</p></li>
@@ -451,17 +398,17 @@ title="Print to PDF"
 </ul>
 </div>
 <div class="section" id="probabilites-et-statistiques">
-<h2>Probabilités et statistiques<a class="headerlink" href="#probabilites-et-statistiques" title="Permalink to this headline">#</a></h2>
+<h2>Probabilités et statistiques<a class="headerlink" href="#probabilites-et-statistiques" title="Lien permanent vers ce titre">#</a></h2>
 <p>La question qui se pose est la suivante : comment définir ou estimer la valeur de probabilité associée à un  évènement ?
 Plusieurs points de vue ont été proposés et adoptés que nous synthétisons très brièvement.</p>
 <div class="section" id="approche-frequentiste">
-<h3>Approche fréquentiste<a class="headerlink" href="#approche-frequentiste" title="Permalink to this headline">#</a></h3>
+<h3>Approche fréquentiste<a class="headerlink" href="#approche-frequentiste" title="Lien permanent vers ce titre">#</a></h3>
 <p>Ce point de vue historique, souvent présenté comme le plus “naturel” ou “objectif”, consiste à définir une probabilité comme la limite de la fréquence d’observation de la caractéristique lorsque la taille de l’echantillon devient infinie. On suppose ici que les probabilités sont une loi de la nature qu’il faut mesurer par l’expérience. En pratique, la probabilité d’un  évènement est donc estimée/approximée en répétant un très grand nombre de fois l’expérience dans les mêmes conditions. C’est de ces expériences répétées que sont nés les outils de la statistique tels que la régression linéaire ou le test du <span class="math notranslate nohighlight">\(\chi^2\)</span>.
 On rencontre néanmoins très rapidement des limitations avec ce type d’approche. D’une part, il est impossible d’un point de vue fréquentiste de traiter de petits échantillons de données. De plus, certains types de données ne sont
 pas exploitables en raison de leur caractère non expérimental (par exemple, quelle probabilité associer à un évènement du type “nombre de votants aux prochaines élections” qui n’est pas répétable). Enfin, il est parfois difficile de définir un modèle  permettant de modéliser une erreur de mesure ou la variation observée d’un caractère dans une population.</p>
 </div>
 <div class="section" id="approche-bayesienne">
-<h3>Approche bayésienne<a class="headerlink" href="#approche-bayesienne" title="Permalink to this headline">#</a></h3>
+<h3>Approche bayésienne<a class="headerlink" href="#approche-bayesienne" title="Lien permanent vers ce titre">#</a></h3>
 <div class="margin sidebar">
 <p class="sidebar-title">T. Bayes</p>
 <p><img alt="" src="_images/bayes.jpeg" /></p>
@@ -471,9 +418,9 @@ Ce point de vue “subjectif” a longtemps été dénoncé par les adeptes de l
 </div>
 </div>
 <div class="section" id="demarche-generale">
-<h2>Démarche générale<a class="headerlink" href="#demarche-generale" title="Permalink to this headline">#</a></h2>
-<p>De manière assez générale, une étude statistique consiste à obtenir des informations sur un caractère concernant une population de grande taille en s’appuyant sur celles d’un sous-ensemble de taille réduite (l’échantillon), afin le plus souvent d’orienter une décision. Le choix de l’échantillon se fera par tirage avec ou sans remise, par tirage uniforme (“au hasard”) ou non (tirage stratifié dans le cas d’un sondage par exemple, ou selon une loi de probabilité précise si une information a priori est disponible).
-On estime alors des propriétés d’un caractère de l’échantillon. A partir de ces estimations, on cherche à donner “au mieux” des valeurs aux paramètres correspondant de la population (la moyenne, la variance,…). L’estimation pourra être ponctuelle ou par intervalle de confiance. On pourra également s’intéresser à des tests d’ajustement (ou d’adéquation) à une loi de type donné. La décision, étape finale de l’analyse statistique, se fera par des tests statistiques.</p>
+<h2>Démarche générale<a class="headerlink" href="#demarche-generale" title="Lien permanent vers ce titre">#</a></h2>
+<p>De manière assez générale, une étude statistique consiste à obtenir des informations sur un caractère concernant une population de grande taille en s’appuyant sur celles d’un sous-ensemble de taille réduite (l’échantillon), afin le plus souvent d’orienter une décision. Le choix de l’échantillon se fera par tirage avec ou sans remise, par tirage uniforme (« au hasard ») ou non (tirage stratifié dans le cas d’un sondage par exemple, ou selon une loi de probabilité précise si une information a priori est disponible).
+On estime alors des propriétés d’un caractère de l’échantillon. A partir de ces estimations, on cherche à donner « au mieux » des valeurs aux paramètres correspondant de la population (la moyenne, la variance,…). L’estimation pourra être ponctuelle ou par intervalle de confiance. On pourra également s’intéresser à des tests d’ajustement (ou d’adéquation) à une loi de type donné. La décision, étape finale de l’analyse statistique, se fera par des tests statistiques.</p>
 <div class="proof example admonition" id="example-0">
 <p class="admonition-title"><span class="caption-number">Example 1 </span></p>
 <div class="example-content section" id="proof-content">
@@ -525,9 +472,9 @@ On estime alors des propriétés d’un caractère de l’échantillon. A partir
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="Rappels.html" title="next page">
+    <a class='right-next' id="next-link" href="Rappels.html" title="suivant page">
     <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">suivant</p>
         <p class="prev-next-title">Rappels de probabilité</p>
     </div>
     <i class="fas fa-angle-right"></i>

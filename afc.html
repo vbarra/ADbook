@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,6 +43,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
+    <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -56,11 +57,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Analyse des correspondances multiples" href="acm.html" />
     <link rel="prev" title="Analyse canonique" href="canonique.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="fr">
     
 
     <!-- Google Analytics -->
@@ -107,17 +108,9 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    Introduction
-                </a>
-            </li>
-        </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Cours
@@ -226,7 +219,7 @@ const thebe_selector_output = ".output, .cell_output"
              <!-- To handle the deprecated key -->
             
             <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
             </div>
             
         </div>
@@ -282,52 +275,6 @@ title="Fullscreen mode"
   </span>
 
 </button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/afc.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 <label for="__page-toc"
   class="headerbtn headerbtn-page-toc"
   
@@ -564,11 +511,11 @@ title="Print to PDF"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="analyse-factorielle-des-correspondances">
-<h1>Analyse Factorielle des correspondances<a class="headerlink" href="#analyse-factorielle-des-correspondances" title="Permalink to this headline">#</a></h1>
+<h1>Analyse Factorielle des correspondances<a class="headerlink" href="#analyse-factorielle-des-correspondances" title="Lien permanent vers ce titre">#</a></h1>
 <p id="index-0">On cherche à expliquer la liaison entre deux variables qualitatives <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span>, caractérisées par un ensemble de couples de modalités <span class="math notranslate nohighlight">\((x_i,y_i)\)</span>. On note <span class="math notranslate nohighlight">\(x_1\cdots x_J\)</span> et <span class="math notranslate nohighlight">\(y_1\cdots y_K\)</span> les modalités distinctes de <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> respectivement.</p>
-<p>Plus précisément, l’analyse factorielle des correspondances (AFC) vise à définir un modèle statistique permettant de fournir des paramètres dont la représentation graphique illustre les correspondances entre les modalités de ces variables. Dans sa version “analyse de données”, l’AFC cherche à réduire la dimension des données en effectuant la décomposition factorielle des nuages de points associés aux profils lignes et aux profils colonnes du tableau de contingence croisant les modalités des deux variables (L’AFC est une double ACP sur les deux tableaux de profils). On aborde à la fin du chapitre une modélisation statistique de l’AFC, en supposant que les fréquences d’observation correspondent à l’observation d’une probabilité théorique, dont la distribution modélise le tableau de contingence des deux variables.</p>
+<p>Plus précisément, l’analyse factorielle des correspondances (AFC) vise à définir un modèle statistique permettant de fournir des paramètres dont la représentation graphique illustre les correspondances entre les modalités de ces variables. Dans sa version « analyse de données », l’AFC cherche à réduire la dimension des données en effectuant la décomposition factorielle des nuages de points associés aux profils lignes et aux profils colonnes du tableau de contingence croisant les modalités des deux variables (L’AFC est une double ACP sur les deux tableaux de profils). On aborde à la fin du chapitre une modélisation statistique de l’AFC, en supposant que les fréquences d’observation correspondent à l’observation d’une probabilité théorique, dont la distribution modélise le tableau de contingence des deux variables.</p>
 <div class="section" id="notations">
-<h2>Notations<a class="headerlink" href="#notations" title="Permalink to this headline">#</a></h2>
+<h2>Notations<a class="headerlink" href="#notations" title="Lien permanent vers ce titre">#</a></h2>
 <p>Le tableau de contingence <span class="math notranslate nohighlight">\({\bf T}\)</span> entre les <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span>, vu comme une matrice,  est défini par</p>
 <span class="target" id="index-1"></span><table class="colwidths-auto table" id="index-2">
 <thead>
@@ -638,7 +585,7 @@ title="Print to PDF"
 <p>Dans le tableau de contingence <span class="math notranslate nohighlight">\(\mathbf T\)</span>, on lit le <span class="math notranslate nohighlight">\(j^e\)</span> profil ligne <span class="math notranslate nohighlight">\([\frac{n_{j1}}{n_{j.}}\ldots \frac{n_{jK}}{n_{j.}}]\)</span>, considéré comme un vecteur de <span class="math notranslate nohighlight">\(\mathbb{R}^K\)</span> et le <span class="math notranslate nohighlight">\(k^e\)</span> profil colonne <span class="math notranslate nohighlight">\([\frac{n_{1k}}{n_{.k}}\ldots \frac{n_{Jk}}{n_{.k}}]\)</span> considéré comme un vecteur de <span class="math notranslate nohighlight">\(\mathbb{R}^J\)</span>. Ces profils sont rangés dans des matrices de profils lignes <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{KJ}(\mathbb{R})\)</span> et de colonnes <span class="math notranslate nohighlight">\({\bf B}\in\mathcal{M}_{JK}(\mathbb{R})\)</span> définies par <span class="math notranslate nohighlight">\({\bf A}=\frac{1}{n}{\bf T^TD_J^{-1}}\textrm{  et  } {\bf B}=\frac{1}{n}{\bf T D_K^{-1}}\)</span></p>
 </div>
 <div class="section" id="double-acp">
-<h2>Double ACP<a class="headerlink" href="#double-acp" title="Permalink to this headline">#</a></h2>
+<h2>Double ACP<a class="headerlink" href="#double-acp" title="Lien permanent vers ce titre">#</a></h2>
 <p>L’analyse factorielle des correspondances peut être considérée comme le résultat d’une double ACP :</p>
 <ul class="simple">
 <li><p>une effectuée sur les profils colonnes dans <span class="math notranslate nohighlight">\(\mathbb{R}^J\)</span></p></li>
@@ -653,11 +600,11 @@ entre éléments de deux profils relatifs à <span class="math notranslate nohig
 donc plus de poids aux écarts correspondants à des modalités de faible effectif
 (rares) pour <span class="math notranslate nohighlight">\(Y\)</span>.</p>
 <div class="section" id="acp-dans-mathbb-r-j">
-<h3>ACP dans <span class="math notranslate nohighlight">\(\mathbb{R}^J\)</span><a class="headerlink" href="#acp-dans-mathbb-r-j" title="Permalink to this headline">#</a></h3>
+<h3>ACP dans <span class="math notranslate nohighlight">\(\mathbb{R}^J\)</span><a class="headerlink" href="#acp-dans-mathbb-r-j" title="Lien permanent vers ce titre">#</a></h3>
 <p>L’ACP sur les profils colonnes est réalisée en recherchant les éléments propres de <span class="math notranslate nohighlight">\({\bf BA}\)</span>, symétrique par rapport à la métrique <span class="math notranslate nohighlight">\({\bf D_J^{-1}}\)</span> et semi définie positive. On note <span class="math notranslate nohighlight">\(\bf U\)</span> la matrice des vecteurs propres. Cette ACP fournit une représentation des modalités de <span class="math notranslate nohighlight">\(Y\)</span>, réalisée au moyen des lignes de la matrice des composantes principales <span class="math notranslate nohighlight">\({\bf C_K}={\bf B^TD_J^{-1}U}\)</span>.</p>
 </div>
 <div class="section" id="acp-dans-mathbb-r-k">
-<h3>ACP dans <span class="math notranslate nohighlight">\(\mathbb{R}^K\)</span><a class="headerlink" href="#acp-dans-mathbb-r-k" title="Permalink to this headline">#</a></h3>
+<h3>ACP dans <span class="math notranslate nohighlight">\(\mathbb{R}^K\)</span><a class="headerlink" href="#acp-dans-mathbb-r-k" title="Lien permanent vers ce titre">#</a></h3>
 <p>L’ACP sur les profils lignes est réalisée en recherchant les éléments propres de <span class="math notranslate nohighlight">\({\bf AB}\)</span>, symétrique par rapport à la métrique <span class="math notranslate nohighlight">\({\bf D_K^{-1}}\)</span> et semi définie positive. On note <span class="math notranslate nohighlight">\(\bf V\)</span> la matrice des vecteurs propres. Cette ACP fournit une représentation des modalités de <span class="math notranslate nohighlight">\(X\)</span>, réalisée au moyen des lignes de la matrice des composantes principales <span class="math notranslate nohighlight">\({\bf C_J}={\bf A^TD_K^{-1}V}\)</span>.</p>
 <p>Puisque <span class="math notranslate nohighlight">\(\bf U\)</span> contient les vecteurs propres de <span class="math notranslate nohighlight">\({\bf BA}\)</span> et <span class="math notranslate nohighlight">\(\bf V\)</span> ceux de <span class="math notranslate nohighlight">\({\bf AB}\)</span>, il suffit de réaliser en fait une seule ACP, les résultats de l’autre s’en déduisant simplement : si <span class="math notranslate nohighlight">\(\bf \Lambda\)</span> est la matrice des valeurs propres (hors <span class="math notranslate nohighlight">\(\lambda_0=0\)</span>) communes aux deux ACP :</p>
 <p><span class="math notranslate nohighlight">\({\bf V} ={\bf AU\Lambda^{-\frac{1}{2}}}\textrm {  et  } {\bf U} ={\bf BV\Lambda^{-\frac{1}{2}}}\)</span>
@@ -676,7 +623,7 @@ propre.</p>
 </div></div>
 </div>
 <div class="section" id="representation-graphique">
-<h2>Représentation graphique<a class="headerlink" href="#representation-graphique" title="Permalink to this headline">#</a></h2>
+<h2>Représentation graphique<a class="headerlink" href="#representation-graphique" title="Lien permanent vers ce titre">#</a></h2>
 <p>La décomposition de <span class="math notranslate nohighlight">\(\mathbf T/n\)</span> donne :</p>
 <div class="math notranslate nohighlight">
 \[\frac{f_{jk}-f_{j.}f_{.k}}{f_{j.}f_{.k}} = \displaystyle\sum_{i=0}^{min(J-1,K-1)}\sqrt{\lambda_i}\frac{u^i_jv^i_k}{f_{j.}f_{.k}}\]</div>
@@ -686,40 +633,40 @@ voisines (resp. opposées), leur produit scalaire est de valeur absolue importan
 (resp. négative) à la dépendance entre les deux variables. L’analyse factorielle des correspondances apparaît ainsi comme la meilleure reconstitution des fréquences <span class="math notranslate nohighlight">\(f_{jk}\)</span>, ou encore la meilleure représentation des écarts relatifs à l’indépendance.</p>
 </div>
 <div class="section" id="interpretation">
-<h2>Interprétation<a class="headerlink" href="#interpretation" title="Permalink to this headline">#</a></h2>
+<h2>Interprétation<a class="headerlink" href="#interpretation" title="Lien permanent vers ce titre">#</a></h2>
 <p>Les qualités de représentation dans la dimension choisie et les contributions
 des modalités de <span class="math notranslate nohighlight">\(X\)</span> ou de <span class="math notranslate nohighlight">\(Y\)</span> se déduisent facilement de celles de l’ACP. Ces
 quantités sont utilisées à la fois pour choisir la dimension de l’analyse factorielle des correspondances  et pour interpréter ses résultats dans la dimension choisie.</p>
 <div class="section" id="inertie-et-test-d-independance">
-<h3>Inertie et test d’indépendance<a class="headerlink" href="#inertie-et-test-d-independance" title="Permalink to this headline">#</a></h3>
+<h3>Inertie et test d’indépendance<a class="headerlink" href="#inertie-et-test-d-independance" title="Lien permanent vers ce titre">#</a></h3>
 <p>En analyse en composantes principales centrée réduite, l’inertie totale du nuage de points est  égale au nombre de variables. En AFC,  l’inertie totale du nuage des profils lignes est  égale à l’inertie totale du nuage des profils colonnes, égale au <span class="math notranslate nohighlight">\(\chi^2\)</span> d’indépendance entre les deux variables qualitatives.<br />
 La valeur de l’inertie est donc un indicateur de la dispersion des nuages de points et une mesure de liaison entre les deux variables qualitatives,  appelée mesure d’écart à l’indépendance.</p>
 </div>
 <div class="section" id="interpretation-des-valeurs-propres">
-<h3>Interprétation des valeurs propres<a class="headerlink" href="#interpretation-des-valeurs-propres" title="Permalink to this headline">#</a></h3>
+<h3>Interprétation des valeurs propres<a class="headerlink" href="#interpretation-des-valeurs-propres" title="Lien permanent vers ce titre">#</a></h3>
 <p>Les valeurs propres des ACP renseignent sur la dispersion des nuages de profils lignes et colonnes :</p>
 <ul class="simple">
 <li><p>Une valeur propre proche de 1 indique une dichotomie parfaite du tableau <span class="math notranslate nohighlight">\(\mathbf T\)</span>, qui peut être décomposé après reclassement des modalités en deux blocs distincts</p></li>
 <li><p>Plus généralement <span class="math notranslate nohighlight">\(p\)</span> valeurs propres proches amènent à <span class="math notranslate nohighlight">\(k+1\)</span> blocs distincts</p></li>
-<li><p>Si toutes les valeurs propres sont proches de 1, on aboutit à l’effet Guttman : il existe une correspondance entre chaque modalité ligne et une modalité colonne “associée”. Avec une réorganisation des modalités, les effectifs importants se trouvent alors le long de la diagonale.</p></li>
+<li><p>Si toutes les valeurs propres sont proches de 1, on aboutit à l’effet Guttman : il existe une correspondance entre chaque modalité ligne et une modalité colonne « associée ». Avec une réorganisation des modalités, les effectifs importants se trouvent alors le long de la diagonale.</p></li>
 </ul>
 </div>
 <div class="section" id="qualite-globale">
-<h3>Qualité globale<a class="headerlink" href="#qualite-globale" title="Permalink to this headline">#</a></h3>
+<h3>Qualité globale<a class="headerlink" href="#qualite-globale" title="Lien permanent vers ce titre">#</a></h3>
 <p>A <span class="math notranslate nohighlight">\(q\)</span> fixé, la qualité globale de la représentation se mesure comme dans le cadre de l’ACP, comme le rapport entre les <span class="math notranslate nohighlight">\(q\)</span> premières valeurs propres <span class="math notranslate nohighlight">\(\lambda_i\)</span> et la somme sur tout le spectre.</p>
 <p>On montre que la qualité de la représentation dans la <span class="math notranslate nohighlight">\(i^e\)</span> dimension s’écrit <span class="math notranslate nohighlight">\(\frac{n\lambda_i}{\chi^2}\)</span></p>
 </div>
 <div class="section" id="qualite-de-chaque-modalite">
-<h3>Qualité de chaque modalité<a class="headerlink" href="#qualite-de-chaque-modalite" title="Permalink to this headline">#</a></h3>
+<h3>Qualité de chaque modalité<a class="headerlink" href="#qualite-de-chaque-modalite" title="Lien permanent vers ce titre">#</a></h3>
 <p>Comme dans l’ACP également, la qualité d’une modalité de <span class="math notranslate nohighlight">\(X\)</span> (resp. <span class="math notranslate nohighlight">\(Y\)</span>) se quantifie par le carré du cosinus de l’angle entre le vecteur représentant cette modalité dans <span class="math notranslate nohighlight">\(\mathbb{R}^K\)</span> (resp. <span class="math notranslate nohighlight">\(\mathbb{R}^J\)</span>)  et sa projection orthogonale au sens de <span class="math notranslate nohighlight">\({\bf D_K^{-1}}\)</span> (resp. <span class="math notranslate nohighlight">\({\bf D_J^{-1}}\)</span>) dans le sous-espace principal de dimension <span class="math notranslate nohighlight">\(q\)</span>. Ces cosinus se calculent très simplement en faisant le rapport des sommes appropriées des carrés des coordonnées extraites des lignes de <span class="math notranslate nohighlight">\({\bf C_J}\)</span> (resp. <span class="math notranslate nohighlight">\({\bf C_K}\)</span>).</p>
 </div>
 <div class="section" id="inertie-expliquee">
-<h3>Inertie expliquée<a class="headerlink" href="#inertie-expliquee" title="Permalink to this headline">#</a></h3>
+<h3>Inertie expliquée<a class="headerlink" href="#inertie-expliquee" title="Lien permanent vers ce titre">#</a></h3>
 <p>L’inertie totale du nuage des profils lignes (resp. colonnes) est égale à la somme de toutes les valeurs propres <span class="math notranslate nohighlight">\(\lambda_i\)</span>. La part due au <span class="math notranslate nohighlight">\(j^e\)</span> profil ligne (resp. <span class="math notranslate nohighlight">\(k^e\)</span> profil colonne) est <span class="math notranslate nohighlight">\(f_{j.}\displaystyle\sum_i \left (\mathbf{C_J}(ji) \right )^2\)</span> (resp. <span class="math notranslate nohighlight">\(f_{.k}\displaystyle\sum_i \left (\mathbf{C_K}(ik) \right )^2\)</span>).</p>
 <p>Les contributions à l’inertie selon chaque axe se calculent de la même manière, sans sommation sur <span class="math notranslate nohighlight">\(i\)</span>. Elles sont utilisées pour sélectionner les modalités les plus importantes (i.e. celles qui importent le plus dans la définition de la liaison entre <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span>).</p>
 </div>
 <div class="section" id="choix-de-q">
-<h3>Choix de q<a class="headerlink" href="#choix-de-q" title="Permalink to this headline">#</a></h3>
+<h3>Choix de q<a class="headerlink" href="#choix-de-q" title="Lien permanent vers ce titre">#</a></h3>
 <p>Comme dans le cas de l’ACP, le choix de l’espace de représentation est important. On peut estimer <span class="math notranslate nohighlight">\(q\)</span> comme en ACP (pourcentage de l’inertie expliquée, décroissance des valeurs propres), ou utiliser une approche probabiliste : si</p>
 <div class="math notranslate nohighlight">
 \[\nu_{jk}^q = n f_{j.}f_{.k} + n\displaystyle\sum_{i=1}^q \sqrt{\lambda_i} u^i_jv^i_k\]</div>
@@ -729,10 +676,10 @@ La valeur de l’inertie est donc un indicateur de la dispersion des nuages de p
 </div>
 </div>
 <div class="section" id="modele-statistique">
-<h2>Modèle statistique<a class="headerlink" href="#modele-statistique" title="Permalink to this headline">#</a></h2>
+<h2>Modèle statistique<a class="headerlink" href="#modele-statistique" title="Lien permanent vers ce titre">#</a></h2>
 <p>On suppose que chaque fréquence <span class="math notranslate nohighlight">\(f_{jk}\)</span> correspond à l’observation d’une probabilité   théorique <span class="math notranslate nohighlight">\(\pi_{jk}\)</span> et on modélise donc <span class="math notranslate nohighlight">\(\bf T\)</span> par la distribution correspondante. Le modèle décrivant cette distribution permet d’expliciter la probabilité.</p>
 <div class="section" id="modele-log-lineaire">
-<h3>Modèle log linéaire<a class="headerlink" href="#modele-log-lineaire" title="Permalink to this headline">#</a></h3>
+<h3>Modèle log linéaire<a class="headerlink" href="#modele-log-lineaire" title="Lien permanent vers ce titre">#</a></h3>
 <p>Souvent, le nombre <span class="math notranslate nohighlight">\(n\)</span> est fixé a priori. La distribution conjointe des effectifs <span class="math notranslate nohighlight">\(n_{jk}\)</span> est alors conditionnée par <span class="math notranslate nohighlight">\(n\)</span> et est une loi multinomiale de paramètre <span class="math notranslate nohighlight">\(\pi_{jk}\)</span> et d’espérance <span class="math notranslate nohighlight">\(n\pi_{jk}\)</span>.</p>
 <p>Par définition, les variables <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> sont indépendantes si <span class="math notranslate nohighlight">\(\pi_{jk}=\pi_{j.}\pi_{.k}\)</span>. Dans le cas contraire, on peut écrire</p>
 <p><span class="math notranslate nohighlight">\(\pi_{jk} = \pi_{j.}\pi_{.k}\frac{\pi_{jk}}{\pi_{j.}\pi_{.k}}\)</span></p>
@@ -741,7 +688,7 @@ La valeur de l’inertie est donc un indicateur de la dispersion des nuages de p
 <p>Ce modèle est saturé car il comporte autant de paramètres que de données.  L’indépendance est vérifiée si le dernier terme de couplage est nul pour tout <span class="math notranslate nohighlight">\((j,k)\)</span>. Les paramètres du modèle sont estimés en maximisant la log vraisemblance.</p>
 </div>
 <div class="section" id="modele-de-correlation">
-<h3>Modèle de corrélation<a class="headerlink" href="#modele-de-correlation" title="Permalink to this headline">#</a></h3>
+<h3>Modèle de corrélation<a class="headerlink" href="#modele-de-correlation" title="Lien permanent vers ce titre">#</a></h3>
 <p>Dans ce modèle, on écrit</p>
 <p><span class="math notranslate nohighlight">\(\pi_{jk} = \pi_{j.}\pi_{.k} + \displaystyle\sum_{i=1}^q \sqrt{\lambda_i} u^i_jv^i_k\)</span></p>
 <p>où <span class="math notranslate nohighlight">\({\bf u^i}\)</span> (resp. <span class="math notranslate nohighlight">\({\bf v^i}\)</span>) sont les vecteurs propres de <span class="math notranslate nohighlight">\({\bf BA}\)</span> (resp. <span class="math notranslate nohighlight">\({\bf AB}\)</span>),  <span class="math notranslate nohighlight">\(\lambda_i\)</span> les valeurs propres associées (qui sont identiques pour les deux matrices), et <span class="math notranslate nohighlight">\(q\leq min(J-1,K-1)\)</span>.</p>
@@ -750,7 +697,7 @@ La valeur de l’inertie est donc un indicateur de la dispersion des nuages de p
 </div>
 </div>
 <div class="section" id="exemple">
-<h2>Exemple<a class="headerlink" href="#exemple" title="Permalink to this headline">#</a></h2>
+<h2>Exemple<a class="headerlink" href="#exemple" title="Lien permanent vers ce titre">#</a></h2>
 <p>On utilise ici des données open source du <a class="reference external" href="https://www.data.gouv.fr/fr/posts/les-donnees-des-elections/">gouvernement</a>, présentant le résultat du premier tour des élections présidentielles de 2017.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1205,7 +1152,7 @@ Comme en ACP, on s’intéresse à l’inertie du nuage de points, mais pour ce 
 </table>
 <p>On en déduit alors l’analyse suivante (ici proposée sur les candidats) :</p>
 <ul class="simple">
-<li><p>Premier axe : Le Pen représente 67% de l’inertie de cet axe. Macron, à l’opposé en représente 19%. Clairement, cet axe oppose Le Pen à Macron, mais les autres candidats “les plus importants” ont un score du même signe que celui de Macron.</p></li>
+<li><p>Premier axe : Le Pen représente 67% de l’inertie de cet axe. Macron, à l’opposé en représente 19%. Clairement, cet axe oppose Le Pen à Macron, mais les autres candidats « les plus importants » ont un score du même signe que celui de Macron.</p></li>
 <li><p>Fillon représente 63% de son inertie et s’oppose à Hamon, Poutou et Mélenchon. Macron et Le Pen sont insignifiants sur cet axe. Cet axe représente l’opposition classique droite / gauche.</p></li>
 <li><p>Le Pen est placée assez loin de l’origine sur la représentation graphique:  l’inertie de la modalité Le Pen (54%) est bien plus importante que sa masse (21%). Dit autrement, les scores de Le Pen présentent une grande variabilité selon les régions, plus élevée que celle des scores de Macron (inertie 16% pour une masse de 24,3%) ou encore Mélenchon (inertie 5%, inertie 19,8%). Les électeurs de Le Pen, même s’ils sont plus nombreux que lors des scrutins précédents, restent inégalement répartis sur le territoire.</p></li>
 <li><p>Enfin, la première source de variation dans les votes est une opposition Le Pen / Macron, indépendante des oppositions  droite / gauche traditionnels.</p></li>
@@ -1240,16 +1187,16 @@ Comme en ACP, on s’intéresse à l’inertie du nuage de points, mais pour ce 
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="canonique.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="canonique.html" title="précédent page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-subtitle">précédent</p>
             <p class="prev-next-title">Analyse canonique</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="acm.html" title="next page">
+    <a class='right-next' id="next-link" href="acm.html" title="suivant page">
     <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">suivant</p>
         <p class="prev-next-title">Analyse des correspondances multiples</p>
     </div>
     <i class="fas fa-angle-right"></i>

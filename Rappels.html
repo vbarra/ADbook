@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,6 +43,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
+    <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -56,11 +57,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Elements de statistiques" href="elemstats.html" />
     <link rel="prev" title="Introduction" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="fr">
     
 
     <!-- Google Analytics -->
@@ -107,17 +108,9 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    Introduction
-                </a>
-            </li>
-        </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Cours
@@ -226,7 +219,7 @@ const thebe_selector_output = ".output, .cell_output"
              <!-- To handle the deprecated key -->
             
             <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
             </div>
             
         </div>
@@ -269,35 +262,6 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/Rappels.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -311,69 +275,6 @@ title="Fullscreen mode"
   </span>
 
 </button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/Rappels.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download notebook file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="_sources/Rappels.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 <label for="__page-toc"
   class="headerbtn headerbtn-page-toc"
   
@@ -622,11 +523,11 @@ title="Print to PDF"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="rappels-de-probabilite">
-<h1>Rappels de probabilité<a class="headerlink" href="#rappels-de-probabilite" title="Permalink to this headline">#</a></h1>
+<h1>Rappels de probabilité<a class="headerlink" href="#rappels-de-probabilite" title="Lien permanent vers ce titre">#</a></h1>
 <div class="section" id="experience-aleatoire">
-<h2>Expérience aléatoire<a class="headerlink" href="#experience-aleatoire" title="Permalink to this headline">#</a></h2>
+<h2>Expérience aléatoire<a class="headerlink" href="#experience-aleatoire" title="Lien permanent vers ce titre">#</a></h2>
 <div class="section" id="definitions">
-<h3>Définitions<a class="headerlink" href="#definitions" title="Permalink to this headline">#</a></h3>
+<h3>Définitions<a class="headerlink" href="#definitions" title="Lien permanent vers ce titre">#</a></h3>
 <div class="proof definition admonition" id="expalea">
 <p class="admonition-title"><span class="caption-number">Definition 1 </span> (Expérience aléatoire)</p>
 <div class="definition-content section" id="proof-content">
@@ -669,24 +570,24 @@ title="Print to PDF"
 <p class="admonition-title"><span class="caption-number">Example 4 </span></p>
 <div class="example-content section" id="proof-content">
 <ul class="simple">
-<li><p>Dans l’expérience du lancer de deux dés, on peut s’intéresser à l’évènement “la somme des deux faces est paire” ou encore  “la somme est supérieure à 7”.</p></li>
+<li><p>Dans l’expérience du lancer de deux dés, on peut s’intéresser à l’évènement « la somme des deux faces est paire » ou encore  « la somme est supérieure à 7 ».</p></li>
 <li><p>Si l’expérience considérée concerne les jobs effectués sur une machine on peut considérer :</p></li>
 </ul>
 <ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(\Omega=\mathbb{N}\)</span> et l’évènement “le nombre de jobs ne dépasse pas 10” : <span class="math notranslate nohighlight">\(E=[\![0,10]\!]\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\Omega=\mathbb{R}^*\)</span> et  l’évènement “le job dure plus de 15 s” et <span class="math notranslate nohighlight">\(E=]15,+\infty[\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Omega=\mathbb{N}\)</span> et l’évènement « le nombre de jobs ne dépasse pas 10 » : <span class="math notranslate nohighlight">\(E=[\![0,10]\!]\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Omega=\mathbb{R}^*\)</span> et  l’évènement « le job dure plus de 15 s » et <span class="math notranslate nohighlight">\(E=]15,+\infty[\)</span></p></li>
 </ol>
 </div>
 </div><p>Il existe certains évènements particuliers :</p>
 <ul class="simple">
-<li><p>l’évènement dit certain : c’est l’univers des possibles (par exemple “la somme des deux faces d’un lancer de deux dés est inférieure ou égale à 12”)</p></li>
-<li><p>l’évènement impossible (“la somme des deux faces d’un lancer de deux dés est supérieure ou égale à 20”)</p></li>
+<li><p>l’évènement dit certain : c’est l’univers des possibles (par exemple « la somme des deux faces d’un lancer de deux dés est inférieure ou égale à 12 »)</p></li>
+<li><p>l’évènement impossible (« la somme des deux faces d’un lancer de deux dés est supérieure ou égale à 20 »)</p></li>
 <li><p>l’évènement simple : tout singleton de <span class="math notranslate nohighlight">\(\Omega\)</span></p></li>
 <li><p>l’évènement composé : tout sous-ensemble de <span class="math notranslate nohighlight">\(\Omega\)</span> de cardinalité au moins égale à 2.</p></li>
 </ul>
 </div>
 <div class="section" id="notation-et-operations-sur-les-evenements">
-<h3>Notation et opérations sur les évènements<a class="headerlink" href="#notation-et-operations-sur-les-evenements" title="Permalink to this headline">#</a></h3>
+<h3>Notation et opérations sur les évènements<a class="headerlink" href="#notation-et-operations-sur-les-evenements" title="Lien permanent vers ce titre">#</a></h3>
 <p>Les évènements peuvent être interprétés soit d’un point de vue ensembliste (Diagrammes de Venn), soit de manière équivalente d’un point de vue probabiliste.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -733,9 +634,9 @@ title="Print to PDF"
 </div>
 </div>
 <div class="section" id="probabilites">
-<h2>Probabilités<a class="headerlink" href="#probabilites" title="Permalink to this headline">#</a></h2>
+<h2>Probabilités<a class="headerlink" href="#probabilites" title="Lien permanent vers ce titre">#</a></h2>
 <div class="section" id="objectif">
-<h3>Objectif<a class="headerlink" href="#objectif" title="Permalink to this headline">#</a></h3>
+<h3>Objectif<a class="headerlink" href="#objectif" title="Lien permanent vers ce titre">#</a></h3>
 <p>L’objectif des probabilités est de donner une <strong>mesure</strong> à la chance qu’a un évènement de se réaliser lors d’une expérience aléatoire. Pour ce faire, on définit une fonction <span class="math notranslate nohighlight">\(P:\Omega\rightarrow [0,1]\)</span> vérifiant certains axiomes et propriétés.</p>
 <div class="proof definition admonition" id="tribu">
 <span id="index-1"></span><p class="admonition-title"><span class="caption-number">Definition 5 </span> (Tribu)</p>
@@ -761,7 +662,7 @@ title="Print to PDF"
 </div><p>On peut également s’intéresser, si <span class="math notranslate nohighlight">\(\Omega=\mathbb R\)</span>, à la tribu engendrée par les ouverts de <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, on parle alors de <strong>tribu borélienne</strong>.</p>
 </div>
 <div class="section" id="probabilite">
-<h3>Probabilité<a class="headerlink" href="#probabilite" title="Permalink to this headline">#</a></h3>
+<h3>Probabilité<a class="headerlink" href="#probabilite" title="Lien permanent vers ce titre">#</a></h3>
 <div class="margin sidebar">
 <p class="sidebar-title">A. Kolmogorov</p>
 <p><img alt="" src="_images/kolmogorov.jpeg" /></p>
@@ -791,7 +692,7 @@ title="Print to PDF"
 </div>
 </div></div>
 <div class="section" id="conditionnement">
-<h3>Conditionnement<a class="headerlink" href="#conditionnement" title="Permalink to this headline">#</a></h3>
+<h3>Conditionnement<a class="headerlink" href="#conditionnement" title="Lien permanent vers ce titre">#</a></h3>
 <p>Les probabilités <strong>conditionnelles</strong> intègrent une information supplémentaire sous la forme de l’observation de la réalisation d’un évènement donné.</p>
 <div class="proof definition admonition" id="definition-11">
 <span id="index-3"></span><p class="admonition-title"><span class="caption-number">Definition 6 </span> (Probabilité conditionnelle)</p>
@@ -805,13 +706,13 @@ title="Print to PDF"
 <p class="admonition-title"><span class="caption-number">Example 6 </span></p>
 <div class="example-content section" id="proof-content">
 <p>7% des français sont atteints d’un cancer du poumon. 70% des malades sont des fumeurs et 50% des français fument. On recherche la probabilité d’être atteint d’un cancer du poumon lorsque l’on est fumeur.
-L’évènement <span class="math notranslate nohighlight">\(A\)</span> est “avoir un cancer du poumon”, et <span class="math notranslate nohighlight">\(B\)</span> est “être fumeur”. D’après les données on a <span class="math notranslate nohighlight">\(P(A)\)</span>=0.07, <span class="math notranslate nohighlight">\(P(B)\)</span> = 0.5 et <span class="math notranslate nohighlight">\(P(B\mid A)\)</span> = 0.7.
+L’évènement <span class="math notranslate nohighlight">\(A\)</span> est « avoir un cancer du poumon », et <span class="math notranslate nohighlight">\(B\)</span> est « être fumeur ». D’après les données on a <span class="math notranslate nohighlight">\(P(A)\)</span>=0.07, <span class="math notranslate nohighlight">\(P(B)\)</span> = 0.5 et <span class="math notranslate nohighlight">\(P(B\mid A)\)</span> = 0.7.
 On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\bigcap B)}{P(B)}\)</span> avec <span class="math notranslate nohighlight">\(P(A\bigcap B)=P(B\mid A)P(A)\)</span> d’où</p>
 <p><span class="math notranslate nohighlight">\(P(A\mid B)=\frac{P(B\mid A)P(A)}{P(B}\)</span> = 0.098</p>
 </div>
 </div></div>
 <div class="section" id="independance">
-<h3>Indépendance<a class="headerlink" href="#independance" title="Permalink to this headline">#</a></h3>
+<h3>Indépendance<a class="headerlink" href="#independance" title="Lien permanent vers ce titre">#</a></h3>
 <div class="proof definition admonition" id="definition-13">
 <span id="index-4"></span><p class="admonition-title"><span class="caption-number">Definition 7 </span> (Indépendance)</p>
 <div class="definition-content section" id="proof-content">
@@ -833,7 +734,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div></div>
 <div class="section" id="theoreme-des-probabilites-totales">
-<h3>Théorème des probabilités totales<a class="headerlink" href="#theoreme-des-probabilites-totales" title="Permalink to this headline">#</a></h3>
+<h3>Théorème des probabilités totales<a class="headerlink" href="#theoreme-des-probabilites-totales" title="Lien permanent vers ce titre">#</a></h3>
 <div class="proof theorem admonition" id="theorem-16">
 <p class="admonition-title"><span class="caption-number">Theorem 1 </span></p>
 <div class="theorem-content section" id="proof-content">
@@ -842,7 +743,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div></div>
 <div class="section" id="regle-de-bayes">
-<h3>Règle de Bayes<a class="headerlink" href="#regle-de-bayes" title="Permalink to this headline">#</a></h3>
+<h3>Règle de Bayes<a class="headerlink" href="#regle-de-bayes" title="Lien permanent vers ce titre">#</a></h3>
 <p id="index-5">A partir de l’égalité <span class="math notranslate nohighlight">\(P(A\bigcap B) = P(A|B)P(B)=P(B|A)P(A)\)</span>, on définit la règle de Bayes</p>
 <p><span class="math notranslate nohighlight">\((\forall A,B)\quad P(B|A)=\frac{P(A|B)P(B)}{P(A)}\)</span></p>
 <p>Si <span class="math notranslate nohighlight">\(B_i\)</span> est un système complet d’évènements, on a de plus</p>
@@ -851,16 +752,16 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <p class="admonition-title"><span class="caption-number">Example 7 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Un fabricant de boulons a trois usines de fabrication situées à Amiens, Besançon et Clermont-Ferrand. Amiens fournit 25% de la production, Besançon 20% et Clermont-Ferrand 55%. Les boulons de 5mm représentent 20% des boulons produits à Amiens, 30% à Besançon et 15% à Clermont-Ferrand. On répond à la question suivante : sachant que le boulon acheté a une taille de 5mm, quelle est la probabilité qu’il soit produit à Clermont-Ferrand ?</p>
-<p>On note <span class="math notranslate nohighlight">\(B_1\)</span> (respectivement <span class="math notranslate nohighlight">\(B_2,B_3\)</span>) l’évènement “Le boulon est produit à Amiens (resp. Besançon, Clermont-Ferrand)”. On note également <span class="math notranslate nohighlight">\(A\)</span> l’évènement “Le boulon fait 5mm”. On cherche donc</p>
+<p>On note <span class="math notranslate nohighlight">\(B_1\)</span> (respectivement <span class="math notranslate nohighlight">\(B_2,B_3\)</span>) l’évènement « Le boulon est produit à Amiens (resp. Besançon, Clermont-Ferrand) ». On note également <span class="math notranslate nohighlight">\(A\)</span> l’évènement « Le boulon fait 5mm ». On cherche donc</p>
 <p><span class="math notranslate nohighlight">\(P(B_3|A) = \frac{P(A|B_3)P(B_3)}{P(A)}= \frac{0.15*0.55}{0.1925}=0.428\)</span>.</p>
 </div>
 </div><p>On a calculé dans l’exemple une <strong>probabilité a posteriori</strong>, c’est à dire sachant une information supplémentaire (le boulon fait 5mm). La prise en compte de cette information modifie la valeur de la probabilité associée à <span class="math notranslate nohighlight">\(B_3\)</span>. La théorie des probabilités au travers de l’approche bayésienne est adaptée pour prendre en compte toute information nouvelle.</p>
 </div>
 </div>
 <div class="section" id="variable-aleatoire">
-<h2>Variable aléatoire<a class="headerlink" href="#variable-aleatoire" title="Permalink to this headline">#</a></h2>
+<h2>Variable aléatoire<a class="headerlink" href="#variable-aleatoire" title="Lien permanent vers ce titre">#</a></h2>
 <div class="section" id="concept-de-variable-aleatoire">
-<h3>Concept de variable aléatoire<a class="headerlink" href="#concept-de-variable-aleatoire" title="Permalink to this headline">#</a></h3>
+<h3>Concept de variable aléatoire<a class="headerlink" href="#concept-de-variable-aleatoire" title="Lien permanent vers ce titre">#</a></h3>
 <p>Soit un espace probabilisé <span class="math notranslate nohighlight">\((\Omega, T,P)\)</span>.</p>
 <div class="proof definition admonition" id="definition-18">
 <span id="index-6"></span><p class="admonition-title"><span class="caption-number">Definition 8 </span> (Variable aléatoire)</p>
@@ -884,7 +785,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div></div>
 <div class="section" id="variable-aleatoire-mesurable">
-<h3>Variable aléatoire mesurable<a class="headerlink" href="#variable-aleatoire-mesurable" title="Permalink to this headline">#</a></h3>
+<h3>Variable aléatoire mesurable<a class="headerlink" href="#variable-aleatoire-mesurable" title="Lien permanent vers ce titre">#</a></h3>
 <p>On définit sur <span class="math notranslate nohighlight">\(E\)</span> une tribu <span class="math notranslate nohighlight">\(T'\)</span>.  <span class="math notranslate nohighlight">\((E,T')\)</span> est alors un espace probabilisable, et tout élément <span class="math notranslate nohighlight">\(B\)</span> de <span class="math notranslate nohighlight">\(T'\)</span> est un évènement. On note alors <span class="math notranslate nohighlight">\(X^{-1}(B) = \{\omega\in\Omega,\; X(\omega)\in B\}\)</span></p>
 <div class="proof definition admonition" id="definition-21">
 <span id="index-7"></span><p class="admonition-title"><span class="caption-number">Definition 9 </span> (Variable aléatoire mesurable)</p>
@@ -1002,7 +903,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div></div>
 <div class="section" id="caracteristiques-des-variables-aleatoires">
-<h3>Caractéristiques des variables aléatoires<a class="headerlink" href="#caracteristiques-des-variables-aleatoires" title="Permalink to this headline">#</a></h3>
+<h3>Caractéristiques des variables aléatoires<a class="headerlink" href="#caracteristiques-des-variables-aleatoires" title="Lien permanent vers ce titre">#</a></h3>
 <p>Une loi de probabilité est caractérisée par un certain nombre de grandeurs :</p>
 <ul class="simple">
 <li><p>sa valeur centrale</p></li>
@@ -1010,7 +911,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <li><p>sa forme</p></li>
 </ul>
 <div class="section" id="esperance-mathematique-d-une-variable-aleatoire">
-<h4>Espérance mathématique d’une variable aléatoire<a class="headerlink" href="#esperance-mathematique-d-une-variable-aleatoire" title="Permalink to this headline">#</a></h4>
+<h4>Espérance mathématique d’une variable aléatoire<a class="headerlink" href="#esperance-mathematique-d-une-variable-aleatoire" title="Lien permanent vers ce titre">#</a></h4>
 <div class="proof definition admonition" id="definition-25">
 <span id="index-13"></span><p class="admonition-title"><span class="caption-number">Definition 12 </span> (Espérance)</p>
 <div class="definition-content section" id="proof-content">
@@ -1074,7 +975,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div></div>
 <div class="section" id="moment-d-une-fonction-d-une-variable-aleatoire">
-<h4>Moment d’une fonction d’une variable aléatoire<a class="headerlink" href="#moment-d-une-fonction-d-une-variable-aleatoire" title="Permalink to this headline">#</a></h4>
+<h4>Moment d’une fonction d’une variable aléatoire<a class="headerlink" href="#moment-d-une-fonction-d-une-variable-aleatoire" title="Lien permanent vers ce titre">#</a></h4>
 <p id="index-14">Soit <span class="math notranslate nohighlight">\(\phi\)</span> l’application qui associe à toute variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> la variable aléatoire <span class="math notranslate nohighlight">\(Y=\phi(X)\)</span>.</p>
 <div class="proof definition admonition" id="definition-28">
 <p class="admonition-title"><span class="caption-number">Definition 13 </span> (Moment)</p>
@@ -1112,7 +1013,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </ul>
 </div>
 <div class="section" id="variance-d-une-variable-aleatoire">
-<h4>Variance d’une variable aléatoire<a class="headerlink" href="#variance-d-une-variable-aleatoire" title="Permalink to this headline">#</a></h4>
+<h4>Variance d’une variable aléatoire<a class="headerlink" href="#variance-d-une-variable-aleatoire" title="Lien permanent vers ce titre">#</a></h4>
 <span class="target" id="index-17"></span><p id="index-18">Pour <span class="math notranslate nohighlight">\(k\)</span>=2, le moment centré d’ordre 2 est appelé la <strong>variance</strong> et est noté <span class="math notranslate nohighlight">\(\mathbb{V}(X)\)</span>. La racine carrée de la variance est <strong>l’écart type</strong> et est noté <span class="math notranslate nohighlight">\(\sigma_X\)</span>. On a donc <span class="math notranslate nohighlight">\(\sigma_X^2=\mathbb{V}(X)\)</span>.</p>
 <div class="proof proposition admonition" id="proposition-32">
 <p class="admonition-title"><span class="caption-number">Proposition 1 </span> (Formule de Koenig)</p>
@@ -1157,12 +1058,7 @@ Ecart-type :  7.810249675906654
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variance:  0.029595913310970445
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ecart-type :  0.1720346282321395
+Ecart-type :  0.1720346282321395
 </pre></div>
 </div>
 </div>
@@ -1179,7 +1075,7 @@ Ecart-type :  7.810249675906654
 </div><p>On dira que la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est <strong>réduite</strong> (ou <strong>normée</strong>) si <span class="math notranslate nohighlight">\(\mathbb{V}(X)=1\)</span>.</p>
 </div>
 <div class="section" id="moments-d-ordre-superieur">
-<h4>Moments d’ordre supérieur<a class="headerlink" href="#moments-d-ordre-superieur" title="Permalink to this headline">#</a></h4>
+<h4>Moments d’ordre supérieur<a class="headerlink" href="#moments-d-ordre-superieur" title="Lien permanent vers ce titre">#</a></h4>
 <span class="target" id="index-19"></span><p id="index-20">On considère également souvent les moments d’ordre 3 (coefficient d’asymétrie ou skewness) et 4 (coefficient d’applatissement ou kurtosis).</p>
 </div>
 </div>
@@ -1213,16 +1109,16 @@ Ecart-type :  7.810249675906654
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="intro.html" title="précédent page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-subtitle">précédent</p>
             <p class="prev-next-title">Introduction</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="elemstats.html" title="next page">
+    <a class='right-next' id="next-link" href="elemstats.html" title="suivant page">
     <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">suivant</p>
         <p class="prev-next-title">Elements de statistiques</p>
     </div>
     <i class="fas fa-angle-right"></i>
