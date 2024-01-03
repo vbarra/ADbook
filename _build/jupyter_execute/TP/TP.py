@@ -47,13 +47,13 @@ warnings.filterwarnings('ignore')
 data = pd.read_csv('data.csv')
 
 
-# In[3]:
+# In[23]:
 
 
 data.head()
 
 
-# In[4]:
+# In[24]:
 
 
 data.info()
@@ -88,55 +88,55 @@ data.info()
 # - la régression multiple des colonnes 16, 17 et 18 en fonction des autres colonnes
 #  
 
-# In[5]:
+# In[25]:
 
 
 data.classification.unique()
 
 
-# In[6]:
+# In[26]:
 
 
 data.classification=data.classification.replace("ckd\t","ckd") 
 
 
-# In[7]:
+# In[27]:
 
 
 data.classification.unique()
 
 
-# In[8]:
+# In[28]:
 
 
 data.drop('id', axis = 1, inplace = True)
 
 
-# In[9]:
+# In[29]:
 
 
 data.head()
 
 
-# In[10]:
+# In[30]:
 
 
 data['classification'] = data['classification'].replace(['ckd','notckd'], [1,0])
 
 
-# In[11]:
+# In[31]:
 
 
 data.head()
 
 
-# In[12]:
+# In[32]:
 
 
 data.isnull().sum()
 
 
-# In[13]:
+# In[33]:
 
 
 df = data.dropna(axis = 0)
@@ -144,46 +144,46 @@ print(f"Before dropping all NaN values: {data.shape}")
 print(f"After dropping all NaN values: {df.shape}")
 
 
-# In[14]:
+# In[34]:
 
 
 df.head()
 
 
-# In[15]:
+# In[35]:
 
 
 df.index = range(0,len(df),1)
 df.head()
 
 
-# In[16]:
+# In[36]:
 
 
 for i in df['wc']:
     print(i)
 
 
-# In[17]:
+# In[37]:
 
 
 df['wc']=df['wc'].replace(["\t6200","\t8400"],[6200,8400])
 
 
-# In[18]:
+# In[38]:
 
 
 for i in df['wc']:
     print(i)
 
 
-# In[19]:
+# In[39]:
 
 
 df.info()
 
 
-# In[20]:
+# In[40]:
 
 
 df['pcv']=df['pcv'].astype(int)
@@ -192,14 +192,14 @@ df['rc']=df['rc'].astype(float)
 df.info()
 
 
-# In[21]:
+# In[41]:
 
 
 object_dtypes = df.select_dtypes(include = 'object')
 object_dtypes.head()
 
 
-# In[22]:
+# In[42]:
 
 
 dictonary = {
@@ -246,19 +246,19 @@ dictonary = {
 }
 
 
-# In[23]:
+# In[43]:
 
 
 df=df.replace(dictonary)
 
 
-# In[24]:
+# In[44]:
 
 
 df.head()
 
 
-# In[25]:
+# In[45]:
 
 
 import seaborn as sns
@@ -266,69 +266,69 @@ plt.figure(figsize = (20,20))
 sns.heatmap(df.corr(), annot = True, fmt=".2f",linewidths=0.5)
 
 
-# In[26]:
+# In[46]:
 
 
 df.corr()
 
 
-# In[27]:
+# In[47]:
 
 
 X = df.drop(['classification', 'sg', 'appet', 'rc', 'pcv', 'hemo', 'sod'], axis = 1)
 y = df['classification']
 
 
-# In[28]:
+# In[48]:
 
 
 X.columns
 
 
-# In[29]:
+# In[49]:
 
 
 from sklearn.model_selection import train_test_split
 
 
-# In[30]:
+# In[50]:
 
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42)
 
 
-# In[31]:
+# In[51]:
 
 
 from sklearn.ensemble import RandomForestClassifier
 
 
-# In[32]:
+# In[52]:
 
 
 model = RandomForestClassifier(n_estimators = 20)
 model.fit(X_train, y_train)
 
 
-# In[33]:
+# In[53]:
 
 
 from sklearn.metrics import confusion_matrix, accuracy_score
 
 
-# In[34]:
+# In[54]:
 
 
 confusion_matrix(y_test, model.predict(X_test))
 
 
-# In[35]:
+# In[55]:
 
 
 print(f"Accuracy is {round(accuracy_score(y_test, model.predict(X_test))*100, 2)}%")
 
 
-# In[36]:
+# In[56]:
 
 
 import pickle
