@@ -10,6 +10,8 @@
 get_ipython().system('pip3 install sklearn numpy matplotlib ipywidgets IPython --q')
 
 
+# [Télécharger le fichier](./TP_Regression_Lineaire.ipynb) 
+
 # In[2]:
 
 
