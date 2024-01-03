@@ -9,6 +9,13 @@ kernelspec:
   language: python
   name: python3
 ---
+
+```{code-cell} ipython3
+try:
+    import scipy 
+except ModuleNotFoundError: 
+    !pip3 install --quiet scipy
+```
 # Elements de statistiques
 
 Dans l'expression "étude statistique", il faut distinguer :

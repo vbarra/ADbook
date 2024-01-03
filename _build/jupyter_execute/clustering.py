@@ -1,6 +1,16 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[1]:
+
+
+try:
+    import pandas 
+except ModuleNotFoundError: 
+    get_ipython().system('pip3 install --quiet pandas')
+import numpy, matplotlib,pandas
+
+
 # # Quelques méthodes de classification 
 # ## Introduction 
 # La classification automatique a pour but d'obtenir une représentation simplifiée des données initiales. Elle consiste à organiser un ensemble de données en classes homogènes ou classes naturelles. 
@@ -247,7 +257,7 @@
 # ### Utilisation des méthodes
 # La première difficulté est le choix de la mesure de dissimilarité sur  $\Omega$ et du critère d'agrégation. Généralement, lorsque l'on dispose de variables quantitatives, le critère conseillé est le critère d'inertie. Ensuite, il est souvent nécessaire de disposer d'outils d'aide à l'interprétation et d'outils permettant de diminuer le nombre de niveaux de hiérarchie. Il est d'autre part conseillé d'utiliser conjointement d'autres méthodes d'analyse des données comme l'Analyse en Composantes Principales.
 
-# In[1]:
+# In[2]:
 
 
 from IPython.display import Video
@@ -257,7 +267,7 @@ Video("videos/dendrogram.mp4",embed =True,width=800)
 # ### Exemple
 # On étudie ici un jeu de données correspondant aux achats dans un supermarché. On cherche à caractériser les comportements des acheteurs en fonction de leurs revenus
 
-# In[2]:
+# In[3]:
 
 
 import pandas as pd
@@ -267,7 +277,7 @@ df.head(5)
 
 # On affiche les données
 
-# In[3]:
+# In[4]:
 
 
 import matplotlib.pyplot as plt
@@ -289,7 +299,7 @@ plt.tight_layout()
 
 # L'objectif est de trouver des catégories de population ayant les mêmes comportements d'achat. Le nombre de classes étant inconnu, la classification héararchique va permettre de donner des indications sur le nombre de groupes.
 
-# In[4]:
+# In[5]:
 
 
 import scipy.cluster.hierarchy as sch
@@ -307,7 +317,7 @@ plt.show()
 
 # On projette ensuite le résultat de la classification
 
-# In[5]:
+# In[6]:
 
 
 from sklearn.cluster import AgglomerativeClustering
@@ -356,7 +366,7 @@ plt.tight_layout()
 # 
 # ![](./images/kmeans1.png)
 
-# In[6]:
+# In[7]:
 
 
 from IPython.display import Video
@@ -487,7 +497,7 @@ Video("videos/kmeans.mp4",embed =True,width=800)
 #   
 # On génère des données
 
-# In[7]:
+# In[8]:
 
 
 from sklearn.datasets import make_blobs
@@ -509,7 +519,7 @@ plt.tick_params(labelleft=False)
 
 # Puis on applique l'algorithme des $k$-means.
 
-# In[8]:
+# In[9]:
 
 
 from sklearn.cluster import KMeans
@@ -628,7 +638,7 @@ plt.tight_layout()
 # 
 # $$\boldsymbol\Sigma_{k} = \frac{\displaystyle\sum_{j=1}^n p_j^{(i)}(k) (\mathbf x_j-\boldsymbol\mu_k)(\mathbf x_j-\boldsymbol\mu_k)^T}{\displaystyle\sum_{j=1}^n p_j^{(i)}(k)}$$
 
-# In[9]:
+# In[10]:
 
 
 import numpy as np
@@ -695,7 +705,7 @@ plt.show()
 # - toutes les composantes gaussiennes ont la même matrice de covariance
 # - chaque composante gaussienne a une matrice de covariance diagonale, à terme diagonaux égaux
 
-# In[10]:
+# In[11]:
 
 
 from sklearn.mixture import GaussianMixture
@@ -756,7 +766,7 @@ plt.tight_layout()
 # 
 # Par défaut (métrique euclidienne), les k-means évaluent des nuages sphériques.
 
-# In[11]:
+# In[12]:
 
 
 from sklearn.cluster import KMeans
@@ -787,7 +797,7 @@ plt.tight_layout()
 # 
 # Dans le code qui suit, on estime à la fois les matrices de covariance les plus adaptées et le nombre de composantes $k$, en optimisant le critère d'information Bayésien $BIC = -2ln(L) + pln(n)$, où $L$ est la vraisemblance du modèle estimé, $n$ le nombre d'observations, et $p$ le nombre de paramètres libres du modèle.
 
-# In[12]:
+# In[13]:
 
 
 import itertools
@@ -874,7 +884,7 @@ plt.tight_layout()
 # - d'échantillonner la composante $C_i$ désirée, selon la distribution $P(C_i)=\pi_i$
 # - d'échantillonner un $\mathbf x$ de la distribution de la composante $C_i$, selon ${\cal N}(x|\hat{\theta}_i)$
 
-# In[13]:
+# In[14]:
 
 
 from matplotlib.colors import LogNorm

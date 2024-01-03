@@ -6,11 +6,11 @@
 # In[1]:
 
 
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-
+try:
+    import pandas,seaborn
+except ModuleNotFoundError: 
+    get_ipython().system('pip3 install --quiet pandas,seaborn')
+import numpy, matplotlib.pyplot as plt,pandas,seaborn
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -50,13 +50,13 @@ warnings.filterwarnings('ignore')
 data = pd.read_csv('../data/dataTP.csv')
 
 
-# In[3]:
+# In[23]:
 
 
 data.head()
 
 
-# In[4]:
+# In[24]:
 
 
 data.info()

@@ -1,6 +1,15 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[1]:
+
+
+try:
+    import scipy 
+except ModuleNotFoundError: 
+    get_ipython().system('pip3 install --quiet scipy')
+
+
 # # Elements de statistiques
 # 
 # Dans l'expression "étude statistique", il faut distinguer :
@@ -155,7 +164,7 @@
 # ### Phénomène de régularité statistique
 # Considérons plusieurs séquences de 100 lancers d'une pièce de monnaie et notons, pour chaque séquence, la suite $(f_n)_{n\geq 1}$ des fréquences des piles obtenus. Un exemple de simulation avec $p=0.4$ est proposé dans la figure suivante avec le code ayant servi à la produire.
 
-# In[1]:
+# In[2]:
 
 
 import numpy as np
@@ -316,7 +325,7 @@ plt.tight_layout()
 # 
 # #### Modèle de Bernoulli
 
-# In[2]:
+# In[3]:
 
 
 from scipy.stats import bernoulli
@@ -328,7 +337,7 @@ print("Variance: ", bernoulli.var(p))
 
 # #### Loi binomiale
 
-# In[3]:
+# In[4]:
 
 
 from scipy.stats import binom
@@ -345,7 +354,7 @@ print("Fonction de répartition : ", binom.cdf(x,n,p))
 
 # #### Loi hypergéométrique
 
-# In[4]:
+# In[5]:
 
 
 from scipy.stats import hypergeom
@@ -363,7 +372,7 @@ print("Fonction de répartition : ", hypergeom.cdf(x, M, m, n))
 
 # #### Distribution de Poisson
 
-# In[5]:
+# In[6]:
 
 
 from scipy.stats import poisson
@@ -394,7 +403,7 @@ print("Fonction de répartition : ", poisson.cdf(x, Lambda))
 # 
 # #### Modèle uniforme
 
-# In[6]:
+# In[7]:
 
 
 from scipy.stats import uniform
@@ -411,7 +420,7 @@ print("Fonction de répartition : ", uniform.cdf(x, loc = a, scale = b-1))
 
 # #### Loi normale
 
-# In[7]:
+# In[8]:
 
 
 from scipy.stats import norm
@@ -449,7 +458,7 @@ print("Fonction de répartition : ", norm.cdf(x, loc = m, scale = sigma))
 # 
 # #### Loi exponentielle
 
-# In[8]:
+# In[9]:
 
 
 from scipy.stats import expon
@@ -470,7 +479,7 @@ print("Fonction de répartition : ", expon.cdf(x, scale = Lambda))
 # 
 # #### Distribution Gamma
 
-# In[9]:
+# In[10]:
 
 
 from scipy.stats import gamma
@@ -500,7 +509,7 @@ print("Fonction de répartition : ", gamma.cdf(x, a, scale = 1/Lambda))
 # 
 # #### Loi du Khi-deux
 
-# In[10]:
+# In[11]:
 
 
 from scipy.stats import chi2
@@ -515,7 +524,7 @@ print("Fonction de répartition : ", chi2(n).cdf(x))
 
 # #### Loi de Student
 
-# In[11]:
+# In[12]:
 
 
 from scipy.stats import t
@@ -537,7 +546,7 @@ print("Fonction de répartition : ", t(n).cdf(x))
 # 
 # #### Loi de Fisher-Snédécor
 
-# In[12]:
+# In[13]:
 
 
 from scipy.stats import f

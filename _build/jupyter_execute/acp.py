@@ -1,6 +1,15 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[1]:
+
+
+try:
+    import pandas 
+except ModuleNotFoundError: 
+    get_ipython().system('pip3 install --quiet pandas')
+
+
 # Les méthodes factorielles ont pour but de traiter et visualiser des données multidimensionnelles. La prise en compte simultanée de l'ensemble des variables est un problème difficile, rendu parfois plus simple car l'information apportée par les variables est redondante. Les méthodes factorielles visent alors à exploiter cette redondance pour tenter de remplacer les variables initiales par un nombre réduit de nouvelles variables, conservant au mieux l'information initiale.
 # 
 # Les principales méthodes de ce type incluent l'analyse factorielle des correspondances, l'analyse des correspondances multiples, l'analyse factorielle d'un tableau de distance (pour les tableaux de proximité) ou encore l'analyse factorielle discriminante. Ces méthodes sont proposées en annexe de ce cours.
@@ -242,7 +251,7 @@
 # 
 # ## Pour résumer
 
-# In[1]:
+# In[2]:
 
 
 from IPython.display import Video
@@ -341,7 +350,7 @@ Video("videos/ACP.mp4",embed =True,width=800)
 # 
 # Nous proposons ici d'implémenter entièrement l'ACP, pour bien comprendre les mécanismes de cette approche.
 
-# In[2]:
+# In[3]:
 
 
 import numpy as np
@@ -383,7 +392,7 @@ def print_tab (n, d, ind, tab):
 # 
 # $D=\frac{1}{n}I$ = Matrice diagonale de poids, chaque $d_{ii}$ donnant l'importance de l'individu $i$ dans les données
 
-# In[3]:
+# In[4]:
 
 
 Xt = np.transpose(X)
@@ -395,7 +404,7 @@ print ('g = \n',g)
 
 # $Y = X - {\bf 1} g^T = (I - {\bf 11}^TD)X$ = Tableau centré associé à $X$
 
-# In[4]:
+# In[5]:
 
 
 gt = np.transpose(g)
@@ -405,7 +414,7 @@ Y = X - np.matmul (un, gt)
 # ### Données réduites
 # $V=X^TDX-gg^T=Y^TDY$ = Matrice de variance/covariance.
 
-# In[5]:
+# In[6]:
 
 
 Yt = np.transpose(Y)
@@ -416,7 +425,7 @@ V = np.matmul (np.matmul (Yt, D), Y)
 # 
 # $R = D_{1/\sigma}VD_{1/\sigma} = Z^T  D  Z$ = Matrice (symétrique) de variance/covariance des données centrées réduites.
 
-# In[6]:
+# In[7]:
 
 
 sigma = seq = [np.std(x) for x in Xt]
@@ -437,7 +446,7 @@ plt.colorbar();
 # 
 # - Si $M=I$ on calcule $ \frac{1}{n}\displaystyle\sum_{i=1}^n (z_i)^T M z_i = Tr(RM)$
 
-# In[7]:
+# In[8]:
 
 
 def calcul_inertie_somme (Y, M):
@@ -462,7 +471,7 @@ print (calcul_inertie_trace(R, M))
 
 # ## Analyse spectrale
 
-# In[8]:
+# In[9]:
 
 
 eigenvalues,eigenvectors = np.linalg.eig(R)
@@ -472,7 +481,7 @@ u = [eigenvectors[:,i] for i in range(d)]
 
 # ### Calcul des composantes principales
 
-# In[9]:
+# In[10]:
 
 
 c = []
@@ -483,7 +492,7 @@ for j in range(d):
 # ### Pourcentage d'inertie expliquée par un axe
 # Pourcentage d'inertie cumulée expliquée par les $k$ premiers axes : $\frac{\displaystyle\sum_{j=1}^k\lambda_j}{\displaystyle\sum_{j=1}^d\lambda_j}$
 
-# In[10]:
+# In[11]:
 
 
 i_lambda = [l/d for l in eigenvalues]
@@ -500,7 +509,7 @@ plt.tight_layout()
 
 # ### Critère de Kaiser
 
-# In[11]:
+# In[12]:
 
 
 nb_l = np.sum(np.array(eigenvalues)>1)
@@ -511,7 +520,7 @@ print ("On retient " + str(nb_l) + " axes")
 # 
 # ### Corrélation variables/facteurs
 
-# In[12]:
+# In[13]:
 
 
 r = []
@@ -522,7 +531,7 @@ for j in range(d):
 # ### Cercle des corrélations pour un couple de composantes principales
 # Pour $c_1$ et $c_2$, chaque variable $x_j$ est repérée par un point d'abscisse $r(c_1,x^j)$ et d'ordonnée $r(c_2, x_j)$.
 
-# In[13]:
+# In[14]:
 
 
 i1 = i_lambda[0] * 100
@@ -577,7 +586,7 @@ plt.tight_layout()
 
 # ### Contribution des variables
 
-# In[14]:
+# In[15]:
 
 
 contributions_variables = []
@@ -591,7 +600,7 @@ print (print_tab (d, d, variables, contributions_variables))
 
 # ### Représentation des individus
 
-# In[15]:
+# In[16]:
 
 
 plt.figure(figsize=(18, 6))
@@ -636,7 +645,7 @@ plt.tight_layout()
 # ### Contribution des individus
 # $\frac{p_ic_{ki}^2}{\lambda_k}$
 
-# In[16]:
+# In[17]:
 
 
 contributions_individus = []
@@ -653,7 +662,7 @@ print (print_tab (n, d, ind, contributions_individus))
 # ### Tableau des cosinus carrés
 # $\frac{c_{ki}^2}{\displaystyle\sum_{j=1}^d c_{ji}^2}$
 
-# In[17]:
+# In[18]:
 
 
 cosinus_carres = []
