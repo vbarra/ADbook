@@ -1,0 +1,2323 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.21)  3 JAN 2024 12:38
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**book.tex
+(./book.tex
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-03-06> (./sphinxmanual.cls
+Document Class: sphinxmanual 2019/12/01 v2.3.0 Document class (Sphinx manual)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/local/texlive/2020/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@chapter=\count168
+\c@section=\count169
+\c@subsection=\count170
+\c@subsubsection=\count171
+\c@paragraph=\count172
+\c@subparagraph=\count173
+\c@figure=\count174
+\c@table=\count175
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+)
+LaTeX Info: Redefining \and on input line 35.
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+)
+   defining Unicode char U+00A0 (decimal 160)
+   defining Unicode char U+2500 (decimal 9472)
+   defining Unicode char U+2502 (decimal 9474)
+   defining Unicode char U+2514 (decimal 9492)
+   defining Unicode char U+251C (decimal 9500)
+   defining Unicode char U+2572 (decimal 9586)
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/cmap/cmap.sty
+Package: cmap 2008/03/06 v1.0h CMap support: searchable PDF
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
+<<t1.cmap>>)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2020/01/20 v2.17e AMS math features
+\@mathmargin=\skip49
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks17
+\ex@=\dimen135
+))
+(/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen136
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count176
+LaTeX Info: Redefining \frac on input line 227.
+\uproot@=\count177
+\leftroot@=\count178
+LaTeX Info: Redefining \overline on input line 389.
+\classnum@=\count179
+\DOTSCASE@=\count180
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
+\Mathstrutbox@=\box45
+\strutbox@=\box46
+\big@size=\dimen137
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+\macc@depth=\count181
+\c@MaxMatrixCols=\count182
+\dotsspace@=\muskip16
+\c@parentequation=\count183
+\dspbrk@lvl=\count184
+\tag@help=\toks18
+\row@=\count185
+\column@=\count186
+\maxfields@=\count187
+\andhelp@=\toks19
+\eqnshift@=\dimen138
+\alignsep@=\dimen139
+\tagshift@=\dimen140
+\tagwidth@=\dimen141
+\totwidth@=\dimen142
+\lineht@=\dimen143
+\@envbody=\toks20
+\multlinegap=\skip50
+\multlinetaggap=\skip51
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2859.
+LaTeX Info: Redefining \] on input line 2860.
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/local/texlive/2020/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2020/03/22 3.42 The Babel package
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2020/03/22 3.42 Babel switching mechanism
+)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/babel-french/french.ldf
+Language: french 2020/01/30 v3.5g French support from the babel system
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2020/03/22 3.42 Babel common definitions
+\babel@savecnt=\count188
+\U@D=\dimen144
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count189
+)
+Package babel Info: \l@acadian = using hyphenrules for french
+(babel)             (\language28) on input line 91.
+Package babel Info: \l@canadien = using hyphenrules for french
+(babel)             (\language28) on input line 92.
+\FB@nonchar=\count190
+Package babel Info: Making : an active character on input line 419.
+Package babel Info: Making ; an active character on input line 420.
+Package babel Info: Making ! an active character on input line 421.
+Package babel Info: Making ? an active character on input line 422.
+\FBguill@level=\count191
+\FBold@everypar=\toks22
+\FB@Mht=\dimen145
+\mc@charclass=\count192
+\mc@charfam=\count193
+\mc@charslot=\count194
+\std@mcc=\count195
+\dec@mcc=\count196
+\c@FBcaption@count=\count197
+\listindentFB=\dimen146
+\descindentFB=\dimen147
+\labelindentFB=\dimen148
+\labelwidthFB=\dimen149
+\leftmarginFB=\dimen150
+\parindentFFN=\dimen151
+\FBfnindent=\dimen152
+))
+(/usr/local/texlive/2020/texmf-dist/tex/latex/carlisle/scalefnt.sty)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks23
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/tex-gyre/tgtermes.sty
+Package: tgtermes 2009/09/27 v1.2 TeX Gyre Termes as default roman family
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)))
+(/usr/local/texlive/2020/texmf-dist/tex/latex/tex-gyre/tgheros.sty
+Package: tgheros 2009/09/27 v1.2 TeX Gyre Heros as default sans serif family
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/fncychap/fncychap.sty
+Package: fncychap 2007/07/30 v1.34 LaTeX package (Revised chapters)
+\RW=\skip52
+\mylen=\skip53
+\myhi=\skip54
+\px=\skip55
+\py=\skip56
+\pyy=\skip57
+\pxx=\skip58
+)
+(./sphinx.sty
+Package: sphinx 2021/01/27 v4.0.0 LaTeX package (Sphinx markup)
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+\sphinxverbatimsep=\dimen153
+\sphinxverbatimborder=\dimen154
+\sphinxshadowsep=\dimen155
+\sphinxshadowsize=\dimen156
+\sphinxshadowrule=\dimen157
+\spx@notice@border=\dimen158
+
+(./sphinxoptionshyperref.sty
+File: sphinxoptionshyperref.sty 2021/01/27 hyperref
+) (./sphinxoptionsgeometry.sty
+File: sphinxoptionsgeometry.sty 2021/01/27 geometry
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count198
+\float@exts=\toks24
+\float@box=\box47
+\@float@everytoks=\toks25
+\@floatcapt=\box48
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen159
+\WF@size=\dimen160
+\c@WF@wrappedlines=\count199
+\WF@box=\box49
+\WF@everypar=\toks26
+Package: wrapfig 2003/01/31  v 3.6
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/capt-of/capt-of.sty
+Package: capt-of 2009/12/29 v0.2 standard captions outside of floats
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
+\c@tracingmulticols=\count266
+\mult@box=\box50
+\multicol@leftmargin=\dimen161
+\c@unbalance=\count267
+\c@collectmore=\count268
+\doublecol@number=\count269
+\multicoltolerance=\count270
+\multicolpretolerance=\count271
+\full@width=\dimen162
+\page@free=\dimen163
+\premulticols=\dimen164
+\postmulticols=\dimen165
+\multicolsep=\skip59
+\multicolbaselineskip=\skip60
+\partial@page=\box51
+\last@line=\box52
+\maxbalancingoverflow=\dimen166
+\mult@rightbox=\box53
+\mult@grightbox=\box54
+\mult@gfirstbox=\box55
+\mult@firstbox=\box56
+\@tempa=\box57
+\@tempa=\box58
+\@tempa=\box59
+\@tempa=\box60
+\@tempa=\box61
+\@tempa=\box62
+\@tempa=\box63
+\@tempa=\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\c@minrows=\count272
+\c@columnbadness=\count273
+\c@finalcolumnbadness=\count274
+\last@try=\dimen167
+\multicolovershoot=\dimen168
+\multicolundershoot=\dimen169
+\mult@nat@firstbox=\box94
+\colbreak@box=\box95
+\mc@col@check@num=\count275
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+)
+\Gin@req@height=\dimen170
+\Gin@req@width=\dimen171
+)
+(./sphinxlatexgraphics.sty
+File: sphinxlatexgraphics.sty 2021/01/27 graphics
+\spx@image@maxheight=\dimen172
+\spx@image@box=\box96
+) (./sphinxlatexadmonitions.sty
+File: sphinxlatexadmonitions.sty 2021/01/27 admonitions
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip61
+\fb@frw=\dimen173
+\fb@frh=\dimen174
+\FrameRule=\dimen175
+\FrameSep=\dimen176
+))
+(./sphinxlatexliterals.sty
+File: sphinxlatexliterals.sty 2021/12/06 code-blocks and parsed literals
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2020/01/13 v3.5 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count276
+\FV@InFile=\read3
+\FV@TabBox=\box97
+\c@FancyVerbLine=\count277
+\FV@StepNumber=\count278
+\FV@OutFile=\write3
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/base/alltt.sty
+Package: alltt 1997/06/16 v2.0g defines alltt environment
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/needspace/needspace.sty
+Package: needspace 2010/09/12 v1.3d reserve vertical space
+)
+\sphinxcontinuationbox=\box98
+\sphinxvisiblespacebox=\box99
+\sphinxVerbatim@TitleBox=\box100
+\sphinxVerbatim@ContentsBox=\box101
+\spx@scratchbox=\box102
+)
+(./sphinxlatexshadowbox.sty
+File: sphinxlatexshadowbox.sty 2021/01/27 sphinxShadowBox
+) (./sphinxlatexcontainers.sty
+File: sphinxlatexcontainers.sty 2021/05/03 containers
+)
+(./sphinxhighlight.sty
+Package: sphinxhighlight 2016/05/29 stylesheet for highlighting with pygments
+) (./sphinxlatextables.sty
+File: sphinxlatextables.sty 2021/01/27 tables
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/tabulary/tabulary.sty
+Package: tabulary 2014/06/11 v0.10 tabulary package (DPC)
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/tools/array.sty
+Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
+\col@sep=\dimen177
+\ar@mcellbox=\box103
+\extrarowheight=\dimen178
+\NC@list=\toks27
+\extratabsurround=\skip62
+\backup@length=\skip63
+\ar@cellbox=\box104
+)
+\TY@count=\count279
+\TY@linewidth=\dimen179
+\tymin=\dimen180
+\tymax=\dimen181
+\TY@tablewidth=\dimen182
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
+\LTleft=\skip64
+\LTright=\skip65
+\LTpre=\skip66
+\LTpost=\skip67
+\LTchunksize=\count280
+\LTcapwidth=\dimen183
+\LT@head=\box105
+\LT@firsthead=\box106
+\LT@foot=\box107
+\LT@lastfoot=\box108
+\LT@cols=\count281
+\LT@rows=\count282
+\c@LT@tables=\count283
+\c@LT@chunks=\count284
+\LT@p@ftn=\toks28
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box109
+\sift@deathcycles=\count285
+\@vwid@loff=\dimen184
+\@vwid@roff=\dimen185
+)
+\sphinx@TY@tablewidth=\dimen186
+)
+(./sphinxlatexnumfig.sty
+File: sphinxlatexnumfig.sty 2021/01/27 numbering
+) (./sphinxlatexlists.sty
+File: sphinxlatexlists.sty 2021/01/27 lists
+)
+\c@sphinxscope=\count286
+\c@sphinxexplicit=\count287
+ (./sphinxpackagefootnote.sty
+Package: sphinxpackagefootnote 2021/02/04 v1.1d footnotehyper adapted to sphinx
+ (Sphinx team)
+\FNH@notes=\box110
+\FNH@toks=\toks29
+\FNH@width=\dimen187
+) (./sphinxlatexindbibtoc.sty
+File: sphinxlatexindbibtoc.sty 2021/01/27 index, bib., toc
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/base/makeidx.sty
+Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
+))
+(./sphinxlatexstylepage.sty
+File: sphinxlatexstylepage.sty 2021/01/27 page styling
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/parskip/parskip.sty
+Rollback for package 'parskip' requested -> version 'v1'.
+         This corresponds to the release introduced on 2001-04-09.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/parskip/parskip-2001-04-09.sty
+Package: parskip 2001/04/09 non-zero parskip adjustments
+))
+(/usr/local/texlive/2020/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
+s
+\f@nch@headwidth=\skip68
+\f@nch@O@elh=\skip69
+\f@nch@O@erh=\skip70
+\f@nch@O@olh=\skip71
+\f@nch@O@orh=\skip72
+\f@nch@O@elf=\skip73
+\f@nch@O@erf=\skip74
+\f@nch@O@olf=\skip75
+\f@nch@O@orf=\skip76
+))
+(./sphinxlatexstyleheadings.sty
+File: sphinxlatexstyleheadings.sty 2021/01/27 headings
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2019/10/16 v2.13 Sectioning titles
+\ttl@box=\box111
+\beforetitleunit=\skip77
+\aftertitleunit=\skip78
+\ttl@plus=\dimen188
+\ttl@minus=\dimen189
+\ttl@toksa=\toks30
+\titlewidth=\dimen190
+\titlewidthlast=\dimen191
+\titlewidthfirst=\dimen192
+))
+(./sphinxlatexstyletext.sty
+File: sphinxlatexstyletext.sty 2021/12/06 text styling
+) (./sphinxlatexobjects.sty
+File: sphinxlatexobjects.sty 2022/01/13 documentation environments
+\sphinxsignaturesep=\skip79
+\py@argswidth=\skip80
+\lineblockindentation=\skip81
+\DUlineblockindent=\skip82
+))
+(/usr/local/texlive/2020/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count288
+\Gm@cntv=\count289
+\c@Gm@tempcnt=\count290
+\Gm@bindingoffset=\dimen193
+\Gm@wd@mp=\dimen194
+\Gm@odd@mp=\dimen195
+\Gm@even@mp=\dimen196
+\Gm@layoutwidth=\dimen197
+\Gm@layoutheight=\dimen198
+\Gm@layouthoffset=\dimen199
+\Gm@layoutvoffset=\dimen256
+\Gm@dimlist=\toks31
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+\@linkdim=\dimen257
+\Hy@linkcounter=\count291
+\Hy@pagecounter=\count292
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count293
+Package hyperref Info: Option `unicode' set `true' on input line 4421.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2020/01/14 v7.00d Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 4421.
+Package hyperref Info: Option `breaklinks' set `true' on input line 4421.
+Package hyperref Info: Hyper figures OFF on input line 4547.
+Package hyperref Info: Link nesting OFF on input line 4552.
+Package hyperref Info: Hyper index ON on input line 4555.
+Package hyperref Info: Plain pages OFF on input line 4562.
+Package hyperref Info: Backreferencing OFF on input line 4567.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4800.
+\c@Hy@tempcnt=\count294
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5159.
+\XeTeXLinkMargin=\dimen258
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count295
+\Field@Width=\dimen259
+\Fld@charsize=\dimen260
+Package hyperref Info: Hyper figures OFF on input line 6430.
+Package hyperref Info: Link nesting OFF on input line 6435.
+Package hyperref Info: Hyper index ON on input line 6438.
+Package hyperref Info: backreferencing OFF on input line 6445.
+Package hyperref Info: Link coloring ON on input line 6448.
+Package hyperref Info: Link coloring with OCG OFF on input line 6455.
+Package hyperref Info: PDF/A mode OFF on input line 6460.
+LaTeX Info: Redefining \ref on input line 6500.
+LaTeX Info: Redefining \pageref on input line 6504.
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/atbegshi/atbegshi.sty
+Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
+)
+\Hy@abspage=\count296
+\c@Item=\count297
+\c@Hfootnote=\count298
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2020/01/14 v7.00d Hyperref driver for pdfTeX
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/atveryend/atveryend.sty
+Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+)
+\Fld@listcount=\count299
+\c@bookmark@seq@number=\count300
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
+)
+\Hy@SectionHShift=\skip83
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/oberdiek/hypcap.sty
+Package: hypcap 2016/05/16 v1.12 Adjusting the anchors of captions (HO)
+)
+(./sphinxmessages.sty
+Package: sphinxmessages 2019/01/04 v2.0 Localized LaTeX macros (Sphinx team)
+)
+\@indexfile=\write4
+\openout4 = `book.idx'.
+
+
+Writing index file book.idx
+(/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count301
+\l__pdf_internal_box=\box112
+)
+(./book.aux)
+\openout1 = `book.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Trying to load font information for T1+qtm on input line 72
+.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/tex-gyre/t1qtm.fd
+File: t1qtm.fd 2009/09/25 v1.2 font definition file for T1/qtm
+)
+LaTeX Info: Redefining \degres on input line 72.
+LaTeX Info: Redefining \dots on input line 72.
+LaTeX Info: Redefining \up on input line 72.
+
+(/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count302
+\scratchdimen=\dimen261
+\scratchbox=\box113
+\nofMPsegments=\count303
+\nofMParguments=\count304
+\everyMPshowfont=\toks32
+\MPscratchCnt=\count305
+\MPscratchDim=\dimen262
+\MPnumerator=\count306
+\makeMPintoPDFobject=\count307
+\everyMPtoPDFconversion=\toks33
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\c@literalblock=\count308
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=36.135pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\AtBeginShipoutBox=\box114
+Package hyperref Info: Link coloring ON on input line 72.
+(/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(/usr/local/texlive/2020/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+ty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count309
+)
+LaTeX Info: Redefining \ref on input line 72.
+LaTeX Info: Redefining \pageref on input line 72.
+LaTeX Info: Redefining \nameref on input line 72.
+\@outlinefile=\write5
+\openout5 = `book.out'.
+
+Package hyperref Info: Option `pageanchor' set `false' on input line 80.
+LaTeX Font Info:    Trying to load font information for T1+qhv on input line 80
+.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/tex-gyre/t1qhv.fd
+File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
+)<<ot1.cmap>><<oml.cmap>><<oms.cmap>><<omx.cmap>>
+LaTeX Font Info:    Trying to load font information for U+msa on input line 80.
+
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 80.
+
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
+
+
+]
+\tf@toc=\write6
+\openout6 = `book.toc'.
+
+ [1
+
+] [2
+
+]
+Chapitre 1.
+[1
+
+] [2
+
+]
+Chapitre 2.
+<bayes.jpeg, id=40, 200.75pt x 214.8025pt>
+LaTeX Font Info:    Trying to load font information for T1+txtt on input line 1
+43.
+(/usr/local/texlive/2020/texmf-dist/tex/latex/txfonts/t1txtt.fd
+File: t1txtt.fd 2000/12/15 v3.1
+)
+File: bayes.jpeg Graphic file (type jpg)
+<use bayes.jpeg>
+Package pdftex.def Info: bayes.jpeg  used on input line 143.
+(pdftex.def)             Requested size: 200.7495pt x 214.80197pt.
+
+Underfull \vbox (badness 3271) detected at line 144
+ []
+
+[3] [4 <./bayes.jpeg>]
+Chapitre 3.
+[5
+
+] [6
+
+]
+Chapitre 4.
+[7] [8]
+<kolmogorov.jpeg, id=81, 200.75pt x 200.75pt>
+File: kolmogorov.jpeg Graphic file (type jpg)
+<use kolmogorov.jpeg>
+Package pdftex.def Info: kolmogorov.jpeg  used on input line 482.
+(pdftex.def)             Requested size: 200.7495pt x 200.7495pt.
+ [9 <./kolmogorov.jpeg>] [10] [11] [12]
+LaTeX Font Info:    Font shape `T1/txtt/b/n' in size <10> not available
+(Font)              Font shape `T1/txtt/bx/n' tried instead on input line 753.
+LaTeX Font Info:    Trying to load font information for TS1+txtt on input line 
+770.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/txfonts/ts1txtt.fd
+File: ts1txtt.fd 2000/12/15 v3.1
+)
+<Rappels_1_0.png, id=113, 425.59pt x 281.05pt>
+File: Rappels_1_0.png Graphic file (type png)
+<use Rappels_1_0.png>
+Package pdftex.def Info: Rappels_1_0.png  used on input line 780.
+(pdftex.def)             Requested size: 425.58894pt x 281.0493pt.
+ [13] [14 <./Rappels_1_0.png>]
+<Rappels_3_0.png, id=128, 603.25375pt x 320.19624pt>
+File: Rappels_3_0.png Graphic file (type png)
+<use Rappels_3_0.png>
+Package pdftex.def Info: Rappels_3_0.png  used on input line 848.
+(pdftex.def)             Requested size: 469.75362pt x 249.34164pt.
+ [15 <./Rappels_3_0.png>] [16] [17] [18]
+Chapitre 5.
+[19
+
+] [20]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1310.
+
+[21]
+LaTeX Font Info:    Trying to load font information for TS1+qtm on input line 1
+391.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/tex-gyre/ts1qtm.fd
+File: ts1qtm.fd 2009/09/25 v1.2 font definition file for TS1/qtm
+)
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1394.
+
+[22]
+<elemstats_2_0.png, id=196, 859.21pt x 425.59pt>
+File: elemstats_2_0.png Graphic file (type png)
+<use elemstats_2_0.png>
+Package pdftex.def Info: elemstats_2_0.png  used on input line 1531.
+(pdftex.def)             Requested size: 469.76132pt x 232.6855pt.
+ [23] [24 <./elemstats_2_0.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1595.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1595.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\lambda' on input line 1595.
+
+[25]
+Underfull \vbox (badness 10000) detected at line 1665
+ []
+
+
+Overfull \vbox (11.67393pt too high) detected at line 1665
+ []
+
+[26]
+Overfull \hbox (10.86467pt too wide) in paragraph at lines 1802--1802
+[]$[]$| 
+ []
+
+
+Overfull \hbox (9.44814pt too wide) in paragraph at lines 1802--1802
+[]$\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OMS/
+cmsy/m/n/10 g$| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1802--1802
+[]\T1/qtm/m/n/10 Ex-pé-rience ayant
+ []
+
+
+Underfull \hbox (badness 8132) in paragraph at lines 1802--1802
+\T1/qtm/m/n/10 2 éven-tua-li-tés pos-
+ []
+
+
+Overfull \hbox (8.22833pt too wide) in paragraph at lines 1802--1802
+[]$\OT1/cmr/m/n/10 [ [0\OML/cmm/m/it/10 ; n\OT1/cmr/m/n/10 ] ]$| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1802--1802
+[]\T1/qtm/m/n/10 Hy-per-géo-mé-trique,
+ []
+
+
+Overfull \hbox (8.22833pt too wide) in paragraph at lines 1802--1802
+[]$\OT1/cmr/m/n/10 [ [0\OML/cmm/m/it/10 ; n\OT1/cmr/m/n/10 ] ]$| 
+ []
+
+
+Overfull \hbox (1.78241pt too wide) in paragraph at lines 1802--1802
+[]$\OML/cmm/m/it/10 n[]$| 
+ []
+
+
+Overfull \hbox (28.49887pt too wide) in paragraph at lines 1802--1802
+[]$[]\OML/cmm/m/it/10 n[][]$| 
+ []
+
+
+Overfull \hbox (8.22833pt too wide) in paragraph at lines 1802--1802
+[]$\OT1/cmr/m/n/10 [ [1\OML/cmm/m/it/10 ; n\OT1/cmr/m/n/10 ] ]$| 
+ []
+
+
+Overfull \hbox (2.47203pt too wide) in paragraph at lines 1802--1802
+[]$[]$| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1802--1802
+[]\T1/qtm/m/n/10 Equi-pro-ba-bi-lité des
+ []
+
+<discretes.png, id=220, 1300.86pt x 433.62pt>
+File: discretes.png Graphic file (type png)
+<use discretes.png>
+Package pdftex.def Info: discretes.png  used on input line 1807.
+(pdftex.def)             Requested size: 469.75827pt x 156.58607pt.
+[27 <./discretes.png>]
+LaTeX Font Info:    Font shape `T1/txtt/m/it' in size <10> not available
+(Font)              Font shape `T1/txtt/m/sl' tried instead on input line 1816.
+
+LaTeX Font Info:    Font shape `TS1/txtt/m/it' in size <10> not available
+(Font)              Font shape `TS1/txtt/m/sl' tried instead on input line 1816
+.
+ [28]
+Underfull \hbox (badness 10000) in paragraph at lines 2098--2098
+[]\T1/qtm/m/n/10 Ex-po-nen-tiel
+ []
+
+
+Overfull \hbox (14.96024pt too wide) in paragraph at lines 2098--2098
+[]$\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x[]; \OT1/cmr/m/n/10 +\OMS/cmsy/m/n/10 1\O
+T1/cmr/m/n/10 [$| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2098--2098
+[]$\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2098--2098
+[]$[]\OML/cmm/m/it/10 x[]$
+ []
+
+
+Overfull \hbox (3.03983pt too wide) in paragraph at lines 2098--2098
+[]$[]$
+ []
+
+
+Overfull \hbox (3.21721pt too wide) in paragraph at lines 2098--2098
+[]$\OT1/cmr/m/n/10 (\U/msb/m/n/10 R[]\OT1/cmr/m/n/10 )[]$| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2098--2098
+[]$\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2098--2098
+[]$\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; k\OT1/cmr/m/n/10 ) =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2098--2098
+[]$\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) =
+ []
+
+
+Overfull \hbox (19.35141pt too wide) in paragraph at lines 2098--2098
+[][] [][]$
+ []
+
+
+Overfull \hbox (3.21721pt too wide) in paragraph at lines 2098--2098
+[]$\OT1/cmr/m/n/10 (\U/msb/m/n/10 R[]\OT1/cmr/m/n/10 )[]$| 
+ []
+
+
+Overfull \hbox (16.46808pt too wide) in paragraph at lines 2098--2098
+[]$[]\OML/cmm/m/it/10 n[]m[][]$| 
+ []
+
+<continues.png, id=241, 867.24pt x 867.24pt>
+File: continues.png Graphic file (type png)
+<use continues.png>
+Package pdftex.def Info: continues.png  used on input line 2103.
+(pdftex.def)             Requested size: 469.75827pt x 469.75827pt.
+[29] [30 <./continues.png>] [31] [32] [33] [34]
+Chapitre 6.
+[35
+
+]
+<baton.png, id=284, 977.6525pt x 337.26pt>
+File: baton.png Graphic file (type png)
+<use baton.png>
+Package pdftex.def Info: baton.png  used on input line 2468.
+(pdftex.def)             Requested size: 469.76016pt x 162.05278pt.
+
+! Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.2493 \begin{eqnarray}
+                       
+? 
+! Missing \right. inserted.
+<inserted text> 
+                \right .
+l.2493 \begin{eqnarray}
+                       
+? 
+! You can't use `\halign' in math mode.
+\H@eqnarray ...let \\\@eqncr $$\everycr {}\halign 
+                                                  to\displaywidth \bgroup \h...
+l.2493 \begin{eqnarray}
+                       
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \bgroup 
+l.2493 \begin{eqnarray}
+                       
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \bgroup 
+l.2493 \begin{eqnarray}
+                       
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.2493 \begin{eqnarray}
+                       
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.2493 \begin{eqnarray}
+                       
+? 
+! You can't use `macro parameter character #' in math mode.
+\H@eqnarray ...$\displaystyle \tabskip \z@skip {##
+                                                  }$\@eqnsel &\global \@eqcn...
+l.2493 \begin{eqnarray}
+                       
+? 
+! Misplaced alignment tab character &.
+\H@eqnarray ...le \tabskip \z@skip {##}$\@eqnsel &
+                                                  \global \@eqcnt \@ne \hski...
+l.2493 \begin{eqnarray}
+                       
+? 
+! You can't use `macro parameter character #' in math mode.
+\H@eqnarray ...\hskip \tw@ \arraycolsep \hfil ${##
+                                                  }$\hfil &\global \@eqcnt \...
+l.2493 \begin{eqnarray}
+                       
+? 
+! Misplaced alignment tab character &.
+\H@eqnarray ...w@ \arraycolsep \hfil ${##}$\hfil &
+                                                  \global \@eqcnt \tw@ \hski...
+l.2493 \begin{eqnarray}
+                       
+? 
+! You can't use `macro parameter character #' in math mode.
+\H@eqnarray ...tw@ \arraycolsep $\displaystyle {##
+                                                  }$\hfil \tabskip \@centeri...
+l.2493 \begin{eqnarray}
+                       
+? 
+! Misplaced alignment tab character &.
+\H@eqnarray ...e {##}$\hfil \tabskip \@centering &
+                                                  \global \@eqcnt \thr@@ \hb...
+l.2493 \begin{eqnarray}
+                       
+? 
+! You can't use `macro parameter character #' in restricted horizontal mode.
+\H@eqnarray ... \thr@@ \hb@xt@ \z@ \bgroup \hss ##
+                                                  \egroup \tabskip \z@skip \cr 
+l.2493 \begin{eqnarray}
+                       
+? 
+! Misplaced \cr.
+\H@eqnarray ...hss ##\egroup \tabskip \z@skip \cr 
+                                                  
+l.2493 \begin{eqnarray}
+                       
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.2493 \begin{eqnarray}
+                       
+? 
+! Misplaced alignment tab character &.
+l.2494 0&
+         \textrm{ si} &x<x_1\\
+? 
+! Misplaced alignment tab character &.
+l.2494 0&\textrm{ si} &
+                       x<x_1\\
+? 
+! Misplaced alignment tab character &.
+l.2495 F_j &
+            \textrm{ si}&  x\in[x_j,x_{j+1}[\\
+? 
+! Misplaced alignment tab character &.
+l.2495 F_j &\textrm{ si}&
+                           x\in[x_j,x_{j+1}[\\
+? 
+! Misplaced alignment tab character &.
+l.2496 1&
+          \textrm{ si}&  x_J\leq x
+? 
+! Misplaced alignment tab character &.
+l.2496 1& \textrm{ si}&
+                         x_J\leq x
+? 
+
+! LaTeX Error: Too many columns in eqnarray environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2497 \end{eqnarray}
+                     \right .\)
+? 
+! Misplaced \cr.
+\@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
+                                                  
+l.2497 \end{eqnarray}
+                     \right .\)
+? 
+! Extra }, or forgotten $.
+\H@endeqnarray ->\@@eqncr \egroup 
+                                  \global \advance \c@equation \m@ne $$\@ign...
+l.2497 \end{eqnarray}
+                     \right .\)
+? 
+
+! LaTeX Error: \begin{document} ended by \end{eqnarray}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2497 \end{eqnarray}
+                     \right .\)
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.2497 \end{eqnarray}
+                     \right .\)
+? 
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.2497 \end{eqnarray}
+                     \right .\)
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.2497 \end{eqnarray}\right
+                            .\)
+? 
+! Extra \right.
+l.2497 \end{eqnarray}\right .
+                             \)
+? 
+<baton2.png, id=285, 1031.855pt x 337.26pt>
+File: baton2.png Graphic file (type png)
+<use baton2.png>
+Package pdftex.def Info: baton2.png  used on input line 2500.
+(pdftex.def)             Requested size: 469.74667pt x 153.54102pt.
+[36 <./baton.png>] [37 <./baton2.png>]
+<statsdescriptives_1_0.png, id=302, 1148.29pt x 281.05pt>
+File: statsdescriptives_1_0.png Graphic file (type png)
+<use statsdescriptives_1_0.png>
+Package pdftex.def Info: statsdescriptives_1_0.png  used on input line 2586.
+(pdftex.def)             Requested size: 469.75066pt x 114.97392pt.
+
+! Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.2619 \begin{eqnarray}
+                       
+? 
+! Missing \right. inserted.
+<inserted text> 
+                \right .
+l.2619 \begin{eqnarray}
+                       
+? 
+! You can't use `\halign' in math mode.
+\H@eqnarray ...let \\\@eqncr $$\everycr {}\halign 
+                                                  to\displaywidth \bgroup \h...
+l.2619 \begin{eqnarray}
+                       
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \bgroup 
+l.2619 \begin{eqnarray}
+                       
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \bgroup 
+l.2619 \begin{eqnarray}
+                       
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.2619 \begin{eqnarray}
+                       
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.2619 \begin{eqnarray}
+                       
+? 
+! You can't use `macro parameter character #' in math mode.
+\H@eqnarray ...$\displaystyle \tabskip \z@skip {##
+                                                  }$\@eqnsel &\global \@eqcn...
+l.2619 \begin{eqnarray}
+                       
+? 
+! Misplaced alignment tab character &.
+\H@eqnarray ...le \tabskip \z@skip {##}$\@eqnsel &
+                                                  \global \@eqcnt \@ne \hski...
+l.2619 \begin{eqnarray}
+                       
+? 
+! You can't use `macro parameter character #' in math mode.
+\H@eqnarray ...\hskip \tw@ \arraycolsep \hfil ${##
+                                                  }$\hfil &\global \@eqcnt \...
+l.2619 \begin{eqnarray}
+                       
+? 
+! Misplaced alignment tab character &.
+\H@eqnarray ...w@ \arraycolsep \hfil ${##}$\hfil &
+                                                  \global \@eqcnt \tw@ \hski...
+l.2619 \begin{eqnarray}
+                       
+? 
+! You can't use `macro parameter character #' in math mode.
+\H@eqnarray ...tw@ \arraycolsep $\displaystyle {##
+                                                  }$\hfil \tabskip \@centeri...
+l.2619 \begin{eqnarray}
+                       
+? 
+! Misplaced alignment tab character &.
+\H@eqnarray ...e {##}$\hfil \tabskip \@centering &
+                                                  \global \@eqcnt \thr@@ \hb...
+l.2619 \begin{eqnarray}
+                       
+? 
+! You can't use `macro parameter character #' in restricted horizontal mode.
+\H@eqnarray ... \thr@@ \hb@xt@ \z@ \bgroup \hss ##
+                                                  \egroup \tabskip \z@skip \cr 
+l.2619 \begin{eqnarray}
+                       
+? 
+! Misplaced \cr.
+\H@eqnarray ...hss ##\egroup \tabskip \z@skip \cr 
+                                                  
+l.2619 \begin{eqnarray}
+                       
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.2619 \begin{eqnarray}
+                       
+? 
+! Misplaced alignment tab character &.
+l.2620 0&
+         \textrm{ si}& x<c^-_1\\
+? 
+! Misplaced alignment tab character &.
+l.2620 0&\textrm{ si}&
+                       x<c^-_1\\
+? 
+! Misplaced alignment tab character &.
+l.2621 F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &
+                                                 \textrm{ si}& x\in[c^-_j,c^...
+
+? 
+! Misplaced alignment tab character &.
+l.2621 ..._j}{c^+_j-c^-_j}(x-c^-_j) &\textrm{ si}&
+                                                   x\in[c^-_j,c^+_j[\\
+? 
+! Misplaced alignment tab character &.
+l.2622 1&
+          \textrm{ si}&c^+_J\leq x
+? 
+! Misplaced alignment tab character &.
+l.2622 1& \textrm{ si}&
+                       c^+_J\leq x
+? 
+
+! LaTeX Error: Too many columns in eqnarray environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2623 \end{eqnarray}
+                     \right .\)
+? 
+! Misplaced \cr.
+\@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
+                                                  
+l.2623 \end{eqnarray}
+                     \right .\)
+? 
+! Extra }, or forgotten $.
+\H@endeqnarray ->\@@eqncr \egroup 
+                                  \global \advance \c@equation \m@ne $$\@ign...
+l.2623 \end{eqnarray}
+                     \right .\)
+? 
+
+! LaTeX Error: \begin{document} ended by \end{eqnarray}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2623 \end{eqnarray}
+                     \right .\)
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.2623 \end{eqnarray}
+                     \right .\)
+? 
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.2623 \end{eqnarray}
+                     \right .\)
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.2623 \end{eqnarray}\right
+                            .\)
+? 
+! Extra \right.
+l.2623 \end{eqnarray}\right .
+                             \)
+? 
+[38 <./statsdescriptives_1_0.png>]
+
+LaTeX Warning: Hyper reference `statsdescriptives:boxplot' on page 39 undefined
+ on input line 2638.
+
+[39]
+<statsdescriptives_3_0.png, id=317, 570.13pt x 570.13pt>
+File: statsdescriptives_3_0.png Graphic file (type png)
+<use statsdescriptives_3_0.png>
+Package pdftex.def Info: statsdescriptives_3_0.png  used on input line 2714.
+(pdftex.def)             Requested size: 469.7541pt x 469.7541pt.
+ [40] [41 <./statsdescriptives_3_0.png>] [42] [43]
+
+LaTeX Warning: Hyper reference `statsdescriptives:biais' on page 44 undefined o
+n input line 2903.
+
+<normdonnees.png, id=347, 1445.4pt x 361.35pt>
+File: normdonnees.png Graphic file (type png)
+<use normdonnees.png>
+Package pdftex.def Info: normdonnees.png  used on input line 2927.
+(pdftex.def)             Requested size: 469.74944pt x 117.43735pt.
+<normK.png, id=348, 1156.32pt x 722.7pt>
+File: normK.png Graphic file (type png)
+<use normK.png>
+Package pdftex.def Info: normK.png  used on input line 2937.
+(pdftex.def)             Requested size: 469.75385pt x 293.59615pt.
+[44 <./normdonnees.png>] [45 <./normK.png>]
+Overfull \vbox (2.55212pt too high) detected at line 3040
+ []
+
+[46]
+<statsdescriptives_11_1.png, id=372, 557.08125pt x 268.00125pt>
+File: statsdescriptives_11_1.png Graphic file (type png)
+<use statsdescriptives_11_1.png>
+Package pdftex.def Info: statsdescriptives_11_1.png  used on input line 3051.
+(pdftex.def)             Requested size: 469.76414pt x 225.99054pt.
+ [47 <./statsdescriptives_11_1.png>]
+<statsdescriptives_13_1.png, id=378, 557.08125pt x 268.00125pt>
+File: statsdescriptives_13_1.png Graphic file (type png)
+<use statsdescriptives_13_1.png>
+Package pdftex.def Info: statsdescriptives_13_1.png  used on input line 3109.
+(pdftex.def)             Requested size: 469.76414pt x 225.99054pt.
+ [48 <./statsdescriptives_13_1.png>]
+<dispersion.png, id=385, 1208.515pt x 389.455pt>
+File: dispersion.png Graphic file (type png)
+<use dispersion.png>
+Package pdftex.def Info: dispersion.png  used on input line 3185.
+(pdftex.def)             Requested size: 469.75153pt x 151.38171pt.
+
+[49 <./dispersion.png>]
+<statsdescriptives_15_1.png, id=391, 846.16125pt x 268.00125pt>
+File: statsdescriptives_15_1.png Graphic file (type png)
+<use statsdescriptives_15_1.png>
+Package pdftex.def Info: statsdescriptives_15_1.png  used on input line 3233.
+(pdftex.def)             Requested size: 469.75417pt x 148.78334pt.
+ [50 <./statsdescriptives_15_1.png>] [51]
+<statsdescriptives_17_0.png, id=403, 413.545pt x 269.005pt>
+File: statsdescriptives_17_0.png Graphic file (type png)
+<use statsdescriptives_17_0.png>
+Package pdftex.def Info: statsdescriptives_17_0.png  used on input line 3380.
+(pdftex.def)             Requested size: 413.54398pt x 269.00433pt.
+ [52] [53 <./statsdescriptives_17_0.png>]
+<statsdescriptives_19_0.png, id=415, 406.51875pt x 382.42876pt>
+File: statsdescriptives_19_0.png Graphic file (type png)
+<use statsdescriptives_19_0.png>
+Package pdftex.def Info: statsdescriptives_19_0.png  used on input line 3432.
+(pdftex.def)             Requested size: 406.51775pt x 382.42781pt.
+ [54 <./statsdescriptives_19_0.png>] [55] [56]
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3595 \(\begin{equation}
+                          G^2 = 2\displaystyle\sum_{k=1}^K\displaystyle\sum_...
+
+? 
+! You can't use `\eqno' in math mode.
+\endmathdisplay@a ...\df@tag \@empty \else \veqno 
+                                                  \alt@tag \df@tag \fi \ifx ...
+l.3595 ..._{jk}}{ n^*_{jk}} \right )\end{equation}
+                                                  \)
+? 
+! Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.3595 ..._{jk}}{ n^*_{jk}} \right )\end{equation}
+                                                  \)
+? 
+
+! LaTeX Error: \begin{document} ended by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3595 ..._{jk}}{ n^*_{jk}} \right )\end{equation}
+                                                  \)
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.3595 ..._{jk}}{ n^*_{jk}} \right )\end{equation}
+                                                  \)
+? 
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.3595 ..._{jk}}{ n^*_{jk}} \right )\end{equation}
+                                                  \)
+? 
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3595 ...jk}}{ n^*_{jk}} \right )\end{equation}\)
+                                                  
+? 
+[57]
+<batiments.png, id=439, 767.86874pt x 691.58376pt>
+File: batiments.png Graphic file (type png)
+<use batiments.png>
+Package pdftex.def Info: batiments.png  used on input line 3677.
+(pdftex.def)             Requested size: 469.75839pt x 423.08958pt.
+ [58]
+<batiments2.png, id=446, 846.16125pt x 874.26625pt>
+File: batiments2.png Graphic file (type png)
+<use batiments2.png>
+Package pdftex.def Info: batiments2.png  used on input line 3703.
+(pdftex.def)             Requested size: 469.75417pt x 485.35692pt.
+ [59 <./batiments.png>] [60 <./batiments2.png>]
+Chapitre 7.
+
+LaTeX Warning: Hyper reference `selection:tsne' on page 61 undefined on input l
+ine 3749.
+
+<tsne.png, id=460, 766.36313pt x 817.55438pt>
+File: tsne.png Graphic file (type png)
+<use tsne.png>
+Package pdftex.def Info: tsne.png  used on input line 3757.
+(pdftex.def)             Requested size: 469.76111pt x 501.14005pt.
+[61
+
+] [62 <./tsne.png>] [63] [64] [65]
+
+LaTeX Warning: Hyper reference `selection:SFS' on page 66 undefined on input li
+ne 4030.
+
+
+LaTeX Warning: Hyper reference `selection:SFS' on page 66 undefined on input li
+ne 4030.
+
+[66]
+
+LaTeX Warning: Hyper reference `selection:FOCUS' on page 67 undefined on input 
+line 4125.
+
+
+LaTeX Warning: Hyper reference `selection:relief' on page 67 undefined on input
+ line 4178.
+
+[67] [68] [69] [70
+
+]
+Chapitre 8.
+<acpintro.png, id=546, 679.53876pt x 313.17pt>
+File: acpintro.png Graphic file (type png)
+<use acpintro.png>
+Package pdftex.def Info: acpintro.png  used on input line 4308.
+(pdftex.def)             Requested size: 469.75325pt x 216.49847pt.
+[71 <./acpintro.png>]
+! Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.4370 \(\begin{eqnarray*}
+                          
+? 
+! You can't use `\halign' in math mode.
+\H@eqnarray ...let \\\@eqncr $$\everycr {}\halign 
+                                                  to\displaywidth \bgroup \h...
+l.4370 \(\begin{eqnarray*}
+                          
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \bgroup 
+l.4370 \(\begin{eqnarray*}
+                          
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \bgroup 
+l.4370 \(\begin{eqnarray*}
+                          
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.4370 \(\begin{eqnarray*}
+                          
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.4370 \(\begin{eqnarray*}
+                          
+? 
+! You can't use `macro parameter character #' in math mode.
+\H@eqnarray ...$\displaystyle \tabskip \z@skip {##
+                                                  }$\@eqnsel &\global \@eqcn...
+l.4370 \(\begin{eqnarray*}
+                          
+? 
+! Misplaced alignment tab character &.
+\H@eqnarray ...le \tabskip \z@skip {##}$\@eqnsel &
+                                                  \global \@eqcnt \@ne \hski...
+l.4370 \(\begin{eqnarray*}
+                          
+? 
+! You can't use `macro parameter character #' in math mode.
+\H@eqnarray ...\hskip \tw@ \arraycolsep \hfil ${##
+                                                  }$\hfil &\global \@eqcnt \...
+l.4370 \(\begin{eqnarray*}
+                          
+? 
+! Misplaced alignment tab character &.
+\H@eqnarray ...w@ \arraycolsep \hfil ${##}$\hfil &
+                                                  \global \@eqcnt \tw@ \hski...
+l.4370 \(\begin{eqnarray*}
+                          
+? 
+! You can't use `macro parameter character #' in math mode.
+\H@eqnarray ...tw@ \arraycolsep $\displaystyle {##
+                                                  }$\hfil \tabskip \@centeri...
+l.4370 \(\begin{eqnarray*}
+                          
+? 
+! Misplaced alignment tab character &.
+\H@eqnarray ...e {##}$\hfil \tabskip \@centering &
+                                                  \global \@eqcnt \thr@@ \hb...
+l.4370 \(\begin{eqnarray*}
+                          
+? 
+! You can't use `macro parameter character #' in restricted horizontal mode.
+\H@eqnarray ... \thr@@ \hb@xt@ \z@ \bgroup \hss ##
+                                                  \egroup \tabskip \z@skip \cr 
+l.4370 \(\begin{eqnarray*}
+                          
+? 
+! Misplaced \cr.
+\H@eqnarray ...hss ##\egroup \tabskip \z@skip \cr 
+                                                  
+l.4370 \(\begin{eqnarray*}
+                          
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.4370 \(\begin{eqnarray*}
+                          
+? 
+! Misplaced alignment tab character &.
+l.4371 Tr({\bf PVP^TM})&
+                        =&Tr({\bf PVMP})\quad \textrm{car }{\bf P^TM}={\bf M...
+
+? 
+! Misplaced alignment tab character &.
+l.4371 Tr({\bf PVP^TM})&=&
+                          Tr({\bf PVMP})\quad \textrm{car }{\bf P^TM}={\bf M...
+
+? 
+! Misplaced alignment tab character &.
+<recently read> &
+                 
+l.4372 &
+        =& Tr({\bf VMP^2})\quad \textrm{car }Tr({\bf AB})=Tr({\bf BA})\\
+? 
+! Misplaced alignment tab character &.
+l.4372 &=&
+           Tr({\bf VMP^2})\quad \textrm{car }Tr({\bf AB})=Tr({\bf BA})\\
+? 
+! Misplaced alignment tab character &.
+<recently read> &
+                 
+l.4373 &
+        =&Tr({\bf VMP})\quad \textrm{car } P\textrm{ est une projection}
+? 
+! Misplaced alignment tab character &.
+l.4373 &=&
+          Tr({\bf VMP})\quad \textrm{car } P\textrm{ est une projection}
+? 
+
+! LaTeX Error: Too many columns in eqnarray environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4374 \end{eqnarray*}
+                      \)
+? 
+! Misplaced \cr.
+\@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
+                                                  
+l.4374 \end{eqnarray*}
+                      \)
+? 
+! Extra }, or forgotten $.
+\H@endeqnarray ->\@@eqncr \egroup 
+                                  \global \advance \c@equation \m@ne $$\@ign...
+l.4374 \end{eqnarray*}
+                      \)
+? 
+
+! LaTeX Error: \begin{document} ended by \end{eqnarray*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4374 \end{eqnarray*}
+                      \)
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.4374 \end{eqnarray*}
+                      \)
+? 
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.4374 \end{eqnarray*}
+                      \)
+? 
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4374 \end{eqnarray*}\)
+                        
+? 
+[72]
+! Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.4406 \(\begin{eqnarray*}
+                          
+? 
+! You can't use `\halign' in math mode.
+\H@eqnarray ...let \\\@eqncr $$\everycr {}\halign 
+                                                  to\displaywidth \bgroup \h...
+l.4406 \(\begin{eqnarray*}
+                          
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \bgroup 
+l.4406 \(\begin{eqnarray*}
+                          
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \bgroup 
+l.4406 \(\begin{eqnarray*}
+                          
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.4406 \(\begin{eqnarray*}
+                          
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.4406 \(\begin{eqnarray*}
+                          
+? 
+! You can't use `macro parameter character #' in math mode.
+\H@eqnarray ...$\displaystyle \tabskip \z@skip {##
+                                                  }$\@eqnsel &\global \@eqcn...
+l.4406 \(\begin{eqnarray*}
+                          
+? 
+! Misplaced alignment tab character &.
+\H@eqnarray ...le \tabskip \z@skip {##}$\@eqnsel &
+                                                  \global \@eqcnt \@ne \hski...
+l.4406 \(\begin{eqnarray*}
+                          
+? 
+! You can't use `macro parameter character #' in math mode.
+\H@eqnarray ...\hskip \tw@ \arraycolsep \hfil ${##
+                                                  }$\hfil &\global \@eqcnt \...
+l.4406 \(\begin{eqnarray*}
+                          
+? 
+! Misplaced alignment tab character &.
+\H@eqnarray ...w@ \arraycolsep \hfil ${##}$\hfil &
+                                                  \global \@eqcnt \tw@ \hski...
+l.4406 \(\begin{eqnarray*}
+                          
+? 
+! You can't use `macro parameter character #' in math mode.
+\H@eqnarray ...tw@ \arraycolsep $\displaystyle {##
+                                                  }$\hfil \tabskip \@centeri...
+l.4406 \(\begin{eqnarray*}
+                          
+? 
+! Misplaced alignment tab character &.
+\H@eqnarray ...e {##}$\hfil \tabskip \@centering &
+                                                  \global \@eqcnt \thr@@ \hb...
+l.4406 \(\begin{eqnarray*}
+                          
+? 
+! You can't use `macro parameter character #' in restricted horizontal mode.
+\H@eqnarray ... \thr@@ \hb@xt@ \z@ \bgroup \hss ##
+                                                  \egroup \tabskip \z@skip \cr 
+l.4406 \(\begin{eqnarray*}
+                          
+? 
+! Misplaced \cr.
+\H@eqnarray ...hss ##\egroup \tabskip \z@skip \cr 
+                                                  
+l.4406 \(\begin{eqnarray*}
+                          
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.4406 \(\begin{eqnarray*}
+                          
+? 
+pdfTeX warning (ext4): destination with the same identifier (name{equation.8.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.4406 \(\begin{eqnarray*}
+                          pdfTeX warning (ext4): destination with the same iden
+tifier (name{equation.8.1.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.4406 \(\begin{eqnarray*}
+                          pdfTeX warning (ext4): destination with the same iden
+tifier (name{equation.8.1.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.4406 \(\begin{eqnarray*}
+                          pdfTeX warning (ext4): destination with the same iden
+tifier (name{equation.8.1.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.4406 \(\begin{eqnarray*}
+                          
+! Misplaced alignment tab character &.
+l.4407 Tr({\bf VMP})&
+                     =&Tr\left ({\bf VM}\frac{\mathbf{a}\mathbf{a}^T{\bf M}}...
+
+? 
+! Misplaced alignment tab character &.
+l.4407 Tr({\bf VMP})&=&
+                       Tr\left ({\bf VM}\frac{\mathbf{a}\mathbf{a}^T{\bf M}}...
+
+? 
+! Misplaced alignment tab character &.
+<recently read> &
+                 
+l.4408 &
+        =& \frac{1}{\mathbf{a^T}{\bf M}\mathbf{a}}Tr({\bf VM}\mathbf{a}\math...
+
+? 
+! Misplaced alignment tab character &.
+l.4408 &=&
+           \frac{1}{\mathbf{a^T}{\bf M}\mathbf{a}}Tr({\bf VM}\mathbf{a}\math...
+
+? 
+! Misplaced alignment tab character &.
+<recently read> &
+                 
+l.4409 &
+        =& \frac{1}{\mathbf{a^T}{\bf M}\mathbf{a}}Tr(\mathbf{a^T}{\bf MVM}\m...
+
+? 
+! Misplaced alignment tab character &.
+l.4409 &=&
+           \frac{1}{\mathbf{a^T}{\bf M}\mathbf{a}}Tr(\mathbf{a^T}{\bf MVM}\m...
+
+? 
+! Misplaced alignment tab character &.
+<recently read> &
+                 
+l.4410 &
+        =& \frac{1}{\mathbf{a^T}{\bf M}\mathbf{a}}\mathbf{a^T}{\bf MVM}\math...
+
+? 
+! Misplaced alignment tab character &.
+l.4410 &=&
+           \frac{1}{\mathbf{a^T}{\bf M}\mathbf{a}}\mathbf{a^T}{\bf MVM}\math...
+
+? 
+
+! LaTeX Error: Too many columns in eqnarray environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4411 \end{eqnarray*}
+                      \)
+? 
+! Misplaced \cr.
+\@@eqncr ...l \@eqnswtrue \global \@eqcnt \z@ \cr 
+                                                  
+l.4411 \end{eqnarray*}
+                      \)
+? 
+! Extra }, or forgotten $.
+\H@endeqnarray ->\@@eqncr \egroup 
+                                  \global \advance \c@equation \m@ne $$\@ign...
+l.4411 \end{eqnarray*}
+                      \)
+? 
+
+! LaTeX Error: \begin{document} ended by \end{eqnarray*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4411 \end{eqnarray*}
+                      \)
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.4411 \end{eqnarray*}
+                      \)
+? 
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.4411 \end{eqnarray*}
+                      \)
+? 
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4411 \end{eqnarray*}\)
+                        
+? 
+[73]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 4485.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 4485.
+
+[74]
+<scree.png, id=581, 867.24pt x 433.62pt>
+File: scree.png Graphic file (type png)
+<use scree.png>
+Package pdftex.def Info: scree.png  used on input line 4517.
+(pdftex.def)             Requested size: 469.75827pt x 234.87912pt.
+<proj.png, id=582, 174.15062pt x 162.10562pt>
+File: proj.png Graphic file (type png)
+<use proj.png>
+Package pdftex.def Info: proj.png  used on input line 4529.
+(pdftex.def)             Requested size: 174.15019pt x 162.10522pt.
+ [75 <./scree.png>]
+<cercle.png, id=591, 449.68pt x 337.26pt>
+File: cercle.png Graphic file (type png)
+<use cercle.png>
+Package pdftex.def Info: cercle.png  used on input line 4572.
+(pdftex.def)             Requested size: 449.6789pt x 337.25917pt.
+ [76 <./proj.png>] [77 <./cercle.png (PNG copy)>]
+<individus.png, id=605, 803.803pt x 590.205pt>
+File: individus.png Graphic file (type png)
+<use individus.png>
+Package pdftex.def Info: individus.png  used on input line 4603.
+(pdftex.def)             Requested size: 469.76292pt x 344.93082pt.
+<biplot.png, id=606, 1156.32pt x 572.539pt>
+File: biplot.png Graphic file (type png)
+<use biplot.png>
+Package pdftex.def Info: biplot.png  used on input line 4609.
+(pdftex.def)             Requested size: 469.75385pt x 232.5934pt.
+
+[78 <./individus.png (PNG copy)>] [79 <./biplot.png (PNG copy)>] [80]
+<ex1.png, id=623, 991.705pt x 413.545pt>
+File: ex1.png Graphic file (type png)
+<use ex1.png>
+Package pdftex.def Info: ex1.png  used on input line 4724.
+(pdftex.def)             Requested size: 469.74828pt x 195.89323pt.
+ [81 <./ex1.png>] [82]
+<acp_12_0.png, id=639, 331.2375pt x 281.05pt>
+File: acp_12_0.png Graphic file (type png)
+<use acp_12_0.png>
+Package pdftex.def Info: acp_12_0.png  used on input line 4898.
+(pdftex.def)             Requested size: 331.23668pt x 281.0493pt.
+ [83] [84 <./acp_12_0.png>]
+<acp_20_0.png, id=651, 714.67pt x 353.32pt>
+File: acp_20_0.png Graphic file (type png)
+<use acp_20_0.png>
+Package pdftex.def Info: acp_20_0.png  used on input line 5001.
+(pdftex.def)             Requested size: 469.75346pt x 232.23767pt.
+ [85]
+LaTeX Font Info:    Font shape `TS1/txtt/b/n' in size <10> not available
+(Font)              Font shape `TS1/txtt/bx/n' tried instead on input line 5058
+.
+ [86 <./acp_20_0.png>]
+<acp_26_0.png, id=668, 1290.8225pt x 425.59pt>
+File: acp_26_0.png Graphic file (type png)
+<use acp_26_0.png>
+Package pdftex.def Info: acp_26_0.png  used on input line 5100.
+(pdftex.def)             Requested size: 469.738pt x 154.88123pt.
+ [87]
+Overfull \hbox (312.4927pt too wide) in paragraph at lines 5122--5122
+[][]\T1/txtt/m/n/10 CP1[]CP2[]CP3[]CP4[]CP5[]CP6[]CP7[]CP8[]CP9[]CP10[]CP11[]CP
+12[]CP13|  
+ []
+
+
+Overfull \vbox (13.35997pt too high) detected at line 5136
+ []
+
+[88 <./acp_26_0.png>] [89]
+<acp_30_0.png, id=686, 1292.83pt x 425.59pt>
+File: acp_30_0.png Graphic file (type png)
+<use acp_30_0.png>
+Package pdftex.def Info: acp_30_0.png  used on input line 5187.
+(pdftex.def)             Requested size: 469.75838pt x 154.64095pt.
+
+Overfull \hbox (312.4927pt too wide) in paragraph at lines 5214--5214
+[][]\T1/txtt/m/n/10 CP1[]CP2[]CP3[]CP4[]CP5[]CP6[]CP7[]CP8[]CP9[]CP10[]CP11[]CP
+12[]CP13|  
+ []
+
+
+Overfull \vbox (1.61145pt too high) detected at line 5393
+ []
+
+[90 <./acp_30_0.png>]
+Underfull \vbox (badness 10000) detected at line 5393
+ []
+
+
+Overfull \vbox (23.67393pt too high) detected at line 5393
+ []
+
+[91]
+Underfull \vbox (badness 10000) detected at line 5393
+ []
+
+
+Overfull \vbox (23.67393pt too high) detected at line 5393
+ []
+
+[92]
+Underfull \vbox (badness 10000) detected at line 5393
+ []
+
+
+Overfull \vbox (23.67393pt too high) detected at line 5393
+ []
+
+[93]
+Underfull \vbox (badness 10000) detected at line 5393
+ []
+
+
+Overfull \vbox (23.67393pt too high) detected at line 5393
+ []
+
+[94]
+Underfull \vbox (badness 10000) detected at line 5393
+ []
+
+
+Overfull \vbox (23.67393pt too high) detected at line 5393
+ []
+
+[95]
+Underfull \vbox (badness 10000) detected at line 5393
+ []
+
+
+Overfull \vbox (23.67393pt too high) detected at line 5393
+ []
+
+[96]
+Underfull \vbox (badness 10000) detected at line 5393
+ []
+
+
+Overfull \vbox (23.67393pt too high) detected at line 5393
+ []
+
+[97]
+Underfull \vbox (badness 10000) detected at line 5393
+ []
+
+
+Overfull \vbox (23.67393pt too high) detected at line 5393
+ []
+
+[98]
+Underfull \vbox (badness 10000) detected at line 5393
+ []
+
+
+Overfull \vbox (23.67393pt too high) detected at line 5393
+ []
+
+[99] [100]
+Overfull \hbox (312.4927pt too wide) in paragraph at lines 5423--5423
+[][]\T1/txtt/m/n/10 CP1[]CP2[]CP3[]CP4[]CP5[]CP6[]CP7[]CP8[]CP9[]CP10[]CP11[]CP
+12[]CP13|  
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 5602
+ []
+
+
+Overfull \vbox (3.52196pt too high) detected at line 5602
+ []
+
+[101]
+Underfull \vbox (badness 10000) detected at line 5602
+ []
+
+
+Overfull \vbox (23.67393pt too high) detected at line 5602
+ []
+
+[102]
+Underfull \vbox (badness 10000) detected at line 5602
+ []
+
+
+Overfull \vbox (23.67393pt too high) detected at line 5602
+ []
+
+[103]
+Underfull \vbox (badness 10000) detected at line 5602
+ []
+
+
+Overfull \vbox (23.67393pt too high) detected at line 5602
+ []
+
+[104]
+Underfull \vbox (badness 10000) detected at line 5602
+ []
+
+
+Overfull \vbox (23.67393pt too high) detected at line 5602
+ []
+
+[105]
+Underfull \vbox (badness 10000) detected at line 5602
+ []
+
+
+Overfull \vbox (23.67393pt too high) detected at line 5602
+ []
+
+[106]
+Underfull \vbox (badness 10000) detected at line 5602
+ []
+
+
+Overfull \vbox (23.67393pt too high) detected at line 5602
+ []
+
+[107]
+Underfull \vbox (badness 10000) detected at line 5602
+ []
+
+
+Overfull \vbox (23.67393pt too high) detected at line 5602
+ []
+
+[108]
+Underfull \vbox (badness 10000) detected at line 5602
+ []
+
+
+Overfull \vbox (23.67393pt too high) detected at line 5602
+ []
+
+[109] [110]
+Chapitre 9.
+[111
+
+]
+<regressionlin.png, id=787, 867.24pt x 433.62pt>
+File: regressionlin.png Graphic file (type png)
+<use regressionlin.png>
+Package pdftex.def Info: regressionlin.png  used on input line 5737.
+(pdftex.def)             Requested size: 469.75827pt x 234.87912pt.
+ [112] [113 <./regressionlin.png>]
+! Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.5833 \(\begin{eqnarray*}
+                          
+? 
+! You can't use `\halign' in math mode.
+\H@eqnarray ...let \\\@eqncr $$\everycr {}\halign 
+                                                  to\displaywidth \bgroup \h...
+l.5833 \(\begin{eqnarray*}
+                          
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   \bgroup 
+l.5833 \(\begin{eqnarray*}
+                          
+? 
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \bgroup 
+l.5833 \(\begin{eqnarray*}
+                          
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.5833 \(\begin{eqnarray*}
+                          
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.5833 \(\begin{eqnarray*}
+                          
+? 
+! You can't use `macro parameter character #' in math mode.
+\H@eqnarray ...$\displaystyle \tabskip \z@skip {##
+                                                  }$\@eqnsel &\global \@eqcn...
+l.5833 \(\begin{eqnarray*}
+                          
+? 
+! Misplaced alignment tab character &.
+\H@eqnarray ...le \tabskip \z@skip {##}$\@eqnsel &
+                                                  \global \@eqcnt \@ne \hski...
+l.5833 \(\begin{eqnarray*}
+                          
+? 
+! You can't use `macro parameter character #' in math mode.
+\H@eqnarray ...\hskip \tw@ \arraycolsep \hfil ${##
+                                                  }$\hfil &\global \@eqcnt \...
+l.5833 \(\begin{eqnarray*}
+                          
+? 
+! Misplaced alignment tab character &.
+\H@eqnarray ...w@ \arraycolsep \hfil ${##}$\hfil &
+                                                  \global \@eqcnt \tw@ \hski...
+l.5833 \(\begin{eqnarray*}
+                          
+? 
+! You can't use `macro parameter character #' in math mode.
+\H@eqnarray ...tw@ \arraycolsep $\displaystyle {##
+                                                  }$\hfil \tabskip \@centeri...
+l.5833 \(\begin{eqnarray*}
+                          
+? 
+! Misplaced alignment tab character &.
+\H@eqnarray ...e {##}$\hfil \tabskip \@centering &
+                                                  \global \@eqcnt \thr@@ \hb...
+l.5833 \(\begin{eqnarray*}
+                          
+? 
+! You can't use `macro parameter character #' in restricted horizontal mode.
+\H@eqnarray ... \thr@@ \hb@xt@ \z@ \bgroup \hss ##
+                                                  \egroup \tabskip \z@skip \cr 
+l.5833 \(\begin{eqnarray*}
+                          
+? 
+! Misplaced \cr.
+\H@eqnarray ...hss ##\egroup \tabskip \z@skip \cr 
+                                                  
+l.5833 \(\begin{eqnarray*}
+                          
+? 
+! Emergency stop.
+\H@eqnarray ...hss ##\egroup \tabskip \z@skip \cr 
+                                                  
+l.5833 \(\begin{eqnarray*}
+                          
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 15280 strings out of 480608
+ 217631 string characters out of 5903630
+ 1031025 words of memory out of 5000000
+ 30410 multiletter control sequences out of 15000+600000
+ 606474 words of font info for 103 fonts, out of 8000000 for 9000
+ 1142 hyphenation exceptions out of 8191
+ 38i,18n,51p,1032b,560s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!
