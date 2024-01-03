@@ -6,11 +6,15 @@
 # In[1]:
 
 
-# n'exécuter qu'une fois
-get_ipython().system('pip3 install sklearn numpy matplotlib ipywidgets IPython --q')
+try:
+    import sklearn, numpy, matplotlib, ipywidgets, IPython 
+except ModuleNotFoundError: 
+    get_ipython().system('pip3 install --quiet sklearn numpy matplotlib ipywidgets IPython')
+    import sympy
+import sklearn, numpy, matplotlib, ipywidgets, IPython
 
 
-# [Télécharger le fichier](./TP_Regression_Lineaire.ipynb) 
+# [Télécharger le fichier](vbarra.github.io/ADbook/TP_Regression_Lineaire.ipynb) 
 
 # In[2]:
 
