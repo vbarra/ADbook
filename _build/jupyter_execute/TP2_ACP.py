@@ -10,15 +10,13 @@ try:
     import sklearn, numpy, matplotlib 
 except ModuleNotFoundError: 
     get_ipython().system('pip3 install --quiet sklearn numpy matplotlib')
-import sklearn, numpy, matplotlib
+import sklearn, numpy, matplotlib.pyplot as plt
 
 
 # In[2]:
 
 
 get_ipython().run_line_magic('matplotlib', 'inline')
-import numpy as np
-import matplotlib.pyplot as plt
 plt.rcParams['axes.labelsize'] = 12
 plt.rcParams['xtick.labelsize'] = 12
 plt.rcParams['ytick.labelsize'] = 12
@@ -162,7 +160,7 @@ planche(Xmnist)
 # - Inférer sur le nombre de composantes principales nécessaires pour expliquer les données initiales
 # - Essayer de reconstruire une image donnée à partir de ses coordonnées sur les $n$ premières composantes principales (faire varier $n$) et voir la qualité de la reconstruction
 
-# In[8]:
+# In[62]:
 
 
 # Utilisation d'un sous-ensemble de Xmnist (pour ne pas surcharger la visualisation)
@@ -176,7 +174,7 @@ Xdata = X0[:nb_digits]
 ydata = y0[:nb_digits]
 
 
-# In[9]:
+# In[73]:
 
 
 # Fonction d'affichage sur le plan principal (n1,n2)

@@ -10,7 +10,6 @@ try:
     import sklearn, numpy, matplotlib, ipywidgets, IPython 
 except ModuleNotFoundError: 
     get_ipython().system('pip3 install --quiet sklearn numpy matplotlib ipywidgets IPython')
-import sklearn, numpy, matplotlib, ipywidgets, IPython
 
 
 # In[2]:

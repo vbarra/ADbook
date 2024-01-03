@@ -8,8 +8,6 @@ try:
     import seaborn numpy matplotlib pandas mca 
 except ModuleNotFoundError: 
     get_ipython().system('pip3 install --quiet seaborn numpy matplotlib pandas mca')
-    import sympy
-import seaborn, numpy, matplotlib, pandas, mca 
 
 
 # In[1]:
