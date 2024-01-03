@@ -16,6 +16,7 @@ parts:
     - file: clustering
   - caption: TP
     chapters:
+    - file: sujetsTP
     - file: TP1_statsDescriptives
     - file: TP2_ACP
     - file: TP_Regression_Lineaire
