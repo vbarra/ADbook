@@ -160,6 +160,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="sujetsTP.html">
+   Sujets de TP
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="TP1_statsDescriptives.html">
    TP Statistiques descriptives
   </a>
@@ -540,14 +545,20 @@ title="Fullscreen mode"
                 
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># n&#39;exécuter qu&#39;une fois</span>
-<span class="o">!</span>pip3 install seaborn numpy matplotlib pandas mca --q
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">seaborn</span> <span class="n">numpy</span> <span class="n">matplotlib</span> <span class="n">pandas</span> <span class="n">mca</span> 
+<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span> 
+    <span class="o">!</span>pip3 install --quiet seaborn numpy matplotlib pandas mca 
+    <span class="kn">import</span> <span class="nn">sympy</span>
+<span class="kn">import</span> <span class="nn">seaborn</span><span class="o">,</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">matplotlib</span><span class="o">,</span> <span class="nn">pandas</span><span class="o">,</span> <span class="nn">mca</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">23.2.1</span> -&gt; <span class=" -Color -Color-Green">23.3.2</span>
-<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python3.11 -m pip install --upgrade pip</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="kn">import</span> <span class="nn">seaborn</span> <span class="n">numpy</span> <span class="n">matplotlib</span> <span class="n">pandas</span> <span class="n">mca</span>
+                   <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
 </div>
@@ -612,13 +623,13 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>CA(col_labels=Index([&#x27;Radio&#x27;, &#x27;Tel.&#x27;, &#x27;Quot.Nat.&#x27;, &#x27;Quot.Reg.&#x27;, &#x27;Press.Mag.&#x27;, &#x27;Press.TV&#x27;], dtype=&#x27;object&#x27;),
-   row_labels=Index([&#x27;Agriculteur&#x27;, &#x27;Petit.Patr.&#x27;, &#x27;Prof.Cad.Sup&#x27;, &#x27;Prof.Int.&#x27;, &#x27;Employe&#x27;,
-       &#x27;Ouvr.Qualif.&#x27;, &#x27;Ouvr.Non-Qual.&#x27;, &#x27;Inactif&#x27;],
-      dtype=&#x27;object&#x27;, name=&#x27;Prof&#x27;))</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">CA</label><div class="sk-toggleable__content"><pre>CA(col_labels=Index([&#x27;Radio&#x27;, &#x27;Tel.&#x27;, &#x27;Quot.Nat.&#x27;, &#x27;Quot.Reg.&#x27;, &#x27;Press.Mag.&#x27;, &#x27;Press.TV&#x27;], dtype=&#x27;object&#x27;),
-   row_labels=Index([&#x27;Agriculteur&#x27;, &#x27;Petit.Patr.&#x27;, &#x27;Prof.Cad.Sup&#x27;, &#x27;Prof.Int.&#x27;, &#x27;Employe&#x27;,
-       &#x27;Ouvr.Qualif.&#x27;, &#x27;Ouvr.Non-Qual.&#x27;, &#x27;Inactif&#x27;],
-      dtype=&#x27;object&#x27;, name=&#x27;Prof&#x27;))</pre></div></div></div></div></div></div></div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CA(col_labels=Index([&#39;Radio&#39;, &#39;Tel.&#39;, &#39;Quot.Nat.&#39;, &#39;Quot.Reg.&#39;, &#39;Press.Mag.&#39;, &#39;Press.TV&#39;], dtype=&#39;object&#39;),
+   row_labels=Index([&#39;Agriculteur&#39;, &#39;Petit.Patr.&#39;, &#39;Prof.Cad.Sup&#39;, &#39;Prof.Int.&#39;, &#39;Employe&#39;,
+       &#39;Ouvr.Qualif.&#39;, &#39;Ouvr.Non-Qual.&#39;, &#39;Inactif&#39;],
+      dtype=&#39;object&#39;, name=&#39;Prof&#39;))
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="valeurs-propres">
@@ -630,12 +641,25 @@ Inactif          1474  1931        181        852         642       782
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.38572868e-02 7.21068498e-03 8.24731391e-04 3.03851641e-04
+  8.26930155e-05]
+ [6.21981806e+01 3.23650288e+01 3.70179190e+00 1.36383258e+00
+  3.71166101e-01]
+ [6.21981806e+01 9.45632094e+01 9.82650013e+01 9.96288339e+01
+  1.00000000e+02]]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/TP3_AFC_ACM_10_0.png" src="_images/TP3_AFC_ACM_10_0.png" />
 </div>
 </div>
 </div>
@@ -684,10 +708,30 @@ Inactif          1474  1931        181        852         642       782
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                       0         1         2         3         4
+Prof                                                            
+Agriculteur     0.166150  0.309612 -0.071838 -0.014433  0.021440
+Petit.Patr.     0.068377  0.143151 -0.064422  0.020370 -0.025687
+Prof.Cad.Sup   -0.429976  0.060873 -0.003021  0.016811  0.011233
+Prof.Int.      -0.106603 -0.032597 -0.030898 -0.025333 -0.011955
+Employe         0.015729 -0.095469 -0.005087 -0.020294  0.003462
+Ouvr.Qualif.    0.043713 -0.101379 -0.019323  0.035411 -0.001730
+Ouvr.Non-Qual.  0.117797 -0.094864 -0.039728  0.003493  0.022484
+Inactif         0.032584  0.033395  0.025968  0.000553 -0.000935
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Moyenne :  1.3877787807814457e-17
+Variance :  0.013857286816774693
 </pre></div>
 </div>
 </div>
@@ -700,6 +744,9 @@ Inactif          1474  1931        181        852         642       782
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/TP3_AFC_ACM_19_0.png" src="_images/TP3_AFC_ACM_19_0.png" />
 </div>
 </div>
 </div>
@@ -738,6 +785,9 @@ Inactif          1474  1931        181        852         642       782
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/TP3_AFC_ACM_23_0.png" src="_images/TP3_AFC_ACM_23_0.png" />
+</div>
 </div>
 </div>
 <div class="section" id="analyse-de-l-association-lignes-colonnes">
@@ -748,6 +798,11 @@ Inactif          1474  1931        181        852         642       782
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p= 0.0
 </pre></div>
 </div>
 </div>
@@ -763,6 +818,11 @@ $<span class="math notranslate nohighlight">\(\frac{P(Y=y_k, X=x_l)}{P(Y=y_k)P(X
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p= 0.0
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="representation-simultanee-lignes-colonnes">
@@ -773,6 +833,9 @@ $<span class="math notranslate nohighlight">\(\frac{P(Y=y_k, X=x_l)}{P(Y=y_k)P(X
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/TP3_AFC_ACM_30_0.png" src="_images/TP3_AFC_ACM_30_0.png" />
 </div>
 </div>
 <p>Comme en ACP où il est possible de reconstituer approximativement les données originelles à partir des coordonnées factorielles des individus, on peut approcher le tableau des indices d’attraction-répulsion <span class="math notranslate nohighlight">\(i_{kl}\)</span> à partir des coordonnées factorielles des modalités lignes et colonnes : en reconstruisant à partir des <span class="math notranslate nohighlight">\(P\)</span> premiers facteurs, si <span class="math notranslate nohighlight">\(F_{kp}\)</span> ett <span class="math notranslate nohighlight">\(G_{lp}\)</span> sont les coordonnées factorielles des modalités lignes et colonnes</p>
@@ -787,6 +850,30 @@ $<span class="math notranslate nohighlight">\(\frac{P(Y=y_k, X=x_l)}{P(Y=y_k)P(X
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                   Radio      Tel.  Quot.Nat.  Quot.Reg.  Press.Mag.  Press.TV
+Prof                                                                          
+Agriculteur     1.018944  1.040396   0.159792   1.490461    1.342838  0.347085
+Petit.Patr.     1.053787  0.975820   0.715205   1.298344    1.070936  0.681216
+Prof.Cad.Sup    1.041910  0.825142   3.007112   0.672662    1.406970  0.820367
+Prof.Int.       1.075237  0.905591   1.416404   0.856550    1.065603  1.057128
+Employe         1.034487  0.997233   0.868608   0.868855    0.881064  1.191609
+Ouvr.Qualif.    1.046731  1.032115   0.859544   0.935636    0.715455  1.150549
+Ouvr.Non-Qual.  1.075500  1.059486   0.415165   0.940845    0.732672  1.127231
+Inactif         0.944787  1.028150   0.873293   1.080089    1.041228  0.964165
+                   Radio      Tel.  Quot.Nat.  Quot.Reg.  Press.Mag.  Press.TV
+Prof                                                                          
+Agriculteur     0.978913  1.075205   0.236872   1.153604    0.866178  1.013767
+Petit.Patr.     0.991322  1.030950   0.685943   1.063214    0.944927  1.005665
+Prof.Cad.Sup    1.054571  0.805378   2.974881   0.602491    1.346314  0.964374
+Prof.Int.       1.013530  0.951748   1.489626   0.901447    1.085861  0.991167
+Employe         0.998004  1.007119   0.927759   1.014541    0.987332  1.001303
+Ouvr.Qualif.    0.994452  1.019786   0.799228   1.040412    0.964793  1.003622
+Ouvr.Non-Qual.  0.985050  1.053319   0.458958   1.108902    0.905123  1.009760
+Inactif         0.995865  1.014749   0.850343   1.030123    0.973756  1.002700
 </pre></div>
 </div>
 </div>
@@ -986,7 +1073,7 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="_images/TP3_AFC_ACM_41_1.png" src="_images/TP3_AFC_ACM_41_1.png" />
@@ -1008,7 +1095,7 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="_images/TP3_AFC_ACM_44_1.png" src="_images/TP3_AFC_ACM_44_1.png" />
@@ -1038,7 +1125,7 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="_images/TP3_AFC_ACM_47_1.png" src="_images/TP3_AFC_ACM_47_1.png" />
@@ -1059,7 +1146,7 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="_images/TP3_AFC_ACM_49_1.png" src="_images/TP3_AFC_ACM_49_1.png" />
@@ -1079,14 +1166,13 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">mca</span> <span class="kn">import</span> <span class="n">MCA</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">acm</span> <span class="o">=</span> <span class="n">MCA</span><span class="p">(</span><span class="n">row_labels</span><span class="o">=</span><span class="n">var_chiens</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">var_labels</span><span class="o">=</span><span class="n">var_chiens</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">acm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">var_chiens</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-
-<span class="ne">TypeError</span>: __init__() got an unexpected keyword argument &#39;row_labels&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MCA(row_labels=Index([&#39;Beauceron&#39;, &#39;Basset&#39;, &#39;Berger All&#39;, &#39;Boxer&#39;, &#39;Bull-Dog&#39;, &#39;Bull-Mastif&#39;,
+       &#39;Caniche&#39;, &#39;Chihuahua&#39;, &#39;Cocker&#39;, &#39;Colley&#39;, &#39;Dalmatien&#39;, &#39;Doberman&#39;,
+       &#39;Dogue-All&#39;, &#39;Epag.-Breton&#39;, &#39;Epag.-FranÃ§ais&#39;, &#39;Fox-Hound&#39;,
+       &#39;Fox-Terrier&#39;, &#39;Gd-Bleu-Gasc&#39;, &#39;Labrador&#39;, &#39;Levrier&#39;, &#39;Mastiff&#39;,
+       &#39;Pekinois&#39;, &#39;Pointer&#39;, &#39;St-Bernard&#39;, &#39;Setter&#39;, &#39;Teckel&#39;, &#39;Terre-Neuve&#39;],
+      dtype=&#39;object&#39;, name=&#39;Chien&#39;),
+    var_labels=Index([&#39;Taille&#39;, &#39;Velocite&#39;, &#39;Affection&#39;], dtype=&#39;object&#39;))
 </pre></div>
 </div>
 </div>
