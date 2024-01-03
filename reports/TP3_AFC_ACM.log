@@ -21,8 +21,6 @@ try:
     import seaborn numpy matplotlib pandas mca 
 except ModuleNotFoundError: 
     !pip3 install --quiet seaborn numpy matplotlib pandas mca 
-    import sympy
-import seaborn, numpy, matplotlib, pandas, mca 
 ------------------
 
 [0;36m  Input [0;32mIn [1][0;36m[0m
@@ -30,5 +28,5 @@ import seaborn, numpy, matplotlib, pandas, mca
 [0m                   ^[0m
 [0;31mSyntaxError[0m[0;31m:[0m invalid syntax
 
-SyntaxError: invalid syntax (<ipython-input-1-b935fbd4c28d>, line 2)
+SyntaxError: invalid syntax (<ipython-input-1-6b4f305add0c>, line 2)
 
