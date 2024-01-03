@@ -42,9 +42,12 @@ sphinx:
   config:
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
     language: fr
-    html_theme_options: 
-      use_download_button: false
-
+      html_theme_options:
+        use_download_button: false
+        repository_url: https://example.com/thing
+        use_issues_button: true
+        use_repository_button: true
+        use_edit_page_button: true
   config:
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
  #   html_theme: pydata_sphinx_theme
