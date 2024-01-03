@@ -142,11 +142,11 @@ Sous l'hypothèse $\sigma_1=\sigma_2=\sigma$ :
 
 ## Loi des grands nombres
 ### Inégalité de Tchebychev
-```{prf:theorem}
+````{prf:theorem}
 Soit une variable aléatoire $X$ de moyenne $m$ et d'écart-type $\sigma$. Alors :
 
 $(\forall t>0)\; P(|X-m|\geq t)\leq \frac{\sigma^2}{t^2}\quad\textrm{et}\quad (\forall u>0)\; P(\frac{|X-m|}{\sigma}\geq u)\leq \frac{1}{u^2}$
-```
+````
 En effet :
 Soit $A=\left \{|X-m|\geq t\right \}$ et $\mathbb{1}_A(\omega)$ = 1 si $\omega\in A$, 0 sinon. Alors :
 
@@ -205,7 +205,7 @@ Cette constatation expérimentale conduit aux remarques suivantes, qui sont pré
 
 
 ### Loi faible des grands nombres
-```{prf:theorem}
+````{prf:theorem}
 Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires indépendantes, identiquement distribuées (i.i.d) de même loi qu'une variable $X$, admettant une moyenne $m$ et un écart-type $\sigma$. Si $(\bar{X}_n)_{n\geq 1}$ est la suite des moyennes empiriques associée à $(X_n)_{n\geq 1}$ alors
 
 $(\forall t>0)\; \displaystyle\lim_{n\rightarrow\infty} P(|\bar{X}_n-m|\geq t) = 0$
