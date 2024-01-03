@@ -6,8 +6,11 @@
 # In[1]:
 
 
-# n'exécuter qu'une fois
-get_ipython().system('pip3 install sklearn numpy matplotlib --q')
+try:
+    import sklearn, numpy, matplotlib 
+except ModuleNotFoundError: 
+    get_ipython().system('pip3 install --quiet sklearn numpy matplotlib')
+import sklearn, numpy, matplotlib
 
 
 # In[2]:
