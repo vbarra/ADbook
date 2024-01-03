@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,6 +43,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -54,9 +55,9 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="fr">
     
 
     <!-- Google Analytics -->
@@ -103,17 +104,9 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
-                    Introduction
-                </a>
-            </li>
-        </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Cours
@@ -222,7 +215,7 @@ const thebe_selector_output = ".output, .cell_output"
              <!-- To handle the deprecated key -->
             
             <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
             </div>
             
         </div>
@@ -265,35 +258,6 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/TP/TP.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -307,52 +271,6 @@ title="Fullscreen mode"
   </span>
 
 </button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/TP/TP.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 <label for="__page-toc"
   class="headerbtn headerbtn-page-toc"
   
@@ -481,7 +399,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="jeu-de-donnees">
-<h1>Jeu de données<a class="headerlink" href="#jeu-de-donnees" title="Permalink to this headline">#</a></h1>
+<h1>Jeu de données<a class="headerlink" href="#jeu-de-donnees" title="Lien permanent vers ce titre">#</a></h1>
 <p>L’objectif de ce jeu de données est de prédire une maladie rénale à partir de mesures effectuées sur des individus.
 Les données ont été recueillies sur une période de deux mois en Inde et comportent 25 caractéristiques</p>
 <ol class="simple">
@@ -816,13 +734,13 @@ memory usage: 81.4+ KB
 </div>
 </div>
 <div class="section" id="analyse-exploratoire">
-<h2>Analyse exploratoire<a class="headerlink" href="#analyse-exploratoire" title="Permalink to this headline">#</a></h2>
+<h2>Analyse exploratoire<a class="headerlink" href="#analyse-exploratoire" title="Lien permanent vers ce titre">#</a></h2>
 <div class="section" id="nettoyage-des-donnees">
-<h3>Nettoyage des données<a class="headerlink" href="#nettoyage-des-donnees" title="Permalink to this headline">#</a></h3>
+<h3>Nettoyage des données<a class="headerlink" href="#nettoyage-des-donnees" title="Lien permanent vers ce titre">#</a></h3>
 <p>Les données, comme tout jeu de données réel, comporte de nombreuses imperfections :</p>
 <ul class="simple">
 <li><p>données manquantes (Nan) dans les données</p></li>
-<li><p>erreurs de lecture du fichier initial dans plusieurs colonnes (un ‘\t’ est encore présent, comme par exemple dans la colonne <code class="docutils literal notranslate"><span class="pre">Classe</span></code>(‘ckd\t’ à la place de ‘ckd’))</p></li>
+<li><p>erreurs de lecture du fichier initial dans plusieurs colonnes (un “\t” est encore présent, comme par exemple dans la colonne <code class="docutils literal notranslate"><span class="pre">Classe</span></code>(“ckd\t” à la place de “ckd”))</p></li>
 <li><p>possiblement données aberrantes.</p></li>
 </ul>
 <p>Il est de plus nécessaire de faire les pré-traitements habituels pour assurer une analyse de données pertinente :</p>
@@ -831,21 +749,21 @@ memory usage: 81.4+ KB
 <li><p>normalisation</p></li>
 <li><p>gestion des variables entières / flottantes</p></li>
 </ul>
-<p>Votre premier travail consiste donc à régler tous ces points pour obtenir un fichier de données propre. Vous devez donc mettre en jeu des techniques d’<a class="reference external" href="https://scikit-learn.org/stable/modules/impute.html">imputation</a>, de <a class="reference external" href="https://scikit-learn.org/stable/modules/preprocessing.html">normalisation</a> ou encore de gestion de <a class="reference external" href="https://scikit-learn.org/stable/modules/outlier_detection.html">données aberrantes</a></p>
+<p>Votre premier travail consiste donc à régler tous ces points pour obtenir un fichier de données propre. Vous devez donc mettre en jeu des techniques d”<a class="reference external" href="https://scikit-learn.org/stable/modules/impute.html">imputation</a>, de <a class="reference external" href="https://scikit-learn.org/stable/modules/preprocessing.html">normalisation</a> ou encore de gestion de <a class="reference external" href="https://scikit-learn.org/stable/modules/outlier_detection.html">données aberrantes</a></p>
 </div>
 <div class="section" id="analyse-univariee-bivariee">
-<h3>Analyse univariée / bivariée<a class="headerlink" href="#analyse-univariee-bivariee" title="Permalink to this headline">#</a></h3>
+<h3>Analyse univariée / bivariée<a class="headerlink" href="#analyse-univariee-bivariee" title="Lien permanent vers ce titre">#</a></h3>
 </div>
 <div class="section" id="selection-extraction-de-variables">
-<h3>Sélection / extraction de variables<a class="headerlink" href="#selection-extraction-de-variables" title="Permalink to this headline">#</a></h3>
+<h3>Sélection / extraction de variables<a class="headerlink" href="#selection-extraction-de-variables" title="Lien permanent vers ce titre">#</a></h3>
 </div>
 <div class="section" id="probleme-de-classification">
-<h3>Problème de classification<a class="headerlink" href="#probleme-de-classification" title="Permalink to this headline">#</a></h3>
-<p>Le premier problème qui nous intéresse est de pouvoir construire un modèle de classification non supervisée et de comparer ses résultats à la “vraie” classification proposée dans le dernière colonne.
+<h3>Problème de classification<a class="headerlink" href="#probleme-de-classification" title="Lien permanent vers ce titre">#</a></h3>
+<p>Le premier problème qui nous intéresse est de pouvoir construire un modèle de classification non supervisée et de comparer ses résultats à la « vraie » classification proposée dans le dernière colonne.
 Vous construirez donc des modèles de classification à partir des éléments vus en cours (<a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html">https://scikit-learn.org/stable/modules/clustering.html</a>), optimiserez les paramètres de ces algorithmes (nombre de classes dans les k-means par exemple) et évaluerez leur performance.</p>
 </div>
 <div class="section" id="probleme-de-regression">
-<h3>Problème de régression<a class="headerlink" href="#probleme-de-regression" title="Permalink to this headline">#</a></h3>
+<h3>Problème de régression<a class="headerlink" href="#probleme-de-regression" title="Lien permanent vers ce titre">#</a></h3>
 <p>Le second problème conerne la régression d’une ou plusieurs des colonnes en fonction des autres régression. Vous vous intéresserez donc à :</p>
 <ul class="simple">
 <li><p>la régression simple de la colonne 12 en fonction des autres colonnes</p></li>

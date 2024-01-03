@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,6 +43,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
+    <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -56,11 +57,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="TP Régression linéaire" href="TP_Regression_Lineaire.html" />
     <link rel="prev" title="TP Statistiques descriptives" href="TP1_statsDescriptives.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="fr">
     
 
     <!-- Google Analytics -->
@@ -107,17 +108,9 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    Introduction
-                </a>
-            </li>
-        </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Cours
@@ -226,7 +219,7 @@ const thebe_selector_output = ".output, .cell_output"
              <!-- To handle the deprecated key -->
             
             <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
             </div>
             
         </div>
@@ -269,35 +262,6 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/TP2_ACP.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -311,52 +275,6 @@ title="Fullscreen mode"
   </span>
 
 </button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/TP2_ACP.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 <label for="__page-toc"
   class="headerbtn headerbtn-page-toc"
   
@@ -501,7 +419,7 @@ title="Print to PDF"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="tp-acp">
-<h1>TP ACP<a class="headerlink" href="#tp-acp" title="Permalink to this headline">#</a></h1>
+<h1>TP ACP<a class="headerlink" href="#tp-acp" title="Lien permanent vers ce titre">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># n&#39;exécuter qu&#39;une fois</span>
@@ -530,7 +448,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="definition-de-quelques-outils">
-<h1>Définition de quelques outils<a class="headerlink" href="#definition-de-quelques-outils" title="Permalink to this headline">#</a></h1>
+<h1>Définition de quelques outils<a class="headerlink" href="#definition-de-quelques-outils" title="Lien permanent vers ce titre">#</a></h1>
 <p>On définit ici quelques fonctions utiles pour l’affichage des résultats, non présents dans sklearn :</p>
 <ul class="simple">
 <li><p>screeplot : variance expliquée en fonction des composantes principales</p></li>
@@ -603,7 +521,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="exercice-1-etude-de-proprietes-de-vins">
-<h1>Exercice 1 : étude de propriétés de vins<a class="headerlink" href="#exercice-1-etude-de-proprietes-de-vins" title="Permalink to this headline">#</a></h1>
+<h1>Exercice 1 : étude de propriétés de vins<a class="headerlink" href="#exercice-1-etude-de-proprietes-de-vins" title="Lien permanent vers ce titre">#</a></h1>
 <p>Le fichier vins.csv contient les résultats d’analyses chimiques de trois classes de vins italiens, provenant de la même région mais de viticulteurs différents. Les analyses portent sur la quantification de 13 indices quantitatifs continus reliés aux vins : degré d’alcool, acide malique, présence de cendres, alcalinité des cendres, magnésium, phénols totaux, flavonoïdes, phénols non flavanoïdes, proanthocyanidines, intensité de la couleur du vin, teinte, OD280/OD315 des vins dilués et proline. Le fichier décrit un vin par ligne (sa classe et ses 13 attributs).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -621,16 +539,16 @@ title="Print to PDF"
 </div>
 </div>
 <div class="section" id="votre-travail">
-<h2>===== Votre travail : =====<a class="headerlink" href="#votre-travail" title="Permalink to this headline">#</a></h2>
+<h2>===== Votre travail : =====<a class="headerlink" href="#votre-travail" title="Lien permanent vers ce titre">#</a></h2>
 <div class="section" id="appliquer-une-acp-a-ces-donnees-de-deux-manieres">
-<h3>Appliquer une <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html">ACP</a> à ces données, de deux manières :<a class="headerlink" href="#appliquer-une-acp-a-ces-donnees-de-deux-manieres" title="Permalink to this headline">#</a></h3>
+<h3>Appliquer une <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html">ACP</a> à ces données, de deux manières :<a class="headerlink" href="#appliquer-une-acp-a-ces-donnees-de-deux-manieres" title="Lien permanent vers ce titre">#</a></h3>
 <ul class="simple">
 <li><p>sur les données brutes du tableau</p></li>
 <li><p>sur les données normalisées, en utilisant la fonction <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html">StandardScaler</a> de ScikitLearn</p></li>
 </ul>
 </div>
 <div class="section" id="pour-chacune-de-ces-analyses">
-<h3>Pour chacune de ces analyses :<a class="headerlink" href="#pour-chacune-de-ces-analyses" title="Permalink to this headline">#</a></h3>
+<h3>Pour chacune de ces analyses :<a class="headerlink" href="#pour-chacune-de-ces-analyses" title="Lien permanent vers ce titre">#</a></h3>
 <ul class="simple">
 <li><p>déterminer si l’analyse est pertinente et si oui pourquoi</p></li>
 <li><p>Si elle l’est effectivement, déterminer le nombre de composantes principales à retenir, interpréter les axes principaux, afficher le(s) plan(s) principal(aux) et interpréter graphiquement les résultats</p></li>
@@ -639,7 +557,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="exercice-2-etude-de-donnees-image">
-<h1>Exercice 2 : étude de données image<a class="headerlink" href="#exercice-2-etude-de-donnees-image" title="Permalink to this headline">#</a></h1>
+<h1>Exercice 2 : étude de données image<a class="headerlink" href="#exercice-2-etude-de-donnees-image" title="Lien permanent vers ce titre">#</a></h1>
 <p>Nous étudions des données image, représentant des chiffres manuscrits. Nous utilisons pour cela la base de données standard MNIST (Mixed National Institute of Standards and Technology), très employée pour le test de nouveaux algorithmes de reconnaissance de ces chiffres. Elle est composée de 60000 images d’apprentissage et 10000 images de test. Les images en noir et blanc, normalisées centrées de 28 pixels de côté.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -681,7 +599,7 @@ title="Print to PDF"
 <p>L’ACP est ici utilisée pour réduire la représentation des données (un point ici est un vecteur de 28*28=784, l’espace original est donc <span class="math notranslate nohighlight">\(\mathbb{R}^{784}\)</span>). Intuitivement, on comprend bien que, de nombreux pixels étant noirs et communs à toutes les images, 784 dimensions sont inutiles.</p>
 <p>Pour ne pas surcharger la visualisation, vous utiliserez un sous-ensemble de <span class="math notranslate nohighlight">\({\tt nb\_digits}\)</span> images de MNIST (code donné)</p>
 <div class="section" id="votre-travail-consiste-a">
-<h2>===== Votre travail consiste à : =====<a class="headerlink" href="#votre-travail-consiste-a" title="Permalink to this headline">#</a></h2>
+<h2>===== Votre travail consiste à : =====<a class="headerlink" href="#votre-travail-consiste-a" title="Lien permanent vers ce titre">#</a></h2>
 <ul class="simple">
 <li><p>Calculer une ACP de ces données (normalisées ? non normalisées ? jusitifier)</p></li>
 <li><p>Projeter les individus dans un  plan principal (ou dans un expace 3D de composantes principales) et commenter le résultat (codes de l’affichage fournis).</p></li>
@@ -763,16 +681,16 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="TP1_statsDescriptives.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="TP1_statsDescriptives.html" title="précédent page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-subtitle">précédent</p>
             <p class="prev-next-title">TP Statistiques descriptives</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="TP_Regression_Lineaire.html" title="next page">
+    <a class='right-next' id="next-link" href="TP_Regression_Lineaire.html" title="suivant page">
     <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">suivant</p>
         <p class="prev-next-title">TP Régression linéaire</p>
     </div>
     <i class="fas fa-angle-right"></i>

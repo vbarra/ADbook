@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,6 +43,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
+    <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -56,11 +57,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Index" href="genindex.html" />
     <link rel="prev" title="Analyse des correspondances multiples" href="acm.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="fr">
     
 
     <!-- Google Analytics -->
@@ -107,17 +108,9 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    Introduction
-                </a>
-            </li>
-        </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Cours
@@ -226,7 +219,7 @@ const thebe_selector_output = ".output, .cell_output"
              <!-- To handle the deprecated key -->
             
             <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
             </div>
             
         </div>
@@ -269,35 +262,6 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/TP3_AFC_ACM.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -311,52 +275,6 @@ title="Fullscreen mode"
   </span>
 
 </button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/TP3_AFC_ACM.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 <label for="__page-toc"
   class="headerbtn headerbtn-page-toc"
   
@@ -646,10 +564,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="tp-afc-acm">
-<h1>TP AFC / ACM<a class="headerlink" href="#tp-afc-acm" title="Permalink to this headline">#</a></h1>
+<h1>TP AFC / ACM<a class="headerlink" href="#tp-afc-acm" title="Lien permanent vers ce titre">#</a></h1>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="exercice-1-analyse-factorielle-des-correspondances">
-<h1>Exercice 1 : Analyse Factorielle des Correspondances<a class="headerlink" href="#exercice-1-analyse-factorielle-des-correspondances" title="Permalink to this headline">#</a></h1>
+<h1>Exercice 1 : Analyse Factorielle des Correspondances<a class="headerlink" href="#exercice-1-analyse-factorielle-des-correspondances" title="Lien permanent vers ce titre">#</a></h1>
 <p>Le fichier de données est un tableau d’effectifs, croisant l’origine sociale des sondés (CSP, version simplifiée) avec les médias d’informations utilisés</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -674,7 +592,7 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 <div class="section" id="votre-travail">
-<h2>===== Votre travail : =====<a class="headerlink" href="#votre-travail" title="Permalink to this headline">#</a></h2>
+<h2>===== Votre travail : =====<a class="headerlink" href="#votre-travail" title="Lien permanent vers ce titre">#</a></h2>
 <p>Vous avez à disposition un fichier <a class="reference external" href="http://ca.py">ca.py</a>, permettant de réaliser les calculs relatifs à une analyse factorielle des correspondances. L’objectif est de répondre aux questions suivantes :</p>
 <ul class="simple">
 <li><p>Quelle est la structure des moyens d’information choisis selon la CSP ? (profils lignes).</p></li>
@@ -683,7 +601,7 @@ Inactif          1474  1931        181        852         642       782
 <li><p>Existe-t-il des relations entre CSP et médias  (des CSP ont-elles une préférences pour certains médias ? Certains médias attirent-ils des catégories particulières de CSP ?)</p></li>
 </ul>
 <div class="section" id="analyse-factorielle-des-correspondances">
-<h3>Analyse Factorielle des correspondances<a class="headerlink" href="#analyse-factorielle-des-correspondances" title="Permalink to this headline">#</a></h3>
+<h3>Analyse Factorielle des correspondances<a class="headerlink" href="#analyse-factorielle-des-correspondances" title="Lien permanent vers ce titre">#</a></h3>
 <p>On créé une instance de l’objet CA, que l’on applique sur le tableau des valeurs</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -704,7 +622,7 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 <div class="section" id="valeurs-propres">
-<h3>Valeurs propres<a class="headerlink" href="#valeurs-propres" title="Permalink to this headline">#</a></h3>
+<h3>Valeurs propres<a class="headerlink" href="#valeurs-propres" title="Lien permanent vers ce titre">#</a></h3>
 <p>En utilisant l’attribut <span class="math notranslate nohighlight">\(eig\_\)</span> et la fonction plot_eigenvalues (ligne 294 du fichier <span class="math notranslate nohighlight">\(base.py\)</span>),afficher et interpréter les valeurs propres issues de l’analyse factorielle (nombre, contribution des facteurs…)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -722,7 +640,7 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 <div class="section" id="analyse-des-profils-lignes">
-<h3>Analyse des profils lignes<a class="headerlink" href="#analyse-des-profils-lignes" title="Permalink to this headline">#</a></h3>
+<h3>Analyse des profils lignes<a class="headerlink" href="#analyse-des-profils-lignes" title="Lien permanent vers ce titre">#</a></h3>
 <p>On affiche ici, pour chaque modalité ligne, la distribution des individus colonnes</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -786,7 +704,7 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 <div class="section" id="calcul-de-la-distance-du-chi-2">
-<h3>Calcul de la distance du <span class="math notranslate nohighlight">\(\chi^2\)</span><a class="headerlink" href="#calcul-de-la-distance-du-chi-2" title="Permalink to this headline">#</a></h3>
+<h3>Calcul de la distance du <span class="math notranslate nohighlight">\(\chi^2\)</span><a class="headerlink" href="#calcul-de-la-distance-du-chi-2" title="Lien permanent vers ce titre">#</a></h3>
 <p>La distance du <span class="math notranslate nohighlight">\(\chi^2\)</span> entre les modalités lignes dans l’espace initial devient distance euclidienne dans l’espace factoriel. Comme en ACP, la restitution est parfaite lorsque tous les facteurs sont pris en compte, et approchée si une partie est utilisée. La précision dépend alors d’une part de la qualité de restitution du repère factoriel choisi, d’autre part de la qualité de représentation des modalités impliquées dans le calcul (les <span class="math notranslate nohighlight">\(cos^2\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -812,7 +730,7 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 <div class="section" id="analyse-des-profils-colonnes">
-<h3>Analyse des profils colonnes<a class="headerlink" href="#analyse-des-profils-colonnes" title="Permalink to this headline">#</a></h3>
+<h3>Analyse des profils colonnes<a class="headerlink" href="#analyse-des-profils-colonnes" title="Lien permanent vers ce titre">#</a></h3>
 <p>Faire la même analsye sur les profils colonnes. Interpréter les résultats</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -823,7 +741,7 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 <div class="section" id="analyse-de-l-association-lignes-colonnes">
-<h3>Analyse de l’association lignes-colonnes<a class="headerlink" href="#analyse-de-l-association-lignes-colonnes" title="Permalink to this headline">#</a></h3>
+<h3>Analyse de l’association lignes-colonnes<a class="headerlink" href="#analyse-de-l-association-lignes-colonnes" title="Lien permanent vers ce titre">#</a></h3>
 <p>Au-delà de la comparaison des profils, l’intérêt majeur de l’AFC est d’identifier les associations entre les modalités lignes et colonnes : est ce que les agriculteurs s’informent plus par la radio que les autres ? Est ce que la presse magazine attire plus les cadres ?</p>
 <p>Avant de s’intéresser aux relations entre les modalités, il faut déjà vérifier qu’il existe bien une liaison exploitable entre les variables en ligne et colonne du tableau de contingence. La statistique du <span class="math notranslate nohighlight">\(\chi^2\)</span> de l’écart à l’indépendance permet de le faire</p>
 <p>Faire un test du <span class="math notranslate nohighlight">\(\chi^2\)</span> (voir le cours statistiques bivariées), en utilisant la fonction <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.chi2.html"><span class="math notranslate nohighlight">\(scipy.stats.chi2.cdf\)</span></a> du module <span class="math notranslate nohighlight">\(scipy\)</span>. Conclure.</p>
@@ -848,7 +766,7 @@ $<span class="math notranslate nohighlight">\(\frac{P(Y=y_k, X=x_l)}{P(Y=y_k)P(X
 </div>
 </div>
 <div class="section" id="representation-simultanee-lignes-colonnes">
-<h3>Représentation simultanée lignes/colonnes<a class="headerlink" href="#representation-simultanee-lignes-colonnes" title="Permalink to this headline">#</a></h3>
+<h3>Représentation simultanée lignes/colonnes<a class="headerlink" href="#representation-simultanee-lignes-colonnes" title="Lien permanent vers ce titre">#</a></h3>
 <p>En utilisant la fonction <span class="math notranslate nohighlight">\(mapping\)</span> (ligne 329 du fichier <a class="reference external" href="http://base.py">base.py</a>), projeter sur le premier plan factoriel les individus ligne et colonne. Interpreter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -877,7 +795,7 @@ $<span class="math notranslate nohighlight">\(\frac{P(Y=y_k, X=x_l)}{P(Y=y_k)P(X
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="exercice-2-analyse-des-correspondances-multiples">
-<h1>Exercice 2 : Analyse des Correspondances Multiples<a class="headerlink" href="#exercice-2-analyse-des-correspondances-multiples" title="Permalink to this headline">#</a></h1>
+<h1>Exercice 2 : Analyse des Correspondances Multiples<a class="headerlink" href="#exercice-2-analyse-des-correspondances-multiples" title="Lien permanent vers ce titre">#</a></h1>
 <p>Ici on s’intéresse à 6 traits de caractères de 27 races de chien, et on souhaite analyser le tableau par ACM</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -964,7 +882,7 @@ Terre-Neuve      Taille++   Veloc-    Affec-
 </div>
 </div>
 <div class="section" id="analyse-des-individus">
-<h2>Analyse des individus<a class="headerlink" href="#analyse-des-individus" title="Permalink to this headline">#</a></h2>
+<h2>Analyse des individus<a class="headerlink" href="#analyse-des-individus" title="Lien permanent vers ce titre">#</a></h2>
 <p>Dans la suite, on travaille sur le tableau disjonctif complet des données (variables transformées en indicatrices 0/1).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1041,7 +959,7 @@ Terre-Neuve           1
 </div>
 </div>
 <div class="section" id="id1">
-<h2>===== Votre travail : =====<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<h2>===== Votre travail : =====<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">#</a></h2>
 <p>Vous avez à disposition un fichier <a class="reference external" href="http://mca.py">mca.py</a>, permettant de réaliser les calculs relatifs à une analyse des correspondances multiples
 Faire une analyse en composantes multiples de ces données et plus précisément :</p>
 <ul class="simple">
@@ -1098,7 +1016,7 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 <p>Ainsi par exemple, le Pointer est plus proche du chien moyen que le Cocker.</p>
 <div class="section" id="analyse-des-colonnes">
-<h3>Analyse des colonnes<a class="headerlink" href="#analyse-des-colonnes" title="Permalink to this headline">#</a></h3>
+<h3>Analyse des colonnes<a class="headerlink" href="#analyse-des-colonnes" title="Lien permanent vers ce titre">#</a></h3>
 <p>L’analyse des associations entre les modalités revient à travailler sur les profils colonnes. Le tableau de données est normalisé par les sommes en colonne. Le profil moyen est égal au poids des observations</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1150,7 +1068,7 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 <p>Ainsi, Veloc+ est moins présent que Veloc- dans les exemples.</p>
 </div>
 <div class="section" id="acm">
-<h3>ACM<a class="headerlink" href="#acm" title="Permalink to this headline">#</a></h3>
+<h3>ACM<a class="headerlink" href="#acm" title="Lien permanent vers ce titre">#</a></h3>
 <p>On créé une instance de l’objet MCA (défini dans <a class="reference external" href="http://mca.py">mca.py</a>) et on estime le modèle des correspondances multiples sur les données <span class="math notranslate nohighlight">\(X\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1175,7 +1093,7 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 </div>
 <div class="section" id="analyse-des-valeurs-propres">
-<h3>Analyse des valeurs propres<a class="headerlink" href="#analyse-des-valeurs-propres" title="Permalink to this headline">#</a></h3>
+<h3>Analyse des valeurs propres<a class="headerlink" href="#analyse-des-valeurs-propres" title="Lien permanent vers ce titre">#</a></h3>
 <p>L’objectif de l’Analyse des Correspondances Multiples est de décomposer l’information sur une succession d’axes factoriels orthogonaux. Le nouveau système de représentation est calculé pour préserver au mieux les distances entre individus. L nombre maximum de facteurs est <span class="math notranslate nohighlight">\(p-k\)</span>, où <span class="math notranslate nohighlight">\(p\)</span> est la somme du nombre de modalités des variables (le nombre de colonnes de <span class="math notranslate nohighlight">\(X\)</span>), et <span class="math notranslate nohighlight">\(k\)</span> le nombre de variables initiales.</p>
 <p>De même que pour l’analyse facrtorielle, calculer les valeurs propres et interpréter les facteurs.</p>
 <div class="cell docutils container">
@@ -1190,7 +1108,7 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 </div>
 <div class="section" id="representation-graphique">
-<h3>Représentation graphique<a class="headerlink" href="#representation-graphique" title="Permalink to this headline">#</a></h3>
+<h3>Représentation graphique<a class="headerlink" href="#representation-graphique" title="Lien permanent vers ce titre">#</a></h3>
 <p>2 types de graphiques peuvent être réalisés :</p>
 <ul class="simple">
 <li><p>Les mappings classiques qui représentent les points lignes et colonnes sur un plan factoriel</p></li>
@@ -1228,7 +1146,7 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 </div>
 <div class="section" id="analyse-du-1er-axe">
-<h3>Analyse du 1er axe<a class="headerlink" href="#analyse-du-1er-axe" title="Permalink to this headline">#</a></h3>
+<h3>Analyse du 1er axe<a class="headerlink" href="#analyse-du-1er-axe" title="Lien permanent vers ce titre">#</a></h3>
 <p>On utilise les formules de <span class="math notranslate nohighlight">\(cos^2\)</span> pour mesurer la qualité de la projection des individus et des modalités sur les axes factoriels.
 En pratique, si deux individus sont bien projetés alors s’ils sont proches en projections, ils sont effectivement proches dans leur espace d’origine et on peut alors interprèter leur proximité :</p>
 <p>— La proximité entre deux individus s’interprète en terme de distance (du <span class="math notranslate nohighlight">\(\chi^2\)</span>) : deux individus se ressemblent s’ils ont choisis les mêmes modalités.</p>
@@ -1336,7 +1254,7 @@ Affec-   &amp; -0.841878 &amp;  0.021943 &amp;  0.521706 \\
 </div>
 </div>
 <div class="section" id="analyse-du-deuxieme-axe">
-<h3>Analyse du deuxième axe<a class="headerlink" href="#analyse-du-deuxieme-axe" title="Permalink to this headline">#</a></h3>
+<h3>Analyse du deuxième axe<a class="headerlink" href="#analyse-du-deuxieme-axe" title="Lien permanent vers ce titre">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
@@ -1377,16 +1295,16 @@ Affec-   &amp; -0.841878 &amp;  0.021943 &amp;  0.521706 \\
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="acm.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="acm.html" title="précédent page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-subtitle">précédent</p>
             <p class="prev-next-title">Analyse des correspondances multiples</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="genindex.html" title="next page">
+    <a class='right-next' id="next-link" href="genindex.html" title="suivant page">
     <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">suivant</p>
         <p class="prev-next-title">Index</p>
     </div>
     <i class="fas fa-angle-right"></i>
