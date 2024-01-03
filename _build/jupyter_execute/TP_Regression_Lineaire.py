@@ -14,7 +14,7 @@ except ModuleNotFoundError:
 import sklearn, numpy, matplotlib, ipywidgets, IPython
 
 
-# [Télécharger le fichier](vbarra.github.io/ADbook/TP_Regression_Lineaire.ipynb) 
+# [Télécharger le fichier](http://vbarra.github.io/ADbook/TP_Regression_Lineaire.ipynb) 
 
 # In[2]:
 
