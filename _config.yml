@@ -14,8 +14,10 @@ execute:
 
 # Define the name of the latex output file for PDF builds
 latex:
+  use_jupyterbook_latex: false
   latex_documents:
     targetname: book.tex
+
 
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
