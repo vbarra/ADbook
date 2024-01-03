@@ -46,7 +46,4 @@ sphinx:
       use_download_button: false
       use_issues_button: false
       use_repository_button: false
-      use_edit_page_button: true
-  config:
-    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
- #   html_theme: pydata_sphinx_theme
+      use_edit_page_button: false
