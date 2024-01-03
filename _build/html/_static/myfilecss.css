@@ -1,0 +1,16 @@
+font-size: 24px;
+
+h1 {
+  color: #ff0000; 
+}
+
+h2 {
+  color: #0000ff;
+  font-weight: 400;
+}
+
+@media print {
+    .bd-toc {
+        visibility: hidden;
+    }
+}
