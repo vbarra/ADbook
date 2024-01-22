@@ -244,6 +244,7 @@ Si $p$ est une fonction de $n$ telle que $\displaystyle\lim_{n\rightarrow\infty}
 
 $\displaystyle\lim_{n\rightarrow\infty}\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k} = e^{-\lambda}\frac{\lambda^k}{k!}$
 ````
+
 En effet 
 
 $\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k}=\frac{n(n-1)\cdots (n-k+1)}{k!}p^k(1-p)^{n-k}$
