@@ -238,12 +238,15 @@ Si $X=\mathbb{1}_A$ alors $m=p=P(A)$ et la probabilité de l'évènement $A$ app
 ```
 
 ## Approximation de $\mathcal{B}(n,p)$ par la loi de Poisson $\mathcal P(\lambda)$
+
 ### Théorème d'analyse
-````{prf:theorem}`
+
+````{prf:theorem}
 Si $p$ est une fonction de $n$ telle que $\displaystyle\lim_{n\rightarrow\infty}np(n)=\lambda>0$, alors pour tout $k\geq 0$
 
 $\displaystyle\lim_{n\rightarrow\infty}\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k} = e^{-\lambda}\frac{\lambda^k}{k!}$
 ````
+
 En effet 
 
 $\begin{pmatrix}n\\p\end{pmatrix} p^k(1-p)^{n-k}=\frac{n(n-1)\cdots (n-k+1)}{k!}p^k(1-p)^{n-k}$
