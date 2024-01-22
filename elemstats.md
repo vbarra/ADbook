@@ -238,6 +238,7 @@ Si $X=\mathbb{1}_A$ alors $m=p=P(A)$ et la probabilité de l'évènement $A$ app
 ```
 
 ## Approximation de $\mathcal{B}(n,p)$ par la loi de Poisson $\mathcal P(\lambda)$
+
 ### Théorème d'analyse
 
 ````{prf:theorem}
