@@ -241,7 +241,7 @@ Dans le cas d'une imputation simple (une seule donnée manquante), on peut par e
 -  la valeur précédente (ou suivante) dans le cas où la colonne est une série ordonnée ou temporelle.
 
 
-Le code suivant remplace les valeurs manquantes (\texttt{np.nan}) par la moyenne de la colonne qui contient ces valeurs.
+Le code suivant remplace les valeurs manquantes (np.nan) par la moyenne de la colonne qui contient ces valeurs.
 ```{code-cell} ipython3
 import numpy as np
 from sklearn.impute import SimpleImputer

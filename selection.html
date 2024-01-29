@@ -1,9 +1,8 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="fr" data-content_root="" >
+<html lang="fr" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
@@ -29,42 +28,46 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/myfilecss.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/myfilecss.css?v=6d55db64" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
   <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/translations.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=d99ca74e"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'selection';</script>
@@ -163,7 +166,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cours</span></p>
 <ul class="current nav bd-sidenav">
@@ -328,7 +342,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="selection-de-variables">
-<h1>Sélection de variables<a class="headerlink" href="#selection-de-variables" title="Lien permanent vers cette rubrique">#</a></h1>
+<h1>Sélection de variables<a class="headerlink" href="#selection-de-variables" title="Link to this heading">#</a></h1>
 <p>On s’intéresse ici à <span class="math notranslate nohighlight">\(n\)</span> individus  <span class="math notranslate nohighlight">\(\mathbf x_i, i\in[\![1,n]\!]\)</span> décrits par <span class="math notranslate nohighlight">\(d\)</span> variables quantitatives ou caractéristiques (features), <span class="math notranslate nohighlight">\(x_i\in \mathbb{R}^d\)</span>. Avec l’avènement des Big Data, et la généralisation des capteurs, <span class="math notranslate nohighlight">\(d\)</span> peut être très grand (plusieurs milliers), et analyser telles quelles les données brutes devient difficile d’un point de vue calculatoire et interprétation. De plus, il est rare que les caractéristiques soient totalement utiles et indépendantes.</p>
 <p>Une étape souvent utilisée en analyse de données consiste donc à prétraiter cet espace, par exemple pour :</p>
 <ul class="simple">
@@ -342,7 +356,7 @@ document.write(`
 <figure class="align-default" id="tsne">
 <img alt="_images/tsne.png" src="_images/tsne.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Exemple de réduction de dimension (source: Maaten &amp; Hinton, 2008). Des images 28<span class="math notranslate nohighlight">\(\times\)</span> 28 de chiffres manuscrits sont représentées par un vecteur de 784 valeurs, puis transformés en vecteurs de <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> pour les projeter dans le plan. La méthode utilisée permet d’optimiser la transformation de sorte à ce que les images représentant le même chiffre soient regroupées dans des nuages compacts.</span><a class="headerlink" href="#tsne" title="Lien permanent vers cette image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Exemple de réduction de dimension (source: Maaten &amp; Hinton, 2008). Des images 28<span class="math notranslate nohighlight">\(\times\)</span> 28 de chiffres manuscrits sont représentées par un vecteur de 784 valeurs, puis transformés en vecteurs de <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> pour les projeter dans le plan. La méthode utilisée permet d’optimiser la transformation de sorte à ce que les images représentant le même chiffre soient regroupées dans des nuages compacts.</span><a class="headerlink" href="#tsne" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Deux stratégies peuvent alors être utilisées :</p>
@@ -357,7 +371,7 @@ document.write(`
 <p>Les méthodes d’extraction de caractéristiques peuvent être soit linéaires (on recherche des combinaisons linéaires des variables initiales  permettant d’optimiser un cerrtain critère), ou non linéaires (on parle également de manifold learning)</p>
 </section>
 </div><section id="definitions">
-<h2>Définitions<a class="headerlink" href="#definitions" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Définitions<a class="headerlink" href="#definitions" title="Link to this heading">#</a></h2>
 <p>La sélection de caractéristiques consiste à choisir parmi les <span class="math notranslate nohighlight">\(d\)</span> descripteurs d’un ensemble d’individus <span class="math notranslate nohighlight">\(\mathbf x_i,i\in[\![1,n]\!]\)</span>, un sous-ensemble de  <span class="math notranslate nohighlight">\(t&lt;d\)</span>  caractéristiques jugées « les plus pertinentes », les <span class="math notranslate nohighlight">\(d-t\)</span> restantes étant ignorées.</p>
 <p>On note <span class="math notranslate nohighlight">\(F = \left (f_1\cdots f_d\right )\)</span> les <span class="math notranslate nohighlight">\(d\)</span> caractéristiques.  On note <span class="math notranslate nohighlight">\(Perf\)</span> une fonction qui permet d’évaluer un sous-ensemble de caractéristiques, et on suppose que <span class="math notranslate nohighlight">\(Perf\)</span> atteint son maximum pour le meilleur sous-ensemble de caractéristiques (« le plus pertinent »). Le problème de sélection se formule donc comme un problème d’optimisation</p>
 <div class="math notranslate nohighlight">
@@ -377,14 +391,14 @@ document.write(`
 </ul>
 </section>
 <section id="caracteristiques-des-methodes-de-selection">
-<h2>Caractéristiques des méthodes de sélection<a class="headerlink" href="#caracteristiques-des-methodes-de-selection" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Caractéristiques des méthodes de sélection<a class="headerlink" href="#caracteristiques-des-methodes-de-selection" title="Link to this heading">#</a></h2>
 <p>Une méthode de sélection basée sur l’optimisation de <span class="math notranslate nohighlight">\(Perf\)</span> utilise généralement trois étapes. Les  deux dernières sont itérées jusqu’à un test d’arrêt.</p>
 <section id="initialisation">
-<h3>Initialisation<a class="headerlink" href="#initialisation" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Initialisation<a class="headerlink" href="#initialisation" title="Link to this heading">#</a></h3>
 <p>L’initialisation consiste à choisir l’ensemble de départ des caractéristiques. Il peut s’agir de l’ensemble vide, de <span class="math notranslate nohighlight">\(F\)</span> tout entier, ou un sous-ensemble quelconque <span class="math notranslate nohighlight">\(U\subset F\)</span>.</p>
 </section>
 <section id="exploration-des-sous-ensembles">
-<h3>Exploration des sous-ensembles<a class="headerlink" href="#exploration-des-sous-ensembles" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Exploration des sous-ensembles<a class="headerlink" href="#exploration-des-sous-ensembles" title="Link to this heading">#</a></h3>
 <p>A partir de cette initialisation, les stratégies d’exploration des sous-ensembles de caractéristiques se déclinent en trois catégories :</p>
 <ol class="arabic simple">
 <li><p>génération exhaustive : tous les sous-ensembles de caractéristiques sont évalués. Si elle garantit de trouver la valeur optimale, cette méthode n’est que peu applicable dès que <span class="math notranslate nohighlight">\(|F|\)</span> devient important (<span class="math notranslate nohighlight">\(2^{|F|}\)</span> sous-ensembles possibles)</p></li>
@@ -394,9 +408,9 @@ de l’ensemble de données. La génération stochastique génère aléatoiremen
 </ol>
 </section>
 <section id="evaluation-des-sous-ensembles">
-<h3>Evaluation des sous-ensembles<a class="headerlink" href="#evaluation-des-sous-ensembles" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Evaluation des sous-ensembles<a class="headerlink" href="#evaluation-des-sous-ensembles" title="Link to this heading">#</a></h3>
 <section id="filtres">
-<h4>Filtres<a class="headerlink" href="#filtres" title="Lien permanent vers cette rubrique">#</a></h4>
+<h4>Filtres<a class="headerlink" href="#filtres" title="Link to this heading">#</a></h4>
 <p>Le critère d’évaluation utilisé évalue la pertinence d’une caractéristique selon des mesures
 qui reposent sur les propriétés de données d’apprentissage.</p>
 <p>Pour <span class="math notranslate nohighlight">\(n\)</span> exemples  <span class="math notranslate nohighlight">\(\mathbf x_i, i\in[\![1,n]\!]\)</span> , on note <span class="math notranslate nohighlight">\(\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d\)</span>  une donnée d’apprentissage (la <span class="math notranslate nohighlight">\(j^e\)</span> caractéristique <span class="math notranslate nohighlight">\(f_j\)</span> ayant donc pour valeur <span class="math notranslate nohighlight">\(x_{ij}\)</span>) , d’étiquette <span class="math notranslate nohighlight">\(y_i\)</span> (en classification ou régression). Les méthodes de type filtres calculent un score pour évaluer le degré de pertinence de chacune des caractéristiques <span class="math notranslate nohighlight">\(f_i\)</span> , parmi lesquelles on peut citer</p>
@@ -444,7 +458,7 @@ Variables sélectionnées :  [False False  True  True]
 </div>
 </section>
 <section id="methodes-enveloppantes">
-<h4>Méthodes enveloppantes<a class="headerlink" href="#methodes-enveloppantes" title="Lien permanent vers cette rubrique">#</a></h4>
+<h4>Méthodes enveloppantes<a class="headerlink" href="#methodes-enveloppantes" title="Link to this heading">#</a></h4>
 <p>Le principal inconvénient des approches précédentes est le fait qu’elles ignorent l’influence des caractéristiques sélectionnées sur la performance de l’algorithme à utiliser par la suite. Les méthodes de type enveloppantes (wrappers)  évaluent un sous-ensemble de caractéristiques par sa performance
 de classification en utilisant un algorithme d’apprentissage.  Les sous-ensembles de caractéristiques sélectionnés par cette méthode sont bien adaptés à l’algorithme de classification utilisé, mais ils ne sont pas nécessairement pour un autre. De plus, la complexité de l’algorithme d’apprentissage rend ces méthodes coûteuses.</p>
 <p>Les principales différences entre les filtres et les méthodes enveloppantes pour la sélection des caractéristiques sont les suivantes :</p>
@@ -462,7 +476,7 @@ de classification en utilisant un algorithme d’apprentissage.  Les sous-ensemb
 </section>
 </div></section>
 <section id="methodes-integrees">
-<h4>Méthodes intégrées<a class="headerlink" href="#methodes-integrees" title="Lien permanent vers cette rubrique">#</a></h4>
+<h4>Méthodes intégrées<a class="headerlink" href="#methodes-integrees" title="Link to this heading">#</a></h4>
 <p>Les méthodes intégrées incluent la sélection de variables lors du processus d’apprentissage. Un tel mécanisme intégré pour la sélection des caractéristiques peut être trouvé, par
 exemple, dans les algorithmes de type SVM,  AdaBoost  ou dans les
 arbres de décision.</p>
@@ -470,9 +484,9 @@ arbres de décision.</p>
 </section>
 </section>
 <section id="quelques-methodes-de-selection">
-<h2>Quelques méthodes de sélection<a class="headerlink" href="#quelques-methodes-de-selection" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Quelques méthodes de sélection<a class="headerlink" href="#quelques-methodes-de-selection" title="Link to this heading">#</a></h2>
 <section id="suppression-des-descripteurs-a-variance-faible">
-<h3>Suppression des descripteurs à variance faible<a class="headerlink" href="#suppression-des-descripteurs-a-variance-faible" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Suppression des descripteurs à variance faible<a class="headerlink" href="#suppression-des-descripteurs-a-variance-faible" title="Link to this heading">#</a></h3>
 <p>Une première idée simple consiste à supprimer les descripteurs ayant une faible variance, ces derniers n’étant pas discriminants dans la définition des individus.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -502,7 +516,7 @@ Variables sélectionnées :  [ True False  True  True]
 </div>
 </section>
 <section id="algorithmes-de-selection-sequentielle">
-<h3>Algorithmes de sélection séquentielle<a class="headerlink" href="#algorithmes-de-selection-sequentielle" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Algorithmes de sélection séquentielle<a class="headerlink" href="#algorithmes-de-selection-sequentielle" title="Link to this heading">#</a></h3>
 <p>Les algorithmes SFS (Sequential Forward Selection, <a class="reference internal" href="#SFS">Algorithm 1</a>) et SBS (Sequential Backward Selection, <a class="reference internal" href="#SFS">Algorithm 1</a>-rouge) ont été les premiers à être proposés. Ils utilisent des approches heuristiques de recherche en partant, pour la première, d’un ensemble de caractéristiques vide et pour la seconde de  <span class="math notranslate nohighlight">\(F\)</span> tout entier.</p>
 <div class="proof algorithm admonition" id="SFS">
 <p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (Algorithmes SFS et SBS)</p>
@@ -557,7 +571,7 @@ Variables sélectionnées :  [ True False  True  True]
 </div>
 </section>
 <section id="algorithme-focus">
-<h3>Algorithme Focus<a class="headerlink" href="#algorithme-focus" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Algorithme Focus<a class="headerlink" href="#algorithme-focus" title="Link to this heading">#</a></h3>
 <p>L’algorithme de filtrage Focus (<a class="reference internal" href="#FOCUS">Algorithm 2</a>}) repose sur une recherche exhaustive sur <span class="math notranslate nohighlight">\(F\)</span> pour trouver le sous-ensemble le plus performant de taille optimale.</p>
 <div class="proof algorithm admonition" id="FOCUS">
 <p class="admonition-title"><span class="caption-number">Algorithm 2 </span> (Algorithme FOCUS)</p>
@@ -584,7 +598,7 @@ Variables sélectionnées :  [ True False  True  True]
 </section>
 </div></section>
 <section id="algorithme-relief">
-<h3>Algorithme relief<a class="headerlink" href="#algorithme-relief" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Algorithme relief<a class="headerlink" href="#algorithme-relief" title="Link to this heading">#</a></h3>
 <p>La méthode relief en classification binaire (<a class="reference internal" href="#relief">Algorithm 3</a>), propose de calculer une mesure globale de la pertinence des caractéristiques en accumulant la différence des distances entre des exemples d’apprentissage choisis aléatoirement et leurs plus proches voisins de la même classe et de l’autre classe.</p>
 <div class="proof algorithm admonition" id="relief">
 <p class="admonition-title"><span class="caption-number">Algorithm 3 </span> (Algorithme Relief)</p>
@@ -612,7 +626,7 @@ Variables sélectionnées :  [ True False  True  True]
 </section>
 </div></section>
 <section id="methode-sac">
-<h3>Méthode SAC<a class="headerlink" href="#methode-sac" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Méthode SAC<a class="headerlink" href="#methode-sac" title="Link to this heading">#</a></h3>
 <p>L’algorithme SAC (Selection Adaptative de Caractéristiques)  construit un ensemble de classifieurs (ou de régresseurs) <span class="math notranslate nohighlight">\((M_1\cdots M_d)\)</span> appris sur chacun des descripteurs et sélectionne les meilleurs par discrimination linéaire de Fisher. Pour ce faire, l’algorithme construit un vecteur dont les éléments sont les performances <span class="math notranslate nohighlight">\(Perf(M_i)\)</span> des modèles <span class="math notranslate nohighlight">\(M_i\)</span>, triés par ordre décroissant. Deux moyennes <span class="math notranslate nohighlight">\(m_1(i)\)</span> et <span class="math notranslate nohighlight">\(m_2(i)\)</span> sont calculées, qui représentent les deux moyennes de performance d’apprentissage qui ont une valeur respectivement plus grande (plus petite) que la performance du modèle <span class="math notranslate nohighlight">\(M_i\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[m_1(i) = \frac{1}{i}\displaystyle\sum_{j=1}^i Perf (M_j)\textrm{ et } m_2(i) = \frac{1}{d-i}\displaystyle\sum_{j=i+1}^d Perf (M_j)\]</div>
@@ -621,8 +635,8 @@ Variables sélectionnées :  [ True False  True  True]
 \[\frac{|m_1(i)-m_2(i)|}{v_1^2(i)+v_2^2(i)}\]</div>
 </section>
 <section id="algorithme-rfe">
-<h3>Algorithme RFE<a class="headerlink" href="#algorithme-rfe" title="Lien permanent vers cette rubrique">#</a></h3>
-<p>L’algorithme RLE (Recusrive Feature Elimination) trie les descripteurs en analysant, localement, la sensibilité de la performance.
+<h3>Algorithme RFE<a class="headerlink" href="#algorithme-rfe" title="Link to this heading">#</a></h3>
+<p>L’algorithme RFE (Recursive Feature Elimination) trie les descripteurs en analysant, localement, la sensibilité de la performance.
 Étant donné un prédicteur <span class="math notranslate nohighlight">\(f\)</span> qui attribue des poids aux caractéristiques (par exemple, les coefficients d’un modèle linéaire), l’objectif de l’algorithme est de sélectionner les caractéristiques en considérant de manière récursive des ensembles de caractéristiques de plus en plus petits. Tout d’abord, le prédicteur <span class="math notranslate nohighlight">\(f\)</span> est entraîné sur l’ensemble initial de caractéristiques et l’importance de chaque caractéristique est calculée par un algorithme dédié (critère de Gini, entropie…). Les caractéristiques les moins importantes sont éliminées de l’ensemble actuel de caractéristiques. Cette procédure est répétée de manière récursive sur l’ensemble élagué jusqu’à ce que le nombre souhaité de caractéristiques à sélectionner soit finalement atteint.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -760,7 +774,7 @@ Par Vincent BARRA
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

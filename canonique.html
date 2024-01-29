@@ -1,9 +1,8 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="fr" data-content_root="" >
+<html lang="fr" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
@@ -29,42 +28,46 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/myfilecss.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/myfilecss.css?v=6d55db64" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
   <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/translations.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=d99ca74e"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'canonique';</script>
@@ -163,7 +166,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cours</span></p>
 <ul class="nav bd-sidenav">
@@ -326,19 +340,19 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="analyse-canonique">
-<h1>Analyse canonique<a class="headerlink" href="#analyse-canonique" title="Lien permanent vers cette rubrique">#</a></h1>
+<h1>Analyse canonique<a class="headerlink" href="#analyse-canonique" title="Link to this heading">#</a></h1>
 <p>On considère <span class="math notranslate nohighlight">\(n\)</span> individus décrits par deux ensembles de <span class="math notranslate nohighlight">\(p\)</span> et <span class="math notranslate nohighlight">\(q\)</span> variables quantitatives respectivement, où on suppose sans perte de généralité que <span class="math notranslate nohighlight">\(p\leq q\)</span>. L’analyse canonique se propose d’examiner les liens existants entre ces deux ensembles afin de savoir s’ils mesurent les mêmes propriétés. On se retreint ici au cas de deux groupes, la généralisation au cas de <span class="math notranslate nohighlight">\(g\)</span> groupes quelconques donnant lieu à l’analyse canonique généralisée.</p>
 <p>Formellement on dispose donc de deux matrices <span class="math notranslate nohighlight">\({\bf {\bf X_1}}\in\mathcal{M}_{n,p}(\mathbb{R})\)</span> et <span class="math notranslate nohighlight">\({\bf {\bf X_2}}\in\mathcal{M}_{n,q}(\mathbb{R})\)</span>, rassemblées dans une matrice <span class="math notranslate nohighlight">\({\bf X}=\left[{\bf {\bf X_1}}\mid {\bf {\bf X_2}} \right ]\)</span>. On supposera <span class="math notranslate nohighlight">\({\bf {\bf X_1}}\)</span> et <span class="math notranslate nohighlight">\({\bf {\bf X_2}}\)</span> de rang plein.</p>
 <p>L’étude de la position géométrique relative des sous-espaces <span class="math notranslate nohighlight">\(Im({\bf {\bf X_1}})\)</span> et <span class="math notranslate nohighlight">\(Im({\bf {\bf X_2}})\)</span> permet d’analyser les deux ensembles de variables.</p>
 <section id="variables-canoniques">
-<h2>Variables canoniques<a class="headerlink" href="#variables-canoniques" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Variables canoniques<a class="headerlink" href="#variables-canoniques" title="Link to this heading">#</a></h2>
 <p>On munit <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> d’une métrique <span class="math notranslate nohighlight">\({\bf D}\)</span>.</p>
 <section id="principe">
-<h3>Principe<a class="headerlink" href="#principe" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Principe<a class="headerlink" href="#principe" title="Link to this heading">#</a></h3>
 <p>La recherche de variables canoniques consiste à rechercher <span class="math notranslate nohighlight">\({\bf {\bf u_1}}\in Im({\bf {\bf X_1}}), \Vert {\bf {\bf u_1}}\Vert=1\)</span> et  <span class="math notranslate nohighlight">\({\bf v_1}\in Im({\bf {\bf X_2}})\)</span>, <span class="math notranslate nohighlight">\(\Vert {\bf v_1}\Vert=1\)</span> tels que l’angle <span class="math notranslate nohighlight">\(({\bf {\bf u_1}},{\bf v_1})\)</span> est le plus faible. On recherche ensuite <span class="math notranslate nohighlight">\({\bf {\bf u_2}}\in Im({\bf {\bf X_1}}), \Vert {\bf {\bf u_2}}\Vert=1\)</span> orthogonal à <span class="math notranslate nohighlight">\({\bf {\bf u_1}}\)</span> au sens de <span class="math notranslate nohighlight">\({\bf D}\)</span>, et <span class="math notranslate nohighlight">\({\bf v_2}\in Im({\bf {\bf X_2}}), \Vert {\bf v_2}\Vert=1\)</span> orthogonal à <span class="math notranslate nohighlight">\({\bf v_1}\)</span> au sens de <span class="math notranslate nohighlight">\({\bf D}\)</span> tels que l’angle <span class="math notranslate nohighlight">\(({\bf {\bf u_2}},{\bf v_2})\)</span> soit minimal. On poursuit cette procédure itérativement pour arriver au dernier couple <span class="math notranslate nohighlight">\(({\bf u_p},{\bf v_p})\)</span>.</p>
 </section>
 <section id="formulation-matricielle-dans-mathbb-r-n">
-<h3>Formulation matricielle dans <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span><a class="headerlink" href="#formulation-matricielle-dans-mathbb-r-n" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Formulation matricielle dans <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span><a class="headerlink" href="#formulation-matricielle-dans-mathbb-r-n" title="Link to this heading">#</a></h3>
 <p>On note <span class="math notranslate nohighlight">\({\bf {\bf {\bf P_i}}},i\in[\![1,2]\!]\)</span> la projection orthogonale (au sens de <span class="math notranslate nohighlight">\({\bf D}\)</span>) sur <span class="math notranslate nohighlight">\(Im({\bf {\bf {\bf X_i}}})\)</span>. On sait alors que :</p>
 <div class="math notranslate nohighlight">
 \[{\bf {\bf P_i}}={\bf {\bf X_i}}({\bf {\bf X_i}}^T{\bf D}{\bf {\bf X_i}})^{-1}{\bf {\bf X_i}}^T{\bf D}\]</div>
@@ -371,7 +385,7 @@ En résumé, dans <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</s
 </ul>
 </section>
 <section id="formulation-matricielle-dans-les-espaces-des-variables">
-<h3>Formulation matricielle dans les espaces des variables<a class="headerlink" href="#formulation-matricielle-dans-les-espaces-des-variables" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Formulation matricielle dans les espaces des variables<a class="headerlink" href="#formulation-matricielle-dans-les-espaces-des-variables" title="Link to this heading">#</a></h3>
 <p>D’après la définition des sous-espaces image, il existe <span class="math notranslate nohighlight">\({\bf a_i}\in\mathbb{R}^p,{\bf b_i}\in\mathbb{R}^q\)</span> tels que  <span class="math notranslate nohighlight">\({\bf u_i}={\bf {\bf X_1}}{\bf a_i}\)</span> et <span class="math notranslate nohighlight">\({\bf v_i}={\bf {\bf X_2}}{\bf b_i}\)</span>. Les <span class="math notranslate nohighlight">\({\bf a_i}\)</span> et <span class="math notranslate nohighlight">\({\bf b_i}\)</span> sont les facteurs canoniques qui se calculent par</p>
 <div class="math notranslate nohighlight">
 \[{\bf P_1}{\bf P_2}{\bf u_i}=\lambda_i {\bf u_i} \Leftrightarrow {\bf P_1}{\bf P_2}{\bf X_1}{\bf a_i}=\lambda_i {\bf X_1} {\bf a_i}\]</div>
@@ -393,26 +407,26 @@ En résumé, dans <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</s
 </section>
 </section>
 <section id="representation-graphique">
-<h2>Représentation graphique<a class="headerlink" href="#representation-graphique" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Représentation graphique<a class="headerlink" href="#representation-graphique" title="Link to this heading">#</a></h2>
 <section id="representation-des-variables">
-<h3>Représentation des variables<a class="headerlink" href="#representation-des-variables" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Représentation des variables<a class="headerlink" href="#representation-des-variables" title="Link to this heading">#</a></h3>
 <p>On peut représenter indifféremment les variables canoniques de <span class="math notranslate nohighlight">\(Im({\bf {\bf X_1}})\)</span> ou <span class="math notranslate nohighlight">\(Im({\bf {\bf X_2}})\)</span> : on représente pour cela les colonnes de <span class="math notranslate nohighlight">\({\bf X_1}\)</span> et <span class="math notranslate nohighlight">\({\bf X_2}\)</span> en projection sur la base des <span class="math notranslate nohighlight">\({\bf u_i}\)</span> (resp <span class="math notranslate nohighlight">\({\bf v_i}\)</span>).</p>
 <p>Par exemple, si l’on s’intéresse à la représentation sur <span class="math notranslate nohighlight">\(Im({\bf {\bf X_1}})\)</span>,  la projection sur <span class="math notranslate nohighlight">\(Lin({\bf {\bf u_1}},{\bf {\bf u_2}})\)</span> est appelée cercle des corrélations, car, si les colonnes de <span class="math notranslate nohighlight">\({\bf X_1}\)</span> et <span class="math notranslate nohighlight">\({\bf X_2}\)</span> sont normées par rapport à <span class="math notranslate nohighlight">\({\bf D}\)</span>, les composantes sur la base des <span class="math notranslate nohighlight">\(({\bf u_i})\)</span> sont les coefficients de corrélation entre variables initiales et variables canoniques. En effet, si on note pour <span class="math notranslate nohighlight">\(k\in[\![1,p]\!]\)</span> <span class="math notranslate nohighlight">\({\bf X_{\bullet,k}}\)</span> la <span class="math notranslate nohighlight">\(k^e\)</span> colonne de <span class="math notranslate nohighlight">\({\bf X_1}\)</span> alors <span class="math notranslate nohighlight">\({\bf X_{\bullet,k}}^T{\bf D}{\bf {\bf u_1}}={\bf X_{.k}}^T{\bf D}{\bf X_1}{\bf a_1}\)</span>. Le coefficient de corrélation entre <span class="math notranslate nohighlight">\({\bf X_{\bullet,k}}\)</span> et <span class="math notranslate nohighlight">\({\bf {\bf u_1}}\)</span> est la <span class="math notranslate nohighlight">\(k^e\)</span> composante de <span class="math notranslate nohighlight">\({\bf V_{11}}{\bf a_1}\)</span> car <span class="math notranslate nohighlight">\({\bf X_{\bullet,k}}={\bf X_1}{\boldsymbol \delta_k}\)</span>, où <span class="math notranslate nohighlight">\({\boldsymbol \delta_k}\in\mathbb{R}^p\)</span> est le vecteur nul sauf la <span class="math notranslate nohighlight">\(k^e\)</span> composante qui vaut 1.</p>
 <p>De même si on note pour <span class="math notranslate nohighlight">\(l\in[\![1,q]\!]\)</span> <span class="math notranslate nohighlight">\({\bf X_{\bullet,l}}\)</span> la <span class="math notranslate nohighlight">\(l^e\)</span> colonne de <span class="math notranslate nohighlight">\({\bf X_2}\)</span> alors <span class="math notranslate nohighlight">\({\bf X_{\bullet,l}}^T{\bf D}{\bf {\bf u_1}}={\boldsymbol \delta_l^T}{\bf X_2}^T{\bf D}{\bf X_1}a_1\)</span>, et la corrélation entre <span class="math notranslate nohighlight">\({\bf X_{\bullet,l}}\)</span> et <span class="math notranslate nohighlight">\({\bf u_i}\)</span> est la <span class="math notranslate nohighlight">\(l^e\)</span> composante de <span class="math notranslate nohighlight">\({\bf V_{21}}{\bf a_i}\)</span> ou encore la <span class="math notranslate nohighlight">\(l^e\)</span> composante de <span class="math notranslate nohighlight">\(\sqrt{\lambda_1}{\bf V_{22}}{\bf b_i}\)</span>.</p>
 </section>
 <section id="representation-des-individus">
-<h3>Représentation des individus<a class="headerlink" href="#representation-des-individus" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Représentation des individus<a class="headerlink" href="#representation-des-individus" title="Link to this heading">#</a></h3>
 <p>Là encore, on peut représenter les individus selon les variables canoniques <span class="math notranslate nohighlight">\({\bf u_i}\)</span> ou <span class="math notranslate nohighlight">\({\bf v_i}\)</span>. Dans le plan <span class="math notranslate nohighlight">\(Lin({\bf {\bf u_1}},{\bf {\bf u_2}})\)</span>, par exemple, les coordonnées du <span class="math notranslate nohighlight">\(k^e\)</span> point sont les <span class="math notranslate nohighlight">\(k^e\)</span> composantes des variables canoniques <span class="math notranslate nohighlight">\({\bf {\bf u_1}}\)</span> et <span class="math notranslate nohighlight">\({\bf {\bf u_2}}\)</span>.</p>
 </section>
 </section>
 <section id="quelques-reflexions-autour-de-l-analyse-canonique">
-<h2>Quelques réflexions autour de l’analyse canonique<a class="headerlink" href="#quelques-reflexions-autour-de-l-analyse-canonique" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Quelques réflexions autour de l’analyse canonique<a class="headerlink" href="#quelques-reflexions-autour-de-l-analyse-canonique" title="Link to this heading">#</a></h2>
 <section id="interet-theorique">
-<h3>Intérêt théorique<a class="headerlink" href="#interet-theorique" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Intérêt théorique<a class="headerlink" href="#interet-theorique" title="Link to this heading">#</a></h3>
 <p>L’analyse canonique présente un intérêt théorique certain car plusieurs méthodes statistiques très utilisées en sont des cas particuliers.</p>
 </section>
 <section id="cas-q-1">
-<h3>Cas <span class="math notranslate nohighlight">\(q\)</span>=1<a class="headerlink" href="#cas-q-1" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Cas <span class="math notranslate nohighlight">\(q\)</span>=1<a class="headerlink" href="#cas-q-1" title="Link to this heading">#</a></h3>
 <p>Si l’on cherche à expliquer <span class="math notranslate nohighlight">\(\mathbf{X_2}\)</span>  par <span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span> :</p>
 <ul class="simple">
 <li><p>Si <span class="math notranslate nohighlight">\(p\)</span>=1, c’est un problème de régression linéaire</p></li>
@@ -423,19 +437,19 @@ En résumé, dans <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</s
 <p>Dans tous ces cas, le problème est de maximiser le coefficient de corrélation entre une variable quantitative et un ensemble de variables, c’est donc bien un problème d’analyse canonique.</p>
 </section>
 <section id="cas-general">
-<h3>Cas général<a class="headerlink" href="#cas-general" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Cas général<a class="headerlink" href="#cas-general" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>L’analyse Factorielle Discriminante est le cas particulier de l’analyse canonique  pour lequel <span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span> décrit un ensemble de variables quantitatives et <span class="math notranslate nohighlight">\(\mathbf{X_2}\)</span> une variable qualitative</p></li>
 <li><p>L’Analyse Factorielle des correspondances est l’instantiation d’une analyse canonique dans laquelle <span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span>  et <span class="math notranslate nohighlight">\(\mathbf{X_2}\)</span> décrivent les modalités d’une variable qualitative.</p></li>
 </ul>
 </section>
 <section id="limites">
-<h3>Limites<a class="headerlink" href="#limites" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Limites<a class="headerlink" href="#limites" title="Link to this heading">#</a></h3>
 <p>L’analyse canonique décrit les relations linéaires existant entre deux ensembles de variables : les premières étapes mettent en évidence les directions de l’espace des variables selon lesquelles les deux ensembles sont les plus proches. Mais il est possible que les variables canoniques soient faiblement corrélées aux variables des tableaux <span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span>  et <span class="math notranslate nohighlight">\(\mathbf{X_2}\)</span>, elles deviennent dans ce cas  difficilement interprétables. Les variables d’origine n’interviennent en effet pas dans les calculs de détermination des composantes canoniques, seuls comptent les projecteurs sur les espaces engendrés par ces variables.</p>
 </section>
 </section>
 <section id="exemple">
-<h2>Exemple<a class="headerlink" href="#exemple" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Exemple<a class="headerlink" href="#exemple" title="Link to this heading">#</a></h2>
 <p>On s’intéresse au jeu de données <a class="reference external" href="https://gist.github.com/seankross/a412dfbd88b3db70b74b">mtcars</a>, qui décrit 32 voitures à l’aide de 11 paramètres quantitatifs. Ces paramètres peuvent être classés en deux catégories, l’une  (<span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span>) relative à des performances de conduite (puissance, consommation, …), l’autre  (<span class="math notranslate nohighlight">\(\mathbf{X_2}\)</span>) plus reliée aux caractéristiques de l’automobile (nombre de cylindres, nombre de carburateurs,…). L’objectif est de voir s’il existe un lien entre ces deux ensembles de variables.</p>
 <p>La projection des individus (les voitures) dans le plan <span class="math notranslate nohighlight">\(\mathbf u_1,\mathbf u_2\)</span> est donnée dans la figure suivante. A gauche, la projection des individus dans (<span class="math notranslate nohighlight">\(\mathbf u_1,\mathbf u_2\)</span>), à droite la projection des variables sur le cercle des corrélations. Les  variables de  <span class="math notranslate nohighlight">\(\mathbf{X_1}\)</span> sont représentées en rouge, celles de  <span class="math notranslate nohighlight">\(\mathbf{X_2}\)</span>  en bleu</p>
 <p><img alt="" src="_images/cca1.png" /><img alt="" src="_images/cca2.png" /></p>
@@ -550,7 +564,7 @@ Par Vincent BARRA
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
