@@ -1,9 +1,8 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="fr" data-content_root="" >
+<html lang="fr" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
@@ -29,42 +28,46 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/myfilecss.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/myfilecss.css?v=6d55db64" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
   <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/translations.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=d99ca74e"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Rappels';</script>
@@ -163,7 +166,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cours</span></p>
 <ul class="current nav bd-sidenav">
@@ -333,11 +347,11 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="rappels-de-probabilite">
-<h1>Rappels de probabilité<a class="headerlink" href="#rappels-de-probabilite" title="Lien permanent vers cette rubrique">#</a></h1>
+<h1>Rappels de probabilité<a class="headerlink" href="#rappels-de-probabilite" title="Link to this heading">#</a></h1>
 <section id="experience-aleatoire">
-<h2>Expérience aléatoire<a class="headerlink" href="#experience-aleatoire" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Expérience aléatoire<a class="headerlink" href="#experience-aleatoire" title="Link to this heading">#</a></h2>
 <section id="definitions">
-<h3>Définitions<a class="headerlink" href="#definitions" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Définitions<a class="headerlink" href="#definitions" title="Link to this heading">#</a></h3>
 <div class="proof definition admonition" id="expalea">
 <p class="admonition-title"><span class="caption-number">Definition 1 </span> (Expérience aléatoire)</p>
 <section class="definition-content" id="proof-content">
@@ -397,7 +411,7 @@ document.write(`
 </ul>
 </section>
 <section id="notation-et-operations-sur-les-evenements">
-<h3>Notation et opérations sur les évènements<a class="headerlink" href="#notation-et-operations-sur-les-evenements" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Notation et opérations sur les évènements<a class="headerlink" href="#notation-et-operations-sur-les-evenements" title="Link to this heading">#</a></h3>
 <p>Les évènements peuvent être interprétés soit d’un point de vue ensembliste (Diagrammes de Venn), soit de manière équivalente d’un point de vue probabiliste.</p>
 <table class="table">
 <thead>
@@ -444,9 +458,9 @@ document.write(`
 </section>
 </section>
 <section id="probabilites">
-<h2>Probabilités<a class="headerlink" href="#probabilites" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Probabilités<a class="headerlink" href="#probabilites" title="Link to this heading">#</a></h2>
 <section id="objectif">
-<h3>Objectif<a class="headerlink" href="#objectif" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Objectif<a class="headerlink" href="#objectif" title="Link to this heading">#</a></h3>
 <p>L’objectif des probabilités est de donner une <strong>mesure</strong> à la chance qu’a un évènement de se réaliser lors d’une expérience aléatoire. Pour ce faire, on définit une fonction <span class="math notranslate nohighlight">\(P:\Omega\rightarrow [0,1]\)</span> vérifiant certains axiomes et propriétés.</p>
 <div class="proof definition admonition" id="tribu">
 <span id="index-1"></span><p class="admonition-title"><span class="caption-number">Definition 5 </span> (Tribu)</p>
@@ -472,7 +486,7 @@ document.write(`
 </div><p>On peut également s’intéresser, si <span class="math notranslate nohighlight">\(\Omega=\mathbb R\)</span>, à la tribu engendrée par les ouverts de <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, on parle alors de <strong>tribu borélienne</strong>.</p>
 </section>
 <section id="probabilite">
-<h3>Probabilité<a class="headerlink" href="#probabilite" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Probabilité<a class="headerlink" href="#probabilite" title="Link to this heading">#</a></h3>
 <aside class="margin sidebar">
 <p class="sidebar-title">A. Kolmogorov</p>
 <p><img alt="" src="_images/kolmogorov.jpeg" /></p>
@@ -502,7 +516,7 @@ document.write(`
 </section>
 </div></section>
 <section id="conditionnement">
-<h3>Conditionnement<a class="headerlink" href="#conditionnement" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Conditionnement<a class="headerlink" href="#conditionnement" title="Link to this heading">#</a></h3>
 <p>Les probabilités <strong>conditionnelles</strong> intègrent une information supplémentaire sous la forme de l’observation de la réalisation d’un évènement donné.</p>
 <div class="proof definition admonition" id="definition-11">
 <span id="index-3"></span><p class="admonition-title"><span class="caption-number">Definition 6 </span> (Probabilité conditionnelle)</p>
@@ -522,7 +536,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </section>
 </div></section>
 <section id="independance">
-<h3>Indépendance<a class="headerlink" href="#independance" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Indépendance<a class="headerlink" href="#independance" title="Link to this heading">#</a></h3>
 <div class="proof definition admonition" id="definition-13">
 <span id="index-4"></span><p class="admonition-title"><span class="caption-number">Definition 7 </span> (Indépendance)</p>
 <section class="definition-content" id="proof-content">
@@ -544,7 +558,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </section>
 </div></section>
 <section id="theoreme-des-probabilites-totales">
-<h3>Théorème des probabilités totales<a class="headerlink" href="#theoreme-des-probabilites-totales" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Théorème des probabilités totales<a class="headerlink" href="#theoreme-des-probabilites-totales" title="Link to this heading">#</a></h3>
 <div class="proof theorem admonition" id="theorem-16">
 <p class="admonition-title"><span class="caption-number">Theorem 1 </span></p>
 <section class="theorem-content" id="proof-content">
@@ -553,7 +567,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </section>
 </div></section>
 <section id="regle-de-bayes">
-<h3>Règle de Bayes<a class="headerlink" href="#regle-de-bayes" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Règle de Bayes<a class="headerlink" href="#regle-de-bayes" title="Link to this heading">#</a></h3>
 <p id="index-5">A partir de l’égalité <span class="math notranslate nohighlight">\(P(A\bigcap B) = P(A|B)P(B)=P(B|A)P(A)\)</span>, on définit la règle de Bayes</p>
 <p><span class="math notranslate nohighlight">\((\forall A,B)\quad P(B|A)=\frac{P(A|B)P(B)}{P(A)}\)</span></p>
 <p>Si <span class="math notranslate nohighlight">\(B_i\)</span> est un système complet d’évènements, on a de plus</p>
@@ -569,9 +583,9 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </section>
 </section>
 <section id="variable-aleatoire">
-<h2>Variable aléatoire<a class="headerlink" href="#variable-aleatoire" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Variable aléatoire<a class="headerlink" href="#variable-aleatoire" title="Link to this heading">#</a></h2>
 <section id="concept-de-variable-aleatoire">
-<h3>Concept de variable aléatoire<a class="headerlink" href="#concept-de-variable-aleatoire" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Concept de variable aléatoire<a class="headerlink" href="#concept-de-variable-aleatoire" title="Link to this heading">#</a></h3>
 <p>Soit un espace probabilisé <span class="math notranslate nohighlight">\((\Omega, T,P)\)</span>.</p>
 <div class="proof definition admonition" id="definition-18">
 <span id="index-6"></span><p class="admonition-title"><span class="caption-number">Definition 8 </span> (Variable aléatoire)</p>
@@ -595,7 +609,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </section>
 </div></section>
 <section id="variable-aleatoire-mesurable">
-<h3>Variable aléatoire mesurable<a class="headerlink" href="#variable-aleatoire-mesurable" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Variable aléatoire mesurable<a class="headerlink" href="#variable-aleatoire-mesurable" title="Link to this heading">#</a></h3>
 <p>On définit sur <span class="math notranslate nohighlight">\(E\)</span> une tribu <span class="math notranslate nohighlight">\(T'\)</span>.  <span class="math notranslate nohighlight">\((E,T')\)</span> est alors un espace probabilisable, et tout élément <span class="math notranslate nohighlight">\(B\)</span> de <span class="math notranslate nohighlight">\(T'\)</span> est un évènement. On note alors <span class="math notranslate nohighlight">\(X^{-1}(B) = \{\omega\in\Omega,\; X(\omega)\in B\}\)</span></p>
 <div class="proof definition admonition" id="definition-21">
 <span id="index-7"></span><p class="admonition-title"><span class="caption-number">Definition 9 </span> (Variable aléatoire mesurable)</p>
@@ -603,11 +617,11 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <p>Une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est dite mesurable  si et seulement si : <span class="math notranslate nohighlight">\((\forall B\in T')\; X^{-1}(B)\in T\)</span></p>
 </section>
 </div><p>Dans les deux exemples précédents, on a par exemple <span class="math notranslate nohighlight">\(X^{-1}(1)= \{Pile\}\)</span> ou encore <span class="math notranslate nohighlight">\(X^{-1}(3) = \{(1,2),(2,1)\}\)</span> et <span class="math notranslate nohighlight">\(P(X=3)=P(X^{-1}(3)) = \frac{2}{36}\)</span>.</p>
-<span class="target" id="index-8"></span><p id="index-9">On note souvent <span class="math notranslate nohighlight">\(P_X(B) = P(X^{-1}(B))=P(\{\omega / X(\omega)\in B\})\)</span> et on l’appelle <strong>probabilité image</strong> de <span class="math notranslate nohighlight">\(P\)</span> par <span class="math notranslate nohighlight">\(X\)</span>. En calculant la probabilité de chaque réalisation de la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span>, on peut en déduire la <strong>loi de probabilité</strong> (ou <strong>distribution</strong>) de <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p id="index-9"><span id="index-8"></span>On note souvent <span class="math notranslate nohighlight">\(P_X(B) = P(X^{-1}(B))=P(\{\omega / X(\omega)\in B\})\)</span> et on l’appelle <strong>probabilité image</strong> de <span class="math notranslate nohighlight">\(P\)</span> par <span class="math notranslate nohighlight">\(X\)</span>. En calculant la probabilité de chaque réalisation de la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span>, on peut en déduire la <strong>loi de probabilité</strong> (ou <strong>distribution</strong>) de <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <ul class="simple">
 <li><p>Pour une variable aléatoire discrète <span class="math notranslate nohighlight">\(X\)</span>, la loi de probabilité est donc <span class="math notranslate nohighlight">\(P_X(x_i)= P(X=x_i) = P(\{\omega / X(\omega)=x_i\})\)</span>. <span class="math notranslate nohighlight">\(P_X\)</span> est appelée <strong>masse ponctuelle</strong>.</p></li>
 </ul>
-<span class="target" id="index-10"></span><ul class="simple" id="index-11">
+<span id="index-10"></span><ul class="simple" id="index-11">
 <li><p>Pour une variable aléatoire continue <span class="math notranslate nohighlight">\(X\)</span>, la loi de probabilité est donc <span class="math notranslate nohighlight">\(f_X(x)dx = P(x\leq X\leq x+dx) = P(\{\omega /x\leq X(\omega)\leq x+dx\})\)</span>. <span class="math notranslate nohighlight">\(f_X\)</span> est appelée <strong>densité de probabilité</strong>.</p></li>
 </ul>
 <div class="cell docutils container">
@@ -639,7 +653,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f6bf8d3d84f82ddb36fbc46d848843007b784efd609696d746f3280e53c259de.png" src="_images/f6bf8d3d84f82ddb36fbc46d848843007b784efd609696d746f3280e53c259de.png" />
+<img alt="_images/73d207635fce09efa6a46064094c036452415fc674dc38c134a91f4c4fc78117.png" src="_images/73d207635fce09efa6a46064094c036452415fc674dc38c134a91f4c4fc78117.png" />
 </div>
 </div>
 <div class="proof definition admonition" id="definition-22">
@@ -693,7 +707,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/641a0aabfd4afd20c1819705c8d11ee1d5755075db6b3a5733140b0ef467bb78.png" src="_images/641a0aabfd4afd20c1819705c8d11ee1d5755075db6b3a5733140b0ef467bb78.png" />
+<img alt="_images/652994a99ec7745e7d9ee504dc7e426c881c83423d918d1c99af3169e7611ddd.png" src="_images/652994a99ec7745e7d9ee504dc7e426c881c83423d918d1c99af3169e7611ddd.png" />
 </div>
 </div>
 <p>La notion de variable aléatoire est ainsi une formalisation de la notion de grandeur variant selon le résultat d’une expérience aléatoire. On peut alors préciser et formaliser la définition précédente.</p>
@@ -713,7 +727,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </section>
 </div></section>
 <section id="caracteristiques-des-variables-aleatoires">
-<h3>Caractéristiques des variables aléatoires<a class="headerlink" href="#caracteristiques-des-variables-aleatoires" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Caractéristiques des variables aléatoires<a class="headerlink" href="#caracteristiques-des-variables-aleatoires" title="Link to this heading">#</a></h3>
 <p>Une loi de probabilité est caractérisée par un certain nombre de grandeurs :</p>
 <ul class="simple">
 <li><p>sa valeur centrale</p></li>
@@ -721,7 +735,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <li><p>sa forme</p></li>
 </ul>
 <section id="esperance-mathematique-d-une-variable-aleatoire">
-<h4>Espérance mathématique d’une variable aléatoire<a class="headerlink" href="#esperance-mathematique-d-une-variable-aleatoire" title="Lien permanent vers cette rubrique">#</a></h4>
+<h4>Espérance mathématique d’une variable aléatoire<a class="headerlink" href="#esperance-mathematique-d-une-variable-aleatoire" title="Link to this heading">#</a></h4>
 <div class="proof definition admonition" id="definition-25">
 <span id="index-13"></span><p class="admonition-title"><span class="caption-number">Definition 12 </span> (Espérance)</p>
 <section class="definition-content" id="proof-content">
@@ -766,7 +780,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Espérance :  7.904816400226158
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/k2/63jxpq5j3b78v_1h6tdfk88m0000gp/T/ipykernel_4972/1110129441.py:7: DeprecationWarning: Conversion of an array with ndim &gt; 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/k2/63jxpq5j3b78v_1h6tdfk88m0000gp/T/ipykernel_3667/1110129441.py:7: DeprecationWarning: Conversion of an array with ndim &gt; 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
   return 6*exp(-(x - 5)**2)
 </pre></div>
 </div>
@@ -789,7 +803,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </section>
 </div></section>
 <section id="moment-d-une-fonction-d-une-variable-aleatoire">
-<h4>Moment d’une fonction d’une variable aléatoire<a class="headerlink" href="#moment-d-une-fonction-d-une-variable-aleatoire" title="Lien permanent vers cette rubrique">#</a></h4>
+<h4>Moment d’une fonction d’une variable aléatoire<a class="headerlink" href="#moment-d-une-fonction-d-une-variable-aleatoire" title="Link to this heading">#</a></h4>
 <p id="index-14">Soit <span class="math notranslate nohighlight">\(\phi\)</span> l’application qui associe à toute variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> la variable aléatoire <span class="math notranslate nohighlight">\(Y=\phi(X)\)</span>.</p>
 <div class="proof definition admonition" id="definition-28">
 <p class="admonition-title"><span class="caption-number">Definition 13 </span> (Moment)</p>
@@ -827,8 +841,8 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </ul>
 </section>
 <section id="variance-d-une-variable-aleatoire">
-<h4>Variance d’une variable aléatoire<a class="headerlink" href="#variance-d-une-variable-aleatoire" title="Lien permanent vers cette rubrique">#</a></h4>
-<span class="target" id="index-17"></span><p id="index-18">Pour <span class="math notranslate nohighlight">\(k\)</span>=2, le moment centré d’ordre 2 est appelé la <strong>variance</strong> et est noté <span class="math notranslate nohighlight">\(\mathbb{V}(X)\)</span>. La racine carrée de la variance est <strong>l’écart type</strong> et est noté <span class="math notranslate nohighlight">\(\sigma_X\)</span>. On a donc <span class="math notranslate nohighlight">\(\sigma_X^2=\mathbb{V}(X)\)</span>.</p>
+<h4>Variance d’une variable aléatoire<a class="headerlink" href="#variance-d-une-variable-aleatoire" title="Link to this heading">#</a></h4>
+<p id="index-18"><span id="index-17"></span>Pour <span class="math notranslate nohighlight">\(k\)</span>=2, le moment centré d’ordre 2 est appelé la <strong>variance</strong> et est noté <span class="math notranslate nohighlight">\(\mathbb{V}(X)\)</span>. La racine carrée de la variance est <strong>l’écart type</strong> et est noté <span class="math notranslate nohighlight">\(\sigma_X\)</span>. On a donc <span class="math notranslate nohighlight">\(\sigma_X^2=\mathbb{V}(X)\)</span>.</p>
 <div class="proof proposition admonition" id="proposition-32">
 <p class="admonition-title"><span class="caption-number">Proposition 1 </span> (Formule de Koenig)</p>
 <section class="proposition-content" id="proof-content">
@@ -889,8 +903,8 @@ Ecart-type :  0.17203462823212917
 </div><p>On dira que la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> est <strong>réduite</strong> (ou <strong>normée</strong>) si <span class="math notranslate nohighlight">\(\mathbb{V}(X)=1\)</span>.</p>
 </section>
 <section id="moments-d-ordre-superieur">
-<h4>Moments d’ordre supérieur<a class="headerlink" href="#moments-d-ordre-superieur" title="Lien permanent vers cette rubrique">#</a></h4>
-<span class="target" id="index-19"></span><p id="index-20">On considère également souvent les moments d’ordre 3 (coefficient d’asymétrie ou skewness) et 4 (coefficient d’applatissement ou kurtosis).</p>
+<h4>Moments d’ordre supérieur<a class="headerlink" href="#moments-d-ordre-superieur" title="Link to this heading">#</a></h4>
+<p id="index-20"><span id="index-19"></span>On considère également souvent les moments d’ordre 3 (coefficient d’asymétrie ou skewness) et 4 (coefficient d’applatissement ou kurtosis).</p>
 </section>
 </section>
 </section>
@@ -1009,7 +1023,7 @@ Par Vincent BARRA
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

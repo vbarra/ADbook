@@ -1,9 +1,8 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="fr" data-content_root="" >
+<html lang="fr" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
@@ -29,42 +28,46 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/myfilecss.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/myfilecss.css?v=6d55db64" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
   <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/translations.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=d99ca74e"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
@@ -162,7 +165,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cours</span></p>
 <ul class="nav bd-sidenav">
@@ -313,9 +327,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers cette rubrique">#</a></h1>
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
 <section id="elements-de-vocabulaire">
-<h2>Eléments de vocabulaire<a class="headerlink" href="#elements-de-vocabulaire" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Eléments de vocabulaire<a class="headerlink" href="#elements-de-vocabulaire" title="Link to this heading">#</a></h2>
 <p>On définit ici de manière informelle les termes utilisés dans la suite :</p>
 <ul class="simple" id="index-0">
 <li><p><strong>Population</strong> : ensemble de cardinalité finie, notée <span class="math notranslate nohighlight">\(N\)</span>, ou infinie ;</p></li>
@@ -331,17 +345,17 @@ document.write(`
 </ul>
 </section>
 <section id="probabilites-et-statistiques">
-<h2>Probabilités et statistiques<a class="headerlink" href="#probabilites-et-statistiques" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Probabilités et statistiques<a class="headerlink" href="#probabilites-et-statistiques" title="Link to this heading">#</a></h2>
 <p>La question qui se pose est la suivante : comment définir ou estimer la valeur de probabilité associée à un  évènement ?
 Plusieurs points de vue ont été proposés et adoptés que nous synthétisons très brièvement.</p>
 <section id="approche-frequentiste">
-<h3>Approche fréquentiste<a class="headerlink" href="#approche-frequentiste" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Approche fréquentiste<a class="headerlink" href="#approche-frequentiste" title="Link to this heading">#</a></h3>
 <p>Ce point de vue historique, souvent présenté comme le plus “naturel” ou “objectif”, consiste à définir une probabilité comme la limite de la fréquence d’observation de la caractéristique lorsque la taille de l’echantillon devient infinie. On suppose ici que les probabilités sont une loi de la nature qu’il faut mesurer par l’expérience. En pratique, la probabilité d’un  évènement est donc estimée/approximée en répétant un très grand nombre de fois l’expérience dans les mêmes conditions. C’est de ces expériences répétées que sont nés les outils de la statistique tels que la régression linéaire ou le test du <span class="math notranslate nohighlight">\(\chi^2\)</span>.
 On rencontre néanmoins très rapidement des limitations avec ce type d’approche. D’une part, il est impossible d’un point de vue fréquentiste de traiter de petits échantillons de données. De plus, certains types de données ne sont
 pas exploitables en raison de leur caractère non expérimental (par exemple, quelle probabilité associer à un évènement du type “nombre de votants aux prochaines élections” qui n’est pas répétable). Enfin, il est parfois difficile de définir un modèle  permettant de modéliser une erreur de mesure ou la variation observée d’un caractère dans une population.</p>
 </section>
 <section id="approche-bayesienne">
-<h3>Approche bayésienne<a class="headerlink" href="#approche-bayesienne" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Approche bayésienne<a class="headerlink" href="#approche-bayesienne" title="Link to this heading">#</a></h3>
 <aside class="margin sidebar">
 <p class="sidebar-title">T. Bayes</p>
 <p><img alt="" src="_images/bayes.jpeg" /></p>
@@ -351,7 +365,7 @@ Ce point de vue “subjectif” a longtemps été dénoncé par les adeptes de l
 </section>
 </section>
 <section id="demarche-generale">
-<h2>Démarche générale<a class="headerlink" href="#demarche-generale" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Démarche générale<a class="headerlink" href="#demarche-generale" title="Link to this heading">#</a></h2>
 <p>De manière assez générale, une étude statistique consiste à obtenir des informations sur un caractère concernant une population de grande taille en s’appuyant sur celles d’un sous-ensemble de taille réduite (l’échantillon), afin le plus souvent d’orienter une décision. Le choix de l’échantillon se fera par tirage avec ou sans remise, par tirage uniforme (« au hasard ») ou non (tirage stratifié dans le cas d’un sondage par exemple, ou selon une loi de probabilité précise si une information a priori est disponible).
 On estime alors des propriétés d’un caractère de l’échantillon. A partir de ces estimations, on cherche à donner « au mieux » des valeurs aux paramètres correspondant de la population (la moyenne, la variance,…). L’estimation pourra être ponctuelle ou par intervalle de confiance. On pourra également s’intéresser à des tests d’ajustement (ou d’adéquation) à une loi de type donné. La décision, étape finale de l’analyse statistique, se fera par des tests statistiques.</p>
 <div class="proof example admonition" id="example-0">
@@ -361,7 +375,7 @@ On estime alors des propriétés d’un caractère de l’échantillon. A partir
 </section>
 </div><div class="admonition important">
 <p class="admonition-title">Important</p>
-<span class="target" id="index-4"></span><p id="index-5">La science des statistiques se décompose donc en :</p>
+<p id="index-5"><span id="index-4"></span>La science des statistiques se décompose donc en :</p>
 <ul class="simple">
 <li><p>la <strong>statistique descriptive</strong>, dont l’objectif est de décrire le caractère d’un échantillon en résumant l’information qu’il contient ;</p></li>
 <li><p>la <strong>statistique inférentielle</strong>, dont l’objectif est d’inférer, à partir de l’information recueillie sur l’échantillon, des propriétés valables sur la population, de manière la plus fiable possible.</p></li>
@@ -463,7 +477,7 @@ Par Vincent BARRA
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
