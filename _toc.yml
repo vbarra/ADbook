@@ -20,6 +20,7 @@ parts:
     - file: TP1_statsDescriptives
     - file: TP2_ACP
     - file: TP_Regression_Lineaire
+    - file: TP_clustering
     - file: TP/TP_etudiant
   - caption: Annexes
     chapters:
