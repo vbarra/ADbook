@@ -10,9 +10,7 @@ logo: images/isimainp.png
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
-  timeout: -1
-  exclude_patterns:
-    - TP_Regression_Lineaire
+  timeout: 150
 
 # Define the name of the latex output file for PDF builds
 latex:
