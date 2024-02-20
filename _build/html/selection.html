@@ -324,9 +324,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelques-methodes-de-selection">Quelques méthodes de sélection</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suppression-des-descripteurs-a-variance-faible">Suppression des descripteurs à variance faible</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-d-information">Gain d’information</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-d-information">Gain d’information</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmes-de-selection-sequentielle">Algorithmes de sélection séquentielle</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-focus">Algorithme Focus</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-relief">Algorithme relief</a></li>
@@ -519,9 +517,8 @@ Variables sélectionnées :  [ True False  True  True]
 </div>
 </div>
 </section>
-</section>
 <section id="gain-d-information">
-<h2>Gain d’information<a class="headerlink" href="#gain-d-information" title="Link to this heading">#</a></h2>
+<h3>Gain d’information<a class="headerlink" href="#gain-d-information" title="Link to this heading">#</a></h3>
 <p>Le gain d’information est une statistique qui mesure la réduction de l’entropie (incertitude) pour une caractéristique spécifique en divisant les données selon cette caractéristique. Plus le gain d’information d’une caractéristique est élevé, plus elle est utile pour la prise de décision. Cette méthode est un filtre. Précédemment, nous avions fixé la taille de <span class="math notranslate nohighlight">\(|hat F|\)</span>, ici nous choisissons une représentation graphique permettant d’apprécier l’importance de chacun des descripteurs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -558,9 +555,10 @@ Variables sélectionnées :  [ True False  True  True]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/434b38fb36a7ddc5b7714f51f0d6a2612a8d09426b592d03808a8db64ef6eea8.png" src="_images/434b38fb36a7ddc5b7714f51f0d6a2612a8d09426b592d03808a8db64ef6eea8.png" />
+<img alt="_images/5981f26fe7ffb558513df8113f87297fa6ac013ec24abd565824125708f8cdbe.png" src="_images/5981f26fe7ffb558513df8113f87297fa6ac013ec24abd565824125708f8cdbe.png" />
 </div>
 </div>
+</section>
 <section id="algorithmes-de-selection-sequentielle">
 <h3>Algorithmes de sélection séquentielle<a class="headerlink" href="#algorithmes-de-selection-sequentielle" title="Link to this heading">#</a></h3>
 <p>Les algorithmes SFS (Sequential Forward Selection, <a class="reference internal" href="#SFS">Algorithm 1</a>) et SBS (Sequential Backward Selection, <a class="reference internal" href="#SFS">Algorithm 1</a>-rouge) ont été les premiers à être proposés. Ils utilisent des approches heuristiques de recherche en partant, pour la première, d’un ensemble de caractéristiques vide et pour la seconde de  <span class="math notranslate nohighlight">\(F\)</span> tout entier.</p>
@@ -703,7 +701,7 @@ Variables sélectionnées :  [ True False  True  True]
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Taille des données avant sélection (150, 4)
 Variables sélectionnées :  [False False  True  True]
-Classement des variables :  [3 2 1 1]
+Classement des variables :  [2 3 1 1]
 </pre></div>
 </div>
 </div>
@@ -789,9 +787,7 @@ Classement des variables :  [3 2 1 1]
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelques-methodes-de-selection">Quelques méthodes de sélection</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suppression-des-descripteurs-a-variance-faible">Suppression des descripteurs à variance faible</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-d-information">Gain d’information</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-d-information">Gain d’information</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmes-de-selection-sequentielle">Algorithmes de sélection séquentielle</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-focus">Algorithme Focus</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-relief">Algorithme relief</a></li>
