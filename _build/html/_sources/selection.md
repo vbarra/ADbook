@@ -294,7 +294,7 @@ print("Variables sélectionnées : ", sfs.get_support())
 ```
 
 ### Algorithme Focus
-L'algorithme de filtrage Focus ({prf:ref}`FOCUS`) repose sur une recherche exhaustive sur $F$ pour trouver le sous-ensemble le plus performant de taille optimale. 
+L'algorithme de filtrage Focus ({prf:ref}`FOCUS`) repose sur une recherche exhaustive sur $F$ pour trouver le sous-ensemble le plus performant de taille optimale. On illustre ici le cas de la classification, où chaque $\mathbf x_i$ a un label $y_i$ (une classe).
 
 
 ```{prf:algorithm} Algorithme FOCUS
@@ -310,7 +310,7 @@ L'algorithme de filtrage Focus ({prf:ref}`FOCUS`) repose sur une recherche exhau
             1. $\hat{F}\leftarrow S_i$
             2. Retourner $\hat{F}$
 ```
-
+Ici, la notion de consistance peut s'entendre de la manière suivante : il n'existe pas deux exemples dans $S_i$ qui sont en accord sur tous les descripteurs mais qui ne concordent pas sur la classe. La notion d'accord des descripteurs peut par exempel se fonder sur un critères de distance. 
 
 ### Algorithme relief
 La méthode relief en classification binaire ({prf:ref}`relief`), propose de calculer une mesure globale de la pertinence des caractéristiques en accumulant la différence des distances entre des exemples d'apprentissage choisis aléatoirement et leurs plus proches voisins de la même classe et de l'autre classe.
