@@ -279,7 +279,7 @@ $(\forall x\in\mathbb{R})\; \displaystyle\lim_{n\rightarrow\infty}P\left (\sqrt{
 où $ \phi(x)$ est la fonction de répartition de la loi normale centrée réduite $\mathcal{N}(0,1)$.
 
 On dit que $\left (\sqrt{n}\frac{\bar X_n-m}{\sigma}\right )_{n\geq 1}$ converge en loi vers $\mathcal{N}(0,1)$.
-```
+
 La figure suivante illustre ce modèle dans le cas où la variable aléatoire parente $X$ suit un schéma de Bernoulli avec $P(X = 1)=0.1, P(X=0)=0.9$.
 
 ![](./images/tcl.png)
@@ -300,6 +300,7 @@ Dans la pratique, pour $n$ grand, dans le cadre de ce théorème, on a l'approxi
 $(\forall a<b)\;\;\;\; P\left (a\sqrt{n}\frac{\bar X_n-m}{\sigma} <b\right)\approx \phi(b)-\phi(a)$
 
 ### Cas particulier : théorème de Moivre-Laplace
+
 ````{prf:theorem}
 Soit $X=\mathbb{1}_A$  une variable aléatoire de Bernoulli avec $P(A)=p$. Dans les conditions du théorème central limite la variable $S_n=\displaystyle\sum_{k=1}^n X_k=n\bar X_n$ suit une loi binomiale $\mathcal{B}(n,p)$ et 
 
