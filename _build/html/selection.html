@@ -324,6 +324,9 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelques-methodes-de-selection">Quelques méthodes de sélection</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suppression-des-descripteurs-a-variance-faible">Suppression des descripteurs à variance faible</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-d-information">Gain d’information</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmes-de-selection-sequentielle">Algorithmes de sélection séquentielle</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-focus">Algorithme Focus</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-relief">Algorithme relief</a></li>
@@ -516,6 +519,48 @@ Variables sélectionnées :  [ True False  True  True]
 </div>
 </div>
 </section>
+</section>
+<section id="gain-d-information">
+<h2>Gain d’information<a class="headerlink" href="#gain-d-information" title="Link to this heading">#</a></h2>
+<p>Le gain d’information est une statistique qui mesure la réduction de l’entropie (incertitude) pour une caractéristique spécifique en divisant les données selon cette caractéristique. Plus le gain d’information d’une caractéristique est élevé, plus elle est utile pour la prise de décision. Cette méthode est un filtre. Précédemment, nous avions fixé la taille de <span class="math notranslate nohighlight">\(|hat F|\)</span>, ici nous choisissons une représentation graphique permettant d’apprécier l’importance de chacun des descripteurs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">mutual_info_classif</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">data</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">target</span>
+
+<span class="n">ig</span> <span class="o">=</span> <span class="n">mutual_info_classif</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">scores</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)):</span>
+    <span class="n">scores</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">feature_names</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">ig</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="n">sorted_features</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">y_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sorted_features</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">y_pos</span><span class="p">,</span> <span class="p">[</span><span class="n">score</span> <span class="k">for</span> <span class="n">feature</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">sorted_features</span><span class="p">],</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">y_pos</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="n">feature</span> <span class="k">for</span> <span class="n">feature</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">sorted_features</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>  
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Score&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Gain d&#39;information&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="n">score</span> <span class="k">for</span> <span class="n">feature</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">sorted_features</span><span class="p">]):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f757b96c63c1724b39d6a6142d0ccd04aac952767319e12a1b177968cd5fd104.png" src="_images/f757b96c63c1724b39d6a6142d0ccd04aac952767319e12a1b177968cd5fd104.png" />
+</div>
+</div>
 <section id="algorithmes-de-selection-sequentielle">
 <h3>Algorithmes de sélection séquentielle<a class="headerlink" href="#algorithmes-de-selection-sequentielle" title="Link to this heading">#</a></h3>
 <p>Les algorithmes SFS (Sequential Forward Selection, <a class="reference internal" href="#SFS">Algorithm 1</a>) et SBS (Sequential Backward Selection, <a class="reference internal" href="#SFS">Algorithm 1</a>-rouge) ont été les premiers à être proposés. Ils utilisent des approches heuristiques de recherche en partant, pour la première, d’un ensemble de caractéristiques vide et pour la seconde de  <span class="math notranslate nohighlight">\(F\)</span> tout entier.</p>
@@ -658,7 +703,7 @@ Variables sélectionnées :  [ True False  True  True]
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Taille des données avant sélection (150, 4)
 Variables sélectionnées :  [False False  True  True]
-Classement des variables :  [2 3 1 1]
+Classement des variables :  [3 2 1 1]
 </pre></div>
 </div>
 </div>
@@ -744,6 +789,9 @@ Classement des variables :  [2 3 1 1]
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelques-methodes-de-selection">Quelques méthodes de sélection</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suppression-des-descripteurs-a-variance-faible">Suppression des descripteurs à variance faible</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-d-information">Gain d’information</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmes-de-selection-sequentielle">Algorithmes de sélection séquentielle</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-focus">Algorithme Focus</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-relief">Algorithme relief</a></li>
