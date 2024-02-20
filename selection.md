@@ -173,6 +173,43 @@ print("Variables sélectionnées : ", v.get_support())
 ```
 
 
+## Gain d'information
+Le gain d'information est une statistique qui mesure la réduction de l'entropie (incertitude) pour une caractéristique spécifique en divisant les données selon cette caractéristique. Plus le gain d'information d'une caractéristique est élevé, plus elle est utile pour la prise de décision. Cette méthode est un filtre. Précédemment, nous avions fixé la taille de $|hat F|$, ici nous choisissons une représentation graphique permettant d'apprécier l'importance de chacun des descripteurs.
+
+```{code-cell} ipython3
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_iris
+from sklearn.feature_selection import mutual_info_classif
+
+data = load_iris()
+X = data.data
+y = data.target
+
+ig = mutual_info_classif(X, y)
+
+scores = {}
+for i in range(len(data.feature_names)):
+    scores[data.feature_names[i]] = ig[i]
+sorted_features = sorted(scores.items(), key=lambda x: x[1], reverse=True)
+
+fig, ax = plt.subplots()
+y_pos = np.arange(len(sorted_features))
+ax.barh(y_pos, [score for feature, score in sorted_features], align="center")
+ax.set_yticks(y_pos)
+ax.set_yticklabels([feature for feature, score in sorted_features])
+ax.invert_yaxis()  
+ax.set_xlabel("Score")
+ax.set_title("Gain d'information")
+
+for i, v in enumerate([score for feature, score in sorted_features]):
+    ax.text(v + 0.01, i, str(round(v, 3)))
+plt.tight_layout()
+plt.show()
+```
+
+
+
 ### Algorithmes de sélection séquentielle
 Les algorithmes SFS (Sequential Forward Selection, {prf:ref}`SFS`) et SBS (Sequential Backward Selection, {prf:ref}`SFS`-rouge) ont été les premiers à être proposés. Ils utilisent des approches heuristiques de recherche en partant, pour la première, d'un ensemble de caractéristiques vide et pour la seconde de  $F$ tout entier. 
 
