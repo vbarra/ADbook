@@ -575,7 +575,7 @@ deux approches :</p>
 <p><span class="math notranslate nohighlight">\(\Omega\)</span>  étant l’ensemble à classifier et <span class="math notranslate nohighlight">\(\delta\)</span> une mesure de dissimilarité sur cet ensemble, on définit à partir de <span class="math notranslate nohighlight">\(\delta\)</span> une  distance <span class="math notranslate nohighlight">\(D\)</span> entre les parties de  <span class="math notranslate nohighlight">\(\Omega\)</span>. Cette distance est en réalité une mesure de dissimilarité qui ne vérifie pas nécessairement toutes les propriétés d’une distance sur l’ensemble des parties de <span class="math notranslate nohighlight">\(\Omega\)</span>. En général, <span class="math notranslate nohighlight">\(D\)</span> est appelé critère d’agrégation.
 L’algorithme est alors le suivant :</p>
 <div class="proof algorithm admonition" id="algorithm-3">
-<p class="admonition-title"><span class="caption-number">Algorithm 4 </span> (Algorithme de clustering hiérarchique ascendant)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 5 </span> (Algorithme de clustering hiérarchique ascendant)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Entrée :</strong> Les éléments de <span class="math notranslate nohighlight">\(\Omega\)</span></p>
 <p><strong>Sortie :</strong> Une hiérarchie</p>
@@ -829,7 +829,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 <h4>Algorithme<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
 <p>L’algorithme des centres-mobiles peut se définir ainsi :</p>
 <div class="proof algorithm admonition" id="algorithm-4">
-<p class="admonition-title"><span class="caption-number">Algorithm 5 </span> (Algorithme des centres mobiles)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 6 </span> (Algorithme des centres mobiles)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(\Omega\)</span>,<span class="math notranslate nohighlight">\(g\)</span>, métrique</p>
 <p><strong>Sortie :</strong> Une partition de <span class="math notranslate nohighlight">\(\Omega\)</span></p>
@@ -908,9 +908,9 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </section>
 <section id="acceleration-des-k-means">
 <h4>Accélération des k-means<a class="headerlink" href="#acceleration-des-k-means" title="Link to this heading">#</a></h4>
-<p>L’algorithme original peut être amélioré de manière significative en évitant les calculs de distances non nécessaires. En exploitant l’inégalité triangulaire, et en conservant les bornes inférieures et supérieures des distances entre les points et les centres de classe, l’algorithme correspondant est performant, y compris pour de grandes valeurs de <span class="math notranslate nohighlight">\(k\)</span> (<a class="reference internal" href="#km">Algorithm 6</a>)</p>
+<p>L’algorithme original peut être amélioré de manière significative en évitant les calculs de distances non nécessaires. En exploitant l’inégalité triangulaire, et en conservant les bornes inférieures et supérieures des distances entre les points et les centres de classe, l’algorithme correspondant est performant, y compris pour de grandes valeurs de <span class="math notranslate nohighlight">\(k\)</span> (<a class="reference internal" href="#km">Algorithm 7</a>)</p>
 <div class="proof algorithm admonition" id="km">
-<p class="admonition-title"><span class="caption-number">Algorithm 6 </span> (Accélération des k-means)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 7 </span> (Accélération des k-means)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(\Omega, g\)</span></p>
 <p><strong>Sortie :</strong> <span class="math notranslate nohighlight">\(P\)</span> une partition de <span class="math notranslate nohighlight">\(X\)</span> en <span class="math notranslate nohighlight">\(g\)</span> classes</p>
@@ -986,9 +986,9 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div></section>
 <section id="k-means-a-mini-batchs">
 <h4>k-means à mini batchs<a class="headerlink" href="#k-means-a-mini-batchs" title="Link to this heading">#</a></h4>
-<p>Il est également possible d’appliquer une optimisation par mini-batchs dans l’algorithme des k-means (<a class="reference internal" href="#kmbatch">Algorithm 7</a>).</p>
+<p>Il est également possible d’appliquer une optimisation par mini-batchs dans l’algorithme des k-means (<a class="reference internal" href="#kmbatch">Algorithm 8</a>).</p>
 <div class="proof algorithm admonition" id="kmbatch">
-<p class="admonition-title"><span class="caption-number">Algorithm 7 </span> (Accélération des k-means)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 8 </span> (Accélération des k-means)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(\Omega, g\)</span>, <span class="math notranslate nohighlight">\(b\)</span> taille des batchs</p>
 <p><strong>Sortie :</strong> <span class="math notranslate nohighlight">\(P\)</span> une partition de <span class="math notranslate nohighlight">\(X\)</span> en <span class="math notranslate nohighlight">\(g\)</span> classes</p>
@@ -1068,7 +1068,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/314aca350c17f3a65e394f506b8bfd2173cd595cfeb2f7108c6d70ce54bb19b3.png" src="_images/314aca350c17f3a65e394f506b8bfd2173cd595cfeb2f7108c6d70ce54bb19b3.png" />
+<img alt="_images/7a3cd054a22917453c97e2dbb7976520c7df4e69d9b1cb0b44f62de303362fdf.png" src="_images/7a3cd054a22917453c97e2dbb7976520c7df4e69d9b1cb0b44f62de303362fdf.png" />
 </div>
 </div>
 </section>
@@ -1098,7 +1098,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </section>
 <section id="algorithme-em">
 <h3>Algorithme EM<a class="headerlink" href="#algorithme-em" title="Link to this heading">#</a></h3>
-<p>Plutôt que d’optimiser <span class="math notranslate nohighlight">\(\ell\)</span> directement depuis les données <span class="math notranslate nohighlight">\(s\)</span>, l’algorithme EM (<a class="reference internal" href="#EM">Algorithm 8</a>) augmente d’abord les données des variables latentes (les étiquettes <span class="math notranslate nohighlight">\(\mathbf z=(z_1\cdots z_n)\)</span> des classes). L’idée est que <span class="math notranslate nohighlight">\(s\)</span> est uniquement la partie observée des données aléatoires <span class="math notranslate nohighlight">\((\mathcal S,\mathbf Z)\)</span> générées d’abord en tirant <span class="math notranslate nohighlight">\(Z\)</span> suivant <span class="math notranslate nohighlight">\(P(Z=z)\)</span>, puis en tirant <span class="math notranslate nohighlight">\(\mathbf X\)</span> suivant <span class="math notranslate nohighlight">\(\Phi_z\)</span>, de sorte à avoir</p>
+<p>Plutôt que d’optimiser <span class="math notranslate nohighlight">\(\ell\)</span> directement depuis les données <span class="math notranslate nohighlight">\(s\)</span>, l’algorithme EM (<a class="reference internal" href="#EM">Algorithm 9</a>) augmente d’abord les données des variables latentes (les étiquettes <span class="math notranslate nohighlight">\(\mathbf z=(z_1\cdots z_n)\)</span> des classes). L’idée est que <span class="math notranslate nohighlight">\(s\)</span> est uniquement la partie observée des données aléatoires <span class="math notranslate nohighlight">\((\mathcal S,\mathbf Z)\)</span> générées d’abord en tirant <span class="math notranslate nohighlight">\(Z\)</span> suivant <span class="math notranslate nohighlight">\(P(Z=z)\)</span>, puis en tirant <span class="math notranslate nohighlight">\(\mathbf X\)</span> suivant <span class="math notranslate nohighlight">\(\Phi_z\)</span>, de sorte à avoir</p>
 <div class="math notranslate nohighlight">
 \[g(s,z|\boldsymbol \theta) = \displaystyle\prod_{i=1}^n w_{z_i} \Phi_{z_i}(\mathbf x_i)\]</div>
 <p>Ainsi, la log vraisemblance des données complètes, en général plus facile à optimiser, est</p>
@@ -1113,7 +1113,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 <p><span class="math notranslate nohighlight">\(p(z)\)</span> est de la forme <span class="math notranslate nohighlight">\(p_1(z_1)\cdots p_n(z_n)\)</span> de telle sorte que, étant donné <span class="math notranslate nohighlight">\(\mathcal S=s\)</span>, les composantes de <span class="math notranslate nohighlight">\(\mathbf Z\)</span> sont deux à deux indépendantes.</p>
 </section>
 </div><div class="proof algorithm admonition" id="EM">
-<p class="admonition-title"><span class="caption-number">Algorithm 8 </span> (Algorithmes EM)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 9 </span> (Algorithmes EM)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(s,\boldsymbol\theta^{(0)}\)</span></p>
 <p><strong>Sortie :</strong> Approximation de la log vraisemblance maximale</p>
@@ -1129,7 +1129,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 <li><p>Retourner <span class="math notranslate nohighlight">\(\boldsymbol\theta{(i)}\)</span></p></li>
 </ol>
 </section>
-</div><p>Dans l”<a class="reference internal" href="#EM">Algorithm 8</a>, un critère d’arrêt est par exemple</p>
+</div><p>Dans l”<a class="reference internal" href="#EM">Algorithm 9</a>, un critère d’arrêt est par exemple</p>
 <div class="math notranslate nohighlight">
 \[\frac{\ell(\boldsymbol\theta{(i)}|s)-\ell(\boldsymbol\theta^{(i-1)}|s)}{\ell(\boldsymbol\theta{(i)}|s)}&lt;\epsilon\]</div>
 <p>Sous certaines conditions, la suite des <span class="math notranslate nohighlight">\(\ell(\boldsymbol\theta{(i)}|s)\)</span> converge vers un maximum local de la log vraisemblance <span class="math notranslate nohighlight">\(\ell\)</span>. La convergence vers le maximum global dépend bien sûr du choix de <span class="math notranslate nohighlight">\(\boldsymbol\theta^{(0)}\)</span>, de sorte qu’une stratégie possible est d’exécuter plusieurs fois l’algorithme avec des initialisations différentes.</p>
