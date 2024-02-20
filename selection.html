@@ -522,7 +522,7 @@ Variables sélectionnées :  [ True False  True  True]
 <h3>Sélection par permutation<a class="headerlink" href="#selection-par-permutation" title="Link to this heading">#</a></h3>
 <p>On mesure l’importance d’un descripteur en calculant l’augmentation de l’erreur de prédiction d’un modèle entraîné sur les données après la permutation du descripteur. Un descripteur est « important » si la permutation de ses valeurs augmente l’erreur du modèle, car dans ce cas, le modèle s’est appuyé sur lui pour la prédiction. Le descripteur est « sans importance » si la permutation de ses valeurs laisse l’erreur du modèle inchangée, car dans ce cas, le modèle n’a pas tenu compte de la valeur pour la prédiction.</p>
 <p>On note dans la suite <span class="math notranslate nohighlight">\(\mathbf X\in\mathcal M_{n,d}(\mathbb{R})\)</span> la  matrice des <span class="math notranslate nohighlight">\(n\)</span> individus et <span class="math notranslate nohighlight">\(\mathbf y\in\mathbb{R}^n\)</span> le vecteur des étiquettes (classification) ou valeurs (régression), <span class="math notranslate nohighlight">\(y_i\)</span> étant la valeur cible de l’infividu <span class="math notranslate nohighlight">\(\mathbf x_i\)</span>.</p>
-<div class="proof algorithm admonition" id="SFS">
+<div class="proof algorithm admonition" id="Permutation">
 <p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (Sélection par permutation)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Entrée :</strong> un modèle entraîné <span class="math notranslate nohighlight">\(f\)</span>, des données <span class="math notranslate nohighlight">\(\mathbf X, \mathbf y\)</span>, une mesure d’erreur  <span class="math notranslate nohighlight">\(L\)</span></p>
@@ -611,15 +611,15 @@ sepal width (cm)5.483 +/- 1.083
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e78b4f1e1fa6bbc4edac0cfabeabbb11f6fb16229e76c82b40462cc0925262aa.png" src="_images/e78b4f1e1fa6bbc4edac0cfabeabbb11f6fb16229e76c82b40462cc0925262aa.png" />
+<img alt="_images/3223d26c15f3c86d48ec65a942b6a2cc476c509961c5c5505fb1961c1647dc8d.png" src="_images/3223d26c15f3c86d48ec65a942b6a2cc476c509961c5c5505fb1961c1647dc8d.png" />
 </div>
 </div>
 </section>
 <section id="algorithmes-de-selection-sequentielle">
 <h3>Algorithmes de sélection séquentielle<a class="headerlink" href="#algorithmes-de-selection-sequentielle" title="Link to this heading">#</a></h3>
-<p>Les algorithmes SFS (Sequential Forward Selection, <a class="reference internal" href="#SFS">Algorithm 1</a>) et SBS (Sequential Backward Selection, <a class="reference internal" href="#SFS">Algorithm 1</a>-rouge) ont été les premiers à être proposés. Ils utilisent des approches heuristiques de recherche en partant, pour la première, d’un ensemble de caractéristiques vide et pour la seconde de  <span class="math notranslate nohighlight">\(F\)</span> tout entier.</p>
+<p>Les algorithmes SFS (Sequential Forward Selection, <a class="reference internal" href="#SFS">Algorithm 2</a>) et SBS (Sequential Backward Selection, <a class="reference internal" href="#SFS">Algorithm 2</a>-rouge) ont été les premiers à être proposés. Ils utilisent des approches heuristiques de recherche en partant, pour la première, d’un ensemble de caractéristiques vide et pour la seconde de  <span class="math notranslate nohighlight">\(F\)</span> tout entier.</p>
 <div class="proof algorithm admonition" id="SFS">
-<p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (Algorithmes SFS et SBS)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 2 </span> (Algorithmes SFS et SBS)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(F = \left (f_1\cdots f_d\right )\)</span>, taille de l’ensemble final  <span class="math notranslate nohighlight">\(T\)</span></p>
 <p><strong>Sortie :</strong> <span class="math notranslate nohighlight">\(\hat{F}\)</span></p>
@@ -672,9 +672,9 @@ Variables sélectionnées :  [ True False  True  True]
 </section>
 <section id="algorithme-focus">
 <h3>Algorithme Focus<a class="headerlink" href="#algorithme-focus" title="Link to this heading">#</a></h3>
-<p>L’algorithme de filtrage Focus (<a class="reference internal" href="#FOCUS">Algorithm 2</a>) repose sur une recherche exhaustive sur <span class="math notranslate nohighlight">\(F\)</span> pour trouver le sous-ensemble le plus performant de taille optimale. On illustre ici le cas de la classification, où chaque <span class="math notranslate nohighlight">\(\mathbf x_i\)</span> a un label <span class="math notranslate nohighlight">\(y_i\)</span> (une classe).</p>
+<p>L’algorithme de filtrage Focus (<a class="reference internal" href="#FOCUS">Algorithm 3</a>) repose sur une recherche exhaustive sur <span class="math notranslate nohighlight">\(F\)</span> pour trouver le sous-ensemble le plus performant de taille optimale. On illustre ici le cas de la classification, où chaque <span class="math notranslate nohighlight">\(\mathbf x_i\)</span> a un label <span class="math notranslate nohighlight">\(y_i\)</span> (une classe).</p>
 <div class="proof algorithm admonition" id="FOCUS">
-<p class="admonition-title"><span class="caption-number">Algorithm 2 </span> (Algorithme FOCUS)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 3 </span> (Algorithme FOCUS)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(A= \{\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d,i\in[\![1,n]\!]\}\)</span> , taille de l’ensemble final  <span class="math notranslate nohighlight">\(T\)</span>, seuil <span class="math notranslate nohighlight">\(\epsilon\)</span></p>
 <p><strong>Sortie :</strong> <span class="math notranslate nohighlight">\(\hat{F}\)</span></p>
@@ -696,13 +696,13 @@ Variables sélectionnées :  [ True False  True  True]
 </li>
 </ol>
 </section>
-</div><p>Ici, la notion de consistance peut s’entendre de la manière suivante : il n’existe pas deux exemples dans <span class="math notranslate nohighlight">\(S_i\)</span> qui sont en accord sur tous les descripteurs mais qui ne concordent pas sur la classe. La notion d’accord des descripteurs peut par exempel se fonder sur un critères de distance.</p>
+</div><p>Ici, la notion de consistance peut s’entendre de la manière suivante : il n’existe pas deux exemples dans <span class="math notranslate nohighlight">\(S_i\)</span> qui sont en accord sur tous les descripteurs mais qui ne concordent pas sur la classe. La notion d’accord des descripteurs peut par exemple se fonder sur un critères de distance.</p>
 </section>
 <section id="algorithme-relief">
 <h3>Algorithme relief<a class="headerlink" href="#algorithme-relief" title="Link to this heading">#</a></h3>
-<p>La méthode relief en classification binaire (<a class="reference internal" href="#relief">Algorithm 3</a>), propose de calculer une mesure globale de la pertinence des caractéristiques en accumulant la différence des distances entre des exemples d’apprentissage choisis aléatoirement et leurs plus proches voisins de la même classe et de l’autre classe.</p>
+<p>La méthode relief en classification binaire (<a class="reference internal" href="#relief">Algorithm 4</a>), propose de calculer une mesure globale de la pertinence des caractéristiques en accumulant la différence des distances entre des exemples d’apprentissage choisis aléatoirement et leurs plus proches voisins de la même classe et de l’autre classe.</p>
 <div class="proof algorithm admonition" id="relief">
-<p class="admonition-title"><span class="caption-number">Algorithm 3 </span> (Algorithme Relief)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 4 </span> (Algorithme Relief)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(A= \{\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d,1\leq i\leq n  \}\)</span> , nombre d’itérations <span class="math notranslate nohighlight">\(T\)</span></p>
 <p><strong>Sortie :</strong> <span class="math notranslate nohighlight">\(w\in\mathbb{R}^d\)</span> un vecteur de poids des caractéristiques, <span class="math notranslate nohighlight">\(w_i\in[-1,1],i\in[\![1,d]\!]\)</span></p>

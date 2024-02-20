@@ -178,7 +178,7 @@ On mesure l'importance d'un descripteur en calculant l'augmentation de l'erreur 
 On note dans la suite $\mathbf X\in\mathcal M_{n,d}(\mathbb{R})$ la  matrice des $n$ individus et $\mathbf y\in\mathbb{R}^n$ le vecteur des étiquettes (classification) ou valeurs (régression), $y_i$ étant la valeur cible de l'infividu $\mathbf x_i$.
 
 ```{prf:algorithm} Sélection par permutation
-:label: SFS
+:label: Permutation
 **Entrée :** un modèle entraîné $f$, des données $\mathbf X, \mathbf y$, une mesure d'erreur  $L$ 
 
 **Sortie :** Les valeurs d'importance des descripteurs triées
@@ -310,7 +310,7 @@ L'algorithme de filtrage Focus ({prf:ref}`FOCUS`) repose sur une recherche exhau
             1. $\hat{F}\leftarrow S_i$
             2. Retourner $\hat{F}$
 ```
-Ici, la notion de consistance peut s'entendre de la manière suivante : il n'existe pas deux exemples dans $S_i$ qui sont en accord sur tous les descripteurs mais qui ne concordent pas sur la classe. La notion d'accord des descripteurs peut par exempel se fonder sur un critères de distance. 
+Ici, la notion de consistance peut s'entendre de la manière suivante : il n'existe pas deux exemples dans $S_i$ qui sont en accord sur tous les descripteurs mais qui ne concordent pas sur la classe. La notion d'accord des descripteurs peut par exemple se fonder sur un critères de distance. 
 
 ### Algorithme relief
 La méthode relief en classification binaire ({prf:ref}`relief`), propose de calculer une mesure globale de la pertinence des caractéristiques en accumulant la différence des distances entre des exemples d'apprentissage choisis aléatoirement et leurs plus proches voisins de la même classe et de l'autre classe.
