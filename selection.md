@@ -178,7 +178,7 @@ On mesure l'importance d'un descripteur en calculant l'augmentation de l'erreur 
 On note dans la suite $\mathbf X\in\mathcal M_{n,d}(\mathbb{R})$ la  matrice des $n$ individus et $\mathbf y\in\mathbb{R}^n$ le vecteur des étiquettes (classification) ou valeurs (régression), $y_i$ étant la valeur cible de l'infividu $\mathbf x_i$.
 
 ```{prf:algorithm} Sélection par permutation
-:label: SFS
+:label: Permutation
 **Entrée :** un modèle entraîné $f$, des données $\mathbf X, \mathbf y$, une mesure d'erreur  $L$ 
 
 **Sortie :** Les valeurs d'importance des descripteurs triées
