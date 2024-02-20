@@ -529,17 +529,50 @@ Variables sélectionnées :  [ True False  True  True]
 <p><strong>Sortie :</strong> Les valeurs d’importance des descripteurs triées</p>
 <ol class="arabic simple">
 <li><p>Estimer l’erreur originale du modèle sur les <span class="math notranslate nohighlight">\(n\)</span> individus <span class="math notranslate nohighlight">\(\varepsilon = L(\mathbf y,f(\mathbf X))\)</span></p></li>
-<li><p>Pour (chaque descripteur <span class="math notranslate nohighlight">\(j\)</span>)</p>
+<li><p>Pour chaque descripteur <span class="math notranslate nohighlight">\(f_j\)</span></p>
 <ol class="arabic simple">
 <li><p>Permuter la colonne <span class="math notranslate nohighlight">\(j\)</span> dans <span class="math notranslate nohighlight">\(\mathbf X\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span> matrice  <span class="math notranslate nohighlight">\(\mathbf X_p\)</span></p></li>
 <li><p>Estimer l’erreur <span class="math notranslate nohighlight">\(\varepsilon_p = L(\mathbf y,f(\mathbf X_p))\)</span></p></li>
 <li><p>Calculer le score d’importance de permutation : (<span class="math notranslate nohighlight">\(s_j = \varepsilon_p/\varepsilon\)</span> ou <span class="math notranslate nohighlight">\(s_j = \varepsilon_p-\varepsilon\)</span>)</p></li>
 </ol>
 </li>
-<li><p>Trier les <span class="math notranslate nohighlight">\(s_j\)</span> par ordre décroissants</p></li>
+<li><p>Trier les <span class="math notranslate nohighlight">\(s_j\)</span> par ordre décroissant</p></li>
 </ol>
 </section>
-</div></section>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.inspection</span> <span class="kn">import</span> <span class="n">permutation_importance</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">data</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">target</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">permutation_importance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span><span class="n">n_repeats</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">importances_mean</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">feature_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;8</span><span class="si">}</span><span class="s2">&quot;</span>
+               <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">importances_mean</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span>
+               <span class="sa">f</span><span class="s2">&quot; +/- </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">importances_std</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>petal length (cm)77.803 +/- 12.963
+petal width (cm)39.936 +/- 6.399
+sepal length (cm)30.218 +/- 6.479
+sepal width (cm)5.483 +/- 1.083
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="gain-d-information">
 <h3>Gain d’information<a class="headerlink" href="#gain-d-information" title="Link to this heading">#</a></h3>
 <p>Le gain d’information est une statistique qui mesure la réduction de l’entropie (incertitude) pour une caractéristique spécifique en divisant les données selon cette caractéristique. Plus le gain d’information d’une caractéristique est élevé, plus elle est utile pour la prise de décision. Cette méthode est un filtre. Précédemment, nous avions fixé la taille de <span class="math notranslate nohighlight">\(|hat F|\)</span>, ici nous choisissons une représentation graphique permettant d’apprécier l’importance de chacun des descripteurs.</p>
@@ -578,7 +611,7 @@ Variables sélectionnées :  [ True False  True  True]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5e9e6e8b2eaad40f98118a0f6a418cf4ac01668b761d04362bd3c0bcabd616a4.png" src="_images/5e9e6e8b2eaad40f98118a0f6a418cf4ac01668b761d04362bd3c0bcabd616a4.png" />
+<img alt="_images/822b7d696bbce685eca3dfb277e4365d86056f3ac1c24005995577433307f822.png" src="_images/822b7d696bbce685eca3dfb277e4365d86056f3ac1c24005995577433307f822.png" />
 </div>
 </div>
 </section>
