@@ -217,7 +217,7 @@ print("Variables sélectionnées : ", sfs.get_support())
 ```
 
 ### Algorithme Focus
-L'algorithme de filtrage Focus ({prf:ref}`FOCUS`}) repose sur une recherche exhaustive sur $F$ pour trouver le sous-ensemble le plus performant de taille optimale. 
+L'algorithme de filtrage Focus ({prf:ref}`FOCUS`) repose sur une recherche exhaustive sur $F$ pour trouver le sous-ensemble le plus performant de taille optimale. 
 
 
 ```{prf:algorithm} Algorithme FOCUS
