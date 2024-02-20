@@ -183,11 +183,34 @@ On note dans la suite $\mathbf X\in\mathcal M_{n,d}(\mathbb{R})$ la  matrice des
 
 **Sortie :** Les valeurs d'importance des descripteurs triées
 1. Estimer l'erreur originale du modèle sur les $n$ individus $\varepsilon = L(\mathbf y,f(\mathbf X))$
-2. Pour (chaque descripteur $j$)
+2. Pour chaque descripteur $f_j$
     1. Permuter la colonne $j$ dans $\mathbf X$ $\rightarrow$ matrice  $\mathbf X_p$
     2. Estimer l'erreur $\varepsilon_p = L(\mathbf y,f(\mathbf X_p))$
     3. Calculer le score d'importance de permutation : ($s_j = \varepsilon_p/\varepsilon$ ou $s_j = \varepsilon_p-\varepsilon$) 
-3. Trier les $s_j$ par ordre décroissants
+3. Trier les $s_j$ par ordre décroissant
+```
+
+
+```{code-cell} ipython3
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.inspection import permutation_importance
+from sklearn.cluster import KMeans
+
+data = load_iris()
+X = data.data
+y = data.target
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
+
+
+model = KMeans(n_clusters=2).fit(X_train, y_train)
+
+r = permutation_importance(model, X_test, y_test,n_repeats=30,random_state=0)
+
+for i in r.importances_mean.argsort()[::-1]:
+         print(f"{data.feature_names[i]:<8}"
+               f"{r.importances_mean[i]:.3f}"
+               f" +/- {r.importances_std[i]:.3f}")
 ```
 
 
