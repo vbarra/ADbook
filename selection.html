@@ -546,7 +546,7 @@ Variables sélectionnées :  [ True False  True  True]
 <span class="kn">from</span> <span class="nn">sklearn.inspection</span> <span class="kn">import</span> <span class="n">permutation_importance</span>
 <span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>  
 <span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">data</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">target</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -611,7 +611,7 @@ sepal width (cm)5.483 +/- 1.083
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/822b7d696bbce685eca3dfb277e4365d86056f3ac1c24005995577433307f822.png" src="_images/822b7d696bbce685eca3dfb277e4365d86056f3ac1c24005995577433307f822.png" />
+<img alt="_images/35901bcfe21a5ff7d5f8a1def7e58603645eb5a4b8af15c4e491253067876632.png" src="_images/35901bcfe21a5ff7d5f8a1def7e58603645eb5a4b8af15c4e491253067876632.png" />
 </div>
 </div>
 </section>
@@ -676,7 +676,7 @@ Variables sélectionnées :  [ True False  True  True]
 <div class="proof algorithm admonition" id="FOCUS">
 <p class="admonition-title"><span class="caption-number">Algorithm 2 </span> (Algorithme FOCUS)</p>
 <section class="algorithm-content" id="proof-content">
-<p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(A= \{\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d,1\leq i\leq n  \}\)</span> , taille de l’ensemble final  <span class="math notranslate nohighlight">\(T\)</span>, seuil <span class="math notranslate nohighlight">\(\epsilon\)</span></p>
+<p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(A= \{\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d,i\in[\![1,n]\!]\}\)</span> , taille de l’ensemble final  <span class="math notranslate nohighlight">\(T\)</span>, seuil <span class="math notranslate nohighlight">\(\epsilon\)</span></p>
 <p><strong>Sortie :</strong> <span class="math notranslate nohighlight">\(\hat{F}\)</span></p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(\hat{F}\leftarrow \emptyset\)</span></p></li>
