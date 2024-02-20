@@ -172,6 +172,24 @@ print("Après sélection, ",X2.shape)
 print("Variables sélectionnées : ", v.get_support())
 ```
 
+### Sélection par permutation
+On mesure l'importance d'un descripteur en calculant l'augmentation de l'erreur de prédiction d'un modèle entraîné sur les données après la permutation du descripteur. Un descripteur est "important" si la permutation de ses valeurs augmente l'erreur du modèle, car dans ce cas, le modèle s'est appuyé sur lui pour la prédiction. Le descripteur est "sans importance" si la permutation de ses valeurs laisse l'erreur du modèle inchangée, car dans ce cas, le modèle n'a pas tenu compte de la valeur pour la prédiction.
+
+On note dans la suite $\mathbf X\in\mathcal M_{n,d}(\mathbb{R})$ la  matrice des $n$ individus et $\mathbf y\in\mathbb{R}^n$ le vecteur des étiquettes (classification) ou valeurs (régression), $y_i$ étant la valeur cible de l'infividu $\mathbf x_i$
+
+```{prf:algorithm} Sélection par permutation
+:label: SFS
+**Entrée :** un modèle entraîné $f$, des données $\mathbf X, \mathbf y$, une mesure d'erreur  $L$ 
+
+**Sortie :** $\hat{F}$
+1. Estimer l'erreur originale du modèle sur les $n$ individus $\varepsilon = L(\mathbf y,f(\mathbf X))$
+2. Pour (chaque descripteur $j$)
+    1. Permuter la colonne $j$ dans $\mathbf X$ $\rightarrow$ matrice  $\mathbf X_p$
+    2. Estimer l'erreur $\varepsilon_p = L(\mathbf y,f(\mathbf X_p))$
+    3. Calculer le score d'importance de permutation : ($s_j = \varepsilon_p/\varepsilon$ ou $s_j = \varepsilon_p-\varepsilon$) 
+3. Trier les $s_j$ par ordre décroissants
+```
+
 
 ### Gain d'information
 Le gain d'information est une statistique qui mesure la réduction de l'entropie (incertitude) pour une caractéristique spécifique en divisant les données selon cette caractéristique. Plus le gain d'information d'une caractéristique est élevé, plus elle est utile pour la prise de décision. Cette méthode est un filtre. Précédemment, nous avions fixé la taille de $|hat F|$, ici nous choisissons une représentation graphique permettant d'apprécier l'importance de chacun des descripteurs.
@@ -226,7 +244,6 @@ Les algorithmes SFS (Sequential Forward Selection, {prf:ref}`SFS`) et SBS (Seque
         1. Evaluer $\{f_j\}\cup \hat{F}\quad$ (<span style="color:red">$\hat{F}\setminus \{f_j\}$</span>)
     2. $f_{max}$ = meilleure caractéristique $\quad$ (<span style="color:red">$f_{min}$=moins bonne caractéristique</span>)
     3. $\hat{F}\leftarrow\hat{F}\cup\{f_{max}\}, F=F\setminus f_{max}\quad$ (<span style="color:red">$\hat{F}\setminus\hat{F}f_{min}$</span>)
-
 ```
 
 L'étape d'évaluation utilise des données d'apprentissage : une heuristique évalue, sur un critère de performance, l'intérêt d'ajouter (ou de supprimer) le descripteur $f_i$.
