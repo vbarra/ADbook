@@ -521,12 +521,12 @@ Variables sélectionnées :  [ True False  True  True]
 <section id="selection-par-permutation">
 <h3>Sélection par permutation<a class="headerlink" href="#selection-par-permutation" title="Link to this heading">#</a></h3>
 <p>On mesure l’importance d’un descripteur en calculant l’augmentation de l’erreur de prédiction d’un modèle entraîné sur les données après la permutation du descripteur. Un descripteur est « important » si la permutation de ses valeurs augmente l’erreur du modèle, car dans ce cas, le modèle s’est appuyé sur lui pour la prédiction. Le descripteur est « sans importance » si la permutation de ses valeurs laisse l’erreur du modèle inchangée, car dans ce cas, le modèle n’a pas tenu compte de la valeur pour la prédiction.</p>
-<p>On note dans la suite <span class="math notranslate nohighlight">\(\mathbf X\in\mathcal M_{n,d}(\mathbb{R})\)</span> la  matrice des <span class="math notranslate nohighlight">\(n\)</span> individus et <span class="math notranslate nohighlight">\(\mathbf y\in\mathbb{R}^n\)</span> le vecteur des étiquettes (classification) ou valeurs (régression), <span class="math notranslate nohighlight">\(y_i\)</span> étant la valeur cible de l’infividu <span class="math notranslate nohighlight">\(\mathbf x_i\)</span></p>
+<p>On note dans la suite <span class="math notranslate nohighlight">\(\mathbf X\in\mathcal M_{n,d}(\mathbb{R})\)</span> la  matrice des <span class="math notranslate nohighlight">\(n\)</span> individus et <span class="math notranslate nohighlight">\(\mathbf y\in\mathbb{R}^n\)</span> le vecteur des étiquettes (classification) ou valeurs (régression), <span class="math notranslate nohighlight">\(y_i\)</span> étant la valeur cible de l’infividu <span class="math notranslate nohighlight">\(\mathbf x_i\)</span>.</p>
 <div class="proof algorithm admonition" id="SFS">
 <p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (Sélection par permutation)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Entrée :</strong> un modèle entraîné <span class="math notranslate nohighlight">\(f\)</span>, des données <span class="math notranslate nohighlight">\(\mathbf X, \mathbf y\)</span>, une mesure d’erreur  <span class="math notranslate nohighlight">\(L\)</span></p>
-<p><strong>Sortie :</strong> <span class="math notranslate nohighlight">\(\hat{F}\)</span></p>
+<p><strong>Sortie :</strong> Les valeurs d’importance des descripteurs triées</p>
 <ol class="arabic simple">
 <li><p>Estimer l’erreur originale du modèle sur les <span class="math notranslate nohighlight">\(n\)</span> individus <span class="math notranslate nohighlight">\(\varepsilon = L(\mathbf y,f(\mathbf X))\)</span></p></li>
 <li><p>Pour (chaque descripteur <span class="math notranslate nohighlight">\(j\)</span>)</p>
@@ -578,7 +578,7 @@ Variables sélectionnées :  [ True False  True  True]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/48b8b3edfb76ca344beffa77bfac178c50d981506c3006a26d450c6f6f81f16b.png" src="_images/48b8b3edfb76ca344beffa77bfac178c50d981506c3006a26d450c6f6f81f16b.png" />
+<img alt="_images/5e9e6e8b2eaad40f98118a0f6a418cf4ac01668b761d04362bd3c0bcabd616a4.png" src="_images/5e9e6e8b2eaad40f98118a0f6a418cf4ac01668b761d04362bd3c0bcabd616a4.png" />
 </div>
 </div>
 </section>
@@ -724,7 +724,7 @@ Variables sélectionnées :  [ True False  True  True]
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Taille des données avant sélection (150, 4)
 Variables sélectionnées :  [False False  True  True]
-Classement des variables :  [2 3 1 1]
+Classement des variables :  [3 2 1 1]
 </pre></div>
 </div>
 </div>

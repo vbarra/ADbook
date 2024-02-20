@@ -175,13 +175,13 @@ print("Variables sélectionnées : ", v.get_support())
 ### Sélection par permutation
 On mesure l'importance d'un descripteur en calculant l'augmentation de l'erreur de prédiction d'un modèle entraîné sur les données après la permutation du descripteur. Un descripteur est "important" si la permutation de ses valeurs augmente l'erreur du modèle, car dans ce cas, le modèle s'est appuyé sur lui pour la prédiction. Le descripteur est "sans importance" si la permutation de ses valeurs laisse l'erreur du modèle inchangée, car dans ce cas, le modèle n'a pas tenu compte de la valeur pour la prédiction.
 
-On note dans la suite $\mathbf X\in\mathcal M_{n,d}(\mathbb{R})$ la  matrice des $n$ individus et $\mathbf y\in\mathbb{R}^n$ le vecteur des étiquettes (classification) ou valeurs (régression), $y_i$ étant la valeur cible de l'infividu $\mathbf x_i$
+On note dans la suite $\mathbf X\in\mathcal M_{n,d}(\mathbb{R})$ la  matrice des $n$ individus et $\mathbf y\in\mathbb{R}^n$ le vecteur des étiquettes (classification) ou valeurs (régression), $y_i$ étant la valeur cible de l'infividu $\mathbf x_i$.
 
 ```{prf:algorithm} Sélection par permutation
 :label: SFS
 **Entrée :** un modèle entraîné $f$, des données $\mathbf X, \mathbf y$, une mesure d'erreur  $L$ 
 
-**Sortie :** $\hat{F}$
+**Sortie :** Les valeurs d'importance des descripteurs triées
 1. Estimer l'erreur originale du modèle sur les $n$ individus $\varepsilon = L(\mathbf y,f(\mathbf X))$
 2. Pour (chaque descripteur $j$)
     1. Permuter la colonne $j$ dans $\mathbf X$ $\rightarrow$ matrice  $\mathbf X_p$
