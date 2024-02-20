@@ -324,6 +324,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelques-methodes-de-selection">Quelques méthodes de sélection</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suppression-des-descripteurs-a-variance-faible">Suppression des descripteurs à variance faible</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-par-permutation">Sélection par permutation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-d-information">Gain d’information</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmes-de-selection-sequentielle">Algorithmes de sélection séquentielle</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-focus">Algorithme Focus</a></li>
@@ -517,6 +518,28 @@ Variables sélectionnées :  [ True False  True  True]
 </div>
 </div>
 </section>
+<section id="selection-par-permutation">
+<h3>Sélection par permutation<a class="headerlink" href="#selection-par-permutation" title="Link to this heading">#</a></h3>
+<p>On mesure l’importance d’un descripteur en calculant l’augmentation de l’erreur de prédiction d’un modèle entraîné sur les données après la permutation du descripteur. Un descripteur est « important » si la permutation de ses valeurs augmente l’erreur du modèle, car dans ce cas, le modèle s’est appuyé sur lui pour la prédiction. Le descripteur est « sans importance » si la permutation de ses valeurs laisse l’erreur du modèle inchangée, car dans ce cas, le modèle n’a pas tenu compte de la valeur pour la prédiction.</p>
+<p>On note dans la suite <span class="math notranslate nohighlight">\(\mathbf X\in\mathcal M_{n,d}(\mathbb{R})\)</span> la  matrice des <span class="math notranslate nohighlight">\(n\)</span> individus et <span class="math notranslate nohighlight">\(\mathbf y\in\mathbb{R}^n\)</span> le vecteur des étiquettes (classification) ou valeurs (régression), <span class="math notranslate nohighlight">\(y_i\)</span> étant la valeur cible de l’infividu <span class="math notranslate nohighlight">\(\mathbf x_i\)</span></p>
+<div class="proof algorithm admonition" id="SFS">
+<p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (Sélection par permutation)</p>
+<section class="algorithm-content" id="proof-content">
+<p><strong>Entrée :</strong> un modèle entraîné <span class="math notranslate nohighlight">\(f\)</span>, des données <span class="math notranslate nohighlight">\(\mathbf X, \mathbf y\)</span>, une mesure d’erreur  <span class="math notranslate nohighlight">\(L\)</span></p>
+<p><strong>Sortie :</strong> <span class="math notranslate nohighlight">\(\hat{F}\)</span></p>
+<ol class="arabic simple">
+<li><p>Estimer l’erreur originale du modèle sur les <span class="math notranslate nohighlight">\(n\)</span> individus <span class="math notranslate nohighlight">\(\varepsilon = L(\mathbf y,f(\mathbf X))\)</span></p></li>
+<li><p>Pour (chaque descripteur <span class="math notranslate nohighlight">\(j\)</span>)</p>
+<ol class="arabic simple">
+<li><p>Permuter la colonne <span class="math notranslate nohighlight">\(j\)</span> dans <span class="math notranslate nohighlight">\(\mathbf X\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span> matrice  <span class="math notranslate nohighlight">\(\mathbf X_p\)</span></p></li>
+<li><p>Estimer l’erreur <span class="math notranslate nohighlight">\(\varepsilon_p = L(\mathbf y,f(\mathbf X_p))\)</span></p></li>
+<li><p>Calculer le score d’importance de permutation : (<span class="math notranslate nohighlight">\(s_j = \varepsilon_p/\varepsilon\)</span> ou <span class="math notranslate nohighlight">\(s_j = \varepsilon_p-\varepsilon\)</span>)</p></li>
+</ol>
+</li>
+<li><p>Trier les <span class="math notranslate nohighlight">\(s_j\)</span> par ordre décroissants</p></li>
+</ol>
+</section>
+</div></section>
 <section id="gain-d-information">
 <h3>Gain d’information<a class="headerlink" href="#gain-d-information" title="Link to this heading">#</a></h3>
 <p>Le gain d’information est une statistique qui mesure la réduction de l’entropie (incertitude) pour une caractéristique spécifique en divisant les données selon cette caractéristique. Plus le gain d’information d’une caractéristique est élevé, plus elle est utile pour la prise de décision. Cette méthode est un filtre. Précédemment, nous avions fixé la taille de <span class="math notranslate nohighlight">\(|hat F|\)</span>, ici nous choisissons une représentation graphique permettant d’apprécier l’importance de chacun des descripteurs.</p>
@@ -555,7 +578,7 @@ Variables sélectionnées :  [ True False  True  True]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5981f26fe7ffb558513df8113f87297fa6ac013ec24abd565824125708f8cdbe.png" src="_images/5981f26fe7ffb558513df8113f87297fa6ac013ec24abd565824125708f8cdbe.png" />
+<img alt="_images/48b8b3edfb76ca344beffa77bfac178c50d981506c3006a26d450c6f6f81f16b.png" src="_images/48b8b3edfb76ca344beffa77bfac178c50d981506c3006a26d450c6f6f81f16b.png" />
 </div>
 </div>
 </section>
@@ -787,6 +810,7 @@ Classement des variables :  [2 3 1 1]
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelques-methodes-de-selection">Quelques méthodes de sélection</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suppression-des-descripteurs-a-variance-faible">Suppression des descripteurs à variance faible</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-par-permutation">Sélection par permutation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-d-information">Gain d’information</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmes-de-selection-sequentielle">Algorithmes de sélection séquentielle</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-focus">Algorithme Focus</a></li>
