@@ -197,7 +197,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.inspection import permutation_importance
 from sklearn.cluster import KMeans
 
-data = load_iris()
+data = load_iris()  
 X = data.data
 y = data.target
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
@@ -299,7 +299,7 @@ L'algorithme de filtrage Focus ({prf:ref}`FOCUS`) repose sur une recherche exhau
 
 ```{prf:algorithm} Algorithme FOCUS
 :label: FOCUS
-**Entrée :** $A= \{\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d,1\leq i\leq n  \}$ , taille de l'ensemble final  $T$, seuil $\epsilon$
+**Entrée :** $A= \{\mathbf x_i=\left (x_{i1} \cdots x_{id} \right )^T\in\mathbb{R}^d,i\in[\![1,n]\!]\}$ , taille de l'ensemble final  $T$, seuil $\epsilon$
 
 **Sortie :** $\hat{F}$
 
