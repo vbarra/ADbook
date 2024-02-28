@@ -415,5 +415,29 @@ Le calcul de la valeur de Shapley nécessite de faire la somme de tous les sous-
 ```
 
 
+```{code-cell} ipython3
+try:
+    import shap 
+except ModuleNotFoundError: 
+    !pip3 install --quiet shap
+
+import shap
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+
+data = load_iris()
+X = data.data
+y = data.target
+
+X_train, X_test, Y_train, Y_test = train_test_split(X,y, test_size=0.2, random_state=0)
+knn = KNeighborsClassifier()
+knn.fit(X_train, Y_train)
+
+explainer = shap.KernelExplainer(knn.predict_proba, X_train)
+shap_values = explainer.shap_values(X_test)
+# Pour chaque exemple, on donne l'importance de chacun des descripteurs dans la décision de classification
+shap.summary_plot(shap_values[0], X_test,data.feature_names)
+```
 
 
