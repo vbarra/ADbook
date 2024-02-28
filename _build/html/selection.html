@@ -614,7 +614,7 @@ sepal width (cm)5.483 +/- 1.083
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cba593adefaad1055301371bae3cf80d9bfac06ec816456190f1f8fa60e5c369.png" src="_images/cba593adefaad1055301371bae3cf80d9bfac06ec816456190f1f8fa60e5c369.png" />
+<img alt="_images/4bbbd7e90d9f4f311b63bae399966a54d884edf3d5d962919edc65374cf5fedf.png" src="_images/4bbbd7e90d9f4f311b63bae399966a54d884edf3d5d962919edc65374cf5fedf.png" />
 </div>
 </div>
 </section>
@@ -761,7 +761,7 @@ Variables sélectionnées :  [ True False  True  True]
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Taille des données avant sélection (150, 4)
 Variables sélectionnées :  [False False  True  True]
-Classement des variables :  [2 3 1 1]
+Classement des variables :  [3 2 1 1]
 </pre></div>
 </div>
 </div>
@@ -774,24 +774,24 @@ Une prédiction (en classification ou en régression) peut être expliquée en s
 <p>Pour illustrer la méthode, considérons dans un premier temps un prédicteur linéaire <span class="math notranslate nohighlight">\(f\)</span> en régression, qui calcule <span class="math notranslate nohighlight">\(f(\mathbf x) = a_0 + \displaystyle\sum_{i=1}^d a_i x_i\)</span>. La contribution <span class="math notranslate nohighlight">\(\phi_i\)</span> du descripteur <span class="math notranslate nohighlight">\(j\)</span> à la prédiction est</p>
 <div class="math notranslate nohighlight">
 \[\phi_i(f) = a_i x_i - \mathbb{E}(a_iX_i) =  a_i x_i - a_i\mathbb{E}(X_i)\]</div>
-<p>où <span class="math notranslate nohighlight">\(\mathbb{E}(a_iX_i)\)</span> est l’estimation de l’effet moyen du descripteur <span class="math notranslate nohighlight">\(i\)</span> sur la prédiction, <span class="math notranslate nohighlight">\(X_i\)</span> étant la variable aléatoire dont les réalisations sont les valeurs x_i$ possibles. En sommant sur tous les descripteurs, on a alors</p>
+<p>où <span class="math notranslate nohighlight">\(\mathbb{E}(a_iX_i)\)</span> est l’estimation de l’effet moyen du descripteur <span class="math notranslate nohighlight">\(i\)</span> sur la prédiction, <span class="math notranslate nohighlight">\(X_i\)</span> étant la variable aléatoire dont les réalisations sont les valeurs <span class="math notranslate nohighlight">\(x_i\)</span> possibles. En sommant sur tous les descripteurs, on a alors</p>
 <div class="math notranslate nohighlight">
 \[\displaystyle\sum_{i=1}^d \phi_i(f) = \displaystyle\sum_{i=1}^d \left ( a_i x_i - \mathbb{E}(a_iX_i) \right ) = (a_0+\displaystyle\sum_{i=1}^d  a_i x_i)-(a_0+\displaystyle\sum_{i=1}^d  \mathbb{E}(a_iX_i)) = f(\mathbf x)-\mathbb{E}(f(\mathbf x))\]</div>
 <p>soit la valeur prédite pour <span class="math notranslate nohighlight">\(\mathbf x\)</span> minorée de la valeur prédite moyenne.</p>
-<p>Dans le cas d’un modèle linéaire, on peut donc calculer la contribution (possiblement négative) de chaque descripteur. On souhaiterait maintenant disposer de cette estimation de la contribution de manière agnostique, dit autrement quel que soit le modèle <span class="math notranslate nohighlight">\(f\)</span> utilisé. La théorie des jeux coopératifs va permettre d’apporter une solution.</p>
+<p>Dans le cas d’un modèle linéaire, on peut donc calculer la contribution (possiblement négative) de chaque descripteur. On souhaiterait maintenant disposer d’une estimation de la contribution de manière agnostique, dit autrement quel que soit le modèle <span class="math notranslate nohighlight">\(f\)</span> utilisé. La théorie des jeux coopératifs va permettre d’apporter une solution.</p>
 <p>On définit l’importance marginale du descripteur <span class="math notranslate nohighlight">\(i\)</span> à un sous-ensemble de descripteurs <span class="math notranslate nohighlight">\(S\)</span> , avec <span class="math notranslate nohighlight">\(i\notin S\)</span>, par</p>
 <div class="math notranslate nohighlight">
 \[\Delta_i(S)= v(S\cup\{i\})-v(S)\]</div>
-<p>où <span class="math notranslate nohighlight">\(v(S)\)</span> est une fonction mesurant la performance d’un modèle <span class="math notranslate nohighlight">\(f\)</span> utilisant le sous-ensemble de descripteurs <span class="math notranslate nohighlight">\(S\)</span>. lors la valeur de Shapley du descripteur <span class="math notranslate nohighlight">\(i\)</span> est donnée par</p>
+<p>où <span class="math notranslate nohighlight">\(v(S)\)</span> est une fonction mesurant la performance d’un modèle <span class="math notranslate nohighlight">\(f\)</span> utilisant le sous-ensemble de descripteurs <span class="math notranslate nohighlight">\(S\)</span>. Alors la valeur de Shapley du descripteur <span class="math notranslate nohighlight">\(i\)</span> est donnée par</p>
 <div class="math notranslate nohighlight">
-\[\phi_i(v) = \frac{1}{d}\displaystyle\sum_{sigma\in \Sigma}\Delta_i(S_i(\sigma))\]</div>
+\[\phi_i(v) = \frac{1}{d}\displaystyle\sum_{\sigma\in \Sigma}\Delta_i(S_i(\sigma))\]</div>
 <p>où <span class="math notranslate nohighlight">\(S_i(\sigma)\)</span> est le sous-ensemble de descripteurs apparaissant avant le descripteur <span class="math notranslate nohighlight">\(i\)</span> dans la permutation <span class="math notranslate nohighlight">\(\sigma\)</span> de l’ensemble <span class="math notranslate nohighlight">\(\{1,\cdots d\}\)</span>.</p>
-<p>L’utilisation des valeurs de Shapley peut être justifiée par l’ensemble d’axiomes suivant :</p>
+<p>L’utilisation des valeurs de Shapley peut être justifiée par l’ensemble de propriétés suivant :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^d \phi_i(v) = v(\{1,\cdots d\})\)</span> : la performance sur l’ensemble de données est entièrement répartie entre les différents descripteurs.</p></li>
-<li><p>Pour tout ensemble de descripteurs, toute fonction <span class="math notranslate nohighlight">\(v\)</span> et toute permutation <span class="math notranslate nohighlight">\(\sigma\)</span>, <span class="math notranslate nohighlight">\(\phi_i(v) = \)</span>\phi_{\sigma{i}}(\sigma v)$ : la valeur de Shapley est indépendante de l’ordre des descripteurs</p></li>
-<li><p>Pour tout ensemble de descripteurs et toute fonction <span class="math notranslate nohighlight">\(v\)</span> tels que <span class="math notranslate nohighlight">\(v(S\cup\{i\}) = v(S)\)</span> pour tout sous-ensemble <span class="math notranslate nohighlight">\(S\)</span>, alors <span class="math notranslate nohighlight">\(\phi_i(v)=0\)</span> : un descripteur n’influençant p    s la performance de <span class="math notranslate nohighlight">\(f\)</span> a une valeur de Shapley nulle.</p></li>
-<li><p>Pour tout ensemble de descripteurs et toutes fonctions <span class="math notranslate nohighlight">\(v\)</span> et <span class="math notranslate nohighlight">\(w\)</span>, <span class="math notranslate nohighlight">\(\phi_i(v+w) = \)</span>\phi_i(v) + <span class="math notranslate nohighlight">\(\phi_i(w)\)</span> où <span class="math notranslate nohighlight">\((v+w)(S) = v(S)+w(S)\)</span> : il est possible de combiner linéairement deux mesures de performance d’un modèle</p></li>
+<li><p>Pour tout ensemble de descripteurs, toute fonction <span class="math notranslate nohighlight">\(v\)</span> et toute permutation <span class="math notranslate nohighlight">\(\sigma\)</span>, <span class="math notranslate nohighlight">\(\phi_i(v) = \phi_{\sigma{i}}(\sigma v)\)</span> : la valeur de Shapley est indépendante de l’ordre des descripteurs.</p></li>
+<li><p>Pour tout ensemble de descripteurs et toute fonction <span class="math notranslate nohighlight">\(v\)</span> tels que <span class="math notranslate nohighlight">\(v(S\cup\{i\}) = v(S)\)</span> pour tout sous-ensemble <span class="math notranslate nohighlight">\(S\)</span>, alors <span class="math notranslate nohighlight">\(\phi_i(v)=0\)</span> : un descripteur n’influençant pas la performance de <span class="math notranslate nohighlight">\(f\)</span> a une valeur de Shapley nulle.</p></li>
+<li><p>Pour tout ensemble de descripteurs et toutes fonctions <span class="math notranslate nohighlight">\(v\)</span> et <span class="math notranslate nohighlight">\(w\)</span>, <span class="math notranslate nohighlight">\(\phi_i(v+w) = \phi_i(v) + \phi_i(w)\)</span> où <span class="math notranslate nohighlight">\((v+w)(S) = v(S)+w(S)\)</span> : il est possible de combiner linéairement deux mesures de performance d’un modèle</p></li>
 </ul>
 <p>Le calcul de la valeur de Shapley nécessite de faire la somme de tous les sous-ensembles possibles de descripteurs, ce qui n’est pas réalisable lorsque <span class="math notranslate nohighlight">\(d\)</span> devient grand. Il existe des versions d’estimateurs non biaisés de la valeur de Shapley en échantillonnant uniformément des permutations à partir de <span class="math notranslate nohighlight">\(\Sigma\)</span>.</p>
 </section>
