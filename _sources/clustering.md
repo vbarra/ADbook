@@ -415,7 +415,7 @@ Plutôt que d'initialiser les centres de manière aléatoire, l'algorithme K-mea
 
 
 #### Accélération des k-means
-L'algorithme original peut être amélioré de manière significative en évitant les calculs de distances non nécessaires. En exploitant l'inégalité triangulaire, et en conservant les bornes inférieures et supérieures des distances entre les points et les centres de classe, l'algorithme correspondant est performant, y compris pour de grandes valeurs de $k$ ({prf:ref}`km`)
+L'algorithme original peut être amélioré de manière significative en évitant les calculs de distances non nécessaires. En exploitant l'inégalité triangulaire, et en conservant les bornes inférieures et supérieures des distances entre les points et les centres de classe, l'algorithme correspondant est performant, y compris pour de grandes valeurs de $k$ ({prf:ref}`km`).
 
 
 ```{prf:algorithm} Accélération des k-means
