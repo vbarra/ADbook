@@ -614,7 +614,7 @@ sepal width (cm)5.483 +/- 1.083
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2c58c3168c25740d6db87fe38c82982c6d300965fe0d23121c142bb61b200786.png" src="_images/2c58c3168c25740d6db87fe38c82982c6d300965fe0d23121c142bb61b200786.png" />
+<img alt="_images/3321a2ce4ea6c267ae89e7cdd04dc31da41976fc8bd32ceca9963071a0b3bb4f.png" src="_images/3321a2ce4ea6c267ae89e7cdd04dc31da41976fc8bd32ceca9963071a0b3bb4f.png" />
 </div>
 </div>
 </section>
@@ -802,19 +802,19 @@ Une prédiction (en classification ou en régression) peut être expliquée en s
 <ol class="arabic simple">
 <li><p>Pour tout <span class="math notranslate nohighlight">\(j\in[\![1,M]\!]\)</span></p>
 <ol class="arabic simple">
-<li><p>Tirer un exempê <span class="math notranslate nohighlight">\(\mathbf z\)</span> dans <span class="math notranslate nohighlight">\(\mathbf X\)</span></p></li>
+<li><p>Tirer un exemple <span class="math notranslate nohighlight">\(\mathbf z\)</span> dans <span class="math notranslate nohighlight">\(\mathbf X\)</span></p></li>
 <li><p>Tirer une permutation aléatoire <span class="math notranslate nohighlight">\(\sigma\)</span> de l’ensemble <span class="math notranslate nohighlight">\(\{1\cdots d\}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathbf x_\sigma = (x_{\sigma{1}}\cdots x_{\sigma{d}})\)</span> et <span class="math notranslate nohighlight">\(\mathbf z_\sigma = (z_{\sigma{1}}\cdots z_{\sigma{d}})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf x_\sigma = (x_{\sigma(1)}\cdots x_{\sigma(d)})\)</span> et <span class="math notranslate nohighlight">\(\mathbf z_\sigma = (z_{\sigma(1)}\cdots z_{\sigma(d)})\)</span></p></li>
 <li><p>Créer deux nouveaux exemples :</p>
 <ol class="arabic simple">
-<li><p><span class="math notranslate nohighlight">\(\mathbf x_{+i} = (x_{\sigma{1}}\cdots x_{\sigma(i-1)},x_{\sigma(i)};z_{\sigma(i+1)}\cdots z_{\sigma{d}})\)</span>
-2: <span class="math notranslate nohighlight">\(\mathbf x_{-i} = (x_{\sigma{1}}\cdots x_{\sigma(i-1)},z_{\sigma(i)};z_{\sigma(i+1)}\cdots z_{\sigma{d}})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf x_{+i} = (x_{\sigma(1)}\cdots x_{\sigma(i-1)},x_{\sigma(i)};z_{\sigma(i+1)}\cdots z_{\sigma(d)})\)</span>
+2: <span class="math notranslate nohighlight">\(\mathbf x_{-i} = (x_{\sigma(1)}\cdots x_{\sigma(i-1)},z_{\sigma(i)};z_{\sigma(i+1)}\cdots z_{\sigma(d)})\)</span></p></li>
 </ol>
 </li>
-<li><p>Calculer la contribution marginale du descripteur <span class="math notranslate nohighlight">\(i\)</span> <span class="math notranslate nohighlight">\(\phi_i^j = f(\mathbf x_{+i})-f(\mathbf x_{-i})\)</span></p></li>
+<li><p>Calculer la contribution marginale du descripteur <span class="math notranslate nohighlight">\(i\)</span> : <span class="math notranslate nohighlight">\(\phi_i^j = f(\mathbf x_{+i})-f(\mathbf x_{-i})\)</span></p></li>
 </ol>
 </li>
-<li><p>Calculer un estimateur de la valeur de Shapley du descripteur <span class="math notranslate nohighlight">\(i\)</span> :  <span class="math notranslate nohighlight">\(\phi_i(\mathbf x)= \frac{1}{M}\displaystyle\sum_{j=1}^M \)</span>\phi_i^j$</p></li>
+<li><p>Calculer un estimateur de la valeur de Shapley du descripteur <span class="math notranslate nohighlight">\(i\)</span> :  <span class="math notranslate nohighlight">\(\phi_i(\mathbf x)= \frac{1}{M}\displaystyle\sum_{j=1}^M \phi_i^j\)</span></p></li>
 </ol>
 </section>
 </div></section>
