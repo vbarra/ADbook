@@ -360,3 +360,17 @@ print("Variables sélectionnées : ", s.get_support())
 print("Classement des variables : ",s.ranking_)
 ```
 
+### Valeurs de Shapley
+
+Terminons par une méthode plus complexe, mais performante, et notamment utilisée dans le cadre de l'étude de l'explicabilité des réseaux de neurones profonds.
+Une prédiction (en classification ou en régression) peut être expliquée en supposant que chaque valeur $x_{j}$ du descripteur $j$ de l'exemple $\mathbf x$ est un "joueur" dans un jeu où la prédiction est le gain. Les valeurs de Shapley, une méthode issue de la théorie des jeux, indiquent comment répartir équitablement le gain entre les descripteurs.
+
+Pour illustrer la méthode, considérons dans un premier temps un prédicteur linéaire $f$ en régression, qui calcule $f(\mathbf x) = a_0 + \displaystyle\sum_{i=1}^d a_i x_i$. La contribution $\phi_i$ du descripteur $j$ à la prédiction est 
+
+$$\phi_i(f) = a_i x_i - \mathbb{E}(a_iX_i) =  a_i x_i - a_i\mathbb{E}(X_i)$$
+
+où $\mathbb{E}(a_iX_i)$ est l'estimation de l'effet moyen du descripteur $i$ sur la prédiction, $X_i$ étant la variable aléatoire dont les réalisations sont les valeurs x_i$ possibles. En sommant sur tous les descripteurs, on a alors 
+
+$$\displaystyle\sum_{i=1}^d \phi_i(f) = \displaystyle\sum_{i=1}^d \left ( a_i x_i - \mathbb{E}(a_iX_i) \right ) = (a_0+\displaystyle\sum_{i=1}^d  a_i x_i)-(a_0+\displaystyle\sum_{i=1}^d  \mathbb{E}(a_iX_i)) = f(\mathbf x)-\mathbb{E}(f(\mathbf x))$$
+
+soit la valeur prédite pour $\mathbf x$ minorée de la valeur prédite moyenne. 
