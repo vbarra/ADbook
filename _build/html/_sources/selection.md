@@ -373,7 +373,27 @@ où $\mathbb{E}(a_iX_i)$ est l'estimation de l'effet moyen du descripteur $i$ su
 
 $$\displaystyle\sum_{i=1}^d \phi_i(f) = \displaystyle\sum_{i=1}^d \left ( a_i x_i - \mathbb{E}(a_iX_i) \right ) = (a_0+\displaystyle\sum_{i=1}^d  a_i x_i)-(a_0+\displaystyle\sum_{i=1}^d  \mathbb{E}(a_iX_i)) = f(\mathbf x)-\mathbb{E}(f(\mathbf x))$$
 
-soit la valeur prédite pour $\mathbf x$ minorée de la valeur prédite moyenne. \\ 
+soit la valeur prédite pour $\mathbf x$ minorée de la valeur prédite moyenne. 
+
 Dans le cas d'un modèle linéaire, on peut donc calculer la contribution (possiblement négative) de chaque descripteur. On souhaiterait maintenant disposer de cette estimation de la contribution de manière agnostique, dit autrement quel que soit le modèle $f$ utilisé. La théorie des jeux coopératifs va permettre d'apporter une solution.
+
+
+ On définit l'importance marginale du descripteur $i$ à un sous-ensemble de descripteurs $S$ , avec $i\notin S$, par 
+
+$$\Delta_i(S)= v(S\cup\{i\})-v(S)$$
+
+où $v(S)$ est une fonction mesurant la performance d'un modèle $f$ utilisant le sous-ensemble de descripteurs $S$. lors la valeur de Shapley du descripteur $i$ est donnée par 
+
+$$\phi_i(v) = \frac{1}{d}\displaystyle\sum_{sigma\in \Sigma}\Delta_i(S_i(\sigma))$$
+
+où $S_i(\sigma)$ est le sous-ensemble de descripteurs apparaissant avant le descripteur $i$ dans la permutation $\sigma$ de l'ensemble $\{1,\cdots d\}$.
+
+L'utilisation des valeurs de Shapley peut être justifiée par l'ensemble d'axiomes suivant : 
+- $\displaystyle\sum_{i=1}^d \phi_i(v) = v(\{1,\cdots d\})$ : la performance sur l'ensemble de données est entièrement répartie entre les différents descripteurs.
+-  Pour tout ensemble de descripteurs, toute fonction $v$ et toute permutation $\sigma$, $\phi_i(v) = $\phi_{\sigma{i}}(\sigma v)$ : la valeur de Shapley est indépendante de l'ordre des descripteurs
+- Pour tout ensemble de descripteurs et toute fonction $v$ tels que $v(S\cup\{i\}) = v(S)$ pour tout sous-ensemble $S$, alors $\phi_i(v)=0$ : un descripteur n'influençant p    s la performance de $f$ a une valeur de Shapley nulle.
+- Pour tout ensemble de descripteurs et toutes fonctions $v$ et $w$, $\phi_i(v+w) = $\phi_i(v) + $\phi_i(w)$ où $(v+w)(S) = v(S)+w(S)$ : il est possible de combiner linéairement deux mesures de performance d'un modèle 
+
+Le calcul de la valeur de Shapley nécessite de faire la somme de tous les sous-ensembles possibles de descripteurs, ce qui n'est pas réalisable lorsque $d$ devient grand. Il existe des versions d'estimateurs non biaisés de la valeur de Shapley en échantillonnant uniformément des permutations à partir de $\Sigma$. 
 
 
