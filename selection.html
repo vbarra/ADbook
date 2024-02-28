@@ -614,7 +614,7 @@ sepal width (cm)5.483 +/- 1.083
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3321a2ce4ea6c267ae89e7cdd04dc31da41976fc8bd32ceca9963071a0b3bb4f.png" src="_images/3321a2ce4ea6c267ae89e7cdd04dc31da41976fc8bd32ceca9963071a0b3bb4f.png" />
+<img alt="_images/361dcd18ccab2031065387ae0fa2b286a2d407c2e5f3659780f3f89acffd177b.png" src="_images/361dcd18ccab2031065387ae0fa2b286a2d407c2e5f3659780f3f89acffd177b.png" />
 </div>
 </div>
 </section>
@@ -793,7 +793,7 @@ Une prédiction (en classification ou en régression) peut être expliquée en s
 <li><p>Pour tout ensemble de descripteurs et toute fonction <span class="math notranslate nohighlight">\(v\)</span> tels que <span class="math notranslate nohighlight">\(v(S\cup\{i\}) = v(S)\)</span> pour tout sous-ensemble <span class="math notranslate nohighlight">\(S\)</span>, alors <span class="math notranslate nohighlight">\(\phi_i(v)=0\)</span> : un descripteur n’influençant pas la performance de <span class="math notranslate nohighlight">\(f\)</span> a une valeur de Shapley nulle.</p></li>
 <li><p>Pour tout ensemble de descripteurs et toutes fonctions <span class="math notranslate nohighlight">\(v\)</span> et <span class="math notranslate nohighlight">\(w\)</span>, <span class="math notranslate nohighlight">\(\phi_i(v+w) = \phi_i(v) + \phi_i(w)\)</span> où <span class="math notranslate nohighlight">\((v+w)(S) = v(S)+w(S)\)</span> : il est possible de combiner linéairement deux mesures de performance d’un modèle</p></li>
 </ul>
-<p>Le calcul de la valeur de Shapley nécessite de faire la somme de tous les sous-ensembles possibles de descripteurs, ce qui n’est pas réalisable lorsque <span class="math notranslate nohighlight">\(d\)</span> devient grand. Il existe des versions d’estimateurs non biaisés de la valeur de Shapley en échantillonnant des permutations à partir de <span class="math notranslate nohighlight">\(\Sigma\)</span> (<a class="reference internal" href="clustering.html#km">Algorithm 8</a>).</p>
+<p>Le calcul de la valeur de Shapley nécessite de faire la somme de tous les sous-ensembles possibles de descripteurs, ce qui n’est pas réalisable lorsque <span class="math notranslate nohighlight">\(d\)</span> devient grand. Il existe des versions d’estimateurs de la valeur de Shapley en échantillonnant des permutations à partir de <span class="math notranslate nohighlight">\(\Sigma\)</span> (<a class="reference internal" href="clustering.html#km">Algorithm 8</a>).</p>
 <div class="proof algorithm admonition" id="shap">
 <p class="admonition-title"><span class="caption-number">Algorithm 5 </span> (Estimation de la valeur de Shapley du descripteur <span class="math notranslate nohighlight">\(i\)</span>)</p>
 <section class="algorithm-content" id="proof-content">
@@ -807,8 +807,8 @@ Une prédiction (en classification ou en régression) peut être expliquée en s
 <li><p><span class="math notranslate nohighlight">\(\mathbf x_\sigma = (x_{\sigma(1)}\cdots x_{\sigma(d)})\)</span> et <span class="math notranslate nohighlight">\(\mathbf z_\sigma = (z_{\sigma(1)}\cdots z_{\sigma(d)})\)</span></p></li>
 <li><p>Créer deux nouveaux exemples :</p>
 <ol class="arabic simple">
-<li><p><span class="math notranslate nohighlight">\(\mathbf x_{+i} = (x_{\sigma(1)}\cdots x_{\sigma(i-1)},x_{\sigma(i)};z_{\sigma(i+1)}\cdots z_{\sigma(d)})\)</span>
-2: <span class="math notranslate nohighlight">\(\mathbf x_{-i} = (x_{\sigma(1)}\cdots x_{\sigma(i-1)},z_{\sigma(i)};z_{\sigma(i+1)}\cdots z_{\sigma(d)})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf x_{+i} = (x_{\sigma(1)}\cdots x_{\sigma(i-1)},x_{\sigma(i)};z_{\sigma(i+1)}\cdots z_{\sigma(d)})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf x_{-i} = (x_{\sigma(1)}\cdots x_{\sigma(i-1)},z_{\sigma(i)};z_{\sigma(i+1)}\cdots z_{\sigma(d)})\)</span></p></li>
 </ol>
 </li>
 <li><p>Calculer la contribution marginale du descripteur <span class="math notranslate nohighlight">\(i\)</span> : <span class="math notranslate nohighlight">\(\phi_i^j = f(\mathbf x_{+i})-f(\mathbf x_{-i})\)</span></p></li>
