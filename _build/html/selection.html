@@ -614,7 +614,7 @@ sepal width (cm)5.483 +/- 1.083
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5c6b69ea781a5610feb779cc05c50063052d9de09cf1b91fc2c6a36a2aaab18e.png" src="_images/5c6b69ea781a5610feb779cc05c50063052d9de09cf1b91fc2c6a36a2aaab18e.png" />
+<img alt="_images/2c58c3168c25740d6db87fe38c82982c6d300965fe0d23121c142bb61b200786.png" src="_images/2c58c3168c25740d6db87fe38c82982c6d300965fe0d23121c142bb61b200786.png" />
 </div>
 </div>
 </section>
@@ -761,7 +761,7 @@ Variables sélectionnées :  [ True False  True  True]
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Taille des données avant sélection (150, 4)
 Variables sélectionnées :  [False False  True  True]
-Classement des variables :  [2 3 1 1]
+Classement des variables :  [3 2 1 1]
 </pre></div>
 </div>
 </div>
@@ -807,8 +807,8 @@ Une prédiction (en classification ou en régression) peut être expliquée en s
 <li><p><span class="math notranslate nohighlight">\(\mathbf x_\sigma = (x_{\sigma{1}}\cdots x_{\sigma{d}})\)</span> et <span class="math notranslate nohighlight">\(\mathbf z_\sigma = (z_{\sigma{1}}\cdots z_{\sigma{d}})\)</span></p></li>
 <li><p>Créer deux nouveaux exemples :</p>
 <ol class="arabic simple">
-<li><p><span class="math notranslate nohighlight">\(\mathbf x_{+i} = (x_{\sigma{1}}\cdots x_{\sigma(i-1)},x_{\sigma(i)};z_{\sigma(i+1)}\cdsots z_{\sigma{d}})\)</span>
-2: <span class="math notranslate nohighlight">\(\mathbf x_{-i} = (x_{\sigma{1}}\cdots x_{\sigma(i-1)},z_{\sigma(i)};z_{\sigma(i+1)}\cdsots z_{\sigma{d}})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf x_{+i} = (x_{\sigma{1}}\cdots x_{\sigma(i-1)},x_{\sigma(i)};z_{\sigma(i+1)}\cdots z_{\sigma{d}})\)</span>
+2: <span class="math notranslate nohighlight">\(\mathbf x_{-i} = (x_{\sigma{1}}\cdots x_{\sigma(i-1)},z_{\sigma(i)};z_{\sigma(i+1)}\cdots z_{\sigma{d}})\)</span></p></li>
 </ol>
 </li>
 <li><p>Calculer la contribution marginale du descripteur <span class="math notranslate nohighlight">\(i\)</span> <span class="math notranslate nohighlight">\(\phi_i^j = f(\mathbf x_{+i})-f(\mathbf x_{-i})\)</span></p></li>
