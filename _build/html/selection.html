@@ -6,7 +6,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Sélection de variables &#8212; Analyse de données</title>
   
@@ -18,15 +18,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
@@ -39,9 +39,9 @@
     <link rel="stylesheet" type="text/css" href="_static/myfilecss.css?v=6d55db64" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="_static/documentation_options.js?v=72dce1d2"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
@@ -84,14 +84,13 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Passer au contenu principal</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Passer au contenu principal</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
-    Back to top
+    Haut de page
   </button>
 
   
@@ -128,11 +127,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -331,6 +333,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-relief">Algorithme relief</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-sac">Méthode SAC</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-rfe">Algorithme RFE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valeurs-de-shapley">Valeurs de Shapley</a></li>
 </ul>
 </li>
 </ul>
@@ -342,7 +345,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="selection-de-variables">
 <h1>Sélection de variables<a class="headerlink" href="#selection-de-variables" title="Link to this heading">#</a></h1>
@@ -611,7 +614,7 @@ sepal width (cm)5.483 +/- 1.083
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/71fbcba4b5b2840991a477a538425e4e97395f21ff3c29b9f1650385fb1fb257.png" src="_images/71fbcba4b5b2840991a477a538425e4e97395f21ff3c29b9f1650385fb1fb257.png" />
+<img alt="_images/39f0a5ebf5670aec9fd704322c9f34ac6b1acb5bc8346756999436e7df147c27.png" src="_images/39f0a5ebf5670aec9fd704322c9f34ac6b1acb5bc8346756999436e7df147c27.png" />
 </div>
 </div>
 </section>
@@ -764,6 +767,19 @@ Classement des variables :  [2 3 1 1]
 </div>
 </div>
 </section>
+<section id="valeurs-de-shapley">
+<h3>Valeurs de Shapley<a class="headerlink" href="#valeurs-de-shapley" title="Link to this heading">#</a></h3>
+<p>Terminons par une méthode plus complexe, mais performante, et notamment utilisée dans le cadre de l’étude de l’explicabilité des réseaux de neurones profonds.
+Une prédiction (en classification ou en régression) peut être expliquée en supposant que chaque valeur <span class="math notranslate nohighlight">\(x_{j}\)</span> du descripteur <span class="math notranslate nohighlight">\(j\)</span> de l’exemple <span class="math notranslate nohighlight">\(\mathbf x\)</span> est un « joueur » dans un jeu où la prédiction est le gain. Les valeurs de Shapley, une méthode issue de la théorie des jeux, indiquent comment répartir équitablement le gain entre les descripteurs.</p>
+<p>Pour illustrer la méthode, considérons dans un premier temps un prédicteur linéaire <span class="math notranslate nohighlight">\(f\)</span> en régression, qui calcule <span class="math notranslate nohighlight">\(f(\mathbf x) = a_0 + \displaystyle\sum_{i=1}^d a_i x_i\)</span>. La contribution <span class="math notranslate nohighlight">\(\phi_i\)</span> du descripteur <span class="math notranslate nohighlight">\(j\)</span> à la prédiction est</p>
+<div class="math notranslate nohighlight">
+\[\phi_i(f) = a_i x_i - \mathbb{E}(a_iX_i) =  a_i x_i - a_i\mathbb{E}(X_i)\]</div>
+<p>où <span class="math notranslate nohighlight">\(\mathbb{E}(a_iX_i)\)</span> est l’estimation de l’effet moyen du descripteur <span class="math notranslate nohighlight">\(i\)</span> sur la prédiction, <span class="math notranslate nohighlight">\(X_i\)</span> étant la variable aléatoire dont les réalisations sont les valeurs x_i$ possibles. En sommant sur tous les descripteurs, on a alors</p>
+<div class="math notranslate nohighlight">
+\[\displaystyle\sum_{i=1}^d \phi_i(f) = \displaystyle\sum_{i=1}^d \left ( a_i x_i - \mathbb{E}(a_iX_i) \right ) = (a_0+\displaystyle\sum_{i=1}^d  a_i x_i)-(a_0+\displaystyle\sum_{i=1}^d  \mathbb{E}(a_iX_i)) = f(\mathbf x)-\mathbb{E}(f(\mathbf x))\]</div>
+<p>soit la valeur prédite pour <span class="math notranslate nohighlight">\(\mathbf x\)</span> minorée de la valeur prédite moyenne. \
+Dans le cas d’un modèle linéaire, on peut donc calculer la contribution (possiblement négative) de chaque descripteur. On souhaiterait maintenant disposer de cette estimation de la contribution de manière agnostique, dit autrement quel que soit le modèle <span class="math notranslate nohighlight">\(f\)</span> utilisé. La théorie des jeux coopératifs va permettre d’apporter une solution.</p>
+</section>
 </section>
 </section>
 
@@ -824,6 +840,7 @@ Classement des variables :  [2 3 1 1]
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contenu
@@ -851,6 +868,7 @@ Classement des variables :  [2 3 1 1]
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-relief">Algorithme relief</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-sac">Méthode SAC</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-rfe">Algorithme RFE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valeurs-de-shapley">Valeurs de Shapley</a></li>
 </ul>
 </li>
 </ul>
@@ -901,8 +919,8 @@ Par Vincent BARRA
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

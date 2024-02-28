@@ -6,7 +6,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Statistique descriptive &#8212; Analyse de données</title>
   
@@ -18,15 +18,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
@@ -39,9 +39,9 @@
     <link rel="stylesheet" type="text/css" href="_static/myfilecss.css?v=6d55db64" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="_static/documentation_options.js?v=72dce1d2"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
@@ -84,14 +84,13 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Passer au contenu principal</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Passer au contenu principal</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
-    Back to top
+    Haut de page
   </button>
 
   
@@ -128,11 +127,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -356,7 +358,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="statistique-descriptive">
 <h1>Statistique descriptive<a class="headerlink" href="#statistique-descriptive" title="Link to this heading">#</a></h1>
@@ -478,7 +480,7 @@ Les histogrammes sont des représentations de la distribution des données, agr�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4f869a6137be56bfd2e4de90891c173fe6bfa61aa93160a845eb480eace9c072.png" src="_images/4f869a6137be56bfd2e4de90891c173fe6bfa61aa93160a845eb480eace9c072.png" />
+<img alt="_images/c413358a9c6454afcbb8d78dc7accae6016d988240059ecba91522694c9bbd20.png" src="_images/c413358a9c6454afcbb8d78dc7accae6016d988240059ecba91522694c9bbd20.png" />
 </div>
 </div>
 <p>Le choix de la largeur <span class="math notranslate nohighlight">\(t\)</span> des bins dépend des données, et par exemple on a :</p>
@@ -563,7 +565,7 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bc81a0627288eea52cccce4eee223ef2d6441313bd9d08dc2ce4234107533a9b.png" src="_images/bc81a0627288eea52cccce4eee223ef2d6441313bd9d08dc2ce4234107533a9b.png" />
+<img alt="_images/c77a23e7788f14631317e17d701cf06b38c95d0503a2518829912d7bd08f025f.png" src="_images/c77a23e7788f14631317e17d701cf06b38c95d0503a2518829912d7bd08f025f.png" />
 </div>
 </div>
 </section>
@@ -776,7 +778,7 @@ HarmonicMean  :  1198.219210728503
 WeightedMean  :  1315.5442042923557
 </pre></div>
 </div>
-<img alt="_images/6815e23b5f99ba72629f9702f27b368b9408877a16412578c27332cbbf02f275.png" src="_images/6815e23b5f99ba72629f9702f27b368b9408877a16412578c27332cbbf02f275.png" />
+<img alt="_images/c14b3fc7dfbc94b9e3f3e84c9e5c8223c50e12e7627d388c81adef79da4b6854.png" src="_images/c14b3fc7dfbc94b9e3f3e84c9e5c8223c50e12e7627d388c81adef79da4b6854.png" />
 </div>
 </div>
 <div class="proof definition admonition" id="definition-6">
@@ -821,7 +823,7 @@ quartile  50  :  1399.66320800781
 quartile  75  :  1626.326538085935
 </pre></div>
 </div>
-<img alt="_images/755475874554c2506e70accdd0adef11d550d1fa21f0a4f1ccf5d77eebf3fa3e.png" src="_images/755475874554c2506e70accdd0adef11d550d1fa21f0a4f1ccf5d77eebf3fa3e.png" />
+<img alt="_images/ab0cde1c9619ab9d7ebd5a47ab97431e2715c223aef360f3e45b303052bb0a37.png" src="_images/ab0cde1c9619ab9d7ebd5a47ab97431e2715c223aef360f3e45b303052bb0a37.png" />
 </div>
 </div>
 </section>
@@ -913,7 +915,7 @@ sigma  :  1316.3086347078017 +/- 374.5723639541368
 IQR  :  1316.3086347078017 +/- 720.4074859619113
 </pre></div>
 </div>
-<img alt="_images/cdc84d60486f8fa752531bb3159481a5a7778e2e40112d5f1b7763fe2ad5b50f.png" src="_images/cdc84d60486f8fa752531bb3159481a5a7778e2e40112d5f1b7763fe2ad5b50f.png" />
+<img alt="_images/32db8a02d4c465ec79affcf1db97731687f95b663732ee0088bb49549649bff2.png" src="_images/32db8a02d4c465ec79affcf1db97731687f95b663732ee0088bb49549649bff2.png" />
 </div>
 </div>
 </section>
@@ -1004,7 +1006,7 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3a78fd34fdf0f8b4aedba59947cdd611579c70aa07f267700fa4c506e66012d3.png" src="_images/3a78fd34fdf0f8b4aedba59947cdd611579c70aa07f267700fa4c506e66012d3.png" />
+<img alt="_images/2f982e4bb5ae6c0fe2d01fec436c5ffff32a61b762b24a48bf743fec858effa9.png" src="_images/2f982e4bb5ae6c0fe2d01fec436c5ffff32a61b762b24a48bf743fec858effa9.png" />
 </div>
 </div>
 </section>
@@ -1053,7 +1055,7 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2c3894ab40277f9532a8150185b841719fedc5da868a0d2b173f5d05bc75e674.png" src="_images/2c3894ab40277f9532a8150185b841719fedc5da868a0d2b173f5d05bc75e674.png" />
+<img alt="_images/9b6587f958d4fef34ecba24bd8f21e04f573ddd7505d191c7387c4994cdfe52c.png" src="_images/9b6587f958d4fef34ecba24bd8f21e04f573ddd7505d191c7387c4994cdfe52c.png" />
 </div>
 </div>
 </section>
@@ -1263,6 +1265,7 @@ pour expliquer la variabilité des notes dans toute la promotion.</p></li>
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contenu
@@ -1354,8 +1357,8 @@ Par Vincent BARRA
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
