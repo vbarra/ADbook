@@ -394,7 +394,7 @@ L'utilisation des valeurs de Shapley peut être justifiée par l'ensemble de pro
 - Pour tout ensemble de descripteurs et toute fonction $v$ tels que $v(S\cup\{i\}) = v(S)$ pour tout sous-ensemble $S$, alors $\phi_i(v)=0$ : un descripteur n'influençant pas la performance de $f$ a une valeur de Shapley nulle.
 - Pour tout ensemble de descripteurs et toutes fonctions $v$ et $w$, $\phi_i(v+w) = \phi_i(v) + \phi_i(w)$ où $(v+w)(S) = v(S)+w(S)$ : il est possible de combiner linéairement deux mesures de performance d'un modèle 
 
-Le calcul de la valeur de Shapley nécessite de faire la somme de tous les sous-ensembles possibles de descripteurs, ce qui n'est pas réalisable lorsque $d$ devient grand. Il existe des versions d'estimateurs non biaisés de la valeur de Shapley en échantillonnant des permutations à partir de $\Sigma$ ({prf:ref}`km`).
+Le calcul de la valeur de Shapley nécessite de faire la somme de tous les sous-ensembles possibles de descripteurs, ce qui n'est pas réalisable lorsque $d$ devient grand. Il existe des versions d'estimateurs de la valeur de Shapley en échantillonnant des permutations à partir de $\Sigma$ ({prf:ref}`km`).
 
 ```{prf:algorithm} Estimation de la valeur de Shapley du descripteur $i$
 :label: shap
@@ -404,14 +404,14 @@ Le calcul de la valeur de Shapley nécessite de faire la somme de tous les sous-
 **Sortie :** Estimation de la valeur de Shapley du descripteur $i$
 
 1.  Pour tout $j\in[\![1,M]\!]$
-    1. Tirer un exempê $\mathbf z$ dans $\mathbf X$
+    1. Tirer un exemple $\mathbf z$ dans $\mathbf X$
     2. Tirer une permutation aléatoire $\sigma$ de l'ensemble $\{1\cdots d\}$
-    3. $\mathbf x_\sigma = (x_{\sigma{1}}\cdots x_{\sigma{d}})$ et $\mathbf z_\sigma = (z_{\sigma{1}}\cdots z_{\sigma{d}})$
+    3. $\mathbf x_\sigma = (x_{\sigma(1)}\cdots x_{\sigma(d)})$ et $\mathbf z_\sigma = (z_{\sigma(1)}\cdots z_{\sigma(d)})$
     4. Créer deux nouveaux exemples :
-        1. $\mathbf x_{+i} = (x_{\sigma{1}}\cdots x_{\sigma(i-1)},x_{\sigma(i)};z_{\sigma(i+1)}\cdots z_{\sigma{d}})$
-        2: $\mathbf x_{-i} = (x_{\sigma{1}}\cdots x_{\sigma(i-1)},z_{\sigma(i)};z_{\sigma(i+1)}\cdots z_{\sigma{d}})$
-    5. Calculer la contribution marginale du descripteur $i$ $\phi_i^j = f(\mathbf x_{+i})-f(\mathbf x_{-i})$
-2. Calculer un estimateur de la valeur de Shapley du descripteur $i$ :  $\phi_i(\mathbf x)= \frac{1}{M}\displaystyle\sum_{j=1}^M $\phi_i^j$
+        1. $\mathbf x_{+i} = (x_{\sigma(1)}\cdots x_{\sigma(i-1)},x_{\sigma(i)};z_{\sigma(i+1)}\cdots z_{\sigma(d)})$
+        2: $\mathbf x_{-i} = (x_{\sigma(1)}\cdots x_{\sigma(i-1)},z_{\sigma(i)};z_{\sigma(i+1)}\cdots z_{\sigma(d)})$
+    5. Calculer la contribution marginale du descripteur $i$ : $\phi_i^j = f(\mathbf x_{+i})-f(\mathbf x_{-i})$
+2. Calculer un estimateur de la valeur de Shapley du descripteur $i$ :  $\phi_i(\mathbf x)= \frac{1}{M}\displaystyle\sum_{j=1}^M \phi_i^j$
 ```
 
 
