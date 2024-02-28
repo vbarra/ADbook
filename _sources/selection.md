@@ -408,8 +408,8 @@ Le calcul de la valeur de Shapley nécessite de faire la somme de tous les sous-
     2. Tirer une permutation aléatoire $\sigma$ de l'ensemble $\{1\cdots d\}$
     3. $\mathbf x_\sigma = (x_{\sigma{1}}\cdots x_{\sigma{d}})$ et $\mathbf z_\sigma = (z_{\sigma{1}}\cdots z_{\sigma{d}})$
     4. Créer deux nouveaux exemples :
-        1. $\mathbf x_{+i} = (x_{\sigma{1}}\cdots x_{\sigma(i-1)},x_{\sigma(i)};z_{\sigma(i+1)}\cdsots z_{\sigma{d}})$
-        2: $\mathbf x_{-i} = (x_{\sigma{1}}\cdots x_{\sigma(i-1)},z_{\sigma(i)};z_{\sigma(i+1)}\cdsots z_{\sigma{d}})$
+        1. $\mathbf x_{+i} = (x_{\sigma{1}}\cdots x_{\sigma(i-1)},x_{\sigma(i)};z_{\sigma(i+1)}\cdots z_{\sigma{d}})$
+        2: $\mathbf x_{-i} = (x_{\sigma{1}}\cdots x_{\sigma(i-1)},z_{\sigma(i)};z_{\sigma(i+1)}\cdots z_{\sigma{d}})$
     5. Calculer la contribution marginale du descripteur $i$ $\phi_i^j = f(\mathbf x_{+i})-f(\mathbf x_{-i})$
 2. Calculer un estimateur de la valeur de Shapley du descripteur $i$ :  $\phi_i(\mathbf x)= \frac{1}{M}\displaystyle\sum_{j=1}^M $\phi_i^j$
 ```
