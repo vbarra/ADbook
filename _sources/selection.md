@@ -441,3 +441,7 @@ shap.summary_plot(shap_values[0], X_test,data.feature_names)
 ```
 
 
+```{prf:remark}
+:class: dropdown
+A partir des valeurs de Shapley, on peut expliquer les prédictions d'un modèle en utilisant la méthode SHAP (SHapley Additive exPlanations)
+```
