@@ -346,7 +346,7 @@ document.write(`
     <span class="kn">import</span> <span class="nn">sklearn</span><span class="o">,</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">matplotlib</span> 
 <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span> 
     <span class="o">!</span>pip3<span class="w"> </span>install<span class="w"> </span>--quiet<span class="w"> </span>sklearn<span class="w"> </span>numpy<span class="w"> </span>matplotlib
-<span class="kn">import</span> <span class="nn">sklearn</span><span class="o">,</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">sklearn</span><span class="o">,</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -504,26 +504,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">24</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span>     <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">24</span> <span class="n">planche</span><span class="p">(</span><span class="n">Xmnist</span><span class="p">)</span>
-
-<span class="nn">Cell In[7], line 7,</span> in <span class="ni">planche</span><span class="nt">(X)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span> <span class="nf">planche</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
-<span class="ne">----&gt; </span><span class="mi">7</span>     <span class="n">exemples</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">X</span><span class="p">[:</span><span class="mi">12000</span><span class="p">:</span><span class="mi">600</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">13000</span><span class="p">:</span><span class="mi">30600</span><span class="p">:</span><span class="mi">600</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">30600</span><span class="p">:</span><span class="mi">60000</span><span class="p">:</span><span class="mi">590</span><span class="p">]]</span><span class="o">/</span><span class="mi">255</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">size</span> <span class="o">=</span> <span class="mi">28</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">taille</span> <span class="o">=</span> <span class="mi">10</span>
-
-<span class="ne">NameError</span>: name &#39;np&#39; is not defined
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 900x900 with 0 Axes&gt;
-</pre></div>
-</div>
+<img alt="_images/c3d08d13a198932850b1b0d03b433d9940cdb9fd1cc28f839944e64c661eb104.png" src="_images/c3d08d13a198932850b1b0d03b433d9940cdb9fd1cc28f839944e64c661eb104.png" />
 </div>
 </div>
 <p>L’ACP est ici utilisée pour réduire la représentation des données (un point ici est un vecteur de 28*28=784, l’espace original est donc <span class="math notranslate nohighlight">\(\mathbb{R}^{784}\)</span>). Intuitivement, on comprend bien que, de nombreux pixels étant noirs et communs à toutes les images, 784 dimensions sont inutiles.</p>
