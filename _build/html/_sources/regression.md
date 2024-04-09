@@ -385,7 +385,7 @@ Si le modèle linéaire est justifié, alors la distribution des résidus suit a
 ```
 
 ````{prf:definition} Résidu studentisé
-On appelle résidu studentisé la quantité $\frac{y_i-y^*_i}{\hat{\sigma}\sqrt{1-hp}}$
+On appelle résidu studentisé la quantité $\frac{y_i-y^*_i}{\hat{\sigma}\sqrt{1-p_i}}$
 ```` 
 
  Lorsque $n$ est grand, ces résidus doivent être compris dans l'intervalle [-2,2]. 
