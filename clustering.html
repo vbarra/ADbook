@@ -6,7 +6,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Quelques méthodes de classification &#8212; Analyse de données</title>
   
@@ -18,15 +18,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
@@ -39,12 +39,12 @@
     <link rel="stylesheet" type="text/css" href="_static/myfilecss.css?v=6d55db64" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="_static/documentation_options.js?v=72dce1d2"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
@@ -53,21 +53,13 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="_static/translations.js?v=d99ca74e"></script>
+    <script src="_static/translations.js?v=bf059b8c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=36754332"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'clustering';</script>
@@ -84,14 +76,13 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Passer au contenu principal</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Passer au contenu principal</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
-    Back to top
+    Haut de page
   </button>
 
   
@@ -128,11 +119,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -389,7 +383,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -403,9 +397,9 @@ document.write(`
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="quelques-methodes-de-classification">
-<h1>Quelques méthodes de classification<a class="headerlink" href="#quelques-methodes-de-classification" title="Link to this heading">#</a></h1>
+<h1>Quelques méthodes de classification<a class="headerlink" href="#quelques-methodes-de-classification" title="Lien vers cette rubrique">#</a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Lien vers cette rubrique">#</a></h2>
 <p>La classification automatique a pour but d’obtenir une représentation simplifiée des données initiales. Elle consiste à organiser un ensemble de données en classes homogènes ou classes naturelles.</p>
 <p>Une définition formelle de la classification, qui puisse servir de base à un processus automatisé, amène à se poser les questions suivantes :</p>
 <ul class="simple">
@@ -422,9 +416,9 @@ document.write(`
 </ul>
 </section>
 <section id="structures-de-classification">
-<h2>Structures de classification<a class="headerlink" href="#structures-de-classification" title="Link to this heading">#</a></h2>
+<h2>Structures de classification<a class="headerlink" href="#structures-de-classification" title="Lien vers cette rubrique">#</a></h2>
 <section id="partition">
-<h3>Partition<a class="headerlink" href="#partition" title="Link to this heading">#</a></h3>
+<h3>Partition<a class="headerlink" href="#partition" title="Lien vers cette rubrique">#</a></h3>
 <div class="proof definition admonition" id="definition-0">
 <span id="index-0"></span><p class="admonition-title"><span class="caption-number">Definition 40 </span> (Partition)</p>
 <section class="definition-content" id="proof-content">
@@ -437,7 +431,7 @@ document.write(`
 </div><p>Dans un ensemble  <span class="math notranslate nohighlight">\(\Omega\)</span> partitionné en <span class="math notranslate nohighlight">\(g\)</span> classes, chaque élément de l’ensemble appartient à une classe et une seule. Une manière pratique de décrire cette partition <span class="math notranslate nohighlight">\(P\)</span> consiste à lui associer la matrice de classification <span class="math notranslate nohighlight">\({\bf C}=(c_{ij}), i\in [\![1,n]\!], j\in [\![1,g]\!]\)</span>, avec <span class="math notranslate nohighlight">\(c_{ij}=1\)</span> si l’individu <span class="math notranslate nohighlight">\(i\)</span> appartient à <span class="math notranslate nohighlight">\(P_j\)</span>, et <span class="math notranslate nohighlight">\(c_{ij}=0\)</span> sinon. Dans le cas où l’on accepte qu’un individu appartienne à plusieurs classes (avec des degrés d’appartenance), on autorise <span class="math notranslate nohighlight">\(c_{ij}\)</span> à couvrir l’intervalle [0,1] et on parle alors de classification floue.</p>
 </section>
 <section id="hierarchie-indicee">
-<h3>Hiérarchie indicée<a class="headerlink" href="#hierarchie-indicee" title="Link to this heading">#</a></h3>
+<h3>Hiérarchie indicée<a class="headerlink" href="#hierarchie-indicee" title="Lien vers cette rubrique">#</a></h3>
 <div class="proof definition admonition" id="definition-1">
 <span id="index-1"></span><p class="admonition-title"><span class="caption-number">Definition 41 </span> (Hiérarchie)</p>
 <section class="definition-content" id="proof-content">
@@ -451,20 +445,20 @@ document.write(`
 </div><p>Une hiérarchie est souvent représentée par l’intermédiaire d’un indice, fonction <span class="math notranslate nohighlight">\(i\)</span> de <span class="math notranslate nohighlight">\(H\)</span> dans <span class="math notranslate nohighlight">\(\mathbb{R}^+\)</span>, strictement croissante vis à vis de l’inclusion et de noyau l’ensemble des singletons de <span class="math notranslate nohighlight">\(\Omega\)</span>.</p>
 </section>
 <section id="partition-et-hierarchie">
-<h3>Partition et hiérarchie<a class="headerlink" href="#partition-et-hierarchie" title="Link to this heading">#</a></h3>
+<h3>Partition et hiérarchie<a class="headerlink" href="#partition-et-hierarchie" title="Lien vers cette rubrique">#</a></h3>
 <p>Si <span class="math notranslate nohighlight">\(P =(P_1 \cdots,P_g)\)</span> est une partition de <span class="math notranslate nohighlight">\(\Omega\)</span>, l’ensemble <span class="math notranslate nohighlight">\(H\)</span> formé des classes <span class="math notranslate nohighlight">\(P_k\)</span> de <span class="math notranslate nohighlight">\(P\)</span>, des singletons de   <span class="math notranslate nohighlight">\(\Omega\)</span> et de l’ensemble  <span class="math notranslate nohighlight">\(\Omega\)</span> lui-même forme une hiérarchie. Remarquons qu’inversement, il est possible d’associer à chaque niveau d’une hiérarchie indicée une partition. Une hiérarchie indicée correspond donc à un ensemble de partitions emboîtées.</p>
 </section>
 </section>
 <section id="objectifs-de-la-classification">
-<h2>Objectifs de la classification<a class="headerlink" href="#objectifs-de-la-classification" title="Link to this heading">#</a></h2>
+<h2>Objectifs de la classification<a class="headerlink" href="#objectifs-de-la-classification" title="Lien vers cette rubrique">#</a></h2>
 <section id="difficultes-de-caracteriser-les-objectifs">
-<h3>Difficultés de caractériser les objectifs<a class="headerlink" href="#difficultes-de-caracteriser-les-objectifs" title="Link to this heading">#</a></h3>
+<h3>Difficultés de caractériser les objectifs<a class="headerlink" href="#difficultes-de-caracteriser-les-objectifs" title="Lien vers cette rubrique">#</a></h3>
 <p>L’objectif de la classification automatique est l’organisation en classes homogènes des éléments d’un ensemble  <span class="math notranslate nohighlight">\(\Omega\)</span>. Pour définir cette notion de classes homogènes, on utilise le plus souvent une mesure de similarité (ou de dissimilarité) sur  <span class="math notranslate nohighlight">\(\Omega\)</span>. Par exemple, on peut imposer à un couple quelconque d’individus d’une même classe d’être plus « proches » que n’importe quel couple formé par un individu de la classe et un individu d’une autre classe. En pratique, cet objectif est inutilisable, et plusieurs démarches sont alors utilisées pour remplacer cet objectif trop difficile à atteindre.</p>
 </section>
 <section id="demarche-numerique">
-<h3>Démarche numérique<a class="headerlink" href="#demarche-numerique" title="Link to this heading">#</a></h3>
+<h3>Démarche numérique<a class="headerlink" href="#demarche-numerique" title="Lien vers cette rubrique">#</a></h3>
 <section id="id1">
-<h4>Partition<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<h4>Partition<a class="headerlink" href="#id1" title="Lien vers cette rubrique">#</a></h4>
 <p>On remplace cette condition trop exigeante par une fonction numérique (critère) qui mesure la qualité d’homogénéité d’une partition. Le problème peut paraître alors très simple. En effet, par exemple, dans le cas de la recherche d’une partition, il suffit de chercher parmi l’ensemble fini de toutes les partitions celle qui optimise le critère numérique. Malheureusement, le nombre de ces partitions étant très grand, leur énumération est impossible dans un temps raisonnable.
 Le nombre de partitions en <span class="math notranslate nohighlight">\(g\)</span> classes d’un ensemble à <span class="math notranslate nohighlight">\(n\)</span> éléments, que l’on note <span class="math notranslate nohighlight">\(S_n^g\)</span> est le nombre de Stirling de deuxième espèce. En posant <span class="math notranslate nohighlight">\(S_0^0=1\)</span> et pour tout <span class="math notranslate nohighlight">\(n&gt;0\)</span>, <span class="math notranslate nohighlight">\(S_n^0=S_0^n=0\)</span>, il peut être calculé par récurrence grâce à la relation <span class="math notranslate nohighlight">\(S_n^g=S_{n-1}^{g-1}+gS_{n-1}^g\)</span>. On peut montrer que</p>
 <div class="math notranslate nohighlight">
@@ -473,20 +467,20 @@ Le nombre de partitions en <span class="math notranslate nohighlight">\(g\)</spa
 <p>On utilise alors des heuristiques qui donnent, non pas la meilleure solution, mais une « bonne solution », proche de la solution optimale. On parle alors d’optimisation locale. Lorsqu’il existe une structure d’ordre sur l’ensemble  <span class="math notranslate nohighlight">\(\Omega\)</span> et que celle-ci doit être respectée par la partition, il existe un algorithme de programmation dynamique (algorithme de Fisher), qui fournit la solution optimale.</p>
 </section>
 <section id="hierarchie">
-<h4>Hiérarchie<a class="headerlink" href="#hierarchie" title="Link to this heading">#</a></h4>
+<h4>Hiérarchie<a class="headerlink" href="#hierarchie" title="Lien vers cette rubrique">#</a></h4>
 <p>Dans le cas d’une hiérarchie, on cherche à obtenir des classes d’autant plus homogènes qu’elles sont situées dans le bas de la hiérarchie. La définition d’un critère est moins facile. Nous verrons qu’il est possible de le faire en utilisant la
 notion d’ultramétrique (ultramétrique optimale).</p>
 </section>
 </section>
 <section id="demarche-algorithmique">
-<h3>Démarche algorithmique<a class="headerlink" href="#demarche-algorithmique" title="Link to this heading">#</a></h3>
+<h3>Démarche algorithmique<a class="headerlink" href="#demarche-algorithmique" title="Lien vers cette rubrique">#</a></h3>
 <p>Il s’agit cette fois de définir directement un algorithme qui construit des classes homogènes en tenant compte de la mesure de similarité. Il est relativement facile de proposer de tels algorithmes, le problème est de pouvoir vérifier que les résultats fournis sont intéressants et répondent au problème posé. En réalité, cette démarche rejoint assez souvent la précédente.</p>
 </section>
 <section id="mesure-de-dissimilarite-et-distance">
-<h3>Mesure de dissimilarité et distance<a class="headerlink" href="#mesure-de-dissimilarite-et-distance" title="Link to this heading">#</a></h3>
+<h3>Mesure de dissimilarité et distance<a class="headerlink" href="#mesure-de-dissimilarite-et-distance" title="Lien vers cette rubrique">#</a></h3>
 <p>Les algorithmes de classification dépendent d’une métrique qui définit implicitement la forme des classes qui seront calculées. Si la distance euclidienne suppose une isotropie dans les axes (et donc une représentation sphérique des classes), d’autres distances ou indices de dissimilarité peuvent être utilisés.</p>
 <section id="indice-de-dissimilarite">
-<h4>Indice de dissimilarité<a class="headerlink" href="#indice-de-dissimilarite" title="Link to this heading">#</a></h4>
+<h4>Indice de dissimilarité<a class="headerlink" href="#indice-de-dissimilarite" title="Lien vers cette rubrique">#</a></h4>
 <p>On se place dans <span class="math notranslate nohighlight">\(\mathbb R^d\)</span>, et on considère <span class="math notranslate nohighlight">\(n\)</span> individus à classer <span class="math notranslate nohighlight">\({\bf x_1}\ldots {\bf x_n}\)</span>.</p>
 <div class="proof definition admonition" id="definition-2">
 <p class="admonition-title"><span class="caption-number">Definition 42 </span> (Dissimilarité - ultramétrique)</p>
@@ -509,7 +503,7 @@ notion d’ultramétrique (ultramétrique optimale).</p>
 </div><p>A partir des mesures de dissimilarité, on déduit des mesures de similarité <span class="math notranslate nohighlight">\(s_{ij}\)</span> le passage de l’une à l’autre se faisant par exemple par <span class="math notranslate nohighlight">\(\delta_{ij} = s_{max}-s_{ij}\)</span>.</p>
 </section>
 <section id="cas-de-variables-qualitatives">
-<h4>Cas de variables qualitatives<a class="headerlink" href="#cas-de-variables-qualitatives" title="Link to this heading">#</a></h4>
+<h4>Cas de variables qualitatives<a class="headerlink" href="#cas-de-variables-qualitatives" title="Lien vers cette rubrique">#</a></h4>
 <p>On suppose que les <span class="math notranslate nohighlight">\(d\)</span> composantes des <span class="math notranslate nohighlight">\({\bf x_i}\)</span> sont qualitatives, et on se limite ici au cas de variables bimodales.
 Étant donnés <span class="math notranslate nohighlight">\({\bf x_i}=\begin{pmatrix} x_i^1\ldots x_i^d\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\({\bf x_j}\)</span>, on note :</p>
 <ul class="simple">
@@ -529,7 +523,7 @@ notion d’ultramétrique (ultramétrique optimale).</p>
 </ul>
 </section>
 <section id="cas-de-variables-quantitatives">
-<h4>Cas de variables quantitatives<a class="headerlink" href="#cas-de-variables-quantitatives" title="Link to this heading">#</a></h4>
+<h4>Cas de variables quantitatives<a class="headerlink" href="#cas-de-variables-quantitatives" title="Lien vers cette rubrique">#</a></h4>
 <p>Dans le cas de variables quantitatives, les normes  <span class="math notranslate nohighlight">\(L_p\)</span> :</p>
 <p><span class="math notranslate nohighlight">\(\|{\bf x_i}\|_p=\left (\displaystyle\sum_{j=1}^d|x_i^j|^p\right ) ^\frac{1}{p}\)</span></p>
 <p>sont classiquement utilisées, et par exemple</p>
@@ -545,11 +539,11 @@ notion d’ultramétrique (ultramétrique optimale).</p>
 <p><span class="math notranslate nohighlight">\(r^2_{ij} = \frac{\left (\displaystyle\sum_{k=1}^d (x_i^k-\bar{x_i})(x_j^k-\bar{x_j})\right )^2}{\displaystyle\sum_{k=1}^d(x_i^k-\bar{x_i})^2\displaystyle\sum_{k=1}^d(x_j^k-\bar{x_j})^2}\)</span></p>
 </section>
 <section id="variables-de-comptage">
-<h4>Variables de comptage<a class="headerlink" href="#variables-de-comptage" title="Link to this heading">#</a></h4>
+<h4>Variables de comptage<a class="headerlink" href="#variables-de-comptage" title="Lien vers cette rubrique">#</a></h4>
 <p>Dans le cas particulier de variables de comptage (<span class="math notranslate nohighlight">\(x_i^k\)</span> effectif de la classe <span class="math notranslate nohighlight">\(k\)</span> pour l’individu <span class="math notranslate nohighlight">\(i\)</span>), une mesure naturelle de dissimilarité entre <span class="math notranslate nohighlight">\({\bf x_i}\)</span> et <span class="math notranslate nohighlight">\({\bf x_j}\)</span> est le <span class="math notranslate nohighlight">\(\chi^2\)</span> du tableau de contingence 2<span class="math notranslate nohighlight">\(\times d\)</span> associé.</p>
 </section>
 <section id="quelle-mesure-choisir">
-<h4>Quelle mesure choisir ?<a class="headerlink" href="#quelle-mesure-choisir" title="Link to this heading">#</a></h4>
+<h4>Quelle mesure choisir ?<a class="headerlink" href="#quelle-mesure-choisir" title="Lien vers cette rubrique">#</a></h4>
 <p>Une réflexion  sur le type de dissimilarité à choisir est nécessaire. Il est en particulier intéressant de répondre aux questions suivantes:</p>
 <ul class="simple">
 <li><p>de quelles variables initiales (qualitatives et/ou quantitatives) doit dépendre la dissimilarité?</p></li>
@@ -560,7 +554,7 @@ notion d’ultramétrique (ultramétrique optimale).</p>
 </section>
 </section>
 <section id="classification-ascendante-hierarchique">
-<h2>Classification ascendante hiérarchique<a class="headerlink" href="#classification-ascendante-hierarchique" title="Link to this heading">#</a></h2>
+<h2>Classification ascendante hiérarchique<a class="headerlink" href="#classification-ascendante-hierarchique" title="Lien vers cette rubrique">#</a></h2>
 <p>L’objectif est de construire une hiérarchie indicée d’un ensemble <span class="math notranslate nohighlight">\(\Omega\)</span> sur lequel on connaît une mesure de dissimilarité <span class="math notranslate nohighlight">\(\delta\)</span> telle que les points les plus proches soient regroupés dans les classes de plus petit indice. La hiérarchie est alors construite en appliquant itérativement ce principe, et l’arbre obtenu sur l’ensemble des itérations est appelé un dendrogramme.</p>
 <p>Il existe essentiellement
 deux approches :</p>
@@ -569,9 +563,9 @@ deux approches :</p>
 <li><p>la classification ascendante : cette fois on part de la partition de <span class="math notranslate nohighlight">\(\Omega\)</span>  où chaque classe est un singleton. On procède alors par fusions successives des classes jusqu’à obtenir une seule classe, c’est-à -dire l’ensemble  <span class="math notranslate nohighlight">\(\Omega\)</span> lui-même. Nous insistons sur ce type de classification dans la suite.</p></li>
 </ul>
 <section id="algorithme">
-<h3>Algorithme<a class="headerlink" href="#algorithme" title="Link to this heading">#</a></h3>
+<h3>Algorithme<a class="headerlink" href="#algorithme" title="Lien vers cette rubrique">#</a></h3>
 <section id="construction-de-la-hierarchie">
-<span id="index-2"></span><h4>Construction de la hiérarchie<a class="headerlink" href="#construction-de-la-hierarchie" title="Link to this heading">#</a></h4>
+<span id="index-2"></span><h4>Construction de la hiérarchie<a class="headerlink" href="#construction-de-la-hierarchie" title="Lien vers cette rubrique">#</a></h4>
 <p><span class="math notranslate nohighlight">\(\Omega\)</span>  étant l’ensemble à classifier et <span class="math notranslate nohighlight">\(\delta\)</span> une mesure de dissimilarité sur cet ensemble, on définit à partir de <span class="math notranslate nohighlight">\(\delta\)</span> une  distance <span class="math notranslate nohighlight">\(D\)</span> entre les parties de  <span class="math notranslate nohighlight">\(\Omega\)</span>. Cette distance est en réalité une mesure de dissimilarité qui ne vérifie pas nécessairement toutes les propriétés d’une distance sur l’ensemble des parties de <span class="math notranslate nohighlight">\(\Omega\)</span>. En général, <span class="math notranslate nohighlight">\(D\)</span> est appelé critère d’agrégation.
 L’algorithme est alors le suivant :</p>
 <div class="proof algorithm admonition" id="algorithm-3">
@@ -593,7 +587,7 @@ L’algorithme est alors le suivant :</p>
 </div><p>Il est facile de montrer que l’ensemble des classes définies au cours de cet algorithme forme une hiérarchie.</p>
 </section>
 <section id="construction-de-l-indice">
-<h4>Construction de l’indice<a class="headerlink" href="#construction-de-l-indice" title="Link to this heading">#</a></h4>
+<h4>Construction de l’indice<a class="headerlink" href="#construction-de-l-indice" title="Lien vers cette rubrique">#</a></h4>
 <p>Après avoir défini une hiérarchie, il est nécessaire de lui associer un indice. Pour les classes du bas de la hiérarchie, c’est-à-dire les singletons, cet indice est nécessairement la valeur 0. Pour les autres classes, cet indice est généralement
 défini en associant à chacune des classes construites au cours de l’algorithme la distance <span class="math notranslate nohighlight">\(D\)</span> qui séparait les deux classes fusionnées pour former cette nouvelle classe. Pour que cette définition conduise bien à un indice, il est nécessaire que
 les indices obtenus soient strictement croissants avec le niveau de la hiérarchie. Plusieurs difficultés peuvent alors apparaître :</p>
@@ -604,7 +598,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </section>
 </section>
 <section id="criteres-d-agregation">
-<h3>Critères d’agrégation<a class="headerlink" href="#criteres-d-agregation" title="Link to this heading">#</a></h3>
+<h3>Critères d’agrégation<a class="headerlink" href="#criteres-d-agregation" title="Lien vers cette rubrique">#</a></h3>
 <p>Il existe de nombreux critères d’agrégation, mais les plus utilisés sont les suivants :</p>
 <ul class="simple">
 <li><p>critère du lien commun : <span class="math notranslate nohighlight">\(D_{min}(A,B)=\displaystyle\min_{i\in A,j\in B}\delta_{ij}\)</span></p></li>
@@ -614,7 +608,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 <p><img alt="" src="_images/agreg.png" /></p>
 </section>
 <section id="formule-de-recurrence-de-lance-et-williams">
-<h3>Formule de récurrence de Lance et Williams<a class="headerlink" href="#formule-de-recurrence-de-lance-et-williams" title="Link to this heading">#</a></h3>
+<h3>Formule de récurrence de Lance et Williams<a class="headerlink" href="#formule-de-recurrence-de-lance-et-williams" title="Lien vers cette rubrique">#</a></h3>
 <p>Pour les trois critères d’agrégation précédents, il existe des relations de simplification du calcul des distances entre classes essentielles pour la mise en place pratique de l’algorithme de classification ascendante :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(D_{min}(A,B\cup C)=min(D_{min}(A,B),D_{min}(A,C))\)</span></p></li>
@@ -623,13 +617,13 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </ul>
 </section>
 <section id="critere-de-ward">
-<h3>Critère de Ward<a class="headerlink" href="#critere-de-ward" title="Link to this heading">#</a></h3>
+<h3>Critère de Ward<a class="headerlink" href="#critere-de-ward" title="Lien vers cette rubrique">#</a></h3>
 <p id="index-3">Lorsque l’ensemble  <span class="math notranslate nohighlight">\(\Omega\)</span> à classifier est mesuré par <span class="math notranslate nohighlight">\(d\)</span> variables quantitatives, il est possible de lui associer un nuage de points pondérés dans <span class="math notranslate nohighlight">\(\mathbb{R}^d\)</span> muni de la distance euclidienne. Généralement, les pondérations seront toutes égales à 1. Le critère d’agrégation le plus utilisé dans cette situation est alors le critère d’inertie de Ward :</p>
 <p><span class="math notranslate nohighlight">\(D(A,B)=\frac{p_Ap_B}{p_A+p_B}\|({\bf g}(A),{\bf g}(B))\|_2^2\)</span></p>
 <p>où <span class="math notranslate nohighlight">\(p_E\)</span> représente la somme des pondérations des éléments d’une classe <span class="math notranslate nohighlight">\(E\)</span> et <span class="math notranslate nohighlight">\({\bf g}(E)\)</span> est le centre de gravité d’une classe <span class="math notranslate nohighlight">\(E\)</span>.</p>
 </section>
 <section id="proprietes-d-optimalite">
-<h3>Propriétés d’optimalité<a class="headerlink" href="#proprietes-d-optimalite" title="Link to this heading">#</a></h3>
+<h3>Propriétés d’optimalité<a class="headerlink" href="#proprietes-d-optimalite" title="Lien vers cette rubrique">#</a></h3>
 <p>La notion de hiérarchie indicée est équivalente à la notion d’ultramétrique. La classification hiérarchique ascendante transforme donc la mesure de dissimilarité <span class="math notranslate nohighlight">\(d\)</span> initiale en une mesure de dissimilarité <span class="math notranslate nohighlight">\(\delta\)</span> qui possède la propriété d’être une ultramétrique.</p>
 <p>Le problème de la classification hiérarchique peut donc également se poser en ces termes : trouver l’ultramétrique <span class="math notranslate nohighlight">\(\delta^*\)</span> la plus proche de <span class="math notranslate nohighlight">\(\delta\)</span>. Il reste à munir l’espace des mesures de dissimilarité sur  <span class="math notranslate nohighlight">\(\Omega\)</span> d’une distance. On pourra utiliser, par exemple :</p>
 <ul class="simple">
@@ -638,7 +632,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </ul>
 </section>
 <section id="critere-d-arret-et-partition">
-<h3>Critère d’arrêt et partition<a class="headerlink" href="#critere-d-arret-et-partition" title="Link to this heading">#</a></h3>
+<h3>Critère d’arrêt et partition<a class="headerlink" href="#critere-d-arret-et-partition" title="Lien vers cette rubrique">#</a></h3>
 <p id="index-4">L’ensemble des itérations peut être visualisé sous la forme d’un arbre, appelé dendrogramme. La figure suivante présente un exemple de dendrogramme en clustering hiérarchique descendant sur <span class="math notranslate nohighlight">\(X = \{a, b, c, d, e\}\)</span>. La distance <span class="math notranslate nohighlight">\(D\)</span> n’est pas reportée</p>
 <p><img alt="" src="_images/dendro1.png" /></p>
 <p>Le critère d’arrêt permet de déterminer la partition  de <span class="math notranslate nohighlight">\(X\)</span> la plus appropriée. Ici encore, plusieurs choix sont possibles :</p>
@@ -650,7 +644,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 <p><img alt="" src="_images/dendro2.png" /></p>
 </section>
 <section id="utilisation-des-methodes">
-<h3>Utilisation des méthodes<a class="headerlink" href="#utilisation-des-methodes" title="Link to this heading">#</a></h3>
+<h3>Utilisation des méthodes<a class="headerlink" href="#utilisation-des-methodes" title="Lien vers cette rubrique">#</a></h3>
 <p>La première difficulté est le choix de la mesure de dissimilarité sur  <span class="math notranslate nohighlight">\(\Omega\)</span> et du critère d’agrégation. Généralement, lorsque l’on dispose de variables quantitatives, le critère conseillé est le critère d’inertie. Ensuite, il est souvent nécessaire de disposer d’outils d’aide à l’interprétation et d’outils permettant de diminuer le nombre de niveaux de hiérarchie. Il est d’autre part conseillé d’utiliser conjointement d’autres méthodes d’analyse des données comme l’Analyse en Composantes Principales.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -667,7 +661,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </div>
 </section>
 <section id="exemple">
-<h3>Exemple<a class="headerlink" href="#exemple" title="Link to this heading">#</a></h3>
+<h3>Exemple<a class="headerlink" href="#exemple" title="Lien vers cette rubrique">#</a></h3>
 <p>On étudie ici un jeu de données correspondant aux achats dans un supermarché. On cherche à caractériser les comportements des acheteurs en fonction de leurs revenus</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -821,12 +815,12 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </section>
 </section>
 <section id="recherche-de-partitions">
-<h2>Recherche de partitions<a class="headerlink" href="#recherche-de-partitions" title="Link to this heading">#</a></h2>
+<h2>Recherche de partitions<a class="headerlink" href="#recherche-de-partitions" title="Lien vers cette rubrique">#</a></h2>
 <section id="methode-des-centres-mobiles">
-<h3>Méthode des centres mobiles<a class="headerlink" href="#methode-des-centres-mobiles" title="Link to this heading">#</a></h3>
+<h3>Méthode des centres mobiles<a class="headerlink" href="#methode-des-centres-mobiles" title="Lien vers cette rubrique">#</a></h3>
 <p id="index-6"><span id="index-5"></span>La méthode des centres mobiles est encore connue sous le nom de méthode de réallocation-centrage ou des k-means lorsque l’ensemble à classifier est mesuré par <span class="math notranslate nohighlight">\(d\)</span> variables. Ici, <span class="math notranslate nohighlight">\(\Omega \in \mathbb{R}^d\)</span> est muni de sa distance euclidienne <span class="math notranslate nohighlight">\(\delta\)</span>. Pour simplifier la présentation, les pondérations des individus seront toutes égales à 1, mais la généralisation à des pondérations quelconques ne pose aucun problème.</p>
 <section id="id2">
-<h4>Algorithme<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<h4>Algorithme<a class="headerlink" href="#id2" title="Lien vers cette rubrique">#</a></h4>
 <p>L’algorithme des centres-mobiles peut se définir ainsi :</p>
 <div class="proof algorithm admonition" id="algorithm-4">
 <p class="admonition-title"><span class="caption-number">Algorithm 7 </span> (Algorithme des centres mobiles)</p>
@@ -861,11 +855,11 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 <p><img alt="" src="_images/kmeans2.png" /></p>
 </section>
 <section id="critere-et-convergence">
-<h4>Critère et convergence<a class="headerlink" href="#critere-et-convergence" title="Link to this heading">#</a></h4>
+<h4>Critère et convergence<a class="headerlink" href="#critere-et-convergence" title="Lien vers cette rubrique">#</a></h4>
 <p>La qualité d’un couple partition-centres est mesurée par la somme des inerties des classes par rapport à leur centre. On peut montrer qu’à chacune des deux étapes de l’algorithme, on améliore ce critère.</p>
 </section>
 <section id="lien-avec-la-methode-de-ward">
-<h4>Lien avec la méthode de Ward<a class="headerlink" href="#lien-avec-la-methode-de-ward" title="Link to this heading">#</a></h4>
+<h4>Lien avec la méthode de Ward<a class="headerlink" href="#lien-avec-la-methode-de-ward" title="Lien vers cette rubrique">#</a></h4>
 <p>La méthode des centres mobiles et la méthode de Ward optimisent toutes deux, à leur façon, le critère d’inertie intra-classe. Cette situation conduit à proposer des stratégies utilisant les deux approches comme, par exemple :</p>
 <ul class="simple">
 <li><p>appliquer les centres-mobiles pour regrouper l’ensemble initial en un nombre « important » de classes</p></li>
@@ -876,15 +870,15 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </section>
 </section>
 <section id="generalisation-les-nuees-dynamiques">
-<h3>Généralisation : les nuées dynamiques<a class="headerlink" href="#generalisation-les-nuees-dynamiques" title="Link to this heading">#</a></h3>
+<h3>Généralisation : les nuées dynamiques<a class="headerlink" href="#generalisation-les-nuees-dynamiques" title="Lien vers cette rubrique">#</a></h3>
 <p id="index-7">L’idée de base consiste à remplacer les centres   qui étaient des éléments de <span class="math notranslate nohighlight">\(\mathbb{R}^d\)</span> jouant le rôle de représentant ou encore de noyau de la classe par des éléments de nature très diverse adaptés au problème que l’on cherche à résoudre.</p>
 <section id="formalisation">
-<h4>Formalisation<a class="headerlink" href="#formalisation" title="Link to this heading">#</a></h4>
+<h4>Formalisation<a class="headerlink" href="#formalisation" title="Lien vers cette rubrique">#</a></h4>
 <p>On note <span class="math notranslate nohighlight">\(L=\{\lambda_i\}\)</span> l’ensemble des noyaux, <span class="math notranslate nohighlight">\(D:\Omega\times L\rightarrow \mathbb{R}^+\)</span> une mesure de ressemblance entre éléments de <span class="math notranslate nohighlight">\(\Omega\)</span> et de <span class="math notranslate nohighlight">\(L\)</span>. L’objectif est alors de trouver la partition en <span class="math notranslate nohighlight">\(g\)</span> classes (<span class="math notranslate nohighlight">\(g\)</span> fixé a priori) de <span class="math notranslate nohighlight">\(\Omega\)</span> minimisant le critère <span class="math notranslate nohighlight">\(\displaystyle\sum_{k}\displaystyle\sum_{x\in P_k}D(x,\lambda_k)\)</span></p>
 <p>Cette minimisation est réalisée de façon alternée, comme pour les centres mobiles.</p>
 </section>
 <section id="choix-du-nombre-de-classes">
-<h4>Choix du nombre de classes<a class="headerlink" href="#choix-du-nombre-de-classes" title="Link to this heading">#</a></h4>
+<h4>Choix du nombre de classes<a class="headerlink" href="#choix-du-nombre-de-classes" title="Lien vers cette rubrique">#</a></h4>
 <p>En général, le critère n’est pas indépendant du nombre de classes. Par exemple, le critère de l’inertie s’annule pour la partition triviale pour laquelle chaque point forme une classe. Il s’agit donc de la meilleure partition. Il est donc
 nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème très difficile, plusieurs solutions sont utilisées :</p>
 <ul class="simple">
@@ -897,9 +891,9 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </section>
 </section>
 <section id="quelques-variantes">
-<h3>Quelques variantes<a class="headerlink" href="#quelques-variantes" title="Link to this heading">#</a></h3>
+<h3>Quelques variantes<a class="headerlink" href="#quelques-variantes" title="Lien vers cette rubrique">#</a></h3>
 <section id="k-means">
-<h4>K-means++<a class="headerlink" href="#k-means" title="Link to this heading">#</a></h4>
+<h4>K-means++<a class="headerlink" href="#k-means" title="Lien vers cette rubrique">#</a></h4>
 <p>Plutôt que d’initialiser les centres de manière aléatoire, l’algorithme K-means++ propose de partitionner <span class="math notranslate nohighlight">\(\Omega=\{\mathbf x_1\cdots \mathbf x_n\}\)</span> selon l’algorithme suivant :</p>
 <ol class="arabic simple">
 <li><p>Tirer uniformément le premier centre de classe <span class="math notranslate nohighlight">\(c_1\)</span> dans <span class="math notranslate nohighlight">\(\Omega\)</span></p></li>
@@ -907,7 +901,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </ol>
 </section>
 <section id="acceleration-des-k-means">
-<h4>Accélération des k-means<a class="headerlink" href="#acceleration-des-k-means" title="Link to this heading">#</a></h4>
+<h4>Accélération des k-means<a class="headerlink" href="#acceleration-des-k-means" title="Lien vers cette rubrique">#</a></h4>
 <p>L’algorithme original peut être amélioré de manière significative en évitant les calculs de distances non nécessaires. En exploitant l’inégalité triangulaire, et en conservant les bornes inférieures et supérieures des distances entre les points et les centres de classe, l’algorithme correspondant est performant, y compris pour de grandes valeurs de <span class="math notranslate nohighlight">\(k\)</span> (<a class="reference internal" href="#km">Algorithm 8</a>).</p>
 <div class="proof algorithm admonition" id="km">
 <p class="admonition-title"><span class="caption-number">Algorithm 8 </span> (Accélération des k-means)</p>
@@ -985,7 +979,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </section>
 </div></section>
 <section id="k-means-a-mini-batchs">
-<h4>k-means à mini batchs<a class="headerlink" href="#k-means-a-mini-batchs" title="Link to this heading">#</a></h4>
+<h4>k-means à mini batchs<a class="headerlink" href="#k-means-a-mini-batchs" title="Lien vers cette rubrique">#</a></h4>
 <p>Il est également possible d’appliquer une optimisation par mini-batchs dans l’algorithme des k-means (<a class="reference internal" href="#kmbatch">Algorithm 9</a>).</p>
 <div class="proof algorithm admonition" id="kmbatch">
 <p class="admonition-title"><span class="caption-number">Algorithm 9 </span> (Accélération des k-means)</p>
@@ -1018,7 +1012,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div></section>
 </section>
 <section id="id3">
-<h3>Exemple<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<h3>Exemple<a class="headerlink" href="#id3" title="Lien vers cette rubrique">#</a></h3>
 <p>On génère des données</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1074,11 +1068,11 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </section>
 </section>
 <section id="modeles-de-melange">
-<h2>Modèles de mélange<a class="headerlink" href="#modeles-de-melange" title="Link to this heading">#</a></h2>
+<h2>Modèles de mélange<a class="headerlink" href="#modeles-de-melange" title="Lien vers cette rubrique">#</a></h2>
 <p>Les modèles de mélange supposent que les données proviennent d’un mélange de distributions (généralement gaussiennes), et l’objectif est alors d’estimer les paramètres du modèle de mélange en maximisant la fonction de vraisemblance pour les données.
 L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas une tâche simple, en raison des contraintes nécessaires sur les paramètres et de la nature complexe de la fonction de vraisemblance, qui présente généralement un grand nombre de maxima locaux et de points de selle. Une méthode courante pour estimer les paramètres du modèle de mélange est l’algorithme EM.</p>
 <section id="definition">
-<h3>Définition<a class="headerlink" href="#definition" title="Link to this heading">#</a></h3>
+<h3>Définition<a class="headerlink" href="#definition" title="Lien vers cette rubrique">#</a></h3>
 <p>Soient <span class="math notranslate nohighlight">\(\mathcal S = \{\mathbf X_1\cdots X_n\}\)</span> <span class="math notranslate nohighlight">\(n\)</span> vecteurs aléatoires i.i.d. à valeur dans <span class="math notranslate nohighlight">\(\mathcal X\subset \mathbb{R}^d\)</span> , chaque <span class="math notranslate nohighlight">\(\mathbf X_i\)</span> étant distribué selon</p>
 <div class="math notranslate nohighlight">
 \[g(\mathbf x|\boldsymbol \theta) = \displaystyle\sum_{i=1}^K w_i\Phi_i(\mathbf x)\]</div>
@@ -1097,7 +1091,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 <p>ce qui est en général complexe, la fonction <span class="math notranslate nohighlight">\(\ell\)</span> admettant de nombreux extrema locaux.</p>
 </section>
 <section id="algorithme-em">
-<h3>Algorithme EM<a class="headerlink" href="#algorithme-em" title="Link to this heading">#</a></h3>
+<h3>Algorithme EM<a class="headerlink" href="#algorithme-em" title="Lien vers cette rubrique">#</a></h3>
 <p>Plutôt que d’optimiser <span class="math notranslate nohighlight">\(\ell\)</span> directement depuis les données <span class="math notranslate nohighlight">\(s\)</span>, l’algorithme EM (<a class="reference internal" href="#EM">Algorithm 10</a>) augmente d’abord les données des variables latentes (les étiquettes <span class="math notranslate nohighlight">\(\mathbf z=(z_1\cdots z_n)\)</span> des classes). L’idée est que <span class="math notranslate nohighlight">\(s\)</span> est uniquement la partie observée des données aléatoires <span class="math notranslate nohighlight">\((\mathcal S,\mathbf Z)\)</span> générées d’abord en tirant <span class="math notranslate nohighlight">\(Z\)</span> suivant <span class="math notranslate nohighlight">\(P(Z=z)\)</span>, puis en tirant <span class="math notranslate nohighlight">\(\mathbf X\)</span> suivant <span class="math notranslate nohighlight">\(\Phi_z\)</span>, de sorte à avoir</p>
 <div class="math notranslate nohighlight">
 \[g(s,z|\boldsymbol \theta) = \displaystyle\prod_{i=1}^n w_{z_i} \Phi_{z_i}(\mathbf x_i)\]</div>
@@ -1219,7 +1213,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </div>
 </section>
 <section id="influence-des-matrices-de-covariance">
-<h3>Influence des matrices de covariance<a class="headerlink" href="#influence-des-matrices-de-covariance" title="Link to this heading">#</a></h3>
+<h3>Influence des matrices de covariance<a class="headerlink" href="#influence-des-matrices-de-covariance" title="Lien vers cette rubrique">#</a></h3>
 <p>Dans le cas multivarié, les descripteurs peuvent être dépendants ou non, introduisant des termes de covariance dans la matrice du même nom. Ainsi, cette dernière peut être pleine (et identique pour toutes les composantes ou non), ou diagonale (avec les variances des descripteurs égales ou non).</p>
 <p>La matrice de covariance peut alors prendre plusieurs formes :</p>
 <ul class="simple">
@@ -1311,7 +1305,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </div>
 </section>
 <section id="comparaison-aux-k-means">
-<h3>Comparaison aux k-means<a class="headerlink" href="#comparaison-aux-k-means" title="Link to this heading">#</a></h3>
+<h3>Comparaison aux k-means<a class="headerlink" href="#comparaison-aux-k-means" title="Lien vers cette rubrique">#</a></h3>
 <p>Par défaut (métrique euclidienne), les k-means évaluent des nuages sphériques.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1341,7 +1335,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </div>
 </section>
 <section id="estimation-du-nombre-de-classes">
-<h3>Estimation du nombre de classes<a class="headerlink" href="#estimation-du-nombre-de-classes" title="Link to this heading">#</a></h3>
+<h3>Estimation du nombre de classes<a class="headerlink" href="#estimation-du-nombre-de-classes" title="Lien vers cette rubrique">#</a></h3>
 <p>En optimisant un critère statistique, il est possible de trouver, dans le cas où le nombre de composantes <span class="math notranslate nohighlight">\(k\)</span> est inconnu, la meilleure valeur par rapport à ce critère. Il est de plus possible, pour les matrices de covariance, d’estimer la meilleure forme des nuages de points, et d’adapter la matrice en fonction de cette forme.</p>
 <p>Dans le code qui suit, on estime à la fois les matrices de covariance les plus adaptées et le nombre de composantes <span class="math notranslate nohighlight">\(k\)</span>, en optimisant le critère d’information Bayésien <span class="math notranslate nohighlight">\(BIC = -2ln(L) + pln(n)\)</span>, où <span class="math notranslate nohighlight">\(L\)</span> est la vraisemblance du modèle estimé, <span class="math notranslate nohighlight">\(n\)</span> le nombre d’observations, et <span class="math notranslate nohighlight">\(p\)</span> le nombre de paramètres libres du modèle.</p>
 <div class="cell docutils container">
@@ -1428,7 +1422,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </div>
 </section>
 <section id="modeles-de-melange-et-estimation">
-<h3>Modèles de mélange et estimation<a class="headerlink" href="#modeles-de-melange-et-estimation" title="Link to this heading">#</a></h3>
+<h3>Modèles de mélange et estimation<a class="headerlink" href="#modeles-de-melange-et-estimation" title="Lien vers cette rubrique">#</a></h3>
 <p>Les modèles de mélange sont également utilisés en estimation de densité. Il suffit pour cela :</p>
 <ul class="simple">
 <li><p>d’échantillonner la composante <span class="math notranslate nohighlight">\(C_i\)</span> désirée, selon la distribution <span class="math notranslate nohighlight">\(P(C_i)=\pi_i\)</span></p></li>
@@ -1545,6 +1539,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1670,8 +1665,8 @@ Par Vincent BARRA
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
