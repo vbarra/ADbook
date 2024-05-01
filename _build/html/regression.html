@@ -536,6 +536,8 @@ Si <span class="math notranslate nohighlight">\(\hat{\boldsymbol\beta}\)</span> 
 <p><span class="math notranslate nohighlight">\(f(x) = x-\frac35 x^2+\frac15x^3 + 18sin(x)\)</span></p>
 <p>avec <span class="math notranslate nohighlight">\(p=8\)</span> et <span class="math notranslate nohighlight">\(n=20\)</span>. Les <span class="math notranslate nohighlight">\(n=20\)</span> points  échantillonnés sur la courbe <span class="math notranslate nohighlight">\(y=f(x)\)</span> sont utilisés pour faire la régression sur l’intervalle [-10,10].</p>
 <p><img alt="" src="_images/comparregression.png" /></p>
+<p>Sur la figure suivante, les lignes de niveau de la fonction de coût du problème au moindres carrés sont représentées. La croix blanche représente la valeur optimale des paramètres du modèle, lorsque le problème n’est pas régularisé (moindres carrés linéaires). Les contraintes de régularisation sont les boules <span class="math notranslate nohighlight">\(\|\beta\|_x=c\)</span> pour les trois régularisation et les solutions régularisées obtenues (valeur optimale des paramètres <span class="math notranslate nohighlight">\(\beta_l,\beta_r\)</span> et <span class="math notranslate nohighlight">\(\beta_e\)</span>) sont les points jaunes.</p>
+<p><img alt="" src="_images/regul.png" /></p>
 </section>
 </section>
 <section id="regression-logistique">
