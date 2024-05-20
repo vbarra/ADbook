@@ -7,7 +7,7 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/Cellar/python@3.12/3.12.2_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 685, in run_until_complete
+  File "/usr/local/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
     return future.result()
            ^^^^^^^^^^^^^^^
   File "/usr/local/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
