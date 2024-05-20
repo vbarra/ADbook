@@ -6,7 +6,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Statistique descriptive &#8212; Analyse de données</title>
   
@@ -18,15 +18,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
@@ -39,12 +39,12 @@
     <link rel="stylesheet" type="text/css" href="_static/myfilecss.css?v=6d55db64" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="_static/documentation_options.js?v=72dce1d2"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
@@ -53,21 +53,13 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="_static/translations.js?v=d99ca74e"></script>
+    <script src="_static/translations.js?v=bf059b8c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=36754332"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'statsdescriptives';</script>
@@ -84,14 +76,13 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Passer au contenu principal</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Passer au contenu principal</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
-    Back to top
+    Haut de page
   </button>
 
   
@@ -128,11 +119,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -356,15 +350,15 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="statistique-descriptive">
-<h1>Statistique descriptive<a class="headerlink" href="#statistique-descriptive" title="Link to this heading">#</a></h1>
+<h1>Statistique descriptive<a class="headerlink" href="#statistique-descriptive" title="Lien vers cette rubrique">#</a></h1>
 <section id="definitions">
-<h2>Définitions<a class="headerlink" href="#definitions" title="Link to this heading">#</a></h2>
+<h2>Définitions<a class="headerlink" href="#definitions" title="Lien vers cette rubrique">#</a></h2>
 <p>Dans la suite, nous nous intéressons à des unités statistiques ou individus statistiques ou unités d’observation (individus,  entreprises,  ménages, données abstraites…). Bien que le cas infini soit envisageable, nous nous restreignons ici à l’étude d’un nombre fini de ces unités. Un ou plusieurs caractères (ou variables) est mesuré sur chaque unité. Les variables sont désignées par simplicité par une lettre. Leurs valeurs possibles sont appelées modalités et l’ensemble des valeurs possibles ou des modalités est appelé le domaine. L’ensemble des individus statistiques forme la population.</p>
 <section id="typologie-des-variables">
-<h3>Typologie des variables<a class="headerlink" href="#typologie-des-variables" title="Link to this heading">#</a></h3>
+<h3>Typologie des variables<a class="headerlink" href="#typologie-des-variables" title="Lien vers cette rubrique">#</a></h3>
 <p>La typologie des variables définit le type de problème statistique que l’on doit aborder :</p>
 <div class="proof definition admonition" id="definition-0">
 <span id="index-0"></span><p class="admonition-title"><span class="caption-number">Definition 17 </span> (Variable qualitative)</p>
@@ -392,19 +386,19 @@ document.write(`
 </section>
 </div></section>
 <section id="variable-qualitative-nominale">
-<h3>Variable qualitative nominale<a class="headerlink" href="#variable-qualitative-nominale" title="Link to this heading">#</a></h3>
+<h3>Variable qualitative nominale<a class="headerlink" href="#variable-qualitative-nominale" title="Lien vers cette rubrique">#</a></h3>
 <p id="index-3">Une variable qualitative nominale a des valeurs distinctes qui ne peuvent pas être ordonnées. On note <span class="math notranslate nohighlight">\(J\)</span> le nombre de valeurs distinctes ou de modalités, notées <span class="math notranslate nohighlight">\(x_1\cdots x_J\)</span>. On appelle effectif d’une modalité ou d’une valeur distincte le nombre de fois que cette modalité (ou valeur distincte) apparaît dans la série statistique. On note <span class="math notranslate nohighlight">\(n_j\)</span> l’effectif de la modalité <span class="math notranslate nohighlight">\(x_j\)</span>. La fréquence d’une modalité <span class="math notranslate nohighlight">\(j\)</span> est  alors égale à <span class="math notranslate nohighlight">\(f_j=\frac{n_j}{n}\)</span>.</p>
 <p>Le tableau statistique d’une variable qualitative nominale peut être représenté par deux types de graphiques. Les effectifs sont représentés par un diagramme en tuyau d’orgue et les fréquences par un diagramme en secteurs. Pour ce dernier, si le nombre de modalités devient trop important, la représentation perd de son intérêt.</p>
 <p><img alt="" src="_images/baton.png" /></p>
 </section>
 <section id="variable-qualitative-ordinale">
-<h3>Variable qualitative ordinale<a class="headerlink" href="#variable-qualitative-ordinale" title="Link to this heading">#</a></h3>
+<h3>Variable qualitative ordinale<a class="headerlink" href="#variable-qualitative-ordinale" title="Lien vers cette rubrique">#</a></h3>
 <p id="index-4">Le domaine peut être muni d’une relation d’ordre.  Les valeurs distinctes d’une variable ordinale peuvent donc être ordonnées <span class="math notranslate nohighlight">\(x_1\leq x_2\cdots\leq  x_J\)</span>, à permutation près dans l’ordre croissant des indices. L’effectif cumulé <span class="math notranslate nohighlight">\(N_j\)</span> et la fréquence cumulée <span class="math notranslate nohighlight">\(F_j\)</span> des variables sont alors définis par
 <span class="math notranslate nohighlight">\((\forall j\in[\![1,J]\!])\quad N_j=\displaystyle\sum_{i=1}^j n_i\quad \textrm {et}\quad F_j=\displaystyle\sum_{i=1}^j f_i\)</span></p>
 <p>Les fréquences et les effectifs (cumulés ou non) peuvent être représentés sous la forme d’un diagramme en tuyaux d’orgue.</p>
 </section>
 <section id="variable-quantitative-discrete">
-<h3>Variable quantitative discrète<a class="headerlink" href="#variable-quantitative-discrete" title="Link to this heading">#</a></h3>
+<h3>Variable quantitative discrète<a class="headerlink" href="#variable-quantitative-discrete" title="Lien vers cette rubrique">#</a></h3>
 <p id="index-5">Le domaine d’une telle variable est dénombrable. Comme pour les variables qualitatives ordinales, on peut calculer les effectifs (cumulés ou non) et les fréquences (cumulées ou non).</p>
 <p>La répartition des valeurs de la variable peut être représentée par un diagramme en bâtonnets. Les fréquences cumulées  sont visualisées par la fonction de répartition de la variable , définie par</p>
 <p><span class="math notranslate nohighlight">\(F(x) = \left \{
@@ -416,7 +410,7 @@ F_j &amp;\textrm{ si}&amp;  x\in[x_j,x_{j+1}[\\
 <p><img alt="" src="_images/baton2.png" /></p>
 </section>
 <section id="variable-quantitative-continue">
-<h3>Variable quantitative continue<a class="headerlink" href="#variable-quantitative-continue" title="Link to this heading">#</a></h3>
+<h3>Variable quantitative continue<a class="headerlink" href="#variable-quantitative-continue" title="Lien vers cette rubrique">#</a></h3>
 <p id="index-6">Le domaine d’une  variable quantitative continue est infini et est assimilé à <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> ou à un intervalle de <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>. Cependant, la mesure étant limitée en précision, on peut traiter ces variables comme des variables discrètes.</p>
 <p>La représentation graphique de ces variables (et la construction du tableau statistique) passe par le regroupement des modalités ou valeurs en classes. Le tableau ainsi construit est souvent appelé distribution groupée. La classe <span class="math notranslate nohighlight">\(j\)</span> est l’ensemble des valeurs incluses dans <span class="math notranslate nohighlight">\([c^-_j,c^+_j[\)</span>, où <span class="math notranslate nohighlight">\(c^-_j\)</span> et <span class="math notranslate nohighlight">\(c^+_j\)</span> sont les bornes inférieure et supérieure de la classe. Sur cet intervalle, on peut calculer la fréquence <span class="math notranslate nohighlight">\(f_j\)</span> de la classe, la fréquence cumulée, l’effectif <span class="math notranslate nohighlight">\(n_j\)</span>… La répartition en classes nécessite de définir a priori le nombre de classes <span class="math notranslate nohighlight">\(J\)</span> et l’amplitude <span class="math notranslate nohighlight">\(a_j\)</span> des intervalles. Si elles peuvent être définies de manière empirique, quelques règles permettent d’établir <span class="math notranslate nohighlight">\(J\)</span> et l’amplitude pour une série statistique de <span class="math notranslate nohighlight">\(n\)</span> observations. Par exemple :</p>
 <ul class="simple">
@@ -502,10 +496,10 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 </section>
 </section>
 <section id="pre-traitement-des-donnees">
-<h2>Pré-traitement des données<a class="headerlink" href="#pre-traitement-des-donnees" title="Link to this heading">#</a></h2>
+<h2>Pré-traitement des données<a class="headerlink" href="#pre-traitement-des-donnees" title="Lien vers cette rubrique">#</a></h2>
 <p>Faire une analyse de données, c’est traiter un tableau de taille <span class="math notranslate nohighlight">\(n\times d\)</span> où <span class="math notranslate nohighlight">\(n\)</span> est le nombre d’individus et <span class="math notranslate nohighlight">\(d\)</span> le nombre de variables (caractères) mesurées sur ces individus. En raison de la colecte des données, des erreurs de mesure ou d’autres facteurs, ce tableau est parfois incomplet et il convient de le prétraiter pour pouvoir effectuer l’analyse.</p>
 <section id="points-aberrants">
-<h3>Points aberrants<a class="headerlink" href="#points-aberrants" title="Link to this heading">#</a></h3>
+<h3>Points aberrants<a class="headerlink" href="#points-aberrants" title="Lien vers cette rubrique">#</a></h3>
 <p>Une anomalie (ou point aberrant, ou outlier) est une observation (ou un sous-ensemble d’observations) qui semble incompatible avec le reste de l’ensemble de données.</p>
 <p>S’il est parfois possible d’identifier graphiquement ces points aberrants à l’aide de boîtes à moustaches (voir <a class="reference internal" href="#boxplot"><span class="std std-ref">Pour résumer</span></a>), il existe une vaste littérature sur la détection d’anomalies qu’il n’est pas possible d’aborder ici. De plus, suivant le type de données manipulées (données séquentielles ou non), le type de méthode peut être différent. On mentionne donc ici quelques techniques simples :</p>
 <ul class="simple">
@@ -568,7 +562,7 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 </div>
 </section>
 <section id="donnees-manquantes">
-<h3>Données manquantes<a class="headerlink" href="#donnees-manquantes" title="Link to this heading">#</a></h3>
+<h3>Données manquantes<a class="headerlink" href="#donnees-manquantes" title="Lien vers cette rubrique">#</a></h3>
 <p>Lors de la collecte des données, il arrive que certaines d’entre elles ne soient pas disponibles ou enregistrées. On distingue trois types de données manquantes :</p>
 <ol class="arabic simple">
 <li><p>les données manquant de manière complètement aléatoire :  la probabilité qu’une donnée soit manquante ne dépend pas des valeurs connues ni de la valeur manquante elle-même.</p></li>
@@ -636,7 +630,7 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 </div>
 </section>
 <section id="transformation-des-donnees-qualitatives">
-<h3>Transformation des données qualitatives<a class="headerlink" href="#transformation-des-donnees-qualitatives" title="Link to this heading">#</a></h3>
+<h3>Transformation des données qualitatives<a class="headerlink" href="#transformation-des-donnees-qualitatives" title="Lien vers cette rubrique">#</a></h3>
 <p>Pour pouvoir être traitées numériquement, les données qualitatives doivent être transformées. Plusieurs techniques existent parmi lesquelles :</p>
 <ul class="simple">
 <li><p>pour le cas des variables ordinales : on utilise le rang pour encoder les modalités de la variable. Par exemple, pour un niveau de diplomation Brevet<span class="math notranslate nohighlight">\(&lt;\)</span>Bac<span class="math notranslate nohighlight">\(&lt;\)</span>Licence<span class="math notranslate nohighlight">\(&lt;\)</span>Master<span class="math notranslate nohighlight">\(&lt;\)</span>Doctorat, on codera Licence par 3 et Doctorat par 5.</p></li>
@@ -675,7 +669,7 @@ Ordinal Encoder :
 </div>
 </section>
 <section id="normalisation">
-<h3>Normalisation<a class="headerlink" href="#normalisation" title="Link to this heading">#</a></h3>
+<h3>Normalisation<a class="headerlink" href="#normalisation" title="Lien vers cette rubrique">#</a></h3>
 <p>Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l’analyse des données (<a class="reference internal" href="#biais"><span class="std std-ref">figure 2</span></a>) qu’il convient de corriger. C’est le processus de normalisation des données.</p>
 <p>Pour une colonne <span class="math notranslate nohighlight">\(j\in[\![1,p]\!]\)</span>, on dispose de <span class="math notranslate nohighlight">\(n\)</span> valeurs <span class="math notranslate nohighlight">\(x_{ij},i\in[\![1,n]\!]\)</span>. On note : <span class="math notranslate nohighlight">\(x_{min} = \displaystyle\min_{i\in[\![1,n]\!]}x_{ij}\)</span>, <span class="math notranslate nohighlight">\(x_{max} = \displaystyle\max_{i\in[\![1,n]\!]}x_{ij}\)</span>,   <span class="math notranslate nohighlight">\(\bar x_j\)</span> la moyenne des <span class="math notranslate nohighlight">\(x_{ij}\)</span>, <span class="math notranslate nohighlight">\(\sigma_j\)</span> leur écart-type, <span class="math notranslate nohighlight">\(x_\frac14, x_\frac12\)</span> et <span class="math notranslate nohighlight">\(x_\frac34\)</span> les premier, deuxième et troisième quartiles. On distingue alors classiquement trois types de normalisation :</p>
 <ol class="arabic simple">
@@ -686,24 +680,24 @@ Ordinal Encoder :
 <figure class="align-default" id="id1">
 <img alt="_images/normdonnees.png" src="_images/normdonnees.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Effet des différents types de normalisation.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Effet des différents types de normalisation.</span><a class="headerlink" href="#id1" title="Lien vers cette image">#</a></p>
 </figcaption>
 </figure>
 <p>La normalisation standard dépend de la présence de points aberrants (qui affectent la moyenne).</p>
 <figure class="align-default" id="biais">
 <img alt="_images/normK.png" src="_images/normK.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Effet de la normalisation sur un algorithme de classification (voir chapitre correspondant). En haut un jeu de données avec deux nuages de points allongés selon l’axe des <span class="math notranslate nohighlight">\(x\)</span>, certainement en raison d’une différence d’échelle entre les unités de mesure de <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>. Au milieu une classification par <span class="math notranslate nohighlight">\(k\)</span>-moyennes, <span class="math notranslate nohighlight">\(k\)</span>=2 sans normalisation, en utilisant la distance euclidienne. Les deux classes sont séparées suivant l’axe des <span class="math notranslate nohighlight">\(x\)</span>, ne reflétant pas la répartition naturelle des points. En bas, après normalisation, les deux nuages de points sont correctement séparés</span><a class="headerlink" href="#biais" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Effet de la normalisation sur un algorithme de classification (voir chapitre correspondant). En haut un jeu de données avec deux nuages de points allongés selon l’axe des <span class="math notranslate nohighlight">\(x\)</span>, certainement en raison d’une différence d’échelle entre les unités de mesure de <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>. Au milieu une classification par <span class="math notranslate nohighlight">\(k\)</span>-moyennes, <span class="math notranslate nohighlight">\(k\)</span>=2 sans normalisation, en utilisant la distance euclidienne. Les deux classes sont séparées suivant l’axe des <span class="math notranslate nohighlight">\(x\)</span>, ne reflétant pas la répartition naturelle des points. En bas, après normalisation, les deux nuages de points sont correctement séparés</span><a class="headerlink" href="#biais" title="Lien vers cette image">#</a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 <section id="statistique-descriptive-univariee">
-<h2>Statistique descriptive univariée<a class="headerlink" href="#statistique-descriptive-univariee" title="Link to this heading">#</a></h2>
+<h2>Statistique descriptive univariée<a class="headerlink" href="#statistique-descriptive-univariee" title="Lien vers cette rubrique">#</a></h2>
 <p id="index-7">La statistique descriptive univariée consiste à étudier un ensemble d’unités d’observations, lorsque celles-ci sont décrites par une seule variable.</p>
 <p>Soit donc <span class="math notranslate nohighlight">\(X\)</span> une variable et <span class="math notranslate nohighlight">\(x_j,j\in [\![1,n]\!]\)</span> l’ensemble des valeurs prises par cette variable, <span class="math notranslate nohighlight">\(n_i\)</span> étant le nombre de fois où la valeur <span class="math notranslate nohighlight">\(x_i\)</span> est prise. <span class="math notranslate nohighlight">\(X\)</span> peut être qualitative ou quantitative, les paramètres de description décrits dans la suite s’appliqueront à l’une de ces natures ou au deux.</p>
 <section id="parametres-de-position">
-<h3>Paramètres de position<a class="headerlink" href="#parametres-de-position" title="Link to this heading">#</a></h3>
+<h3>Paramètres de position<a class="headerlink" href="#parametres-de-position" title="Lien vers cette rubrique">#</a></h3>
 <p>Plusieurs paramètres permettent de décrire la position « la plus représentative » d’une variable :</p>
 <div class="proof definition admonition" id="definition-4">
 <p class="admonition-title"><span class="caption-number">Definition 20 </span> (Mode)</p>
@@ -826,7 +820,7 @@ quartile  75  :  1626.326538085935
 </div>
 </section>
 <section id="parametres-de-dispersion">
-<h3>Paramètres de dispersion<a class="headerlink" href="#parametres-de-dispersion" title="Link to this heading">#</a></h3>
+<h3>Paramètres de dispersion<a class="headerlink" href="#parametres-de-dispersion" title="Lien vers cette rubrique">#</a></h3>
 <p>Il est très souvent utile d’apprécier la dispersion des mesures autour du paramètre de position. Pour cela, sur des variables quantitatives uniquement, plusieurs outils sont disponibles :</p>
 <div class="proof definition admonition" id="definition-8">
 <p class="admonition-title"><span class="caption-number">Definition 24 </span> (Etendue)</p>
@@ -918,7 +912,7 @@ IQR  :  1316.3086347078017 +/- 720.4074859619113
 </div>
 </section>
 <section id="parametres-de-forme">
-<h3>Paramètres de forme<a class="headerlink" href="#parametres-de-forme" title="Link to this heading">#</a></h3>
+<h3>Paramètres de forme<a class="headerlink" href="#parametres-de-forme" title="Lien vers cette rubrique">#</a></h3>
 <p>Les paramètres de forme sont souvent calculés en référence à la forme de la loi normale, pour évaluer la symétrie, l’aplatissement ou la dérive par rapport à cette loi.</p>
 <div class="proof definition admonition" id="definition-15">
 <p class="admonition-title"><span class="caption-number">Definition 31 </span> (Skewness)</p>
@@ -958,7 +952,7 @@ IQR  :  1316.3086347078017 +/- 720.4074859619113
 <li><p>platykyrtique si <span class="math notranslate nohighlight">\(g_2&lt;0\)</span> (queues plus courtes et distribution arrondie).</p></li>
 </ul>
 <section id="pour-resumer">
-<span id="boxplot"></span><h4>Pour résumer<a class="headerlink" href="#pour-resumer" title="Link to this heading">#</a></h4>
+<span id="boxplot"></span><h4>Pour résumer<a class="headerlink" href="#pour-resumer" title="Lien vers cette rubrique">#</a></h4>
 <p>Les principales statistiques d’une série statistique peuvent être résumées dans des <strong>boîtes à moustache</strong>, qui permettent de voir sur un même graphique :</p>
 <ul class="simple">
 <li><p>la médiane</p></li>
@@ -1010,7 +1004,7 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </section>
 </section>
 <section id="la-description-ne-fait-pas-tout">
-<h3>La description ne fait pas tout…<a class="headerlink" href="#la-description-ne-fait-pas-tout" title="Link to this heading">#</a></h3>
+<h3>La description ne fait pas tout…<a class="headerlink" href="#la-description-ne-fait-pas-tout" title="Lien vers cette rubrique">#</a></h3>
 <p>La description d’un ensemble de valeurx <span class="math notranslate nohighlight">\(x_j\)</span> par la moyenne, la variance, voire le comportement linéaire (coefficient de corrélation, voir plus loin) peut ne pas suffire à comprendre la distribution des données. Un exemple classique (analyse bivariée, section suivante) est le quartet d’Anscombe (figure ci-dessous), constitué de quatre ensembles de points  <span class="math notranslate nohighlight">\((x,y)\in\mathbb{R}^2\)</span> de même propriétés statistiques (moyenne, variance, coefficient de régression linéaire) mais qui sont distribués de manière totalement différente dans le plan.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1059,10 +1053,10 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </section>
 </section>
 <section id="statistique-descriptive-bivariee">
-<h2>Statistique descriptive bivariée<a class="headerlink" href="#statistique-descriptive-bivariee" title="Link to this heading">#</a></h2>
+<h2>Statistique descriptive bivariée<a class="headerlink" href="#statistique-descriptive-bivariee" title="Lien vers cette rubrique">#</a></h2>
 <p>On s’intéresse à deux variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>, mesurées sur les <span class="math notranslate nohighlight">\(n\)</span> unités d’observation. La série statistique est alors une suite de <span class="math notranslate nohighlight">\(n\)</span> couples <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> des valeurs prises par les deux variables sur chaque individu.</p>
 <section id="cas-de-deux-variables-quantitatives">
-<h3>Cas de deux variables quantitatives<a class="headerlink" href="#cas-de-deux-variables-quantitatives" title="Link to this heading">#</a></h3>
+<h3>Cas de deux variables quantitatives<a class="headerlink" href="#cas-de-deux-variables-quantitatives" title="Lien vers cette rubrique">#</a></h3>
 <p>Le couple est un couple de valeurs numériques. C’est donc un point dans le plan <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>. Les variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> peuvent être analysées séparément, en opérant une statistique univariée sur chacune de ces variables. Les paramètres calculés (de position, de dispersion…) sont dits marginaux. Cependant, il est intéressant d’étudier le lien entre ces deux variables, par l’intermédiaire des valeurs des couples. On définit pour cela un certain nombre d’outils :</p>
 <div class="proof definition admonition" id="definition-19">
 <p class="admonition-title"><span class="caption-number">Definition 35 </span> (Covariance)</p>
@@ -1084,7 +1078,7 @@ Le coefficient de détermination est le carré du coefficient de corrélation.</
 <p>A partir de cette droite, on peut calculer les valeurs ajustées, obtenues à partir de la droite de régression : <span class="math notranslate nohighlight">\(y^*_i=a+bx_i\)</span>. Ce sont les valeurs théoriques des <span class="math notranslate nohighlight">\(y_i\)</span> et les résidus <span class="math notranslate nohighlight">\(e_i=y_i-y_i^*\)</span> représentent la partie inexpliquée des <span class="math notranslate nohighlight">\(y_i\)</span> par la droite de régression (ceux là même que l’on essaye de minimiser par la méthode des moindres carrés). Nous reviendrons dans le chapitre sur la régression sur l’analyse de ces résidus.</p>
 </section>
 <section id="cas-de-deux-variables-qualitatives">
-<h3>Cas de deux variables qualitatives<a class="headerlink" href="#cas-de-deux-variables-qualitatives" title="Link to this heading">#</a></h3>
+<h3>Cas de deux variables qualitatives<a class="headerlink" href="#cas-de-deux-variables-qualitatives" title="Lien vers cette rubrique">#</a></h3>
 <p>Le couple est un couple de valeurs <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> où <span class="math notranslate nohighlight">\(x_i\)</span> et <span class="math notranslate nohighlight">\(y_i\)</span> prennent comme valeurs des modalités qualitatives. Notons <span class="math notranslate nohighlight">\(x_1\cdots x_J\)</span> et <span class="math notranslate nohighlight">\(y_1\cdots y_K\)</span> les valeurs distinctes prises.</p>
 <p>Les données peuvent être regroupées sous la forme d’un <strong>tableau de contingence</strong> prenant la forme suivante :</p>
 <p id="index-11"><span id="index-10"></span><span class="math notranslate nohighlight">\(\begin{array}{c|ccccc|c}
@@ -1145,7 +1139,7 @@ L’espérance d’un <span class="math notranslate nohighlight">\(\chi^2_{(K-1)
 <p>qui sous l’hypothèse d’indépendance suit une loi <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span>.</p>
 </section>
 <section id="cas-d-une-variable-quantitative-et-d-une-variable-qualitative">
-<h3>Cas d’une variable quantitative et d’une variable qualitative<a class="headerlink" href="#cas-d-une-variable-quantitative-et-d-une-variable-qualitative" title="Link to this heading">#</a></h3>
+<h3>Cas d’une variable quantitative et d’une variable qualitative<a class="headerlink" href="#cas-d-une-variable-quantitative-et-d-une-variable-qualitative" title="Lien vers cette rubrique">#</a></h3>
 <p>On s’intéresse ici au cas où les modalités <span class="math notranslate nohighlight">\(x_i\)</span> sont qualitatives, et où <span class="math notranslate nohighlight">\(y\)</span> est une variable quantitative, dont les modalités sont des réalisations d’une variable aléatoire <span class="math notranslate nohighlight">\(Y\)</span>.
 Le rapport de corrélation théorique entre <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> est défini par</p>
 <div class="math notranslate nohighlight">
@@ -1179,17 +1173,17 @@ pour expliquer la variabilité des notes dans toute la promotion.</p></li>
 </div></section>
 </section>
 <section id="vers-une-analyse-multivariee">
-<h2>Vers une analyse multivariée<a class="headerlink" href="#vers-une-analyse-multivariee" title="Link to this heading">#</a></h2>
+<h2>Vers une analyse multivariée<a class="headerlink" href="#vers-une-analyse-multivariee" title="Lien vers cette rubrique">#</a></h2>
 <p>Bien évidemment, dans la majorité des cas, un individu sera décrit par <span class="math notranslate nohighlight">\(p\geq 2\)</span> variables. Si certains algorithmes de statistique descriptive multidimensionnelle sont abordés dans ce cours, il est néanmoins possible d’avoir une première approche exploratoire de ce cas.</p>
 <section id="matrices-de-covariance-et-de-correlation">
-<h3>Matrices de covariance et de corrélation<a class="headerlink" href="#matrices-de-covariance-et-de-correlation" title="Link to this heading">#</a></h3>
+<h3>Matrices de covariance et de corrélation<a class="headerlink" href="#matrices-de-covariance-et-de-correlation" title="Lien vers cette rubrique">#</a></h3>
 <p>La première idée, lorsque l’on a observé <span class="math notranslate nohighlight">\(d\)</span> variables sur <span class="math notranslate nohighlight">\(n\)</span> individus, est de calculer les <span class="math notranslate nohighlight">\(d\)</span> variances de ces variables, et les <span class="math notranslate nohighlight">\(\frac{p(p-1)}{2}\)</span> covariances. Ces mesures sont regroupées dans une matrice <span class="math notranslate nohighlight">\(p\times p\)</span>, symétrique, semi définie positive, appelée matrice de variance-covariance (ou matrice des covariances), et classiquement notée <span class="math notranslate nohighlight">\(\boldsymbol\Sigma\)</span>.</p>
 <p>De même, on peut former la matrice des corrélations entre les variables, à diagonale unité et symétrique. La matrice résultante, notée <span class="math notranslate nohighlight">\(\mathbf R\)</span>, est également semi définie positive et sa représentation graphique en fausses couleurs permet d’apprécier les dépendances linéaires entre variables.</p>
 <p><img alt="" src="_images/batiments.png" /></p>
 <p>Dans le cas de variables qualitatives, les coefficients de corrélation peuvent être remplacés par les coefficients de Cramer, de Tschuprow…</p>
 </section>
 <section id="tableaux-de-nuages">
-<h3>Tableaux de nuages<a class="headerlink" href="#tableaux-de-nuages" title="Link to this heading">#</a></h3>
+<h3>Tableaux de nuages<a class="headerlink" href="#tableaux-de-nuages" title="Lien vers cette rubrique">#</a></h3>
 <p>On peut proposer à partir de là des représentations entre sous-ensembles de variables. La figure suivante propose un exemple de tels tableaux, parfois appelés splom (Scatter PLOt Matrix) :</p>
 <ul class="simple">
 <li><p>la partie triangulaire supérieure représente les nuages de points de couples de variables</p></li>
@@ -1199,7 +1193,7 @@ pour expliquer la variabilité des notes dans toute la promotion.</p></li>
 <p><img alt="" src="_images/batiments2.png" /></p>
 </section>
 <section id="tableaux-de-burt">
-<h3>Tableaux de Burt<a class="headerlink" href="#tableaux-de-burt" title="Link to this heading">#</a></h3>
+<h3>Tableaux de Burt<a class="headerlink" href="#tableaux-de-burt" title="Lien vers cette rubrique">#</a></h3>
 <p>Le tableau de Burt est une généralisation particulière de la table de contingence dans le cas où l’on étudie simultanément <span class="math notranslate nohighlight">\(p\)</span> variables qualitatives <span class="math notranslate nohighlight">\(X_1\ldots X_p\)</span>. Notons <span class="math notranslate nohighlight">\(c_j\)</span> le nombre de modalités de <span class="math notranslate nohighlight">\(X_j\)</span> et posons <span class="math notranslate nohighlight">\(c=\displaystyle\sum_{j=1}^p c_j\)</span>.</p>
 <p id="index-14"><span id="index-13"></span>Le tableau de Burt est une matrice carrée symétrique de taille <span class="math notranslate nohighlight">\(c\)</span>, constituée de <span class="math notranslate nohighlight">\(p^2\)</span> sous-matrices. Chacune des <span class="math notranslate nohighlight">\(p\)</span> sous-matrices diagonales est relative à l’une des <span class="math notranslate nohighlight">\(p\)</span> variables, la <span class="math notranslate nohighlight">\(j^e\)</span> étant carrée de taille <span class="math notranslate nohighlight">\(c_j\)</span>, diagonale, et de coefficients diagonaux les effectifs marginaux de <span class="math notranslate nohighlight">\(X_j\)</span>. La sous-matrice dans le bloc <span class="math notranslate nohighlight">\((k,l)\)</span> du tableau, <span class="math notranslate nohighlight">\(k\neq l\)</span>, est la table de contingence des variables <span class="math notranslate nohighlight">\(X_k\)</span> et <span class="math notranslate nohighlight">\(X_l\)</span>.</p>
 </section>
@@ -1262,6 +1256,7 @@ pour expliquer la variabilité des notes dans toute la promotion.</p></li>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1354,8 +1349,8 @@ Par Vincent BARRA
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
