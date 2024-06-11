@@ -259,6 +259,10 @@ avec $p=8$ et $n=20$. Les $n=20$ points  échantillonnés sur la courbe $y=f(x)$
 ![](./images/comparregression.png)
 
 
+Sur la figure suivante, les lignes de niveau de la fonction de coût du problème au moindres carrés sont représentées. La croix blanche représente la valeur optimale des paramètres du modèle, lorsque le problème n'est pas régularisé (moindres carrés linéaires). Les contraintes de régularisation sont les boules $\|\beta\|_x=c$ pour les trois régularisation et les solutions régularisées obtenues (valeur optimale des paramètres $\beta_l,\beta_r$ et $\beta_e$) sont les points jaunes.
+
+![](./images/regul.png)
+
 
 
 ## Régression logistique
@@ -385,7 +389,7 @@ Si le modèle linéaire est justifié, alors la distribution des résidus suit a
 ```
 
 ````{prf:definition} Résidu studentisé
-On appelle résidu studentisé la quantité $\frac{y_i-y^*_i}{\hat{\sigma}\sqrt{1-hp}}$
+On appelle résidu studentisé la quantité $\frac{y_i-y^*_i}{\hat{\sigma}\sqrt{1-p_i}}$
 ```` 
 
  Lorsque $n$ est grand, ces résidus doivent être compris dans l'intervalle [-2,2]. 

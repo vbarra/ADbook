@@ -220,7 +220,7 @@ Il existe de nombreux critères d'agrégation, mais les plus utilisés sont les 
 Pour les trois critères d'agrégation précédents, il existe des relations de simplification du calcul des distances entre classes essentielles pour la mise en place pratique de l'algorithme de classification ascendante :
 
 - $D_{min}(A,B\cup C)=min(D_{min}(A,B),D_{min}(A,C))$
-- $D_{max}(A,B\cup C)=max(D_{max}(A,B),D_{min}(A,C))$
+- $D_{max}(A,B\cup C)=max(D_{max}(A,B),D_{max}(A,C))$
 - $D_{moy}(A,B\cup C)=\frac{|B|D_{moy}(A,B)+|C|D_{moy}(A,C)}{|B|+|C|}$
 
 
@@ -415,7 +415,7 @@ Plutôt que d'initialiser les centres de manière aléatoire, l'algorithme K-mea
 
 
 #### Accélération des k-means
-L'algorithme original peut être amélioré de manière significative en évitant les calculs de distances non nécessaires. En exploitant l'inégalité triangulaire, et en conservant les bornes inférieures et supérieures des distances entre les points et les centres de classe, l'algorithme correspondant est performant, y compris pour de grandes valeurs de $k$ ({prf:ref}`km`)
+L'algorithme original peut être amélioré de manière significative en évitant les calculs de distances non nécessaires. En exploitant l'inégalité triangulaire, et en conservant les bornes inférieures et supérieures des distances entre les points et les centres de classe, l'algorithme correspondant est performant, y compris pour de grandes valeurs de $k$ ({prf:ref}`km`).
 
 
 ```{prf:algorithm} Accélération des k-means
