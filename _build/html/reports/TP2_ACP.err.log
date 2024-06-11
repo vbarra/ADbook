@@ -1,0 +1,64 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.12/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.12/3.12.3/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from sklearn.datasets import fetch_openml
+import matplotlib
+Xmnist, ymnist = fetch_openml('mnist_784', version=1, return_X_y=True)
+
+def planche(X):
+    plt.figure(figsize=(9,9))
+    exemples = (1-np.r_[X[:12000:600], X[13000:30600:600], X[30600:60000:590]]/255)
+    size = 28
+    taille = 10
+    taille = min(len(exemples), taille)
+    images = [exemple.reshape(size,size) for exemple in exemples]
+    n_rows = (len(exemples) - 1) // taille + 1
+    row_images = []
+    n_empty = n_rows * taille - len(exemples)
+    images.append(np.zeros((size, size * n_empty)))
+    for row in range(n_rows):
+        rimages = images[row * taille : (row + 1) * taille]
+        row_images.append(np.concatenate(rimages, axis=1))
+    image = np.concatenate(row_images, axis=0)
+    plt.imshow(image, cmap = matplotlib.cm.binary)
+    plt.axis("off")
+    plt.show()
+
+planche(Xmnist)
+
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[7], line 24[0m
+[1;32m     21[0m     plt[38;5;241m.[39maxis([38;5;124m"[39m[38;5;124moff[39m[38;5;124m"[39m)
+[1;32m     22[0m     plt[38;5;241m.[39mshow()
+[0;32m---> 24[0m [43mplanche[49m[43m([49m[43mXmnist[49m[43m)[49m
+
+Cell [0;32mIn[7], line 7[0m, in [0;36mplanche[0;34m(X)[0m
+[1;32m      5[0m [38;5;28;01mdef[39;00m [38;5;21mplanche[39m(X):
+[1;32m      6[0m     plt[38;5;241m.[39mfigure(figsize[38;5;241m=[39m([38;5;241m9[39m,[38;5;241m9[39m))
+[0;32m----> 7[0m     exemples [38;5;241m=[39m ([38;5;241m1[39m[38;5;241m-[39m[43mnp[49m[38;5;241m.[39mr_[X[:[38;5;241m12000[39m:[38;5;241m600[39m], X[[38;5;241m13000[39m:[38;5;241m30600[39m:[38;5;241m600[39m], X[[38;5;241m30600[39m:[38;5;241m60000[39m:[38;5;241m590[39m]][38;5;241m/[39m[38;5;241m255[39m)
+[1;32m      8[0m     size [38;5;241m=[39m [38;5;241m28[39m
+[1;32m      9[0m     taille [38;5;241m=[39m [38;5;241m10[39m
+
+[0;31mNameError[0m: name 'np' is not defined
+
