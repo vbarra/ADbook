@@ -1,0 +1,1358 @@
+
+<!DOCTYPE html>
+
+
+<html lang="fr" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Statistique descriptive &#8212; Analyse de données</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/myfilecss.css?v=6d55db64" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=bf059b8c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'statsdescriptives';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Sélection de variables" href="selection.html" />
+    <link rel="prev" title="Elements de statistiques" href="elemstats.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Passer au contenu principal</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Haut de page
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/isimainp.png" class="logo__image only-light" alt="Analyse de données - Home"/>
+    <script>document.write(`<img src="_static/isimainp.png" class="logo__image only-dark" alt="Analyse de données - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cours</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Rappels.html">Rappels de probabilité</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elemstats.html">Elements de statistiques</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Statistique descriptive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selection.html">Sélection de variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acp.html">Analyse en composantes principales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression.html">Régression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">Quelques méthodes de classification</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TP</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="sujetsTP.html">Sujets de TP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TP1_statsDescriptives.html">TP Statistiques descriptives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TP2_ACP.html">TP ACP</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TP_Regression_Lineaire.html">TP Régression linéaire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TP_clustering.html">TP Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TP/TP_etudiant.html">TP long</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Annexes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="canonique.html">Analyse canonique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="afc.html">Analyse Factorielle des correspondances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acm.html">Analyse des correspondances multiples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TP3_AFC_ACM.html">TP AFC / ACM</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Statistique descriptive</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Définitions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typologie-des-variables">Typologie des variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-qualitative-nominale">Variable qualitative nominale</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-qualitative-ordinale">Variable qualitative ordinale</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-quantitative-discrete">Variable quantitative discrète</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-quantitative-continue">Variable quantitative continue</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-traitement-des-donnees">Pré-traitement des données</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#points-aberrants">Points aberrants</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-manquantes">Données manquantes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-des-donnees-qualitatives">Transformation des données qualitatives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisation">Normalisation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistique-descriptive-univariee">Statistique descriptive univariée</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-position">Paramètres de position</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-dispersion">Paramètres de dispersion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-forme">Paramètres de forme</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pour-resumer">Pour résumer</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-description-ne-fait-pas-tout">La description ne fait pas tout…</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistique-descriptive-bivariee">Statistique descriptive bivariée</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cas-de-deux-variables-quantitatives">Cas de deux variables quantitatives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cas-de-deux-variables-qualitatives">Cas de deux variables qualitatives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cas-d-une-variable-quantitative-et-d-une-variable-qualitative">Cas d’une variable quantitative et d’une variable qualitative</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vers-une-analyse-multivariee">Vers une analyse multivariée</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-covariance-et-de-correlation">Matrices de covariance et de corrélation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tableaux-de-nuages">Tableaux de nuages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tableaux-de-burt">Tableaux de Burt</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="statistique-descriptive">
+<h1>Statistique descriptive<a class="headerlink" href="#statistique-descriptive" title="Lien vers cette rubrique">#</a></h1>
+<section id="definitions">
+<h2>Définitions<a class="headerlink" href="#definitions" title="Lien vers cette rubrique">#</a></h2>
+<p>Dans la suite, nous nous intéressons à des unités statistiques ou individus statistiques ou unités d’observation (individus,  entreprises,  ménages, données abstraites…). Bien que le cas infini soit envisageable, nous nous restreignons ici à l’étude d’un nombre fini de ces unités. Un ou plusieurs caractères (ou variables) est mesuré sur chaque unité. Les variables sont désignées par simplicité par une lettre. Leurs valeurs possibles sont appelées modalités et l’ensemble des valeurs possibles ou des modalités est appelé le domaine. L’ensemble des individus statistiques forme la population.</p>
+<section id="typologie-des-variables">
+<h3>Typologie des variables<a class="headerlink" href="#typologie-des-variables" title="Lien vers cette rubrique">#</a></h3>
+<p>La typologie des variables définit le type de problème statistique que l’on doit aborder :</p>
+<div class="proof definition admonition" id="definition-0">
+<span id="index-0"></span><p class="admonition-title"><span class="caption-number">Definition 17 </span> (Variable qualitative)</p>
+<section class="definition-content" id="proof-content">
+<p>La variable est dite qualitative lorsque les modalités sont des catégories. Suivant qu’il existe une relation d’ordre sur les catégories, on distingue :</p>
+<ul class="simple">
+<li><p>la variable qualitative nominale, si les modalités  ne peuvent pas être ordonnées</p></li>
+<li><p>la variable qualitative ordinale, si les modalités peuvent être ordonnées</p></li>
+</ul>
+</section>
+</div><div class="proof definition admonition" id="definition-1">
+<span id="index-1"></span><p class="admonition-title"><span class="caption-number">Definition 18 </span> (Variable quantitative)</p>
+<section class="definition-content" id="proof-content">
+<p>La variable est dite quantitative lorsque les modalités sont des valeurs numériques (scalaires ou vectorielles) :</p>
+<ul class="simple">
+<li><p>la variable est quantitative discrète si les modalités forment un ensemble dénombrable</p></li>
+<li><p>la variable quantitative est continue si les modalités vivent dans un espace continu.</p></li>
+</ul>
+</section>
+</div><p>Dans certains cas (l’âge par exemple), une variable d’un type (quantitative continue ici) peut être exprimée d’une autre manière pour des raisons pratiques de collecte ou de mesure. De même, les variables qualitatives ordinales peuvent être codées, par exemple selon une échelle de satisfaction.</p>
+<div class="proof definition admonition" id="definition-2">
+<span id="index-2"></span><p class="admonition-title"><span class="caption-number">Definition 19 </span> (Série statistique)</p>
+<section class="definition-content" id="proof-content">
+<p>On appelle série statistique une suite de <span class="math notranslate nohighlight">\(n\)</span> valeurs prises par une variable <span class="math notranslate nohighlight">\(X\)</span> sur les unités d’observation, notées <span class="math notranslate nohighlight">\(x_1\cdots x_n\)</span>.</p>
+</section>
+</div></section>
+<section id="variable-qualitative-nominale">
+<h3>Variable qualitative nominale<a class="headerlink" href="#variable-qualitative-nominale" title="Lien vers cette rubrique">#</a></h3>
+<p id="index-3">Une variable qualitative nominale a des valeurs distinctes qui ne peuvent pas être ordonnées. On note <span class="math notranslate nohighlight">\(J\)</span> le nombre de valeurs distinctes ou de modalités, notées <span class="math notranslate nohighlight">\(x_1\cdots x_J\)</span>. On appelle effectif d’une modalité ou d’une valeur distincte le nombre de fois que cette modalité (ou valeur distincte) apparaît dans la série statistique. On note <span class="math notranslate nohighlight">\(n_j\)</span> l’effectif de la modalité <span class="math notranslate nohighlight">\(x_j\)</span>. La fréquence d’une modalité <span class="math notranslate nohighlight">\(j\)</span> est  alors égale à <span class="math notranslate nohighlight">\(f_j=\frac{n_j}{n}\)</span>.</p>
+<p>Le tableau statistique d’une variable qualitative nominale peut être représenté par deux types de graphiques. Les effectifs sont représentés par un diagramme en tuyau d’orgue et les fréquences par un diagramme en secteurs. Pour ce dernier, si le nombre de modalités devient trop important, la représentation perd de son intérêt.</p>
+<p><img alt="" src="_images/baton.png" /></p>
+</section>
+<section id="variable-qualitative-ordinale">
+<h3>Variable qualitative ordinale<a class="headerlink" href="#variable-qualitative-ordinale" title="Lien vers cette rubrique">#</a></h3>
+<p id="index-4">Le domaine peut être muni d’une relation d’ordre.  Les valeurs distinctes d’une variable ordinale peuvent donc être ordonnées <span class="math notranslate nohighlight">\(x_1\leq x_2\cdots\leq  x_J\)</span>, à permutation près dans l’ordre croissant des indices. L’effectif cumulé <span class="math notranslate nohighlight">\(N_j\)</span> et la fréquence cumulée <span class="math notranslate nohighlight">\(F_j\)</span> des variables sont alors définis par
+<span class="math notranslate nohighlight">\((\forall j\in[\![1,J]\!])\quad N_j=\displaystyle\sum_{i=1}^j n_i\quad \textrm {et}\quad F_j=\displaystyle\sum_{i=1}^j f_i\)</span></p>
+<p>Les fréquences et les effectifs (cumulés ou non) peuvent être représentés sous la forme d’un diagramme en tuyaux d’orgue.</p>
+</section>
+<section id="variable-quantitative-discrete">
+<h3>Variable quantitative discrète<a class="headerlink" href="#variable-quantitative-discrete" title="Lien vers cette rubrique">#</a></h3>
+<p id="index-5">Le domaine d’une telle variable est dénombrable. Comme pour les variables qualitatives ordinales, on peut calculer les effectifs (cumulés ou non) et les fréquences (cumulées ou non).</p>
+<p>La répartition des valeurs de la variable peut être représentée par un diagramme en bâtonnets. Les fréquences cumulées  sont visualisées par la fonction de répartition de la variable , définie par</p>
+<p><span class="math notranslate nohighlight">\(F(x) = \left \{
+\begin{eqnarray}
+0&amp;\textrm{ si} &amp;x&lt;x_1\\
+F_j &amp;\textrm{ si}&amp;  x\in[x_j,x_{j+1}[\\
+1&amp; \textrm{ si}&amp;  x_J\leq x
+\end{eqnarray}\right .\)</span></p>
+<p><img alt="" src="_images/baton2.png" /></p>
+</section>
+<section id="variable-quantitative-continue">
+<h3>Variable quantitative continue<a class="headerlink" href="#variable-quantitative-continue" title="Lien vers cette rubrique">#</a></h3>
+<p id="index-6">Le domaine d’une  variable quantitative continue est infini et est assimilé à <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> ou à un intervalle de <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>. Cependant, la mesure étant limitée en précision, on peut traiter ces variables comme des variables discrètes.</p>
+<p>La représentation graphique de ces variables (et la construction du tableau statistique) passe par le regroupement des modalités ou valeurs en classes. Le tableau ainsi construit est souvent appelé distribution groupée. La classe <span class="math notranslate nohighlight">\(j\)</span> est l’ensemble des valeurs incluses dans <span class="math notranslate nohighlight">\([c^-_j,c^+_j[\)</span>, où <span class="math notranslate nohighlight">\(c^-_j\)</span> et <span class="math notranslate nohighlight">\(c^+_j\)</span> sont les bornes inférieure et supérieure de la classe. Sur cet intervalle, on peut calculer la fréquence <span class="math notranslate nohighlight">\(f_j\)</span> de la classe, la fréquence cumulée, l’effectif <span class="math notranslate nohighlight">\(n_j\)</span>… La répartition en classes nécessite de définir a priori le nombre de classes <span class="math notranslate nohighlight">\(J\)</span> et l’amplitude <span class="math notranslate nohighlight">\(a_j\)</span> des intervalles. Si elles peuvent être définies de manière empirique, quelques règles permettent d’établir <span class="math notranslate nohighlight">\(J\)</span> et l’amplitude pour une série statistique de <span class="math notranslate nohighlight">\(n\)</span> observations. Par exemple :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(J=1+3.3log_{10}(n)\)</span> (règle de Sturge)</p></li>
+<li><p><span class="math notranslate nohighlight">\(J=2.5\sqrt[4\,]{n}\)</span> (règle de Yule)</p></li>
+</ul>
+<p>La représentation graphique se fait par exemple par histogramme.
+Les histogrammes sont des représentations de la distribution des données, agrégées par intervalles. A partir de l’étendue des données, on subdivise l’intervalle en <span class="math notranslate nohighlight">\(k\)</span> bins, de tailles <span class="math notranslate nohighlight">\(t_k\)</span> non nécessairement identiques, et on compte le nombre d’individus <span class="math notranslate nohighlight">\(n_k\)</span> rentrant dans chaque bin. L’histogramme peut alors être :</p>
+<ul class="simple">
+<li><p>non normalisé : <span class="math notranslate nohighlight">\(h_k = n_k\)</span></p></li>
+<li><p>normalisé: <span class="math notranslate nohighlight">\(h_k = n_k/t_k\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;./data/data.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Comptage des individus</span>
+<span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">bins</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">findBin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="nb">bin</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bins</span><span class="p">):</span>
+            <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="nb">bin</span>
+            <span class="k">if</span> <span class="n">left</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">i</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    
+    <span class="n">count</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">findBin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">count</span>
+
+        
+<span class="c1"># Affichage de l&#39;histogramme</span>
+<span class="k">def</span> <span class="nf">plot_hist</span><span class="p">(</span><span class="n">X</span><span class="p">,</span>  <span class="n">bin_min</span><span class="p">,</span> <span class="n">bin_max</span><span class="p">,</span> <span class="n">bin_width</span><span class="p">,</span><span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">bins</span> <span class="o">=</span><span class="p">[</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="n">bin_width</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">bin_min</span><span class="p">,</span> <span class="n">bin_max</span><span class="p">,</span> <span class="n">bin_width</span><span class="p">)</span> <span class="p">]</span>
+    <span class="n">bin_left</span> <span class="o">=</span> <span class="p">[</span> <span class="n">l</span> <span class="k">for</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">bins</span> <span class="p">]</span>
+    <span class="n">bin_widths</span> <span class="o">=</span> <span class="p">[</span> <span class="n">r</span><span class="o">-</span><span class="n">l</span>  <span class="k">for</span> <span class="n">l</span><span class="p">,</span><span class="n">r</span> <span class="ow">in</span> <span class="n">bins</span> <span class="p">]</span>
+    <span class="n">bin_height</span> <span class="o">=</span> <span class="p">[</span> 
+        <span class="nb">float</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="n">w</span> <span class="k">if</span> <span class="n">normed</span> <span class="k">else</span> <span class="n">c</span> 
+        <span class="k">for</span> <span class="n">c</span><span class="p">,</span><span class="n">w</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">count</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">bins</span><span class="p">),</span> <span class="n">bin_widths</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bin_left</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="n">bin_width</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="n">bin_height</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">bin_min</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">bin_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">subplot</span><span class="p">,</span> <span class="n">binsize</span> <span class="ow">in</span> <span class="p">((</span><span class="mi">141</span><span class="p">,</span> <span class="mi">5</span><span class="p">),(</span><span class="mi">142</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">143</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span> <span class="p">(</span><span class="mi">144</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Taille des bins : &#39;</span><span class="p">,</span> <span class="n">binsize</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">subplot</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">plot_hist</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">bin_min</span><span class="p">,</span> <span class="n">bin_max</span><span class="p">,</span> <span class="n">binsize</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c413358a9c6454afcbb8d78dc7accae6016d988240059ecba91522694c9bbd20.png" src="_images/c413358a9c6454afcbb8d78dc7accae6016d988240059ecba91522694c9bbd20.png" />
+</div>
+</div>
+<p>Le choix de la largeur <span class="math notranslate nohighlight">\(t\)</span> des bins dépend des données, et par exemple on a :</p>
+<ul class="simple">
+<li><p>Loi de Scott : <span class="math notranslate nohighlight">\(t = \frac{3.5 \sigma}{Card(X)^{1/3}}\)</span>, où <span class="math notranslate nohighlight">\(\sigma\)</span> est l’écart type des données.</p></li>
+<li><p>Loi de Freedman–Diaconis : <span class="math notranslate nohighlight">\( t = \frac{2 IQR}{Card(X)^{1/3}}\)</span>, où <span class="math notranslate nohighlight">\(IQR\)</span> est la distance interquartile.</p></li>
+</ul>
+<div class="proof remark dropdown admonition" id="remark-3">
+<p class="admonition-title"><span class="caption-number">Remark 9 </span></p>
+<section class="remark-content" id="proof-content">
+<p>Toutes les classes n’ont pas nécessairement la même amplitude</p>
+</section>
+</div><p>Les effectifs (ou les fréquences) sont représenté(e)s par un histogramme. Si l’on s’intéresse à la représentation des effectifs (resp. des fréquences), la densité d’effectif <span class="math notranslate nohighlight">\(h_j\)</span> (resp. de fréquence <span class="math notranslate nohighlight">\(d_j\)</span>),  définie par <span class="math notranslate nohighlight">\(h_j=\frac{n_j}{a_j}\)</span> (resp. <span class="math notranslate nohighlight">\(d_j=\frac{f_j}{a_j}\)</span>), détermine la hauteur du rectangle représentant la classe <span class="math notranslate nohighlight">\(j\)</span>. L’aire de l’histogramme est égale à l’effectif total <span class="math notranslate nohighlight">\(n\)</span> pour l’histogramme des effectifs, et à 1 pour l’histogramme des fréquences.</p>
+<p>Comme dans le cas discret, la fonction de répartition peut être calculée de la manière suivante :</p>
+<p><span class="math notranslate nohighlight">\(F(x) = \left \{
+\begin{eqnarray}
+0&amp;\textrm{ si}&amp; x&lt;c^-_1\\
+F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j[\\
+1&amp; \textrm{ si}&amp;c^+_J\leq x
+\end{eqnarray}\right .\)</span></p>
+</section>
+</section>
+<section id="pre-traitement-des-donnees">
+<h2>Pré-traitement des données<a class="headerlink" href="#pre-traitement-des-donnees" title="Lien vers cette rubrique">#</a></h2>
+<p>Faire une analyse de données, c’est traiter un tableau de taille <span class="math notranslate nohighlight">\(n\times d\)</span> où <span class="math notranslate nohighlight">\(n\)</span> est le nombre d’individus et <span class="math notranslate nohighlight">\(d\)</span> le nombre de variables (caractères) mesurées sur ces individus. En raison de la colecte des données, des erreurs de mesure ou d’autres facteurs, ce tableau est parfois incomplet et il convient de le prétraiter pour pouvoir effectuer l’analyse.</p>
+<section id="points-aberrants">
+<h3>Points aberrants<a class="headerlink" href="#points-aberrants" title="Lien vers cette rubrique">#</a></h3>
+<p>Une anomalie (ou point aberrant, ou outlier) est une observation (ou un sous-ensemble d’observations) qui semble incompatible avec le reste de l’ensemble de données.</p>
+<p>S’il est parfois possible d’identifier graphiquement ces points aberrants à l’aide de boîtes à moustaches (voir <a class="reference internal" href="#boxplot"><span class="std std-ref">Pour résumer</span></a>), il existe une vaste littérature sur la détection d’anomalies qu’il n’est pas possible d’aborder ici. De plus, suivant le type de données manipulées (données séquentielles ou non), le type de méthode peut être différent. On mentionne donc ici quelques techniques simples :</p>
+<ul class="simple">
+<li><p>le détecteur de Hampel : on considère que <span class="math notranslate nohighlight">\(x_i\)</span> est un point aberrant si</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[|x_i-x_{\frac12}|&gt;3.MADM\]</div>
+<p>où <span class="math notranslate nohighlight">\(MADM = 1.4826.|x_i-x_{\frac12}|_\frac12\)</span>, et où <span class="math notranslate nohighlight">\(y_{\frac12}\)</span> est la médiane des données <span class="math notranslate nohighlight">\(y\)</span></p>
+<ul class="simple">
+<li><p>la règle empirique de l’écart-type : on considère que <span class="math notranslate nohighlight">\(x_i\)</span> est un point aberrant si</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[|x_i-\bar x|&gt;3.\sigma\]</div>
+<p>où  <span class="math notranslate nohighlight">\(\bar x\)</span> (respectivement <span class="math notranslate nohighlight">\(\sigma\)</span>) est la moyenne (resp. l’écart-type ) des données.</p>
+<ul class="simple">
+<li><p>la méthode LOF (Local Outlier Factor) qui repose sur le concept de densité locale, où la localité est donnée par les <span class="math notranslate nohighlight">\(k\)</span> voisins les plus proches, dont la distance est utilisée pour estimer la densité. En comparant la densité locale d’un objet aux densités locales de ses voisins, il est possible d’identifier des régions de densité similaire et des points dont la densité est nettement inférieure à celle de leurs voisins. Ces derniers sont considérés comme des valeurs aberrantes. La densité locale est estimée par la distance typique à laquelle un point peut être atteint à partir de ses voisins.</p></li>
+<li><p>la méthode COF (Connectivity based Outlier Factor) basée sur le même principe que LOF, à ceci près que l’estimation de densité est effectuée en utilisant le minimum de la somme des distances reliant tous les voisins d’un point donné.</p></li>
+</ul>
+<p>Dans le code suivant, 7 anomalies sont introduites dans un jeu de 70 données dans le plan, et détectées par la méthode LOF. Le score d’anomalie calculé par la méthode est proportionnel au cercle entourant le point. Les faux positifs (points de données détectés par LOF comme étant des anomalies) sont reportés en rouge.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X1</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">]</span>
+<span class="n">anom</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">anom</span><span class="p">[</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">X2</span><span class="p">):]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="n">clf</span> <span class="o">=</span> <span class="n">LocalOutlierFactor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">contamination</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">err</span> <span class="o">=</span> <span class="n">y_pred</span> <span class="o">!=</span> <span class="n">anom</span>
+<span class="n">n_errors</span> <span class="o">=</span> <span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">X_scores</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">negative_outlier_factor_</span>
+<span class="n">X3</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">err</span><span class="o">==</span><span class="kc">True</span><span class="p">]</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">X3</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_scores</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">X_scores</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">X_scores</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">X_scores</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="n">scatter</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span><span class="n">s</span><span class="o">=</span><span class="mi">1000</span> <span class="o">*</span> <span class="n">r</span><span class="p">,</span><span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span><span class="n">facecolors</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Détection d&#39;anomalies par LOF&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c77a23e7788f14631317e17d701cf06b38c95d0503a2518829912d7bd08f025f.png" src="_images/c77a23e7788f14631317e17d701cf06b38c95d0503a2518829912d7bd08f025f.png" />
+</div>
+</div>
+</section>
+<section id="donnees-manquantes">
+<h3>Données manquantes<a class="headerlink" href="#donnees-manquantes" title="Lien vers cette rubrique">#</a></h3>
+<p>Lors de la collecte des données, il arrive que certaines d’entre elles ne soient pas disponibles ou enregistrées. On distingue trois types de données manquantes :</p>
+<ol class="arabic simple">
+<li><p>les données manquant de manière complètement aléatoire :  la probabilité qu’une donnée soit manquante ne dépend pas des valeurs connues ni de la valeur manquante elle-même.</p></li>
+<li><p>les données manquant de manière aléatoire :  la probabilité qu’une donnée soit manquante peut dépendre de valeurs connues (d’autres variables parmi les <span class="math notranslate nohighlight">\(d\)</span>), mais pas de la variable dont les valeurs sont manquantes.</p></li>
+<li><p>les données manquant de manière non aléatoire : la probabilité qu’une donnée soit manquante dépend d’autres variables qui ont également des valeurs manquantes, ou elle dépend de la variable elle-même.</p></li>
+</ol>
+<p>Pour résoudre ce problème de données manquantes, dans la mesure où ces dernières ne sont pas trop nombreuses, on a recours à des techniques d”<strong>imputation</strong>.</p>
+<p>Dans le cas d’une imputation simple (une seule donnée manquante), on peut par exemple remplacer la valeur manquante dans une colonne <span class="math notranslate nohighlight">\(j\in[\![1,p]\!]\)</span> par :</p>
+<ul class="simple">
+<li><p>une valeur fixe</p></li>
+<li><p>une statistique sur la colonne <span class="math notranslate nohighlight">\(j\)</span> (la plus petite ou la plus grande valeur, la moyenne de la colonne, la valeur la plus fréquente…)</p></li>
+<li><p>une valeur issue des <span class="math notranslate nohighlight">\(k\)</span> plus proches voisins de la ligne du tableau où la valeur en position <span class="math notranslate nohighlight">\(j\)</span> est manquante</p></li>
+<li><p>une valeur calculée par régression (voir chapitre correspondant) sur l’ensemble du tableau</p></li>
+<li><p>la valeur précédente (ou suivante) dans le cas où la colonne est une série ordonnée ou temporelle.</p></li>
+</ul>
+<p>Le code suivant remplace les valeurs manquantes (np.nan) par la moyenne de la colonne qui contient ces valeurs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+<span class="n">imp</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">imp</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.  2. ]
+ [2.5 3. ]
+ [4.  5. ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans le cas d’une imputation multiple, où un sous-ensemble de valeurs doit être comblé, on peut adopter la stratégie suivante :</p>
+<ol class="arabic simple">
+<li><p>Effectuer une imputation simple pour toutes les valeurs manquantes de l’ensemble de données.</p></li>
+<li><p>Remettre les valeurs manquantes d’une variable <span class="math notranslate nohighlight">\(j\in[\![1,p]\!]\)</span> à « manquante ».</p></li>
+<li><p>Former un modèle pour prédire les valeurs manquantes de <span class="math notranslate nohighlight">\(j\)</span> en utilisant les valeurs disponibles de la variable <span class="math notranslate nohighlight">\(j\)</span> en tant que variable dépendante et les autres variables de l’ensemble de données comme indépendantes.</p></li>
+<li><p>Prédire les valeurs manquantes dans la colonne <span class="math notranslate nohighlight">\(j\)</span> en utilisant le modèle entraîné à l’étape 3.</p></li>
+<li><p>Répéter les étapes 2 à 4 pour toutes les autres colonnes présentant des valeurs manquantes.</p></li>
+<li><p>Répéter l’étape 2-5 jusqu’à convergence (ou un nombre maximal d’itérations)</p></li>
+<li><p>Répéter les étapes 1-6 plusieurs fois avec différentes initialisations de nombres aléatoires pour créer différentes versions de l’ensemble de données complet/imputé.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.experimental</span> <span class="kn">import</span> <span class="n">enable_iterative_imputer</span>
+<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">IterativeImputer</span>
+<span class="n">imp</span> <span class="o">=</span> <span class="n">IterativeImputer</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">imp</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.          2.        ]
+ [ 3.          6.        ]
+ [ 4.          8.        ]
+ [ 1.50004509  3.        ]
+ [ 7.         14.00004135]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="transformation-des-donnees-qualitatives">
+<h3>Transformation des données qualitatives<a class="headerlink" href="#transformation-des-donnees-qualitatives" title="Lien vers cette rubrique">#</a></h3>
+<p>Pour pouvoir être traitées numériquement, les données qualitatives doivent être transformées. Plusieurs techniques existent parmi lesquelles :</p>
+<ul class="simple">
+<li><p>pour le cas des variables ordinales : on utilise le rang pour encoder les modalités de la variable. Par exemple, pour un niveau de diplomation Brevet<span class="math notranslate nohighlight">\(&lt;\)</span>Bac<span class="math notranslate nohighlight">\(&lt;\)</span>Licence<span class="math notranslate nohighlight">\(&lt;\)</span>Master<span class="math notranslate nohighlight">\(&lt;\)</span>Doctorat, on codera Licence par 3 et Doctorat par 5.</p></li>
+<li><p>le one-hot encoding : pour une variable qualitative présentant <span class="math notranslate nohighlight">\(J\)</span> modalités, on construit un vecteur de taille <span class="math notranslate nohighlight">\(J\)</span> dont les composantes sont toutes nulles sauf la <span class="math notranslate nohighlight">\(J\)</span>-ème qui vaut 1. Par exemple, si <span class="math notranslate nohighlight">\(J\)</span>=3, on construit 1 vecteur de taille 3, et pour un individu ayant la modalité 2, on le code en (0 1 0). Lorsque <span class="math notranslate nohighlight">\(J\)</span> est élevé, on se retrouve avec un jeu de données volumineux.</p></li>
+<li><p>les méthodes de plongement (embedding) : utilisées principalement en apprentissage profond (Deep learning) pour le traitement du langage naturel, ces classes de méthodes construisent une représentation de chaque modalité d’une variable qualitative en un vecteur numérique de taille fixe et choisie. Pour le mot « rouge » de la variable « couleur », par exemple, l’encodage peut par exemple être représenté par le vecteur (0.31 0.57 0.12). En pratique, le calcul de ces représentations s’effectue classiquement par l’entraînement d’un réseau de neurones ayant pour entrée uniquement les variables qualitatives. Tout d’abord, un encodage one-hot est appliqué à la variable afin d’être mise en entrée du réseau, qui n’accepte que les entrées numériques. La sortie d’une des couches cachées du réseau constitue alors le vecteur recherché. On concatène ensuite ce vecteur aux données initiales, utilisées dans l’ajustement du modèle final.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OrdinalEncoder</span><span class="p">,</span><span class="n">OneHotEncoder</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Rouge&#39;</span><span class="p">],[</span><span class="s1">&#39;Vert&#39;</span><span class="p">],[</span><span class="s1">&#39;Rouge&#39;</span><span class="p">],[</span><span class="s1">&#39;Bleu&#39;</span><span class="p">]]</span>
+<span class="n">ohe</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">()</span>
+<span class="n">oe</span> <span class="o">=</span> <span class="n">OrdinalEncoder</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Données : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;One Hot Encoder : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ohe</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ordinal Encoder : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">oe</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Données : 
+ [[&#39;Rouge&#39;], [&#39;Vert&#39;], [&#39;Rouge&#39;], [&#39;Bleu&#39;]]
+One Hot Encoder : 
+ [[0. 1. 0.]
+ [0. 0. 1.]
+ [0. 1. 0.]
+ [1. 0. 0.]]
+Ordinal Encoder : 
+ [[1.]
+ [2.]
+ [1.]
+ [0.]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="normalisation">
+<h3>Normalisation<a class="headerlink" href="#normalisation" title="Lien vers cette rubrique">#</a></h3>
+<p>Il arrive que les données collectées ne soient pas du même ordre de grandeur, notamment en raison des unités de mesure (un individu mesuré par sa taille en millimètres et son poids en tonnes par exemple). Cette différence de valeur absolue introduit un biais dans l’analyse des données (<a class="reference internal" href="#biais"><span class="std std-ref">figure 2</span></a>) qu’il convient de corriger. C’est le processus de normalisation des données.</p>
+<p>Pour une colonne <span class="math notranslate nohighlight">\(j\in[\![1,p]\!]\)</span>, on dispose de <span class="math notranslate nohighlight">\(n\)</span> valeurs <span class="math notranslate nohighlight">\(x_{ij},i\in[\![1,n]\!]\)</span>. On note : <span class="math notranslate nohighlight">\(x_{min} = \displaystyle\min_{i\in[\![1,n]\!]}x_{ij}\)</span>, <span class="math notranslate nohighlight">\(x_{max} = \displaystyle\max_{i\in[\![1,n]\!]}x_{ij}\)</span>,   <span class="math notranslate nohighlight">\(\bar x_j\)</span> la moyenne des <span class="math notranslate nohighlight">\(x_{ij}\)</span>, <span class="math notranslate nohighlight">\(\sigma_j\)</span> leur écart-type, <span class="math notranslate nohighlight">\(x_\frac14, x_\frac12\)</span> et <span class="math notranslate nohighlight">\(x_\frac34\)</span> les premier, deuxième et troisième quartiles. On distingue alors classiquement trois types de normalisation :</p>
+<ol class="arabic simple">
+<li><p>la normalisation min-max : <span class="math notranslate nohighlight">\(x_{ij} = \frac{x_{ij}-x_{min}}{x_{max}-x_{min}}\)</span></p></li>
+<li><p>la normalisation standard : <span class="math notranslate nohighlight">\(x_{ij}=\frac{x_{ij}-\bar x_j}{\sigma_j}\)</span></p></li>
+<li><p>la normalisation robuste : <span class="math notranslate nohighlight">\(x_{ij}=\frac{x_{ij}-x_\frac12}{x_\frac34-x_\frac14}\)</span></p></li>
+</ol>
+<figure class="align-default" id="id1">
+<img alt="_images/normdonnees.png" src="_images/normdonnees.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Effet des différents types de normalisation.</span><a class="headerlink" href="#id1" title="Lien vers cette image">#</a></p>
+</figcaption>
+</figure>
+<p>La normalisation standard dépend de la présence de points aberrants (qui affectent la moyenne).</p>
+<figure class="align-default" id="biais">
+<img alt="_images/normK.png" src="_images/normK.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Effet de la normalisation sur un algorithme de classification (voir chapitre correspondant). En haut un jeu de données avec deux nuages de points allongés selon l’axe des <span class="math notranslate nohighlight">\(x\)</span>, certainement en raison d’une différence d’échelle entre les unités de mesure de <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>. Au milieu une classification par <span class="math notranslate nohighlight">\(k\)</span>-moyennes, <span class="math notranslate nohighlight">\(k\)</span>=2 sans normalisation, en utilisant la distance euclidienne. Les deux classes sont séparées suivant l’axe des <span class="math notranslate nohighlight">\(x\)</span>, ne reflétant pas la répartition naturelle des points. En bas, après normalisation, les deux nuages de points sont correctement séparés</span><a class="headerlink" href="#biais" title="Lien vers cette image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="statistique-descriptive-univariee">
+<h2>Statistique descriptive univariée<a class="headerlink" href="#statistique-descriptive-univariee" title="Lien vers cette rubrique">#</a></h2>
+<p id="index-7">La statistique descriptive univariée consiste à étudier un ensemble d’unités d’observations, lorsque celles-ci sont décrites par une seule variable.</p>
+<p>Soit donc <span class="math notranslate nohighlight">\(X\)</span> une variable et <span class="math notranslate nohighlight">\(x_j,j\in [\![1,n]\!]\)</span> l’ensemble des valeurs prises par cette variable, <span class="math notranslate nohighlight">\(n_i\)</span> étant le nombre de fois où la valeur <span class="math notranslate nohighlight">\(x_i\)</span> est prise. <span class="math notranslate nohighlight">\(X\)</span> peut être qualitative ou quantitative, les paramètres de description décrits dans la suite s’appliqueront à l’une de ces natures ou au deux.</p>
+<section id="parametres-de-position">
+<h3>Paramètres de position<a class="headerlink" href="#parametres-de-position" title="Lien vers cette rubrique">#</a></h3>
+<p>Plusieurs paramètres permettent de décrire la position « la plus représentative » d’une variable :</p>
+<div class="proof definition admonition" id="definition-4">
+<p class="admonition-title"><span class="caption-number">Definition 20 </span> (Mode)</p>
+<section class="definition-content" id="proof-content">
+<p>Le mode est la valeur distincte correspondant à l’effectif le plus élevé. Il est noté <span class="math notranslate nohighlight">\(x_M\)</span>.</p>
+</section>
+</div><p>Le mode peut être calculé pour tout type de variable, n’est pas nécessairement unique. Lorsqu’une variable continue est découpée en classes, il est possible de définir une classe modale (classe correspondant à l’effectif le plus élevé)</p>
+<div class="proof definition admonition" id="definition-5">
+<p class="admonition-title"><span class="caption-number">Definition 21 </span> (Moyennes)</p>
+<section class="definition-content" id="proof-content">
+<p>Les moyennes ne peuvent être définies que sur des variables quantitatives. Plusieurs moyennes peuvent être calculées, parmi lesquelles :</p>
+<ul class="simple">
+<li><p>la moyenne <strong>arithmétique</strong>  <span class="math notranslate nohighlight">\(\bar{x} = \frac{1}{n}{\displaystyle\sum_{i=1}^nx_i}=  \frac{1}{n}{\displaystyle\sum_{i=1}^J n_ix_i}\)</span>. C’est le moment à l’origine d’ordre 1.</p></li>
+<li><p>la moyenne <strong>géométrique</strong> : si les <span class="math notranslate nohighlight">\(x_i\)</span> sont positifs, la moyenne géométrique est la quantité <span class="math notranslate nohighlight">\(G=\left (\displaystyle\prod_{i=1}^n x_i\right )^\frac{1}{n}\)</span>. C’est donc l’exponentielle de la moyenne arithmétique des logarithmes des valeurs observées.</p></li>
+<li><p>la moyenne <strong>harmonique</strong> : si les <span class="math notranslate nohighlight">\(x_i\)</span> sont positifs, la moyenne harmonique est définie par <span class="math notranslate nohighlight">\(H=\frac{n}{\displaystyle\sum_{i=1}^J 1/x_i}\)</span></p></li>
+<li><p>la moyenne <strong>pondérée</strong> : dans certains cas, on n’accorde pas la même importance à toutes les observations (fiabilité, confiance…). La moyenne pondérée est alors définie par
+<span class="math notranslate nohighlight">\(\bar{x}_w= \frac{\displaystyle\sum_{i=1}^n w_ix_i}{\displaystyle\sum_{i=1}^n w_i}\)</span></p></li>
+</ul>
+</section>
+</div><p>Dans le cas où <span class="math notranslate nohighlight">\(\forall i,w_i=1/n\)</span>, la moyenne pondérée est la moyenne arithmétique. De plus, dans tous les cas, on peut montrer que <span class="math notranslate nohighlight">\(H\leq G\leq \bar{x}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;./data/data.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">ArithmeticMean</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="c1"># calculable directement avec np.mean(X)</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">X</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">GeometricMean</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">=</span><span class="mi">1</span> 
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">p</span><span class="o">*=</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> 
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">HarmonicMean</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">/</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> 
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">/</span> <span class="n">s</span>
+
+<span class="k">def</span> <span class="nf">WeightedMean</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="c1"># Exemples de poids</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">weights</span><span class="o">=</span><span class="n">w</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;16&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="s1">&#39;|&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Points&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">method</span><span class="p">,</span> <span class="n">style</span><span class="p">,</span> <span class="n">title</span> <span class="ow">in</span> <span class="p">((</span><span class="n">ArithmeticMean</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;Arithmétique&#39;</span><span class="p">),(</span><span class="n">GeometricMean</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;Géométrique&#39;</span><span class="p">),</span>
+                             <span class="p">(</span><span class="n">HarmonicMean</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;Harmonique&#39;</span><span class="p">),(</span><span class="n">WeightedMean</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;Pondérée&#39;</span><span class="p">)):</span>
+    <span class="n">m</span><span class="o">=</span><span class="n">method</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">method</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s2">&quot; : &quot;</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">m</span><span class="p">,</span><span class="n">m</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.2</span><span class="p">],</span><span class="n">style</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">title</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ArithmeticMean  :  1316.3086347078017
+GeometricMean  :  1258.4787575642572
+HarmonicMean  :  1198.219210728503
+WeightedMean  :  1315.5442042923557
+</pre></div>
+</div>
+<img alt="_images/c14b3fc7dfbc94b9e3f3e84c9e5c8223c50e12e7627d388c81adef79da4b6854.png" src="_images/c14b3fc7dfbc94b9e3f3e84c9e5c8223c50e12e7627d388c81adef79da4b6854.png" />
+</div>
+</div>
+<div class="proof definition admonition" id="definition-6">
+<p class="admonition-title"><span class="caption-number">Definition 22 </span> (Médiane)</p>
+<section class="definition-content" id="proof-content">
+<p>La médiane, notée <span class="math notranslate nohighlight">\(x_\frac{1}{2}\)</span> est la valeur centrale de la série statistique triée par ordre croissant.</p>
+</section>
+</div><p>En d’autres termes, c’est la valeur de la série triée telle qu’au moins 50% des effectifs soient inférieurs à <span class="math notranslate nohighlight">\(x_\frac{1}{2}\)</span>. Elle peut être calculée sur des variables quantitatives ou qualitatives ordinales (dans le cas où des échelles de valeur ont été définies).</p>
+<div class="proof definition admonition" id="definition-7">
+<p class="admonition-title"><span class="caption-number">Definition 23 </span> (Quantiles)</p>
+<section class="definition-content" id="proof-content">
+<p>Le quantile d’ordre <span class="math notranslate nohighlight">\(p\)</span> est défini par <span class="math notranslate nohighlight">\(x_p=F^{-1}(p)\)</span>, où <span class="math notranslate nohighlight">\(F\)</span> est la fonction de répartition.</p>
+</section>
+</div><p>La notion de quantile généralise la notion de médiane. Si la fonction de répartition était continue et strictement croissante, la définition de <span class="math notranslate nohighlight">\(x_p\)</span> serait unique. Or <span class="math notranslate nohighlight">\(F\)</span> est discontinue et définie par paliers et les valeurs de quantiles varient suivant par exemple l’utilisation ou non d’une méthode d’interpolation de <span class="math notranslate nohighlight">\(F\)</span>. Pour calculer <span class="math notranslate nohighlight">\(x_p\)</span>, on peut par exemple considérer que si <span class="math notranslate nohighlight">\(np\)</span> est pair,
+<span class="math notranslate nohighlight">\(x_p=\frac{x_{np}+x_{np+1}}{2}\)</span>
+on remarque alors que la médiane est le quantile d’ordre <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span>
+et sinon
+<span class="math notranslate nohighlight">\(x_p=x_{\lceil{np}\rceil}\)</span>
+En particulier, un quartile est chacune des 3 valeurs qui divisent les données triées en 4 parts égales, de sorte que chaque partie représente 1/4 de l’échantillon de population. On note <span class="math notranslate nohighlight">\(Q_i\)</span> le <span class="math notranslate nohighlight">\(i^e\)</span> quartile.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;./data/data.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;16&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="s1">&#39;|&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Points&#39;</span><span class="p">)</span>
+    
+<span class="k">for</span> <span class="n">q</span><span class="p">,</span> <span class="n">style</span>  <span class="ow">in</span> <span class="p">((</span><span class="mi">25</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">),(</span><span class="mi">50</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">),(</span><span class="mi">75</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">)):</span>
+    <span class="n">m</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">q</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;quartile &quot;</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="s2">&quot; : &quot;</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">m</span><span class="p">,</span><span class="n">m</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.2</span><span class="p">],</span><span class="n">style</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">q</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>quartile  25  :  905.9190521240237
+quartile  50  :  1399.66320800781
+quartile  75  :  1626.326538085935
+</pre></div>
+</div>
+<img alt="_images/ab0cde1c9619ab9d7ebd5a47ab97431e2715c223aef360f3e45b303052bb0a37.png" src="_images/ab0cde1c9619ab9d7ebd5a47ab97431e2715c223aef360f3e45b303052bb0a37.png" />
+</div>
+</div>
+</section>
+<section id="parametres-de-dispersion">
+<h3>Paramètres de dispersion<a class="headerlink" href="#parametres-de-dispersion" title="Lien vers cette rubrique">#</a></h3>
+<p>Il est très souvent utile d’apprécier la dispersion des mesures autour du paramètre de position. Pour cela, sur des variables quantitatives uniquement, plusieurs outils sont disponibles :</p>
+<div class="proof definition admonition" id="definition-8">
+<p class="admonition-title"><span class="caption-number">Definition 24 </span> (Etendue)</p>
+<section class="definition-content" id="proof-content">
+<p>L’étendue est la simple différence entre la plus grande et la plus petite valeur observée.</p>
+</section>
+</div><div class="proof definition admonition" id="definition-9">
+<p class="admonition-title"><span class="caption-number">Definition 25 </span> (Déviation maximale)</p>
+<section class="definition-content" id="proof-content">
+<p>La déviation maximale est définie par
+<span class="math notranslate nohighlight">\( maxdev(X) = max \{ |x_i - \bar{x}| \,|\, i\in[\![1,n]\!]\}\)</span></p>
+</section>
+</div><div class="proof definition admonition" id="definition-10">
+<p class="admonition-title"><span class="caption-number">Definition 26 </span> (Déviation moyenne absolue)</p>
+<section class="definition-content" id="proof-content">
+<p>La déviation moyenne absolue est définie par
+<span class="math notranslate nohighlight">\( mad(X) = \frac{1}{n} \displaystyle\sum_{i=1}^n |x_i - \bar{x}|\)</span></p>
+</section>
+</div><div class="proof definition admonition" id="definition-11">
+<p class="admonition-title"><span class="caption-number">Definition 27 </span> (Distance interquartile)</p>
+<section class="definition-content" id="proof-content">
+<p>La distance interquartile <span class="math notranslate nohighlight">\(Q_3-Q_1\)</span> est la différence entre le troisième et le premier quartile. C’est une statistique robuste aux points aberrants.</p>
+</section>
+</div><div class="proof definition admonition" id="definition-12">
+<p class="admonition-title"><span class="caption-number">Definition 28 </span> (Variance)</p>
+<section class="definition-content" id="proof-content">
+<p>La variance est la somme des carrés des écarts à la moyenne, normalisée par le nombre d’observations
+<span class="math notranslate nohighlight">\(\sigma^2 = \frac{1}{n}\displaystyle\sum_{i=1}^n\left (x_i-\bar{x}\right )^2\)</span></p>
+</section>
+</div><p>Cette variance est dite biaisée. La variance non biaisée est obtenue en divisant non pas par <span class="math notranslate nohighlight">\(n\)</span>, mais par <span class="math notranslate nohighlight">\(n-1\)</span>.</p>
+<div class="proof definition admonition" id="definition-13">
+<p class="admonition-title"><span class="caption-number">Definition 29 </span> (Ecart type)</p>
+<section class="definition-content" id="proof-content">
+<p>L’écart type est la racine carrée de la variance.</p>
+</section>
+</div><div class="proof definition admonition" id="definition-14">
+<p class="admonition-title"><span class="caption-number">Definition 30 </span> (Ecart moyen absolu)</p>
+<section class="definition-content" id="proof-content">
+<p>L’écart moyen absolu est la somme des valeurs absolues des écarts à la moyenne divisée par le nombre d’observations.</p>
+</section>
+</div><p>Notons qu’il s’agit de la distance <span class="math notranslate nohighlight">\(L_1\)</span> du vecteur des observations au vecteur composé de la valeur moyenne, divisé par le nombre d’observations. La variance est la distance <span class="math notranslate nohighlight">\(L_2\)</span> entre ces deux vecteurs. Lorsque la distance est calculée par rapport au vecteur composé de la valeur médiane, on parle d’écart médian absolu.</p>
+<p><img alt="" src="_images/dispersion.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;./data/data.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">max_dev</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">mad</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">sigma</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">IQR</span><span class="p">(</span><span class="n">X</span><span class="p">):</span> <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="mi">75</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;16&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="s1">&#39;|&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Points&#39;</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">method</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span><span class="n">style</span><span class="p">,</span>  <span class="ow">in</span> <span class="p">((</span><span class="n">max_dev</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">),(</span><span class="n">mad</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">),(</span><span class="n">sigma</span><span class="p">,</span><span class="mf">0.7</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">),(</span><span class="n">IQR</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">)):</span>
+    <span class="n">s</span><span class="o">=</span><span class="n">method</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">method</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s2">&quot; : &quot;</span><span class="p">,</span><span class="n">m</span><span class="p">,</span> <span class="s2">&quot;+/-&quot;</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">m</span><span class="p">,</span><span class="n">m</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;black&#39;</span> <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">m</span><span class="o">-</span><span class="n">s</span><span class="p">,</span><span class="n">m</span><span class="o">-</span><span class="n">s</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">style</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">method</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">m</span><span class="o">+</span><span class="n">s</span><span class="p">,</span><span class="n">m</span><span class="o">+</span><span class="n">s</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">style</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">m</span><span class="o">-</span><span class="n">s</span><span class="p">,</span><span class="n">m</span><span class="o">+</span><span class="n">s</span><span class="p">],[</span><span class="n">pos</span><span class="p">,</span><span class="n">pos</span><span class="p">],</span><span class="n">style</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>max_dev  :  1316.3086347078017 +/- 738.0729570890783
+mad  :  1316.3086347078017 +/- 327.4656915004233
+sigma  :  1316.3086347078017 +/- 374.5723639541368
+IQR  :  1316.3086347078017 +/- 720.4074859619113
+</pre></div>
+</div>
+<img alt="_images/32db8a02d4c465ec79affcf1db97731687f95b663732ee0088bb49549649bff2.png" src="_images/32db8a02d4c465ec79affcf1db97731687f95b663732ee0088bb49549649bff2.png" />
+</div>
+</div>
+</section>
+<section id="parametres-de-forme">
+<h3>Paramètres de forme<a class="headerlink" href="#parametres-de-forme" title="Lien vers cette rubrique">#</a></h3>
+<p>Les paramètres de forme sont souvent calculés en référence à la forme de la loi normale, pour évaluer la symétrie, l’aplatissement ou la dérive par rapport à cette loi.</p>
+<div class="proof definition admonition" id="definition-15">
+<p class="admonition-title"><span class="caption-number">Definition 31 </span> (Skewness)</p>
+<section class="definition-content" id="proof-content">
+<div class="math notranslate nohighlight">
+\[g_1 = \frac{m_3}{\sigma^3}\]</div>
+</section>
+</div><p>Le skewness est également appelé coefficient d’asymétrie de Fisher.</p>
+<div class="proof definition admonition" id="definition-16">
+<p class="admonition-title"><span class="caption-number">Definition 32 </span> (Kurtosis)</p>
+<section class="definition-content" id="proof-content">
+<div class="math notranslate nohighlight">
+\[K=\frac{m_4}{m_2^2}\]</div>
+</section>
+</div><p><span class="math notranslate nohighlight">\(K\)</span> permet de mesurer l’aplatissement.</p>
+<div class="proof definition admonition" id="definition-17">
+<p class="admonition-title"><span class="caption-number">Definition 33 </span> (Coefficient d’asymétrie de Yule)</p>
+<section class="definition-content" id="proof-content">
+<div class="math notranslate nohighlight">
+\[A_Y = \frac{x_{3/4}+x_{1/4}-2x_{1/2}}{x_{3/4}-x_{1/4}}\]</div>
+</section>
+</div><p>Ce coefficient est fondé sur les positions de trois quartiles (le premier, la médiane et le troisième) et est normalisé par la distance interquartile.</p>
+<div class="proof definition admonition" id="definition-18">
+<p class="admonition-title"><span class="caption-number">Definition 34 </span> (Coefficient d’asymétrie de Pearson)</p>
+<section class="definition-content" id="proof-content">
+<div class="math notranslate nohighlight">
+\[A_P = \frac{\bar{x}-x_M}{\sigma}\]</div>
+</section>
+</div><p>Ce coefficient est fondé sur la comparaison de la moyenne et du mode, et est normalisé par l’écart type.</p>
+<p>Tous les coefficients d’asymétrie ont des propriétés similaires : ils sont nuls si la distribution est symétrique, négatifs si la distribution est allongée à gauche (left asymmetry), et positifs si la distribution est allongée à droite (right asymmetry).</p>
+<p>On peut aussi chercher à mesurer l’aplatissement (ou kurtosis) d’une distribution de mesure. Dans ce cas, on utilise le coefficient d’aplatissement de Pearson ou de Fisher, respectivement donnés par
+<span class="math notranslate nohighlight">\(\beta_2=\frac{m_4}{\sigma^4}\quad\textrm{et}\quad g_2=\beta_2-3\)</span></p>
+<p>Une distribution est alors dite :</p>
+<ul class="simple">
+<li><p>mésokurtique si <span class="math notranslate nohighlight">\(g_2\)</span> est proche de 0</p></li>
+<li><p>leptokurtique si <span class="math notranslate nohighlight">\(g_2&gt;0\)</span> (queues plus longues et distribution plus pointue)</p></li>
+<li><p>platykyrtique si <span class="math notranslate nohighlight">\(g_2&lt;0\)</span> (queues plus courtes et distribution arrondie).</p></li>
+</ul>
+<section id="pour-resumer">
+<span id="boxplot"></span><h4>Pour résumer<a class="headerlink" href="#pour-resumer" title="Lien vers cette rubrique">#</a></h4>
+<p>Les principales statistiques d’une série statistique peuvent être résumées dans des <strong>boîtes à moustache</strong>, qui permettent de voir sur un même graphique :</p>
+<ul class="simple">
+<li><p>la médiane</p></li>
+<li><p>une boîte entre les premier et le troisième quartile</p></li>
+<li><p>l’étendue</p></li>
+<li><p>les points aberrants.</p></li>
+</ul>
+<p>Ce mode de représentation consiste à dessiner une boîte dont les extrémités dépendent du premier et du troisième quartiles <span class="math notranslate nohighlight">\(Q_1\)</span> et <span class="math notranslate nohighlight">\(Q_3\)</span> , en ajoutant une barre à l’intérieur
+matérialisant le second quartile  <span class="math notranslate nohighlight">\(Q_2\)</span> (la valeur médiane de l’échantillon). A cette boîte, on ajoute des “moustaches” dont les extrémités dépendent :</p>
+<ul class="simple">
+<li><p>soit des valeurs extrémales prises par l’échantillon (minimum et maximum);</p></li>
+<li><p>soit de la plus petite et de la plus grande valeur de l’échantillon appartenant à l’intervalle <span class="math notranslate nohighlight">\([Q_1 -\delta, Q_3+\delta ]\)</span>. La grandeur <span class="math notranslate nohighlight">\(\delta\)</span> est une mesure de la dispersion des données. Généralement, on utilise <span class="math notranslate nohighlight">\(\delta = 1.5(Q_3-Q_1)\)</span>.</p></li>
+</ul>
+<p>Les valeurs de l’ échantillon en dehors des moustaches sont parfois matérialisées par des points et sont alors considérées comme les points aberrants de l’échantillon.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="k">def</span> <span class="nf">annotate_boxplot</span><span class="p">(</span><span class="n">bpdict</span><span class="p">,</span> <span class="n">annotate_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                     <span class="n">x_offset</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">x_loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                     <span class="n">text_offset_x</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span>
+                     <span class="n">text_offset_y</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">annotate_params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">annotate_params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">text_offset_x</span><span class="p">,</span> <span class="n">text_offset_y</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s1">&#39;offset points&#39;</span><span class="p">,</span> <span class="n">arrowprops</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;arrowstyle&#39;</span><span class="p">:</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">})</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Médiane&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">x_loc</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">x_offset</span><span class="p">,</span> <span class="n">bpdict</span><span class="p">[</span><span class="s1">&#39;medians&#39;</span><span class="p">][</span><span class="n">x_loc</span><span class="p">]</span><span class="o">.</span><span class="n">get_ydata</span><span class="p">()[</span><span class="mi">0</span><span class="p">]),</span> <span class="o">**</span><span class="n">annotate_params</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$Q_1$&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">x_loc</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">x_offset</span><span class="p">,</span> <span class="n">bpdict</span><span class="p">[</span><span class="s1">&#39;boxes&#39;</span><span class="p">][</span><span class="n">x_loc</span><span class="p">]</span><span class="o">.</span><span class="n">get_ydata</span><span class="p">()[</span><span class="mi">0</span><span class="p">]),</span> <span class="o">**</span><span class="n">annotate_params</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$Q_3$&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">x_loc</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">x_offset</span><span class="p">,</span> <span class="n">bpdict</span><span class="p">[</span><span class="s1">&#39;boxes&#39;</span><span class="p">][</span><span class="n">x_loc</span><span class="p">]</span><span class="o">.</span><span class="n">get_ydata</span><span class="p">()[</span><span class="mi">2</span><span class="p">]),</span> <span class="o">**</span><span class="n">annotate_params</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$Q_1-1.5(Q_3-Q_1)$&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">x_loc</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">x_offset</span><span class="p">,</span> <span class="n">bpdict</span><span class="p">[</span><span class="s1">&#39;caps&#39;</span><span class="p">][</span><span class="n">x_loc</span><span class="o">*</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">get_ydata</span><span class="p">()[</span><span class="mi">0</span><span class="p">]),</span> <span class="o">**</span><span class="n">annotate_params</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$Q_3+1.5(Q_3-Q_1)$&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">x_loc</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">x_offset</span><span class="p">,</span> <span class="n">bpdict</span><span class="p">[</span><span class="s1">&#39;caps&#39;</span><span class="p">][(</span><span class="n">x_loc</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_ydata</span><span class="p">()[</span><span class="mi">0</span><span class="p">]),</span> <span class="o">**</span><span class="n">annotate_params</span><span class="p">)</span>
+
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Données&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">150</span><span class="p">)})</span>
+
+<span class="n">bpdict</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">whis</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s1">&#39;dict&#39;</span><span class="p">)</span>
+<span class="n">annotate_boxplot</span><span class="p">(</span><span class="n">bpdict</span><span class="p">,</span> <span class="n">x_loc</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2f982e4bb5ae6c0fe2d01fec436c5ffff32a61b762b24a48bf743fec858effa9.png" src="_images/2f982e4bb5ae6c0fe2d01fec436c5ffff32a61b762b24a48bf743fec858effa9.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="la-description-ne-fait-pas-tout">
+<h3>La description ne fait pas tout…<a class="headerlink" href="#la-description-ne-fait-pas-tout" title="Lien vers cette rubrique">#</a></h3>
+<p>La description d’un ensemble de valeurx <span class="math notranslate nohighlight">\(x_j\)</span> par la moyenne, la variance, voire le comportement linéaire (coefficient de corrélation, voir plus loin) peut ne pas suffire à comprendre la distribution des données. Un exemple classique (analyse bivariée, section suivante) est le quartet d’Anscombe (figure ci-dessous), constitué de quatre ensembles de points  <span class="math notranslate nohighlight">\((x,y)\in\mathbb{R}^2\)</span> de même propriétés statistiques (moyenne, variance, coefficient de régression linéaire) mais qui sont distribués de manière totalement différente dans le plan.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">8.04</span><span class="p">,</span> <span class="mf">6.95</span><span class="p">,</span> <span class="mf">7.58</span><span class="p">,</span> <span class="mf">8.81</span><span class="p">,</span> <span class="mf">8.33</span><span class="p">,</span> <span class="mf">9.96</span><span class="p">,</span> <span class="mf">7.24</span><span class="p">,</span> <span class="mf">4.26</span><span class="p">,</span> <span class="mf">10.84</span><span class="p">,</span> <span class="mf">4.82</span><span class="p">,</span> <span class="mf">5.68</span><span class="p">]</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="p">[</span><span class="mf">9.14</span><span class="p">,</span> <span class="mf">8.14</span><span class="p">,</span> <span class="mf">8.74</span><span class="p">,</span> <span class="mf">8.77</span><span class="p">,</span> <span class="mf">9.26</span><span class="p">,</span> <span class="mf">8.10</span><span class="p">,</span> <span class="mf">6.13</span><span class="p">,</span> <span class="mf">3.10</span><span class="p">,</span> <span class="mf">9.13</span><span class="p">,</span> <span class="mf">7.26</span><span class="p">,</span> <span class="mf">4.74</span><span class="p">]</span>
+<span class="n">y3</span> <span class="o">=</span> <span class="p">[</span><span class="mf">7.46</span><span class="p">,</span> <span class="mf">6.77</span><span class="p">,</span> <span class="mf">12.74</span><span class="p">,</span> <span class="mf">7.11</span><span class="p">,</span> <span class="mf">7.81</span><span class="p">,</span> <span class="mf">8.84</span><span class="p">,</span> <span class="mf">6.08</span><span class="p">,</span> <span class="mf">5.39</span><span class="p">,</span> <span class="mf">8.15</span><span class="p">,</span> <span class="mf">6.42</span><span class="p">,</span> <span class="mf">5.73</span><span class="p">]</span>
+<span class="n">x4</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="n">y4</span> <span class="o">=</span> <span class="p">[</span><span class="mf">6.58</span><span class="p">,</span> <span class="mf">5.76</span><span class="p">,</span> <span class="mf">7.71</span><span class="p">,</span> <span class="mf">8.84</span><span class="p">,</span> <span class="mf">8.47</span><span class="p">,</span> <span class="mf">7.04</span><span class="p">,</span> <span class="mf">5.25</span><span class="p">,</span> <span class="mf">12.50</span><span class="p">,</span> <span class="mf">5.56</span><span class="p">,</span> <span class="mf">7.91</span><span class="p">,</span> <span class="mf">6.89</span><span class="p">]</span>
+
+<span class="n">datasets</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;1.&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span>
+    <span class="s1">&#39;2.&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">),</span>
+    <span class="s1">&#39;3.&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y3</span><span class="p">),</span>
+    <span class="s1">&#39;4.&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x4</span><span class="p">,</span> <span class="n">y4</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+                        <span class="n">gridspec_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;wspace&#39;</span><span class="p">:</span> <span class="mf">0.08</span><span class="p">,</span> <span class="s1">&#39;hspace&#39;</span><span class="p">:</span> <span class="mf">0.18</span><span class="p">})</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">14</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">datasets</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+    <span class="n">p1</span><span class="p">,</span> <span class="n">p0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># slope, intercept</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axline</span><span class="p">(</span><span class="n">xy1</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">p0</span><span class="p">),</span> <span class="n">slope</span><span class="o">=</span><span class="n">p1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">stats</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">bar x$ = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+             <span class="sa">f</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">sigma$ = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+             <span class="sa">f</span><span class="s1">&#39;$r$ = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">,</span> <span class="n">stats</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> 
+            <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9b6587f958d4fef34ecba24bd8f21e04f573ddd7505d191c7387c4994cdfe52c.png" src="_images/9b6587f958d4fef34ecba24bd8f21e04f573ddd7505d191c7387c4994cdfe52c.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="statistique-descriptive-bivariee">
+<h2>Statistique descriptive bivariée<a class="headerlink" href="#statistique-descriptive-bivariee" title="Lien vers cette rubrique">#</a></h2>
+<p>On s’intéresse à deux variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>, mesurées sur les <span class="math notranslate nohighlight">\(n\)</span> unités d’observation. La série statistique est alors une suite de <span class="math notranslate nohighlight">\(n\)</span> couples <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> des valeurs prises par les deux variables sur chaque individu.</p>
+<section id="cas-de-deux-variables-quantitatives">
+<h3>Cas de deux variables quantitatives<a class="headerlink" href="#cas-de-deux-variables-quantitatives" title="Lien vers cette rubrique">#</a></h3>
+<p>Le couple est un couple de valeurs numériques. C’est donc un point dans le plan <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>. Les variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> peuvent être analysées séparément, en opérant une statistique univariée sur chacune de ces variables. Les paramètres calculés (de position, de dispersion…) sont dits marginaux. Cependant, il est intéressant d’étudier le lien entre ces deux variables, par l’intermédiaire des valeurs des couples. On définit pour cela un certain nombre d’outils :</p>
+<div class="proof definition admonition" id="definition-19">
+<p class="admonition-title"><span class="caption-number">Definition 35 </span> (Covariance)</p>
+<section class="definition-content" id="proof-content">
+<p>La covariance de <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> est définie par :
+<span class="math notranslate nohighlight">\(\sigma_{xy}=\frac{1}{n}\displaystyle\sum_{i=1}^n\left (x_i-\bar{x}\right )\left (y_i-\bar{y}\right )\)</span></p>
+</section>
+</div><div class="proof definition admonition" id="definition-20">
+<span id="index-9"></span><span id="index-8"></span><p class="admonition-title"><span class="caption-number">Definition 36 </span> (Coefficient de corrélation)</p>
+<section class="definition-content" id="proof-content">
+<p>Le coefficient de corrélation  de deux variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> est défini par
+<span class="math notranslate nohighlight">\(r_{xy}=\frac{\sigma_{xy}}{\sigma_{x}\sigma_{y}}\)</span>.
+Le coefficient de détermination est le carré du coefficient de corrélation.</p>
+</section>
+</div><p>Le coefficient de corrélation est donc la covariance normalisée par les écarts types marginaux des variables. Il mesure la dépendance linéaire entre <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>. Il est compris dans l’intervalle [-1,1] est est positif (resp. négatif) si les points sont alignés le long d’une droite croissante (resp. décroissante), d’autant plus grand en valeur absolue que la dépendance linéaire est vérifiée. Dans le cas où le coefficient est nul, il n’existe pas de dépendance linéaire.</p>
+<p>Pour connaître plus précisément la relation linéaire qui lie <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>, on effectue une régression linéaire en calculant par exemple la droite de régression : si <span class="math notranslate nohighlight">\(y=a+bx\)</span>, il est facile de montrer que
+<span class="math notranslate nohighlight">\(b=\frac{\sigma_{xy}}{\sigma_x^2}\quad\textrm{et}\quad a=\bar{y}-b\bar{x}\)</span></p>
+<p>et la droite de régression s’écrit <span class="math notranslate nohighlight">\(y-\bar{y}=\frac{\sigma_{xy}}{\sigma_x^2}\left ( x-\bar{x}\right )\)</span>.</p>
+<p>A partir de cette droite, on peut calculer les valeurs ajustées, obtenues à partir de la droite de régression : <span class="math notranslate nohighlight">\(y^*_i=a+bx_i\)</span>. Ce sont les valeurs théoriques des <span class="math notranslate nohighlight">\(y_i\)</span> et les résidus <span class="math notranslate nohighlight">\(e_i=y_i-y_i^*\)</span> représentent la partie inexpliquée des <span class="math notranslate nohighlight">\(y_i\)</span> par la droite de régression (ceux là même que l’on essaye de minimiser par la méthode des moindres carrés). Nous reviendrons dans le chapitre sur la régression sur l’analyse de ces résidus.</p>
+</section>
+<section id="cas-de-deux-variables-qualitatives">
+<h3>Cas de deux variables qualitatives<a class="headerlink" href="#cas-de-deux-variables-qualitatives" title="Lien vers cette rubrique">#</a></h3>
+<p>Le couple est un couple de valeurs <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> où <span class="math notranslate nohighlight">\(x_i\)</span> et <span class="math notranslate nohighlight">\(y_i\)</span> prennent comme valeurs des modalités qualitatives. Notons <span class="math notranslate nohighlight">\(x_1\cdots x_J\)</span> et <span class="math notranslate nohighlight">\(y_1\cdots y_K\)</span> les valeurs distinctes prises.</p>
+<p>Les données peuvent être regroupées sous la forme d’un <strong>tableau de contingence</strong> prenant la forme suivante :</p>
+<p id="index-11"><span id="index-10"></span><span class="math notranslate nohighlight">\(\begin{array}{c|ccccc|c}
+&amp;y_1&amp;\cdots&amp;y_k&amp;\cdots&amp;y_K&amp;total\\
+\hline
+x_1&amp;n_{11}&amp;\cdots&amp;n_{1k}&amp;\cdots&amp;n_{1K}&amp;n_{1.}\\
+\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots\\
+x_j&amp;n_{j1}&amp;\cdots&amp;n_{jk}&amp;\cdots&amp;n_{jK}&amp;n_{j.}\\
+\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots\\
+x_J&amp;n_{J1}&amp;\cdots&amp;n_{Jk}&amp;\cdots&amp;n_{JK}&amp;n_{J.}\\
+\hline
+total&amp;n_{.1}&amp;\cdots&amp;n_{.k}&amp;\cdots&amp;n_{.K}&amp;n\\
+\end{array}
+\)</span></p>
+<p>où <span class="math notranslate nohighlight">\(n_{j.}\)</span> (resp <span class="math notranslate nohighlight">\(n_{.k}\)</span> )sont les effectifs marginaux représentant le nombre de fois où <span class="math notranslate nohighlight">\(x_j\)</span> (resp. <span class="math notranslate nohighlight">\(y_k\)</span>) apparaît, et <span class="math notranslate nohighlight">\(n_{jk}\)</span> le nombre d’apparition du couple <span class="math notranslate nohighlight">\((x_j,y_k)\)</span>.</p>
+<p>Le tableau des fréquences <span class="math notranslate nohighlight">\(f_{jk}\)</span> s’obtient en divisant tous les effectifs par la taille <span class="math notranslate nohighlight">\(n\)</span> dans ce tableau.</p>
+<p>Un tel tableau s’interprète toujours en comparant les fréquences en lignes ou les fréquences en colonnes (profils lignes ou colonnes), définies  respectivement par
+<span class="math notranslate nohighlight">\(f_k^{(j)}= \frac{n_{jk}}{n_{j.}}=\frac{f_{jk}}{f_{j.}}\quad\textrm{ et }\quad f_j^{(k)}= \frac{n_{jk}}{n_{.k}}=\frac{f_{jk}}{f_{.k}}\)</span></p>
+<p>Si l’on cherche un lien entre les variables, on construit un tableau d’effectifs théoriques qui représente la situation où les variables ne sont pas liées (indépendance). Ce tableau est constitué des effectifs
+<span class="math notranslate nohighlight">\(n_{jk}^*=\frac{n_{j.}n_{.k}}{n}\)</span>
+Les effectifs observés <span class="math notranslate nohighlight">\(n_{jk}\)</span> ont les mêmes marges que les <span class="math notranslate nohighlight">\(n_{jk}^*\)</span>, et les écarts à l’indépendance sont calculés par la différence <span class="math notranslate nohighlight">\(e_{jk}=n_{jk}-n_{jk}^*\)</span></p>
+<p id="index-12">La dépendance du tableau se mesure au moyen du khi-deux défini par
+<span class="math notranslate nohighlight">\(\chi^2_{obs}= \displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J\frac{e_{jk}^2}{n_{jk}^*}\)</span>
+qui peut être normalisé pour ne plus dépendre du nombre d’observations :
+<span class="math notranslate nohighlight">\(\phi^2=\frac{\chi^2_{obs}}{n}\)</span></p>
+<p>La construction du tableau des effectifs théoriques et sa comparaison au tableau des observations permet dans un premier temps de mettre en évidence les associations significatives entre modalités des deux variables. Pour cela, on calcule la contribution au <span class="math notranslate nohighlight">\(\chi^2\)</span> des modalités <span class="math notranslate nohighlight">\(j\)</span> et <span class="math notranslate nohighlight">\(k\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{\chi^2_{obs}}\frac{\left (n_{jk}-n_{j.}n_{.k}\right )^2}{n_{jk}^*}\]</div>
+<p>Le signe de la différence <span class="math notranslate nohighlight">\(n_{jk}-n_{jk}^*\)</span> indique alors s’il y a une association positive ou négative entre les modalités <span class="math notranslate nohighlight">\(j\)</span> et <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<p>Plus généralement, le <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span> est un indicateur de liaison entre les variables.  Dans le cas où <span class="math notranslate nohighlight">\(\chi^2_{obs}=0\)</span>, il y a indépendance. Pour rechercher la borne supérieure du khi-deux et voir dans quel cas elle est atteinte, on développe le carré et on obtient</p>
+<div class="math notranslate nohighlight">
+\[\chi^2_{obs} = n\left [\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J \frac{n_{jk}^2}{n_{j.}n_{.k}} -1\right ]\]</div>
+<p>Comme <span class="math notranslate nohighlight">\(\frac{n_{jk}}{n_{.k}}\leq 1\)</span> on a <span class="math notranslate nohighlight">\( \frac{n_{jk}^2}{n_{j.}n_{.k}} \leq \frac{n_{jk}}{n_{.k}}\)</span> d’où</p>
+<div class="math notranslate nohighlight">
+\[\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J\frac{n_{jk}^2}{n_{j.}n_{.k}}\leq \displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J \frac{n_{jk}}{n_{.k}} = \displaystyle\sum_{k=1}^K \frac{\displaystyle\sum_{j=1}^J n_{jk}}{n_{.k}}=\displaystyle\sum_{k=1}^K \frac{n_{.k}}{n_{.k}}=1\]</div>
+<p>d’où <span class="math notranslate nohighlight">\(\chi^2_{obs}\leq n(K-1)\)</span>. On pourrait de même montrer que <span class="math notranslate nohighlight">\(\chi^2_{obs}\leq n(J-1)\)</span> et donc <span class="math notranslate nohighlight">\(\phi^2\leq min(J-1,K-1)\)</span>.</p>
+<p>La borne est atteinte dans le cas de la dépendance fonctionnelle (si <span class="math notranslate nohighlight">\(\forall j \frac{n_{jk}}{n_{j.}}=1\)</span>, i.e. il n’existe qu’une case non nulle dans chaque ligne.)</p>
+<p>A partir de ce khi-deux normalisé, on calcule finalement plusieurs coefficients permettant de mesurer l’indépendance, et parmi ceux-ci citons :</p>
+<ul class="simple">
+<li><p>le coefficient de Cramer:
+<span class="math notranslate nohighlight">\(V=\sqrt{\frac{\phi^2}{min(J-1,K-1)}}\)</span></p></li>
+<li><p>le coefficient de contingence de Pearson :
+<span class="math notranslate nohighlight">\(C = \sqrt{\frac{\phi^2}{\phi^2 + 1}}\)</span></p></li>
+<li><p>le coefficient de Tschuprow :
+<span class="math notranslate nohighlight">\(T = \sqrt{\frac{\phi^2}{\sqrt{(K-1)(J-1)}}}\)</span></p></li>
+</ul>
+<p>Ces coefficients sont tous compris entre 0 (indépendance) et 1 (dépendance fonctionnelle). Pour estimer à partir de quelle valeur la dépendance fonctionnelle est significative, on procède de la manière suivante : si les <span class="math notranslate nohighlight">\(n\)</span> observations étaient prélevées dans une population où les variables sont indépendantes, on recherche les valeurs probables de <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span>.</p>
+<p>En s’appuyant sur la loi multinomiale et le test du <span class="math notranslate nohighlight">\(\chi^2\)</span>, on montre que <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span> est une réalisation d’une variable aléatoire <span class="math notranslate nohighlight">\(Z\)</span> suivant approximativement une loi <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span>.</p>
+<div class="proof remark dropdown admonition" id="remark-21">
+<p class="admonition-title"><span class="caption-number">Remark 10 </span></p>
+<section class="remark-content" id="proof-content">
+<p>Soient <span class="math notranslate nohighlight">\(U_1\ldots U_p\)</span> <span class="math notranslate nohighlight">\(p\)</span> variables i.i.d de loi normale centrée réduite. On appelle loi du <span class="math notranslate nohighlight">\(\chi^2\)</span> à <span class="math notranslate nohighlight">\(p\)</span> degrés de liberté la loi de la variable <span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^pU_i^2\)</span>.</p>
+</section>
+</div><p>En effet, les <span class="math notranslate nohighlight">\(e_{jk}\)</span> sont liées par <span class="math notranslate nohighlight">\((K-1)(J-1)\)</span> relations linéaires puisqu’on estime les probabilités de réalisation de <span class="math notranslate nohighlight">\(x_j\)</span> et <span class="math notranslate nohighlight">\(y_k\)</span> respectivement par <span class="math notranslate nohighlight">\(n_{j,.}/n\)</span> et <span class="math notranslate nohighlight">\(n_{.k}/n\)</span>. Il suffit alors de fixer un risque d’erreur <span class="math notranslate nohighlight">\(\alpha\)</span> (une valeur qui, s’il y avait indépendance, n’aurait qu’une probabilité faible d’être dépassée), et on rejette l’hypothèse d’indépendance si <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span>  est supérieur à la valeur critique qu’une variable <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span> a une probabilité <span class="math notranslate nohighlight">\(\alpha\)</span> de dépasser.
+L’espérance d’un <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span> étant égale à son degré de liberté, <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span> est d’autant plus grand que le nombre de modalités <span class="math notranslate nohighlight">\(J\)</span> et/ou <span class="math notranslate nohighlight">\(K\)</span> est grand.</p>
+<p>D’autres indices existent, qui ne dépendent pas de <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span>, comme par exemple</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation} G^2 = 2\displaystyle\sum_{k=1}^K\displaystyle\sum_{j=1}^J n_{jk} ln \left (\frac{ n_{jk}}{ n^*_{jk}} \right )\end{equation}\)</span></p>
+<p>qui sous l’hypothèse d’indépendance suit une loi <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span>.</p>
+</section>
+<section id="cas-d-une-variable-quantitative-et-d-une-variable-qualitative">
+<h3>Cas d’une variable quantitative et d’une variable qualitative<a class="headerlink" href="#cas-d-une-variable-quantitative-et-d-une-variable-qualitative" title="Lien vers cette rubrique">#</a></h3>
+<p>On s’intéresse ici au cas où les modalités <span class="math notranslate nohighlight">\(x_i\)</span> sont qualitatives, et où <span class="math notranslate nohighlight">\(y\)</span> est une variable quantitative, dont les modalités sont des réalisations d’une variable aléatoire <span class="math notranslate nohighlight">\(Y\)</span>.
+Le rapport de corrélation théorique entre <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> est défini par</p>
+<div class="math notranslate nohighlight">
+\[\eta^2_{Y\mid x} = \frac{\sigma^2_{\mathbb{E}_{Y\mid x}}}{\sigma^2_Y}\]</div>
+<p>Si <span class="math notranslate nohighlight">\(n_j\)</span> est le nombre d’observations de la modalité <span class="math notranslate nohighlight">\(x_j,j\in[\![1\,J]\!]\)</span>, <span class="math notranslate nohighlight">\(y_{ij}\)</span> la valeur de <span class="math notranslate nohighlight">\(Y\)</span> du <span class="math notranslate nohighlight">\(i^e\)</span> individu de la modalité <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(\bar{y}_1\ldots \bar{y}_J\)</span> sont les moyennes de <span class="math notranslate nohighlight">\(Y\)</span> pour ces modalités et <span class="math notranslate nohighlight">\(\bar{y}\)</span> la moyenne totale sur les <span class="math notranslate nohighlight">\(n\)</span> individus, le rapport de corrélation empirique est défini par</p>
+<div class="math notranslate nohighlight">
+\[e^2 = \frac{\frac{1}{n}\displaystyle\sum_{j=1}^J n_j\left (\bar{y}_j-\bar{y}\right )^2}{\sigma^2_y}\]</div>
+<p>La quantité</p>
+<p><span class="math notranslate nohighlight">\(\sigma^2_\cap = \frac{1}{n}\displaystyle\sum_{j=1}^J n_j\sigma_j^2\)</span></p>
+<p>avec <span class="math notranslate nohighlight">\(\sigma_j^2 =  \frac{1}{n_j}\displaystyle\sum_{i=1}^{n_j}\left (y_{ij}-\bar{y}_j \right )^2\)</span>,  est appelée variance intra groupe (ou intra classe), et donne une idée de la variabilité à l’intérieur de chaque modalité.
+La quantité
+<span class="math notranslate nohighlight">\(\sigma_\cup = \frac{1}{n}\displaystyle\sum_{j=1}^J n_j\left (\bar{y}_j-\bar{y}\right )^2\)</span>
+est la variance inter groupes (ou inter classes), et mesure la variabilité entre les différentes modalités.</p>
+<p>Le théorème de décomposition de la variance (ou théorème de Huygens) affirme que la variance totale <span class="math notranslate nohighlight">\(\sigma^2_y\)</span>, calculée sans distinction de modalité s’écrit :
+<span class="math notranslate nohighlight">\(\sigma^2_y = \sigma^2_\cap + \sigma^2_\cup\)</span></p>
+<p>De ces définitions, on a alors :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(e^2=0\)</span> si toutes les moyennes de <span class="math notranslate nohighlight">\(Y\)</span> sont égales, d’où l’absence de dépendance en moyenne</p></li>
+<li><p><span class="math notranslate nohighlight">\(e^2=1\)</span> si tous les individus d’une modalité de <span class="math notranslate nohighlight">\(x\)</span> ont même valeur de <span class="math notranslate nohighlight">\(Y\)</span> et ceci pour chaque modalité</p></li>
+<li><p><span class="math notranslate nohighlight">\(e^2\)</span> permet de comprendre, via le théorème de Huygens,  quelle variation est prédominante dans la variance totale. Ainsi par exemple, si la variable quantitative est la note d’un élève à un examen, et la variable qualitative son assiduité au cours correspondant, la variabilité entre les notes obtenues dans toute la promotion dépend de deux
+facteurs : le fait que les étudiants assistent ou pas aux cours, et le fait qu’à assiduité
+égale (i.e. à l’intérieur d’une même modalité d’assiduité) les étudiants n’ont pas le même niveau. <span class="math notranslate nohighlight">\(e^2\)</span>  permet alors de savoir lequel de ces deux facteurs est prédominant
+pour expliquer la variabilité des notes dans toute la promotion.</p></li>
+</ul>
+<p>Pour déterminer à partir de quelle valeur <span class="math notranslate nohighlight">\(e^2\)</span> est significatif, on compare donc <span class="math notranslate nohighlight">\(\sigma^2_\cap\)</span> à <span class="math notranslate nohighlight">\(\sigma^2_\cup\)</span>. On peut montrer que si le rapport de corrélation théorique est nul, alors la variable <span class="math notranslate nohighlight">\(\frac{\left (\frac{e^2}{J-1}\right )}{\left (\frac{1-e^2}{n-J}\right )}\)</span> suit une loi de Fisher Snedecor, en supposant que les distributions conditionnelles de <span class="math notranslate nohighlight">\(Y\)</span> pour chaque modalité de <span class="math notranslate nohighlight">\(X\)</span> sont gaussiennes, de même espérance et de même variance.</p>
+<div class="proof remark dropdown admonition" id="remark-22">
+<p class="admonition-title"><span class="caption-number">Remark 11 </span></p>
+<section class="remark-content" id="proof-content">
+<p>Soient <span class="math notranslate nohighlight">\(U\)</span> et <span class="math notranslate nohighlight">\(V\)</span> deux variables aléatoires indépendantes suivant respectivement des lois <span class="math notranslate nohighlight">\(\chi^2_n\)</span> et <span class="math notranslate nohighlight">\(\chi^2_p\)</span>. On définit la loi de Fisher Snedecor par <span class="math notranslate nohighlight">\(F(n,p)=\frac{U/n}{V/P}\)</span>) <span class="math notranslate nohighlight">\(F(J-1,n-J)\)</span></p>
+</section>
+</div></section>
+</section>
+<section id="vers-une-analyse-multivariee">
+<h2>Vers une analyse multivariée<a class="headerlink" href="#vers-une-analyse-multivariee" title="Lien vers cette rubrique">#</a></h2>
+<p>Bien évidemment, dans la majorité des cas, un individu sera décrit par <span class="math notranslate nohighlight">\(p\geq 2\)</span> variables. Si certains algorithmes de statistique descriptive multidimensionnelle sont abordés dans ce cours, il est néanmoins possible d’avoir une première approche exploratoire de ce cas.</p>
+<section id="matrices-de-covariance-et-de-correlation">
+<h3>Matrices de covariance et de corrélation<a class="headerlink" href="#matrices-de-covariance-et-de-correlation" title="Lien vers cette rubrique">#</a></h3>
+<p>La première idée, lorsque l’on a observé <span class="math notranslate nohighlight">\(d\)</span> variables sur <span class="math notranslate nohighlight">\(n\)</span> individus, est de calculer les <span class="math notranslate nohighlight">\(d\)</span> variances de ces variables, et les <span class="math notranslate nohighlight">\(\frac{p(p-1)}{2}\)</span> covariances. Ces mesures sont regroupées dans une matrice <span class="math notranslate nohighlight">\(p\times p\)</span>, symétrique, semi définie positive, appelée matrice de variance-covariance (ou matrice des covariances), et classiquement notée <span class="math notranslate nohighlight">\(\boldsymbol\Sigma\)</span>.</p>
+<p>De même, on peut former la matrice des corrélations entre les variables, à diagonale unité et symétrique. La matrice résultante, notée <span class="math notranslate nohighlight">\(\mathbf R\)</span>, est également semi définie positive et sa représentation graphique en fausses couleurs permet d’apprécier les dépendances linéaires entre variables.</p>
+<p><img alt="" src="_images/batiments.png" /></p>
+<p>Dans le cas de variables qualitatives, les coefficients de corrélation peuvent être remplacés par les coefficients de Cramer, de Tschuprow…</p>
+</section>
+<section id="tableaux-de-nuages">
+<h3>Tableaux de nuages<a class="headerlink" href="#tableaux-de-nuages" title="Lien vers cette rubrique">#</a></h3>
+<p>On peut proposer à partir de là des représentations entre sous-ensembles de variables. La figure suivante propose un exemple de tels tableaux, parfois appelés splom (Scatter PLOt Matrix) :</p>
+<ul class="simple">
+<li><p>la partie triangulaire supérieure représente les nuages de points de couples de variables</p></li>
+<li><p>la diagonale représente les histogrammes des variables</p></li>
+<li><p>la partie trianglaire inférieure donne le coefficient de corrélation entre les deux variables, et une estimation de la densité de la distribution 2D des données</p></li>
+</ul>
+<p><img alt="" src="_images/batiments2.png" /></p>
+</section>
+<section id="tableaux-de-burt">
+<h3>Tableaux de Burt<a class="headerlink" href="#tableaux-de-burt" title="Lien vers cette rubrique">#</a></h3>
+<p>Le tableau de Burt est une généralisation particulière de la table de contingence dans le cas où l’on étudie simultanément <span class="math notranslate nohighlight">\(p\)</span> variables qualitatives <span class="math notranslate nohighlight">\(X_1\ldots X_p\)</span>. Notons <span class="math notranslate nohighlight">\(c_j\)</span> le nombre de modalités de <span class="math notranslate nohighlight">\(X_j\)</span> et posons <span class="math notranslate nohighlight">\(c=\displaystyle\sum_{j=1}^p c_j\)</span>.</p>
+<p id="index-14"><span id="index-13"></span>Le tableau de Burt est une matrice carrée symétrique de taille <span class="math notranslate nohighlight">\(c\)</span>, constituée de <span class="math notranslate nohighlight">\(p^2\)</span> sous-matrices. Chacune des <span class="math notranslate nohighlight">\(p\)</span> sous-matrices diagonales est relative à l’une des <span class="math notranslate nohighlight">\(p\)</span> variables, la <span class="math notranslate nohighlight">\(j^e\)</span> étant carrée de taille <span class="math notranslate nohighlight">\(c_j\)</span>, diagonale, et de coefficients diagonaux les effectifs marginaux de <span class="math notranslate nohighlight">\(X_j\)</span>. La sous-matrice dans le bloc <span class="math notranslate nohighlight">\((k,l)\)</span> du tableau, <span class="math notranslate nohighlight">\(k\neq l\)</span>, est la table de contingence des variables <span class="math notranslate nohighlight">\(X_k\)</span> et <span class="math notranslate nohighlight">\(X_l\)</span>.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="elemstats.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">Elements de statistiques</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="selection.html"
+       title="page suivante">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Sélection de variables</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Définitions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typologie-des-variables">Typologie des variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-qualitative-nominale">Variable qualitative nominale</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-qualitative-ordinale">Variable qualitative ordinale</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-quantitative-discrete">Variable quantitative discrète</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-quantitative-continue">Variable quantitative continue</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-traitement-des-donnees">Pré-traitement des données</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#points-aberrants">Points aberrants</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-manquantes">Données manquantes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-des-donnees-qualitatives">Transformation des données qualitatives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisation">Normalisation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistique-descriptive-univariee">Statistique descriptive univariée</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-position">Paramètres de position</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-dispersion">Paramètres de dispersion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametres-de-forme">Paramètres de forme</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pour-resumer">Pour résumer</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-description-ne-fait-pas-tout">La description ne fait pas tout…</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistique-descriptive-bivariee">Statistique descriptive bivariée</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cas-de-deux-variables-quantitatives">Cas de deux variables quantitatives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cas-de-deux-variables-qualitatives">Cas de deux variables qualitatives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cas-d-une-variable-quantitative-et-d-une-variable-qualitative">Cas d’une variable quantitative et d’une variable qualitative</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vers-une-analyse-multivariee">Vers une analyse multivariée</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-de-covariance-et-de-correlation">Matrices de covariance et de corrélation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tableaux-de-nuages">Tableaux de nuages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tableaux-de-burt">Tableaux de Burt</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par Vincent BARRA
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
