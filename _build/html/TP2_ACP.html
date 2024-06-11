@@ -62,11 +62,9 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'TP2_ACP';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TP2_ACP (conflicted copy 2024-03-11 133741)';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="TP Régression linéaire" href="TP_Regression_Lineaire.html" />
-    <link rel="prev" title="TP Statistiques descriptives" href="TP1_statsDescriptives.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -128,6 +126,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -184,10 +184,10 @@
 <li class="toctree-l1"><a class="reference internal" href="clustering.html">Quelques méthodes de classification</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TP</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="sujetsTP.html">Sujets de TP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="TP1_statsDescriptives.html">TP Statistiques descriptives</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">TP ACP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TP2_ACP.html">TP ACP</a></li>
 
 
 
@@ -338,7 +338,7 @@ document.write(`
     <span class="kn">import</span> <span class="nn">sklearn</span><span class="o">,</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">matplotlib</span> 
 <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span> 
     <span class="o">!</span>pip3<span class="w"> </span>install<span class="w"> </span>--quiet<span class="w"> </span>sklearn<span class="w"> </span>numpy<span class="w"> </span>matplotlib
-<span class="kn">import</span> <span class="nn">sklearn</span><span class="o">,</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">sklearn</span><span class="o">,</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -496,26 +496,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">24</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span>     <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">24</span> <span class="n">planche</span><span class="p">(</span><span class="n">Xmnist</span><span class="p">)</span>
-
-<span class="nn">Cell In[7], line 7,</span> in <span class="ni">planche</span><span class="nt">(X)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span> <span class="nf">planche</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
-<span class="ne">----&gt; </span><span class="mi">7</span>     <span class="n">exemples</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">X</span><span class="p">[:</span><span class="mi">12000</span><span class="p">:</span><span class="mi">600</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">13000</span><span class="p">:</span><span class="mi">30600</span><span class="p">:</span><span class="mi">600</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">30600</span><span class="p">:</span><span class="mi">60000</span><span class="p">:</span><span class="mi">590</span><span class="p">]]</span><span class="o">/</span><span class="mi">255</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">size</span> <span class="o">=</span> <span class="mi">28</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">taille</span> <span class="o">=</span> <span class="mi">10</span>
-
-<span class="ne">NameError</span>: name &#39;np&#39; is not defined
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 900x900 with 0 Axes&gt;
-</pre></div>
-</div>
+<img alt="_images/c3d08d13a198932850b1b0d03b433d9940cdb9fd1cc28f839944e64c661eb104.png" src="_images/c3d08d13a198932850b1b0d03b433d9940cdb9fd1cc28f839944e64c661eb104.png" />
 </div>
 </div>
 <p>L’ACP est ici utilisée pour réduire la représentation des données (un point ici est un vecteur de 28*28=784, l’espace original est donc <span class="math notranslate nohighlight">\(\mathbb{R}^{784}\)</span>). Intuitivement, on comprend bien que, de nombreux pixels étant noirs et communs à toutes les images, 784 dimensions sont inutiles.</p>
@@ -606,24 +587,6 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="TP1_statsDescriptives.html"
-       title="page précédente">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">TP Statistiques descriptives</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="TP_Regression_Lineaire.html"
-       title="page suivante">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">TP Régression linéaire</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               

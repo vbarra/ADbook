@@ -360,4 +360,88 @@ print("Variables sélectionnées : ", s.get_support())
 print("Classement des variables : ",s.ranking_)
 ```
 
-## Exemple complet
+### Valeurs de Shapley
+
+Terminons par une méthode plus complexe, mais performante, et notamment utilisée dans le cadre de l'étude de l'explicabilité des réseaux de neurones profonds.
+Une prédiction (en classification ou en régression) peut être expliquée en supposant que chaque valeur $x_{j}$ du descripteur $j$ de l'exemple $\mathbf x$ est un "joueur" dans un jeu où la prédiction est le gain. Les valeurs de Shapley, une méthode issue de la théorie des jeux, indiquent comment répartir équitablement le gain entre les descripteurs.
+
+Pour illustrer la méthode, considérons dans un premier temps un prédicteur linéaire $f$ en régression, qui calcule $f(\mathbf x) = a_0 + \displaystyle\sum_{i=1}^d a_i x_i$. La contribution $\phi_i$ du descripteur $j$ à la prédiction est 
+
+$$\phi_i(f) = a_i x_i - \mathbb{E}(a_iX_i) =  a_i x_i - a_i\mathbb{E}(X_i)$$
+
+où $\mathbb{E}(a_iX_i)$ est l'estimation de l'effet moyen du descripteur $i$ sur la prédiction, $X_i$ étant la variable aléatoire dont les réalisations sont les valeurs $x_i$ possibles. En sommant sur tous les descripteurs, on a alors 
+
+$$\displaystyle\sum_{i=1}^d \phi_i(f) = \displaystyle\sum_{i=1}^d \left ( a_i x_i - \mathbb{E}(a_iX_i) \right ) = (a_0+\displaystyle\sum_{i=1}^d  a_i x_i)-(a_0+\displaystyle\sum_{i=1}^d  \mathbb{E}(a_iX_i)) = f(\mathbf x)-\mathbb{E}(f(\mathbf x))$$
+
+soit la valeur prédite pour $\mathbf x$ minorée de la valeur prédite moyenne. 
+
+Dans le cas d'un modèle linéaire, on peut donc calculer la contribution (possiblement négative) de chaque descripteur. On souhaiterait maintenant disposer d'une estimation de la contribution de manière agnostique, dit autrement quel que soit le modèle $f$ utilisé. La théorie des jeux coopératifs va permettre d'apporter une solution.
+
+
+ On définit l'importance marginale du descripteur $i$ à un sous-ensemble de descripteurs $S$ , avec $i\notin S$, par 
+
+$$\Delta_i(S)= v(S\cup\{i\})-v(S)$$
+
+où $v(S)$ est une fonction mesurant la performance d'un modèle $f$ utilisant le sous-ensemble de descripteurs $S$. Alors la valeur de Shapley du descripteur $i$ est donnée par 
+
+$$\phi_i(v) = \frac{1}{d}\displaystyle\sum_{\sigma\in \Sigma}\Delta_i(S_i(\sigma))$$
+
+où $S_i(\sigma)$ est le sous-ensemble de descripteurs apparaissant avant le descripteur $i$ dans la permutation $\sigma$ de l'ensemble $\{1,\cdots d\}$.
+
+L'utilisation des valeurs de Shapley peut être justifiée par l'ensemble de propriétés suivant : 
+- $\displaystyle\sum_{i=1}^d \phi_i(v) = v(\{1,\cdots d\})$ : la performance sur l'ensemble de données est entièrement répartie entre les différents descripteurs.
+-  Pour tout ensemble de descripteurs, toute fonction $v$ et toute permutation $\sigma$, $\phi_i(v) = \phi_{\sigma{i}}(\sigma v)$ : la valeur de Shapley est indépendante de l'ordre des descripteurs.
+- Pour tout ensemble de descripteurs et toute fonction $v$ tels que $v(S\cup\{i\}) = v(S)$ pour tout sous-ensemble $S$, alors $\phi_i(v)=0$ : un descripteur n'influençant pas la performance de $f$ a une valeur de Shapley nulle.
+- Pour tout ensemble de descripteurs et toutes fonctions $v$ et $w$, $\phi_i(v+w) = \phi_i(v) + \phi_i(w)$ où $(v+w)(S) = v(S)+w(S)$ : il est possible de combiner linéairement deux mesures de performance d'un modèle 
+
+Le calcul de la valeur de Shapley nécessite de faire la somme de tous les sous-ensembles possibles de descripteurs, ce qui n'est pas réalisable lorsque $d$ devient grand. Il existe des versions d'estimateurs de la valeur de Shapley en échantillonnant des permutations à partir de $\Sigma$ ({prf:ref}`km`).
+
+```{prf:algorithm} Estimation de la valeur de Shapley du descripteur $i$
+:label: shap
+
+**Entrée :** Nombre d'itérations $M$, exemple $\mathbf x$, ensemble des exemples $\mathbf X$, $i$, modèle $f$
+
+**Sortie :** Estimation de la valeur de Shapley du descripteur $i$
+
+1.  Pour tout $j\in[\![1,M]\!]$
+    1. Tirer un exemple $\mathbf z$ dans $\mathbf X$
+    2. Tirer une permutation aléatoire $\sigma$ de l'ensemble $\{1\cdots d\}$
+    3. $\mathbf x_\sigma = (x_{\sigma(1)}\cdots x_{\sigma(d)})$ et $\mathbf z_\sigma = (z_{\sigma(1)}\cdots z_{\sigma(d)})$
+    4. Créer deux nouveaux exemples :
+        1. $\mathbf x_{+i} = (x_{\sigma(1)}\cdots x_{\sigma(i-1)},x_{\sigma(i)};z_{\sigma(i+1)}\cdots z_{\sigma(d)})$
+        2. $\mathbf x_{-i} = (x_{\sigma(1)}\cdots x_{\sigma(i-1)},z_{\sigma(i)};z_{\sigma(i+1)}\cdots z_{\sigma(d)})$
+    5. Calculer la contribution marginale du descripteur $i$ : $\phi_i^j = f(\mathbf x_{+i})-f(\mathbf x_{-i})$
+2. Calculer un estimateur de la valeur de Shapley du descripteur $i$ :  $\phi_i(\mathbf x)= \frac{1}{M}\displaystyle\sum_{j=1}^M \phi_i^j$
+```
+
+
+```{code-cell} ipython3
+try:
+    import shap 
+except ModuleNotFoundError: 
+    !pip3 install --quiet shap
+
+import shap
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+
+data = load_iris()
+X = data.data
+y = data.target
+
+X_train, X_test, Y_train, Y_test = train_test_split(X,y, test_size=0.2, random_state=0)
+knn = KNeighborsClassifier()
+knn.fit(X_train, Y_train)
+
+explainer = shap.KernelExplainer(knn.predict_proba, X_train)
+shap_values = explainer.shap_values(X_test)
+# Pour chaque exemple, on donne l'importance de chacun des descripteurs dans la décision de classification
+shap.summary_plot(shap_values[0], X_test,data.feature_names)
+```
+
+
+```{prf:remark}
+:class: dropdown
+A partir des valeurs de Shapley, on peut expliquer les prédictions d'un modèle en utilisant la méthode SHAP (SHapley Additive exPlanations)
+```
