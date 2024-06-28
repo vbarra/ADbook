@@ -14,34 +14,34 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="_static/myfilecss.css?v=6d55db64" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script src="_static/documentation_options.js?v=72dce1d2"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -76,27 +76,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Passer au contenu principal</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Haut de page
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -118,8 +114,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -219,7 +220,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -228,7 +229,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -569,7 +570,7 @@ deux approches :</p>
 <p><span class="math notranslate nohighlight">\(\Omega\)</span>  étant l’ensemble à classifier et <span class="math notranslate nohighlight">\(\delta\)</span> une mesure de dissimilarité sur cet ensemble, on définit à partir de <span class="math notranslate nohighlight">\(\delta\)</span> une  distance <span class="math notranslate nohighlight">\(D\)</span> entre les parties de  <span class="math notranslate nohighlight">\(\Omega\)</span>. Cette distance est en réalité une mesure de dissimilarité qui ne vérifie pas nécessairement toutes les propriétés d’une distance sur l’ensemble des parties de <span class="math notranslate nohighlight">\(\Omega\)</span>. En général, <span class="math notranslate nohighlight">\(D\)</span> est appelé critère d’agrégation.
 L’algorithme est alors le suivant :</p>
 <div class="proof algorithm admonition" id="algorithm-3">
-<p class="admonition-title"><span class="caption-number">Algorithm 6 </span> (Algorithme de clustering hiérarchique ascendant)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 7 </span> (Algorithme de clustering hiérarchique ascendant)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Entrée :</strong> Les éléments de <span class="math notranslate nohighlight">\(\Omega\)</span></p>
 <p><strong>Sortie :</strong> Une hiérarchie</p>
@@ -764,7 +765,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5c44276d9ad350474e33c9b547a8797af94a1ba73672d189670696f4457af8a6.png" src="_images/5c44276d9ad350474e33c9b547a8797af94a1ba73672d189670696f4457af8a6.png" />
+<img alt="_images/27a60ce5dd1fbcd645b5e74d7b1d48c2230eb17d83d975423eca1b568de0753f.png" src="_images/27a60ce5dd1fbcd645b5e74d7b1d48c2230eb17d83d975423eca1b568de0753f.png" />
 </div>
 </div>
 <p>L’objectif est de trouver des catégories de population ayant les mêmes comportements d’achat. Le nombre de classes étant inconnu, la classification héararchique va permettre de donner des indications sur le nombre de groupes.</p>
@@ -785,7 +786,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3af0e8095e3727b1a7de39e643636b9a63c8ac469ea97b70cb4ab28f9ae26812.png" src="_images/3af0e8095e3727b1a7de39e643636b9a63c8ac469ea97b70cb4ab28f9ae26812.png" />
+<img alt="_images/34d74ade3c8680b31a979d264043c8d4d62f9abc8a4c37f1540f0adcc5f62161.png" src="_images/34d74ade3c8680b31a979d264043c8d4d62f9abc8a4c37f1540f0adcc5f62161.png" />
 </div>
 </div>
 <p>On projette ensuite le résultat de la classification</p>
@@ -809,7 +810,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/736330712fc9c95bcc0c4b273f5f31684f43116eb6631cef08c6a0b2ceb40fde.png" src="_images/736330712fc9c95bcc0c4b273f5f31684f43116eb6631cef08c6a0b2ceb40fde.png" />
+<img alt="_images/4712875e042a96c35adb9a9ad0a92f3cc29c5f4ea5ecf79f722e7777303e4fa2.png" src="_images/4712875e042a96c35adb9a9ad0a92f3cc29c5f4ea5ecf79f722e7777303e4fa2.png" />
 </div>
 </div>
 </section>
@@ -823,7 +824,7 @@ les indices obtenus soient strictement croissants avec le niveau de la hiérarch
 <h4>Algorithme<a class="headerlink" href="#id2" title="Lien vers cette rubrique">#</a></h4>
 <p>L’algorithme des centres-mobiles peut se définir ainsi :</p>
 <div class="proof algorithm admonition" id="algorithm-4">
-<p class="admonition-title"><span class="caption-number">Algorithm 7 </span> (Algorithme des centres mobiles)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 8 </span> (Algorithme des centres mobiles)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(\Omega\)</span>,<span class="math notranslate nohighlight">\(g\)</span>, métrique</p>
 <p><strong>Sortie :</strong> Une partition de <span class="math notranslate nohighlight">\(\Omega\)</span></p>
@@ -902,9 +903,9 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </section>
 <section id="acceleration-des-k-means">
 <h4>Accélération des k-means<a class="headerlink" href="#acceleration-des-k-means" title="Lien vers cette rubrique">#</a></h4>
-<p>L’algorithme original peut être amélioré de manière significative en évitant les calculs de distances non nécessaires. En exploitant l’inégalité triangulaire, et en conservant les bornes inférieures et supérieures des distances entre les points et les centres de classe, l’algorithme correspondant est performant, y compris pour de grandes valeurs de <span class="math notranslate nohighlight">\(k\)</span> (<a class="reference internal" href="#km">Algorithm 8</a>).</p>
+<p>L’algorithme original peut être amélioré de manière significative en évitant les calculs de distances non nécessaires. En exploitant l’inégalité triangulaire, et en conservant les bornes inférieures et supérieures des distances entre les points et les centres de classe, l’algorithme correspondant est performant, y compris pour de grandes valeurs de <span class="math notranslate nohighlight">\(k\)</span> (<a class="reference internal" href="#km">Algorithm 9</a>).</p>
 <div class="proof algorithm admonition" id="km">
-<p class="admonition-title"><span class="caption-number">Algorithm 8 </span> (Accélération des k-means)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 9 </span> (Accélération des k-means)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(\Omega, g\)</span></p>
 <p><strong>Sortie :</strong> <span class="math notranslate nohighlight">\(P\)</span> une partition de <span class="math notranslate nohighlight">\(X\)</span> en <span class="math notranslate nohighlight">\(g\)</span> classes</p>
@@ -980,9 +981,9 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div></section>
 <section id="k-means-a-mini-batchs">
 <h4>k-means à mini batchs<a class="headerlink" href="#k-means-a-mini-batchs" title="Lien vers cette rubrique">#</a></h4>
-<p>Il est également possible d’appliquer une optimisation par mini-batchs dans l’algorithme des k-means (<a class="reference internal" href="#kmbatch">Algorithm 9</a>).</p>
+<p>Il est également possible d’appliquer une optimisation par mini-batchs dans l’algorithme des k-means (<a class="reference internal" href="#kmbatch">Algorithm 10</a>).</p>
 <div class="proof algorithm admonition" id="kmbatch">
-<p class="admonition-title"><span class="caption-number">Algorithm 9 </span> (Accélération des k-means)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 10 </span> (Accélération des k-means)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(\Omega, g\)</span>, <span class="math notranslate nohighlight">\(b\)</span> taille des batchs</p>
 <p><strong>Sortie :</strong> <span class="math notranslate nohighlight">\(P\)</span> une partition de <span class="math notranslate nohighlight">\(X\)</span> en <span class="math notranslate nohighlight">\(g\)</span> classes</p>
@@ -1035,7 +1036,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5b5685ff6914d441a59e48d2811f54bf8247d227815638bf4e52d9bc0277f13f.png" src="_images/5b5685ff6914d441a59e48d2811f54bf8247d227815638bf4e52d9bc0277f13f.png" />
+<img alt="_images/5af3684b243c6f44f9481151ddfbd8be48931fbec08c01a5268602b976b667dc.png" src="_images/5af3684b243c6f44f9481151ddfbd8be48931fbec08c01a5268602b976b667dc.png" />
 </div>
 </div>
 <p>Puis on applique l’algorithme des <span class="math notranslate nohighlight">\(k\)</span>-means.</p>
@@ -1062,7 +1063,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/83911698333dab3ff5c36d99bfc9db8dee103bce1bd5effd7f9b948910a8f16f.png" src="_images/83911698333dab3ff5c36d99bfc9db8dee103bce1bd5effd7f9b948910a8f16f.png" />
+<img alt="_images/70edfdc1f912a538614df1a9a62ce4f87fedeb2cb6e10857d40e0c02cba8252b.png" src="_images/70edfdc1f912a538614df1a9a62ce4f87fedeb2cb6e10857d40e0c02cba8252b.png" />
 </div>
 </div>
 </section>
@@ -1092,7 +1093,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </section>
 <section id="algorithme-em">
 <h3>Algorithme EM<a class="headerlink" href="#algorithme-em" title="Lien vers cette rubrique">#</a></h3>
-<p>Plutôt que d’optimiser <span class="math notranslate nohighlight">\(\ell\)</span> directement depuis les données <span class="math notranslate nohighlight">\(s\)</span>, l’algorithme EM (<a class="reference internal" href="#EM">Algorithm 10</a>) augmente d’abord les données des variables latentes (les étiquettes <span class="math notranslate nohighlight">\(\mathbf z=(z_1\cdots z_n)\)</span> des classes). L’idée est que <span class="math notranslate nohighlight">\(s\)</span> est uniquement la partie observée des données aléatoires <span class="math notranslate nohighlight">\((\mathcal S,\mathbf Z)\)</span> générées d’abord en tirant <span class="math notranslate nohighlight">\(Z\)</span> suivant <span class="math notranslate nohighlight">\(P(Z=z)\)</span>, puis en tirant <span class="math notranslate nohighlight">\(\mathbf X\)</span> suivant <span class="math notranslate nohighlight">\(\Phi_z\)</span>, de sorte à avoir</p>
+<p>Plutôt que d’optimiser <span class="math notranslate nohighlight">\(\ell\)</span> directement depuis les données <span class="math notranslate nohighlight">\(s\)</span>, l’algorithme EM (<a class="reference internal" href="#EM">Algorithm 11</a>) augmente d’abord les données des variables latentes (les étiquettes <span class="math notranslate nohighlight">\(\mathbf z=(z_1\cdots z_n)\)</span> des classes). L’idée est que <span class="math notranslate nohighlight">\(s\)</span> est uniquement la partie observée des données aléatoires <span class="math notranslate nohighlight">\((\mathcal S,\mathbf Z)\)</span> générées d’abord en tirant <span class="math notranslate nohighlight">\(Z\)</span> suivant <span class="math notranslate nohighlight">\(P(Z=z)\)</span>, puis en tirant <span class="math notranslate nohighlight">\(\mathbf X\)</span> suivant <span class="math notranslate nohighlight">\(\Phi_z\)</span>, de sorte à avoir</p>
 <div class="math notranslate nohighlight">
 \[g(s,z|\boldsymbol \theta) = \displaystyle\prod_{i=1}^n w_{z_i} \Phi_{z_i}(\mathbf x_i)\]</div>
 <p>Ainsi, la log vraisemblance des données complètes, en général plus facile à optimiser, est</p>
@@ -1107,7 +1108,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 <p><span class="math notranslate nohighlight">\(p(z)\)</span> est de la forme <span class="math notranslate nohighlight">\(p_1(z_1)\cdots p_n(z_n)\)</span> de telle sorte que, étant donné <span class="math notranslate nohighlight">\(\mathcal S=s\)</span>, les composantes de <span class="math notranslate nohighlight">\(\mathbf Z\)</span> sont deux à deux indépendantes.</p>
 </section>
 </div><div class="proof algorithm admonition" id="EM">
-<p class="admonition-title"><span class="caption-number">Algorithm 10 </span> (Algorithmes EM)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 11 </span> (Algorithmes EM)</p>
 <section class="algorithm-content" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\(s,\boldsymbol\theta^{(0)}\)</span></p>
 <p><strong>Sortie :</strong> Approximation de la log vraisemblance maximale</p>
@@ -1123,7 +1124,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 <li><p>Retourner <span class="math notranslate nohighlight">\(\boldsymbol\theta{(i)}\)</span></p></li>
 </ol>
 </section>
-</div><p>Dans l”<a class="reference internal" href="#EM">Algorithm 10</a>, un critère d’arrêt est par exemple</p>
+</div><p>Dans l”<a class="reference internal" href="#EM">Algorithm 11</a>, un critère d’arrêt est par exemple</p>
 <div class="math notranslate nohighlight">
 \[\frac{\ell(\boldsymbol\theta{(i)}|s)-\ell(\boldsymbol\theta^{(i-1)}|s)}{\ell(\boldsymbol\theta{(i)}|s)}&lt;\epsilon\]</div>
 <p>Sous certaines conditions, la suite des <span class="math notranslate nohighlight">\(\ell(\boldsymbol\theta{(i)}|s)\)</span> converge vers un maximum local de la log vraisemblance <span class="math notranslate nohighlight">\(\ell\)</span>. La convergence vers le maximum global dépend bien sûr du choix de <span class="math notranslate nohighlight">\(\boldsymbol\theta^{(0)}\)</span>, de sorte qu’une stratégie possible est d’exécuter plusieurs fois l’algorithme avec des initialisations différentes.</p>
@@ -1208,7 +1209,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c4c36356b658545414747c464d503816084b7bbf73949f432a12ed86ed6d5635.png" src="_images/c4c36356b658545414747c464d503816084b7bbf73949f432a12ed86ed6d5635.png" />
+<img alt="_images/0bdb737a21abaa3105a49b59642eb113e3177a0183ef5817e7f77c21868b0032.png" src="_images/0bdb737a21abaa3105a49b59642eb113e3177a0183ef5817e7f77c21868b0032.png" />
 </div>
 </div>
 </section>
@@ -1297,10 +1298,10 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 <span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">ell</span><span class="o">.</span><span class="n">set_clip_box</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">bbox</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="n">ell</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
 
-<span class="ne">TypeError</span>: Ellipse.__init__() takes 4 positional arguments but 5 were given
+<span class="ne">TypeError</span>: __init__() takes 4 positional arguments but 5 were given
 </pre></div>
 </div>
-<img alt="_images/2f651cb5f75b8f9c292339dd1008e396b41a6fb361d80bbec479eb2494ca2610.png" src="_images/2f651cb5f75b8f9c292339dd1008e396b41a6fb361d80bbec479eb2494ca2610.png" />
+<img alt="_images/cb796dc599a6bff601ed30fd029b84cf7982f6512dca01b71eb27568e32fdc57.png" src="_images/cb796dc599a6bff601ed30fd029b84cf7982f6512dca01b71eb27568e32fdc57.png" />
 </div>
 </div>
 </section>
@@ -1510,7 +1511,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1665,8 +1666,8 @@ Par Vincent BARRA
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

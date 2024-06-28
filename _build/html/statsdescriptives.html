@@ -14,34 +14,34 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="_static/myfilecss.css?v=6d55db64" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script src="_static/documentation_options.js?v=72dce1d2"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -76,27 +76,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Passer au contenu principal</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Haut de page
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -118,8 +114,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -219,7 +220,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -228,7 +229,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -315,6 +316,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-traitement-des-donnees">Pré-traitement des données</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#points-aberrants">Points aberrants</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-manquantes">Données manquantes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-non-balancees">Données non balancées</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-des-donnees-qualitatives">Transformation des données qualitatives</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisation">Normalisation</a></li>
 </ul>
@@ -472,7 +474,7 @@ Les histogrammes sont des représentations de la distribution des données, agr�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c413358a9c6454afcbb8d78dc7accae6016d988240059ecba91522694c9bbd20.png" src="_images/c413358a9c6454afcbb8d78dc7accae6016d988240059ecba91522694c9bbd20.png" />
+<img alt="_images/53bbf8d0a8ae05aef1814b0a6c7052b25dbbd260acfc32e13ee5778547176cd3.png" src="_images/53bbf8d0a8ae05aef1814b0a6c7052b25dbbd260acfc32e13ee5778547176cd3.png" />
 </div>
 </div>
 <p>Le choix de la largeur <span class="math notranslate nohighlight">\(t\)</span> des bins dépend des données, et par exemple on a :</p>
@@ -557,7 +559,7 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c77a23e7788f14631317e17d701cf06b38c95d0503a2518829912d7bd08f025f.png" src="_images/c77a23e7788f14631317e17d701cf06b38c95d0503a2518829912d7bd08f025f.png" />
+<img alt="_images/b07d358b7afe047b72c306f0eae71b15ec40dc4ba056cb0f47b67c047ebb0e24.png" src="_images/b07d358b7afe047b72c306f0eae71b15ec40dc4ba056cb0f47b67c047ebb0e24.png" />
 </div>
 </div>
 </section>
@@ -629,6 +631,46 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 </div>
 </div>
 </section>
+<section id="donnees-non-balancees">
+<h3>Données non balancées<a class="headerlink" href="#donnees-non-balancees" title="Lien vers cette rubrique">#</a></h3>
+<p>Même si ce problème est moins pregnant dans les algorithmes que nous verrons sur ce cours, le problème de données non balancées reste un point sensible qu’il convient de traiter, particulièrement dans le cas de l”<a class="reference external" href="https://vbarra.github.io/MLbook/">apprentissage supervisé</a>, où sont donnés des exemples <span class="math notranslate nohighlight">\((x_i,y_i),i\in[\![1,n]\!]\)</span>, avec <span class="math notranslate nohighlight">\(y_i\)</span> la « vérité » (classe ou valeur) associée à l’individu <span class="math notranslate nohighlight">\(x_i\)</span>. Nous illustrons ce problème dans le cas des algorithmes de classification : <span class="math notranslate nohighlight">\(y_i\)</span> est donc la classe de <span class="math notranslate nohighlight">\(x_i\)</span>.</p>
+<p>De nombreux problèmes de classification avec données réelles présentent la propriété que certaines classes sont plus répandues que d’autres. Par exemple :</p>
+<ul class="simple">
+<li><p>en détection de fraude : parmi toutes les transactions par carte bancaire, la fraude peut représenter 0,5 % des transactions.</p></li>
+<li><p>en classification de défauts de fabrication : différents types de défauts de fabrication peuvent avoir une prévalence différente.</p></li>
+</ul>
+<p>Dans la mesure ou ce déséquilibre peut fausser les résultats d’un algorithme (qui ne voit que la ou les classe(s) majoritaire(s)), rééquilibrer les exemples à donner à l’algorithme est primordial. On peut alors penser à :</p>
+<ul class="simple">
+<li><p><em>modifier le nombre ou la proportion de points de données</em> dans chaque classe. Le suréchantillonnage augmente le nombre de classes minoritaires, tandis que le sous-échantillonnage réduit le nombre de classes majoritaires. Les algorithmes SMOTE (suréchantillonnage synthétique minoritaire) et ADASYN (échantillonnage synthétique adaptatif) sont des exemples d’algorithmes utilisés. On décrit dans la suite l’algorithme SMOTE.</p></li>
+</ul>
+<div class="proof algorithm admonition" id="algorithm-4">
+<p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (Algorithme SMOTE)</p>
+<section class="algorithm-content" id="proof-content">
+<p><strong>Entrée :</strong> Les données, <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(N\)</span></p>
+<p><strong>Sortie :</strong> Des données rééquilibrées</p>
+<ol class="arabic simple">
+<li><p>Pour chaque classe <span class="math notranslate nohighlight">\(i\)</span> non équilibrée</p>
+<ol class="arabic simple">
+<li><p>nb=0</p></li>
+<li><p>Tant que (nb&lt;N)</p>
+<ol class="arabic simple">
+<li><p>Sélectionner aléatoirement <span class="math notranslate nohighlight">\(x\)</span> un exemple de classe <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
+<li><p>Choisir aléatoirement <span class="math notranslate nohighlight">\(x^k\)</span> l’un des k plus proches voisins de <span class="math notranslate nohighlight">\(x\)</span> parmi ceux de la classe <span class="math notranslate nohighlight">\(i\)</span> .</p></li>
+<li><p>Générer aléatoirement un coefficient <span class="math notranslate nohighlight">\(0&lt;\alpha&lt;1\)</span>.</p></li>
+<li><p>Créer un nouvel exemple (<span class="math notranslate nohighlight">\(\alpha x+(1-\alpha)x^k,i)\)</span>.</p></li>
+<li><p>nb = nb+1</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</section>
+</div><p>Le paramètre <span class="math notranslate nohighlight">\(k\)</span> a un effet sur la distribution des données générées, et donc sur la performance du modèle de classification qui sera utilisé. Le paramètre <span class="math notranslate nohighlight">\(N\)</span> est piloté sous la forme d’un taux d’observations à atteindre <span class="math notranslate nohighlight">\(N/N_m\)</span> où <span class="math notranslate nohighlight">\(N_m\)</span> est le nombre d’exemples de la classe majoritaire.</p>
+<ul class="simple">
+<li><p><em>pondérer les données</em>, par exemple en utilisant un vecteur de poids prédéfini, basé sur la fréquence inverse de chaque classe dans les données,</p></li>
+<li></li>
+</ul>
+</section>
 <section id="transformation-des-donnees-qualitatives">
 <h3>Transformation des données qualitatives<a class="headerlink" href="#transformation-des-donnees-qualitatives" title="Lien vers cette rubrique">#</a></h3>
 <p>Pour pouvoir être traitées numériquement, les données qualitatives doivent être transformées. Plusieurs techniques existent parmi lesquelles :</p>
@@ -699,13 +741,13 @@ Ordinal Encoder :
 <section id="parametres-de-position">
 <h3>Paramètres de position<a class="headerlink" href="#parametres-de-position" title="Lien vers cette rubrique">#</a></h3>
 <p>Plusieurs paramètres permettent de décrire la position « la plus représentative » d’une variable :</p>
-<div class="proof definition admonition" id="definition-4">
+<div class="proof definition admonition" id="definition-5">
 <p class="admonition-title"><span class="caption-number">Definition 20 </span> (Mode)</p>
 <section class="definition-content" id="proof-content">
 <p>Le mode est la valeur distincte correspondant à l’effectif le plus élevé. Il est noté <span class="math notranslate nohighlight">\(x_M\)</span>.</p>
 </section>
 </div><p>Le mode peut être calculé pour tout type de variable, n’est pas nécessairement unique. Lorsqu’une variable continue est découpée en classes, il est possible de définir une classe modale (classe correspondant à l’effectif le plus élevé)</p>
-<div class="proof definition admonition" id="definition-5">
+<div class="proof definition admonition" id="definition-6">
 <p class="admonition-title"><span class="caption-number">Definition 21 </span> (Moyennes)</p>
 <section class="definition-content" id="proof-content">
 <p>Les moyennes ne peuvent être définies que sur des variables quantitatives. Plusieurs moyennes peuvent être calculées, parmi lesquelles :</p>
@@ -770,16 +812,16 @@ HarmonicMean  :  1198.219210728503
 WeightedMean  :  1315.5442042923557
 </pre></div>
 </div>
-<img alt="_images/c14b3fc7dfbc94b9e3f3e84c9e5c8223c50e12e7627d388c81adef79da4b6854.png" src="_images/c14b3fc7dfbc94b9e3f3e84c9e5c8223c50e12e7627d388c81adef79da4b6854.png" />
+<img alt="_images/eedaab21856939ab16a707f71e350aced9cfb486be58be44540584cb2766c6f7.png" src="_images/eedaab21856939ab16a707f71e350aced9cfb486be58be44540584cb2766c6f7.png" />
 </div>
 </div>
-<div class="proof definition admonition" id="definition-6">
+<div class="proof definition admonition" id="definition-7">
 <p class="admonition-title"><span class="caption-number">Definition 22 </span> (Médiane)</p>
 <section class="definition-content" id="proof-content">
 <p>La médiane, notée <span class="math notranslate nohighlight">\(x_\frac{1}{2}\)</span> est la valeur centrale de la série statistique triée par ordre croissant.</p>
 </section>
 </div><p>En d’autres termes, c’est la valeur de la série triée telle qu’au moins 50% des effectifs soient inférieurs à <span class="math notranslate nohighlight">\(x_\frac{1}{2}\)</span>. Elle peut être calculée sur des variables quantitatives ou qualitatives ordinales (dans le cas où des échelles de valeur ont été définies).</p>
-<div class="proof definition admonition" id="definition-7">
+<div class="proof definition admonition" id="definition-8">
 <p class="admonition-title"><span class="caption-number">Definition 23 </span> (Quantiles)</p>
 <section class="definition-content" id="proof-content">
 <p>Le quantile d’ordre <span class="math notranslate nohighlight">\(p\)</span> est défini par <span class="math notranslate nohighlight">\(x_p=F^{-1}(p)\)</span>, où <span class="math notranslate nohighlight">\(F\)</span> est la fonction de répartition.</p>
@@ -815,48 +857,48 @@ quartile  50  :  1399.66320800781
 quartile  75  :  1626.326538085935
 </pre></div>
 </div>
-<img alt="_images/ab0cde1c9619ab9d7ebd5a47ab97431e2715c223aef360f3e45b303052bb0a37.png" src="_images/ab0cde1c9619ab9d7ebd5a47ab97431e2715c223aef360f3e45b303052bb0a37.png" />
+<img alt="_images/be103c418f7e72bdfbf91f5c2fc76217d6fab41704b60a4a806d9e0e37ffd988.png" src="_images/be103c418f7e72bdfbf91f5c2fc76217d6fab41704b60a4a806d9e0e37ffd988.png" />
 </div>
 </div>
 </section>
 <section id="parametres-de-dispersion">
 <h3>Paramètres de dispersion<a class="headerlink" href="#parametres-de-dispersion" title="Lien vers cette rubrique">#</a></h3>
 <p>Il est très souvent utile d’apprécier la dispersion des mesures autour du paramètre de position. Pour cela, sur des variables quantitatives uniquement, plusieurs outils sont disponibles :</p>
-<div class="proof definition admonition" id="definition-8">
+<div class="proof definition admonition" id="definition-9">
 <p class="admonition-title"><span class="caption-number">Definition 24 </span> (Etendue)</p>
 <section class="definition-content" id="proof-content">
 <p>L’étendue est la simple différence entre la plus grande et la plus petite valeur observée.</p>
 </section>
-</div><div class="proof definition admonition" id="definition-9">
+</div><div class="proof definition admonition" id="definition-10">
 <p class="admonition-title"><span class="caption-number">Definition 25 </span> (Déviation maximale)</p>
 <section class="definition-content" id="proof-content">
 <p>La déviation maximale est définie par
 <span class="math notranslate nohighlight">\( maxdev(X) = max \{ |x_i - \bar{x}| \,|\, i\in[\![1,n]\!]\}\)</span></p>
 </section>
-</div><div class="proof definition admonition" id="definition-10">
+</div><div class="proof definition admonition" id="definition-11">
 <p class="admonition-title"><span class="caption-number">Definition 26 </span> (Déviation moyenne absolue)</p>
 <section class="definition-content" id="proof-content">
 <p>La déviation moyenne absolue est définie par
 <span class="math notranslate nohighlight">\( mad(X) = \frac{1}{n} \displaystyle\sum_{i=1}^n |x_i - \bar{x}|\)</span></p>
 </section>
-</div><div class="proof definition admonition" id="definition-11">
+</div><div class="proof definition admonition" id="definition-12">
 <p class="admonition-title"><span class="caption-number">Definition 27 </span> (Distance interquartile)</p>
 <section class="definition-content" id="proof-content">
 <p>La distance interquartile <span class="math notranslate nohighlight">\(Q_3-Q_1\)</span> est la différence entre le troisième et le premier quartile. C’est une statistique robuste aux points aberrants.</p>
 </section>
-</div><div class="proof definition admonition" id="definition-12">
+</div><div class="proof definition admonition" id="definition-13">
 <p class="admonition-title"><span class="caption-number">Definition 28 </span> (Variance)</p>
 <section class="definition-content" id="proof-content">
 <p>La variance est la somme des carrés des écarts à la moyenne, normalisée par le nombre d’observations
 <span class="math notranslate nohighlight">\(\sigma^2 = \frac{1}{n}\displaystyle\sum_{i=1}^n\left (x_i-\bar{x}\right )^2\)</span></p>
 </section>
 </div><p>Cette variance est dite biaisée. La variance non biaisée est obtenue en divisant non pas par <span class="math notranslate nohighlight">\(n\)</span>, mais par <span class="math notranslate nohighlight">\(n-1\)</span>.</p>
-<div class="proof definition admonition" id="definition-13">
+<div class="proof definition admonition" id="definition-14">
 <p class="admonition-title"><span class="caption-number">Definition 29 </span> (Ecart type)</p>
 <section class="definition-content" id="proof-content">
 <p>L’écart type est la racine carrée de la variance.</p>
 </section>
-</div><div class="proof definition admonition" id="definition-14">
+</div><div class="proof definition admonition" id="definition-15">
 <p class="admonition-title"><span class="caption-number">Definition 30 </span> (Ecart moyen absolu)</p>
 <section class="definition-content" id="proof-content">
 <p>L’écart moyen absolu est la somme des valeurs absolues des écarts à la moyenne divisée par le nombre d’observations.</p>
@@ -907,35 +949,35 @@ sigma  :  1316.3086347078017 +/- 374.5723639541368
 IQR  :  1316.3086347078017 +/- 720.4074859619113
 </pre></div>
 </div>
-<img alt="_images/32db8a02d4c465ec79affcf1db97731687f95b663732ee0088bb49549649bff2.png" src="_images/32db8a02d4c465ec79affcf1db97731687f95b663732ee0088bb49549649bff2.png" />
+<img alt="_images/c99aa83e87828a353803573cc81a56e70601d11a39b13e01f4f50e534a7f346b.png" src="_images/c99aa83e87828a353803573cc81a56e70601d11a39b13e01f4f50e534a7f346b.png" />
 </div>
 </div>
 </section>
 <section id="parametres-de-forme">
 <h3>Paramètres de forme<a class="headerlink" href="#parametres-de-forme" title="Lien vers cette rubrique">#</a></h3>
 <p>Les paramètres de forme sont souvent calculés en référence à la forme de la loi normale, pour évaluer la symétrie, l’aplatissement ou la dérive par rapport à cette loi.</p>
-<div class="proof definition admonition" id="definition-15">
+<div class="proof definition admonition" id="definition-16">
 <p class="admonition-title"><span class="caption-number">Definition 31 </span> (Skewness)</p>
 <section class="definition-content" id="proof-content">
 <div class="math notranslate nohighlight">
 \[g_1 = \frac{m_3}{\sigma^3}\]</div>
 </section>
 </div><p>Le skewness est également appelé coefficient d’asymétrie de Fisher.</p>
-<div class="proof definition admonition" id="definition-16">
+<div class="proof definition admonition" id="definition-17">
 <p class="admonition-title"><span class="caption-number">Definition 32 </span> (Kurtosis)</p>
 <section class="definition-content" id="proof-content">
 <div class="math notranslate nohighlight">
 \[K=\frac{m_4}{m_2^2}\]</div>
 </section>
 </div><p><span class="math notranslate nohighlight">\(K\)</span> permet de mesurer l’aplatissement.</p>
-<div class="proof definition admonition" id="definition-17">
+<div class="proof definition admonition" id="definition-18">
 <p class="admonition-title"><span class="caption-number">Definition 33 </span> (Coefficient d’asymétrie de Yule)</p>
 <section class="definition-content" id="proof-content">
 <div class="math notranslate nohighlight">
 \[A_Y = \frac{x_{3/4}+x_{1/4}-2x_{1/2}}{x_{3/4}-x_{1/4}}\]</div>
 </section>
 </div><p>Ce coefficient est fondé sur les positions de trois quartiles (le premier, la médiane et le troisième) et est normalisé par la distance interquartile.</p>
-<div class="proof definition admonition" id="definition-18">
+<div class="proof definition admonition" id="definition-19">
 <p class="admonition-title"><span class="caption-number">Definition 34 </span> (Coefficient d’asymétrie de Pearson)</p>
 <section class="definition-content" id="proof-content">
 <div class="math notranslate nohighlight">
@@ -998,7 +1040,7 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2f982e4bb5ae6c0fe2d01fec436c5ffff32a61b762b24a48bf743fec858effa9.png" src="_images/2f982e4bb5ae6c0fe2d01fec436c5ffff32a61b762b24a48bf743fec858effa9.png" />
+<img alt="_images/2a9d2e067fb85e772cfedbd986bdcfb948bb56146c75d6cd633fe8ff2a7c2f1d.png" src="_images/2a9d2e067fb85e772cfedbd986bdcfb948bb56146c75d6cd633fe8ff2a7c2f1d.png" />
 </div>
 </div>
 </section>
@@ -1047,7 +1089,7 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9b6587f958d4fef34ecba24bd8f21e04f573ddd7505d191c7387c4994cdfe52c.png" src="_images/9b6587f958d4fef34ecba24bd8f21e04f573ddd7505d191c7387c4994cdfe52c.png" />
+<img alt="_images/83cf66173d69e4c03393082f132a1369219fb435814e277fcfa4bf3854cb13bf.png" src="_images/83cf66173d69e4c03393082f132a1369219fb435814e277fcfa4bf3854cb13bf.png" />
 </div>
 </div>
 </section>
@@ -1058,13 +1100,13 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 <section id="cas-de-deux-variables-quantitatives">
 <h3>Cas de deux variables quantitatives<a class="headerlink" href="#cas-de-deux-variables-quantitatives" title="Lien vers cette rubrique">#</a></h3>
 <p>Le couple est un couple de valeurs numériques. C’est donc un point dans le plan <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>. Les variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> peuvent être analysées séparément, en opérant une statistique univariée sur chacune de ces variables. Les paramètres calculés (de position, de dispersion…) sont dits marginaux. Cependant, il est intéressant d’étudier le lien entre ces deux variables, par l’intermédiaire des valeurs des couples. On définit pour cela un certain nombre d’outils :</p>
-<div class="proof definition admonition" id="definition-19">
+<div class="proof definition admonition" id="definition-20">
 <p class="admonition-title"><span class="caption-number">Definition 35 </span> (Covariance)</p>
 <section class="definition-content" id="proof-content">
 <p>La covariance de <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> est définie par :
 <span class="math notranslate nohighlight">\(\sigma_{xy}=\frac{1}{n}\displaystyle\sum_{i=1}^n\left (x_i-\bar{x}\right )\left (y_i-\bar{y}\right )\)</span></p>
 </section>
-</div><div class="proof definition admonition" id="definition-20">
+</div><div class="proof definition admonition" id="definition-21">
 <span id="index-9"></span><span id="index-8"></span><p class="admonition-title"><span class="caption-number">Definition 36 </span> (Coefficient de corrélation)</p>
 <section class="definition-content" id="proof-content">
 <p>Le coefficient de corrélation  de deux variables <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span> est défini par
@@ -1127,7 +1169,7 @@ qui peut être normalisé pour ne plus dépendre du nombre d’observations :
 </ul>
 <p>Ces coefficients sont tous compris entre 0 (indépendance) et 1 (dépendance fonctionnelle). Pour estimer à partir de quelle valeur la dépendance fonctionnelle est significative, on procède de la manière suivante : si les <span class="math notranslate nohighlight">\(n\)</span> observations étaient prélevées dans une population où les variables sont indépendantes, on recherche les valeurs probables de <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span>.</p>
 <p>En s’appuyant sur la loi multinomiale et le test du <span class="math notranslate nohighlight">\(\chi^2\)</span>, on montre que <span class="math notranslate nohighlight">\(\chi^2_{obs}\)</span> est une réalisation d’une variable aléatoire <span class="math notranslate nohighlight">\(Z\)</span> suivant approximativement une loi <span class="math notranslate nohighlight">\(\chi^2_{(K-1)(J-1)}\)</span>.</p>
-<div class="proof remark dropdown admonition" id="remark-21">
+<div class="proof remark dropdown admonition" id="remark-22">
 <p class="admonition-title"><span class="caption-number">Remark 10 </span></p>
 <section class="remark-content" id="proof-content">
 <p>Soient <span class="math notranslate nohighlight">\(U_1\ldots U_p\)</span> <span class="math notranslate nohighlight">\(p\)</span> variables i.i.d de loi normale centrée réduite. On appelle loi du <span class="math notranslate nohighlight">\(\chi^2\)</span> à <span class="math notranslate nohighlight">\(p\)</span> degrés de liberté la loi de la variable <span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^pU_i^2\)</span>.</p>
@@ -1165,7 +1207,7 @@ facteurs : le fait que les étudiants assistent ou pas aux cours, et le fait qu�
 pour expliquer la variabilité des notes dans toute la promotion.</p></li>
 </ul>
 <p>Pour déterminer à partir de quelle valeur <span class="math notranslate nohighlight">\(e^2\)</span> est significatif, on compare donc <span class="math notranslate nohighlight">\(\sigma^2_\cap\)</span> à <span class="math notranslate nohighlight">\(\sigma^2_\cup\)</span>. On peut montrer que si le rapport de corrélation théorique est nul, alors la variable <span class="math notranslate nohighlight">\(\frac{\left (\frac{e^2}{J-1}\right )}{\left (\frac{1-e^2}{n-J}\right )}\)</span> suit une loi de Fisher Snedecor, en supposant que les distributions conditionnelles de <span class="math notranslate nohighlight">\(Y\)</span> pour chaque modalité de <span class="math notranslate nohighlight">\(X\)</span> sont gaussiennes, de même espérance et de même variance.</p>
-<div class="proof remark dropdown admonition" id="remark-22">
+<div class="proof remark dropdown admonition" id="remark-23">
 <p class="admonition-title"><span class="caption-number">Remark 11 </span></p>
 <section class="remark-content" id="proof-content">
 <p>Soient <span class="math notranslate nohighlight">\(U\)</span> et <span class="math notranslate nohighlight">\(V\)</span> deux variables aléatoires indépendantes suivant respectivement des lois <span class="math notranslate nohighlight">\(\chi^2_n\)</span> et <span class="math notranslate nohighlight">\(\chi^2_p\)</span>. On définit la loi de Fisher Snedecor par <span class="math notranslate nohighlight">\(F(n,p)=\frac{U/n}{V/P}\)</span>) <span class="math notranslate nohighlight">\(F(J-1,n-J)\)</span></p>
@@ -1227,7 +1269,7 @@ pour expliquer la variabilité des notes dans toute la promotion.</p></li>
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1275,6 +1317,7 @@ pour expliquer la variabilité des notes dans toute la promotion.</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-traitement-des-donnees">Pré-traitement des données</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#points-aberrants">Points aberrants</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-manquantes">Données manquantes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donnees-non-balancees">Données non balancées</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-des-donnees-qualitatives">Transformation des données qualitatives</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisation">Normalisation</a></li>
 </ul>
@@ -1349,8 +1392,8 @@ Par Vincent BARRA
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>
