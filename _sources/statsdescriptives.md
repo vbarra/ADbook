@@ -273,6 +273,36 @@ print((imp.fit_transform(X)))
 ```
 
 
+### Données non balancées
+Même si ce problème est moins pregnant dans les algorithmes que nous verrons sur ce cours, le problème de données non balancées reste un point sensible qu'il convient de traiter, particulièrement dans le cas de l'[apprentissage supervisé](https://vbarra.github.io/MLbook/), où sont donnés des exemples $(x_i,y_i),i\in[\![1,n]\!]$, avec $y_i$ la "vérité" (classe ou valeur) associée à l'individu $x_i$. Nous illustrons ce problème dans le cas des algorithmes de classification : $y_i$ est donc la classe de $x_i$.
+
+
+De nombreux problèmes de classification avec données réelles présentent la propriété que certaines classes sont plus répandues que d'autres. Par exemple :
+
+- en détection de fraude : parmi toutes les transactions par carte bancaire, la fraude peut représenter 0,5 % des transactions.
+- en classification de défauts de fabrication : différents types de défauts de fabrication peuvent avoir une prévalence différente.
+
+Dans la mesure ou ce déséquilibre peut fausser les résultats d'un algorithme (qui ne voit que la ou les classe(s) majoritaire(s)), rééquilibrer les exemples à donner à l'algorithme est primordial. On peut alors penser à :
+- *modifier le nombre ou la proportion de points de données* dans chaque classe. Le suréchantillonnage augmente le nombre de classes minoritaires, tandis que le sous-échantillonnage réduit le nombre de classes majoritaires. Les algorithmes SMOTE (suréchantillonnage synthétique minoritaire) et ADASYN (échantillonnage synthétique adaptatif) sont des exemples d'algorithmes utilisés. On décrit dans la suite l'algorithme SMOTE.
+
+```{prf:algorithm} Algorithme SMOTE
+**Entrée :** Les données, $k$, $N$
+
+**Sortie :** Des données rééquilibrées
+1. Pour chaque classe $i$ non équilibrée
+    1. nb=0
+    2. Tant que (nb<N)
+        1. Sélectionner aléatoirement $x$ un exemple de classe $i$.
+        2. Choisir aléatoirement $x^k$ l’un des k plus proches voisins de $x$ parmi ceux de la classe $i$ .
+        3. Générer aléatoirement un coefficient $0<\alpha<1$.
+        4. Créer un nouvel exemple ($\alpha x+(1-\alpha)x^k,i)$.
+        5. nb = nb+1
+```
+Le paramètre $k$ a un effet sur la distribution des données générées, et donc sur la performance du modèle de classification qui sera utilisé. Le paramètre $N$ est piloté sous la forme d'un taux d'observations à atteindre $N/N_m$ où $N_m$ est le nombre d'exemples de la classe majoritaire.
+
+- *pondérer les données*, par exemple en utilisant un vecteur de poids prédéfini, basé sur la fréquence inverse de chaque classe dans les données, 
+
+
 ### Transformation des données qualitatives
 Pour pouvoir être traitées numériquement, les données qualitatives doivent être transformées. Plusieurs techniques existent parmi lesquelles :
 
