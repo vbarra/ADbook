@@ -302,7 +302,6 @@ Le paramètre $k$ a un effet sur la distribution des données générées, et do
 
 - *pondérer les données*, par exemple en utilisant un vecteur de poids prédéfini, basé sur la fréquence inverse de chaque classe dans les données, 
 
-- 
 
 ### Transformation des données qualitatives
 Pour pouvoir être traitées numériquement, les données qualitatives doivent être transformées. Plusieurs techniques existent parmi lesquelles :
