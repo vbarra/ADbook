@@ -15,16 +15,32 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-IC_pente = b1 + t_critical*std_err
-print('L''intervalle de confiance % de la pente est ' + str(np.round(IC_pente,2)))
+alpha = 0.05
+tstat = st.t.ppf([alpha/2,1-alpha/2], len(x)-2)            
+slope_lower,slope_upper = pente + tstat*std_err 
+
+plt.scatter(x, y, color = 'b',label='Données',zorder=10)
+plt.plot(dX, ordonnee + pente*dX, 'black', label='Modèle linéaire')
+plt.plot(dX, ordonnee + slope_upper*dX, 'black',ls='--',lw=1,label=r'alpha = ' + str(alpha) + ' Intervalle de confiance')
+plt.plot(dX, ordonnee + slope_lower*dX, 'black',ls='--',lw=1)
+plt.annotate('Paramètre du modèle, intervalles de confiance à ' + str(1-alpha),[1.3,24])
+plt.annotate('Intervalle de pente : ' + str(np.round(IC_pente,2)),[1.5,23])
+plt.fill_between(dX,ordonnee + slope_upper*dX,ordonnee + slope_lower*dX,color='red',alpha=0.3,zorder=1)
+plt.xlabel(r'x'); plt.ylabel('y')
+plt.legend(loc='best'); plt.ylim([ymin,ymax]); plt.xlim([xmin,xmax])
+plt.subplots_adjust(left=0.0, bottom=0.0, right=1.0, top=1.1, wspace=0.1, hspace=0.2); 
+plt.tight_layout()
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[7], line 1[0m
-[0;32m----> 1[0m IC_pente [38;5;241m=[39m b1 [38;5;241m+[39m [43mt_critical[49m[38;5;241m*[39mstd_err
-[1;32m      2[0m [38;5;28mprint[39m([38;5;124m'[39m[38;5;124mL[39m[38;5;124m'[39m[38;5;124m'[39m[38;5;124mintervalle de confiance [39m[38;5;132;01m% d[39;00m[38;5;124me la pente est [39m[38;5;124m'[39m [38;5;241m+[39m [38;5;28mstr[39m(np[38;5;241m.[39mround(IC_pente,[38;5;241m2[39m)))
+Cell [0;32mIn[8], line 3[0m
+[1;32m      1[0m alpha [38;5;241m=[39m [38;5;241m0.05[39m
+[1;32m      2[0m tstat [38;5;241m=[39m st[38;5;241m.[39mt[38;5;241m.[39mppf([alpha[38;5;241m/[39m[38;5;241m2[39m,[38;5;241m1[39m[38;5;241m-[39malpha[38;5;241m/[39m[38;5;241m2[39m], [38;5;28mlen[39m(x)[38;5;241m-[39m[38;5;241m2[39m)            
+[0;32m----> 3[0m slope_lower,slope_upper [38;5;241m=[39m [43mpente[49m [38;5;241m+[39m tstat[38;5;241m*[39mstd_err 
+[1;32m      5[0m plt[38;5;241m.[39mscatter(x, y, color [38;5;241m=[39m [38;5;124m'[39m[38;5;124mb[39m[38;5;124m'[39m,label[38;5;241m=[39m[38;5;124m'[39m[38;5;124mDonnées[39m[38;5;124m'[39m,zorder[38;5;241m=[39m[38;5;241m10[39m)
+[1;32m      6[0m plt[38;5;241m.[39mplot(dX, ordonnee [38;5;241m+[39m pente[38;5;241m*[39mdX, [38;5;124m'[39m[38;5;124mblack[39m[38;5;124m'[39m, label[38;5;241m=[39m[38;5;124m'[39m[38;5;124mModèle linéaire[39m[38;5;124m'[39m)
 
-[0;31mNameError[0m: name 't_critical' is not defined
+[0;31mNameError[0m: name 'pente' is not defined
 

@@ -600,7 +600,7 @@ On peut ensuite s'intéresser aux intervalles de confiance sur les paramètres d
 Par exemple, l'intervalle de confiance à 95% pour la pente peut être calculée par 
 
 ```{code-cell} ipython3
-IC_pente = b1 + t_critical*std_err
+IC_pente = b1 + t_c*std_err
 print('L''intervalle de confiance % de la pente est ' + str(np.round(IC_pente,2)))
 ```
 
