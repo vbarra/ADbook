@@ -612,7 +612,7 @@ tstat = st.t.ppf([alpha/2,1-alpha/2], len(x)-2)
 b1_lower,b1_upper = b1 + tstat*std_err 
 
 plt.scatter(x, y, color = 'b',label='Données',zorder=10)
-plt.plot(dX, b0 + pente*dX, 'black', label='Modèle linéaire')
+plt.plot(dX, b0 + peb1nte*dX, 'black', label='Modèle linéaire')
 plt.plot(dX, b0 + b1_upper*dX, 'black',ls='--',lw=1,label=r'alpha = ' + str(alpha) + ' Intervalle de confiance')
 plt.plot(dX, b0 + b1_lower*dX, 'black',ls='--',lw=1)
 plt.annotate('Paramètre du modèle, intervalles de confiance à ' + str(1-alpha),[1.3,24])
