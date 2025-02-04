@@ -589,7 +589,7 @@ On doit d'abord avoir la valeur critique $t_c$, étant donnés $\alpha$ et $df=n
 ```{code-cell} ipython3
 alpha = 0.05
 t_c = st.t.ppf([alpha/2,1-alpha/2], df=len(x)-2)
-print('l'intervalle de tc est  ' + str(np.round(t_c,2)))
+print('l''intervalle de tc est  ' + str(np.round(t_c,2)))
 print('et la t-value est ' + str(round(b1/std_err,2)))
 ```
 
@@ -608,7 +608,7 @@ soit visuellement
 
 ```{code-cell} ipython3
 alpha = 0.05
-tstat = st.t.ppf([alpha/2,1-alpha/2], len(x)-2)           
+tstat = st.t.ppf([alpha/2,1-alpha/2], len(x)-2)            
 slope_lower,slope_upper = pente + tstat*std_err 
 
 plt.scatter(x, y, color = 'b',label='Données',zorder=10)
@@ -626,18 +626,4 @@ plt.tight_layout()
 
 Intéressons nous maintenant aux intervalles de prédiction
 
-\begin{equation} \hat{y}{n+1} ± t{(\frac{\alpha}{2},n-2)} \sqrt{MSE}\ \times \sqrt{1+\frac{1}{n}+\frac{(x_{n+1}-\overline{x})^2}{\sum_{i=1}^{n}(x_{i}-\overline{x})^2} } \end{equation}
-
-Note, this is the standard error of the prediction,
-
-\begin{equation} SE_{\hat{y}{n+1}} = \sqrt{MSE}\ \times \sqrt{1+\frac{1}{n}+\frac{(x{n+1}-\overline{x})^2}{\sum_{i=1}^{n}(x_{i}-\overline{x})^2} } \end{equation}
-
-where MSE, model mean square error calculated as,
-
-\begin{equation} MSE = \sum_{i=1}^n\frac{(y_i - \hat{y}i)^2}{n-2} = \sum{i=1}^n \frac{\left(y_i - (b_1 x - b_0) \right)^2}{n-2} \end{equation}
-
-Note, that this indicates that prediction intervals are wider the further we estimate from the mean of the predictor feature values. We can substitute model MSE, MSE, and standard error of the estimate, 
- for the final form is,
-
-\begin{equation} \hat{y}{n+1} ± t{(\frac{\alpha}{2},n-2)} \sqrt{\sum_{i=1}^n \frac{\left(y_i - (b_1 x - b_0) \right)^2}{n-2}}\sqrt{1+\frac{1}{n}+\frac{(x_{n+1}-\overline{x})^2}{\sum_{i=1}^{n}(x_{i}-\overline{x})^2} } \end{equation}
 
