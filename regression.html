@@ -867,12 +867,12 @@ est une mesure du pouvoir prédictif du modèle.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/k2/63jxpq5j3b78v_1h6tdfk88m0000gp/T/ipykernel_7562/1114012019.py:32: UserWarning: Legend does not support handles for Text instances.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/k2/63jxpq5j3b78v_1h6tdfk88m0000gp/T/ipykernel_7766/1114012019.py:32: UserWarning: Legend does not support handles for Text instances.
 See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#implementing-a-custom-legend-handler
   plt.legend(loc=&#39;best&#39;)
 </pre></div>
 </div>
-<img alt="_images/3c7abd87c5be8e817c1da06edab023c2ddf2c99a8838fa8f3ad0cd215920b335.png" src="_images/3c7abd87c5be8e817c1da06edab023c2ddf2c99a8838fa8f3ad0cd215920b335.png" />
+<img alt="_images/3d06c4035aa622d7a7611556eb4901f8cc337697234b6b3c1f2643525a34baeb.png" src="_images/3d06c4035aa622d7a7611556eb4901f8cc337697234b6b3c1f2643525a34baeb.png" />
 </div>
 </div>
 <p>Et on teste le modèle. Pour récupérer facilement des statistiques sur le modèle, on va utiliser la fonction <a class="reference external" href="https://docs.scipy.org/doc/scipy-1.12.0/reference/generated/scipy.stats.linregress.html">linregress</a> de scipy.</p>
@@ -884,7 +884,7 @@ See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#impl
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Modèle trouvé y = 2.7+2.36x
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Modèle trouvé y = 1.75+2.62x
 </pre></div>
 </div>
 </div>
@@ -897,7 +897,7 @@ See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#impl
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value pour H0 : (b1 = 0)= 1.1276451646335825e-12.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value pour H0 : (b1 = 0)= 8.064074696720337e-17.
 </pre></div>
 </div>
 </div>
@@ -915,7 +915,7 @@ See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#impl
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lintervalle de tc est  [-2.01  2.01]
-et la t-value est 10.79
+et la t-value est 15.01
 </pre></div>
 </div>
 </div>
@@ -931,7 +931,7 @@ et la t-value est 10.79
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lintervalle de confiance % de la pente est [1.92 2.8 ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lintervalle de confiance % de la pente est [2.27 2.97]
 </pre></div>
 </div>
 </div>
@@ -944,7 +944,7 @@ et la t-value est 10.79
 <span class="n">b1_lower</span><span class="p">,</span><span class="n">b1_upper</span> <span class="o">=</span> <span class="n">b1</span> <span class="o">+</span> <span class="n">tstat</span><span class="o">*</span><span class="n">std_err</span> 
 
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Données&#39;</span><span class="p">,</span><span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dX</span><span class="p">,</span> <span class="n">b0</span> <span class="o">+</span> <span class="n">pente</span><span class="o">*</span><span class="n">dX</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Modèle linéaire&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dX</span><span class="p">,</span> <span class="n">b0</span> <span class="o">+</span> <span class="n">peb1nte</span><span class="o">*</span><span class="n">dX</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Modèle linéaire&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dX</span><span class="p">,</span> <span class="n">b0</span> <span class="o">+</span> <span class="n">b1_upper</span><span class="o">*</span><span class="n">dX</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;alpha = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; Intervalle de confiance&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dX</span><span class="p">,</span> <span class="n">b0</span> <span class="o">+</span> <span class="n">b1_lower</span><span class="o">*</span><span class="n">dX</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Paramètre du modèle, intervalles de confiance à &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">),[</span><span class="mf">1.3</span><span class="p">,</span><span class="mi">24</span><span class="p">])</span>
@@ -963,14 +963,14 @@ et la t-value est 10.79
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">b1_lower</span><span class="p">,</span><span class="n">b1_upper</span> <span class="o">=</span> <span class="n">b1</span> <span class="o">+</span> <span class="n">tstat</span><span class="o">*</span><span class="n">std_err</span> 
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Données&#39;</span><span class="p">,</span><span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dX</span><span class="p">,</span> <span class="n">b0</span> <span class="o">+</span> <span class="n">pente</span><span class="o">*</span><span class="n">dX</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Modèle linéaire&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dX</span><span class="p">,</span> <span class="n">b0</span> <span class="o">+</span> <span class="n">peb1nte</span><span class="o">*</span><span class="n">dX</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Modèle linéaire&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dX</span><span class="p">,</span> <span class="n">b0</span> <span class="o">+</span> <span class="n">b1_upper</span><span class="o">*</span><span class="n">dX</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;alpha = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; Intervalle de confiance&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dX</span><span class="p">,</span> <span class="n">b0</span> <span class="o">+</span> <span class="n">b1_lower</span><span class="o">*</span><span class="n">dX</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="ne">NameError</span>: name &#39;pente&#39; is not defined
+<span class="ne">NameError</span>: name &#39;peb1nte&#39; is not defined
 </pre></div>
 </div>
-<img alt="_images/153cd9ccaf9523a8ac7c58d0bb365a85e0602fd10492c037948eddefb7348384.png" src="_images/153cd9ccaf9523a8ac7c58d0bb365a85e0602fd10492c037948eddefb7348384.png" />
+<img alt="_images/7169c2c8011a837dccddd673f61dec40e8724dde855750456b0f1be996aff2e3.png" src="_images/7169c2c8011a837dccddd673f61dec40e8724dde855750456b0f1be996aff2e3.png" />
 </div>
 </div>
 <p>Intéressons nous maintenant aux intervalles de prédiction</p>
