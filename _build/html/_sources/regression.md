@@ -612,12 +612,12 @@ tstat = st.t.ppf([alpha/2,1-alpha/2], len(x)-2)
 b1_lower,b1_upper = b1 + tstat*std_err 
 
 plt.scatter(x, y, color = 'b',label='Données',zorder=10)
-plt.plot(dX, ordonnee + pente*dX, 'black', label='Modèle linéaire')
-plt.plot(dX, ordonnee + b1_upper*dX, 'black',ls='--',lw=1,label=r'alpha = ' + str(alpha) + ' Intervalle de confiance')
-plt.plot(dX, ordonnee + b1_lower*dX, 'black',ls='--',lw=1)
+plt.plot(dX, b0 + pente*dX, 'black', label='Modèle linéaire')
+plt.plot(dX, b0 + b1_upper*dX, 'black',ls='--',lw=1,label=r'alpha = ' + str(alpha) + ' Intervalle de confiance')
+plt.plot(dX, b0 + b1_lower*dX, 'black',ls='--',lw=1)
 plt.annotate('Paramètre du modèle, intervalles de confiance à ' + str(1-alpha),[1.3,24])
 plt.annotate('Intervalle de pente : ' + str(np.round(IC_pente,2)),[1.5,23])
-plt.fill_between(dX,ordonnee + b1_upper*dX,ordonnee + b1_lower*dX,color='red',alpha=0.3,zorder=1)
+plt.fill_between(dX,b0 + b1_upper*dX,b0 + b1_lower*dX,color='red',alpha=0.3,zorder=1)
 plt.xlabel(r'x'); plt.ylabel('y')
 plt.legend(loc='best'); plt.ylim([ymin,ymax]); plt.xlim([xmin,xmax])
 plt.subplots_adjust(left=0.0, bottom=0.0, right=1.0, top=1.1, wspace=0.1, hspace=0.2); 
