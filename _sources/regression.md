@@ -483,5 +483,161 @@ Dans la figure suivante, les points au-dessus du plan regresseur sont en bleu, l
 |------------------------------------------------------------|----------------------------------------------------------------|
 | Un point de vue...  | Un autre   |
 
+## Implémentation
 
+
+
+```{code-cell} ipython3
+import numpy as np
+import matplotlib.pyplot as plt
+
+import scipy.stats as st
+
+from sklearn.linear_model import LinearRegression,Lasso,Ridge
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+```
+
+
+On définit les données
+
+```{code-cell} ipython3
+nb_points=50
+# Paramètres de la "vraie droite" y=b0+b1.x
+b0,b1 = 0.4,2.5
+
+amp_bruit, moyenne_bruit, var_bruit = 1,1,3
+
+test_size = 0.25
+
+# Intervalle
+x1= np.linspace(0,10,10*nb_points)
+x= np.random.choice(x1,size=nb_points)
+ymin,ymax = -1,25
+xmin,xmax = 0,10
+
+dX = np.linspace(xmin,xmax,100)
+
+y=b0+b1*x+amp_bruit*np.random.normal(loc=moyenne_bruit,scale=var_bruit,size=nb_points)
+y_true=b0+b1*x
+
+x_train, X_test, y_train, y_test = train_test_split(x,y,test_size=test_size,random_state=42)
+X_train=x_train.reshape(-1,1)
+X_test=X_test.reshape(-1,1)
+xmean = np.mean(X_train)
+ymean=np.mean(y_train)
+```
+
+On construit ensuite le modèle de régression linéaire.
+
+```{code-cell} ipython3
+lr = LinearRegression()
+lr.fit(X_train,y_train)
+beta0,beta1=lr.intercept_,lr.coef_[0]
+
+train_pred = np.array(lr.predict(X_train))
+test_pred = np.array(lr.predict(X_test))
+train_score = lr.score(X_train,y_train)
+test_score = lr.score(X_test,y_test)
+RMSE_train=np.sqrt(np.mean(np.square(train_pred-y_train)))
+RMSE_test=np.sqrt(np.mean(np.square(test_pred-y_test)))
+
+plt.figure(figsize=(8,5))
+plt.title("$R^2$ Entrainement : {0:3.3f}, $R^2$ Test : {1:3.3f} --  RMSE Entrainement : {2:3.3}, Test : {3:3.3f}".format(train_score,test_score,RMSE_train,RMSE_test),fontsize=16)
+plt.xlabel("x")
+plt.ylabel("y")
+plt.plot(X_train,train_pred,'r', label='Régression')
+plt.plot(x,y_true,c='black', label='Vraie droite')
+
+plt.scatter(X_train,y_train,c='b',label='Entrainement')
+plt.scatter(X_test,y_test,marker='x',c='g',s=100,label='test')
+plt.scatter(X_test,test_pred,marker='x',c='magenta',s=100,label='prédit')
+
+plt.text(6, 4, "Droite : $y = {0:3.3f}+{1:3.3f}x$".format(b0,b1),fontsize=16)
+plt.text(6, 2, "Régression : $y = {0:3.3f}+{1:3.3f}x$".format(beta0,beta1),fontsize=16)
+plt.text(6, 0, "$R={:3.3f}$".format(np.corrcoef(x,y)[0,1]),fontsize=16)
+
+plt.text(6, 6, "Centre de masse $X=({0:3.3f},{0:3.3f})^T$".format(xmean,ymean),fontsize=16)
+
+plt.text(xmean,ymean,"X",fontsize=20,label='Centre de masse')
+
+plt.grid(True)
+plt.legend(loc='best')
+plt.tight_layout()
+```
+
+Et on teste le modèle. Pour récupérer facilement des statistiques sur le modèle, on va utiliser la fonction [linregress](https://docs.scipy.org/doc/scipy-1.12.0/reference/generated/scipy.stats.linregress.html) de scipy.
+
+
+```{code-cell} ipython3
+b1, b0, r, p, std_err = st.linregress(x_train,y_train)
+print('Modèle trouvé y = ' +str(round(b0,2)) + '+' + str(round(b1,2)) + 'x' )
+```
+
+On teste ensuite l'hypothèse $H_0$ : (b1=0) contre $H_1$ : (b1$\neq$ 0). On voit si on peut rejeter $H_0$. Si c'est le cas, on montre que la pente est significative et qu'il existe une relation linéaire entre les entrées.
+
+```{code-cell} ipython3
+print('p-value pour H0 : (b1 = 0)= ' + str(p) + '.')
+```
+Cette valeur étant bien inférieure à toute valeur $\alpha$ raisonnable, on rejette $H_0$ et on accepte $H_1$. On peut également calculer le test complet : $t_s = \frac{b_1}{\sigma_{b_1}}$.
+
+On doit d'abord avoir la valeur critique $t_c$, étant donnés $\alpha$ et $df=n-2$ et par exemple
+
+
+```{code-cell} ipython3
+alpha = 0.05
+t_c = st.t.ppf([alpha/2,1-alpha/2], df=len(x)-2)
+print('l'intervalle de tc est  ' + str(np.round(t_c,2)))
+print('et la t-value est ' + str(round(b1/std_err,2)))
+```
+
+Ce résultat est en accord avec l'analyse de la p-value : puisque la t-value est en dehors de l'intervalle de $t_c$, on rejette $H_0$.
+
+On peut ensuite s'intéresser aux intervalles de confiance sur les paramètres du modèle. 
+
+Par exemple, l'intervalle de confiance à 95% pour la pente peut être calculée par 
+
+```{code-cell} ipython3
+IC_pente = pente + t_critical*std_err
+print('L''intervalle de confiance % de la pente est ' + str(np.round(IC_pente,2)))
+```
+
+soit visuellement
+
+```{code-cell} ipython3
+alpha = 0.05
+tstat = st.t.ppf([alpha/2,1-alpha/2], len(x)-2)           
+slope_lower,slope_upper = pente + tstat*std_err 
+
+plt.scatter(x, y, color = 'b',label='Données',zorder=10)
+plt.plot(dX, ordonnee + pente*dX, 'black', label='Modèle linéaire')
+plt.plot(dX, ordonnee + slope_upper*dX, 'black',ls='--',lw=1,label=r'alpha = ' + str(alpha) + ' Intervalle de confiance')
+plt.plot(dX, ordonnee + slope_lower*dX, 'black',ls='--',lw=1)
+plt.annotate('Paramètre du modèle, intervalles de confiance à ' + str(1-alpha),[1.3,24])
+plt.annotate('Intervalle de pente : ' + str(np.round(IC_pente,2)),[1.5,23])
+plt.fill_between(dX,ordonnee + slope_upper*dX,ordonnee + slope_lower*dX,color='red',alpha=0.3,zorder=1)
+plt.xlabel(r'x'); plt.ylabel('y')
+plt.legend(loc='best'); plt.ylim([ymin,ymax]); plt.xlim([xmin,xmax])
+plt.subplots_adjust(left=0.0, bottom=0.0, right=1.0, top=1.1, wspace=0.1, hspace=0.2); 
+plt.tight_layout()
+```
+
+Intéressons nous maintenant aux intervalles de prédiction
+
+\begin{equation} \hat{y}{n+1} ± t{(\frac{\alpha}{2},n-2)} \sqrt{MSE}\ \times \sqrt{1+\frac{1}{n}+\frac{(x_{n+1}-\overline{x})^2}{\sum_{i=1}^{n}(x_{i}-\overline{x})^2} } \end{equation}
+
+Note, this is the standard error of the prediction,
+
+\begin{equation} SE_{\hat{y}{n+1}} = \sqrt{MSE}\ \times \sqrt{1+\frac{1}{n}+\frac{(x{n+1}-\overline{x})^2}{\sum_{i=1}^{n}(x_{i}-\overline{x})^2} } \end{equation}
+
+where MSE, model mean square error calculated as,
+
+\begin{equation} MSE = \sum_{i=1}^n\frac{(y_i - \hat{y}i)^2}{n-2} = \sum{i=1}^n \frac{\left(y_i - (b_1 x - b_0) \right)^2}{n-2} \end{equation}
+
+Note, that this indicates that prediction intervals are wider the further we estimate from the mean of the predictor feature values. We can substitute model MSE, MSE, and standard error of the estimate, 
+ for the final form is,
+
+\begin{equation} \hat{y}{n+1} ± t{(\frac{\alpha}{2},n-2)} \sqrt{\sum_{i=1}^n \frac{\left(y_i - (b_1 x - b_0) \right)^2}{n-2}}\sqrt{1+\frac{1}{n}+\frac{(x_{n+1}-\overline{x})^2}{\sum_{i=1}^{n}(x_{i}-\overline{x})^2} } \end{equation}
 
