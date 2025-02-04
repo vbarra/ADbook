@@ -15,7 +15,7 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-IC_pente = pente + t_critical*std_err
+IC_pente = b1 + t_critical*std_err
 print('L''intervalle de confiance % de la pente est ' + str(np.round(IC_pente,2)))
 ------------------
 
@@ -23,8 +23,8 @@ print('L''intervalle de confiance % de la pente est ' + str(np.round(IC_pente,2)
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
 Cell [0;32mIn[7], line 1[0m
-[0;32m----> 1[0m IC_pente [38;5;241m=[39m [43mpente[49m [38;5;241m+[39m t_critical[38;5;241m*[39mstd_err
+[0;32m----> 1[0m IC_pente [38;5;241m=[39m b1 [38;5;241m+[39m [43mt_critical[49m[38;5;241m*[39mstd_err
 [1;32m      2[0m [38;5;28mprint[39m([38;5;124m'[39m[38;5;124mL[39m[38;5;124m'[39m[38;5;124m'[39m[38;5;124mintervalle de confiance [39m[38;5;132;01m% d[39;00m[38;5;124me la pente est [39m[38;5;124m'[39m [38;5;241m+[39m [38;5;28mstr[39m(np[38;5;241m.[39mround(IC_pente,[38;5;241m2[39m)))
 
-[0;31mNameError[0m: name 'pente' is not defined
+[0;31mNameError[0m: name 't_critical' is not defined
 

@@ -867,12 +867,12 @@ est une mesure du pouvoir prédictif du modèle.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/k2/63jxpq5j3b78v_1h6tdfk88m0000gp/T/ipykernel_5861/1114012019.py:32: UserWarning: Legend does not support handles for Text instances.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/k2/63jxpq5j3b78v_1h6tdfk88m0000gp/T/ipykernel_6093/1114012019.py:32: UserWarning: Legend does not support handles for Text instances.
 See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#implementing-a-custom-legend-handler
   plt.legend(loc=&#39;best&#39;)
 </pre></div>
 </div>
-<img alt="_images/8c8b3bb83dcf3b0c4bb69980d5f98ccadf7bf70eb4113149fb895b136384ca78.png" src="_images/8c8b3bb83dcf3b0c4bb69980d5f98ccadf7bf70eb4113149fb895b136384ca78.png" />
+<img alt="_images/e13c08c038348512af020dc3611b20f590cd3ce1600651d9b69c9d54559b95ef.png" src="_images/e13c08c038348512af020dc3611b20f590cd3ce1600651d9b69c9d54559b95ef.png" />
 </div>
 </div>
 <p>Et on teste le modèle. Pour récupérer facilement des statistiques sur le modèle, on va utiliser la fonction <a class="reference external" href="https://docs.scipy.org/doc/scipy-1.12.0/reference/generated/scipy.stats.linregress.html">linregress</a> de scipy.</p>
@@ -884,7 +884,7 @@ See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#impl
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Modèle trouvé y = -0.07+2.58x
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Modèle trouvé y = 1.32+2.42x
 </pre></div>
 </div>
 </div>
@@ -897,7 +897,7 @@ See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#impl
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value pour H0 : (b1 = 0)= 2.5417955146290502e-17.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value pour H0 : (b1 = 0)= 1.2896440078017634e-15.
 </pre></div>
 </div>
 </div>
@@ -915,7 +915,7 @@ See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#impl
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lintervalle de tc est  [-2.01  2.01]
-et la t-value est 15.59
+et la t-value est 13.69
 </pre></div>
 </div>
 </div>
@@ -925,7 +925,7 @@ et la t-value est 15.59
 <p>Par exemple, l’intervalle de confiance à 95% pour la pente peut être calculée par</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IC_pente</span> <span class="o">=</span> <span class="n">pente</span> <span class="o">+</span> <span class="n">t_critical</span><span class="o">*</span><span class="n">std_err</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IC_pente</span> <span class="o">=</span> <span class="n">b1</span> <span class="o">+</span> <span class="n">t_critical</span><span class="o">*</span><span class="n">std_err</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;L&#39;&#39;intervalle de confiance </span><span class="si">% d</span><span class="s1">e la pente est &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">IC_pente</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
 </pre></div>
 </div>
@@ -934,10 +934,10 @@ et la t-value est 15.59
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">IC_pente</span> <span class="o">=</span> <span class="n">pente</span> <span class="o">+</span> <span class="n">t_critical</span><span class="o">*</span><span class="n">std_err</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">IC_pente</span> <span class="o">=</span> <span class="n">b1</span> <span class="o">+</span> <span class="n">t_critical</span><span class="o">*</span><span class="n">std_err</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;L&#39;&#39;intervalle de confiance </span><span class="si">% d</span><span class="s1">e la pente est &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">IC_pente</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
 
-<span class="ne">NameError</span>: name &#39;pente&#39; is not defined
+<span class="ne">NameError</span>: name &#39;t_critical&#39; is not defined
 </pre></div>
 </div>
 </div>
