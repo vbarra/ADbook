@@ -533,6 +533,10 @@ Si <span class="math notranslate nohighlight">\(\hat{\boldsymbol\beta}\)</span> 
 <p><img alt="" src="_images/comparregression.png" /></p>
 <p>Sur la figure suivante, les lignes de niveau de la fonction de coût du problème au moindres carrés sont représentées. La croix blanche représente la valeur optimale des paramètres du modèle, lorsque le problème n’est pas régularisé (moindres carrés linéaires). Les contraintes de régularisation sont les boules <span class="math notranslate nohighlight">\(\|\beta\|_x=c\)</span> pour les trois régularisation et les solutions régularisées obtenues (valeur optimale des paramètres <span class="math notranslate nohighlight">\(\beta_l,\beta_r\)</span> et <span class="math notranslate nohighlight">\(\beta_e\)</span>) sont les points jaunes.</p>
 <p><img alt="" src="_images/regul.png" /></p>
+<p>On peut s’intéresser à l’influence de l’hyperparamètre de régularisation <span class="math notranslate nohighlight">\(\lambda\)</span> sur la régression. La figure suivante montre l’évolution de la variance expliquée et de l’erreur quadratique en fonction de <span class="math notranslate nohighlight">\(\lambda\)</span>, pour un modèle de Ridge regression.</p>
+<p><img alt="" src="Ridge_regression_lambda.png" /></p>
+<p>De même, la figure suivante montre l’évolution du modèle calculé par Ridge regression pour différentes valeurs de <span class="math notranslate nohighlight">\(\lambda\)</span></p>
+<p><img alt="" src="Ridge_regression_lambda2.png" /></p>
 </section>
 </section>
 <section id="regression-logistique">
@@ -866,7 +870,7 @@ est une mesure du pouvoir prédictif du modèle.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/99dde7ea1f8fbf604d61faa03a8b59226926581b607558f94b95862cc104dbd6.png" src="_images/99dde7ea1f8fbf604d61faa03a8b59226926581b607558f94b95862cc104dbd6.png" />
+<img alt="_images/bb8fac5e47e66c45b06c4870cc0a4afd8a49424b4e5bb503206859099345b453.png" src="_images/bb8fac5e47e66c45b06c4870cc0a4afd8a49424b4e5bb503206859099345b453.png" />
 </div>
 </div>
 <p>Et on teste le modèle. Pour récupérer facilement des statistiques sur le modèle, on va utiliser la fonction <a class="reference external" href="https://docs.scipy.org/doc/scipy-1.12.0/reference/generated/scipy.stats.linregress.html">linregress</a> de scipy.</p>
@@ -878,7 +882,7 @@ est une mesure du pouvoir prédictif du modèle.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Modèle trouvé y = 1.25+2.35x
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Modèle trouvé y = 1.08+2.41x
 </pre></div>
 </div>
 </div>
@@ -891,7 +895,7 @@ est une mesure du pouvoir prédictif du modèle.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value pour H0 : (b1 = 0)= 3.57713023868981e-21.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value pour H0 : (b1 = 0)= 1.231368728189008e-19.
 </pre></div>
 </div>
 </div>
@@ -909,7 +913,7 @@ est une mesure du pouvoir prédictif du modèle.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lintervalle de tc est  [-2.01  2.01]
-et la t-value est 20.63
+et la t-value est 18.48
 </pre></div>
 </div>
 </div>
@@ -925,7 +929,7 @@ et la t-value est 20.63
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lintervalle de confiance % de la pente est [2.12 2.58]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lintervalle de confiance % de la pente est [2.14 2.67]
 </pre></div>
 </div>
 </div>
@@ -952,7 +956,7 @@ et la t-value est 20.63
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/581cc8add37cb08b478e039a0abbfe3824e459420d87f6b4c3b0b160377b9a55.png" src="_images/581cc8add37cb08b478e039a0abbfe3824e459420d87f6b4c3b0b160377b9a55.png" />
+<img alt="_images/9c8d0c7abdf2184fd23e7e48ec5a2c4859d764e369565cc3f3b06b93318caab7.png" src="_images/9c8d0c7abdf2184fd23e7e48ec5a2c4859d764e369565cc3f3b06b93318caab7.png" />
 </div>
 </div>
 <p>Intéressons nous maintenant aux intervalles de prédiction.
@@ -990,7 +994,7 @@ Etant donné un point de donnée <span class="math notranslate nohighlight">\(x_
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f7f1470ec2b4064543f3d8737a2205d2c897bb1d7964287f36f972b8469c0f60.png" src="_images/f7f1470ec2b4064543f3d8737a2205d2c897bb1d7964287f36f972b8469c0f60.png" />
+<img alt="_images/dae4552b1e5a111560007ae256e4aa01b5de1f690ad3a097594f9fb705cd8132.png" src="_images/dae4552b1e5a111560007ae256e4aa01b5de1f690ad3a097594f9fb705cd8132.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
