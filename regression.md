@@ -608,31 +608,31 @@ soit visuellement
 
 ```{code-cell} ipython3
 alpha = 0.05
-tstat = st.t.ppf([alpha/2,1-alpha/2], len(x)-2)            
-b1_lower,b1_upper = b1 + tstat*std_err 
+tstat = st.t.ppf([alpha/2,1-alpha/2], len(x)-2)           
+slope_lower,slope_upper = pente + tstat*std_err 
 
 plt.scatter(x, y, color = 'b',label='Données',zorder=10)
-plt.plot(dX, b0 + b1*dX, 'black', label='Modèle linéaire')
-plt.plot(dX, b0 + b1_upper*dX, 'black',ls='--',lw=1,label=r'alpha = ' + str(alpha) + ' Intervalle de confiance')
-plt.plot(dX, b0 + b1_lower*dX, 'black',ls='--',lw=1)
+plt.plot(x1, ordonnee + pente*x1, 'black', label='Modèle linéaire')
+plt.plot(x1, ordonnee + slope_upper*x1, 'black',ls='--',lw=1,label=r'alpha = ' + str(alpha) + ' Intervalle de confiance')
+plt.plot(x1, ordonnee + slope_lower*x1, 'black',ls='--',lw=1)
 plt.annotate('Paramètre du modèle, intervalles de confiance à ' + str(1-alpha),[1.3,24])
 plt.annotate('Intervalle de pente : ' + str(np.round(IC_pente,2)),[1.5,23])
-plt.fill_between(dX,b0 + b1_upper*dX,b0 + b1_lower*dX,color='red',alpha=0.3,zorder=1)
+plt.fill_between(x1,ordonnee + slope_upper*x1,ordonnee + slope_lower*x1,color='red',alpha=0.3,zorder=1)
 plt.xlabel(r'x'); plt.ylabel('y')
 plt.legend(loc='best'); plt.ylim([ymin,ymax]); plt.xlim([xmin,xmax])
-plt.subplots_adjust(left=0.0, bottom=0.0, right=1.0, top=1.1, wspace=0.1, hspace=0.2); 
+plt.subplots_adjust(left=0.0, bottom=0.0, right=1.0, top=1.1, wspace=0.1, hspace=0.2);
 plt.tight_layout()
 ```
 
 Intéressons nous maintenant aux intervalles de prédiction. 
 Etant donné un point de donnée $x_{new}$, on peut non seulement estimer la valeur $\hat {y}_{new}$ fournie par le modèle, mais également un intervalle de prédiction sur cette valeur. On peut montrer que cet intervalle est défini par
 
-\begin{equation} \hat{y}_{new} ± t{(\frac{\alpha}{2},n-2)} \sqrt{MSE}\ \times \sqrt{1+\frac{1}{n}+\frac{(x_{new}-\overline{x})^2}{\sum_{i=1}^{n}(x_{i}-\overline{x})^2} } \end{equation}
+$$\hat{y}_{new} ± t{(\frac{\alpha}{2},n-2)} \sqrt{MSE}\ \times \sqrt{1+\frac{1}{n}+\frac{(x_{new}-\overline{x})^2}{\sum_{i=1}^{n}(x_{i}-\overline{x})^2} }$$
 
 
 avec
 
-\begin{equation} MSE = \sum_{i=1}^n \frac{\left(y_i - (b_1 x - b_0) \right)^2}{n-2} \end{equation}
+$$MSE = \sum_{i=1}^n \frac{\left(y_i - (b_1 x - b_0) \right)^2}{n-2}$$
 
 ```{code-cell} ipython3
 x_new = 6.00
@@ -649,7 +649,7 @@ est_stderr = np.sqrt(MSE) \
 y_pred_lower, y_pred_upper = ordonnee + pente*x_new + tstat*est_stderr
 
 plt.scatter(x, y, color = 'b',label='Données',zorder=1)
-plt.plot(dX, ordonnee + pente*dX, 'black', label='Modèle linéaire',zorder=1)
+plt.plot(x1, ordonnee + pente*x1, 'black', label='Modèle linéaire',zorder=1)
 plt.scatter(x_new, ordonnee + pente*x_new,s=80,color='yellow',edgecolor='black',label=r'prédiction',zorder=2)
 plt.plot([x_new,x_new],[y_pred_lower,y_pred_upper],color='black',linestyle='dashed',zorder=1,label='Intervalle de prédiction')
 plt.ylabel('y')
