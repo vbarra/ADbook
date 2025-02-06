@@ -609,15 +609,15 @@ soit visuellement
 ```{code-cell} ipython3
 alpha = 0.05
 tstat = st.t.ppf([alpha/2,1-alpha/2], len(x)-2)           
-slope_lower,slope_upper = pente + tstat*std_err 
+slope_lower,slope_upper = b1 + tstat*std_err 
 
 plt.scatter(x, y, color = 'b',label='Données',zorder=10)
-plt.plot(x1, ordonnee + pente*x1, 'black', label='Modèle linéaire')
-plt.plot(x1, ordonnee + slope_upper*x1, 'black',ls='--',lw=1,label=r'alpha = ' + str(alpha) + ' Intervalle de confiance')
-plt.plot(x1, ordonnee + slope_lower*x1, 'black',ls='--',lw=1)
+plt.plot(x1, b0 + b1*x1, 'black', label='Modèle linéaire')
+plt.plot(x1, b0 + slope_upper*x1, 'black',ls='--',lw=1,label=r'alpha = ' + str(alpha) + ' Intervalle de confiance')
+plt.plot(x1, b0 + slope_lower*x1, 'black',ls='--',lw=1)
 plt.annotate('Paramètre du modèle, intervalles de confiance à ' + str(1-alpha),[1.3,24])
 plt.annotate('Intervalle de pente : ' + str(np.round(IC_pente,2)),[1.5,23])
-plt.fill_between(x1,ordonnee + slope_upper*x1,ordonnee + slope_lower*x1,color='red',alpha=0.3,zorder=1)
+plt.fill_between(x1,b0 + slope_upper*x1,b0 + slope_lower*x1,color='red',alpha=0.3,zorder=1)
 plt.xlabel(r'x'); plt.ylabel('y')
 plt.legend(loc='best'); plt.ylim([ymin,ymax]); plt.xlim([xmin,xmax])
 plt.subplots_adjust(left=0.0, bottom=0.0, right=1.0, top=1.1, wspace=0.1, hspace=0.2);
@@ -640,17 +640,17 @@ alpha = 0.05
 
 tstat = st.t.ppf([alpha/2,1-alpha/2], len(x)-2)
 
-yhat = ordonnee + pente*x
+yhat = b0 + b1*x
 MSE = np.sum(np.power(y-yhat,2))/(len(y)-2)
 est_stderr = np.sqrt(MSE) \
       *np.sqrt(1 + 1/len(y) + np.power(x_new - np.average(x),2)/ \
       np.sum(np.power(x-np.average(x),2)))
 
-y_pred_lower, y_pred_upper = ordonnee + pente*x_new + tstat*est_stderr
+y_pred_lower, y_pred_upper = b0 + b1*x_new + tstat*est_stderr
 
 plt.scatter(x, y, color = 'b',label='Données',zorder=1)
-plt.plot(x1, ordonnee + pente*x1, 'black', label='Modèle linéaire',zorder=1)
-plt.scatter(x_new, ordonnee + pente*x_new,s=80,color='yellow',edgecolor='black',label=r'prédiction',zorder=2)
+plt.plot(x1, b0 + b1*x1, 'black', label='Modèle linéaire',zorder=1)
+plt.scatter(x_new, b0 + b1*x_new,s=80,color='yellow',edgecolor='black',label=r'prédiction',zorder=2)
 plt.plot([x_new,x_new],[y_pred_lower,y_pred_upper],color='black',linestyle='dashed',zorder=1,label='Intervalle de prédiction')
 plt.ylabel('y')
 plt.legend()
