@@ -267,11 +267,11 @@ Sur la figure suivante, les lignes de niveau de la fonction de coût du problèm
 
 On peut s'intéresser à l'influence de l'hyperparamètre de régularisation $\lambda$ sur la régression. La figure suivante montre l'évolution de la variance expliquée et de l'erreur quadratique en fonction de $\lambda$, pour un modèle de Ridge regression.
 
-![](./Ridge_regression_lambda.png)
+![](./images/lambda1.png)
 
 De même, la figure suivante montre l'évolution du modèle calculé par Ridge regression pour différentes valeurs de $\lambda$
 
-![](./Ridge_regression_lambda2.png)
+![](./images/lambda2.png)
 
 
 ## Régression logistique
