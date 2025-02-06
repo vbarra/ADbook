@@ -609,15 +609,15 @@ soit visuellement
 ```{code-cell} ipython3
 alpha = 0.05
 tstat = st.t.ppf([alpha/2,1-alpha/2], len(x)-2)           
-slope_lower,slope_upper = b1 + tstat*std_err 
+pb,ph = b1 + tstat*std_err 
 
 plt.scatter(x, y, color = 'b',label='Données',zorder=10)
 plt.plot(x1, b0 + b1*x1, 'black', label='Modèle linéaire')
-plt.plot(x1, b0 + slope_upper*x1, 'black',ls='--',lw=1,label=r'alpha = ' + str(alpha) + ' Intervalle de confiance')
-plt.plot(x1, b0 + slope_lower*x1, 'black',ls='--',lw=1)
+plt.plot(x1, b0 + ph*x1, 'black',ls='--',lw=1,label=r'alpha = ' + str(alpha) + ' Intervalle de confiance')
+plt.plot(x1, b0 + pb*x1, 'black',ls='--',lw=1)
 plt.annotate('Paramètre du modèle, intervalles de confiance à ' + str(1-alpha),[1.3,24])
 plt.annotate('Intervalle de pente : ' + str(np.round(IC_pente,2)),[1.5,23])
-plt.fill_between(x1,b0 + slope_upper*x1,b0 + slope_lower*x1,color='red',alpha=0.3,zorder=1)
+plt.fill_between(x1,b0 + ph*x1,b0 + pb*x1,color='red',alpha=0.3,zorder=1)
 plt.xlabel(r'x'); plt.ylabel('y')
 plt.legend(loc='best'); plt.ylim([ymin,ymax]); plt.xlim([xmin,xmax])
 plt.subplots_adjust(left=0.0, bottom=0.0, right=1.0, top=1.1, wspace=0.1, hspace=0.2);
