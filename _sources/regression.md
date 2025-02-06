@@ -508,26 +508,23 @@ nb_points=50
 # Paramètres de la "vraie droite" y=b0+b1.x
 b0,b1 = 0.4,2.5
 
-amp_bruit, moyenne_bruit, var_bruit = 1,1,3
-
-test_size = 0.25
+amp_bruit, moyenne_bruit, var_bruit = 1,0.4,2
 
 # Intervalle
-x1= np.linspace(0,10,10*nb_points)
-x= np.random.choice(x1,size=nb_points)
-ymin,ymax = -1,25
+ymin,ymax = 0,25
 xmin,xmax = 0,10
+x1 = np.linspace(xmin,xmax,100)
+x= np.random.choice(x1,size=nb_points)
 
-dX = np.linspace(xmin,xmax,100)
 
 y=b0+b1*x+amp_bruit*np.random.normal(loc=moyenne_bruit,scale=var_bruit,size=nb_points)
 y_true=b0+b1*x
 
+test_size = 0.25
 x_train, X_test, y_train, y_test = train_test_split(x,y,test_size=test_size,random_state=42)
 X_train=x_train.reshape(-1,1)
 X_test=X_test.reshape(-1,1)
-xmean = np.mean(X_train)
-ymean=np.mean(y_train)
+
 ```
 
 On construit ensuite le modèle de régression linéaire.
@@ -539,31 +536,34 @@ beta0,beta1=lr.intercept_,lr.coef_[0]
 
 train_pred = np.array(lr.predict(X_train))
 test_pred = np.array(lr.predict(X_test))
+y1 = np.array(lr.predict(x1.reshape(-1,1)))
+
 train_score = lr.score(X_train,y_train)
 test_score = lr.score(X_test,y_test)
 RMSE_train=np.sqrt(np.mean(np.square(train_pred-y_train)))
 RMSE_test=np.sqrt(np.mean(np.square(test_pred-y_test)))
 
-plt.figure(figsize=(8,5))
+plt.figure(figsize=(10,5))
 plt.title("$R^2$ Entrainement : {0:3.3f}, $R^2$ Test : {1:3.3f} --  RMSE Entrainement : {2:3.3}, Test : {3:3.3f}".format(train_score,test_score,RMSE_train,RMSE_test),fontsize=16)
 plt.xlabel("x")
 plt.ylabel("y")
-plt.plot(X_train,train_pred,'r', label='Régression')
-plt.plot(x,y_true,c='black', label='Vraie droite')
 
-plt.scatter(X_train,y_train,c='b',label='Entrainement')
-plt.scatter(X_test,y_test,marker='x',c='g',s=100,label='test')
-plt.scatter(X_test,test_pred,marker='x',c='magenta',s=100,label='prédit')
+plt.plot(x1,y1,'r', label='Régression')
+plt.plot(x,y_true,c='black', alpha=0.5,label='Vraie droite')
+
+#plt.scatter(X_train,y_train,c='b',label='Entrainement')
+plt.scatter(X_test,y_test,c='g',s=30,label='test')
+plt.scatter(X_test,test_pred,c='magenta',s=30,label='prédit')
+for idata in range(0,len(X_test)):
+  if (idata == 0):
+    plt.plot([X_test[idata],X_test[idata]],[y_test[idata],test_pred[idata]],color='grey',label=r'$\Delta_{y_i}$',zorder=1)
+  else:
+    plt.plot([X_test[idata],X_test[idata]],[y_test[idata],test_pred[idata]],color='grey',zorder=1)
 
 plt.text(6, 4, "Droite : $y = {0:3.3f}+{1:3.3f}x$".format(b0,b1),fontsize=16)
 plt.text(6, 2, "Régression : $y = {0:3.3f}+{1:3.3f}x$".format(beta0,beta1),fontsize=16)
 plt.text(6, 0, "$R={:3.3f}$".format(np.corrcoef(x,y)[0,1]),fontsize=16)
 
-plt.text(6, 6, "Centre de masse $X=({0:3.3f},{0:3.3f})^T$".format(xmean,ymean),fontsize=16)
-
-plt.text(xmean,ymean,"X",fontsize=20,label='Centre de masse')
-
-plt.grid(True)
 plt.legend(loc='best')
 plt.tight_layout()
 ```
@@ -624,6 +624,39 @@ plt.subplots_adjust(left=0.0, bottom=0.0, right=1.0, top=1.1, wspace=0.1, hspace
 plt.tight_layout()
 ```
 
-Intéressons nous maintenant aux intervalles de prédiction
+Intéressons nous maintenant aux intervalles de prédiction. 
+Etant donné un point de donnée $x_{new}$, on peut non seulement estimer la valeur $\hat {y}_{new}$ fournie par le modèle, mais également un intervalle de prédiction sur cette valeur. On peut montrer que cet intervalle est défini par
+
+\begin{equation} \hat{y}_{new} ± t{(\frac{\alpha}{2},n-2)} \sqrt{MSE}\ \times \sqrt{1+\frac{1}{n}+\frac{(x_{new}-\overline{x})^2}{\sum_{i=1}^{n}(x_{i}-\overline{x})^2} } \end{equation}
+
+
+avec
+
+\begin{equation} MSE = \sum_{i=1}^n \frac{\left(y_i - (b_1 x - b_0) \right)^2}{n-2} \end{equation}
+
+```{code-cell} ipython3
+x_new = 6.00
+alpha = 0.05
+
+tstat = st.t.ppf([alpha/2,1-alpha/2], len(x)-2)
+
+yhat = ordonnee + pente*x
+MSE = np.sum(np.power(y-yhat,2))/(len(y)-2)
+est_stderr = np.sqrt(MSE) \
+      *np.sqrt(1 + 1/len(y) + np.power(x_new - np.average(x),2)/ \
+      np.sum(np.power(x-np.average(x),2)))
+
+y_pred_lower, y_pred_upper = ordonnee + pente*x_new + tstat*est_stderr
+
+plt.scatter(x, y, color = 'b',label='Données',zorder=1)
+plt.plot(dX, ordonnee + pente*dX, 'black', label='Modèle linéaire',zorder=1)
+plt.scatter(x_new, ordonnee + pente*x_new,s=80,color='yellow',edgecolor='black',label=r'prédiction',zorder=2)
+plt.plot([x_new,x_new],[y_pred_lower,y_pred_upper],color='black',linestyle='dashed',zorder=1,label='Intervalle de prédiction')
+plt.ylabel('y')
+plt.legend()
+plt.title('Intervalle de prediction')
+plt.subplots_adjust(left=0.0, bottom=0.0, right=1.0, top=1.4, wspace=0.1, hspace=0.2); plt.show()
+plt.tight_layout()
+```
 
 
