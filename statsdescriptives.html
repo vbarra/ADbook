@@ -14,19 +14,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
@@ -35,13 +35,13 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="_static/myfilecss.css?v=6d55db64" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="_static/documentation_options.js?v=72dce1d2"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -76,23 +76,27 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Passer au contenu principal</a>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
+    <i class="fa-solid fa-arrow-up"></i>
+    Haut de page
+  </button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -114,13 +118,8 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
     </header>
   
 
@@ -219,7 +218,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -228,7 +227,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -473,7 +472,7 @@ Les histogrammes sont des représentations de la distribution des données, agr�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/99980d4ce5b3fcc089ffbf1e8e13642596df94e4bb258932cb5b1ea0d7305515.png" src="_images/99980d4ce5b3fcc089ffbf1e8e13642596df94e4bb258932cb5b1ea0d7305515.png" />
+<img alt="_images/c413358a9c6454afcbb8d78dc7accae6016d988240059ecba91522694c9bbd20.png" src="_images/c413358a9c6454afcbb8d78dc7accae6016d988240059ecba91522694c9bbd20.png" />
 </div>
 </div>
 <p>Le choix de la largeur <span class="math notranslate nohighlight">\(t\)</span> des bins dépend des données, et par exemple on a :</p>
@@ -558,7 +557,7 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1d774debe5dc91aefc61304a610cb2304eed69aa71abf9c57d57b3bccf0a12bb.png" src="_images/1d774debe5dc91aefc61304a610cb2304eed69aa71abf9c57d57b3bccf0a12bb.png" />
+<img alt="_images/c77a23e7788f14631317e17d701cf06b38c95d0503a2518829912d7bd08f025f.png" src="_images/c77a23e7788f14631317e17d701cf06b38c95d0503a2518829912d7bd08f025f.png" />
 </div>
 </div>
 </section>
@@ -594,6 +593,30 @@ F_{j-1}+\frac{f_j}{c^+_j-c^-_j}(x-c^-_j) &amp;\textrm{ si}&amp; x\in[c^-_j,c^+_j
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.  2. ]
  [2.5 3. ]
  [4.  5. ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Le code suivant cherche les 2 plus proches voisins et remplace la donnée manquante par la moyenne des valeurs de ces voisins sur la colonne de la donnée manquante.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">KNNImputer</span>    
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>                    
+
+<span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">5.7</span><span class="p">,</span><span class="mf">2.9</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mf">2.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">5.3</span><span class="p">,</span><span class="mf">1.8</span><span class="p">]]</span>
+<span class="n">knn_imputer</span> <span class="o">=</span> <span class="n">KNNImputer</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s2">&quot;uniform&quot;</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">knn_imputer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[5.7  2.9 ]
+ [1.   2.  ]
+ [5.85 3.  ]
+ [4.   5.  ]
+ [6.   2.5 ]
+ [5.3  1.8 ]]
 </pre></div>
 </div>
 </div>
@@ -810,7 +833,7 @@ HarmonicMean  :  1198.219210728503
 WeightedMean  :  1315.5442042923557
 </pre></div>
 </div>
-<img alt="_images/e9f9bf127aaaa48f7fb2d52a0e3f40be1c734f0b06b2e17d5600100dc09d1c7e.png" src="_images/e9f9bf127aaaa48f7fb2d52a0e3f40be1c734f0b06b2e17d5600100dc09d1c7e.png" />
+<img alt="_images/c14b3fc7dfbc94b9e3f3e84c9e5c8223c50e12e7627d388c81adef79da4b6854.png" src="_images/c14b3fc7dfbc94b9e3f3e84c9e5c8223c50e12e7627d388c81adef79da4b6854.png" />
 </div>
 </div>
 <div class="proof definition admonition" id="definition-7">
@@ -855,7 +878,7 @@ quartile  50  :  1399.66320800781
 quartile  75  :  1626.326538085935
 </pre></div>
 </div>
-<img alt="_images/6763181f577c321f4dd1705315697b15c6b536b4639bbe4a1aa4eb6ca2195fe5.png" src="_images/6763181f577c321f4dd1705315697b15c6b536b4639bbe4a1aa4eb6ca2195fe5.png" />
+<img alt="_images/ab0cde1c9619ab9d7ebd5a47ab97431e2715c223aef360f3e45b303052bb0a37.png" src="_images/ab0cde1c9619ab9d7ebd5a47ab97431e2715c223aef360f3e45b303052bb0a37.png" />
 </div>
 </div>
 </section>
@@ -947,7 +970,7 @@ sigma  :  1316.3086347078017 +/- 374.5723639541368
 IQR  :  1316.3086347078017 +/- 720.4074859619113
 </pre></div>
 </div>
-<img alt="_images/d073033ef4048d1f58dc3098df80bfb5910648e6a8c736fe4fcccdae049d732d.png" src="_images/d073033ef4048d1f58dc3098df80bfb5910648e6a8c736fe4fcccdae049d732d.png" />
+<img alt="_images/32db8a02d4c465ec79affcf1db97731687f95b663732ee0088bb49549649bff2.png" src="_images/32db8a02d4c465ec79affcf1db97731687f95b663732ee0088bb49549649bff2.png" />
 </div>
 </div>
 </section>
@@ -1038,7 +1061,7 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4831b03d6a6273d8692c9e834037ace0470cf4f689c9c05858482b63c35eb9b3.png" src="_images/4831b03d6a6273d8692c9e834037ace0470cf4f689c9c05858482b63c35eb9b3.png" />
+<img alt="_images/2f982e4bb5ae6c0fe2d01fec436c5ffff32a61b762b24a48bf743fec858effa9.png" src="_images/2f982e4bb5ae6c0fe2d01fec436c5ffff32a61b762b24a48bf743fec858effa9.png" />
 </div>
 </div>
 </section>
@@ -1087,7 +1110,7 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7cb10d501528ebb4437046d0d5db4cebbbbefef27b06ce95a8b61adb4b59b630.png" src="_images/7cb10d501528ebb4437046d0d5db4cebbbbefef27b06ce95a8b61adb4b59b630.png" />
+<img alt="_images/9b6587f958d4fef34ecba24bd8f21e04f573ddd7505d191c7387c4994cdfe52c.png" src="_images/9b6587f958d4fef34ecba24bd8f21e04f573ddd7505d191c7387c4994cdfe52c.png" />
 </div>
 </div>
 </section>
@@ -1267,7 +1290,7 @@ pour expliquer la variabilité des notes dans toute la promotion.</p></li>
               
               
               
-                <footer class="prev-next-footer d-print-none">
+                <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1390,8 +1413,8 @@ Par Vincent BARRA
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
