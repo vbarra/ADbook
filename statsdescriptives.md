@@ -250,6 +250,17 @@ X = [[1, 2], [np.nan, 3], [4, 5]]
 print(imp.fit_transform(X))
  ```
 
+Le code suivant cherche les 2 plus proches voisins et remplace la donnée manquante par la moyenne des valeurs de ces voisins sur la colonne de la donnée manquante.
+
+```{code-cell} ipython3
+from sklearn.impute import KNNImputer    
+import numpy as np                    
+
+X = [[5.7,2.9], [1, 2], [np.nan, 3], [4, 5], [6,2.5], [5.3,1.8]]
+knn_imputer = KNNImputer(n_neighbors=2, weights="uniform")
+res = knn_imputer.fit_transform(X)
+print(res)
+``` 
 
 Dans le cas d'une imputation multiple, où un sous-ensemble de valeurs doit être comblé, on peut adopter la stratégie suivante : 
 

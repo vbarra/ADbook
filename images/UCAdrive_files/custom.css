@@ -1,0 +1,238 @@
+.hl   {
+      background-color: #eeeeee     ;
+	  font-size: 16px;
+}
+
+a {
+   color: #666666  ;
+}
+
+a:hover {
+    color: #178f96  ;
+	text-decoration: none;
+}
+
+.side-tabnav-tabs .tab-cur a, .side-tabnav-tabs .tab-cur a:hover {
+    background-color: #178f96;
+}
+
+.side-tabnav h3.hd, .side-tabnav .hd h3 {
+    color:  #5e5c5c;
+	text-transform: uppercase;
+	text-decoration: bold;
+}
+.side-tabnav-tabs .tab a:hover {
+   background-color: #ebceb2 ;
+   color: #ffffff ;
+   text-decoration:none;
+}
+
+.tabnav-tab-cur a, .tabnav-tab a:hover, .wiki-nav .cur-item .link, .wiki-nav .link:hover, #right-panel .hd .ui-state-active .a, #right-panel .hd .a:hover {
+    border-bottom-color: #ebceb2 ;
+    color: #ebceb2 ;
+    text-decoration: none;
+}
+#header .nav .a:hover {
+  color: #3f4a53 ;
+  text-decoration:underline;
+}
+
+.new-narrow-panel .hd {
+    background: none repeat scroll 0 0 #3f4a53    ;
+    border-bottom: 1px solid #D5D5D5;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 5px 20px;
+}
+
+#right-panel .hd, .tabnav, .repo-file-list-topbar, .wiki-top {
+    background: none repeat scroll 0 0 #f4ece5    ;
+    border-radius: 2px 2px 2px 2px;
+    margin-bottom: 0.5em;
+    padding: 9px 10px;
+}
+.sf2-icon-delete.sf2-x.repo-delete-btn.op-icon {
+ color: rgb(23, 143, 150);
+}
+.sf2-icon-share.sf2-x.repo-share-btn.op-icon {
+ color: rgb(23, 143, 150);
+}
+.icon-plus-square.add.vam {
+ color: rgb(23, 143, 150);
+}
+.sf2-icon-delete.sf2-x.unshare-btn.op-icon {
+ color: rgb(23, 143, 150);
+}
+.submit.msg-submit {
+ background-color: rgb(23, 143, 150);
+ background-blend-mode: normal;
+}
+body {
+  background-image: url(/media/custom/img/background_home_2.jpg);
+  background-repeat: no-repeat ;
+  background-size: cover ;
+  background-position: center center;
+}
+.op-icon.download.sf2-icon-download.sf2-x.download-dir {
+ color: rgb(23, 143, 150);
+}
+
+.op-icon.share.sf2-icon-share.sf2-x {
+ color: rgb(23, 143, 150);
+}
+
+.op-icon.delete.sf2-icon-delete.sf2-x {
+ color: rgb(23, 143, 150);
+}
+.op-icon.download.sf2-icon-download.sf2-x {
+ color: rgb(23, 143, 150);
+}
+.sf-dropdown-menu a:hover {
+    background:#178f96;
+    text-decoration:none;
+    color:#fff;
+}
+.op-target.ellipsis.ellipsis-op-target {
+ color: rgb(23, 143, 150);
+}
+#notifications .num {
+    position:absolute;
+    color:#fff;
+    font-size:12px;
+    line-height:1;
+    padding:1px 2px;
+    background:#178f96;
+    border:1px solid #cb8a5d;
+    top:0;
+    left:15px;
+}
+#notice-popover li.unread {
+    background:#f5f5f7;
+    padding-right:10px;
+    padding-left:8px;
+    border-left:2px solid #178f96;
+    margin:0 -10px;
+}
+#guide-for-new .icon-lightbulb {
+    font-size:6em;
+    color:#178f96;
+}
+    .nav-con-tabs-nav .ui-state-active a,
+    .nav-con-tabs-nav .ui-state-active a:hover {
+        background:#178f96;
+        color:#fff;
+    }
+	.nav-con-tabs-nav a:hover {
+        text-decoration:none;
+        background:#ebceb2;
+    }
+	.side-tabnav-tabs .tab-cur a:hover {
+    background-color:#178f96;
+	}
+	
+/*download page*/
+.software .row {
+    margin-top:40px;
+    margin-bottom:40px;
+}
+.software h2 {
+    margin-top:20px;
+    line-height:1.8;
+    font-weight:normal;
+    font-size:1.4em;
+    border-bottom: 1px solid #d8d8d8;
+}
+.software h3 {
+    margin:6px 0 0;
+}
+.software p,
+.software ul {
+    color:#666;
+}
+.software .pic {
+    float:left;
+}
+.software .txt {
+    margin-left:50px;
+}
+.software ul {
+    list-style-type:disc;
+    padding-left:2em;
+    margin:-10px 0 10px;
+}
+.software .download-op {
+    font-size:15px;
+	color:#0e4998
+}
+
+/* Boutons connexion UCA */
+
+#shib-login {
+    width: 70% !important;
+    position: relative;
+    left: 15%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    background-color: #e7e7e7;
+    /* background-color: #ff3300;*/
+    font-size: 16px;
+}
+
+#guest-login {
+    width: 70% !important;
+    position: relative;
+    left: 15%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    background-color: #e7e7e7;
+    /* background-color: #ff3300;*/
+    font-size: 16px;
+}
+#shib-login {
+ background-color: rgb(235, 206, 178);
+ background-blend-mode: normal;
+ box-shadow: rgb(0, 0, 0) 1px 1px 1px 1px;
+}
+
+#guest-login {
+ background-color: rgb(235, 206, 178);
+ background-blend-mode: normal;
+ box-shadow: rgb(0, 0, 0) 1px 1px 1px 1px;
+}
+
+#guest-login:focus ~ #hideform {
+    display: block;
+}
+
+#guest-login:active ~ #hideform {
+    display: block;
+}
+
+.nav-tabs{
+		border-bottom: 1px solid transparent !important;
+    padding-bottom: 1px;
+    padding-right: 0.2rem;
+    width: 100%;
+}
+.nav-item{
+    width: 100%;
+}
+.nav-link{
+    border-color: transparent !important;
+}
+
+.side-panel-top {
+    padding-bottom: .75rem;
+}
+
+.side-nav-footer a {
+    padding-right: 10px;
+}
+
+.cur-view-main-con {
+    border-right: none;
+}
