@@ -715,7 +715,7 @@ On peut utiliser un test statistiques pour tester la significance de la valeur d
 from scipy.stats import pearsonr 
 import matplotlib.pyplot as plt                             
 
-corr_mat = [-0.96,0.0,-0.5,0.7]; ndata = 1000                   
+corr_mat = [-0.96,0.0,-0.2,0.7]; ndata = 500                   
 
 for i, corr in enumerate(corr_mat):
     plt.subplot(2,2,i+1)    
