@@ -1154,12 +1154,12 @@ Le coefficient de détermination est le carré du coefficient de corrélation.</
     <span class="n">corr</span><span class="p">,</span> <span class="n">corr_p_value</span> <span class="o">=</span> <span class="n">pearsonr</span><span class="p">(</span><span class="n">sample</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">sample</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\rho$=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;, p-value = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">corr_p_value</span><span class="p">,</span><span class="mi">10</span><span class="p">)))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.2</span><span class="p">);</span> 
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/219c6d9e324a44fda3992e7d37e0dfc6d9588fdd3f28f66f7834444ed6836604.png" src="_images/219c6d9e324a44fda3992e7d37e0dfc6d9588fdd3f28f66f7834444ed6836604.png" />
+<img alt="_images/347eb97064bddc85070d49a8331621ff144e0352ceaaa9c36f70bb8f2297557e.png" src="_images/347eb97064bddc85070d49a8331621ff144e0352ceaaa9c36f70bb8f2297557e.png" />
 </div>
 </div>
 <p>La p-value p indique le niveau <span class="math notranslate nohighlight">\(\alpha\)</span> auquel on rejette l’hypothèse nulle selon laquelle le coefficient de corrélation est en réalité de 0 et que la valeur est due à un effet aléatoire.</p>
