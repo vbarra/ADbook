@@ -709,7 +709,7 @@ Le coefficient de corrélation est donc la covariance normalisée par les écart
 
 
 
-On peut utiliser un test statistiques pour tester la significance de la valeur de ce coefficient de corrélation. 
+On peut utiliser un test statistiques pour tester la significance de la valeur de ce coefficient de corrélation. Ici on utilise le [coefficient de corrélation de Pearson](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html).
 
 ```{code-cell} ipython3
 from scipy.stats import pearsonr 
