@@ -728,7 +728,7 @@ for i, corr in enumerate(corr_mat):
     corr, corr_p_value = pearsonr(sample[:,0],sample[:,1])
     plt.title(r'$\rho$=' + str(np.round(corr,3)) + ', p-value = ' + str(np.round(corr_p_value,10)))
 plt.subplots_adjust(left=0.0, bottom=0.0, right=1.0, top=1.2, wspace=0.3, hspace=0.2); 
-plt.tight_layout()
+plt.show()
 ``` 
 
 
