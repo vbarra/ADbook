@@ -707,6 +707,35 @@ Le coefficient de détermination est le carré du coefficient de corrélation.
 ```` 
 Le coefficient de corrélation est donc la covariance normalisée par les écarts types marginaux des variables. Il mesure la dépendance linéaire entre $x$ et $y$. Il est compris dans l'intervalle [-1,1] est est positif (resp. négatif) si les points sont alignés le long d'une droite croissante (resp. décroissante), d'autant plus grand en valeur absolue que la dépendance linéaire est vérifiée. Dans le cas où le coefficient est nul, il n'existe pas de dépendance linéaire.
 
+
+
+On peut utiliser un test statistiques pour tester la significance de la valeur de ce coefficient de corrélation. 
+
+```{code-cell} ipython3
+from scipy.stats import pearsonr 
+import matplotlib.pyplot as plt                             
+
+corr_mat = [-0.96,0.0,-0.5,0.7]; ndata = 1000                   
+
+for i, corr in enumerate(corr_mat):
+    plt.subplot(2,2,i+1)    
+    mean = np.array([0,0])                                     
+    correl = np.array([[1.0,corr],[corr,1.0]],dtype=float)
+    np.random.seed(seed = 42)
+    sample = np.random.multivariate_normal(mean,correl,size = ndata)
+    plt.scatter(sample[:,0],sample[:,1],color = 'b',alpha = 0.2,edgecolors='black',zorder=100)
+    plt.xlim([-3.0,3.0]); plt.ylim([-3.0,3.0])
+    corr, corr_p_value = pearsonr(sample[:,0],sample[:,1])
+    plt.title(r'$\rho$=' + str(np.round(corr,3)) + ', p-value = ' + str(np.round(corr_p_value,10)))
+plt.subplots_adjust(left=0.0, bottom=0.0, right=1.0, top=1.2, wspace=0.3, hspace=0.2); 
+plt.tight_layout()
+``` 
+
+
+
+La p-value p indique le niveau $\alpha$ auquel on rejette l'hypothèse nulle selon laquelle le coefficient de corrélation est en réalité de 0 et que la valeur est due à un effet aléatoire.
+
+
 Pour connaître plus précisément la relation linéaire qui lie $x$ et $y$, on effectue une régression linéaire en calculant par exemple la droite de régression : si $y=a+bx$, il est facile de montrer que 
 $b=\frac{\sigma_{xy}}{\sigma_x^2}\quad\textrm{et}\quad a=\bar{y}-b\bar{x}$
 
