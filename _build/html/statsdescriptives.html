@@ -1135,7 +1135,7 @@ matérialisant le second quartile  <span class="math notranslate nohighlight">\(
 Le coefficient de détermination est le carré du coefficient de corrélation.</p>
 </section>
 </div><p>Le coefficient de corrélation est donc la covariance normalisée par les écarts types marginaux des variables. Il mesure la dépendance linéaire entre <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>. Il est compris dans l’intervalle [-1,1] est est positif (resp. négatif) si les points sont alignés le long d’une droite croissante (resp. décroissante), d’autant plus grand en valeur absolue que la dépendance linéaire est vérifiée. Dans le cas où le coefficient est nul, il n’existe pas de dépendance linéaire.</p>
-<p>On peut utiliser un test statistiques pour tester la significance de la valeur de ce coefficient de corrélation.</p>
+<p>On peut utiliser un test statistiques pour tester la significance de la valeur de ce coefficient de corrélation. Ici on utilise le <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html">coefficient de corrélation de Pearson</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">pearsonr</span> 
