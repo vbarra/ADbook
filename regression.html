@@ -14,19 +14,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
@@ -35,13 +35,13 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="_static/myfilecss.css?v=6d55db64" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script src="_static/documentation_options.js?v=72dce1d2"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -76,27 +76,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Passer au contenu principal</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Haut de page
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -118,8 +114,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -218,7 +219,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -227,7 +228,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -623,7 +624,7 @@ log \left  [\frac{\frac{p( x_0+1)}{1-p(x_0+1)}}{\frac{p( x_0)}{1-p(x_0)}} \right
 <p><span class="math notranslate nohighlight">\(\mathbb{V}( y_i- y^*_i) = (1-p_i)\sigma^2\)</span></p>
 <p>d’où l’estimation de la variance du résidu <span class="math notranslate nohighlight">\(\hat{\mathbb{V}}(y_i-y^*_i) = (1-p_i)\hat{\sigma}^2\)</span>.</p>
 <p>Si le modèle linéaire est justifié, alors la distribution des résidus suit approximativement une loi normale. Un test statistique (par exemple le test de Jarque-Berra) viendra confirmer ou infirmer l’hypothèse selon laquelle la distribution peut être considérée comme telle.</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><img alt="" src="_images/nuagelin.png" /></p></th>
 <th class="head"><p><img alt="" src="_images/nuagepaslin.png" /></p></th>
@@ -635,6 +636,7 @@ log \left  [\frac{\frac{p( x_0+1)}{1-p(x_0+1)}}{\frac{p( x_0)}{1-p(x_0)}} \right
 </tr>
 </tbody>
 </table>
+</div>
 <div class="proof definition admonition" id="definition-8">
 <span id="index-10"></span><p class="admonition-title"><span class="caption-number">Definition 39 </span> (Résidu studentisé)</p>
 <section class="definition-content" id="proof-content">
@@ -696,7 +698,7 @@ est une mesure du pouvoir prédictif du modèle.</p>
 <section id="donnees">
 <h3>Données<a class="headerlink" href="#donnees" title="Lien vers cette rubrique">#</a></h3>
 <p>On s’intéresse aux données suivantes et on cherche s’il existe une relation entre la production <span class="math notranslate nohighlight">\(Y\)</span> et les deux variables prédictives <span class="math notranslate nohighlight">\(X_1\)</span> et <span class="math notranslate nohighlight">\(X_2\)</span>.</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Usine</p></th>
 <th class="head"><p>Travail (h) <span class="math notranslate nohighlight">\(X_1\)</span></p></th>
@@ -752,6 +754,7 @@ est une mesure du pouvoir prédictif du modèle.</p>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="id4">
 <h3>Modèle<a class="headerlink" href="#id4" title="Lien vers cette rubrique">#</a></h3>
@@ -764,7 +767,7 @@ est une mesure du pouvoir prédictif du modèle.</p>
 <p>de sorte que la covariance des paramètres de régression vaut</p>
 <p><span class="math notranslate nohighlight">\(\hat{\sigma}^2 (\mathbf X^T\mathbf X)^{-1} = \begin{pmatrix} 3355.56 &amp; -4.152 &amp; 6.184\\-4.152 &amp; 0.008 &amp; -0.016 \\ 6.184 &amp; -0.016 &amp; 0.038\end{pmatrix}\)</span></p>
 <p>Dans la figure suivante, les points au-dessus du plan regresseur sont en bleu, les autres en vert.</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><img alt="" src="_images/plan.png" /></p></th>
 <th class="head"><p><img alt="" src="_images/plan2.png" /></p></th>
@@ -776,6 +779,7 @@ est une mesure du pouvoir prédictif du modèle.</p>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="implementation">
@@ -866,7 +870,7 @@ est une mesure du pouvoir prédictif du modèle.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f433ed28a9c258d7f4a20fae958a37a0befcc47a5881dd2567d7e97c5d3150e0.png" src="_images/f433ed28a9c258d7f4a20fae958a37a0befcc47a5881dd2567d7e97c5d3150e0.png" />
+<img alt="_images/8e4bb9db501242dede88b3069ab581261b16472f84225b8629a8e2abc14f32c7.png" src="_images/8e4bb9db501242dede88b3069ab581261b16472f84225b8629a8e2abc14f32c7.png" />
 </div>
 </div>
 <p>Et on teste le modèle. Pour récupérer facilement des statistiques sur le modèle, on va utiliser la fonction <a class="reference external" href="https://docs.scipy.org/doc/scipy-1.12.0/reference/generated/scipy.stats.linregress.html">linregress</a> de scipy.</p>
@@ -878,7 +882,7 @@ est une mesure du pouvoir prédictif du modèle.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Modèle trouvé y = -0.13+2.6x
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Modèle trouvé y = 0.18+2.6x
 </pre></div>
 </div>
 </div>
@@ -891,7 +895,7 @@ est une mesure du pouvoir prédictif du modèle.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value pour H0 : (b1 = 0)= 2.254402492514678e-21.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value pour H0 : (b1 = 0)= 2.2687928827950522e-23.
 </pre></div>
 </div>
 </div>
@@ -909,7 +913,7 @@ est une mesure du pouvoir prédictif du modèle.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lintervalle de tc est  [-2.01  2.01]
-et la t-value est 20.93
+et la t-value est 24.08
 </pre></div>
 </div>
 </div>
@@ -925,7 +929,7 @@ et la t-value est 20.93
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lintervalle de confiance % de la pente est [2.35 2.85]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lintervalle de confiance % de la pente est [2.38 2.82]
 </pre></div>
 </div>
 </div>
@@ -952,7 +956,7 @@ et la t-value est 20.93
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d934e1889f402f92f2ef65facc74d190024b4321e5af9c6f129770d0c6b3b36d.png" src="_images/d934e1889f402f92f2ef65facc74d190024b4321e5af9c6f129770d0c6b3b36d.png" />
+<img alt="_images/6181dd87e03fa6bb281e7e2da87f82bd878b58893092aaf314e6c3f1fff0421f.png" src="_images/6181dd87e03fa6bb281e7e2da87f82bd878b58893092aaf314e6c3f1fff0421f.png" />
 </div>
 </div>
 <p>Intéressons nous maintenant aux intervalles de prédiction.
@@ -990,7 +994,7 @@ Etant donné un point de donnée <span class="math notranslate nohighlight">\(x_
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9a10471b1fb315608c3157b9f9a5fee506c33cd1cd019bbd7284f8f1e45f030d.png" src="_images/9a10471b1fb315608c3157b9f9a5fee506c33cd1cd019bbd7284f8f1e45f030d.png" />
+<img alt="_images/f086266ec6c2c286ca3533a107ab68c33736d182fa0c5ad8f811722be4ad86d2.png" src="_images/f086266ec6c2c286ca3533a107ab68c33736d182fa0c5ad8f811722be4ad86d2.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
@@ -1026,7 +1030,7 @@ Etant donné un point de donnée <span class="math notranslate nohighlight">\(x_
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1157,8 +1161,8 @@ Par Vincent BARRA
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>
