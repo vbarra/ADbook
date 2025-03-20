@@ -215,7 +215,7 @@ for i in r.importances_mean.argsort()[::-1]:
 
 
 ### Gain d'information
-Le gain d'information est une statistique qui mesure la réduction de l'entropie (incertitude) pour une caractéristique spécifique en divisant les données selon cette caractéristique. Plus le gain d'information d'une caractéristique est élevé, plus elle est utile pour la prise de décision. Cette méthode est un filtre. Précédemment, nous avions fixé la taille de $|hat F|$, ici nous choisissons une représentation graphique permettant d'apprécier l'importance de chacun des descripteurs.
+Le gain d'information est une statistique qui mesure la réduction de l'entropie (incertitude) pour une caractéristique spécifique en divisant les données selon cette caractéristique. Plus le gain d'information d'une caractéristique est élevé, plus elle est utile pour la prise de décision. Cette méthode est un filtre. Précédemment, nous avions fixé la taille de $\hat F$, ici nous choisissons une représentation graphique permettant d'apprécier l'importance de chacun des descripteurs.
 
 ```{code-cell} ipython3
 import numpy as np
@@ -394,7 +394,7 @@ L'utilisation des valeurs de Shapley peut être justifiée par l'ensemble de pro
 - Pour tout ensemble de descripteurs et toute fonction $v$ tels que $v(S\cup\{i\}) = v(S)$ pour tout sous-ensemble $S$, alors $\phi_i(v)=0$ : un descripteur n'influençant pas la performance de $f$ a une valeur de Shapley nulle.
 - Pour tout ensemble de descripteurs et toutes fonctions $v$ et $w$, $\phi_i(v+w) = \phi_i(v) + \phi_i(w)$ où $(v+w)(S) = v(S)+w(S)$ : il est possible de combiner linéairement deux mesures de performance d'un modèle 
 
-Le calcul de la valeur de Shapley nécessite de faire la somme de tous les sous-ensembles possibles de descripteurs, ce qui n'est pas réalisable lorsque $d$ devient grand. Il existe des versions d'estimateurs de la valeur de Shapley en échantillonnant des permutations à partir de $\Sigma$ ({prf:ref}`km`).
+Le calcul de la valeur de Shapley nécessite de faire la somme de tous les sous-ensembles possibles de descripteurs, ce qui n'est pas réalisable lorsque $d$ devient grand. Il existe des versions d'estimateurs de la valeur de Shapley en échantillonnant des permutations à partir de $\Sigma$ ({prf:ref}`shap`).
 
 ```{prf:algorithm} Estimation de la valeur de Shapley du descripteur $i$
 :label: shap
