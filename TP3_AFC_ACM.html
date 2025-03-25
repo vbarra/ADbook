@@ -345,18 +345,13 @@ document.write(`
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">seaborn</span> <span class="n">numpy</span> <span class="n">matplotlib</span> <span class="n">pandas</span> <span class="n">mca</span> 
-<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span> 
-    <span class="o">!</span>pip3<span class="w"> </span>install<span class="w"> </span>--quiet<span class="w"> </span>seaborn<span class="w"> </span>numpy<span class="w"> </span>matplotlib<span class="w"> </span>pandas<span class="w"> </span>mca<span class="w"> </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip3<span class="w"> </span>install<span class="w"> </span>--quiet<span class="w"> </span>seaborn<span class="w"> </span>numpy<span class="w"> </span>matplotlib<span class="w"> </span>pandas<span class="w"> </span>mca<span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-    <span class="kn">import</span> <span class="nn">seaborn</span> <span class="n">numpy</span> <span class="n">matplotlib</span> <span class="n">pandas</span> <span class="n">mca</span>
-                   <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">24.0</span> -&gt; <span class=" -Color -Color-Green">25.0.1</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
 </pre></div>
 </div>
 </div>
@@ -421,13 +416,428 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CA(col_labels=Index([&#39;Radio&#39;, &#39;Tel.&#39;, &#39;Quot.Nat.&#39;, &#39;Quot.Reg.&#39;, &#39;Press.Mag.&#39;, &#39;Press.TV&#39;], dtype=&#39;object&#39;),
-   row_labels=Index([&#39;Agriculteur&#39;, &#39;Petit.Patr.&#39;, &#39;Prof.Cad.Sup&#39;, &#39;Prof.Int.&#39;, &#39;Employe&#39;,
-       &#39;Ouvr.Qualif.&#39;, &#39;Ouvr.Non-Qual.&#39;, &#39;Inactif&#39;],
-      dtype=&#39;object&#39;, name=&#39;Prof&#39;))
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><style>#sk-container-id-1 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-1 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-1 pre {
+  padding: 0;
+}
+
+#sk-container-id-1 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-1 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-1 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-1 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-1 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-1 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-1 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-1 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-1 label.sk-toggleable__label {
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+#sk-container-id-1 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-1 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label label.sk-toggleable__label,
+#sk-container-id-1 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-1 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-1 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-1 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-1 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 0.5em;
+  text-align: center;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-1 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-1 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>CA(col_labels=Index([&#x27;Radio&#x27;, &#x27;Tel.&#x27;, &#x27;Quot.Nat.&#x27;, &#x27;Quot.Reg.&#x27;, &#x27;Press.Mag.&#x27;, &#x27;Press.TV&#x27;], dtype=&#x27;object&#x27;),
+   row_labels=Index([&#x27;Agriculteur&#x27;, &#x27;Petit.Patr.&#x27;, &#x27;Prof.Cad.Sup&#x27;, &#x27;Prof.Int.&#x27;, &#x27;Employe&#x27;,
+       &#x27;Ouvr.Qualif.&#x27;, &#x27;Ouvr.Non-Qual.&#x27;, &#x27;Inactif&#x27;],
+      dtype=&#x27;object&#x27;, name=&#x27;Prof&#x27;))</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>CA</div></div><div><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>CA(col_labels=Index([&#x27;Radio&#x27;, &#x27;Tel.&#x27;, &#x27;Quot.Nat.&#x27;, &#x27;Quot.Reg.&#x27;, &#x27;Press.Mag.&#x27;, &#x27;Press.TV&#x27;], dtype=&#x27;object&#x27;),
+   row_labels=Index([&#x27;Agriculteur&#x27;, &#x27;Petit.Patr.&#x27;, &#x27;Prof.Cad.Sup&#x27;, &#x27;Prof.Int.&#x27;, &#x27;Employe&#x27;,
+       &#x27;Ouvr.Qualif.&#x27;, &#x27;Ouvr.Non-Qual.&#x27;, &#x27;Inactif&#x27;],
+      dtype=&#x27;object&#x27;, name=&#x27;Prof&#x27;))</pre></div> </div></div></div></div></div></div>
 </div>
 </section>
 <section id="valeurs-propres">
@@ -439,25 +849,12 @@ Inactif          1474  1931        181        852         642       782
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.38572868e-02 7.21068498e-03 8.24731391e-04 3.03851641e-04
-  8.26930155e-05]
- [6.21981806e+01 3.23650288e+01 3.70179190e+00 1.36383258e+00
-  3.71166101e-01]
- [6.21981806e+01 9.45632094e+01 9.82650013e+01 9.96288339e+01
-  1.00000000e+02]]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/42bd7b84ffcde9d77295d810fde02aa8bd5d527266600ed763bfd2d4984a7649.png" src="_images/42bd7b84ffcde9d77295d810fde02aa8bd5d527266600ed763bfd2d4984a7649.png" />
 </div>
 </div>
 </section>
@@ -496,7 +893,7 @@ Inactif          1474  1931        181        852         642       782
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4545bdb0be5a1371e48c6425debbe3743cbeff5e03b1b3b1696b7624379e48b0.png" src="_images/4545bdb0be5a1371e48c6425debbe3743cbeff5e03b1b3b1696b7624379e48b0.png" />
+<img alt="_images/530fe0afc4749abe82ef35e1a6093a5753b16711bd401314eeab79edf8c612ad.png" src="_images/530fe0afc4749abe82ef35e1a6093a5753b16711bd401314eeab79edf8c612ad.png" />
 </div>
 </div>
 <p>En utilisant l’attribut row_coord_, afficher les coordonnées des modalités lignes par facteur. Calculer la moyenne pondérée et la variance des coordonnées des modalités lignes sur le premier facteur. Qu’obtenez-vous ?</p>
@@ -506,30 +903,10 @@ Inactif          1474  1931        181        852         642       782
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                       0         1         2         3         4
-Prof                                                            
-Agriculteur     0.166150  0.309612 -0.071838 -0.014433  0.021440
-Petit.Patr.     0.068377  0.143151 -0.064422  0.020370 -0.025687
-Prof.Cad.Sup   -0.429976  0.060873 -0.003021  0.016811  0.011233
-Prof.Int.      -0.106603 -0.032597 -0.030898 -0.025333 -0.011955
-Employe         0.015729 -0.095469 -0.005087 -0.020294  0.003462
-Ouvr.Qualif.    0.043713 -0.101379 -0.019323  0.035411 -0.001730
-Ouvr.Non-Qual.  0.117797 -0.094864 -0.039728  0.003493  0.022484
-Inactif         0.032584  0.033395  0.025968  0.000553 -0.000935
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Moyenne :  1.3877787807814457e-17
-Variance :  0.013857286816774693
 </pre></div>
 </div>
 </div>
@@ -542,9 +919,6 @@ Variance :  0.013857286816774693
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/ae0397e4131663dae0d3e8a087717e6862b8b680f2a979c66623e11992a6c9ad.png" src="_images/ae0397e4131663dae0d3e8a087717e6862b8b680f2a979c66623e11992a6c9ad.png" />
 </div>
 </div>
 </section>
@@ -570,7 +944,7 @@ Variance :  0.013857286816774693
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/78d435f0f57df72a489f4298556cb8e3a6296e842cdd7c42cca3d8200b8bd8e1.png" src="_images/78d435f0f57df72a489f4298556cb8e3a6296e842cdd7c42cca3d8200b8bd8e1.png" />
+<img alt="_images/3113318f99fda20450ee150507c86ef4f68893afd4e64a0906bcf95d61d41e84.png" src="_images/3113318f99fda20450ee150507c86ef4f68893afd4e64a0906bcf95d61d41e84.png" />
 </div>
 </div>
 </section>
@@ -583,9 +957,6 @@ Variance :  0.013857286816774693
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/ef61a517ba9a6c53d347d3a7c3b35affb324ab74240b48c203c56b87e95a1fca.png" src="_images/ef61a517ba9a6c53d347d3a7c3b35affb324ab74240b48c203c56b87e95a1fca.png" />
-</div>
 </div>
 </section>
 <section id="analyse-de-l-association-lignes-colonnes">
@@ -596,11 +967,6 @@ Variance :  0.013857286816774693
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p= 0.0
 </pre></div>
 </div>
 </div>
@@ -616,11 +982,6 @@ $<span class="math notranslate nohighlight">\(\frac{P(Y=y_k, X=x_l)}{P(Y=y_k)P(X
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p= 0.0
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="representation-simultanee-lignes-colonnes">
@@ -631,9 +992,6 @@ $<span class="math notranslate nohighlight">\(\frac{P(Y=y_k, X=x_l)}{P(Y=y_k)P(X
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/21960d4d559c664630814aac4988f6d78da34593eb90b4fe308fcbecf807b65d.png" src="_images/21960d4d559c664630814aac4988f6d78da34593eb90b4fe308fcbecf807b65d.png" />
 </div>
 </div>
 <p>Comme en ACP où il est possible de reconstituer approximativement les données originelles à partir des coordonnées factorielles des individus, on peut approcher le tableau des indices d’attraction-répulsion <span class="math notranslate nohighlight">\(i_{kl}\)</span> à partir des coordonnées factorielles des modalités lignes et colonnes : en reconstruisant à partir des <span class="math notranslate nohighlight">\(P\)</span> premiers facteurs, si <span class="math notranslate nohighlight">\(F_{kp}\)</span> ett <span class="math notranslate nohighlight">\(G_{lp}\)</span> sont les coordonnées factorielles des modalités lignes et colonnes</p>
@@ -648,30 +1006,6 @@ $<span class="math notranslate nohighlight">\(\frac{P(Y=y_k, X=x_l)}{P(Y=y_k)P(X
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                   Radio      Tel.  Quot.Nat.  Quot.Reg.  Press.Mag.  Press.TV
-Prof                                                                          
-Agriculteur     1.018944  1.040396   0.159792   1.490461    1.342838  0.347085
-Petit.Patr.     1.053787  0.975820   0.715205   1.298344    1.070936  0.681216
-Prof.Cad.Sup    1.041910  0.825142   3.007112   0.672662    1.406970  0.820367
-Prof.Int.       1.075237  0.905591   1.416404   0.856550    1.065603  1.057128
-Employe         1.034487  0.997233   0.868608   0.868855    0.881064  1.191609
-Ouvr.Qualif.    1.046731  1.032115   0.859544   0.935636    0.715455  1.150549
-Ouvr.Non-Qual.  1.075500  1.059486   0.415165   0.940845    0.732672  1.127231
-Inactif         0.944787  1.028150   0.873293   1.080089    1.041228  0.964165
-                   Radio      Tel.  Quot.Nat.  Quot.Reg.  Press.Mag.  Press.TV
-Prof                                                                          
-Agriculteur     0.978913  1.075205   0.236872   1.153604    0.866178  1.013767
-Petit.Patr.     0.991322  1.030950   0.685943   1.063214    0.944927  1.005665
-Prof.Cad.Sup    1.054571  0.805378   2.974881   0.602491    1.346314  0.964374
-Prof.Int.       1.013530  0.951748   1.489626   0.901447    1.085861  0.991167
-Employe         0.998004  1.007119   0.927759   1.014541    0.987332  1.001303
-Ouvr.Qualif.    0.994452  1.019786   0.799228   1.040412    0.964793  1.003622
-Ouvr.Non-Qual.  0.985050  1.053319   0.458958   1.108902    0.905123  1.009760
-Inactif         0.995865  1.014749   0.850343   1.030123    0.973756  1.002700
 </pre></div>
 </div>
 </div>
@@ -781,63 +1115,63 @@ Terre-Neuve      Taille++   Veloc-    Affec-
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                 Taille+  Taille++  Taille-  Veloc+  Veloc++  Veloc-  Affec+  \
 Chien                                                                          
-Beauceron              0         1        0       0        1       0       1   
-Basset                 0         0        1       0        0       1       0   
-Berger All             0         1        0       0        1       0       1   
-Boxer                  1         0        0       1        0       0       1   
-Bull-Dog               0         0        1       0        0       1       1   
-Bull-Mastif            0         1        0       0        0       1       0   
-Caniche                0         0        1       1        0       0       1   
-Chihuahua              0         0        1       0        0       1       1   
-Cocker                 1         0        0       0        0       1       1   
-Colley                 0         1        0       0        1       0       1   
-Dalmatien              1         0        0       1        0       0       1   
-Doberman               0         1        0       0        1       0       0   
-Dogue-All              0         1        0       0        1       0       0   
-Epag.-Breton           1         0        0       1        0       0       1   
-Epag.-FranÃ§ais        0         1        0       1        0       0       0   
-Fox-Hound              0         1        0       0        1       0       0   
-Fox-Terrier            0         0        1       1        0       0       1   
-Gd-Bleu-Gasc           0         1        0       1        0       0       0   
-Labrador               1         0        0       1        0       0       1   
-Levrier                0         1        0       0        1       0       0   
-Mastiff                0         1        0       0        0       1       0   
-Pekinois               0         0        1       0        0       1       1   
-Pointer                0         1        0       0        1       0       0   
-St-Bernard             0         1        0       0        0       1       0   
-Setter                 0         1        0       0        1       0       0   
-Teckel                 0         0        1       0        0       1       1   
-Terre-Neuve            0         1        0       0        0       1       0   
+Beauceron          False      True    False   False     True   False    True   
+Basset             False     False     True   False    False    True   False   
+Berger All         False      True    False   False     True   False    True   
+Boxer               True     False    False    True    False   False    True   
+Bull-Dog           False     False     True   False    False    True    True   
+Bull-Mastif        False      True    False   False    False    True   False   
+Caniche            False     False     True    True    False   False    True   
+Chihuahua          False     False     True   False    False    True    True   
+Cocker              True     False    False   False    False    True    True   
+Colley             False      True    False   False     True   False    True   
+Dalmatien           True     False    False    True    False   False    True   
+Doberman           False      True    False   False     True   False   False   
+Dogue-All          False      True    False   False     True   False   False   
+Epag.-Breton        True     False    False    True    False   False    True   
+Epag.-FranÃ§ais    False      True    False    True    False   False   False   
+Fox-Hound          False      True    False   False     True   False   False   
+Fox-Terrier        False     False     True    True    False   False    True   
+Gd-Bleu-Gasc       False      True    False    True    False   False   False   
+Labrador            True     False    False    True    False   False    True   
+Levrier            False      True    False   False     True   False   False   
+Mastiff            False      True    False   False    False    True   False   
+Pekinois           False     False     True   False    False    True    True   
+Pointer            False      True    False   False     True   False   False   
+St-Bernard         False      True    False   False    False    True   False   
+Setter             False      True    False   False     True   False   False   
+Teckel             False     False     True   False    False    True    True   
+Terre-Neuve        False      True    False   False    False    True   False   
 
                  Affec-  
 Chien                    
-Beauceron             0  
-Basset                1  
-Berger All            0  
-Boxer                 0  
-Bull-Dog              0  
-Bull-Mastif           1  
-Caniche               0  
-Chihuahua             0  
-Cocker                0  
-Colley                0  
-Dalmatien             0  
-Doberman              1  
-Dogue-All             1  
-Epag.-Breton          0  
-Epag.-FranÃ§ais       1  
-Fox-Hound             1  
-Fox-Terrier           0  
-Gd-Bleu-Gasc          1  
-Labrador              0  
-Levrier               1  
-Mastiff               1  
-Pekinois              0  
-Pointer               1  
-St-Bernard            1  
-Setter                1  
-Teckel                0  
-Terre-Neuve           1  
+Beauceron         False  
+Basset             True  
+Berger All        False  
+Boxer             False  
+Bull-Dog          False  
+Bull-Mastif        True  
+Caniche           False  
+Chihuahua         False  
+Cocker            False  
+Colley            False  
+Dalmatien         False  
+Doberman           True  
+Dogue-All          True  
+Epag.-Breton      False  
+Epag.-FranÃ§ais    True  
+Fox-Hound          True  
+Fox-Terrier       False  
+Gd-Bleu-Gasc       True  
+Labrador          False  
+Levrier            True  
+Mastiff            True  
+Pekinois          False  
+Pointer            True  
+St-Bernard         True  
+Setter             True  
+Teckel            False  
+Terre-Neuve        True  
 </pre></div>
 </div>
 </div>
@@ -871,10 +1205,10 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="_images/2402ce1fcfdc98b7005fb78244b6985a35df363bba0d5e82ce18eeded7935ccd.png" src="_images/2402ce1fcfdc98b7005fb78244b6985a35df363bba0d5e82ce18eeded7935ccd.png" />
+<img alt="_images/47678d98d42a3e94ed35306e99e412c5d0e8592e67f3419d1570c6536ba28ead.png" src="_images/47678d98d42a3e94ed35306e99e412c5d0e8592e67f3419d1570c6536ba28ead.png" />
 </div>
 </div>
 <p>Ainsi, par exemple, le Basset a plus de caractères en commun avec le Caniche qu’avec le Beauceron.</p>
@@ -893,10 +1227,10 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="_images/fb72482e02244508a5d08b7d76d5c019899a7d33fe2684e853270cb5eea3f4eb.png" src="_images/fb72482e02244508a5d08b7d76d5c019899a7d33fe2684e853270cb5eea3f4eb.png" />
+<img alt="_images/2f7caf917503e6bf677e89bb20c2558eafa3ec12ea32b9f1d232f30681c70fdc.png" src="_images/2f7caf917503e6bf677e89bb20c2558eafa3ec12ea32b9f1d232f30681c70fdc.png" />
 </div>
 </div>
 <p>Ainsi par exemple, le Pointer est plus proche du chien moyen que le Cocker.</p>
@@ -923,10 +1257,10 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="_images/00401304859daf5d82e105b8162accb07257115dd066290123476d099bc44d43.png" src="_images/00401304859daf5d82e105b8162accb07257115dd066290123476d099bc44d43.png" />
+<img alt="_images/5e6c96398124e9efdeaa01a75cd766e09e93e900fa8f53de2fa22501af471fa0.png" src="_images/5e6c96398124e9efdeaa01a75cd766e09e93e900fa8f53de2fa22501af471fa0.png" />
 </div>
 </div>
 <p>Calculer la distance à l’origine, qui  donne une information sur la fréquence de la modalité dans la base. Elle est définie par la disance du <span class="math notranslate nohighlight">\(\chi^2\)</span> au profil moyen. Interpréter</p>
@@ -944,10 +1278,10 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="_images/0a8c59129bf8781d39cb54f68a45e2a82d51e409d21efbd555e7ecc74a102c46.png" src="_images/0a8c59129bf8781d39cb54f68a45e2a82d51e409d21efbd555e7ecc74a102c46.png" />
+<img alt="_images/9a2511e0bcc633be7fe96d00e933b90f0adf74d80d7f67827ffe5188f7f8117e.png" src="_images/9a2511e0bcc633be7fe96d00e933b90f0adf74d80d7f67827ffe5188f7f8117e.png" />
 </div>
 </div>
 <p>Ainsi, Veloc+ est moins présent que Veloc- dans les exemples.</p>
@@ -964,13 +1298,14 @@ Faire une analyse en composantes multiples de ces données et plus précisément
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MCA(row_labels=Index([&#39;Beauceron&#39;, &#39;Basset&#39;, &#39;Berger All&#39;, &#39;Boxer&#39;, &#39;Bull-Dog&#39;, &#39;Bull-Mastif&#39;,
-       &#39;Caniche&#39;, &#39;Chihuahua&#39;, &#39;Cocker&#39;, &#39;Colley&#39;, &#39;Dalmatien&#39;, &#39;Doberman&#39;,
-       &#39;Dogue-All&#39;, &#39;Epag.-Breton&#39;, &#39;Epag.-FranÃ§ais&#39;, &#39;Fox-Hound&#39;,
-       &#39;Fox-Terrier&#39;, &#39;Gd-Bleu-Gasc&#39;, &#39;Labrador&#39;, &#39;Levrier&#39;, &#39;Mastiff&#39;,
-       &#39;Pekinois&#39;, &#39;Pointer&#39;, &#39;St-Bernard&#39;, &#39;Setter&#39;, &#39;Teckel&#39;, &#39;Terre-Neuve&#39;],
-      dtype=&#39;object&#39;, name=&#39;Chien&#39;),
-    var_labels=Index([&#39;Taille&#39;, &#39;Velocite&#39;, &#39;Affection&#39;], dtype=&#39;object&#39;))
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">mca</span> <span class="kn">import</span> <span class="n">MCA</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">acm</span> <span class="o">=</span> <span class="n">MCA</span><span class="p">(</span><span class="n">row_labels</span><span class="o">=</span><span class="n">var_chiens</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">var_labels</span><span class="o">=</span><span class="n">var_chiens</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">acm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">var_chiens</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: __init__() got an unexpected keyword argument &#39;row_labels&#39;
 </pre></div>
 </div>
 </div>
