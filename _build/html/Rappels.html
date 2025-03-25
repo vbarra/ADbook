@@ -651,7 +651,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ba587fe2ad4e702c72cd1db574d870333de0a9aedac9e8bdbec72aced4c0e739.png" src="_images/ba587fe2ad4e702c72cd1db574d870333de0a9aedac9e8bdbec72aced4c0e739.png" />
+<img alt="_images/e1c5d173c828d772912272adaa1c3cee6db95ce849863447b52f8df32e9df52f.png" src="_images/e1c5d173c828d772912272adaa1c3cee6db95ce849863447b52f8df32e9df52f.png" />
 </div>
 </div>
 <div class="proof definition admonition" id="definition-22">
@@ -705,7 +705,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/01eed00ee518f91eafee943c764c6337436ccffe2a1b3b0c8a7756b66f21b93f.png" src="_images/01eed00ee518f91eafee943c764c6337436ccffe2a1b3b0c8a7756b66f21b93f.png" />
+<img alt="_images/6dda822700228bc59818bb15a8143c21980c0f4eb710ef82f7dc0cd60f9d6393.png" src="_images/6dda822700228bc59818bb15a8143c21980c0f4eb710ef82f7dc0cd60f9d6393.png" />
 </div>
 </div>
 <p>La notion de variable aléatoire est ainsi une formalisation de la notion de grandeur variant selon le résultat d’une expérience aléatoire. On peut alors préciser et formaliser la définition précédente.</p>
@@ -755,14 +755,7 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">rv_discrete</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Espérance :  23.0
 </pre></div>
 </div>
 </div>
@@ -778,6 +771,15 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
         <span class="k">return</span> <span class="mi">6</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">distribution</span> <span class="o">=</span> <span class="n">distribution_gen</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Espérance : &quot;</span><span class="p">,</span> <span class="n">distribution</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lb</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">ub</span><span class="o">=</span><span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Espérance :  7.904816400226158
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/ipykernel_7123/1110129441.py:7: DeprecationWarning: Conversion of an array with ndim &gt; 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  return 6*exp(-(x - 5)**2)
 </pre></div>
 </div>
 </div>
@@ -857,6 +859,12 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variance :  61.0
+Ecart-type :  7.810249675906654
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -871,6 +879,12 @@ On a alors <span class="math notranslate nohighlight">\(P(A\mid B) = \frac{P(A\b
 <span class="n">distribution</span> <span class="o">=</span> <span class="n">distribution_gen</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance: &quot;</span><span class="p">,</span> <span class="n">distribution</span><span class="o">.</span><span class="n">var</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ecart-type : &quot;</span><span class="p">,</span> <span class="n">distribution</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variance:  0.029595913310966893
+Ecart-type :  0.17203462823212917
 </pre></div>
 </div>
 </div>

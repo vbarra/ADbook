@@ -334,19 +334,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;inline&#39;</span><span class="p">)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="jeu-de-donnees">
 <h1>Jeu de données<a class="headerlink" href="#jeu-de-donnees" title="Lien vers cette rubrique">#</a></h1>
@@ -1809,7 +1796,7 @@ Data columns (total 25 columns):
  13  pot             158 non-null    float64
  14  hemo            158 non-null    float64
  15  pcv             158 non-null    object 
- 16  wc              158 non-null    int64  
+ 16  wc              158 non-null    object 
  17  rc              158 non-null    object 
  18  htn             158 non-null    object 
  19  dm              158 non-null    object 
@@ -1818,7 +1805,7 @@ Data columns (total 25 columns):
  22  pe              158 non-null    object 
  23  ane             158 non-null    object 
  24  classification  158 non-null    int64  
-dtypes: float64(11), int64(2), object(12)
+dtypes: float64(11), int64(1), object(13)
 memory usage: 31.0+ KB
 </pre></div>
 </div>
@@ -1854,8 +1841,8 @@ Data columns (total 25 columns):
  12  sod             158 non-null    float64
  13  pot             158 non-null    float64
  14  hemo            158 non-null    float64
- 15  pcv             158 non-null    int32  
- 16  wc              158 non-null    int32  
+ 15  pcv             158 non-null    int64  
+ 16  wc              158 non-null    int64  
  17  rc              158 non-null    float64
  18  htn             158 non-null    object 
  19  dm              158 non-null    object 
@@ -1864,8 +1851,8 @@ Data columns (total 25 columns):
  22  pe              158 non-null    object 
  23  ane             158 non-null    object 
  24  classification  158 non-null    int64  
-dtypes: float64(12), int32(2), int64(1), object(10)
-memory usage: 29.8+ KB
+dtypes: float64(12), int64(3), object(10)
+memory usage: 31.0+ KB
 </pre></div>
 </div>
 </div>
@@ -2216,10 +2203,16 @@ memory usage: 29.8+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">(),</span> <span class="n">annot</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.2f&quot;</span><span class="p">,</span><span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;seaborn&#39;
 </pre></div>
 </div>
-<img alt="../_images/0af7b4ce69ad3a5037c6b2a32f1603748e632b7a44b01ae1b632945f93ce7a21.png" src="../_images/0af7b4ce69ad3a5037c6b2a32f1603748e632b7a44b01ae1b632945f93ce7a21.png" />
 </div>
 </div>
 <div class="cell docutils container">
