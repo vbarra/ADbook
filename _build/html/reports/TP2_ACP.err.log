@@ -16,15 +16,15 @@ Traceback (most recent call last):
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
 try:
-    import sklearn, numpy, matplotlib 
+    import scikit-learn, numpy, matplotlib 
 except ModuleNotFoundError: 
     !pip3 install --quiet scikit-learn numpy matplotlib
 import scikit-learn, numpy as np, matplotlib.pyplot as plt
 ------------------
 
 
-[0;36m  Cell [0;32mIn[1], line 5[0;36m[0m
-[0;31m    import scikit-learn, numpy as np, matplotlib.pyplot as plt[0m
+[0;36m  Cell [0;32mIn[1], line 2[0;36m[0m
+[0;31m    import scikit-learn, numpy, matplotlib[0m
 [0m                 ^[0m
 [0;31mSyntaxError[0m[0;31m:[0m invalid syntax
 
