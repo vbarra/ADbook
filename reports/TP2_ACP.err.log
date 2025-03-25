@@ -18,7 +18,7 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 try:
     import sklearn, numpy, matplotlib 
 except ModuleNotFoundError: 
-    !pip3 install --quiet sklearn numpy matplotlib
+    !pip3 install --quiet scikit-learn numpy matplotlib
 import scikit-learn, numpy as np, matplotlib.pyplot as plt
 ------------------
 
