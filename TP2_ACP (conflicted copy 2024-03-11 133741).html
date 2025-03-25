@@ -62,11 +62,9 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'TP2_ACP';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TP2_ACP (conflicted copy 2024-03-11 133741)';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="TP Régression linéaire" href="TP_Regression_Lineaire.html" />
-    <link rel="prev" title="TP Statistiques descriptives" href="TP1_statsDescriptives.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -129,6 +127,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -187,9 +187,9 @@
 <li class="toctree-l1"><a class="reference internal" href="clustering.html">Quelques méthodes de classification</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TP</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="TP1_statsDescriptives.html">TP Statistiques descriptives</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">TP ACP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TP2_ACP.html">TP ACP</a></li>
 
 
 
@@ -344,222 +344,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">    ERROR: Command errored out with exit status 1:</span>
-<span class=" -Color -Color-Red">     command: /Library/Developer/CommandLineTools/usr/bin/python3 -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_04f8fc03c7b14a7bb977249e79b39161/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_04f8fc03c7b14a7bb977249e79b39161/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; egg_info --egg-base /private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-pip-egg-info-0jaspjh2</span>
-<span class=" -Color -Color-Red">         cwd: /private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_04f8fc03c7b14a7bb977249e79b39161/</span>
-<span class=" -Color -Color-Red">    Complete output (15 lines):</span>
-<span class=" -Color -Color-Red">    The &#39;sklearn&#39; PyPI p</span>
-</pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ackage is deprecated, use &#39;scikit-learn&#39;
-    rather than &#39;sklearn&#39; for pip commands.
-    
-    Here is how to fix this error in the main use cases:
-    - use &#39;pip install scikit-learn&#39; rather than &#39;pip install sklearn&#39;
-    - replace &#39;sklearn&#39; by &#39;scikit-learn&#39; in your pip requirements files
-      (requirements.txt, setup.py, setup.cfg, Pipfile, etc ...)
-    - if the &#39;sklearn&#39; package is used by one of your dependencies,
-      it would be great if you take some time to track which package uses
-      &#39;sklearn&#39; instead of &#39;scikit-learn&#39; and report it to their issue tracker
-    - as a last resort, set the environment variable
-      SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True to avoid this error
-    
-    More information is available at
-    https://github.com/scikit-learn/sklearn-pypi-package
-    ----------------------------------------
-<span class=" -Color -Color-Yellow">WARNING: Discarding https://files.pythonhosted.org/packages/46/1c/395a83ee7b2d2ad7a05b453872053d41449564477c81dc356f720b16eac4/sklearn-0.0.post12.tar.gz#sha256=54cff9e20839b7b202321178228af4d9388bedf78425d9299fd9ee170d68802e (from https://pypi.org/simple/sklearn/). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">    ERROR: Command errored out with exit status 1:</span>
-<span class=" -Color -Color-Red">     command: /Library/Developer/CommandLineTools/usr/bin/python3 -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_d1ddceece1c449be86cbb40504c55d1e/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_d1ddceece1c449be86cbb40504c55d1e/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; egg_info --egg-base /private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-pip-egg-info-8n7jdqfv</span>
-<span class=" -Color -Color-Red">         cwd: /private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_d1ddceece1c449be86cbb40504c55d1e/</span>
-<span class=" -Color -Color-Red">    Complete output (18 lines):</span>
-<span class=" -Color -Color-Red">    The &#39;sklearn&#39; PyPI package is deprecated, use &#39;scikit-learn&#39;</span>
-<span class=" -Color -Color-Red">    rather than &#39;sklearn&#39; for pip commands.</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    Here is how to fix this error in the main use cases:</span>
-<span class=" -Color -Color-Red">    - use &#39;pip install scikit-learn&#39; rather than &#39;pip install sklearn&#39;</span>
-<span class=" -Color -Color-Red">    - replace &#39;sklearn&#39; by &#39;scikit-learn&#39; in your pip requirements files</span>
-<span class=" -Color -Color-Red">      (requirements.txt, setup.py, setup.cfg, Pipfile, etc ...)</span>
-<span class=" -Color -Color-Red">    - if the &#39;sklearn&#39; package is used by one of your dependencies,</span>
-<span class=" -Color -Color-Red">      it would be great if you take some time to track which package uses</span>
-<span class=" -Color -Color-Red">      &#39;sklearn&#39; instead of &#39;scikit-learn&#39; and report it to their issue tracker</span>
-<span class=" -Color -Color-Red">    - as a last resort, set the environment variable</span>
-<span class=" -Color -Color-Red">      SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True to avoid this error</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    More information is available at</span>
-<span class=" -Color -Color-Red">    https://github.com/scikit-learn/sklearn-pypi-package</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    If the previous advice does not cover your use case, feel free to report it at</span>
-<span class=" -Color -Color-Red">    https://github.com/scikit-learn/sklearn-pypi-package/issues/new</span>
-<span class=" -Color -Color-Red">    ----------------------------------------</span>
-<span class=" -Color -Color-Yellow">WARNING: Discarding https://files.pythonhosted.org/packages/a4/0b/d1c703256cf293be77b7db44dbef62251fe02a97d0bef981f7120b0b0c0f/sklearn-0.0.post11.tar.gz#sha256=af035c4f0b970b7fc2d3856079aa1aa1032df3d7f65048a9d87114abf13c4629 (from https://pypi.org/simple/sklearn/). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">    ERROR: Command errored out with exit status 1:</span>
-<span class=" -Color -Color-Red">     command: /Library/Developer/CommandLineTools/usr/bin/python3 -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_07663942d14d4e2ab930a6ec1c561ce3/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_07663942d14d4e2ab930a6ec1c561ce3/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; egg_info --egg-base /private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-pip-egg-info-5c1ol41z</span>
-<span class=" -Color -Color-Red">         cwd: /private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_07663942d14d4e2ab930a6ec1c561ce3/</span>
-<span class=" -Color -Color-Red">    Complete output (18 lines):</span>
-<span class=" -Color -Color-Red">    The &#39;sklearn&#39; PyPI package is deprecated, use &#39;scikit-learn&#39;</span>
-<span class=" -Color -Color-Red">    rather than &#39;sklearn&#39; for pip commands.</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    Here is how to fix this error in the main use cases:</span>
-<span class=" -Color -Color-Red">    - use &#39;pip install scikit-learn&#39; rather than &#39;pip install sklearn&#39;</span>
-<span class=" -Color -Color-Red">    - replace &#39;sklearn&#39; by &#39;scikit-learn&#39; in your pip requirements files</span>
-<span class=" -Color -Color-Red">      (requirements.txt, setup.py, setup.cfg, Pipfile, etc ...)</span>
-<span class=" -Color -Color-Red">    - if the &#39;sklearn&#39; package is used by one of your dependencies,</span>
-<span class=" -Color -Color-Red">      it would be great if you take some time to track which package uses</span>
-<span class=" -Color -Color-Red">      &#39;sklearn&#39; instead of &#39;scikit-learn&#39; and report it to their issue tracker</span>
-<span class=" -Color -Color-Red">    - as a last resort, set the environment variable</span>
-<span class=" -Color -Color-Red">      SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True to avoid this error</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    More information is available at</span>
-<span class=" -Color -Color-Red">    https://github.com/scikit-learn/sklearn-pypi-package</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    If the previous advice does not cover your use case, feel free to report it at</span>
-<span class=" -Color -Color-Red">    https://github.com/scikit-learn/sklearn-pypi-package/issues/new</span>
-<span class=" -Color -Color-Red">    ----------------------------------------</span>
-<span class=" -Color -Color-Yellow">WARNING: Discarding https://files.pythonhosted.org/packages/b9/0e/b2a4cfaa9e12b9ca4c71507bc26d2c99d75de172c0088c9835a98cf146ff/sklearn-0.0.post10.tar.gz#sha256=d4cd5a2e64b3caaf82cd5e33c46884dfeec5ebf991710d9faeb4fe81cadb3ba6 (from https://pypi.org/simple/sklearn/). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">    ERROR: Command errored out with exit status 1:</span>
-<span class=" -Color -Color-Red">     command: /Library/Developer/CommandLineTools/usr/bin/python3 -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_d8822a420e4c4a9991e02c41dad1957a/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_d8822a420e4c4a9991e02c41dad1957a/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; egg_info --egg-base /private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-pip-egg-info-402ecrhy</span>
-<span class=" -Color -Color-Red">         cwd: /private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_d8822a420e4c4a9991e02c41dad1957a/</span>
-<span class=" -Color -Color-Red">    Complete output (18 lines):</span>
-<span class=" -Color -Color-Red">    The &#39;sklearn&#39; PyPI package is deprecated, use &#39;scikit-learn&#39;</span>
-<span class=" -Color -Color-Red">    rather than &#39;sklearn&#39; for pip commands.</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    Here is how to fix this error in the main use cases:</span>
-<span class=" -Color -Color-Red">    - use &#39;pip install scikit-learn&#39; rather than &#39;pip install sklearn&#39;</span>
-<span class=" -Color -Color-Red">    - replace &#39;sklearn&#39; by &#39;scikit-learn&#39; in your pip requirements files</span>
-<span class=" -Color -Color-Red">      (requirements.txt, setup.py, setup.cfg, Pipfile, etc ...)</span>
-<span class=" -Color -Color-Red">    - if the &#39;sklearn&#39; package is used by one of your dependencies,</span>
-<span class=" -Color -Color-Red">      it would be great if you take some time to track which package uses</span>
-<span class=" -Color -Color-Red">      &#39;sklearn&#39; instead of &#39;scikit-learn&#39; and report it to their issue tracker</span>
-<span class=" -Color -Color-Red">    - as a last resort, set the environment variable</span>
-<span class=" -Color -Color-Red">      SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True to avoid this error</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    More information is available at</span>
-<span class=" -Color -Color-Red">    https://github.com/scikit-learn/sklearn-pypi-package</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    If the previous advice does not cover your use case, feel free to report it at</span>
-<span class=" -Color -Color-Red">    https://github.com/scikit-learn/sklearn-pypi-package/issues/new</span>
-<span class=" -Color -Color-Red">    ----------------------------------------</span>
-<span class=" -Color -Color-Yellow">WARNING: Discarding https://files.pythonhosted.org/packages/28/86/207a003339023247fef1bb5bc9f5093140d17294b2f6d15bfcd4885e469e/sklearn-0.0.post9.tar.gz#sha256=1ff5864cf30489ee48a014fe8f4320d7bb59592392a4ef52ae9d7a37942615ac (from https://pypi.org/simple/sklearn/). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">    ERROR: Command errored out with exit status 1:</span>
-<span class=" -Color -Color-Red">     command: /Library/Developer/CommandLineTools/usr/bin/python3 -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_0f2a078c4d27426cb4d5b9ccf0e9197e/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_0f2a078c4d27426cb4d5b9ccf0e9197e/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; egg_info --egg-base /private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-pip-egg-info-65v0k2l1</span>
-<span class=" -Color -Color-Red">         cwd: /private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_0f2a078c4d27426cb4d5b9ccf0e9197e/</span>
-<span class=" -Color -Color-Red">    Complete output (18 lines):</span>
-<span class=" -Color -Color-Red">    The &#39;sklearn&#39; PyPI package is deprecated, use &#39;scikit-learn&#39;</span>
-<span class=" -Color -Color-Red">    rather than &#39;sklearn&#39; for pip commands.</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    Here is how to fix this error in the main use cases:</span>
-<span class=" -Color -Color-Red">    - use &#39;pip install scikit-learn&#39; rather than &#39;pip install sklearn&#39;</span>
-<span class=" -Color -Color-Red">    - replace &#39;sklearn&#39; by &#39;scikit-learn&#39; in your pip requirements files</span>
-<span class=" -Color -Color-Red">      (requirements.txt, setup.py, setup.cfg, Pipfile, etc ...)</span>
-<span class=" -Color -Color-Red">    - if the &#39;sklearn&#39; package is used by one of your dependencies,</span>
-<span class=" -Color -Color-Red">      it would be great if you take some time to track which package uses</span>
-<span class=" -Color -Color-Red">      &#39;sklearn&#39; instead of &#39;scikit-learn&#39; and report it to their issue tracker</span>
-<span class=" -Color -Color-Red">    - as a last resort, set the environment variable</span>
-<span class=" -Color -Color-Red">      SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True to avoid this error</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    More information is available at</span>
-<span class=" -Color -Color-Red">    https://github.com/scikit-learn/sklearn-pypi-package</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    If the previous advice does not cover your use case, feel free to report it at</span>
-<span class=" -Color -Color-Red">    https://github.com/scikit-learn/sklearn-pypi-package/issues/new</span>
-<span class=" -Color -Color-Red">    ----------------------------------------</span>
-<span class=" -Color -Color-Yellow">WARNING: Discarding https://files.pythonhosted.org/packages/70/ce/81aa643f3c43488c4a1e417e45f696a61e7ac82b57190fad3c310df2c07b/sklearn-0.0.post7.tar.gz#sha256=1c89020b364fdc3aa2839e0ae34e8f0b406669e4b5c2359dda3ac398f9c76874 (from https://pypi.org/simple/sklearn/). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">    ERROR: Command errored out with exit status 1:</span>
-<span class=" -Color -Color-Red">     command: /Library/Developer/CommandLineTools/usr/bin/python3 -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_da42629dd6594ec28bc0a40cb38b89ec/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_da42629dd6594ec28bc0a40cb38b89ec/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; egg_info --egg-base /private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-pip-egg-info-y65_rs52</span>
-<span class=" -Color -Color-Red">         cwd: /private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_da42629dd6594ec28bc0a40cb38b89ec/</span>
-<span class=" -Color -Color-Red">    Complete output (18 lines):</span>
-<span class=" -Color -Color-Red">    The &#39;sklearn&#39; PyPI package is deprecated, use &#39;scikit-learn&#39;</span>
-<span class=" -Color -Color-Red">    rather than &#39;sklearn&#39; for pip commands.</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    Here is how to fix this error in the main use cases:</span>
-<span class=" -Color -Color-Red">    - use &#39;pip install scikit-learn&#39; rather than &#39;pip install sklearn&#39;</span>
-<span class=" -Color -Color-Red">    - replace &#39;sklearn&#39; by &#39;scikit-learn&#39; in your pip requirements files</span>
-<span class=" -Color -Color-Red">      (requirements.txt, setup.py, setup.cfg, Pipfile, etc ...)</span>
-<span class=" -Color -Color-Red">    - if the &#39;sklearn&#39; package is used by one of your dependencies,</span>
-<span class=" -Color -Color-Red">      it would be great if you take some time to track which package uses</span>
-<span class=" -Color -Color-Red">      &#39;sklearn&#39; instead of &#39;scikit-learn&#39; and report it to their issue tracker</span>
-<span class=" -Color -Color-Red">    - as a last resort, set the environment variable</span>
-<span class=" -Color -Color-Red">      SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True to avoid this error</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    More information is available at</span>
-<span class=" -Color -Color-Red">    https://github.com/scikit-learn/sklearn-pypi-package</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    If the previous advice does not cover your use case, feel free to report it at</span>
-<span class=" -Color -Color-Red">    https://github.com/scikit-learn/sklearn-pypi-package/issues/new</span>
-<span class=" -Color -Color-Red">    ----------------------------------------</span>
-<span class=" -Color -Color-Yellow">WARNING: Discarding https://files.pythonhosted.org/packages/7a/93/e0e1b1e98f39dfca7ec9795cb46f6e09e88a2fd5d4a28e4b3d1f618a2aec/sklearn-0.0.post5.tar.gz#sha256=7377c714a03a79bbe9196f435db931fd2a6fa8c68514da7ed3a251fd08c52e2c (from https://pypi.org/simple/sklearn/). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">    ERROR: Command errored out with exit status 1:</span>
-<span class=" -Color -Color-Red">     command: /Library/Developer/CommandLineTools/usr/bin/python3 -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_d34cf4bb26e242739ae5bf8e775fec3c/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_d34cf4bb26e242739ae5bf8e775fec3c/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; egg_info --egg-base /private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-pip-egg-info-vpx_wfut</span>
-<span class=" -Color -Color-Red">         cwd: /private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_d34cf4bb26e242739ae5bf8e775fec3c/</span>
-<span class=" -Color -Color-Red">    Complete output (18 lines):</span>
-<span class=" -Color -Color-Red">    The &#39;sklearn&#39; PyPI package is deprecated, use &#39;scikit-learn&#39;</span>
-<span class=" -Color -Color-Red">    rather than &#39;sklearn&#39; for pip commands.</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    Here is how to fix this error in the main use cases:</span>
-<span class=" -Color -Color-Red">    - use &#39;pip install scikit-learn&#39; rather than &#39;pip install sklearn&#39;</span>
-<span class=" -Color -Color-Red">    - replace &#39;sklearn&#39; by &#39;scikit-learn&#39; in your pip requirements files</span>
-<span class=" -Color -Color-Red">      (requirements.txt, setup.py, setup.cfg, Pipfile, etc ...)</span>
-<span class=" -Color -Color-Red">    - if the &#39;sklearn&#39; package is used by one of your dependencies,</span>
-<span class=" -Color -Color-Red">      it would be great if you take some time to track which package uses</span>
-<span class=" -Color -Color-Red">      &#39;sklearn&#39; instead of &#39;scikit-learn&#39; and report it to their issue tracker</span>
-<span class=" -Color -Color-Red">    - as a last resort, set the environment variable</span>
-<span class=" -Color -Color-Red">      SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True to avoid this error</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    More information is available at</span>
-<span class=" -Color -Color-Red">    https://github.com/scikit-learn/sklearn-pypi-package</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    If the previous advice does not cover your use case, feel free to report it at</span>
-<span class=" -Color -Color-Red">    https://github.com/scikit-learn/sklearn-pypi-package/issues/new</span>
-<span class=" -Color -Color-Red">    ----------------------------------------</span>
-<span class=" -Color -Color-Yellow">WARNING: Discarding https://files.pythonhosted.org/packages/99/b2/165110013aa66fae6fc13918ad0e9de4801e5f1691d371bf8b63328037e6/sklearn-0.0.post4.tar.gz#sha256=0e81ec9c32d4bb418e7be8f1ec1027d174975502dc84cbc4f4564b4cba31e674 (from https://pypi.org/simple/sklearn/). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">    ERROR: Command errored out with exit status 1:</span>
-<span class=" -Color -Color-Red">     command: /Library/Developer/CommandLineTools/usr/bin/python3 -c &#39;import io, os, sys, setuptools, tokenize; sys.argv[0] = &#39;&quot;&#39;&quot;&#39;/private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_1fc80173b2344419b90cd52e482b13e4/setup.py&#39;&quot;&#39;&quot;&#39;; __file__=&#39;&quot;&#39;&quot;&#39;/private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_1fc80173b2344419b90cd52e482b13e4/setup.py&#39;&quot;&#39;&quot;&#39;;f = getattr(tokenize, &#39;&quot;&#39;&quot;&#39;open&#39;&quot;&#39;&quot;&#39;, open)(__file__) if os.path.exists(__file__) else io.StringIO(&#39;&quot;&#39;&quot;&#39;from setuptools import setup; setup()&#39;&quot;&#39;&quot;&#39;);code = f.read().replace(&#39;&quot;&#39;&quot;&#39;\r\n&#39;&quot;&#39;&quot;&#39;, &#39;&quot;&#39;&quot;&#39;\n&#39;&quot;&#39;&quot;&#39;);f.close();exec(compile(code, __file__, &#39;&quot;&#39;&quot;&#39;exec&#39;&quot;&#39;&quot;&#39;))&#39; egg_info --egg-base /private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-pip-egg-info-_f7fuy8t</span>
-<span class=" -Color -Color-Red">         cwd: /private/var/folders/q1/hx36x6395371n_w7tt95h0c40000gp/T/pip-install-2f1zrz15/sklearn_1fc80173b2344419b90cd52e482b13e4/</span>
-<span class=" -Color -Color-Red">    Complete output (18 lines):</span>
-<span class=" -Color -Color-Red">    The &#39;sklearn&#39; PyPI package is deprecated, use &#39;scikit-learn&#39;</span>
-<span class=" -Color -Color-Red">    rather than &#39;sklearn&#39; for pip commands.</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    Here is how to fix this error in the main use cases:</span>
-<span class=" -Color -Color-Red">    - use &#39;pip install scikit-learn&#39; rather than &#39;pip install sklearn&#39;</span>
-<span class=" -Color -Color-Red">    - replace &#39;sklearn&#39; by &#39;scikit-learn&#39; in your pip requirements files</span>
-<span class=" -Color -Color-Red">      (requirements.txt, setup.py, setup.cfg, Pipfile, etc ...)</span>
-<span class=" -Color -Color-Red">    - if the &#39;sklearn&#39; package is used by one of your dependencies,</span>
-<span class=" -Color -Color-Red">      it would be great if you take some time to track which package uses</span>
-<span class=" -Color -Color-Red">      &#39;sklearn&#39; instead of &#39;scikit-learn&#39; and report it to their issue tracker</span>
-<span class=" -Color -Color-Red">    - as a last resort, set the environment variable</span>
-<span class=" -Color -Color-Red">      SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True to avoid this error</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    More information is available at</span>
-<span class=" -Color -Color-Red">    https://github.com/scikit-learn/sklearn-pypi-package</span>
-<span class=" -Color -Color-Red">    </span>
-<span class=" -Color -Color-Red">    If the previous advice does not cover your use case, feel free to report it at</span>
-<span class=" -Color -Color-Red">    https://github.com/scikit-learn/sklearn-pypi-package/issues/new</span>
-<span class=" -Color -Color-Red">    ----------------------------------------</span>
-<span class=" -Color -Color-Yellow">WARNING: Discarding https://files.pythonhosted.org/packages/db/1e/af4e9cded5093a92e60d4ae7149a02c7427661b2db66c8ea4d34b17864a2/sklearn-0.0.post1.tar.gz#sha256=76b9ed1623775168657b86b5fe966d45752e5c87f528de6240c38923b94147c5 (from https://pypi.org/simple/sklearn/). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: You are using pip version 21.2.4; however, version 25.0.1 is available.</span>
-<span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;/Library/Developer/CommandLineTools/usr/bin/python3 -m pip install --upgrade pip&#39; command.</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Le notebook et les données sont téléchargeables <a class="reference download internal" download="" href="_downloads/c81170188e20ef3636275738cadf3630/TP2_ACP.zip"><span class="xref download myst">ici</span></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -804,24 +589,6 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="TP1_statsDescriptives.html"
-       title="page précédente">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">TP Statistiques descriptives</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="TP_Regression_Lineaire.html"
-       title="page suivante">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">TP Régression linéaire</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
