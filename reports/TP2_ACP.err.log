@@ -15,18 +15,17 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import seaborn as sns
-plt.figure(figsize = (20,20))
-sns.heatmap(df.corr(), annot = True, fmt=".2f",linewidths=0.5)
+try:
+    import sklearn, numpy, matplotlib 
+except ModuleNotFoundError: 
+    !pip3 install --quiet sklearn numpy matplotlib
+import scikit-learn, numpy as np, matplotlib.pyplot as plt
 ------------------
 
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[25], line 1[0m
-[0;32m----> 1[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mseaborn[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01msns[39;00m
-[1;32m      2[0m plt[38;5;241m.[39mfigure(figsize [38;5;241m=[39m ([38;5;241m20[39m,[38;5;241m20[39m))
-[1;32m      3[0m sns[38;5;241m.[39mheatmap(df[38;5;241m.[39mcorr(), annot [38;5;241m=[39m [38;5;28;01mTrue[39;00m, fmt[38;5;241m=[39m[38;5;124m"[39m[38;5;124m.2f[39m[38;5;124m"[39m,linewidths[38;5;241m=[39m[38;5;241m0.5[39m)
+[0;36m  Cell [0;32mIn[1], line 5[0;36m[0m
+[0;31m    import scikit-learn, numpy as np, matplotlib.pyplot as plt[0m
+[0m                 ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
 
-[0;31mModuleNotFoundError[0m: No module named 'seaborn'
 
