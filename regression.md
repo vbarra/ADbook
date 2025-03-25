@@ -212,7 +212,7 @@ $\boldsymbol\beta_l = arg\displaystyle\min_{\boldsymbol\beta\in\mathbb{R}^{p+1}}
 
 Contrairement à la régression Ridge, il n'y a pas de solution analytique (la norme $\ell_1$ rend la fonction non différentiable) et on doit donc recourir à des méthodes de résolution numérique. Lorsque $\lambda$ est grand, la minimisation force la fonction de pénalité à être petite : étant donné que cette dernière est une somme de valeurs absolues, la minimisation impose à certains coefficients $\beta_j,j\in[\![1,p]\!]$ d'être nuls. On parle alors de régression parcimonieuse (et la régression peut donc être vue comme une méthode de sélection de variables).
 
-Quand $p>n$, la méthode ne sélectionne que $n$ variables. De plus, si plusieurs variables sont corrélées entre elles, Lasso ignore toutes sauf une. Et, pire, même si $n>p$, et s'il y a de fortes corrélations entre les variables explicatives, on trouve empiriquement que Ridge donne de meilleurs résultats que Lasso.
+Quand $p>n$, la méthode ne sélectionne que $n$ variables. De plus, si plusieurs variables sont corrélées entre elles, Lasso les ignore toutes sauf une. Et, pire, même si $n>p$, et s'il y a de fortes corrélations entre les variables explicatives, on trouve empiriquement que Ridge donne de meilleurs résultats que Lasso.
 
 ### Régression Elasticnet
 
@@ -309,7 +309,7 @@ On recherche un ''bon'' modèle pour $p$ :
 
 1. On peut dans un premier temps supposer que $p(\mathbf x)$ est une fonction linéaire de $\mathbf x$. Les fonctions linéaires étant non bornées, elles ne peuvent modéliser des probabilités.  
 2. On peut alors supposer que $log\ p(\mathbf x)$ est une fonction linéaire de $\mathbf x$. Là aussi, la fonction logarithme est non bornée supérieurement, et ne peut modéliser une probabilité.
-3. Partant de cette idée, on borne le logarithme en utilisant la transformation logistique (ou logit) $log\frac{p(\mathbf x)}{1-p(\mathbf x)}$. Etant donné un événement ayant une probabilité $p$ de réussir, le rapport $p/(1-p)$ est appelé la côte de l'événement (rapport de la probabilité qu'il se produise sur celle qu'il ne se produise pas. Si vous avez $p$=3/4 de chances de réussir à votre examen de permis, cotre côte est $p/(1-p)=\frac{3/4}{1/4}$=3 contre un). On peut alors supposer que cette fonction de $p$ est linéaire en $\mathbf x$.
+3. Partant de cette idée, on borne le logarithme en utilisant la transformation logistique (ou logit) $log\frac{p(\mathbf x)}{1-p(\mathbf x)}$. Etant donné un événement ayant une probabilité $p$ de réussir, le rapport $p/(1-p)$ est appelé la côte de l'événement (rapport de la probabilité qu'il se produise sur celle qu'il ne se produise pas. Si vous avez $p$=3/4 de chances de réussir à votre examen de permis, cotre côte est $p/(1-p)=\frac{3/4}{1/4}$=3 contre 1). On peut alors supposer que cette fonction de $p$ est linéaire en $\mathbf x$.
 
 
 Le modèle de régression logistique s'écrit alors formellement 
