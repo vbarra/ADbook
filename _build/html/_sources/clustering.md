@@ -856,7 +856,7 @@ for i, (mean, cov, color) in enumerate(zip(best_gmm.means_, best_gmm.covariances
     # Ellipse modélisant la composante gaussienne
     angle = 180. * np.arctan2(w[0][1], w[0][0]) / np.pi
     v = 2. * np.sqrt(2.*v)
-    ax3.add_artist(matplotlib.patches.Ellipse(mean, v[0], v[1], 180. + angle, color=color,alpha=.3))
+    ax3.add_artist(matplotlib.patches.Ellipse(mean, v[0], v[1], angle = 180. + angle, color=color,alpha=.3))
 
 t = "Modèle choisi : "+ best_gmm.covariance_type +" avec "+ str(best_gmm.n_components)+" composantes"
 ax3.set_title(t)

@@ -1062,7 +1062,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/518ba330686e52efd632684e973cadb3089f7d924d463b86f3c30c34233d36f1.png" src="_images/518ba330686e52efd632684e973cadb3089f7d924d463b86f3c30c34233d36f1.png" />
+<img alt="_images/76b664d9e27d98d924ff594d71dac0f8a657530058131bed94f9f7f278a41230.png" src="_images/76b664d9e27d98d924ff594d71dac0f8a657530058131bed94f9f7f278a41230.png" />
 </div>
 </div>
 </section>
@@ -1313,7 +1313,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bf9d5393b1b115e873450c4e68d54c30e4224c53e7ade339e90d9a8e1e868415.png" src="_images/bf9d5393b1b115e873450c4e68d54c30e4224c53e7ade339e90d9a8e1e868415.png" />
+<img alt="_images/e13229cfc44f569766dd01b234ed56d8136dd1ecf53e52cc1862e23ad39a924d.png" src="_images/e13229cfc44f569766dd01b234ed56d8136dd1ecf53e52cc1862e23ad39a924d.png" />
 </div>
 </div>
 </section>
@@ -1393,7 +1393,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
     <span class="c1"># Ellipse modélisant la composante gaussienne</span>
     <span class="n">angle</span> <span class="o">=</span> <span class="mf">180.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
     <span class="n">v</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">v</span><span class="p">)</span>
-    <span class="n">ax3</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">180.</span> <span class="o">+</span> <span class="n">angle</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">.3</span><span class="p">))</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">angle</span> <span class="o">=</span> <span class="mf">180.</span> <span class="o">+</span> <span class="n">angle</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">.3</span><span class="p">))</span>
 
 <span class="n">t</span> <span class="o">=</span> <span class="s2">&quot;Modèle choisi : &quot;</span><span class="o">+</span> <span class="n">best_gmm</span><span class="o">.</span><span class="n">covariance_type</span> <span class="o">+</span><span class="s2">&quot; avec &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">best_gmm</span><span class="o">.</span><span class="n">n_components</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; composantes&quot;</span>
 <span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
@@ -1403,19 +1403,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">71</span>
-<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="n">angle</span> <span class="o">=</span> <span class="mf">180.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
-<span class="g g-Whitespace">     </span><span class="mi">70</span>     <span class="n">v</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">v</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">71</span>     <span class="n">ax3</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">180.</span> <span class="o">+</span> <span class="n">angle</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">.3</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span> <span class="n">t</span> <span class="o">=</span> <span class="s2">&quot;Modèle choisi : &quot;</span><span class="o">+</span> <span class="n">best_gmm</span><span class="o">.</span><span class="n">covariance_type</span> <span class="o">+</span><span class="s2">&quot; avec &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">best_gmm</span><span class="o">.</span><span class="n">n_components</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; composantes&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-
-<span class="ne">TypeError</span>: __init__() takes 4 positional arguments but 5 were given
-</pre></div>
-</div>
-<img alt="_images/b68d9a9aeac5b886e0924e58cba8d41dce4402293c2063ec58f011cf2dfe49bc.png" src="_images/b68d9a9aeac5b886e0924e58cba8d41dce4402293c2063ec58f011cf2dfe49bc.png" />
+<img alt="_images/0971c53e4bda0601e3d821c9391bfefa2ee8dc2b29ec3a31dda53c25b17992c1.png" src="_images/0971c53e4bda0601e3d821c9391bfefa2ee8dc2b29ec3a31dda53c25b17992c1.png" />
 </div>
 </div>
 </section>
@@ -1475,6 +1463,9 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2f223c9a7abbe74c1ff2e6bd3ef6419669884631661a36b376adc8679ab29fc7.png" src="_images/2f223c9a7abbe74c1ff2e6bd3ef6419669884631661a36b376adc8679ab29fc7.png" />
 </div>
 </div>
 </section>
