@@ -956,6 +956,8 @@ Une analyse fine peut être effectuée par nuage de points, à l'aide de l'indic
 
 ![](./images/silhouette.png)
 
+### Bayesian Information Criterion
+
 
 
 
