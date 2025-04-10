@@ -380,6 +380,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-de-silhouette">Indices de silhouette</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesian-information-criterion">Bayesian Information Criterion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indice-de-calinski-harabasz">Indice de Calinski-Harabasz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indice-de-davies-bouldin">Indice de Davies-Bouldin</a></li>
 </ul>
 </li>
 </ul>
@@ -1070,7 +1071,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a54c8ed111b5536723ed455ffce5d340b0cab5a584b1000981252e006d39db3e.png" src="_images/a54c8ed111b5536723ed455ffce5d340b0cab5a584b1000981252e006d39db3e.png" />
+<img alt="_images/ca8120ff55c5550ba63a8ef0b0e92d213ec6fe3797acd813e3aa057c02ded149.png" src="_images/ca8120ff55c5550ba63a8ef0b0e92d213ec6fe3797acd813e3aa057c02ded149.png" />
 </div>
 </div>
 </section>
@@ -1321,7 +1322,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/79bb284f85695c5a92f6eca182d0d836b75851e4eada41c059a29e0baef78201.png" src="_images/79bb284f85695c5a92f6eca182d0d836b75851e4eada41c059a29e0baef78201.png" />
+<img alt="_images/3a0575bf8e7309086f909d9bac5c5c4be142cdd605673ca62770da970d41b698.png" src="_images/3a0575bf8e7309086f909d9bac5c5c4be142cdd605673ca62770da970d41b698.png" />
 </div>
 </div>
 </section>
@@ -1591,15 +1592,15 @@ pour une classe <span class="math notranslate nohighlight">\(P_j\)</span> ne con
 <section id="indice-de-calinski-harabasz">
 <h3>Indice de Calinski-Harabasz<a class="headerlink" href="#indice-de-calinski-harabasz" title="Lien vers cette rubrique">#</a></h3>
 <p>L’indice de Calinski-Harabasz est un indice simple, égal au rapport entre la variance inter-groupes et la variance intra-groupe.</p>
-<p>Considérons un ensemble de données <span class="math notranslate nohighlight">\(X = \{\mathbf x_1, \dots, \mathbf x_n\} \subset \mathbb{R}^d\)</span>, partitionné en <span class="math notranslate nohighlight">\(k\)</span> clusters. Soit <span class="math notranslate nohighlight">\(\mathbf  c_i\)</span> le centroïde du <span class="math notranslate nohighlight">\(i\)</span>-ème cluster, <span class="math notranslate nohighlight">\(\mathbf  c\)</span> le centroïde global de l’ensemble des données, <span class="math notranslate nohighlight">\(n_i\)</span> le nombre d’observations dans le <span class="math notranslate nohighlight">\(i\)</span>-ème cluster. On définit alors la matrice de dispersion inter-classe <span class="math notranslate nohighlight">\(\mathbf B_k\)</span> et la matrice de dispersion intra-classe <span class="math notranslate nohighlight">\(\mathbf W_k\)</span> comme suit :
-[
+<p>Considérons un ensemble de données <span class="math notranslate nohighlight">\(X = \{\mathbf x_1, \dots, \mathbf x_n\} \subset \mathbb{R}^d\)</span>, partitionné en <span class="math notranslate nohighlight">\(k\)</span> clusters. Soit <span class="math notranslate nohighlight">\(\mathbf  c_i\)</span> le centroïde du <span class="math notranslate nohighlight">\(i\)</span>-ème cluster, <span class="math notranslate nohighlight">\(\mathbf  c\)</span> le centroïde global de l’ensemble des données, <span class="math notranslate nohighlight">\(n_i\)</span> le nombre d’observations dans le <span class="math notranslate nohighlight">\(i\)</span>-ème cluster. On définit alors la matrice de dispersion inter-classe <span class="math notranslate nohighlight">\(\mathbf B_k\)</span> et la matrice de dispersion intra-classe <span class="math notranslate nohighlight">\(\mathbf W_k\)</span> comme suit :</p>
+<p>[
 \mathbf B_k = \sum_{i=1}^k n_i |\mathbf c_i - \mathbf c|^2, \qquad \mathbf W_k = \sum_{i=1}^k \sum_{\mathbf x \in C_i} |\mathbf x - \mathbf c_i|^2.
-]
-L’indice de Calinski-Harabasz est alors donné par :
-[
+]</p>
+<p>L’indice de Calinski-Harabasz est alors donné par :</p>
+<p>[
 \text{CH}(k) = \frac{\mathbf B_k / (k - 1)}{\mathbf W_k / (n - k)}.
-]
-Ce rapport exprime la séparation (numerateur) normalisée par la compacité (dénominateur) en tenant compte du nombre de groupes. L’indice atteint généralement un maximum pour une valeur optimale du nombre de clusters <span class="math notranslate nohighlight">\(k\)</span>.</p>
+]</p>
+<p>Ce rapport exprime la séparation (numerateur) normalisée par la compacité (dénominateur) en tenant compte du nombre de groupes. L’indice atteint généralement un maximum pour une valeur optimale du nombre de clusters <span class="math notranslate nohighlight">\(k\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -1645,6 +1646,69 @@ Ce rapport exprime la séparation (numerateur) normalisée par la compacité (d�
 </div>
 </div>
 <p><img alt="" src="_images/ch.png" /></p>
+</section>
+<section id="indice-de-davies-bouldin">
+<h3>Indice de Davies-Bouldin<a class="headerlink" href="#indice-de-davies-bouldin" title="Lien vers cette rubrique">#</a></h3>
+<p>Avec les mêmes notations que précédemment, pour chaque cluster <span class="math notranslate nohighlight">\(C_i\)</span>, on définit <span class="math notranslate nohighlight">\(\mathbf c_i\)</span> comme son centroïde, et <span class="math notranslate nohighlight">\(s_i\)</span> comme une mesure de dispersion intra-classe, par exemple :
+[
+s_i = \frac{1}{|C_i|} \sum_{\mathbf x \in C_i} |\mathbf x - \mathbf c_i|.
+]
+On calcule ensuite, pour chaque paire <span class="math notranslate nohighlight">\((i,j)\)</span> avec <span class="math notranslate nohighlight">\(i \ne j\)</span>, une mesure de similarité entre les clusters <span class="math notranslate nohighlight">\(C_i\)</span> et <span class="math notranslate nohighlight">\(C_j\)</span> :</p>
+<p>[
+R_{ij} = \frac{s_i + s_j}{|c_i - c_j|}.
+]</p>
+<p>L’indice de Davies-Bouldin est alors défini comme la moyenne, pour chaque cluster <span class="math notranslate nohighlight">\(C_i\)</span>, de la plus grande similarité avec un autre cluster :</p>
+<p>[
+\text{DB}(k) = \frac{1}{k} \sum_{i=1}^{k} \max_{j \ne i} R_{ij}.
+]</p>
+<p>Cette formulation incite à rechercher des clusters à la fois compacts (valeurs <span class="math notranslate nohighlight">\(s_i\)</span> faibles) et bien séparés (valeurs <span class="math notranslate nohighlight">\(\|c_i - c_j\|\)</span> élevées). L’indice est particulièrement utile pour comparer plusieurs partitions obtenues avec des paramètres ou des méthodes différents. Un minimum local de l’indice peut indiquer un bon compromis entre cohésion interne et séparation externe des groupes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">davies_bouldin_score</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">y_true</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">K_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>  <span class="c1"># Calinski-Harabasz nécessite au moins 2 clusters</span>
+<span class="n">ch_scores</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">K</span> <span class="ow">in</span> <span class="n">K_range</span><span class="p">:</span>
+    <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">K</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">davies_bouldin_score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+    <span class="n">ch_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+
+<span class="n">optimal_K_ch</span> <span class="o">=</span> <span class="n">K_range</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">ch_scores</span><span class="p">)]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">K_range</span><span class="p">,</span> <span class="n">ch_scores</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Davies_Bouldin(K)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;DB&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">kmeans_optimal</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">optimal_K_ch</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span><span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">labels_optimal</span> <span class="o">=</span> <span class="n">kmeans_optimal</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">centroids</span> <span class="o">=</span> <span class="n">kmeans_best</span><span class="o">.</span><span class="n">cluster_centers_</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">labels_optimal</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">centroids</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">centroids</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Centroïdes&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Clustering KMeans pour K = </span><span class="si">{</span><span class="n">optimal_K_ch</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x1&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;x2&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="" src="_images/dbouldin.png" /></p>
 </section>
 </section>
 </section>
@@ -1787,6 +1851,7 @@ Ce rapport exprime la séparation (numerateur) normalisée par la compacité (d�
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-de-silhouette">Indices de silhouette</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesian-information-criterion">Bayesian Information Criterion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indice-de-calinski-harabasz">Indice de Calinski-Harabasz</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indice-de-davies-bouldin">Indice de Davies-Bouldin</a></li>
 </ul>
 </li>
 </ul>
