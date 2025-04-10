@@ -927,7 +927,7 @@ plt.tight_layout()
 L'évaluation d'une méthode de classification non supervisée n'est pas chose aisée, contrairement à des méthodes supervisées où un ensemble de test et un ensemble de validation permettent de calculer et de caractériser numériquement une solution.
 
 
-Plusieurs aspects rentrent en jeu lorsqu'il s'agit de caractériser une partition d'un ensemble $X=\left \{\mathbf x_i,1\leq i\leq n \right \}$: 
+Plusieurs aspects rentrent en jeu lorsqu'il s'agit de caractériser une partition d'un ensemble $X=\left \{\mathbf x_i,i\in[\![1,n]\!] \right \}$: 
 
 - Existe t il réellement une structure en nuage de points dans les données $X$ ?
 - Si oui, quel est le nombre de classes ?
@@ -962,7 +962,7 @@ Une analyse fine peut être effectuée par nuage de points, à l'aide de l'indic
 
 Le critère BIC (Bayesian Information Criterion) est une mesure utilisée pour comparer des modèles statistiques, en particulier dans les méthodes d’apprentissage non supervisé. L’objectif est de trouver un compromis entre la qualité de l’ajustement aux données et la complexité du modèle. Contrairement à la simple maximisation de la vraisemblance, qui favorise toujours les modèles les plus complexes, le BIC pénalise les modèles comportant un trop grand nombre de paramètres, afin de réduire le risque de surapprentissage (overfitting).
 
-Pour illustrer le critère, on considère un jeu de données $X=\left \{\mathbf x_i,1\leq i\leq n,\mathbf x_i\in\mathbb R^d, \right \}$ généré à partir de trois groupes distincts de points, chacun correspondant à une distribution gaussienne centrée différemment. 
+Pour illustrer le critère, on considère un jeu de données $X=\left \{\mathbf x_i,1\leq i\leq n,\mathbf x_i\in\mathbb R^d \right \}$ généré à partir de trois groupes distincts de points, chacun correspondant à une distribution gaussienne centrée différemment. 
 
 On souhaite ajuster un modèle de mélange de gaussiennes sur ces données pour les regrouper en classes, sans connaître à l’avance le nombre réel de classes. Pour cela, on entraîne plusieurs modèles  avec un nombre de composantes $K\in [1,5]$ et pour chaque modèle on calcule : 
 - la log-vraisemblance maximisée $ln(\hat{K}_K)$
