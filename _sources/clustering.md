@@ -1015,8 +1015,7 @@ plt.show()
 ```
 
 
-
-
+![](./images/gmmbic.png)
 
 
 
