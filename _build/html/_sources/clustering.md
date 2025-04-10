@@ -1086,14 +1086,14 @@ Avec les mêmes notations que précédemment, pour chaque cluster $C_i$, on déf
 $$s_i = \frac{1}{|C_i|} \sum_{\mathbf x \in C_i} \|\mathbf x - \mathbf c_i\|$$
 On calcule ensuite, pour chaque paire $(i,j)$ avec $i \ne j$, une mesure de similarité entre les clusters $C_i$ et $C_j$ :
 
-$$R_{ij} = \frac{s_i + s_j}{\|c_i - c_j\|}$$
+$$R_{ij} = \frac{s_i + s_j}{\|\mathbf c_i - \mathbf c_j\|}$$
 
 L'indice de Davies-Bouldin est alors défini comme la moyenne, pour chaque cluster $C_i$, de la plus grande similarité avec un autre cluster :
 
 
 $$\text{DB}(k) = \frac{1}{k} \sum_{i=1}^{k} \max_{j \ne i} R_{ij}$$
 
-Cette formulation incite à rechercher des clusters à la fois compacts (valeurs $s_i$ faibles) et bien séparés (valeurs $\|c_i - c_j\|$ élevées). L’indice est particulièrement utile pour comparer plusieurs partitions obtenues avec des paramètres ou des méthodes différents. Un minimum local de l’indice peut indiquer un bon compromis entre cohésion interne et séparation externe des groupes.
+Cette formulation incite à rechercher des clusters à la fois compacts (valeurs $s_i$ faibles) et bien séparés (valeurs $\|\mathbf c_i - \mathbf c_j\|$ élevées). L’indice est particulièrement utile pour comparer plusieurs partitions obtenues avec des paramètres ou des méthodes différents. Un minimum local de l’indice peut indiquer un bon compromis entre cohésion interne et séparation externe des groupes.
 
 
 ```{code-cell} ipython3
@@ -1105,7 +1105,7 @@ from sklearn.metrics import davies_bouldin_score
 
 X, y_true = make_blobs(n_samples=500, centers=3, cluster_std=1.0, random_state=42)
 
-K_range = range(2, 11)  # Calinski-Harabasz nécessite au moins 2 clusters
+K_range = range(2, 11)  
 db_scores = []
 
 for K in K_range:

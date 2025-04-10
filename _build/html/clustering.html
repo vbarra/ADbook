@@ -1071,7 +1071,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ca8120ff55c5550ba63a8ef0b0e92d213ec6fe3797acd813e3aa057c02ded149.png" src="_images/ca8120ff55c5550ba63a8ef0b0e92d213ec6fe3797acd813e3aa057c02ded149.png" />
+<img alt="_images/e2df63510c1e8ae5350128a735639e71c9d2c139fe03d9da75c779053d2606f3.png" src="_images/e2df63510c1e8ae5350128a735639e71c9d2c139fe03d9da75c779053d2606f3.png" />
 </div>
 </div>
 </section>
@@ -1322,7 +1322,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/79c7b54792c54ef70b6a96438f6312cb5de5650cd6effaae24e5e39471acff04.png" src="_images/79c7b54792c54ef70b6a96438f6312cb5de5650cd6effaae24e5e39471acff04.png" />
+<img alt="_images/b6554e3be5a45f11fe2898782b2117b7e24b49cdc64034d24916998b716a2954.png" src="_images/b6554e3be5a45f11fe2898782b2117b7e24b49cdc64034d24916998b716a2954.png" />
 </div>
 </div>
 </section>
@@ -1652,11 +1652,11 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 \[s_i = \frac{1}{|C_i|} \sum_{\mathbf x \in C_i} \|\mathbf x - \mathbf c_i\|\]</div>
 <p>On calcule ensuite, pour chaque paire <span class="math notranslate nohighlight">\((i,j)\)</span> avec <span class="math notranslate nohighlight">\(i \ne j\)</span>, une mesure de similarité entre les clusters <span class="math notranslate nohighlight">\(C_i\)</span> et <span class="math notranslate nohighlight">\(C_j\)</span> :</p>
 <div class="math notranslate nohighlight">
-\[R_{ij} = \frac{s_i + s_j}{\|c_i - c_j\|}\]</div>
+\[R_{ij} = \frac{s_i + s_j}{\|\mathbf c_i - \mathbf c_j\|}\]</div>
 <p>L’indice de Davies-Bouldin est alors défini comme la moyenne, pour chaque cluster <span class="math notranslate nohighlight">\(C_i\)</span>, de la plus grande similarité avec un autre cluster :</p>
 <div class="math notranslate nohighlight">
 \[\text{DB}(k) = \frac{1}{k} \sum_{i=1}^{k} \max_{j \ne i} R_{ij}\]</div>
-<p>Cette formulation incite à rechercher des clusters à la fois compacts (valeurs <span class="math notranslate nohighlight">\(s_i\)</span> faibles) et bien séparés (valeurs <span class="math notranslate nohighlight">\(\|c_i - c_j\|\)</span> élevées). L’indice est particulièrement utile pour comparer plusieurs partitions obtenues avec des paramètres ou des méthodes différents. Un minimum local de l’indice peut indiquer un bon compromis entre cohésion interne et séparation externe des groupes.</p>
+<p>Cette formulation incite à rechercher des clusters à la fois compacts (valeurs <span class="math notranslate nohighlight">\(s_i\)</span> faibles) et bien séparés (valeurs <span class="math notranslate nohighlight">\(\|\mathbf c_i - \mathbf c_j\|\)</span> élevées). L’indice est particulièrement utile pour comparer plusieurs partitions obtenues avec des paramètres ou des méthodes différents. Un minimum local de l’indice peut indiquer un bon compromis entre cohésion interne et séparation externe des groupes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>

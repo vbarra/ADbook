@@ -1105,7 +1105,7 @@ from sklearn.metrics import davies_bouldin_score
 
 X, y_true = make_blobs(n_samples=500, centers=3, cluster_std=1.0, random_state=42)
 
-K_range = range(2, 11)  # Calinski-Harabasz nécessite au moins 2 clusters
+K_range = range(2, 11)  
 db_scores = []
 
 for K in K_range:
