@@ -379,6 +379,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-de-methodes">Evaluation de méthodes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-de-silhouette">Indices de silhouette</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesian-information-criterion">Bayesian Information Criterion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indice-de-calinski-harabasz">Indice de Calinski-Harabasz</a></li>
 </ul>
 </li>
 </ul>
@@ -1069,7 +1070,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e2df63510c1e8ae5350128a735639e71c9d2c139fe03d9da75c779053d2606f3.png" src="_images/e2df63510c1e8ae5350128a735639e71c9d2c139fe03d9da75c779053d2606f3.png" />
+<img alt="_images/ca8120ff55c5550ba63a8ef0b0e92d213ec6fe3797acd813e3aa057c02ded149.png" src="_images/ca8120ff55c5550ba63a8ef0b0e92d213ec6fe3797acd813e3aa057c02ded149.png" />
 </div>
 </div>
 </section>
@@ -1320,7 +1321,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8572aa8e04739d176149cf18a7327664ea847b83636cadcd3f57f9b8d155df74.png" src="_images/8572aa8e04739d176149cf18a7327664ea847b83636cadcd3f57f9b8d155df74.png" />
+<img alt="_images/699fb993dc6e1807edb5f8191cf013d9e9d4a07d23bf6c29e328bbc41b888c7e.png" src="_images/699fb993dc6e1807edb5f8191cf013d9e9d4a07d23bf6c29e328bbc41b888c7e.png" />
 </div>
 </div>
 </section>
@@ -1587,6 +1588,64 @@ pour une classe <span class="math notranslate nohighlight">\(P_j\)</span> ne con
 </div>
 <p><img alt="" src="_images/gmmbic.png" /></p>
 </section>
+<section id="indice-de-calinski-harabasz">
+<h3>Indice de Calinski-Harabasz<a class="headerlink" href="#indice-de-calinski-harabasz" title="Lien vers cette rubrique">#</a></h3>
+<p>L’indice de Calinski-Harabasz est un indice simple, égal au rapport entre la variance inter-groupes et la variance intra-groupe.</p>
+<p>Considérons un ensemble de données <span class="math notranslate nohighlight">\(X = \{\mathbf x_1, \dots, \mathbf x_n\} \subset \mathbb{R}^d\)</span>, partitionné en <span class="math notranslate nohighlight">\(k\)</span> clusters. Soit <span class="math notranslate nohighlight">\(\mathbf  c_i\)</span> le centroïde du <span class="math notranslate nohighlight">\(i\)</span>-ème cluster, <span class="math notranslate nohighlight">\(\mathbf  c\)</span> le centroïde global de l’ensemble des données, <span class="math notranslate nohighlight">\(n_i\)</span> le nombre d’observations dans le <span class="math notranslate nohighlight">\(i\)</span>-ème cluster. On définit alors la matrice de dispersion inter-classe <span class="math notranslate nohighlight">\(\mathbf B_k\)</span> et la matrice de dispersion intra-classe <span class="math notranslate nohighlight">\(\mathbf W_k\)</span> comme suit :
+[
+\mathbf B_k = \sum_{i=1}^k n_i |\mathbf c_i - \mathbf c|^2, \qquad \mathbf W_k = \sum_{i=1}^k \sum_{\mathbf x \in C_i} |\mathbf x - \mathbf c_i|^2.
+]
+L’indice de Calinski-Harabasz est alors donné par :
+[
+\text{CH}(k) = \frac{\mathbf B_k / (k - 1)}{\mathbf W_k / (n - k)}.
+]
+Ce rapport exprime la séparation (numerateur) normalisée par la compacité (dénominateur) en tenant compte du nombre de groupes. L’indice atteint généralement un maximum pour une valeur optimale du nombre de clusters <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">calinski_harabasz_score</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">y_true</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">K_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>  
+<span class="n">ch_scores</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">K</span> <span class="ow">in</span> <span class="n">K_range</span><span class="p">:</span>
+    <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">K</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">calinski_harabasz_score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+    <span class="n">ch_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+
+<span class="n">optimal_K_ch</span> <span class="o">=</span> <span class="n">K_range</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">ch_scores</span><span class="p">)]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">K_range</span><span class="p">,</span> <span class="n">ch_scores</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Calinski-Harabasz(K)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;CH&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">kmeans_optimal</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">optimal_K_ch</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">labels_optimal</span> <span class="o">=</span> <span class="n">kmeans_optimal</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">labels_optimal</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Clustering KMeans pour K = </span><span class="si">{</span><span class="n">optimal_K_ch</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x1&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;x2&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="" src="_images/ch.png" /></p>
+</section>
 </section>
 </section>
 
@@ -1727,6 +1786,7 @@ pour une classe <span class="math notranslate nohighlight">\(P_j\)</span> ne con
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-de-methodes">Evaluation de méthodes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-de-silhouette">Indices de silhouette</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesian-information-criterion">Bayesian Information Criterion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indice-de-calinski-harabasz">Indice de Calinski-Harabasz</a></li>
 </ul>
 </li>
 </ul>
