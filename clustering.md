@@ -969,7 +969,7 @@ On souhaite ajuster un modèle de mélange de gaussiennes sur ces données pour 
 - le nombre de paramètres $k_K =  K\left (d+\frac{d(d+1)}{2} \right )+(K-1)$ 
 - le BIC : $BIC_K = -2ln(\hat{K}_K) +k_K ln(n)$
 
-Le code suivant propose un exemple
+Le code suivant propose un exemple.
 
 
 ```{code-cell} ipython3
