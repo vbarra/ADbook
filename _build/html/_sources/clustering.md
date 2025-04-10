@@ -954,6 +954,64 @@ On a clairement $s_i\in[-1,1]$. De plus $s_i<0$ signifie que $a_i>b_i$  ce qui n
 
 Une analyse fine peut être effectuée par nuage de points, à l'aide de l'indice de silhouette. A partir des indices de silhouette individuels, il est possible de calculer les indices des classes $P_j$ (par moyenne des indices des points de la classe), et de la partition $P$ (par moyenne des indices des classes $P_j$).
 
+
+
+
+
+
+
+
+
+```{code-cell} ipython3
+from sklearn.datasets import make_blobs
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
+from sklearn.metrics import silhouette_samples
+
+def silhouette_plot(X, cluster_labels, ax=None):
+    silhouette_scores = silhouette_samples(X, cluster_labels)
+    if ax is None:
+        ax = plt.gca()
+    y_lower = 10
+    inliers = cluster_labels != -1
+    X = X[inliers]
+    cluster_labels = cluster_labels[inliers]
+    silhouette_scores = silhouette_scores[inliers]
+    labels = np.unique(cluster_labels)
+    cm = plt.cm.Set3
+    for i in labels:
+        ith_cluster_silhouette_values = \
+            silhouette_scores[cluster_labels == i]
+
+        ith_cluster_silhouette_values.sort()
+
+        size_cluster_i = ith_cluster_silhouette_values.shape[0]
+        y_upper = y_lower + size_cluster_i
+
+        color = cm(i)
+        ax.fill_betweenx(np.arange(y_lower, y_upper),
+                          0, ith_cluster_silhouette_values,
+                          facecolor=color, edgecolor=color, alpha=0.7)
+
+        ax.text(-0.05, y_lower + 0.5 * size_cluster_i, str(i))
+        ax.set_title("Silhouettes des \n {:d} classes".format(i+1),fontsize=10)
+        y_lower = y_upper + 10  
+
+Xblobs, yblobs  =  make_blobs(n_samples=200,n_features=2,centers=2,random_state=2,cluster_std=1.5,)
+plt.scatter(Xblobs[:, 0], Xblobs[:, 1], c=yblobs, s=30, cmap='RdBu');
+
+fig, axes = plt.subplots(2, 5, subplot_kw={'xticks': (), 'yticks':()}, figsize=(10, 5))
+for ax, n_clusters in zip(axes.T, [2, 3, 4, 5, 8]):
+    km = KMeans(n_clusters=n_clusters)
+    km.fit(Xblobs)
+    ax[0].scatter(Xblobs[:, 0], Xblobs[:, 1], c=km.labels_, s=10)
+    silhouette_plot(Xblobs, km.labels_, ax=ax[1])
+    ax[0].set_title("Silhouette: {:.2f}".format(silhouette_score(Xblobs, km.labels_)),fontsize=10)
+``` 
+
+
+
+
 ![](./images/silhouette.png)
 
 
