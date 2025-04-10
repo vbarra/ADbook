@@ -956,10 +956,63 @@ Une analyse fine peut être effectuée par nuage de points, à l'aide de l'indic
 
 ![](./images/silhouette.png)
 
+
 ### Bayesian Information Criterion
 
 
+Le critère BIC (Bayesian Information Criterion) est une mesure utilisée pour comparer des modèles statistiques, en particulier dans les méthodes d’apprentissage non supervisé. L’objectif est de trouver un compromis entre la qualité de l’ajustement aux données et la complexité du modèle. Contrairement à la simple maximisation de la vraisemblance, qui favorise toujours les modèles les plus complexes, le BIC pénalise les modèles comportant un trop grand nombre de paramètres, afin de réduire le risque de surapprentissage (overfitting).
 
+Pour illustrer le critère, on considère un jeu de données $X=\left \{\mathbf x_i,1\leq i\leq n,\mathbf x_i\in\mathbbR^d, \right \}$ généré à partir de trois groupes distincts de points, chacun correspondant à une distribution gaussienne centrée différemment. 
+
+On souhaite ajuster un modèle de mélange de gaussiennes sur ces données pour les regrouper en classes, sans connaître à l’avance le nombre réel de classes. Pour cela, on entraîne plusieurs modèles  avec un nombre de composantes $K\in [1,5]$ et pour chaque modèle on calcule : 
+- la log-vraisemblance maximisée $ln(\hat{K}_K)$
+- le nombre de paramètres $k_K =  K\left (d+\frac{d(d+1)}{2} \right )+(K-1)$ 
+- le BIC : $BIC_K = -2ln(\hat{K}_K) +k_K ln(n)$
+
+Le code suivant propose un exemple
+
+
+```{code-cell} ipython3
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.mixture import GaussianMixture
+from sklearn.datasets import make_blobs
+
+X, y_true = make_blobs(n_samples=500, centers=3, cluster_std=3.0, random_state=42)
+
+# Liste des valeurs de K à tester
+K_range = range(1, 7)
+bics = []
+log_likelihoods = []
+
+for K in K_range:
+    gmm = GaussianMixture(n_components=K, covariance_type='full', random_state=42)
+    gmm.fit(X)
+    bics.append(gmm.bic(X))
+    # Log-vraisemblance
+    log_likelihoods.append(gmm.score(X) * X.shape[0])  
+
+fig, ax = plt.subplots(1, 2, figsize=(12, 5))
+
+ax[0].plot(K_range, bics, marker='o')
+ax[0].set_title("BIC(K)")
+ax[0].set_xlabel("K")
+ax[0].set_ylabel("BIC")
+ax[0].grid(True)
+
+optimal_K = K_range[np.argmin(bics)]
+gmm_optimal = GaussianMixture(n_components=optimal_K, covariance_type='full', random_state=42)
+y_gmm = gmm_optimal.fit_predict(X)
+
+ax[1].scatter(X[:, 0], X[:, 1], c=y_gmm, s=30, cmap='viridis')
+ax[1].set_title(f"Clustering GMM pour K = {optimal_K}")
+ax[1].set_xlabel("x1")
+ax[1].set_ylabel("x2")
+ax[1].grid(True)
+
+plt.tight_layout()
+plt.show()
+``` 
 
 
 
