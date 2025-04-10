@@ -1087,20 +1087,15 @@ plt.show()
 
 Avec les mêmes notations que précédemment, pour chaque cluster $C_i$, on définit $\mathbf c_i$ comme son centroïde, et $s_i$ comme une mesure de dispersion intra-classe, par exemple :
 
-\[
-s_i = \frac{1}{|C_i|} \sum_{\mathbf x \in C_i} \|\mathbf x - \mathbf c_i\|.
-\]
+$$s_i = \frac{1}{|C_i|} \sum_{\mathbf x \in C_i} \|\mathbf x - \mathbf c_i\|$$
 On calcule ensuite, pour chaque paire $(i,j)$ avec $i \ne j$, une mesure de similarité entre les clusters $C_i$ et $C_j$ :
 
-\[
-R_{ij} = \frac{s_i + s_j}{\|c_i - c_j\|}.
-\]
+$$R_{ij} = \frac{s_i + s_j}{\|c_i - c_j\|}$$
 
 L'indice de Davies-Bouldin est alors défini comme la moyenne, pour chaque cluster $C_i$, de la plus grande similarité avec un autre cluster :
 
-\[
-\text{DB}(k) = \frac{1}{k} \sum_{i=1}^{k} \max_{j \ne i} R_{ij}.
-\]
+
+$$\text{DB}(k) = \frac{1}{k} \sum_{i=1}^{k} \max_{j \ne i} R_{ij}$$
 
 Cette formulation incite à rechercher des clusters à la fois compacts (valeurs $s_i$ faibles) et bien séparés (valeurs $\|c_i - c_j\|$ élevées). L’indice est particulièrement utile pour comparer plusieurs partitions obtenues avec des paramètres ou des méthodes différents. Un minimum local de l’indice peut indiquer un bon compromis entre cohésion interne et séparation externe des groupes.
 
