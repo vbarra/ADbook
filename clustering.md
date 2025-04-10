@@ -1025,15 +1025,11 @@ L'indice de Calinski-Harabasz est un indice simple, égal au rapport entre la va
 
 Considérons un ensemble de données $X = \{\mathbf x_1, \dots, \mathbf x_n\} \subset \mathbb{R}^d$, partitionné en $k$ clusters. Soit $\mathbf  c_i$ le centroïde du $i$-ème cluster, $\mathbf  c$ le centroïde global de l'ensemble des données, $n_i$ le nombre d'observations dans le $i$-ème cluster. On définit alors la matrice de dispersion inter-classe $\mathbf B_k$ et la matrice de dispersion intra-classe $\mathbf W_k$ comme suit :
 
-\[
-\mathbf B_k = \sum_{i=1}^k n_i \|\mathbf c_i - \mathbf c\|^2, \qquad \mathbf W_k = \sum_{i=1}^k \sum_{\mathbf x \in C_i} \|\mathbf x - \mathbf c_i\|^2.
-\]
+$$\mathbf B_k = \sum_{i=1}^k n_i \|\mathbf c_i - \mathbf c\|^2, \qquad \mathbf W_k = \sum_{i=1}^k \sum_{\mathbf x \in C_i} \|\mathbf x - \mathbf c_i\|^2$$
 
 L’indice de Calinski-Harabasz est alors donné par :
 
-\[
-\text{CH}(k) = \frac{\mathbf B_k / (k - 1)}{\mathbf W_k / (n - k)}.
-\]
+$$\text{CH}(k) = \frac{\mathbf B_k / (k - 1)}{\mathbf W_k / (n - k)}$$
 
 Ce rapport exprime la séparation (numerateur) normalisée par la compacité (dénominateur) en tenant compte du nombre de groupes. L’indice atteint généralement un maximum pour une valeur optimale du nombre de clusters $k$.
 
