@@ -1,0 +1,100 @@
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/lib/python3.13/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/vibarra/Library/Python/3.13/lib/python/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/opt/homebrew/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/opt/homebrew/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/homebrew/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+try:
+    import shap 
+except ModuleNotFoundError: 
+    !pip3 install --quiet shap
+
+import shap
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+
+X, y = shap.datasets.iris()
+
+
+X_train, X_test, Y_train, Y_test = train_test_split(X,y, test_size=0.2, random_state=0)
+knn = KNeighborsClassifier()
+knn.fit(X_train, Y_train)
+
+explainer = shap.KernelExplainer(knn.predict_proba, X_train)
+shap_values = explainer.shap_values(X_test)
+# Pour chaque exemple, on donne l'importance de chacun des descripteurs dans la décision de classification
+shap.summary_plot(shap_values, X_test)
+
+------------------
+
+----- stdout -----
+[1;31merror[0m: [1mexternally-managed-environment[0m
+
+[31m×[0m This environment is externally managed
+[31m╰─>[0m To install Python packages system-wide, try brew install
+[31m   [0m xyz, where xyz is the package you are trying to
+[31m   [0m install.
+[31m   [0m 
+[31m   [0m If you wish to install a Python library that isn't in Homebrew,
+[31m   [0m use a virtual environment:
+[31m   [0m 
+[31m   [0m python3 -m venv path/to/venv
+[31m   [0m source path/to/venv/bin/activate
+[31m   [0m python3 -m pip install xyz
+[31m   [0m 
+[31m   [0m If you wish to install a Python application that isn't in Homebrew,
+[31m   [0m it may be easiest to use 'pipx install xyz', which will manage a
+[31m   [0m virtual environment for you. You can install pipx with
+[31m   [0m 
+[31m   [0m brew install pipx
+[31m   [0m 
+[31m   [0m You may restore the old behavior of pip by passing
+[31m   [0m the '--break-system-packages' flag to pip, or by adding
+[31m   [0m 'break-system-packages = true' to your pip.conf file. The latter
+[31m   [0m will permanently disable this error.
+[31m   [0m 
+[31m   [0m If you disable this error, we STRONGLY recommend that you additionally
+[31m   [0m pass the '--user' flag to pip, or set 'user = true' in your pip.conf
+[31m   [0m file. Failure to do this can result in a broken Homebrew installation.
+[31m   [0m 
+[31m   [0m Read more about this behavior here: <https://peps.python.org/pep-0668/>
+
+[1;35mnote[0m: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+[1;36mhint[0m: See PEP 668 for the detailed specification.
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mModuleNotFoundError[39m                       Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[7][39m[32m, line 6[39m
+[32m      3[39m [38;5;28;01mexcept[39;00m [38;5;167;01mModuleNotFoundError[39;00m: 
+[32m      4[39m     get_ipython().system([33m'[39m[33mpip3 install --quiet shap[39m[33m'[39m)
+[32m----> [39m[32m6[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mshap[39;00m
+[32m      7[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01msklearn[39;00m[34;01m.[39;00m[34;01mmodel_selection[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m train_test_split
+[32m      8[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01msklearn[39;00m[34;01m.[39;00m[34;01mneighbors[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m KNeighborsClassifier
+
+[31mModuleNotFoundError[39m: No module named 'shap'
+

@@ -922,6 +922,42 @@ plt.tight_layout()
 ```
 
 
+## Evaluation de méthodes non supervisées
+
+L'évaluation d'une méthode de classification non supervisée n'est pas chose aisée, contrairement à des méthodes supervisées où un ensemble de test et un ensemble de validation permettent de calculer et de caractériser numériquement une solution.
+
+
+Plusieurs aspects rentrent en jeu lorsqu'il s'agit de caractériser une partition d'un ensemble $X=\left \{\mathbf x_i,1\leq i\leq n \right \}$: 
+
+- Existe t il réellement une structure en nuage de points dans les données $X$ ?
+- Si oui, quel est le nombre de classes ?
+- Comment évaluer la qualité d'une partition ?
+- Comment comparer deux partitions ?
+
+
+Les mesures de qualité d'une partition peuvent être :
+1. complètement non supervisées (ne s'appuyer sur aucune information externe) : on distingue ici les mesures de cohésion d'un nuage de points, et de séparation des nuages de points. On trouve aussi les indices se basant sur la matrice de proximité.
+2. supervisées, qui vérifient à quel point une partition est conforme à une consigne extérieure. L'entropie est un exemple de mesure de ce type
+3. relatives, qui permettent de comparer différentes partitions, ou nuages individuels. 
+
+### Indices de silhouette
+Un indice classiquement utilisé pour évaluer une partition issue de classification non supervisée est l'indice de silhouette (calculé sur un point de données, ou sur la partition entière). 
+
+Cet indice se calcule en trois étapes, illustrées dans le cas d'un point $\mathbf x_i$ appartenant à la classe $\mathcal{P}$ :
+
+- calcul de la distance moyenne de $\mathbf x_i$ à chaque $\mathbf x_j$ de sa classe $\mathcal{P}$ : $a_i = \frac{1}{|\mathcal{P}|-1}\displaystyle\sum_{\mathbf x_j\in \mathcal{P}} d(\mathbf x_i,\mathbf x_j)$
+   pour une classe $P_j$ ne contenant pas $\mathbf x_i$, calcul de la distance moyenne de $\mathbf x_i$ à tous les points de $P_j$ : $b_i =  \frac{1}{|P_j|}\displaystyle\sum_{\mathbf x_k\in P_j} d(\mathbf x_i,\mathbf x_k)$
+-  calcul de l'indice de silhouette de $\mathbf x_i$ : $s_i = \frac{b_i-a_i}{max(a_i,b_i)}$.
+
+
+On a clairement $-1\leq s_i\leq 1$. De plus $s_i<0$ signifie que $a_i>b_i$  ce qui ne correspond pas à une situation acceptable pour une bonne partition. $s_i$ doit donc être positif, et $a_i$ le plus proche possible de 0 (pour avoir $s_i\approx 1$).
+
+Une analyse fine peut être effectuée par nuage de points, à l'aide de l'indice de silhouette. A partir des indices de silhouette individuels, il est possible de calculer les indices des classes $P_j$ (par moyenne des indices des points de la classe), et de la partition $P$ (par moyenne des indices des classes $P_j$).
+
+![](./images/silhouette.png)
+
+### Bayesian Information Criterion
+
 
 
 
