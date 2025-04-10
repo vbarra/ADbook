@@ -1322,7 +1322,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f6a2abbe5460ce40f67712ecabbe363b53d3e03fd5cd8a5ea7d29335914a8406.png" src="_images/f6a2abbe5460ce40f67712ecabbe363b53d3e03fd5cd8a5ea7d29335914a8406.png" />
+<img alt="_images/5244003caf2b554c129998c8bfae79694930f89804fe942c304899746dea70d5.png" src="_images/5244003caf2b554c129998c8bfae79694930f89804fe942c304899746dea70d5.png" />
 </div>
 </div>
 </section>
@@ -1593,13 +1593,11 @@ pour une classe <span class="math notranslate nohighlight">\(P_j\)</span> ne con
 <h3>Indice de Calinski-Harabasz<a class="headerlink" href="#indice-de-calinski-harabasz" title="Lien vers cette rubrique">#</a></h3>
 <p>L’indice de Calinski-Harabasz est un indice simple, égal au rapport entre la variance inter-groupes et la variance intra-groupe.</p>
 <p>Considérons un ensemble de données <span class="math notranslate nohighlight">\(X = \{\mathbf x_1, \dots, \mathbf x_n\} \subset \mathbb{R}^d\)</span>, partitionné en <span class="math notranslate nohighlight">\(k\)</span> clusters. Soit <span class="math notranslate nohighlight">\(\mathbf  c_i\)</span> le centroïde du <span class="math notranslate nohighlight">\(i\)</span>-ème cluster, <span class="math notranslate nohighlight">\(\mathbf  c\)</span> le centroïde global de l’ensemble des données, <span class="math notranslate nohighlight">\(n_i\)</span> le nombre d’observations dans le <span class="math notranslate nohighlight">\(i\)</span>-ème cluster. On définit alors la matrice de dispersion inter-classe <span class="math notranslate nohighlight">\(\mathbf B_k\)</span> et la matrice de dispersion intra-classe <span class="math notranslate nohighlight">\(\mathbf W_k\)</span> comme suit :</p>
-<p>[
-\mathbf B_k = \sum_{i=1}^k n_i |\mathbf c_i - \mathbf c|^2, \qquad \mathbf W_k = \sum_{i=1}^k \sum_{\mathbf x \in C_i} |\mathbf x - \mathbf c_i|^2.
-]</p>
+<div class="math notranslate nohighlight">
+\[\mathbf B_k = \sum_{i=1}^k n_i \|\mathbf c_i - \mathbf c\|^2, \qquad \mathbf W_k = \sum_{i=1}^k \sum_{\mathbf x \in C_i} \|\mathbf x - \mathbf c_i\|^2\]</div>
 <p>L’indice de Calinski-Harabasz est alors donné par :</p>
-<p>[
-\text{CH}(k) = \frac{\mathbf B_k / (k - 1)}{\mathbf W_k / (n - k)}.
-]</p>
+<div class="math notranslate nohighlight">
+\[\text{CH}(k) = \frac{\mathbf B_k / (k - 1)}{\mathbf W_k / (n - k)}\]</div>
 <p>Ce rapport exprime la séparation (numerateur) normalisée par la compacité (dénominateur) en tenant compte du nombre de groupes. L’indice atteint généralement un maximum pour une valeur optimale du nombre de clusters <span class="math notranslate nohighlight">\(k\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
