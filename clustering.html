@@ -1320,7 +1320,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/974ff071db63b2c612535970da376665fe4371d3b8f85b18905d7064a3f1994a.png" src="_images/974ff071db63b2c612535970da376665fe4371d3b8f85b18905d7064a3f1994a.png" />
+<img alt="_images/465c09a441935f519017b472617b94baff6a7c857d80f462b456d713771be377.png" src="_images/465c09a441935f519017b472617b94baff6a7c857d80f462b456d713771be377.png" />
 </div>
 </div>
 </section>
@@ -1532,7 +1532,7 @@ pour une classe <span class="math notranslate nohighlight">\(P_j\)</span> ne con
 <section id="bayesian-information-criterion">
 <h3>Bayesian Information Criterion<a class="headerlink" href="#bayesian-information-criterion" title="Lien vers cette rubrique">#</a></h3>
 <p>Le critère BIC (Bayesian Information Criterion) est une mesure utilisée pour comparer des modèles statistiques, en particulier dans les méthodes d’apprentissage non supervisé. L’objectif est de trouver un compromis entre la qualité de l’ajustement aux données et la complexité du modèle. Contrairement à la simple maximisation de la vraisemblance, qui favorise toujours les modèles les plus complexes, le BIC pénalise les modèles comportant un trop grand nombre de paramètres, afin de réduire le risque de surapprentissage (overfitting).</p>
-<p>Pour illustrer le critère, on considère un jeu de données <span class="math notranslate nohighlight">\(X=\left \{\mathbf x_i,1\leq i\leq n,\mathbf x_i\in\mathbbR^d, \right \}\)</span> généré à partir de trois groupes distincts de points, chacun correspondant à une distribution gaussienne centrée différemment.</p>
+<p>Pour illustrer le critère, on considère un jeu de données <span class="math notranslate nohighlight">\(X=\left \{\mathbf x_i,1\leq i\leq n,\mathbf x_i\in\mathbb R^d, \right \}\)</span> généré à partir de trois groupes distincts de points, chacun correspondant à une distribution gaussienne centrée différemment.</p>
 <p>On souhaite ajuster un modèle de mélange de gaussiennes sur ces données pour les regrouper en classes, sans connaître à l’avance le nombre réel de classes. Pour cela, on entraîne plusieurs modèles  avec un nombre de composantes <span class="math notranslate nohighlight">\(K\in [1,5]\)</span> et pour chaque modèle on calcule :</p>
 <ul class="simple">
 <li><p>la log-vraisemblance maximisée <span class="math notranslate nohighlight">\(ln(\hat{K}_K)\)</span></p></li>
@@ -1585,6 +1585,7 @@ pour une classe <span class="math notranslate nohighlight">\(P_j\)</span> ne con
 </div>
 </div>
 </div>
+<p><img alt="" src="_images/gmm_bic.png" /></p>
 </section>
 </section>
 </section>
