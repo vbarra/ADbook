@@ -1114,31 +1114,31 @@ from sklearn.metrics import davies_bouldin_score
 X, y_true = make_blobs(n_samples=500, centers=3, cluster_std=1.0, random_state=42)
 
 K_range = range(2, 11)  # Calinski-Harabasz nécessite au moins 2 clusters
-ch_scores = []
+db_scores = []
 
 for K in K_range:
     kmeans = KMeans(n_clusters=K, random_state=42)
     labels = kmeans.fit_predict(X)
     score = davies_bouldin_score(X, labels)
-    ch_scores.append(score)
+    db_scores.append(score)
 
-optimal_K_ch = K_range[np.argmin(ch_scores)]
+optimal_K_db = K_range[np.argmin(db_scores)]
 
 fig, ax = plt.subplots(1, 2, figsize=(12, 5))
 
-ax[0].plot(K_range, ch_scores, marker='o')
+ax[0].plot(K_range, db_scores, marker='o')
 ax[0].set_title("Davies_Bouldin(K)")
 ax[0].set_xlabel("K")
 ax[0].set_ylabel("DB")
 ax[0].grid(True)
 
-kmeans_optimal = KMeans(n_clusters=optimal_K_ch, random_state=42,n_init=10)
+kmeans_optimal = KMeans(n_clusters=optimal_K_db, random_state=42)
 labels_optimal = kmeans_optimal.fit_predict(X)
 centroids = kmeans_best.cluster_centers_
 
 ax[1].scatter(X[:, 0], X[:, 1], c=labels_optimal)
 plt.scatter(centroids[:, 0], centroids[:, 1], c='red', s=100, marker='X', label='Centroïdes')
-ax[1].set_title(f"Clustering KMeans pour K = {optimal_K_ch}")
+ax[1].set_title(f"Clustering KMeans pour K = {optimal_K_db}")
 ax[1].set_xlabel("x1")
 ax[1].set_ylabel("x2")
 ax[1].grid(True)
