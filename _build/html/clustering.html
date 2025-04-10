@@ -1069,7 +1069,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ca8120ff55c5550ba63a8ef0b0e92d213ec6fe3797acd813e3aa057c02ded149.png" src="_images/ca8120ff55c5550ba63a8ef0b0e92d213ec6fe3797acd813e3aa057c02ded149.png" />
+<img alt="_images/6bb3216e7524cf150af16e0642921aed0950fe56adf8dd51ec9d98deb8acac90.png" src="_images/6bb3216e7524cf150af16e0642921aed0950fe56adf8dd51ec9d98deb8acac90.png" />
 </div>
 </div>
 </section>
@@ -1320,7 +1320,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6f93a7efe4a7ca23afbfcefc25523288e335ad4e9bb2c904f35f5774474d40bb.png" src="_images/6f93a7efe4a7ca23afbfcefc25523288e335ad4e9bb2c904f35f5774474d40bb.png" />
+<img alt="_images/76b44e33067c979700106a245c1c70fbcf2b4ace7ff4270085f16ea075a3b719.png" src="_images/76b44e33067c979700106a245c1c70fbcf2b4ace7ff4270085f16ea075a3b719.png" />
 </div>
 </div>
 </section>
@@ -1573,7 +1573,7 @@ pour une classe <span class="math notranslate nohighlight">\(P_j\)</span> ne con
 <span class="n">gmm_optimal</span> <span class="o">=</span> <span class="n">GaussianMixture</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">optimal_K</span><span class="p">,</span> <span class="n">covariance_type</span><span class="o">=</span><span class="s1">&#39;full&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">y_gmm</span> <span class="o">=</span> <span class="n">gmm_optimal</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y_gmm</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y_gmm</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Clustering GMM pour K = </span><span class="si">{</span><span class="n">optimal_K</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x1&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;x2&quot;</span><span class="p">)</span>
