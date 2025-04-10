@@ -1086,6 +1086,7 @@ plt.show()
 ### Indice de Davies-Bouldin
 
 Avec les mêmes notations que précédemment, pour chaque cluster $C_i$, on définit $\mathbf c_i$ comme son centroïde, et $s_i$ comme une mesure de dispersion intra-classe, par exemple :
+
 \[
 s_i = \frac{1}{|C_i|} \sum_{\mathbf x \in C_i} \|\mathbf x - \mathbf c_i\|.
 \]
