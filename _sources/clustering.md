@@ -946,11 +946,11 @@ Un indice classiquement utilisé pour évaluer une partition issue de classifica
 Cet indice se calcule en trois étapes, illustrées dans le cas d'un point $\mathbf x_i$ appartenant à la classe $\mathcal{P}$ :
 
 - calcul de la distance moyenne de $\mathbf x_i$ à chaque $\mathbf x_j$ de sa classe $\mathcal{P}$ : $a_i = \frac{1}{|\mathcal{P}|-1}\displaystyle\sum_{\mathbf x_j\in \mathcal{P}} d(\mathbf x_i,\mathbf x_j)$
-   pour une classe $P_j$ ne contenant pas $\mathbf x_i$, calcul de la distance moyenne de $\mathbf x_i$ à tous les points de $P_j$ : $b_i =  \frac{1}{|P_j|}\displaystyle\sum_{\mathbf x_k\in P_j} d(\mathbf x_i,\mathbf x_k)$
+- pour une classe $P_j$ ne contenant pas $\mathbf x_i$, calcul de la distance moyenne de $\mathbf x_i$ à tous les points de $P_j$ : $b_i =  \frac{1}{|P_j|}\displaystyle\sum_{\mathbf x_k\in P_j} d(\mathbf x_i,\mathbf x_k)$
 -  calcul de l'indice de silhouette de $\mathbf x_i$ : $s_i = \frac{b_i-a_i}{max(a_i,b_i)}$.
 
 
-On a clairement $-1\leq s_i\leq 1$. De plus $s_i<0$ signifie que $a_i>b_i$  ce qui ne correspond pas à une situation acceptable pour une bonne partition. $s_i$ doit donc être positif, et $a_i$ le plus proche possible de 0 (pour avoir $s_i\approx 1$).
+On a clairement $s_i\in[-1,1]$. De plus $s_i<0$ signifie que $a_i>b_i$  ce qui ne correspond pas à une situation acceptable pour une bonne partition. $s_i$ doit donc être positif, et $a_i$ le plus proche possible de 0 (pour avoir $s_i\approx 1$).
 
 Une analyse fine peut être effectuée par nuage de points, à l'aide de l'indice de silhouette. A partir des indices de silhouette individuels, il est possible de calculer les indices des classes $P_j$ (par moyenne des indices des points de la classe), et de la partition $P$ (par moyenne des indices des classes $P_j$).
 
