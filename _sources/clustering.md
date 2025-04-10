@@ -1019,6 +1019,63 @@ plt.show()
 
 
 
+### Indice de Calinski-Harabasz
+
+L'indice de Calinski-Harabasz est un indice simple, égal au rapport entre la variance inter-groupes et la variance intra-groupe.
+
+Considérons un ensemble de données $X = \{\mathbf x_1, \dots, \mathbf x_n\} \subset \mathbb{R}^d$, partitionné en $k$ clusters. Soit $\mathbf  c_i$ le centroïde du $i$-ème cluster, $\mathbf  c$ le centroïde global de l'ensemble des données, $n_i$ le nombre d'observations dans le $i$-ème cluster. On définit alors la matrice de dispersion inter-classe $\mathbf B_k$ et la matrice de dispersion intra-classe $\mathbf W_k$ comme suit :
+\[
+\mathbf B_k = \sum_{i=1}^k n_i \|\mathbf c_i - \mathbf c\|^2, \qquad \mathbf W_k = \sum_{i=1}^k \sum_{\mathbf x \in C_i} \|\mathbf x - \mathbf c_i\|^2.
+\]
+L’indice de Calinski-Harabasz est alors donné par :
+\[
+\text{CH}(k) = \frac{\mathbf B_k / (k - 1)}{\mathbf W_k / (n - k)}.
+\]
+Ce rapport exprime la séparation (numerateur) normalisée par la compacité (dénominateur) en tenant compte du nombre de groupes. L’indice atteint généralement un maximum pour une valeur optimale du nombre de clusters $k$.
+
+
+```{code-cell} ipython3
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.datasets import make_blobs
+from sklearn.cluster import KMeans
+from sklearn.metrics import calinski_harabasz_score
+
+X, y_true = make_blobs(n_samples=500, centers=3, cluster_std=2.0, random_state=42)
+
+K_range = range(2, 11)  
+ch_scores = []
+
+for K in K_range:
+    kmeans = KMeans(n_clusters=K, random_state=42)
+    labels = kmeans.fit_predict(X)
+    score = calinski_harabasz_score(X, labels)
+    ch_scores.append(score)
+
+optimal_K_ch = K_range[np.argmax(ch_scores)]
+
+fig, ax = plt.subplots(1, 2, figsize=(12, 5))
+
+ax[0].plot(K_range, ch_scores, marker='o')
+ax[0].set_title("Calinski-Harabasz(K)")
+ax[0].set_xlabel("K")
+ax[0].set_ylabel("CH")
+ax[0].grid(True)
+
+kmeans_optimal = KMeans(n_clusters=optimal_K_ch, random_state=42)
+labels_optimal = kmeans_optimal.fit_predict(X)
+
+ax[1].scatter(X[:, 0], X[:, 1], c=labels_optimal)
+ax[1].set_title(f"Clustering KMeans pour K = {optimal_K_ch}")
+ax[1].set_xlabel("x1")
+ax[1].set_ylabel("x2")
+ax[1].grid(True)
+
+plt.tight_layout()
+plt.show()
+```
+
+![](./images/ch.png)
 
 
 
