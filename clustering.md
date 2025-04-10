@@ -950,7 +950,7 @@ Cet indice se calcule en trois étapes, illustrées dans le cas d'un point $\mat
 -  calcul de l'indice de silhouette de $\mathbf x_i$ : $s_i = \frac{b_i-a_i}{max(a_i,b_i)}$.
 
 
-On a clairement $-1\leq s_i\leq 1$. De plus $s_i<0$ signifie que $a_i>b_i$  ce qui ne correspond pas à une situation acceptable pour une bonne partition. $s_i$ doit donc être positif, et $a_i$ le plus proche possible de 0 (pour avoir $s_i\approx 1$).
+On a clairement $s_i\in[-1,1]$. De plus $s_i<0$ signifie que $a_i>b_i$  ce qui ne correspond pas à une situation acceptable pour une bonne partition. $s_i$ doit donc être positif, et $a_i$ le plus proche possible de 0 (pour avoir $s_i\approx 1$).
 
 Une analyse fine peut être effectuée par nuage de points, à l'aide de l'indice de silhouette. A partir des indices de silhouette individuels, il est possible de calculer les indices des classes $P_j$ (par moyenne des indices des points de la classe), et de la partition $P$ (par moyenne des indices des classes $P_j$).
 
