@@ -922,7 +922,7 @@ plt.tight_layout()
 ```
 
 
-## Evaluation de méthodes non supervisées
+## Evaluation de méthodes
 
 L'évaluation d'une méthode de classification non supervisée n'est pas chose aisée, contrairement à des méthodes supervisées où un ensemble de test et un ensemble de validation permettent de calculer et de caractériser numériquement une solution.
 
@@ -1004,7 +1004,7 @@ optimal_K = K_range[np.argmin(bics)]
 gmm_optimal = GaussianMixture(n_components=optimal_K, covariance_type='full', random_state=42)
 y_gmm = gmm_optimal.fit_predict(X)
 
-ax[1].scatter(X[:, 0], X[:, 1], c=y_gmm, s=30, cmap='viridis')
+ax[1].scatter(X[:, 0], X[:, 1], c=y_gmm)
 ax[1].set_title(f"Clustering GMM pour K = {optimal_K}")
 ax[1].set_xlabel("x1")
 ax[1].set_ylabel("x2")
