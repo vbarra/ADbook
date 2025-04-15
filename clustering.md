@@ -810,7 +810,7 @@ ax1.set_ylabel('x(t)', fontsize=12)
 
 # Critère BIC en fonction des composantes et du modèle de covariance
 ax2 = plt.subplot(223)
-lowest_bic = np.infty
+lowest_bic = np.inf
 bic = []
 n_components_range = range(1, 5)
 cv_types = ['spherical', 'tied', 'diag', 'full']
