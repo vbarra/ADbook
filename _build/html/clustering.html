@@ -1071,7 +1071,7 @@ nécessaire de fixer a priori le nombre de classes. Pour résoudre ce problème 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e2df63510c1e8ae5350128a735639e71c9d2c139fe03d9da75c779053d2606f3.png" src="_images/e2df63510c1e8ae5350128a735639e71c9d2c139fe03d9da75c779053d2606f3.png" />
+<img alt="_images/ca8120ff55c5550ba63a8ef0b0e92d213ec6fe3797acd813e3aa057c02ded149.png" src="_images/ca8120ff55c5550ba63a8ef0b0e92d213ec6fe3797acd813e3aa057c02ded149.png" />
 </div>
 </div>
 </section>
@@ -1322,7 +1322,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1e00f2c06062bfd2a69ac2b2934c16cbcc36b4d44787549235b22e0b70de5819.png" src="_images/1e00f2c06062bfd2a69ac2b2934c16cbcc36b4d44787549235b22e0b70de5819.png" />
+<img alt="_images/410e5c5282206710ba0d6fd29cf6bcc0fe3e1a957c8d018fddc1b794ae15bc78.png" src="_images/410e5c5282206710ba0d6fd29cf6bcc0fe3e1a957c8d018fddc1b794ae15bc78.png" />
 </div>
 </div>
 </section>
@@ -1356,7 +1356,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 
 <span class="c1"># Critère BIC en fonction des composantes et du modèle de covariance</span>
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
-<span class="n">lowest_bic</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">infty</span>
+<span class="n">lowest_bic</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
 <span class="n">bic</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">n_components_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">cv_types</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;spherical&#39;</span><span class="p">,</span> <span class="s1">&#39;tied&#39;</span><span class="p">,</span> <span class="s1">&#39;diag&#39;</span><span class="p">,</span> <span class="s1">&#39;full&#39;</span><span class="p">]</span>
@@ -1412,33 +1412,7 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">25</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="c1"># Critère BIC en fonction des composantes et du modèle de covariance</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">25</span> <span class="n">lowest_bic</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">infty</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="n">bic</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="n">n_components_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-
-<span class="nn">File /opt/homebrew/lib/python3.13/site-packages/numpy/__init__.py:400,</span> in <span class="ni">__getattr__</span><span class="nt">(attr)</span>
-<span class="g g-Whitespace">    </span><span class="mi">397</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="n">__former_attrs__</span><span class="p">[</span><span class="n">attr</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">399</span> <span class="k">if</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">__expired_attributes__</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">400</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">401</span>         <span class="sa">f</span><span class="s2">&quot;`np.</span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2">` was removed in the NumPy 2.0 release. &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">402</span>         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">__expired_attributes__</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">403</span>         <span class="n">name</span><span class="o">=</span><span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">404</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="k">if</span> <span class="n">attr</span> <span class="o">==</span> <span class="s2">&quot;chararray&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">407</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">408</span>         <span class="s2">&quot;`np.chararray` is deprecated and will be removed from &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">409</span>         <span class="s2">&quot;the main namespace in the future. Use an array with a string &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">410</span>         <span class="s2">&quot;or bytes dtype instead.&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="ne">AttributeError</span>: `np.infty` was removed in the NumPy 2.0 release. Use `np.inf` instead.
-</pre></div>
-</div>
-<img alt="_images/123610717a3f6e0e39393d1bcf73c1112034743a22aaa4ea5dd39df37eec2c17.png" src="_images/123610717a3f6e0e39393d1bcf73c1112034743a22aaa4ea5dd39df37eec2c17.png" />
+<img alt="_images/b2f46b0ca59f6e4d5bb2ceb4f53c828024f3947d812231e06f0ab7be0183debe.png" src="_images/b2f46b0ca59f6e4d5bb2ceb4f53c828024f3947d812231e06f0ab7be0183debe.png" />
 </div>
 </div>
 </section>
@@ -1498,6 +1472,9 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/dc18d76841b195bfa225526402f60656a0ccd3e376bedd43e96d545ab6fb0e8d.png" src="_images/dc18d76841b195bfa225526402f60656a0ccd3e376bedd43e96d545ab6fb0e8d.png" />
 </div>
 </div>
 </section>
@@ -1578,6 +1555,10 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/21534a57f682c4cec045db601e7f5db3c536090b42ec3e9c477a2f6a18d96a26.png" src="_images/21534a57f682c4cec045db601e7f5db3c536090b42ec3e9c477a2f6a18d96a26.png" />
+<img alt="_images/2a9ce916ab44fde6f396385957251939113f04a77d049cc01fcda8c351f0d5c0.png" src="_images/2a9ce916ab44fde6f396385957251939113f04a77d049cc01fcda8c351f0d5c0.png" />
+</div>
 </div>
 <p><img alt="" src="_images/silhouette.png" /></p>
 </section>
@@ -1636,6 +1617,9 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/cfb027aa3d9abbfd4fa5806e17b469eaaead4dca4910eeb3fc2487afdbc00d85.png" src="_images/cfb027aa3d9abbfd4fa5806e17b469eaaead4dca4910eeb3fc2487afdbc00d85.png" />
+</div>
 </div>
 <p><img alt="" src="_images/gmmbic.png" /></p>
 </section>
@@ -1691,6 +1675,9 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/69f37f49b0335aa12cd8c85029454fe3481b0a97917c82f1b228936fa8abbab4.png" src="_images/69f37f49b0335aa12cd8c85029454fe3481b0a97917c82f1b228936fa8abbab4.png" />
 </div>
 </div>
 <p><img alt="" src="_images/ch.png" /></p>
@@ -1751,6 +1738,21 @@ L’optimisation directe de la fonction de vraisemblance dans ce cas n’est pas
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">30</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="n">kmeans_optimal</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">optimal_K_db</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="n">labels_optimal</span> <span class="o">=</span> <span class="n">kmeans_optimal</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">30</span> <span class="n">centroids</span> <span class="o">=</span> <span class="n">kmeans_best</span><span class="o">.</span><span class="n">cluster_centers_</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">labels_optimal</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">centroids</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">centroids</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Centroïdes&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;kmeans_best&#39; is not defined
+</pre></div>
+</div>
+<img alt="_images/1a9f617a9a7eaa8639fb4f94bf214dcf94faf3a65f00d99a70e8c3de0b1c27eb.png" src="_images/1a9f617a9a7eaa8639fb4f94bf214dcf94faf3a65f00d99a70e8c3de0b1c27eb.png" />
 </div>
 </div>
 <p><img alt="" src="_images/dbouldin.png" /></p>
