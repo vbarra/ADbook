@@ -570,7 +570,7 @@ ce qui est en général complexe, la fonction $\ell$ admettant de nombreux extre
 
  Ainsi, la log vraisemblance des données complètes, en général plus facile à optimiser, est 
 
- $$\bar\ell(\boldsymbol\theta|s,z) =\displaystyle\sum{i=1}^n ln(w_{z_i} \Phi_{z_i}(\mathbf x_i))$$
+ $$\bar\ell(\boldsymbol\theta|s,z) =\displaystyle\sum_{i=1}^n ln(w_{z_i} \Phi_{z_i}(\mathbf x_i))$$
 
 Cependant, les $z$ ne sont pas observées et $\bar\ell$ ne peut être évaluée. Dans l'étape E de l'algorithme EM, $\bar\ell$ est remplacée par $\mathbb{E}_p \bar\ell(\boldsymbol \theta |s,\mathbf Z)$, où l'indice $p$ indique que $\mathbf Z$ est distribuée selon la distribution conditionnelle de $\mathbf Z$ étant donnée $\mathcal S=s$, soit 
 
