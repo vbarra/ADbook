@@ -419,7 +419,7 @@ Le calcul de la valeur de Shapley nécessite de faire la somme de tous les sous-
 try:
     import shap 
 except ModuleNotFoundError: 
-    !pip3 install --quiet shap
+    !pip3 install --quiet shap --break-system-packages
 
 import shap
 from sklearn.model_selection import train_test_split
