@@ -1,7 +1,7 @@
 {
   "input": {
     "files": [
-      "."
+      "docIntro.md"
     ],
     "opts": {
       "execute": false,
@@ -15,7 +15,7 @@
       "cff": false,
       "site": false,
       "html": false,
-      "all": true,
+      "all": false,
       "doiBib": false,
       "watch": false,
       "force": false,
@@ -24,8 +24,7 @@
       "ci": false,
       "maxSizeWebp": 1572864,
       "keepHost": false
-    },
-    "performSiteBuild": true
+    }
   },
   "exports": []
 }
