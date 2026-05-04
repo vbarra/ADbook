@@ -270,7 +270,7 @@ et quand $n$ est grand (>50) et $p$ voisin de 1 ($n(1-p)<10$) on peut approcher 
 
 ## Théorème central limite
 ### Le T.C.L.
-````{prf:theorem}`
+````{prf:theorem}
 Soit une suite $(X_n)_{n\geq 1}$ de variables aléatoires, i.i.d. de même loi qu'une variable parente $X$, définies sur le même espace $(\Omega,\mathcal A,P)$. On considère la suite des moyennes empiriques $(X_n)_{n\geq 1}$ des $n$-échantillons $(X_1\cdots X_n)$.
 
 Si $X$ admet une moyenne $m$ et un écart-type $\sigma$, alors 
