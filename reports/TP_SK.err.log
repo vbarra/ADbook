@@ -1,30 +1,17 @@
 Traceback (most recent call last):
-  File "/opt/homebrew/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/Users/vibarra/Venv/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-    ~~~~~~~~~^
-        nb,
-        ^^^
-    ...<4 lines>...
-        **kwargs,
-        ^^^^^^^^^
-    )
-    ^
-  File "/opt/homebrew/lib/python3.13/site-packages/nbclient/client.py", line 1319, in execute
+  File "/Users/vibarra/Venv/lib/python3.9/site-packages/nbclient/client.py", line 1314, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "/Users/vibarra/Library/Python/3.13/lib/python/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+  File "/Users/vibarra/Venv/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
-           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
-  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+  File "/opt/homebrew/Cellar/python@3.9/3.9.21/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
     return future.result()
-           ~~~~~~~~~~~~~^^
-  File "/opt/homebrew/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
+  File "/Users/vibarra/Venv/lib/python3.9/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-        cell, index, execution_count=self.code_cells_executed + 1
-    )
-  File "/opt/homebrew/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+  File "/Users/vibarra/Venv/lib/python3.9/site-packages/nbclient/client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/opt/homebrew/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+  File "/Users/vibarra/Venv/lib/python3.9/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -47,14 +34,14 @@ warnings.simplefilter(action="ignore", category=RuntimeWarning)
 ------------------
 
 
-[31m---------------------------------------------------------------------------[39m
-[31mModuleNotFoundError[39m                       Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 9[39m
-[32m      6[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mnp[39;00m
-[32m      7[39m np.set_printoptions(precision=[32m3[39m)
-[32m----> [39m[32m9[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mnotebook[39;00m[34;01m.[39;00m[34;01mservices[39;00m[34;01m.[39;00m[34;01mconfig[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m ConfigManager
-[32m     10[39m cm = ConfigManager()
-[32m     11[39m cm.update([33m'[39m[33mlivereveal[39m[33m'[39m, {[33m'[39m[33mwidth[39m[33m'[39m: [32m1440[39m, [33m'[39m[33mheight[39m[33m'[39m: [32m768[39m, [33m'[39m[33mscroll[39m[33m'[39m: [38;5;28;01mTrue[39;00m, [33m'[39m[33mtheme[39m[33m'[39m: [33m'[39m[33msimple[39m[33m'[39m})
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[1], line 9[0m
+[1;32m      6[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
+[1;32m      7[0m np[38;5;241m.[39mset_printoptions(precision[38;5;241m=[39m[38;5;241m3[39m)
+[0;32m----> 9[0m [38;5;28;01mfrom[39;00m [38;5;21;01mnotebook[39;00m[38;5;21;01m.[39;00m[38;5;21;01mservices[39;00m[38;5;21;01m.[39;00m[38;5;21;01mconfig[39;00m [38;5;28;01mimport[39;00m ConfigManager
+[1;32m     10[0m cm [38;5;241m=[39m ConfigManager()
+[1;32m     11[0m cm[38;5;241m.[39mupdate([38;5;124m'[39m[38;5;124mlivereveal[39m[38;5;124m'[39m, {[38;5;124m'[39m[38;5;124mwidth[39m[38;5;124m'[39m: [38;5;241m1440[39m, [38;5;124m'[39m[38;5;124mheight[39m[38;5;124m'[39m: [38;5;241m768[39m, [38;5;124m'[39m[38;5;124mscroll[39m[38;5;124m'[39m: [38;5;28;01mTrue[39;00m, [38;5;124m'[39m[38;5;124mtheme[39m[38;5;124m'[39m: [38;5;124m'[39m[38;5;124msimple[39m[38;5;124m'[39m})
 
-[31mModuleNotFoundError[39m: No module named 'notebook.services'
+[0;31mModuleNotFoundError[0m: No module named 'notebook.services'
 
