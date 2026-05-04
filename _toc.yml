@@ -6,7 +6,11 @@ root: intro
 parts:
   - caption: Cours
     chapters:
+<<<<<<< HEAD
 #    - file: docIntro
+=======
+    - file: docIntro
+>>>>>>> f0ee701 (changes)
     - file: Rappels
     - file: elemstats
 #    - file: exoprobas
